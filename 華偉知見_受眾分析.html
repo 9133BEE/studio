@@ -9,100 +9,414 @@
 :root{
   --accent:#8a6a4a;--accent-dark:#6a4e32;--accent-light:#f5efe8;--accent-border:#c8a880;
   --bg:#f5f4f1;--s:#ffffff;--bd:#e4e1dd;--tx:#2e2c29;--sub:#7d7870;--sub2:#a8a199;
-  --radius:12px;--shadow-xs:0 1px 3px rgba(0,0,0,.05);--shadow-sm:0 2px 8px rgba(0,0,0,.07);
-  --shadow-card:0 2px 10px rgba(0,0,0,.06),0 1px 3px rgba(0,0,0,.04);
+  --good:#1e6e3f;--goodl:#e6f4ea;--warn:#c05c00;
+  --radius:12px;--shadow-xs:0 1px 3px rgba(0,0,0,.05);--shadow-sm:0 2px 8px rgba(0,0,0,.07);--shadow-card:0 2px 10px rgba(0,0,0,.06),0 1px 3px rgba(0,0,0,.04);
 }
 body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft JhengHei','Segoe UI',sans-serif;background:var(--bg);color:var(--tx);font-size:14px;line-height:1.6;min-height:100vh}
-.wrap{max-width:1200px;margin:0 auto;padding:32px 40px 48px}
-.page-header{background:linear-gradient(180deg,#241a0e 0%,#1a1008 100%);padding:0 40px;height:56px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.04),0 4px 20px rgba(0,0,0,.35);border-bottom:1px solid rgba(255,255,255,.06)}
-.ph-logo{width:30px;height:30px;background:linear-gradient(135deg,#b8946a,var(--accent-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;flex-shrink:0}
-.ph-title{font-size:14px;font-weight:700;color:#f0e8e0;letter-spacing:-.2px}
-.ph-sub{font-size:11px;color:#6a5040;margin-left:2px}
+.page-header{background:linear-gradient(180deg,#1a1208 0%,#120e04 100%);padding:0 40px;height:56px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.04),0 4px 20px rgba(0,0,0,.35);border-bottom:1px solid rgba(255,255,255,.06)}
+.ph-logo{width:30px;height:30px;background:linear-gradient(135deg,#b89060,var(--accent-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;flex-shrink:0}
+.ph-title{font-size:14px;font-weight:700;color:#f5ede0;letter-spacing:-.2px}
+.ph-sub{font-size:11px;color:#6a5030;margin-left:2px}
 .ph-nav{margin-left:auto}
-.ph-nav a{font-size:12px;color:#c8a880;text-decoration:none;padding:5px 13px;border-radius:6px;border:1px solid rgba(138,106,74,.25);background:rgba(138,106,74,.12);transition:all .15s;font-weight:500}
-.ph-nav a:hover{background:rgba(138,106,74,.22);color:#e0c0a0}
-.back-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--accent);text-decoration:none;margin-bottom:16px;padding:5px 12px;background:var(--accent-light);border-radius:20px;border:1px solid var(--accent-border);transition:all .15s}
-.back-link:hover{background:#ede0d0;color:var(--accent-dark)}
+.ph-nav a{font-size:12px;color:#c8a880;text-decoration:none;padding:5px 13px;border-radius:6px;border:1px solid rgba(138,106,74,.25);background:rgba(138,106,74,.12);font-weight:500}
+.ph-nav a:hover{background:rgba(138,106,74,.22);color:#e8c8a0}
+.wrap{max-width:1200px;margin:0 auto;padding:32px 40px 48px}
 .case-header{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:20px 24px;margin-bottom:10px;display:flex;align-items:center;gap:18px;box-shadow:var(--shadow-card)}
-.case-logo{width:44px;height:44px;background:linear-gradient(135deg,#b8946a,var(--accent-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;flex-shrink:0}
-.case-info h2{font-size:17px;font-weight:700;color:var(--tx)}
-.case-info p{font-size:12px;color:var(--sub);margin-top:3px}
+.case-logo{width:44px;height:44px;background:linear-gradient(135deg,#b89060,var(--accent-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;flex-shrink:0}
+.case-info h2{font-size:17px;font-weight:700;color:var(--tx);letter-spacing:-.3px}
+.case-info p{font-size:12px;color:var(--sub);margin-top:3px;line-height:1.5}
 .case-stats{margin-left:auto;display:flex;gap:28px;flex-shrink:0}
 .stat{text-align:right}
-.stat-n{font-size:24px;font-weight:800;color:var(--accent);line-height:1;font-variant-numeric:tabular-nums}
+.stat-n{font-size:24px;font-weight:800;color:var(--accent);line-height:1;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
 .stat-l{font-size:10px;color:var(--sub2);margin-top:3px;font-weight:600;letter-spacing:.3px;text-transform:uppercase}
+.top-link{font-size:12px;color:var(--accent);margin-bottom:24px;display:inline-block;text-decoration:none;font-weight:500}
+.top-link span{border-bottom:1px solid var(--accent-border)}
 .sec-title{font-size:12px;font-weight:700;color:var(--sub);margin-bottom:14px;display:flex;align-items:center;gap:10px;letter-spacing:.4px;text-transform:uppercase}
 .sec-title::before{content:'';display:inline-block;width:3px;height:14px;background:var(--accent);border-radius:2px;flex-shrink:0}
 .sec-title::after{content:'';flex:1;height:1px;background:var(--bd)}
-.section{margin-bottom:32px}
-.rk-row{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:14px 18px;margin-bottom:8px;display:flex;gap:14px;align-items:center;box-shadow:var(--shadow-xs);transition:box-shadow .15s}
+.section{margin-bottom:28px}
+.creative-section{margin-bottom:32px}
+.note-bar{background:var(--accent-light);border:1px solid var(--accent-border);border-radius:10px;padding:10px 16px;font-size:12px;color:#5a3a1a;margin-bottom:20px;line-height:1.6}
+/* Profiles */
+.profiles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.profile-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow-xs);transition:box-shadow .2s,transform .2s}
+.profile-card:hover{box-shadow:var(--shadow-sm);transform:translateY(-2px)}
+.profile-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:17px;margin-bottom:12px}
+.profile-icon.warm{background:var(--accent-light)}
+.profile-icon.teal{background:#e0eff2}
+.profile-icon.blue{background:#eaecf6}
+.profile-name{font-size:15px;font-weight:700;color:var(--tx);margin-bottom:4px}
+.profile-meta{font-size:12px;color:var(--sub);margin-bottom:10px}
+.profile-tags{font-size:12px;color:#4a5568;margin-bottom:10px;line-height:1.6}
+.profile-behavior{font-size:12px;color:var(--sub);line-height:1.55;margin-bottom:12px}
+.profile-badge{display:inline-block;font-size:11px;font-weight:700;padding:4px 11px;border-radius:20px;margin-top:2px}
+.badge-warm{background:var(--accent-light);color:#5a3a1a;border:1px solid var(--accent-border)}
+.badge-teal{background:#e0eff2;color:#2f6672;border:1px solid #87b5be}
+.badge-blue{background:#eaecf6;color:#3e4e7e;border:1px solid #9aabe0}
+/* Tags */
+.tags-row{display:flex;flex-wrap:wrap;gap:8px}
+.core-tag{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;background:var(--s);border:1.5px solid var(--bd);border-radius:20px;font-size:13px;font-weight:600;color:var(--tx);cursor:pointer;transition:all .15s}
+.core-tag:hover{border-color:var(--accent-border);background:var(--accent-light);color:#5a3a1a}
+.core-tag .arr{font-size:11px;color:var(--accent-border)}
+/* Tips */
+.tips{display:flex;flex-direction:column;gap:10px}
+.tip{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:16px 18px;display:flex;gap:16px;align-items:flex-start;cursor:pointer;transition:border-color .15s,box-shadow .15s;box-shadow:var(--shadow-xs)}
+.tip:hover{border-color:var(--accent-border);box-shadow:var(--shadow-sm)}
+.tip-num{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;flex-shrink:0;color:#fff}
+.c1{background:var(--accent)}.c2{background:#6a8a7a}.c3{background:#4a6a8a}.c4{background:#8a7a4a}.c5{background:#6a4a6a}
+.tip-body{flex:1}
+.tip-title{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:5px;line-height:1.4}
+.tip-desc{font-size:12px;color:var(--sub);line-height:1.65}
+/* Creative timeline */
+.creative-timeline{display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
+.phase-row{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:14px 18px;display:flex;gap:14px;align-items:center;cursor:pointer;transition:box-shadow .15s;box-shadow:var(--shadow-xs)}
+.phase-row:hover{box-shadow:var(--shadow-sm)}
+.phase-label{width:52px;flex-shrink:0;font-size:11px;font-weight:800;text-align:center;padding:6px 4px;border-radius:8px;background:var(--accent-light);color:var(--accent-dark);letter-spacing:-.2px;line-height:1.3}
+.phase-body{flex:1;min-width:0}
+.phase-title{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:4px}
+.phase-desc{font-size:12px;color:var(--sub);line-height:1.6}
+.phase-stat{text-align:right;flex-shrink:0;min-width:80px}
+.phase-cpl{font-size:16px;font-weight:800;color:var(--accent);line-height:1;font-variant-numeric:tabular-nums}
+.phase-cpl-l{font-size:10px;color:var(--sub2);margin-top:3px;font-weight:600}
+/* Creative grid */
+.creative-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
+.creative-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow-xs);cursor:pointer;transition:box-shadow .15s,transform .15s}
+.creative-card:hover{box-shadow:var(--shadow-sm);transform:translateY(-2px)}
+.creative-card.best{border-color:var(--accent-border);background:#faf5ee}
+.creative-name{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:6px}
+.creative-badge{display:inline-block;font-size:10px;font-weight:700;padding:3px 8px;border-radius:8px;margin-bottom:8px}
+.cb-top{background:var(--accent-light);color:#5a3a1a;border:1px solid var(--accent-border)}
+.cb-active{background:#d8ead2;color:#3d6b4f;border:1px solid #96c4a8}
+.cb-new{background:#fdf0dc;color:#7a5c20;border:1px solid #d4b06a}
+.cb-retired{background:#f0f0f0;color:#888;border:1px solid #ccc}
+.creative-stats{font-size:12px;color:var(--sub);line-height:1.75}
+.creative-stats b{color:var(--tx)}
+/* Insight */
+.insight-box{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow-xs)}
+.insight-title{font-size:14px;font-weight:700;color:var(--tx);margin-bottom:14px}
+.insight-highlight{background:var(--accent-light);border-left:3px solid var(--accent);padding:12px 16px;border-radius:0 8px 8px 0;margin-bottom:16px;font-size:13px;color:#4a2a0a;font-weight:600;line-height:1.65}
+.insight-sub{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:10px;margin-top:14px}
+.insight-list{list-style:none;display:flex;flex-direction:column;gap:7px}
+.insight-list li{font-size:13px;color:#4a5568;padding-left:18px;position:relative;line-height:1.6}
+.insight-list li::before{content:'→';position:absolute;left:0;color:var(--accent-border);font-size:12px;top:1px}
+/* New directions */
+.new-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.new-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:16px 18px;cursor:pointer;transition:border-color .15s,box-shadow .15s;box-shadow:var(--shadow-xs)}
+.new-card:hover{border-color:var(--accent-border);box-shadow:var(--shadow-sm)}
+.new-card-title{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:5px;line-height:1.4}
+.new-card-desc{font-size:12px;color:var(--sub);line-height:1.6}
+/* Ranking */
+.rk-row{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:14px 18px;margin-bottom:8px;display:flex;gap:14px;align-items:center;box-shadow:var(--shadow-xs);transition:box-shadow .15s;cursor:pointer}
 .rk-row:hover{box-shadow:var(--shadow-sm)}
 .rk-row.gold{border-color:#d4b06a;background:#fdfaf2}
 .rk-row.silver{border-color:#b8c0cc;background:#f9f9fb}
 .rk-row.bronze{border-color:#c4a87a;background:#fdf7f0}
-.rk-medal{width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
-.rk-rank{width:28px;height:28px;border-radius:50%;background:var(--accent-light);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:var(--accent);flex-shrink:0}
+.rk-medal{width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.rk-rank{width:32px;height:32px;border-radius:50%;background:var(--accent-light);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:var(--accent);flex-shrink:0}
 .rk-body{flex:1;min-width:0}
-.rk-name{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:2px;line-height:1.3}
-.rk-loc{font-size:10.5px;color:var(--sub2);margin-bottom:6px}
+.rk-name{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:4px;line-height:1.35}
+.rk-loc{font-size:11px;color:var(--sub2);line-height:1.4;margin-bottom:7px}
 .rk-tags{display:flex;flex-wrap:wrap;gap:4px}
-.rk-tag{font-size:9.5px;font-weight:600;padding:2px 7px;border-radius:8px;line-height:1.4}
-.t-biz{background:#fff3e0;color:#bf5600;border:1px solid #ffd0a0}
-.t-fin{background:#e8f0fe;color:#1a56b0;border:1px solid #93b4e8}
-.t-prop{background:#e6f4ea;color:#1e6e3f;border:1px solid #8ecba3}
-.t-lux{background:#f0e8f8;color:#6620a0;border:1px solid #c8a0e0}
-.t-edu{background:#e0f7f4;color:#00695c;border:1px solid #7cd6cc}
-.t-ind{background:#eceff1;color:#37474f;border:1px solid #b0bec5}
-.t-sim{background:#fce4ec;color:#880e4f;border:1px solid #f48fb1}
-.rk-stats{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto auto;flex-shrink:0;min-width:210px;border-left:1px solid var(--bd);padding-left:14px;align-self:center}
-.rk-result{grid-area:1/1;font-size:24px;font-weight:900;color:var(--tx);line-height:1;text-align:center;padding:0 12px;font-variant-numeric:tabular-nums}
-.rk-result-l{grid-area:2/1;font-size:9px;color:var(--sub2);font-weight:600;text-align:center;padding:3px 12px 0;text-transform:uppercase;letter-spacing:.2px}
-.rk-cpl{grid-area:1/2;font-size:17px;font-weight:800;color:#c05c00;line-height:1;text-align:center;padding:0 12px;border-left:1px solid var(--bd);font-variant-numeric:tabular-nums}
-.rk-cpl-l{grid-area:2/2;font-size:9px;color:var(--sub2);font-weight:600;text-align:center;padding:3px 12px 0;border-left:1px solid var(--bd);text-transform:uppercase;letter-spacing:.2px}
-.rk-spend{grid-area:1/3;font-size:13px;font-weight:700;color:var(--sub);line-height:1;text-align:center;padding:0 12px;border-left:1px solid var(--bd);font-variant-numeric:tabular-nums}
-.rk-spend-l{grid-area:2/3;font-size:9px;color:var(--sub2);font-weight:600;text-align:center;padding:3px 12px 0;border-left:1px solid var(--bd);text-transform:uppercase;letter-spacing:.2px}
-.page-footer{text-align:center;font-size:11px;color:var(--sub2);margin-top:8px;padding-bottom:8px}
+.rk-tag{font-size:10px;font-weight:600;padding:2px 8px;border-radius:8px;line-height:1.5}
+.t-tech{background:#e8f0fe;color:#1a56b0;border:1px solid #93b4e8}
+.t-pub{background:#e6f4ea;color:#1e6e3f;border:1px solid #8ecba3}
+.t-loc{background:var(--accent-light);color:var(--accent-dark);border:1px solid var(--accent-border)}
+.t-fam{background:#f3e8ff;color:#5b21b6;border:1px solid #c4b5fd}
+.t-buy{background:#fef3c7;color:#92400e;border:1px solid #fcd34d}
+.rk-stats{display:flex;gap:20px;flex-shrink:0;align-items:center}
+.rk-stat-block{text-align:right}
+.rk-result{font-size:26px;font-weight:900;color:var(--tx);line-height:1;letter-spacing:-1px;font-variant-numeric:tabular-nums}
+.rk-result-l{font-size:10px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.2px;margin-top:2px}
+.rk-cpl{font-size:16px;font-weight:800;color:var(--warn);line-height:1;font-variant-numeric:tabular-nums}
+.rk-cpl.good-cpl{color:var(--good)}
+.rk-cpl-l{font-size:10px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.2px;margin-top:2px}
+.rk-spend{font-size:13px;font-weight:700;color:#6d6560;line-height:1;font-variant-numeric:tabular-nums}
+.rk-spend-l{font-size:10px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.2px;margin-top:2px}
+.page-footer{text-align:center;font-size:11px;color:var(--sub2);margin-top:12px;padding-bottom:8px}
 </style>
 </head>
 <body>
 
 <header class="page-header">
-  <div class="ph-logo">見</div>
-  <span class="ph-title">華偉知見｜受眾分析報告</span>
-  <span class="ph-sub">· 台中沙鹿</span>
+  <div class="ph-logo">知</div>
+  <span class="ph-title">華偉知見｜受眾分析</span>
+  <span class="ph-sub">· 台中沙鹿 · 捷運藍線題材</span>
   <nav class="ph-nav"><a href="hub.html">← 返回總覽</a></nav>
 </header>
 
 <div class="wrap">
-<a class="back-link" href="hub.html">← 返回案件總覽</a>
 
 <div class="case-header">
-  <div class="case-logo">見</div>
+  <div class="case-logo">知</div>
   <div class="case-info">
     <h2>華偉知見｜台中沙鹿</h2>
-    <p>中山路永安巷・近福德路口・26坪二房雙衛・廣告目標：訊息</p>
+    <p>中山路永安巷・近光田醫院・沙鹿站5-8分・捷運藍線2026動工・純二房26坪雙衛・廣告目標：訊息</p>
   </div>
   <div class="case-stats">
     <div class="stat"><div class="stat-n">143</div><div class="stat-l">累積訊息</div></div>
-    <div class="stat"><div class="stat-n">NT$581</div><div class="stat-l">均訊息成本</div></div>
-    <div class="stat"><div class="stat-n">28</div><div class="stat-l">累積潛客</div></div>
+    <div class="stat"><div class="stat-n">28</div><div class="stat-l">潛客表單</div></div>
+    <div class="stat"><div class="stat-n">52+</div><div class="stat-l">受眾組數</div></div>
   </div>
 </div>
 
+<a class="top-link" href="hub.html"><span>← 返回報告集</span></a>
+
+<div class="note-bar">📌 本案廣告目標為「訊息」，主指標為每則訊息成本（CPM）。以下分析同時追蹤訊息數與潛客表單兩項成效，CPL 代表每則訊息成本，除特別標註外。</div>
+
+<!-- ── 三大核心受眾輪廓 ── -->
 <div class="section">
-  <div class="sec-title">全案成果前 10 名受眾（2025/10–2026/05）</div>
+  <div class="sec-title">三大核心受眾輪廓</div>
+  <div class="profiles">
+
+    <div class="profile-card">
+      <div class="profile-icon warm">🏭</div>
+      <div class="profile-name">科技工業型</div>
+      <div class="profile-meta">年齡 28–55｜台1/中科沿線 / 梧棲工業區</div>
+      <div class="profile-tags">興趣：科技工業、精密機械、工程師、製造業、電子業</div>
+      <div class="profile-behavior">行為：台1線/中科沿線工作的工程師與技術工，沙鹿是通勤首站，「台鐵沙鹿站 + 國道3號」讓此族群上下班便利，26坪二房是首購入場理想格局</div>
+      <span class="profile-badge badge-warm">36 訊息 · CPL NT$274 · 訊息數最多</span>
+    </div>
+
+    <div class="profile-card">
+      <div class="profile-icon teal">🏫</div>
+      <div class="profile-name">公教穩定型</div>
+      <div class="profile-meta">年齡 28–55｜沙鹿清水</div>
+      <div class="profile-tags">興趣：公務員、教職人員、公共行政、在地穩定就業</div>
+      <div class="profile-behavior">行為：竹林國小、鹿寮國中雙學區周邊的公教族群，穩定收入首購需求強烈，CPL NT$268 是所有受眾中最低，對在地生活機能訴求高度響應</div>
+      <span class="profile-badge badge-teal">30 訊息合計 · CPL NT$268 · 全案最低CPL</span>
+    </div>
+
+    <div class="profile-card">
+      <div class="profile-icon blue">🏠</div>
+      <div class="profile-name">在地成家型</div>
+      <div class="profile-meta">年齡 27–55｜梧棲中科 / 沙鹿西屯</div>
+      <div class="profile-tags">興趣：小家庭成家、設計文青、金融教育、在地生活</div>
+      <div class="profile-behavior">行為：梧棲中科周邊年輕小家庭，沙鹿在地生活認同感強，對「26坪稀有二房 + 捷運藍線未來增值」話題有共鳴，是本案第三大受眾方向</div>
+      <span class="profile-badge badge-blue">15+訊息 · CPL NT$313~418 · 在地成家族群</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── 核心標籤 ── -->
+<div class="section">
+  <div class="sec-title">跨受眾必保留的核心標籤</div>
+  <div class="tags-row">
+    <span class="core-tag">科技工業（產業）<span class="arr">↗</span></span>
+    <span class="core-tag">公務員（職業）<span class="arr">↗</span></span>
+    <span class="core-tag">工程師（職業）<span class="arr">↗</span></span>
+    <span class="core-tag">首購成家（房地產）<span class="arr">↗</span></span>
+    <span class="core-tag">小家庭（家庭）<span class="arr">↗</span></span>
+    <span class="core-tag">在地生活（地域）<span class="arr">↗</span></span>
+  </div>
+</div>
+
+<!-- ── 五大操作建議 ── -->
+<div class="section">
+  <div class="sec-title">五大操作建議</div>
+  <div class="tips">
+
+    <div class="tip">
+      <div class="tip-num c1">1</div>
+      <div class="tip-body">
+        <div class="tip-title">台1中科科技工業 36訊息 CPL NT$274，立即提高預算並換新素材重啟</div>
+        <div class="tip-desc">台1中科科技工業（0113擴大）是全案訊息量最大組，CPL NT$274 全案次低。但目前素材已舊，建議搭配新素材重啟：切角改為「中科下班10分鐘直達沙鹿，26坪二房捷運藍線旁，現在入場最划算」，預算從 NT$200 提高至 NT$400/日。</div>
+      </div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-num c2">2</div>
+      <div class="tip-body">
+        <div class="tip-title">公教職員 CPL NT$268 全案最低，應作主力受眾加大覆蓋</div>
+        <div class="tip-desc">公教職員（1201+清水版）CPL NT$268 全案最低，23 訊息。目前只有一個進行中組（NT$389）。建議開「沙鹿清水+梧棲」大組、「竹林國小/鹿寮國中雙學區+公教職」小組，搭配「公教穩定收入，26坪二房輕鬆入手」素材，目標訊息量提升至每月 30+ 則。</div>
+      </div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-num c3">3</div>
+      <div class="tip-body">
+        <div class="tip-title">沙鹿最強 V3格局 16潛客是最強潛客素材，26坪格局圖是核心觸發點</div>
+        <div class="tip-desc">0115_沙鹿最強 V3格局 16 潛客，比同系列其他版本高 16 倍。V3 加入格局圖是關鍵差異。建議新素材全部加入「26坪二房格局圖」，並製作「格局比較版」（26坪二房 vs 同價三房，讓受眾直接對號入座），預期可把潛客 CPL 從 NT$1,019 壓低至 NT$600 以下。</div>
+      </div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-num c4">4</div>
+      <div class="tip-body">
+        <div class="tip-title">早鳥超優惠 90訊息是訊息主力但 CPL NT$336 偏高，需要接力新版</div>
+        <div class="tip-desc">1104_早鳥超優惠花費 NT$30,242，貢獻 90 訊息（佔全案 63%）但 CPL 已上升至 NT$336，且素材已投放超過 7 個月，頻率嚴重上升。建議 6 月製作「早鳥超優惠 2026 新版」：換場景/人物，保留「早鳥限定名額」稀缺訴求，目標 CPL 壓至 NT$220 以下。</div>
+      </div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-num c5">5</div>
+      <div class="tip-body">
+        <div class="tip-title">雙薪小家庭 / 首購+1% 系列停止，與26坪二房格局定位不符</div>
+        <div class="tip-desc">雙薪小家庭 CPL NT$1,229、雙薪首購+1% CPL NT$1,491，兩組 CPL 均為均值 3~4 倍。根本原因是「雙薪成家」族群有較大格局需求（三房）而非二房。建議停止此類受眾，不換素材，直接轉移預算至科技工業和公教職員兩大主力。</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── 素材迭代 ── -->
+<div class="creative-section">
+  <div class="sec-title">素材迭代分析</div>
+  <div class="creative-timeline">
+
+    <div class="phase-row">
+      <div class="phase-label">10/22<br>鄉里情</div>
+      <div class="phase-body">
+        <div class="phase-title">1022_乘載鄉里情系列（影片 + 單圖）</div>
+        <div class="phase-desc">以沙鹿在地生活認同「乘載鄉里情」為訴求，影片-2版 3潛客 CPL NT$778，單圖 1潛客，原版影片 0潛客但 7訊息有效。在地認同訴求對本地居民有說服力，但規模有限。</div>
+      </div>
+      <div class="phase-stat"><div class="phase-cpl">4 潛客</div><div class="phase-cpl-l">7~8 訊息</div></div>
+    </div>
+
+    <div class="phase-row" style="border-color:var(--accent-border);background:#faf5ee">
+      <div class="phase-label" style="background:var(--accent);color:#fff">🏆 訊息</div>
+      <div class="phase-body">
+        <div class="phase-title">1104_早鳥超優惠（✅ 訊息量全案最高，需接力新版）</div>
+        <div class="phase-desc">以「早鳥名額有限」稀缺感 + 優惠誘因雙訴求，90 訊息佔全案 63%，花費 NT$30,242。CPL NT$336 尚可但持續上升，素材已投放 7 個月，頻率嚴重疲乏，需製作接力新版。</div>
+      </div>
+      <div class="phase-stat"><div class="phase-cpl">90 訊息</div><div class="phase-cpl-l">CPL NT$336</div></div>
+    </div>
+
+    <div class="phase-row" style="border-color:#d4b06a;background:#fdfaf2">
+      <div class="phase-label" style="background:#fdf0dc;color:#7a5c20">⚡ 潛客</div>
+      <div class="phase-body">
+        <div class="phase-title">0115_沙鹿最強 V3格局（⚡ 潛客表單全案最多）</div>
+        <div class="phase-desc">加入 26坪二房格局圖的版本，16 潛客表單遠超同系列其他版本（原版只有 1 潛客），格局圖是強觸發點。CPL NT$1,019 偏高，但對「需要看格局才決定的受眾」有精準轉換力。</div>
+      </div>
+      <div class="phase-stat"><div class="phase-cpl">16 潛客</div><div class="phase-cpl-l">CPL NT$1,019</div></div>
+    </div>
+
+    <div class="phase-row">
+      <div class="phase-label">4/23~<br>5月</div>
+      <div class="phase-body">
+        <div class="phase-title">0423_卡位中山路 / 0429_1088萬 / 0223_年輕人（多向測試）</div>
+        <div class="phase-desc">卡位中山路 2潛客 CPL $1,470；1088萬單圖 1潛客但 CPL NT$6,006 全案最高；年輕人 1潛客 CPL $2,871。地段 + 價格類素材效率明顯低於稀缺/格局訴求，確認本案受眾對「格局＋稀缺」反應最佳。</div>
+      </div>
+      <div class="phase-stat"><div class="phase-cpl">4 潛客</div><div class="phase-cpl-l">CPL NT$1,470+</div></div>
+    </div>
+
+  </div>
+
+  <div class="creative-grid">
+    <div class="creative-card best">
+      <div class="creative-name">1104 早鳥超優惠</div>
+      <div><span class="creative-badge cb-top">🏆 訊息主力</span></div>
+      <div class="creative-stats">
+        <b>訊息</b> 90則 · 花費 NT$30,242 · CPL NT$336<br>
+        <b>特點</b>：稀缺感訴求，7個月主力，頻率已上升<br>
+        <b>建議</b>：6月製作接力新版，保留稀缺核心
+      </div>
+    </div>
+    <div class="creative-card best">
+      <div class="creative-name">0115 沙鹿最強 V3格局版</div>
+      <div><span class="creative-badge cb-top">⚡ 潛客主力</span></div>
+      <div class="creative-stats">
+        <b>潛客</b> 16表單 · 花費 NT$16,298 · CPL NT$1,019<br>
+        <b>特點</b>：加入格局圖是關鍵，潛客量遠超其他版本<br>
+        <b>建議</b>：格局圖必須加入所有新素材
+      </div>
+    </div>
+    <div class="creative-card">
+      <div class="creative-name">1022 乘載鄉里情-2（影片）</div>
+      <div><span class="creative-badge cb-active">✅ 在地感有效</span></div>
+      <div class="creative-stats">
+        <b>潛客</b> 3表單 · CPL NT$778<br>
+        <b>特點</b>：在地認同訴求，沙鹿居民有共鳴<br>
+        <b>建議</b>：維持小量，搭配沙鹿在地受眾
+      </div>
+    </div>
+    <div class="creative-card">
+      <div class="creative-name">0429 1088萬（單圖）</div>
+      <div><span class="creative-badge cb-new">⚠️ 觀察</span></div>
+      <div class="creative-stats">
+        <b>訊息</b> 13則 · CPL NT$462 · 潛客 1<br>
+        <b>特點</b>：訊息可以，但潛客 CPL $6,006 極高<br>
+        <b>建議</b>：保留訊息投放，停止潛客型測試
+      </div>
+    </div>
+    <div class="creative-card">
+      <div class="creative-name">0527 享住蛋黃區 / 0520 海線蛋黃區</div>
+      <div><span class="creative-badge cb-new">🆕 初期</span></div>
+      <div class="creative-stats">
+        <b>訊息</b> 2則 · 0潛客 · 剛起步<br>
+        <b>特點</b>：蛋黃區地段訴求，數據量不足<br>
+        <b>建議</b>：等 300+ 點擊後評估
+      </div>
+    </div>
+    <div class="creative-card" style="background:#f9f9f9">
+      <div class="creative-name">日系精工宅 / 平價預算 / 散步到商圈</div>
+      <div><span class="creative-badge cb-retired">❌ 無效</span></div>
+      <div class="creative-stats">
+        <b>狀態</b>：0 訊息 0 潛客<br>
+        <b>問題</b>：建材規格/價格/生活場景訴求無效<br>
+        <b>建議</b>：全面停止，核心訴求應是格局+稀缺
+      </div>
+    </div>
+  </div>
+
+  <div class="insight-box">
+    <div class="insight-title">素材策略洞見</div>
+    <div class="insight-highlight">
+      關鍵發現：「格局圖 + 稀缺感」遠勝「建材品質 + 地段生活圈」<br>
+      沙鹿最強 V3格局（加格局圖）潛客 16 表單，同系列無格局版只有 1 表單；早鳥超優惠（稀缺感）90 訊息，日系精工宅（建材訴求）0 訊息。華偉知見受眾是理性首購族，他們要看「住得下嗎？買得起嗎？」而不是「住起來美嗎？」
+    </div>
+    <div class="insight-sub">素材升級建議：</div>
+    <ul class="insight-list">
+      <li>所有新素材必加「26坪二房格局平面圖」，這是單一最有效的視覺元素</li>
+      <li>6月製作「早鳥超優惠 2026 新版」，保留稀缺訴求，換場景人物，目標 CPL NT$220 以下</li>
+      <li>製作「捷運藍線題材」素材：「捷運藍線2026動工，沙鹿現在買最划算，等捷運到你就貴了」</li>
+      <li>停止建材規格、生活圈場景類素材，這類訴求對本案首購族群無效</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ── 建議新受眾方向 ── -->
+<div class="section">
+  <div class="sec-title">建議新測試受眾方向</div>
+  <div class="new-grid">
+    <div class="new-card">
+      <div class="new-card-title">28–50 / 台中工業區+精密機械區 / 工程師首購 ↗</div>
+      <div class="new-card-desc">延伸科技工業 36訊息成功方向，換地標至「台中工業區/精密機械區+6km」，覆蓋更多台1沿線工程師，搭配「台鐵沙鹿站通勤直達」素材</div>
+    </div>
+    <div class="new-card">
+      <div class="new-card-title">27–40 / 沙鹿清水+梧棲 / 首購年輕族+捷運增值 ↗</div>
+      <div class="new-card-desc">結合「首購成家+捷運藍線2026動工」雙訴求，針對27-40歲在地年輕族群，強調現在入場捷運通車前最划算</div>
+    </div>
+    <div class="new-card">
+      <div class="new-card-title">28–55 / 沙鹿清水 / 光田醫院醫護人員 ↗</div>
+      <div class="new-card-desc">光田醫院是沙鹿步行圈內最大雇主之一，醫護人員有穩定收入且在地，訴求「光田步行圈，下班直接回家，26坪二房首購」</div>
+    </div>
+    <div class="new-card">
+      <div class="new-card-title">35–55 / 沙鹿梧棲 / 捷運藍線置產客 ↗</div>
+      <div class="new-card-desc">針對有置產念頭的熟齡族群，以「捷運藍線題材」切入，強調沙鹿目前相對低價但捷運效益即將到來，搭配投資保值訴求</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 受眾排行 ── -->
+<div class="section">
+  <div class="sec-title">成果受眾排行（2025/10–2026/05）· 訊息數排序</div>
 
   <div class="rk-row gold">
     <div class="rk-medal">🥇</div>
     <div class="rk-body">
       <div class="rk-name">30-60 / 台1中科 / 科技工業（0113擴大+微調）</div>
-      <div class="rk-loc">台1線沿線 · 中科路 +3km</div>
-      <div class="rk-tags"><span class="rk-tag t-ind">科技業</span><span class="rk-tag t-ind">工業/製造</span><span class="rk-tag t-prop">購屋置產</span></div>
+      <div class="rk-loc">台1線 + 台中科學園區 · 工程師/技術工族群</div>
+      <div class="rk-tags">
+        <span class="rk-tag t-tech">科技工業</span>
+        <span class="rk-tag t-tech">工程師</span>
+        <span class="rk-tag t-buy">首購</span>
+      </div>
     </div>
     <div class="rk-stats">
-      <div class="rk-result">36</div><div class="rk-result-l">訊息</div>
-      <div class="rk-cpl">$274</div><div class="rk-cpl-l">每次訊息</div>
-      <div class="rk-spend">$9,857</div><div class="rk-spend-l">花費</div>
+      <div class="rk-stat-block"><div class="rk-result">36</div><div class="rk-result-l">訊息</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$274</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$9,857</div><div class="rk-spend-l">花費</div></div>
     </div>
   </div>
 
@@ -110,132 +424,124 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
     <div class="rk-medal">🥈</div>
     <div class="rk-body">
       <div class="rk-name">28-55 / 沙鹿清水 / 公教職員（1201+清水）</div>
-      <div class="rk-loc">沙鹿 +3km · 清水 +3km</div>
-      <div class="rk-tags"><span class="rk-tag t-edu">公教職員</span><span class="rk-tag t-ind">公部門</span><span class="rk-tag t-prop">首購置產</span></div>
+      <div class="rk-loc">沙鹿 + 清水 · 竹林國小/鹿寮國中雙學區</div>
+      <div class="rk-tags">
+        <span class="rk-tag t-pub">公務員</span>
+        <span class="rk-tag t-pub">教職員</span>
+        <span class="rk-tag t-loc">在地</span>
+      </div>
     </div>
     <div class="rk-stats">
-      <div class="rk-result">23</div><div class="rk-result-l">訊息</div>
-      <div class="rk-cpl">$268</div><div class="rk-cpl-l">每次訊息</div>
-      <div class="rk-spend">$6,163</div><div class="rk-spend-l">花費</div>
+      <div class="rk-stat-block"><div class="rk-result">23</div><div class="rk-result-l">訊息</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$268</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$6,163</div><div class="rk-spend-l">花費</div></div>
     </div>
   </div>
 
   <div class="rk-row bronze">
     <div class="rk-medal">🥉</div>
     <div class="rk-body">
-      <div class="rk-name">高效訊息 / 梧棲中科 / 小家庭</div>
-      <div class="rk-loc">梧棲 +3km · 中科路 +3km</div>
-      <div class="rk-tags"><span class="rk-tag t-edu">小家庭</span><span class="rk-tag t-edu">成家首購</span><span class="rk-tag t-prop">二房需求</span></div>
+      <div class="rk-name">202510 高效訊息 / 梧棲中科 / 小家庭</div>
+      <div class="rk-loc">梧棲 + 中科 · 年輕小家庭成家族群</div>
+      <div class="rk-tags">
+        <span class="rk-tag t-fam">小家庭</span>
+        <span class="rk-tag t-tech">中科</span>
+        <span class="rk-tag t-buy">成家</span>
+      </div>
     </div>
     <div class="rk-stats">
-      <div class="rk-result">15</div><div class="rk-result-l">訊息</div>
-      <div class="rk-cpl">$313</div><div class="rk-cpl-l">每次訊息</div>
-      <div class="rk-spend">$4,698</div><div class="rk-spend-l">花費</div>
+      <div class="rk-stat-block"><div class="rk-result">15</div><div class="rk-result-l">訊息</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl">$313</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$4,698</div><div class="rk-spend-l">花費</div></div>
     </div>
   </div>
 
   <div class="rk-row">
     <div class="rk-rank">4</div>
     <div class="rk-body">
-      <div class="rk-name">28-60 / 沙鹿中科 / 1%+房地產</div>
-      <div class="rk-loc">沙鹿 +3km · 中科路 +3km</div>
-      <div class="rk-tags"><span class="rk-tag t-sim">1%類似受眾</span><span class="rk-tag t-prop">房地產</span><span class="rk-tag t-fin">投資置產</span></div>
+      <div class="rk-name">28-60 / 沙鹿中科 / 1%+房地產（1119+1%）</div>
+      <div class="rk-loc">沙鹿 + 台中科學園區</div>
+      <div class="rk-tags"><span class="rk-tag t-tech">科技業</span><span class="rk-tag t-buy">置產</span><span class="rk-tag t-buy">1%族群</span></div>
     </div>
     <div class="rk-stats">
-      <div class="rk-result">11</div><div class="rk-result-l">訊息</div>
-      <div class="rk-cpl">$402</div><div class="rk-cpl-l">每次訊息</div>
-      <div class="rk-spend">$4,423</div><div class="rk-spend-l">花費</div>
+      <div class="rk-stat-block"><div class="rk-result">11</div><div class="rk-result-l">訊息</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl">$402</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$4,423</div><div class="rk-spend-l">花費</div></div>
     </div>
   </div>
 
   <div class="rk-row">
     <div class="rk-rank">5</div>
     <div class="rk-body">
-      <div class="rk-name">30-60 / 台1中科 / 科技工業（初期）</div>
-      <div class="rk-loc">台1線沿線 · 中科路 +3km</div>
-      <div class="rk-tags"><span class="rk-tag t-ind">科技業</span><span class="rk-tag t-ind">工業/製造</span></div>
+      <div class="rk-name">27-55 / 中科沙鹿梧棲 / 年輕人科技工業（1027TA）</div>
+      <div class="rk-loc">中科 + 沙鹿 + 梧棲</div>
+      <div class="rk-tags"><span class="rk-tag t-tech">科技工業</span><span class="rk-tag t-buy">年輕首購</span></div>
     </div>
     <div class="rk-stats">
-      <div class="rk-result">9</div><div class="rk-result-l">訊息</div>
-      <div class="rk-cpl">$347</div><div class="rk-cpl-l">每次訊息</div>
-      <div class="rk-spend">$3,121</div><div class="rk-spend-l">花費</div>
+      <div class="rk-stat-block"><div class="rk-result">6</div><div class="rk-result-l">訊息</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$276</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$1,658</div><div class="rk-spend-l">花費</div></div>
     </div>
   </div>
 
   <div class="rk-row">
     <div class="rk-rank">6</div>
     <div class="rk-body">
-      <div class="rk-name">27-55 / 中科沙鹿梧棲 / 年輕人科技工業</div>
-      <div class="rk-loc">中科路 +3km · 沙鹿 +3km · 梧棲 +3km</div>
-      <div class="rk-tags"><span class="rk-tag t-edu">年輕族群</span><span class="rk-tag t-ind">科技工業</span><span class="rk-tag t-prop">首購</span></div>
+      <div class="rk-name">30-55 / 東海西屯 / 通勤業務運動（潛客 4表單）</div>
+      <div class="rk-loc">東海大學 + 西屯 · 通勤族群</div>
+      <div class="rk-tags"><span class="rk-tag t-loc">通勤</span><span class="rk-tag t-buy">業務</span><span class="rk-tag t-buy">首購</span></div>
     </div>
     <div class="rk-stats">
-      <div class="rk-result">6</div><div class="rk-result-l">訊息</div>
-      <div class="rk-cpl">$276</div><div class="rk-cpl-l">每次訊息</div>
-      <div class="rk-spend">$1,658</div><div class="rk-spend-l">花費</div>
+      <div class="rk-stat-block"><div class="rk-result">4</div><div class="rk-result-l">潛客表單</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$368</div><div class="rk-cpl-l">潛客CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$1,473</div><div class="rk-spend-l">花費</div></div>
     </div>
   </div>
 
   <div class="rk-row">
     <div class="rk-rank">7</div>
     <div class="rk-body">
-      <div class="rk-name">28-55 / 沙鹿 / 文青興趣</div>
-      <div class="rk-loc">沙鹿 +3km</div>
-      <div class="rk-tags"><span class="rk-tag t-edu">文青/藝術</span><span class="rk-tag t-edu">生活品味</span><span class="rk-tag t-prop">首購置產</span></div>
+      <div class="rk-name">28-55 / 沙鹿清水 / 公教職員（進行中）</div>
+      <div class="rk-loc">沙鹿 + 清水 · 公教族群</div>
+      <div class="rk-tags"><span class="rk-tag t-pub">公務員</span><span class="rk-tag t-pub">教職員</span><span class="rk-tag t-loc">在地</span></div>
     </div>
     <div class="rk-stats">
-      <div class="rk-result">6</div><div class="rk-result-l">訊息</div>
-      <div class="rk-cpl">$496</div><div class="rk-cpl-l">每次訊息</div>
-      <div class="rk-spend">$2,976</div><div class="rk-spend-l">花費</div>
+      <div class="rk-stat-block"><div class="rk-result">7</div><div class="rk-result-l">訊息</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl">$389</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$2,723</div><div class="rk-spend-l">花費</div></div>
     </div>
   </div>
 
   <div class="rk-row">
     <div class="rk-rank">8</div>
     <div class="rk-body">
-      <div class="rk-name">28-55 / 沙鹿 / 戶外露營釣魚興趣</div>
-      <div class="rk-loc">沙鹿 +3km</div>
-      <div class="rk-tags"><span class="rk-tag t-edu">戶外/露營</span><span class="rk-tag t-edu">休閒活動</span><span class="rk-tag t-prop">首購</span></div>
+      <div class="rk-name">30-55 / 沙鹿清水中科 / 雙薪小家庭（5 潛客但CPL貴）</div>
+      <div class="rk-loc">沙鹿 + 清水 + 中科</div>
+      <div class="rk-tags"><span class="rk-tag t-fam">雙薪</span><span class="rk-tag t-fam">小家庭</span><span class="rk-tag t-buy">成家</span></div>
     </div>
     <div class="rk-stats">
-      <div class="rk-result">6</div><div class="rk-result-l">訊息</div>
-      <div class="rk-cpl">$410</div><div class="rk-cpl-l">每次訊息</div>
-      <div class="rk-spend">$2,459</div><div class="rk-spend-l">花費</div>
-    </div>
-  </div>
-
-  <div class="rk-row">
-    <div class="rk-rank">9</div>
-    <div class="rk-body">
-      <div class="rk-name">28-55 / 梧棲中科 / 服務零售業</div>
-      <div class="rk-loc">梧棲 +3km · 中科路 +3km</div>
-      <div class="rk-tags"><span class="rk-tag t-biz">服務業</span><span class="rk-tag t-biz">零售業</span><span class="rk-tag t-prop">首購置產</span></div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-result">4</div><div class="rk-result-l">訊息</div>
-      <div class="rk-cpl">$415</div><div class="rk-cpl-l">每次訊息</div>
-      <div class="rk-spend">$1,661</div><div class="rk-spend-l">花費</div>
-    </div>
-  </div>
-
-  <div class="rk-row">
-    <div class="rk-rank">10</div>
-    <div class="rk-body">
-      <div class="rk-name">27-55 / 沙鹿西屯 / 設計金融教育</div>
-      <div class="rk-loc">沙鹿 +3km · 西屯 +3km</div>
-      <div class="rk-tags"><span class="rk-tag t-biz">設計/創意</span><span class="rk-tag t-fin">金融理財</span><span class="rk-tag t-edu">教育業</span></div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-result">4</div><div class="rk-result-l">訊息</div>
-      <div class="rk-cpl">$418</div><div class="rk-cpl-l">每次訊息</div>
-      <div class="rk-spend">$1,671</div><div class="rk-spend-l">花費</div>
+      <div class="rk-stat-block"><div class="rk-result">5</div><div class="rk-result-l">潛客表單</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl">$1,229</div><div class="rk-cpl-l">潛客CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$6,147</div><div class="rk-spend-l">花費</div></div>
     </div>
   </div>
 
 </div>
 
-<div class="page-footer">資料期間：2025-10-17 至 2026-05-29 · 華偉知見 台中沙鹿 · 廣告目標：訊息</div>
+<div class="page-footer">資料期間：2025-10-17 至 2026-05-29 · 華偉知見 台中沙鹿 · 廣告目標：訊息 · 最後更新 2026-05-29</div>
 
 </div>
+
+<div id="toast" style="position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);background:#2e2c29;color:#fff;font-size:12.5px;padding:10px 20px;border-radius:24px;opacity:0;transition:all .25s;pointer-events:none;z-index:999;white-space:nowrap">📋 已複製 → 貼至 Claude 對話</div>
+<script>
+const PROJECT = '華偉知見（台中沙鹿・中山路永安巷・純二房26坪・訊息143則・潛客28表單）';
+function showToast(){const t=document.getElementById('toast');t.style.opacity='1';t.style.transform='translateX(-50%) translateY(0)';setTimeout(()=>{t.style.opacity='0';t.style.transform='translateX(-50%) translateY(20px)'},2200)}
+function copyPrompt(text){navigator.clipboard.writeText(text).then(showToast).catch(()=>{const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast()})}
+document.querySelectorAll('.core-tag').forEach(el=>{el.addEventListener('click',()=>{const tag=el.textContent.replace('↗','').trim();copyPrompt(`針對${PROJECT}，請深入分析「${tag}」這個興趣標籤：\n1. 在本案受眾中代表什麼輪廓？\n2. 搭配哪些標籤組合效果最好？\n3. 素材訴求應該怎麼寫？`)})});
+document.querySelectorAll('.new-card').forEach(el=>{el.addEventListener('click',()=>{const title=el.querySelector('.new-card-title').textContent.replace('↗','').trim();const desc=el.querySelector('.new-card-desc').textContent.trim();copyPrompt(`針對${PROJECT}，我想測試新受眾方向：「${title}」\n說明：${desc}\n\n請給我：\n1. META 興趣標籤清單（附中文，約 10–15 個）\n2. 地理設定建議\n3. 適合這組受眾的素材訴求角度`)})});
+document.querySelectorAll('.tip').forEach(el=>{el.addEventListener('click',()=>{const title=el.querySelector('.tip-title').textContent.trim();const desc=el.querySelector('.tip-desc').textContent.trim();copyPrompt(`針對${PROJECT}，關於這項操作建議：\n「${title}」\n背景：${desc}\n\n請幫我制定具體執行方案，包含受眾設定細節和素材方向。`)})});
+document.querySelectorAll('.creative-card,.phase-row').forEach(el=>{el.style.cursor='pointer';el.addEventListener('click',()=>{const name=el.querySelector('.creative-name,.phase-title');const desc=el.querySelector('.creative-stats,.phase-desc');if(!name)return;copyPrompt(`針對${PROJECT}，關於素材「${name.textContent.trim()}」：\n${desc?desc.textContent.trim():''}\n\n請分析：1.成效好/差原因？ 2.如何延伸下一支？ 3.最適合搭配的受眾設定？`)})});
+document.querySelectorAll('.rk-row').forEach(el=>{el.addEventListener('click',()=>{const name=el.querySelector('.rk-name');if(name)copyPrompt(`針對${PROJECT}，請分析受眾「${name.textContent.trim()}」，給我深度策略建議。`)})});
+</script>
 </body>
 </html>
