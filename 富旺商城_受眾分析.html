@@ -9,128 +9,447 @@
 :root{
   --accent:#5a6a9a;--accent-dark:#3e4e7e;--accent-light:#eaecf6;--accent-border:#9aabe0;
   --bg:#f5f4f1;--s:#ffffff;--bd:#e4e1dd;--tx:#2e2c29;--sub:#7d7870;--sub2:#a8a199;
-  --radius:12px;--shadow-xs:0 1px 3px rgba(0,0,0,.05);--shadow-sm:0 2px 8px rgba(0,0,0,.07);
-  --shadow-card:0 2px 10px rgba(0,0,0,.06),0 1px 3px rgba(0,0,0,.04);
+  --good:#1e6e3f;--goodl:#e6f4ea;--warn:#c05c00;
+  --radius:12px;--shadow-xs:0 1px 3px rgba(0,0,0,.05);--shadow-sm:0 2px 8px rgba(0,0,0,.07);--shadow-card:0 2px 10px rgba(0,0,0,.06),0 1px 3px rgba(0,0,0,.04);
 }
 body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft JhengHei','Segoe UI',sans-serif;background:var(--bg);color:var(--tx);font-size:14px;line-height:1.6;min-height:100vh}
-.wrap{max-width:1200px;margin:0 auto;padding:32px 40px 48px}
 .page-header{background:linear-gradient(180deg,#0e1220 0%,#080c18 100%);padding:0 40px;height:56px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.04),0 4px 20px rgba(0,0,0,.35);border-bottom:1px solid rgba(255,255,255,.06)}
 .ph-logo{width:30px;height:30px;background:linear-gradient(135deg,#7a8aba,var(--accent-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;flex-shrink:0}
 .ph-title{font-size:14px;font-weight:700;color:#e8eaf5;letter-spacing:-.2px}
 .ph-sub{font-size:11px;color:#3a4060;margin-left:2px}
 .ph-nav{margin-left:auto}
-.ph-nav a{font-size:12px;color:#9aabe0;text-decoration:none;padding:5px 13px;border-radius:6px;border:1px solid rgba(90,106,154,.25);background:rgba(90,106,154,.12);transition:all .15s;font-weight:500}
+.ph-nav a{font-size:12px;color:#9aabe0;text-decoration:none;padding:5px 13px;border-radius:6px;border:1px solid rgba(90,106,154,.25);background:rgba(90,106,154,.12);font-weight:500}
 .ph-nav a:hover{background:rgba(90,106,154,.22);color:#c0caf0}
-.back-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--accent);text-decoration:none;margin-bottom:16px;padding:5px 12px;background:var(--accent-light);border-radius:20px;border:1px solid var(--accent-border);transition:all .15s}
-.back-link:hover{background:#d8dcf0;color:var(--accent-dark)}
+.wrap{max-width:1200px;margin:0 auto;padding:32px 40px 48px}
 .case-header{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:20px 24px;margin-bottom:10px;display:flex;align-items:center;gap:18px;box-shadow:var(--shadow-card)}
 .case-logo{width:44px;height:44px;background:linear-gradient(135deg,#7a8aba,var(--accent-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;flex-shrink:0}
-.case-info h2{font-size:17px;font-weight:700;color:var(--tx)}
-.case-info p{font-size:12px;color:var(--sub);margin-top:3px}
+.case-info h2{font-size:17px;font-weight:700;color:var(--tx);letter-spacing:-.3px}
+.case-info p{font-size:12px;color:var(--sub);margin-top:3px;line-height:1.5}
 .case-stats{margin-left:auto;display:flex;gap:28px;flex-shrink:0}
 .stat{text-align:right}
-.stat-n{font-size:24px;font-weight:800;color:var(--accent);line-height:1;font-variant-numeric:tabular-nums}
+.stat-n{font-size:24px;font-weight:800;color:var(--accent);line-height:1;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
 .stat-l{font-size:10px;color:var(--sub2);margin-top:3px;font-weight:600;letter-spacing:.3px;text-transform:uppercase}
+.top-link{font-size:12px;color:var(--accent);margin-bottom:24px;display:inline-block;text-decoration:none;font-weight:500}
+.top-link span{border-bottom:1px solid var(--accent-border)}
 .sec-title{font-size:12px;font-weight:700;color:var(--sub);margin-bottom:14px;display:flex;align-items:center;gap:10px;letter-spacing:.4px;text-transform:uppercase}
 .sec-title::before{content:'';display:inline-block;width:3px;height:14px;background:var(--accent);border-radius:2px;flex-shrink:0}
 .sec-title::after{content:'';flex:1;height:1px;background:var(--bd)}
-.section{margin-bottom:32px}
-.rk-row{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:14px 18px;margin-bottom:8px;display:flex;gap:14px;align-items:center;box-shadow:var(--shadow-xs);transition:box-shadow .15s}
+.section{margin-bottom:28px}
+.creative-section{margin-bottom:32px}
+/* Profiles */
+.profiles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.profile-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow-xs);transition:box-shadow .2s,transform .2s}
+.profile-card:hover{box-shadow:var(--shadow-sm);transform:translateY(-2px)}
+.profile-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:17px;margin-bottom:12px}
+.profile-icon.blue{background:var(--accent-light)}
+.profile-icon.teal{background:#e0eff2}
+.profile-icon.amber{background:#fdf0dc}
+.profile-name{font-size:15px;font-weight:700;color:var(--tx);margin-bottom:4px}
+.profile-meta{font-size:12px;color:var(--sub);margin-bottom:10px}
+.profile-tags{font-size:12px;color:#4a5568;margin-bottom:10px;line-height:1.6}
+.profile-behavior{font-size:12px;color:var(--sub);line-height:1.55;margin-bottom:12px}
+.profile-badge{display:inline-block;font-size:11px;font-weight:700;padding:4px 11px;border-radius:20px;margin-top:2px}
+.badge-blue{background:var(--accent-light);color:#2a3a6a;border:1px solid var(--accent-border)}
+.badge-teal{background:#e0eff2;color:#2f6672;border:1px solid #87b5be}
+.badge-amber{background:#fdf0dc;color:#7a5c20;border:1px solid #d4b06a}
+/* Tags */
+.tags-row{display:flex;flex-wrap:wrap;gap:8px}
+.core-tag{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;background:var(--s);border:1.5px solid var(--bd);border-radius:20px;font-size:13px;font-weight:600;color:var(--tx);cursor:pointer;transition:all .15s}
+.core-tag:hover{border-color:var(--accent-border);background:var(--accent-light);color:#2a3a6a}
+.core-tag .arr{font-size:11px;color:var(--accent-border)}
+/* Tips */
+.tips{display:flex;flex-direction:column;gap:10px}
+.tip{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:16px 18px;display:flex;gap:16px;align-items:flex-start;cursor:pointer;transition:border-color .15s,box-shadow .15s;box-shadow:var(--shadow-xs)}
+.tip:hover{border-color:var(--accent-border);box-shadow:var(--shadow-sm)}
+.tip-num{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;flex-shrink:0;color:#fff}
+.c1{background:var(--accent)}.c2{background:#5a7aaa}.c3{background:#3a8a6a}.c4{background:#8a7a3a}.c5{background:#7a5a4a}
+.tip-body{flex:1}
+.tip-title{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:5px;line-height:1.4}
+.tip-desc{font-size:12px;color:var(--sub);line-height:1.65}
+/* Creative timeline */
+.creative-timeline{display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
+.phase-row{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:14px 18px;display:flex;gap:14px;align-items:center;cursor:pointer;transition:box-shadow .15s;box-shadow:var(--shadow-xs)}
+.phase-row:hover{box-shadow:var(--shadow-sm)}
+.phase-label{width:52px;flex-shrink:0;font-size:11px;font-weight:800;text-align:center;padding:6px 4px;border-radius:8px;background:var(--accent-light);color:var(--accent-dark);letter-spacing:-.2px;line-height:1.3}
+.phase-body{flex:1;min-width:0}
+.phase-title{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:4px}
+.phase-desc{font-size:12px;color:var(--sub);line-height:1.6}
+.phase-stat{text-align:right;flex-shrink:0;min-width:80px}
+.phase-cpl{font-size:16px;font-weight:800;color:var(--accent);line-height:1;font-variant-numeric:tabular-nums}
+.phase-cpl-l{font-size:10px;color:var(--sub2);margin-top:3px;font-weight:600}
+/* Creative grid */
+.creative-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
+.creative-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow-xs);cursor:pointer;transition:box-shadow .15s,transform .15s}
+.creative-card:hover{box-shadow:var(--shadow-sm);transform:translateY(-2px)}
+.creative-card.best{border-color:var(--accent-border);background:#f0f2fa}
+.creative-name{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:6px}
+.creative-badge{display:inline-block;font-size:10px;font-weight:700;padding:3px 8px;border-radius:8px;margin-bottom:8px}
+.cb-top{background:var(--accent-light);color:#2a3a6a;border:1px solid var(--accent-border)}
+.cb-active{background:#d8ead2;color:#3d6b4f;border:1px solid #96c4a8}
+.cb-new{background:#fdf0dc;color:#7a5c20;border:1px solid #d4b06a}
+.cb-retired{background:#f0f0f0;color:#888;border:1px solid #ccc}
+.creative-stats{font-size:12px;color:var(--sub);line-height:1.75}
+.creative-stats b{color:var(--tx)}
+/* Insight */
+.insight-box{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow-xs)}
+.insight-title{font-size:14px;font-weight:700;color:var(--tx);margin-bottom:14px}
+.insight-highlight{background:var(--accent-light);border-left:3px solid var(--accent);padding:12px 16px;border-radius:0 8px 8px 0;margin-bottom:16px;font-size:13px;color:#1a2a5a;font-weight:600;line-height:1.65}
+.insight-sub{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:10px;margin-top:14px}
+.insight-list{list-style:none;display:flex;flex-direction:column;gap:7px}
+.insight-list li{font-size:13px;color:#4a5568;padding-left:18px;position:relative;line-height:1.6}
+.insight-list li::before{content:'→';position:absolute;left:0;color:var(--accent-border);font-size:12px;top:1px}
+/* New directions */
+.new-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.new-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:16px 18px;cursor:pointer;transition:border-color .15s,box-shadow .15s;box-shadow:var(--shadow-xs)}
+.new-card:hover{border-color:var(--accent-border);box-shadow:var(--shadow-sm)}
+.new-card-title{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:5px;line-height:1.4}
+.new-card-desc{font-size:12px;color:var(--sub);line-height:1.6}
+/* Ranking */
+.rk-row{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:14px 18px;margin-bottom:8px;display:flex;gap:14px;align-items:center;box-shadow:var(--shadow-xs);transition:box-shadow .15s;cursor:pointer}
 .rk-row:hover{box-shadow:var(--shadow-sm)}
 .rk-row.gold{border-color:#d4b06a;background:#fdfaf2}
 .rk-row.silver{border-color:#b8c0cc;background:#f9f9fb}
 .rk-row.bronze{border-color:#c4a87a;background:#fdf7f0}
-.rk-medal{width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
-.rk-rank{width:28px;height:28px;border-radius:50%;background:var(--accent-light);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:var(--accent);flex-shrink:0}
+.rk-medal{width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.rk-rank{width:32px;height:32px;border-radius:50%;background:var(--accent-light);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:var(--accent);flex-shrink:0}
 .rk-body{flex:1;min-width:0}
-.rk-name{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:2px;line-height:1.3}
-.rk-loc{font-size:10.5px;color:var(--sub2);margin-bottom:6px}
+.rk-name{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:4px;line-height:1.35}
+.rk-loc{font-size:11px;color:var(--sub2);line-height:1.4;margin-bottom:7px}
 .rk-tags{display:flex;flex-wrap:wrap;gap:4px}
-.rk-tag{font-size:9.5px;font-weight:600;padding:2px 7px;border-radius:8px;line-height:1.4}
+.rk-tag{font-size:10px;font-weight:600;padding:2px 8px;border-radius:8px;line-height:1.5}
 .t-biz{background:#fff3e0;color:#bf5600;border:1px solid #ffd0a0}
 .t-fin{background:#e8f0fe;color:#1a56b0;border:1px solid #93b4e8}
 .t-prop{background:#e6f4ea;color:#1e6e3f;border:1px solid #8ecba3}
-.t-lux{background:#f0e8f8;color:#6620a0;border:1px solid #c8a0e0}
-.t-edu{background:#e0f7f4;color:#00695c;border:1px solid #7cd6cc}
-.t-ind{background:#eceff1;color:#37474f;border:1px solid #b0bec5}
-.t-sim{background:#fce4ec;color:#880e4f;border:1px solid #f48fb1}
-.rk-stats{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto auto;flex-shrink:0;min-width:210px;border-left:1px solid var(--bd);padding-left:14px;align-self:center}
-.rk-result{grid-area:1/1;font-size:24px;font-weight:900;color:var(--tx);line-height:1;text-align:center;padding:0 12px;font-variant-numeric:tabular-nums}
-.rk-result-l{grid-area:2/1;font-size:9px;color:var(--sub2);font-weight:600;text-align:center;padding:3px 12px 0;text-transform:uppercase;letter-spacing:.2px}
-.rk-cpl{grid-area:1/2;font-size:17px;font-weight:800;color:#c05c00;line-height:1;text-align:center;padding:0 12px;border-left:1px solid var(--bd);font-variant-numeric:tabular-nums}
-.rk-cpl-l{grid-area:2/2;font-size:9px;color:var(--sub2);font-weight:600;text-align:center;padding:3px 12px 0;border-left:1px solid var(--bd);text-transform:uppercase;letter-spacing:.2px}
-.rk-spend{grid-area:1/3;font-size:13px;font-weight:700;color:var(--sub);line-height:1;text-align:center;padding:0 12px;border-left:1px solid var(--bd);font-variant-numeric:tabular-nums}
-.rk-spend-l{grid-area:2/3;font-size:9px;color:var(--sub2);font-weight:600;text-align:center;padding:3px 12px 0;border-left:1px solid var(--bd);text-transform:uppercase;letter-spacing:.2px}
-.page-footer{text-align:center;font-size:11px;color:var(--sub2);margin-top:8px;padding-bottom:8px}
+.t-mgr{background:var(--accent-light);color:var(--accent-dark);border:1px solid var(--accent-border)}
+.t-mkt{background:#f3e8ff;color:#5b21b6;border:1px solid #c4b5fd}
+.t-ret{background:#fef3c7;color:#92400e;border:1px solid #fcd34d}
+.rk-stats{display:flex;gap:24px;flex-shrink:0;align-items:center}
+.rk-stat-block{text-align:right}
+.rk-result{font-size:28px;font-weight:900;color:var(--tx);line-height:1;letter-spacing:-1px;font-variant-numeric:tabular-nums}
+.rk-result-l{font-size:10px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.2px;margin-top:2px}
+.rk-cpl{font-size:18px;font-weight:800;color:var(--warn);line-height:1;font-variant-numeric:tabular-nums}
+.rk-cpl.good-cpl{color:var(--good)}
+.rk-cpl-l{font-size:10px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.2px;margin-top:2px}
+.rk-spend{font-size:13px;font-weight:700;color:#6d6560;line-height:1;font-variant-numeric:tabular-nums}
+.rk-spend-l{font-size:10px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.2px;margin-top:2px}
+.page-footer{text-align:center;font-size:11px;color:var(--sub2);margin-top:12px;padding-bottom:8px}
 </style>
 </head>
 <body>
 
 <header class="page-header">
-  <div class="ph-logo">旺</div>
-  <span class="ph-title">富旺商城｜受眾分析報告</span>
-  <span class="ph-sub">· 台中烏日</span>
+  <div class="ph-logo">富</div>
+  <span class="ph-title">富旺商城｜受眾分析</span>
+  <span class="ph-sub">· 台中烏日 · 商辦招租</span>
   <nav class="ph-nav"><a href="hub.html">← 返回總覽</a></nav>
 </header>
 
 <div class="wrap">
-<a class="back-link" href="hub.html">← 返回案件總覽</a>
 
 <div class="case-header">
-  <div class="case-logo">旺</div>
+  <div class="case-logo">富</div>
   <div class="case-info">
     <h2>富旺商城｜台中烏日</h2>
-    <p>台中烏日・商業空間・展店加盟・餐飲零售・企業主管置產 · 廣告目標：名單</p>
+    <p>台中市烏日區 · 近嶺東大學、烏日高鐵站 · 商辦投資 / 展店加盟 / 餐飲零售 · 廣告目標：名單</p>
   </div>
   <div class="case-stats">
-    <div class="stat"><div class="stat-n">180</div><div class="stat-l">累積潛客</div></div>
-    <div class="stat"><div class="stat-n">NT$419</div><div class="stat-l">均CPL</div></div>
-    <div class="stat"><div class="stat-n">16+組</div><div class="stat-l">累積受眾</div></div>
+    <div class="stat"><div class="stat-n">181</div><div class="stat-l">累積潛客</div></div>
+    <div class="stat"><div class="stat-n">NT$414</div><div class="stat-l">均CPL</div></div>
+    <div class="stat"><div class="stat-n">16</div><div class="stat-l">受眾組數</div></div>
   </div>
 </div>
 
+<a class="top-link" href="hub.html"><span>← 返回報告集</span></a>
+
+<!-- ── 三大核心受眾輪廓 ── -->
 <div class="section">
-  <div class="sec-title">全案成果前 10 名受眾（2025/11–2026/05）</div>
+  <div class="sec-title">三大核心受眾輪廓</div>
+  <div class="profiles">
+
+    <div class="profile-card">
+      <div class="profile-icon blue">🏢</div>
+      <div class="profile-name">企業主管型</div>
+      <div class="profile-meta">年齡 30–65｜嶺東烏日南區 / 靜宜東海西屯北屯</div>
+      <div class="profile-tags">興趣：企業管理、公司營運、主管職位、商務決策</div>
+      <div class="profile-behavior">行為：有展店/投資意願的企業主管或老闆，嶺東大學商學院周邊創業型人口密集，對商場展店投資話題高響應</div>
+      <span class="profile-badge badge-blue">合計 110潛客 · CPL NT$311~364 · 佔全案 61%</span>
+    </div>
+
+    <div class="profile-card">
+      <div class="profile-icon teal">📊</div>
+      <div class="profile-name">行銷/人力管理型</div>
+      <div class="profile-meta">年齡 30–60｜嶺東烏日南區</div>
+      <div class="profile-tags">興趣：行銷、人力資源、管理顧問、企業服務</div>
+      <div class="profile-behavior">行為：行銷/人資背景的商業服務業者，對商辦/展店空間有服務需求，CPL $367 表現穩定，與企業主管組互補</div>
+      <span class="profile-badge badge-teal">39 潛客 · CPL NT$367 · 第二大主力</span>
+    </div>
+
+    <div class="profile-card">
+      <div class="profile-icon amber">🍜</div>
+      <div class="profile-name">在地商業業者型</div>
+      <div class="profile-meta">年齡 30–60｜烏日南區逢甲 / 沙鹿北區烏日</div>
+      <div class="profile-tags">興趣：餐飲、零售、美業、商業行銷、展店</div>
+      <div class="profile-behavior">行為：唯一直接針對目標租戶有成效的受眾。餐飲/零售/美業業者正是商城的主要招租對象，13 潛客 CPL NT$398~424</div>
+      <span class="profile-badge badge-amber">13 潛客 · CPL NT$398~424 · 目標租戶直打</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── 核心標籤 ── -->
+<div class="section">
+  <div class="sec-title">跨受眾必保留的核心標籤</div>
+  <div class="tags-row">
+    <span class="core-tag">企業管理（商業）<span class="arr">↗</span></span>
+    <span class="core-tag">行銷（商業）<span class="arr">↗</span></span>
+    <span class="core-tag">人力資源（商業）<span class="arr">↗</span></span>
+    <span class="core-tag">投資（商業與財務）<span class="arr">↗</span></span>
+    <span class="core-tag">餐飲業（商業）<span class="arr">↗</span></span>
+    <span class="core-tag">房地產（產業）<span class="arr">↗</span></span>
+  </div>
+</div>
+
+<!-- ── 五大操作建議 ── -->
+<div class="section">
+  <div class="sec-title">五大操作建議</div>
+  <div class="tips">
+
+    <div class="tip">
+      <div class="tip-num c1">1</div>
+      <div class="tip-body">
+        <div class="tip-title">靜宜東海西屯北屯/企業主管 CPL NT$311 是全案最低，應主力加碼</div>
+        <div class="tip-desc">靜宜東海西屯北屯版 CPL NT$311 比嶺東烏日版 NT$364 低 15%，但嶺東烏日版預算花了 NT$25,827（是靜宜版 NT$12,146 的兩倍）。建議調整預算比例：靜宜東海版提高至 NT$400/日，嶺東版維持現狀，讓更低 CPL 的組承接更多流量。</div>
+      </div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-num c2">2</div>
+      <div class="tip-body">
+        <div class="tip-title">行銷/人力管理 CPL NT$367，複製到彰化市 + 中科西屯</div>
+        <div class="tip-desc">行銷人力管理 39 潛客 CPL $367，是除了企業主管外最穩定的組。建議複製到「嶺東烏日+彰化市」和「中科西屯+5km」，覆蓋更廣的商業服務業人口，預算各 NT$250/日，測試 2 週。</div>
+      </div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-num c3">3</div>
+      <div class="tip-body">
+        <div class="tip-title">餐飲/零售/美業 CPL NT$424，是唯一對租戶直打有效的受眾，應獨立拆分測試</div>
+        <div class="tip-desc">烏日南區逢甲/餐飲零售美業 6 潛客 CPL $424，是本案目標租戶（展店加盟商）最直接的受眾。建議拆分成「餐飲業者」「零售業者」「美業業者」三組獨立測試，各 NT$200/日，找出哪個行業響應最高，搭配「門店招募中」素材直接溝通。</div>
+      </div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-num c4">4</div>
+      <div class="tip-body">
+        <div class="tip-title">6 組 0 潛客但已花費 NT$5,100+，換素材角度而非直接停用</div>
+        <div class="tip-desc">餐飲業者、老闆決策者、創業加盟主、展店投資等 6 組受眾輪廓吻合目標族群，但無轉換。問題可能出在素材而非受眾。建議換為「已有門店的業者+擴店訴求」素材（而非新進創業型）重新測試，保留受眾但換訊息角度。</div>
+      </div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-num c5">5</div>
+      <div class="tip-body">
+        <div class="tip-title">1201_門店招募中系列 V2 主力頻率上升，準備 2026 新版接力</div>
+        <div class="tip-desc">門店招募中 V2（81 潛客）+ 原版（42 潛客）合計 123 潛客，佔全案素材 70%，是絕對主力。但兩支素材合計花費 NT$42,929，頻率持續升高。建議 6 月底前製作「2026 新版招募中」：換拍攝現場、換文案角度（「位子已剩最後 X 個」稀缺感），延續「門店招募」核心訴求。</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── 素材迭代 ── -->
+<div class="creative-section">
+  <div class="sec-title">素材迭代分析</div>
+  <div class="creative-timeline">
+
+    <div class="phase-row">
+      <div class="phase-label">10/31<br>招商</div>
+      <div class="phase-body">
+        <div class="phase-title">1031_門店招商系列（原版 / V2 / V3）</div>
+        <div class="phase-desc">早期主力，以「招商」為訴求切入。原版 15 潛客 CPL $524，V2 25 潛客 CPL $443，V3 1 潛客。V2 改版效率優於原版，但整體 CPL 偏高，後被招募中系列取代。</div>
+      </div>
+      <div class="phase-stat"><div class="phase-cpl">41 潛客</div><div class="phase-cpl-l">均CPL NT$481</div></div>
+    </div>
+
+    <div class="phase-row" style="border-color:var(--accent-border);background:#f0f2fa">
+      <div class="phase-label" style="background:var(--accent);color:#fff">🏆 主力</div>
+      <div class="phase-body">
+        <div class="phase-title">1201_門店招募中系列（原版 + V2）✅ 全案絕對主力</div>
+        <div class="phase-desc">換詞為「招募中」（而非招商），帶出「搶手、快滿」的稀缺感。V2 81 潛客 CPL NT$361，原版 42 潛客 CPL NT$325，合計 123 潛客佔全案 68%。稀缺感 + 招募中狀態是本案最有效的訴求核心。</div>
+      </div>
+      <div class="phase-stat"><div class="phase-cpl">123 潛客</div><div class="phase-cpl-l">⚡ CPL NT$325~361</div></div>
+    </div>
+
+    <div class="phase-row">
+      <div class="phase-label">2/09<br>高鐵</div>
+      <div class="phase-body">
+        <div class="phase-title">0209_高鐵第一排（地段訴求）</div>
+        <div class="phase-desc">以「高鐵第一排商圈」地利優勢為訴求，4 潛客 CPL NT$428。地段訴求有轉換但量小，可作為輔助角度，不宜作主力。</div>
+      </div>
+      <div class="phase-stat"><div class="phase-cpl">4 潛客</div><div class="phase-cpl-l">CPL NT$428</div></div>
+    </div>
+
+    <div class="phase-row">
+      <div class="phase-label">4月~<br>5月</div>
+      <div class="phase-body">
+        <div class="phase-title">0430_起跑點 / 0306_商場招租 / 0527_全新開幕（多主題測試）</div>
+        <div class="phase-desc">起跑點 4 潛客 CPL NT$904；商場招租 0 潛客；全新開幕 0 潛客。「起跑點」/「開幕」等新局訴求效率遠低於「招募中」稀缺感訴求，確認本案受眾更對稀缺性而非新穎性有反應。</div>
+      </div>
+      <div class="phase-stat"><div class="phase-cpl">4 潛客</div><div class="phase-cpl-l">均CPL NT$904</div></div>
+    </div>
+
+  </div>
+
+  <div class="creative-grid">
+    <div class="creative-card best">
+      <div class="creative-name">1201 門店招募中 V2</div>
+      <div><span class="creative-badge cb-top">🏆 全案主力</span></div>
+      <div class="creative-stats">
+        <b>累積</b> 81 潛客 · CPL NT$361<br>
+        <b>特點</b>：「招募中」稀缺感，V2 改版效率高於原版<br>
+        <b>建議</b>：頻率上升，6月底準備接力新版
+      </div>
+    </div>
+    <div class="creative-card best">
+      <div class="creative-name">1201 門店招募中（原版）</div>
+      <div><span class="creative-badge cb-top">✅ 共同主力</span></div>
+      <div class="creative-stats">
+        <b>累積</b> 42 潛客 · CPL NT$325<br>
+        <b>特點</b>：原版 CPL 反而低於 V2，配合不同受眾組效果分化<br>
+        <b>建議</b>：與 V2 並行，觀察受眾組差異
+      </div>
+    </div>
+    <div class="creative-card">
+      <div class="creative-name">1031 門店招商 V2</div>
+      <div><span class="creative-badge cb-active">📦 輔助</span></div>
+      <div class="creative-stats">
+        <b>累積</b> 25 潛客 · CPL NT$443<br>
+        <b>特點</b>：招商版本效率低於招募中，但有一定積累<br>
+        <b>建議</b>：降預算，作為次要補充素材
+      </div>
+    </div>
+    <div class="creative-card">
+      <div class="creative-name">0209 高鐵第一排</div>
+      <div><span class="creative-badge cb-active">✅ 地段補充</span></div>
+      <div class="creative-stats">
+        <b>累積</b> 4 潛客 · CPL NT$428<br>
+        <b>特點</b>：高鐵商圈地利訴求，數量少但 CPL 合理<br>
+        <b>建議</b>：搭配企業主管受眾使用，強化地段價值
+      </div>
+    </div>
+    <div class="creative-card">
+      <div class="creative-name">0430 起跑點</div>
+      <div><span class="creative-badge cb-new">🔵 觀察</span></div>
+      <div class="creative-stats">
+        <b>累積</b> 4 潛客 · CPL NT$904<br>
+        <b>特點</b>：新局/起跑訴求，CPL 偏高<br>
+        <b>建議</b>：停止，「招募中」稀缺感遠勝新局訴求
+      </div>
+    </div>
+    <div class="creative-card" style="background:#f9f9f9">
+      <div class="creative-name">商場招租 / 全新開幕 / 百萬級</div>
+      <div><span class="creative-badge cb-retired">❌ 無效</span></div>
+      <div class="creative-stats">
+        <b>狀態</b>：0~1 潛客，CPL NT$831~1,638<br>
+        <b>問題</b>：開幕/開店訴求對本案受眾無驅動力<br>
+        <b>建議</b>：全面停止，預算集中至招募中系列
+      </div>
+    </div>
+  </div>
+
+  <div class="insight-box">
+    <div class="insight-title">素材策略洞見</div>
+    <div class="insight-highlight">
+      關鍵發現：「招募中（稀缺感）」遠勝「招商/開幕（新局感）」<br>
+      門店招募中系列 CPL NT$325~361，比招商系列（$443~524）效率高 25%，比開幕/起跑（$904+）高 2.5 倍。本案受眾是理性商業決策者，稀缺性訴求（「位子快沒了」）比新穎性訴求（「全新開幕」）更能驅動行動。
+    </div>
+    <div class="insight-sub">素材升級建議：</div>
+    <ul class="insight-list">
+      <li>製作「招募中 2026 新版」：換拍攝場景（現場人流視角）、加入倒數計時感，維持稀缺訴求核心</li>
+      <li>製作「行業別版本」：針對餐飲業者、零售業者、美業業者各拍一支 30 秒版，搭配對應受眾組</li>
+      <li>製作「投資報酬版」：主打「烏日高鐵旁，買一間等收租」投資訴求，搭配企業主管受眾測試</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ── 建議新受眾方向 ── -->
+<div class="section">
+  <div class="sec-title">建議新測試受眾方向</div>
+  <div class="new-grid">
+    <div class="new-card">
+      <div class="new-card-title">30–65 / 嶺東烏日+彰化市 / 企業主管 ↗</div>
+      <div class="new-card-desc">延伸嶺東烏日企業主管（71潛客 CPL $364）成功模式，加入彰化市覆蓋，擴大商業管理人口觸及</div>
+    </div>
+    <div class="new-card">
+      <div class="new-card-title">30–60 / 中科西屯+5 / 行銷/人力管理 ↗</div>
+      <div class="new-card-desc">延伸行銷人力管理（39潛客 CPL $367）成功方向，換地標到台中科學園區周邊商業服務業人口密集區</div>
+    </div>
+    <div class="new-card">
+      <div class="new-card-title">30–55 / 烏日南區+逢甲 / 餐飲業老闆+美食加盟 ↗</div>
+      <div class="new-card-desc">從餐飲零售美業（CPL $424）延伸，細分為「餐飲業老闆+加盟主」，搭配「展店加盟機會」素材直打目標租戶</div>
+    </div>
+    <div class="new-card">
+      <div class="new-card-title">30–60 / 烏日高鐵+5 / 投資置產+商辦 ↗</div>
+      <div class="new-card-desc">以高鐵商圈投資客為受眾，興趣加入「商辦投資+不動產+收租」，素材強調「烏日高鐵旁商辦，等收租型投資」</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 受眾排行 ── -->
+<div class="section">
+  <div class="sec-title">成果受眾排行（2025/11–2026/05）</div>
 
   <div class="rk-row gold">
     <div class="rk-medal">🥇</div>
     <div class="rk-body">
       <div class="rk-name">30-65 / 嶺東烏日南區 / 企業主管（1211+興趣）</div>
-      <div class="rk-loc">嶺東大學 +3km · 烏日 +4km · 南區 +4km</div>
-      <div class="rk-tags"><span class="rk-tag t-biz">企業主管</span><span class="rk-tag t-biz">決策者</span><span class="rk-tag t-prop">商辦投資</span></div>
+      <div class="rk-loc">嶺東大學 + 烏日南區 · 商學院周邊創業型人口</div>
+      <div class="rk-tags">
+        <span class="rk-tag t-mgr">企業主管</span>
+        <span class="rk-tag t-fin">投資</span>
+        <span class="rk-tag t-prop">商辦</span>
+      </div>
     </div>
     <div class="rk-stats">
-      <div class="rk-result">71</div><div class="rk-result-l">潛客</div>
-      <div class="rk-cpl">$364</div><div class="rk-cpl-l">CPL</div>
-      <div class="rk-spend">$25,827</div><div class="rk-spend-l">花費</div>
+      <div class="rk-stat-block"><div class="rk-result">71</div><div class="rk-result-l">成果</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl">$364</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$25,827</div><div class="rk-spend-l">花費</div></div>
     </div>
   </div>
 
   <div class="rk-row silver">
     <div class="rk-medal">🥈</div>
     <div class="rk-body">
-      <div class="rk-name">30-60 / 靜宜東海西屯北屯 / 企業主管（1211+興趣）</div>
-      <div class="rk-loc">靜宜大學 +3km · 東海 +3km · 西屯 +3km · 北屯 +3km</div>
-      <div class="rk-tags"><span class="rk-tag t-biz">企業主管</span><span class="rk-tag t-biz">決策者</span><span class="rk-tag t-prop">商辦</span></div>
+      <div class="rk-name">30-60 / 嶺東烏日南區 / 行銷人力管理</div>
+      <div class="rk-loc">嶺東大學 + 烏日南區 · 商業服務業背景</div>
+      <div class="rk-tags">
+        <span class="rk-tag t-mkt">行銷</span>
+        <span class="rk-tag t-mkt">人力資源</span>
+        <span class="rk-tag t-biz">商業服務</span>
+      </div>
     </div>
     <div class="rk-stats">
-      <div class="rk-result">39</div><div class="rk-result-l">潛客</div>
-      <div class="rk-cpl">$311</div><div class="rk-cpl-l">CPL</div>
-      <div class="rk-spend">$12,146</div><div class="rk-spend-l">花費</div>
+      <div class="rk-stat-block"><div class="rk-result">39</div><div class="rk-result-l">成果</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl">$367</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$14,311</div><div class="rk-spend-l">花費</div></div>
     </div>
   </div>
 
   <div class="rk-row bronze">
     <div class="rk-medal">🥉</div>
     <div class="rk-body">
-      <div class="rk-name">30-60 / 嶺東烏日南區 / 行銷人力管理</div>
-      <div class="rk-loc">嶺東大學 +3km · 烏日 +4km · 南區 +4km</div>
-      <div class="rk-tags"><span class="rk-tag t-biz">行銷業</span><span class="rk-tag t-biz">人力管理</span><span class="rk-tag t-prop">商辦租售</span></div>
+      <div class="rk-name">30-60 / 靜宜東海西屯北屯 / 企業主管（1211+興趣）</div>
+      <div class="rk-loc">靜宜大學 + 東海大學 + 西屯 + 北屯</div>
+      <div class="rk-tags">
+        <span class="rk-tag t-mgr">企業主管</span>
+        <span class="rk-tag t-fin">投資</span>
+        <span class="rk-tag t-prop">商辦</span>
+      </div>
     </div>
     <div class="rk-stats">
-      <div class="rk-result">39</div><div class="rk-result-l">潛客</div>
-      <div class="rk-cpl">$367</div><div class="rk-cpl-l">CPL</div>
-      <div class="rk-spend">$14,311</div><div class="rk-spend-l">花費</div>
+      <div class="rk-stat-block"><div class="rk-result">39</div><div class="rk-result-l">成果</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$311</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$12,146</div><div class="rk-spend-l">花費</div></div>
     </div>
   </div>
 
@@ -138,13 +457,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
     <div class="rk-rank">4</div>
     <div class="rk-body">
       <div class="rk-name">30-60 / 北區西屯北屯 / 商業行銷</div>
-      <div class="rk-loc">北區 +4km · 西屯 +4km · 北屯 +4km</div>
-      <div class="rk-tags"><span class="rk-tag t-biz">商業/行銷</span><span class="rk-tag t-biz">中小企業</span><span class="rk-tag t-prop">商辦</span></div>
+      <div class="rk-loc">北區 + 西屯 + 北屯 · 商業行銷族群</div>
+      <div class="rk-tags"><span class="rk-tag t-mkt">商業行銷</span><span class="rk-tag t-biz">創業</span></div>
     </div>
     <div class="rk-stats">
-      <div class="rk-result">9</div><div class="rk-result-l">潛客</div>
-      <div class="rk-cpl">$550</div><div class="rk-cpl-l">CPL</div>
-      <div class="rk-spend">$4,951</div><div class="rk-spend-l">花費</div>
+      <div class="rk-stat-block"><div class="rk-result">9</div><div class="rk-result-l">成果</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl">$550</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$4,951</div><div class="rk-spend-l">花費</div></div>
     </div>
   </div>
 
@@ -152,90 +471,60 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
     <div class="rk-rank">5</div>
     <div class="rk-body">
       <div class="rk-name">30-60 / 沙鹿北區烏日 / 商業行銷（0203+地點興趣）</div>
-      <div class="rk-loc">沙鹿 +4km · 北區 +4km · 烏日 +4km</div>
-      <div class="rk-tags"><span class="rk-tag t-biz">商業/行銷</span><span class="rk-tag t-biz">業務族群</span><span class="rk-tag t-prop">展店加盟</span></div>
+      <div class="rk-loc">沙鹿 + 北區 + 烏日</div>
+      <div class="rk-tags"><span class="rk-tag t-mkt">商業行銷</span><span class="rk-tag t-biz">展店</span></div>
     </div>
     <div class="rk-stats">
-      <div class="rk-result">7</div><div class="rk-result-l">潛客</div>
-      <div class="rk-cpl">$398</div><div class="rk-cpl-l">CPL</div>
-      <div class="rk-spend">$2,786</div><div class="rk-spend-l">花費</div>
+      <div class="rk-stat-block"><div class="rk-result">7</div><div class="rk-result-l">成果</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$398</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$2,786</div><div class="rk-spend-l">花費</div></div>
     </div>
   </div>
 
   <div class="rk-row">
     <div class="rk-rank">6</div>
     <div class="rk-body">
-      <div class="rk-name">30-60 / 龍井沙鹿潭子豐原 / 企業主管（0113+興趣）</div>
-      <div class="rk-loc">龍井 +4km · 沙鹿 +4km · 潭子 +3km · 豐原 +4km</div>
-      <div class="rk-tags"><span class="rk-tag t-biz">企業主管</span><span class="rk-tag t-ind">傳產/製造</span><span class="rk-tag t-prop">商辦</span></div>
+      <div class="rk-name">30-60 / 烏日南區逢甲 / 餐飲/零售/美業</div>
+      <div class="rk-loc">烏日南區 + 逢甲商圈 · 目標租戶族群</div>
+      <div class="rk-tags"><span class="rk-tag t-ret">餐飲</span><span class="rk-tag t-ret">零售</span><span class="rk-tag t-ret">美業</span></div>
     </div>
     <div class="rk-stats">
-      <div class="rk-result">6</div><div class="rk-result-l">潛客</div>
-      <div class="rk-cpl">$537</div><div class="rk-cpl-l">CPL</div>
-      <div class="rk-spend">$3,219</div><div class="rk-spend-l">花費</div>
+      <div class="rk-stat-block"><div class="rk-result">6</div><div class="rk-result-l">成果</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl">$424</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$2,542</div><div class="rk-spend-l">花費</div></div>
     </div>
   </div>
 
   <div class="rk-row">
     <div class="rk-rank">7</div>
     <div class="rk-body">
-      <div class="rk-name">30-60 / 烏日南區逢甲 / 餐飲/零售/美業</div>
-      <div class="rk-loc">烏日 +4km · 南區 +4km · 逢甲大學 +3km</div>
-      <div class="rk-tags"><span class="rk-tag t-biz">餐飲業者</span><span class="rk-tag t-biz">零售/美業</span><span class="rk-tag t-prop">展店加盟</span></div>
+      <div class="rk-name">30-60 / 龍井沙鹿潭子豐原 / 企業主管（0113+興趣）</div>
+      <div class="rk-loc">龍井 + 沙鹿 + 潭子 + 豐原 · 外圍商業人口</div>
+      <div class="rk-tags"><span class="rk-tag t-mgr">企業主管</span><span class="rk-tag t-biz">商業</span></div>
     </div>
     <div class="rk-stats">
-      <div class="rk-result">6</div><div class="rk-result-l">潛客</div>
-      <div class="rk-cpl">$424</div><div class="rk-cpl-l">CPL</div>
-      <div class="rk-spend">$2,542</div><div class="rk-spend-l">花費</div>
-    </div>
-  </div>
-
-  <div class="rk-row">
-    <div class="rk-rank">8</div>
-    <div class="rk-body">
-      <div class="rk-name">30-65 / 東區大里 / 企業主管</div>
-      <div class="rk-loc">東區 +4km · 大里 +4km</div>
-      <div class="rk-tags"><span class="rk-tag t-biz">企業主管</span><span class="rk-tag t-prop">商辦投資</span></div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-result">2</div><div class="rk-result-l">潛客</div>
-      <div class="rk-cpl">$1,088</div><div class="rk-cpl-l">CPL</div>
-      <div class="rk-spend">$2,175</div><div class="rk-spend-l">花費</div>
-    </div>
-  </div>
-
-  <div class="rk-row">
-    <div class="rk-rank">9</div>
-    <div class="rk-body">
-      <div class="rk-name">30-65 / 嶺東烏日南區 / 親子娛樂類</div>
-      <div class="rk-loc">嶺東大學 +3km · 烏日 +4km · 南區 +4km</div>
-      <div class="rk-tags"><span class="rk-tag t-edu">親子/家庭</span><span class="rk-tag t-edu">娛樂消費</span><span class="rk-tag t-prop">商辦</span></div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-result">1</div><div class="rk-result-l">潛客</div>
-      <div class="rk-cpl">$287</div><div class="rk-cpl-l">CPL</div>
-      <div class="rk-spend">$287</div><div class="rk-spend-l">花費</div>
-    </div>
-  </div>
-
-  <div class="rk-row">
-    <div class="rk-rank">10</div>
-    <div class="rk-body">
-      <div class="rk-name">30-60 / 靜宜東海 / 行銷人力管理</div>
-      <div class="rk-loc">靜宜大學 +3km · 東海 +3km</div>
-      <div class="rk-tags"><span class="rk-tag t-biz">行銷業</span><span class="rk-tag t-biz">人力管理</span><span class="rk-tag t-prop">展店</span></div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-result">1</div><div class="rk-result-l">潛客</div>
-      <div class="rk-cpl">$1,484</div><div class="rk-cpl-l">CPL</div>
-      <div class="rk-spend">$1,484</div><div class="rk-spend-l">花費</div>
+      <div class="rk-stat-block"><div class="rk-result">6</div><div class="rk-result-l">成果</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl">$537</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$3,219</div><div class="rk-spend-l">花費</div></div>
     </div>
   </div>
 
 </div>
 
-<div class="page-footer">資料期間：2025-11-01 至 2026-05-27 · 富旺商城 台中烏日 · 廣告目標：名單</div>
+<div class="page-footer">資料期間：2025-11-01 至 2026-05-29 · 富旺商城 台中烏日 · 最後更新 2026-05-29</div>
 
 </div>
+
+<div id="toast" style="position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);background:#2e2c29;color:#fff;font-size:12.5px;padding:10px 20px;border-radius:24px;opacity:0;transition:all .25s;pointer-events:none;z-index:999;white-space:nowrap">📋 已複製 → 貼至 Claude 對話</div>
+<script>
+const PROJECT = '富旺商城（台中烏日・近嶺東大學高鐵站・商辦招租・181潛客・均CPL NT$414）';
+function showToast(){const t=document.getElementById('toast');t.style.opacity='1';t.style.transform='translateX(-50%) translateY(0)';setTimeout(()=>{t.style.opacity='0';t.style.transform='translateX(-50%) translateY(20px)'},2200)}
+function copyPrompt(text){navigator.clipboard.writeText(text).then(showToast).catch(()=>{const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast()})}
+document.querySelectorAll('.core-tag').forEach(el=>{el.addEventListener('click',()=>{const tag=el.textContent.replace('↗','').trim();copyPrompt(`針對${PROJECT}，請深入分析「${tag}」這個興趣標籤：\n1. 在本案受眾中代表什麼輪廓？\n2. 搭配哪些標籤組合效果最好？\n3. 素材訴求應該怎麼寫？`)})});
+document.querySelectorAll('.new-card').forEach(el=>{el.addEventListener('click',()=>{const title=el.querySelector('.new-card-title').textContent.replace('↗','').trim();const desc=el.querySelector('.new-card-desc').textContent.trim();copyPrompt(`針對${PROJECT}，我想測試新受眾方向：「${title}」\n說明：${desc}\n\n請給我：\n1. META 興趣標籤清單（附中文，約 10–15 個）\n2. 地理設定建議\n3. 適合這組受眾的素材訴求角度`)})});
+document.querySelectorAll('.tip').forEach(el=>{el.addEventListener('click',()=>{const title=el.querySelector('.tip-title').textContent.trim();const desc=el.querySelector('.tip-desc').textContent.trim();copyPrompt(`針對${PROJECT}，關於這項操作建議：\n「${title}」\n背景：${desc}\n\n請幫我制定具體執行方案，包含受眾設定細節和素材方向。`)})});
+document.querySelectorAll('.creative-card,.phase-row').forEach(el=>{el.style.cursor='pointer';el.addEventListener('click',()=>{const name=el.querySelector('.creative-name,.phase-title');const desc=el.querySelector('.creative-stats,.phase-desc');if(!name)return;copyPrompt(`針對${PROJECT}，關於素材「${name.textContent.trim()}」：\n${desc?desc.textContent.trim():''}\n\n請分析：1.成效好/差原因？ 2.如何延伸下一支？ 3.最適合搭配的受眾設定？`)})});
+document.querySelectorAll('.rk-row').forEach(el=>{el.addEventListener('click',()=>{const name=el.querySelector('.rk-name');if(name)copyPrompt(`針對${PROJECT}，請分析受眾「${name.textContent.trim()}」，給我深度策略建議。`)})});
+</script>
 </body>
 </html>
