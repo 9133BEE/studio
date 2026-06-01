@@ -66,13 +66,10 @@ body{
 .wrap{max-width:1200px;margin:0 auto;padding:32px 40px 48px}
 
 /* ── Top link ── */
-.top-link{
-  font-size:12px;color:var(--accent);
-  margin-bottom:28px;display:inline-block;cursor:pointer;
-  text-decoration:none;font-weight:500;
-}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--accent);text-decoration:none;margin-bottom:16px;padding:5px 12px;background:var(--accent-light);border-radius:20px;border:1px solid var(--accent-border);transition:all .15s}
+.back-link:hover{background:#cddde8;color:var(--accent-dark)}
+.top-link{font-size:12px;color:var(--accent);margin-bottom:20px;display:block;cursor:pointer}
 .top-link span{border-bottom:1px solid var(--accent-border)}
-.top-link:hover span{color:var(--accent-dark)}
 
 /* ── Section headers ── */
 .sec-title{
@@ -248,6 +245,7 @@ body{
 </header>
 
 <div class="wrap">
+<a class="back-link" href="hub.html">← 返回案件總覽</a>
 
 <!-- 建案 header -->
 <div class="case-header">
