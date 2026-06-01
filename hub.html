@@ -535,7 +535,7 @@ function renderGrid(list) {
   grid.innerHTML = list.map(p => {
     const cplClass = p.cpl < 400 ? 'cpl-good' : p.cpl > 500 ? 'cpl-warn' : '';
     return `
-    <a class="project-card" href="${p.file}" target="_blank">
+    <a class="project-card" href="${p.file}">
       <div class="card-head">
         <div class="card-icon" style="background:linear-gradient(135deg,${p.color},${darken(p.color)})">${p.icon}</div>
         <div class="card-meta">
