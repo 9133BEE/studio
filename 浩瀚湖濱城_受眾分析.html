@@ -138,6 +138,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .pack-tbl td:nth-child(2){color:#4a7a8a;font-style:italic}
 .pack-tbl td:nth-child(3){color:#2e2c29}
 .pack-tbl tr:nth-child(even) td{background:#fafafa}
+.pack-tbl tr.data-row{cursor:pointer;transition:background .12s}
+.pack-tbl tr.data-row:hover td{background:#e8f4f7 !important;color:#2f6672}
+.pack-tbl tr.data-row:hover td:nth-child(2){color:#2f6672}
 </style>
 </head>
 <body>
@@ -875,6 +878,21 @@ document.querySelectorAll('.new-card').forEach(el => {
     const title = el.querySelector('.new-card-title').textContent.replace('↗','').trim();
     const desc = el.querySelector('.new-card-desc').textContent.trim();
     copyPrompt(`針對${PROJECT}，我想測試新受眾方向：「${title}」\n方向說明：${desc}\n\n請給我：\n1. 具體的 META 興趣標籤清單（附中文，約 10–15 個）\n2. 地理設定建議\n3. 適合這組受眾的素材訴求角度`);
+  });
+});
+
+document.querySelectorAll('.pack-tbl tr').forEach(tr => {
+  const cells = tr.querySelectorAll('td');
+  if(cells.length < 2) return;
+  tr.classList.add('data-row');
+  tr.addEventListener('click', () => {
+    const eng = cells[1].textContent.trim();
+    navigator.clipboard.writeText(eng).then(() => showToast('📋 已複製：' + eng)).catch(() => {
+      const ta = document.createElement('textarea');
+      ta.value = eng; document.body.appendChild(ta); ta.select();
+      document.execCommand('copy'); document.body.removeChild(ta);
+      showToast('📋 已複製：' + eng);
+    });
   });
 });
 
