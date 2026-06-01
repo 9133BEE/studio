@@ -166,9 +166,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
     <p>進德路×樂業二路口 · LALAPORT對面 · 二/三/四房＋辦公室 · 廣告目標：名單</p>
   </div>
   <div class="case-stats">
-    <div class="stat"><div class="stat-n">168</div><div class="stat-l">總潛客</div></div>
-    <div class="stat"><div class="stat-n">NT$860</div><div class="stat-l">均CPL</div></div>
-    <div class="stat"><div class="stat-n">63+組</div><div class="stat-l">累積受眾</div></div>
+    <div class="stat"><div class="stat-n">181</div><div class="stat-l">總潛客</div></div>
+    <div class="stat"><div class="stat-n">NT$856</div><div class="stat-l">均CPL</div></div>
+    <div class="stat"><div class="stat-n">70+組</div><div class="stat-l">累積受眾</div></div>
   </div>
 </div>
 
@@ -222,7 +222,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
       <div class="tip-num c1">1</div>
       <div class="tip-body">
         <div class="tip-title">北屯在地換屋首購（CPL NT$423）是全案最低CPL，應立即加預算</div>
-        <div class="tip-desc">30-50/東區北屯大里/北屯在地換屋首購菁英，CPL NT$423 遠低於均值 NT$860，8 潛客。建議複製至「北區西屯大里+6km」擴大覆蓋，測試是否維持低CPL。</div>
+        <div class="tip-desc">30-50/東區北屯大里/北屯在地換屋首購菁英，CPL NT$423 遠低於均值 NT$856，8 潛客。建議複製至「北區西屯大里+6km」擴大覆蓋，測試是否維持低CPL。</div>
       </div>
     </div>
     <div class="tip">
@@ -389,7 +389,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 </div>
 
 <div class="section">
-  <div class="sec-title">成果前 10 名受眾（2026/02–05）</div>
+  <div class="sec-title">成果前 10 名受眾（2026/02–2026/06/01）</div>
   <div class="rk-row gold">
     <div class="rk-medal">🥇</div>
     <div class="rk-body">
@@ -687,13 +687,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 </table></div>
 </div>
 
-<div class="page-footer">資料期間：2026-02-23 至 2026-05-29 · 浩瀚湖濱城 台中東區 · 最後更新 2026-05-29</div>
+<div style="background:#e5f3f7;border:1px solid #87b5be;border-radius:10px;padding:12px 16px;margin-bottom:16px;font-size:12px;color:#1e4f5c">
+  <b>⚡ 新進亮點（2026/05/29 起測）：</b> 35-55/東區水湳/辦公室自用+SOHO 3 潛客・CPL <b style="color:#c05c00">NT$341</b>・花費 NT$1,022 ── 全案最低 CPL，商辦受眾潛力組，建議加碼觀察。
+</div>
+<div class="page-footer">資料期間：2026-02-23 至 2026-06-01 · 浩瀚湖濱城 台中東區 · 最後更新 2026-06-01</div>
 </div>
 
 <div id="toast" style="position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);background:#2e2c29;color:#fff;font-size:12.5px;padding:10px 20px;border-radius:24px;opacity:0;transition:all .25s;pointer-events:none;z-index:999;white-space:nowrap">📋 詢問建議已複製 → 貼至 Claude 對話</div>
 
 <script>
-const PROJECT = '浩瀚湖濱城（台中東區・LALAPORT對面・進德路×樂業二路口・168潛客・均CPL NT$860）';
+const PROJECT = '浩瀚湖濱城（台中東區・LALAPORT對面・進德路×樂業二路口・181潛客・均CPL NT$856）';
 function showToast(msg){const t=document.getElementById('toast');t.textContent=msg||'📋 詢問建議已複製 → 貼至 Claude 對話';t.style.opacity='1';t.style.transform='translateX(-50%) translateY(0)';setTimeout(()=>{t.style.opacity='0';t.style.transform='translateX(-50%) translateY(20px)'},2200)}
 function copyPrompt(text){navigator.clipboard.writeText(text).then(()=>showToast()).catch(()=>{const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast()})}
 document.querySelectorAll('.core-tag').forEach(el=>{el.addEventListener('click',()=>{const tag=el.textContent.replace('↗','').trim();copyPrompt(`針對${PROJECT}的 META 廣告投放，請深入分析「${tag}」這個興趣標籤：\n1. 這個標籤在本案受眾中代表什麼輪廓的人？\n2. 搭配哪些其他標籤組合效果最好？\n3. 素材訴求應該怎麼寫才能匹配這類受眾？`)})});
