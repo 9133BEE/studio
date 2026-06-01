@@ -228,13 +228,13 @@ body{
 .t-edu{background:#e0f7f4;color:#00695c;border:1px solid #7cd6cc}
 .t-ind{background:#eceff1;color:#37474f;border:1px solid #b0bec5}
 .t-sim{background:#fce4ec;color:#880e4f;border:1px solid #f48fb1}
-.rk-stats{display:flex;flex-direction:column;gap:0;flex-shrink:0;text-align:right;min-width:68px}
-.rk-result{font-size:22px;font-weight:900;color:#2e2c29;line-height:1}
-.rk-result-l{font-size:9px;color:#a8a199;font-weight:600;margin-bottom:6px}
-.rk-cpl{font-size:15px;font-weight:800;color:#c05c00;line-height:1}
-.rk-cpl-l{font-size:9px;color:#a8a199;font-weight:600;margin-bottom:4px}
-.rk-spend{font-size:12px;font-weight:700;color:#6d6560;line-height:1}
-.rk-spend-l{font-size:9px;color:#a8a199;font-weight:600}
+.rk-stats{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto auto;flex-shrink:0;min-width:210px;border-left:1px solid var(--bd);padding-left:14px;align-self:center}
+.rk-result{grid-area:1/1;font-size:24px;font-weight:900;color:var(--tx);line-height:1;text-align:center;padding:0 12px;font-variant-numeric:tabular-nums}
+.rk-result-l{grid-area:2/1;font-size:9px;color:var(--sub2);font-weight:600;text-align:center;padding:3px 12px 0;text-transform:uppercase;letter-spacing:.2px}
+.rk-cpl{grid-area:1/2;font-size:17px;font-weight:800;color:#c05c00;line-height:1;text-align:center;padding:0 12px;border-left:1px solid var(--bd);font-variant-numeric:tabular-nums}
+.rk-cpl-l{grid-area:2/2;font-size:9px;color:var(--sub2);font-weight:600;text-align:center;padding:3px 12px 0;border-left:1px solid var(--bd);text-transform:uppercase;letter-spacing:.2px}
+.rk-spend{grid-area:1/3;font-size:13px;font-weight:700;color:var(--sub);line-height:1;text-align:center;padding:0 12px;border-left:1px solid var(--bd);font-variant-numeric:tabular-nums}
+.rk-spend-l{grid-area:2/3;font-size:9px;color:var(--sub2);font-weight:600;text-align:center;padding:3px 12px 0;border-left:1px solid var(--bd);text-transform:uppercase;letter-spacing:.2px}
 </style>
 </head>
 <body>
@@ -507,7 +507,7 @@ body{
 
 <!-- 成果前 12 名受眾排行（全案累積） -->
 <div class="section">
-  <div class="sec-title">全案成果前 12 名受眾（2024/03–2026/05）</div>
+  <div class="sec-title">全案成果前 10 名受眾（2024/03–2026/05）</div>
 
   <div class="rk-row gold">
     <div class="rk-medal">🥇</div>
@@ -690,41 +690,6 @@ body{
       <div class="rk-spend">$7,233</div><div class="rk-spend-l">花費</div>
     </div>
   </div>
-
-  <div class="rk-row">
-    <div class="rk-rank">11</div>
-    <div class="rk-body">
-      <div class="rk-name">澄石+藏富+北屯高總 1%（0326二調）</div>
-      <div class="rk-loc">澄石重劃區 · 藏富 · 北屯高總</div>
-      <div class="rk-tags">
-        <span class="rk-tag t-sim">1%類似受眾</span>
-        <span class="rk-tag t-fin">投資置產</span>
-        <span class="rk-tag t-lux">高資產</span>
-      </div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-result">25</div><div class="rk-result-l">成果</div>
-      <div class="rk-cpl">$260</div><div class="rk-cpl-l">CPL</div>
-      <div class="rk-spend">$6,500</div><div class="rk-spend-l">花費</div>
-    </div>
-  </div>
-
-  <div class="rk-row">
-    <div class="rk-rank">12</div>
-    <div class="rk-body">
-      <div class="rk-name">202505 景立方 高校速成 台中大範圍</div>
-      <div class="rk-loc">台中大範圍</div>
-      <div class="rk-tags">
-        <span class="rk-tag t-prop">房地產</span>
-        <span class="rk-tag t-ind">台中各區</span>
-        <span class="rk-tag t-fin">投資興趣</span>
-      </div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-result">24</div><div class="rk-result-l">成果</div>
-      <div class="rk-cpl">$281</div><div class="rk-cpl-l">CPL</div>
-      <div class="rk-spend">$6,753</div><div class="rk-spend-l">花費</div>
-    </div>
   </div>
 
 </div>
