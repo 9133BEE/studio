@@ -11,10 +11,7 @@
   --teal:#2a7a8a;--teal-dark:#1a5a6a;--teal-light:#e0f0f4;--teal-border:#7abfcc;
   --bg:#f5f4f1;--s:#ffffff;--bd:#e4e1dd;--tx:#2e2c29;--sub:#7d7870;--sub2:#a8a199;
   --good:#1e6e3f;--goodl:#e6f4ea;--warn:#c05c00;
-  --radius:12px;
-  --shadow-xs:0 1px 3px rgba(0,0,0,.05);
-  --shadow-sm:0 2px 8px rgba(0,0,0,.07);
-  --shadow-card:0 2px 10px rgba(0,0,0,.06),0 1px 3px rgba(0,0,0,.04);
+  --radius:12px;--shadow-xs:0 1px 3px rgba(0,0,0,.05);--shadow-sm:0 2px 8px rgba(0,0,0,.07);--shadow-card:0 2px 10px rgba(0,0,0,.06),0 1px 3px rgba(0,0,0,.04);
 }
 body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft JhengHei','Segoe UI',sans-serif;background:var(--bg);color:var(--tx);font-size:14px;line-height:1.6;min-height:100vh}
 .page-header{background:linear-gradient(180deg,#1a1018 0%,#160d14 100%);padding:0 40px;height:56px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.04),0 4px 20px rgba(0,0,0,.35);border-bottom:1px solid rgba(255,255,255,.06)}
@@ -25,7 +22,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .ph-nav a{font-size:12px;color:#9d8aae;text-decoration:none;padding:5px 13px;border-radius:6px;border:1px solid rgba(122,90,138,.25);background:rgba(122,90,138,.12);font-weight:500}
 .ph-nav a:hover{background:rgba(122,90,138,.22);color:#c8a0e0}
 .wrap{max-width:1200px;margin:0 auto;padding:32px 40px 48px}
-/* Case header */
 .case-header{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:20px 24px;margin-bottom:10px;display:flex;align-items:center;gap:18px;box-shadow:var(--shadow-card)}
 .case-logo{width:44px;height:44px;background:linear-gradient(135deg,var(--accent),var(--accent-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;flex-shrink:0}
 .case-info h2{font-size:17px;font-weight:700;color:var(--tx);letter-spacing:-.3px}
@@ -34,16 +30,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .stat{text-align:right}
 .stat-n{font-size:24px;font-weight:800;color:var(--accent);line-height:1;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
 .stat-l{font-size:10px;color:var(--sub2);margin-top:3px;font-weight:600;letter-spacing:.3px;text-transform:uppercase}
-.top-link{font-size:12px;color:var(--accent);margin-bottom:24px;display:inline-block;cursor:pointer;text-decoration:none;font-weight:500}
+.top-link{font-size:12px;color:var(--accent);margin-bottom:24px;display:inline-block;text-decoration:none;font-weight:500}
 .top-link span{border-bottom:1px solid var(--accent-border)}
-/* Section title */
 .sec-title{font-size:12px;font-weight:700;color:var(--sub);margin-bottom:14px;display:flex;align-items:center;gap:10px;letter-spacing:.4px;text-transform:uppercase}
 .sec-title::before{content:'';display:inline-block;width:3px;height:14px;background:var(--accent);border-radius:2px;flex-shrink:0}
 .sec-title::after{content:'';flex:1;height:1px;background:var(--bd)}
 .sec-title.teal-bar::before{background:var(--teal)}
 .section{margin-bottom:28px}
-/* 粉專 banner */
-.page-banner{border-radius:var(--radius);padding:18px 24px;margin-bottom:20px;display:flex;align-items:center;gap:20px;box-shadow:var(--shadow-card)}
+.creative-section{margin-bottom:32px}
+/* ── 粉專 banner ── */
+.page-banner{border-radius:var(--radius);padding:18px 24px;margin-bottom:22px;display:flex;align-items:center;gap:20px;box-shadow:var(--shadow-card)}
 .page-banner.main{background:linear-gradient(135deg,var(--accent-dark),var(--accent));color:#fff}
 .page-banner.alt{background:linear-gradient(135deg,var(--teal-dark),var(--teal));color:#fff}
 .banner-icon{width:40px;height:40px;background:rgba(255,255,255,.2);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;flex-shrink:0}
@@ -53,41 +49,56 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .bs{text-align:right}
 .bs-n{font-size:22px;font-weight:800;color:#fff;line-height:1;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
 .bs-l{font-size:10px;color:rgba(255,255,255,.7);margin-top:3px;font-weight:600;letter-spacing:.3px;text-transform:uppercase}
-/* Section divider */
-.section-divider{height:2px;background:linear-gradient(90deg,transparent,var(--bd),transparent);margin:32px 0}
-/* Ranking rows */
-.rk-row{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:14px 18px;margin-bottom:8px;display:flex;gap:14px;align-items:center;box-shadow:var(--shadow-xs);transition:box-shadow .15s}
-.rk-row:hover{box-shadow:var(--shadow-sm)}
-.rk-row.gold{border-color:#d4b06a;background:#fdfaf2}
-.rk-row.silver{border-color:#b8c0cc;background:#f9f9fb}
-.rk-row.bronze{border-color:#c4a87a;background:#fdf7f0}
-.rk-medal{width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
-.rk-rank{width:32px;height:32px;border-radius:50%;background:#f0edf5;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#8a7a96;flex-shrink:0}
-.rk-rank.teal-rank{background:#e0f0f4;color:#2a7a8a}
-.rk-body{flex:1;min-width:0}
-.rk-name{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:4px;line-height:1.35}
-.rk-loc{font-size:11px;color:var(--sub2);line-height:1.4;margin-bottom:7px}
-.rk-tags{display:flex;flex-wrap:wrap;gap:4px}
-.rk-tag{font-size:10px;font-weight:600;padding:2px 8px;border-radius:8px;line-height:1.5}
-.t-biz{background:#fff3e0;color:#bf5600;border:1px solid #ffd0a0}
-.t-fin{background:#e8f0fe;color:#1a56b0;border:1px solid #93b4e8}
-.t-prop{background:#e6f4ea;color:#1e6e3f;border:1px solid #8ecba3}
-.t-lux{background:#f0e8f8;color:#6620a0;border:1px solid #c8a0e0}
-.t-beh{background:#fffde7;color:#c57a00;border:1px solid #ffe082}
-.t-edu{background:#e0f7f4;color:#00695c;border:1px solid #7cd6cc}
-.t-ind{background:#eceff1;color:#37474f;border:1px solid #b0bec5}
-.t-sim{background:#fce4ec;color:#880e4f;border:1px solid #f48fb1}
-.t-teal{background:var(--teal-light);color:var(--teal-dark);border:1px solid var(--teal-border)}
-.rk-stats{display:flex;gap:24px;flex-shrink:0;align-items:center}
-.rk-stat-block{text-align:right}
-.rk-result{font-size:28px;font-weight:900;color:var(--tx);line-height:1;letter-spacing:-1px;font-variant-numeric:tabular-nums}
-.rk-result-l{font-size:10px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.2px;margin-top:2px}
-.rk-cpl{font-size:18px;font-weight:800;color:var(--warn);line-height:1;font-variant-numeric:tabular-nums}
-.rk-cpl.good-cpl{color:var(--good)}
-.rk-cpl-l{font-size:10px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.2px;margin-top:2px}
-.rk-spend{font-size:13px;font-weight:700;color:#6d6560;line-height:1;font-variant-numeric:tabular-nums}
-.rk-spend-l{font-size:10px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.2px;margin-top:2px}
-/* Creative grid */
+.section-divider{height:2px;background:linear-gradient(90deg,transparent,var(--bd),transparent);margin:36px 0}
+/* ── Profiles ── */
+.profiles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.profile-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow-xs);transition:box-shadow .2s,transform .2s}
+.profile-card:hover{box-shadow:var(--shadow-sm);transform:translateY(-2px)}
+.profile-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:17px;margin-bottom:12px}
+.profile-icon.purple{background:var(--accent-light)}
+.profile-icon.teal{background:#e0eff2}
+.profile-icon.amber{background:#fdf0dc}
+.profile-icon.teal2{background:var(--teal-light)}
+.profile-name{font-size:15px;font-weight:700;color:var(--tx);margin-bottom:4px}
+.profile-meta{font-size:12px;color:var(--sub);margin-bottom:10px}
+.profile-tags{font-size:12px;color:#4a5568;margin-bottom:10px;line-height:1.6}
+.profile-behavior{font-size:12px;color:var(--sub);line-height:1.55;margin-bottom:12px}
+.profile-badge{display:inline-block;font-size:11px;font-weight:700;padding:4px 11px;border-radius:20px;margin-top:2px}
+.badge-purple{background:var(--accent-light);color:#5a3a7a;border:1px solid var(--accent-border)}
+.badge-teal{background:#e0eff2;color:#2f6672;border:1px solid #87b5be}
+.badge-amber{background:#fdf0dc;color:#7a5c20;border:1px solid #d4b06a}
+.badge-teal2{background:var(--teal-light);color:var(--teal-dark);border:1px solid var(--teal-border)}
+/* ── Core tags ── */
+.tags-row{display:flex;flex-wrap:wrap;gap:8px}
+.core-tag{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;background:var(--s);border:1.5px solid var(--bd);border-radius:20px;font-size:13px;font-weight:600;color:var(--tx);cursor:pointer;transition:all .15s}
+.core-tag:hover{border-color:var(--accent-border);background:var(--accent-light);color:#5a3a7a}
+.core-tag.teal-tag:hover{border-color:var(--teal-border);background:var(--teal-light);color:var(--teal-dark)}
+.core-tag .arr{font-size:11px;color:var(--accent-border)}
+.core-tag.teal-tag .arr{color:var(--teal-border)}
+/* ── Tips ── */
+.tips{display:flex;flex-direction:column;gap:10px}
+.tip{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:16px 18px;display:flex;gap:16px;align-items:flex-start;cursor:pointer;transition:border-color .15s,box-shadow .15s;box-shadow:var(--shadow-xs)}
+.tip:hover{border-color:var(--accent-border);box-shadow:var(--shadow-sm)}
+.tip.teal-tip:hover{border-color:var(--teal-border)}
+.tip-num{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;flex-shrink:0;color:#fff}
+.c1{background:var(--accent)}.c2{background:#5a7aaa}.c3{background:#3a8a6a}.c4{background:#8a7a3a}.c5{background:#8a4a3a}
+.ct1{background:var(--teal)}.ct2{background:#3a8a7a}.ct3{background:#2a6a8a}.ct4{background:#4a7a5a}.ct5{background:#6a5a8a}
+.tip-body{flex:1}
+.tip-title{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:5px;line-height:1.4}
+.tip-desc{font-size:12px;color:var(--sub);line-height:1.65}
+/* ── Creative timeline ── */
+.creative-timeline{display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
+.phase-row{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:14px 18px;display:flex;gap:14px;align-items:center;cursor:pointer;transition:box-shadow .15s;box-shadow:var(--shadow-xs)}
+.phase-row:hover{box-shadow:var(--shadow-sm)}
+.phase-label{width:52px;flex-shrink:0;font-size:11px;font-weight:800;text-align:center;padding:6px 4px;border-radius:8px;background:#f0edf5;color:#7a5a8a;letter-spacing:-.2px;line-height:1.3}
+.phase-body{flex:1;min-width:0}
+.phase-title{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:4px}
+.phase-desc{font-size:12px;color:var(--sub);line-height:1.6}
+.phase-stat{text-align:right;flex-shrink:0;min-width:80px}
+.phase-cpl{font-size:16px;font-weight:800;color:var(--accent);line-height:1;font-variant-numeric:tabular-nums}
+.phase-cpl.teal-cpl{color:var(--teal)}
+.phase-cpl-l{font-size:10px;color:var(--sub2);margin-top:3px;font-weight:600}
+/* ── Creative grid ── */
 .creative-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
 .creative-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow-xs);cursor:pointer;transition:box-shadow .15s,transform .15s}
 .creative-card:hover{box-shadow:var(--shadow-sm);transform:translateY(-2px)}
@@ -102,29 +113,55 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .cb-retired{background:#f0f0f0;color:#888;border:1px solid #ccc}
 .creative-stats{font-size:12px;color:var(--sub);line-height:1.75}
 .creative-stats b{color:var(--tx)}
-/* Insight box */
+/* ── Insight box ── */
 .insight-box{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow-xs)}
 .insight-box.teal-insight{border-color:var(--teal-border);background:#f8fdfe}
 .insight-title{font-size:14px;font-weight:700;color:var(--tx);margin-bottom:14px}
-.insight-highlight{background:#f2ecf8;border-left:3px solid var(--accent);padding:12px 16px;border-radius:0 8px 8px 0;margin-bottom:12px;font-size:13px;color:#4a2a6a;font-weight:600;line-height:1.65}
+.insight-highlight{background:#f2ecf8;border-left:3px solid var(--accent);padding:12px 16px;border-radius:0 8px 8px 0;margin-bottom:16px;font-size:13px;color:#4a2a6a;font-weight:600;line-height:1.65}
 .insight-highlight.teal-hl{background:#e8f6f8;border-left-color:var(--teal);color:#1a4a52}
+.insight-sub{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:10px;margin-top:14px}
 .insight-list{list-style:none;display:flex;flex-direction:column;gap:7px}
 .insight-list li{font-size:13px;color:#4a5568;padding-left:18px;position:relative;line-height:1.6}
 .insight-list li::before{content:'→';position:absolute;left:0;color:var(--accent-border);font-size:12px;top:1px}
 .insight-list.teal-list li::before{color:var(--teal-border)}
-/* Creative table */
-.crt-table{width:100%;border-collapse:collapse;font-size:12px;margin-bottom:16px}
-.crt-table th{background:#f5f3f0;text-align:left;padding:8px 12px;font-weight:700;color:var(--sub);font-size:11px;letter-spacing:.3px;text-transform:uppercase;border-bottom:2px solid var(--bd)}
-.crt-table td{padding:9px 12px;border-bottom:1px solid var(--bd);vertical-align:middle}
-.crt-table tr:last-child td{border-bottom:none}
-.crt-table tr:hover td{background:#faf8fc}
-.crt-table tr.teal-row:hover td{background:#f0f8fc}
-.cpl-good{color:var(--good);font-weight:800}
-.cpl-ok{color:var(--warn);font-weight:700}
-.cpl-high{color:#b00000;font-weight:700}
-.cpl-na{color:var(--sub2)}
-.leads-big{font-size:16px;font-weight:900;color:var(--tx)}
-/* Footer */
+/* ── New directions ── */
+.new-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.new-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:16px 18px;cursor:pointer;transition:border-color .15s,box-shadow .15s;box-shadow:var(--shadow-xs)}
+.new-card:hover{border-color:var(--accent-border);box-shadow:var(--shadow-sm)}
+.new-card.teal-new:hover{border-color:var(--teal-border)}
+.new-card-title{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:5px;line-height:1.4}
+.new-card-desc{font-size:12px;color:var(--sub);line-height:1.6}
+/* ── Ranking ── */
+.rk-row{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:14px 18px;margin-bottom:8px;display:flex;gap:14px;align-items:center;box-shadow:var(--shadow-xs);transition:box-shadow .15s;cursor:pointer}
+.rk-row:hover{box-shadow:var(--shadow-sm)}
+.rk-row.gold{border-color:#d4b06a;background:#fdfaf2}
+.rk-row.silver{border-color:#b8c0cc;background:#f9f9fb}
+.rk-row.bronze{border-color:#c4a87a;background:#fdf7f0}
+.rk-medal{width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.rk-rank{width:32px;height:32px;border-radius:50%;background:#f0edf5;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#8a7a96;flex-shrink:0}
+.rk-rank.teal-rank{background:#e0f0f4;color:var(--teal)}
+.rk-body{flex:1;min-width:0}
+.rk-name{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:4px;line-height:1.35}
+.rk-loc{font-size:11px;color:var(--sub2);line-height:1.4;margin-bottom:7px}
+.rk-tags{display:flex;flex-wrap:wrap;gap:4px}
+.rk-tag{font-size:10px;font-weight:600;padding:2px 8px;border-radius:8px;line-height:1.5}
+.t-biz{background:#fff3e0;color:#bf5600;border:1px solid #ffd0a0}
+.t-fin{background:#e8f0fe;color:#1a56b0;border:1px solid #93b4e8}
+.t-prop{background:#e6f4ea;color:#1e6e3f;border:1px solid #8ecba3}
+.t-edu{background:#e0f7f4;color:#00695c;border:1px solid #7cd6cc}
+.t-ind{background:#eceff1;color:#37474f;border:1px solid #b0bec5}
+.t-sim{background:#fce4ec;color:#880e4f;border:1px solid #f48fb1}
+.t-beh{background:#fffde7;color:#c57a00;border:1px solid #ffe082}
+.t-teal{background:var(--teal-light);color:var(--teal-dark);border:1px solid var(--teal-border)}
+.rk-stats{display:flex;gap:24px;flex-shrink:0;align-items:center}
+.rk-stat-block{text-align:right}
+.rk-result{font-size:28px;font-weight:900;color:var(--tx);line-height:1;letter-spacing:-1px;font-variant-numeric:tabular-nums}
+.rk-result-l{font-size:10px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.2px;margin-top:2px}
+.rk-cpl{font-size:18px;font-weight:800;color:var(--warn);line-height:1;font-variant-numeric:tabular-nums}
+.rk-cpl.good-cpl{color:var(--good)}
+.rk-cpl-l{font-size:10px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.2px;margin-top:2px}
+.rk-spend{font-size:13px;font-weight:700;color:#6d6560;line-height:1;font-variant-numeric:tabular-nums}
+.rk-spend-l{font-size:10px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.2px;margin-top:2px}
 .page-footer{text-align:center;font-size:11px;color:var(--sub2);margin-top:12px;padding-bottom:8px}
 </style>
 </head>
@@ -134,9 +171,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   <div class="ph-logo">潮</div>
   <span class="ph-title">原潮APT｜受眾分析</span>
   <span class="ph-sub">· 台中北屯 · 雙粉專</span>
-  <nav class="ph-nav">
-    <a href="hub.html">← 返回總覽</a>
-  </nav>
+  <nav class="ph-nav"><a href="hub.html">← 返回總覽</a></nav>
 </header>
 
 <div class="wrap">
@@ -156,19 +191,254 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 
 <a class="top-link" href="hub.html"><span>← 返回報告集</span></a>
 
-<!-- ════════════════════════════════════════
-     區塊一：主粉專
-════════════════════════════════════════ -->
+<!-- ════════════════════════════════
+     主粉專
+════════════════════════════════ -->
 <div class="page-banner main">
   <div class="banner-icon">主</div>
   <div>
     <div class="banner-title">主粉專｜原潮APT FB</div>
-    <div class="banner-sub">2025/10/28 起 · 長期經營主帳號 · 193 個受眾組</div>
+    <div class="banner-sub">2025/10/28 起 · 長期主帳號 · 193 個受眾組</div>
   </div>
   <div class="banner-stats">
     <div class="bs"><div class="bs-n">396</div><div class="bs-l">潛在顧客</div></div>
     <div class="bs"><div class="bs-n">NT$1,149</div><div class="bs-l">均CPL</div></div>
     <div class="bs"><div class="bs-n">NT$455,158</div><div class="bs-l">總花費</div></div>
+  </div>
+</div>
+
+<!-- 主粉專 輪廓 -->
+<div class="section">
+  <div class="sec-title">三大核心受眾輪廓</div>
+  <div class="profiles">
+    <div class="profile-card">
+      <div class="profile-icon purple">🎯</div>
+      <div class="profile-name">再行銷精準型</div>
+      <div class="profile-meta">中彰投粉絲·互動受眾</div>
+      <div class="profile-tags">設定：中彰投粉絲行銷人再行銷，已互動/瀏覽未留名單</div>
+      <div class="profile-behavior">行為：已接觸品牌、有購屋意圖，只缺最後一推，轉換率遠高於冷受眾</div>
+      <span class="profile-badge badge-purple">CPL NT$560 · 80潛客 · 主粉專王牌</span>
+    </div>
+    <div class="profile-card">
+      <div class="profile-icon teal">💻</div>
+      <div class="profile-name">科技自營商型</div>
+      <div class="profile-meta">年齡 30–55｜中科水湳中清</div>
+      <div class="profile-tags">興趣：科技業、自營商、投資理財、3C電腦</div>
+      <div class="profile-behavior">行為：中科/水湳/中清科技走廊在地工作，收入穩定，對北屯居住環境高度熟悉</div>
+      <span class="profile-badge badge-teal">CPL NT$565 · 11潛客 · 主粉主力冷受眾</span>
+    </div>
+    <div class="profile-card">
+      <div class="profile-icon amber">🏡</div>
+      <div class="profile-name">子女/長輩置產型</div>
+      <div class="profile-meta">年齡 35–60｜潭子北屯太平</div>
+      <div class="profile-tags">興趣：子女置產、長輩置產、投資保值、家庭</div>
+      <div class="profile-behavior">行為：為子女或退休規劃的置產需求，看重學區（衛道）、北屯在地生活圈熟悉度高</div>
+      <span class="profile-badge badge-amber">子女置產 15潛客 · 長輩置產 8潛客</span>
+    </div>
+  </div>
+</div>
+
+<!-- 主粉專 核心標籤 -->
+<div class="section">
+  <div class="sec-title">跨受眾必保留的核心標籤</div>
+  <div class="tags-row">
+    <span class="core-tag">房地產（產業）<span class="arr">↗</span></span>
+    <span class="core-tag">投資（商業與財務）<span class="arr">↗</span></span>
+    <span class="core-tag">自營業者（商業）<span class="arr">↗</span></span>
+    <span class="core-tag">科技業（產業）<span class="arr">↗</span></span>
+    <span class="core-tag">置產（房地產）<span class="arr">↗</span></span>
+    <span class="core-tag">理財規劃（財務）<span class="arr">↗</span></span>
+    <span class="core-tag">子女置產（家庭）<span class="arr">↗</span></span>
+  </div>
+</div>
+
+<!-- 主粉專 操作建議 -->
+<div class="section">
+  <div class="sec-title">五大操作建議</div>
+  <div class="tips">
+    <div class="tip">
+      <div class="tip-num c1">1</div>
+      <div class="tip-body">
+        <div class="tip-title">再行銷 CPL NT$560 / 80潛客，每2週換素材維持新鮮感</div>
+        <div class="tip-desc">中彰投再行銷是整案最強組。目前已調整至1510粉專素材加持，建議每2週換一批素材（旗艦公設第二版為現役最強），維持頻率避免廣告疲乏。同時擴充粉絲池，加入近期互動影片觀看者。</div>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-num c2">2</div>
+      <div class="tip-body">
+        <div class="tip-title">EP02 是主力但CPL $984偏高，應降頻並換新剪輯版本</div>
+        <div class="tip-desc">1028_EP02 全案貢獻 139 潛客，但 CPL NT$984、花費超 $136K，頻率已上升。建議降低 EP02 原版比重，改以 EP03片段1（CPL $1,338 但效率更佳）為輔，同時製作 EP02 30秒剪輯版本降低 CPL。</div>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-num c3">3</div>
+      <div class="tip-body">
+        <div class="tip-title">科技自營商 CPL NT$565 / 11潛客，複製擴大至 COSTCO+8km</div>
+        <div class="tip-desc">主粉專科技自營商 CPL $565 是冷受眾最佳。建議從「中科水湳中清」擴展到「COSTCO好市多+8km」，覆蓋更多科技業族群；同時複製到「逢甲+10km」測試科技廊道延伸效果。</div>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-num c4">4</div>
+      <div class="tip-body">
+        <div class="tip-title">子女置產 15潛客最穩定，換素材「衛道學區」角度重啟</div>
+        <div class="tip-desc">35-60/潭子北屯太平/子女置產花費 NT$13,000 共 15 潛客，但 CPL $867 偏高。建議更換素材角度為「衛道名校旁，為孩子留一棟，出租自住兩相宜」，搭配學區地圖視覺，降低 CPL 至 NT$650 以下。</div>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-num c5">5</div>
+      <div class="tip-body">
+        <div class="tip-title">千坪綠覆系列全面停止，資源移至 EP03片段格式</div>
+        <div class="tip-desc">1222_千坪綠覆 V2 CPL NT$3,344、原版 NT$3,688，是全案 CPL 最高素材，視覺訴求與購屋動機脫節。建議立即停止所有千坪綠覆組，預算轉移至 EP03片段1（CPL $1,338）和 EP02片段格式測試。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 主粉專 素材迭代 -->
+<div class="creative-section">
+  <div class="sec-title">素材迭代分析</div>
+  <div class="creative-timeline">
+    <div class="phase-row">
+      <div class="phase-label">Ph.1<br>10/28</div>
+      <div class="phase-body">
+        <div class="phase-title">EP02 / EP03 故事型影片（長篇主力素材）</div>
+        <div class="phase-desc">長篇敘事影片建立品牌認知。EP02 長期主力累計 139 潛客；EP03 38 潛客。兩支影片撐起早期大量曝光。</div>
+      </div>
+      <div class="phase-stat"><div class="phase-cpl">177 潛客</div><div class="phase-cpl-l">均CPL NT$984~1,584</div></div>
+    </div>
+    <div class="phase-row">
+      <div class="phase-label">Ph.2<br>11~12月</div>
+      <div class="phase-body">
+        <div class="phase-title">1114_生活有品味 / 1028_不出門（情感型素材）</div>
+        <div class="phase-desc">強調居住情感價值，吸引換屋族共鳴。生活有品味 11 潛客 CPL $1,232，不出門 3 潛客 CPL $1,105，皆作為輔助素材。</div>
+      </div>
+      <div class="phase-stat"><div class="phase-cpl">14 潛客</div><div class="phase-cpl-l">均CPL NT$1,105~1,232</div></div>
+    </div>
+    <div class="phase-row">
+      <div class="phase-label">Ph.3<br>12月~1月</div>
+      <div class="phase-body">
+        <div class="phase-title">1222_千坪綠覆（景觀型素材）❌</div>
+        <div class="phase-desc">以千坪綠覆景觀為訴求，兩版本共 10 潛客但 CPL NT$3,344~3,688 全案最高。視覺美麗但未能驅動轉換，已確認無效。</div>
+      </div>
+      <div class="phase-stat"><div class="phase-cpl">10 潛客</div><div class="phase-cpl-l">⚠️ CPL NT$3,344+</div></div>
+    </div>
+    <div class="phase-row">
+      <div class="phase-label">Ph.4<br>1月~2月</div>
+      <div class="phase-body">
+        <div class="phase-title">0121_簡短版介紹 / EP03 V2（高點擊短版）</div>
+        <div class="phase-desc">縮短影片長度、提升點閱率。簡短版 19 潛客 CPL $1,644，EP03 V2 23 潛客 CPL $1,452，效率高於原版但仍偏貴。</div>
+      </div>
+      <div class="phase-stat"><div class="phase-cpl">42 潛客</div><div class="phase-cpl-l">均CPL NT$1,452~1,644</div></div>
+    </div>
+    <div class="phase-row">
+      <div class="phase-label">Ph.5<br>3月~4月</div>
+      <div class="phase-body">
+        <div class="phase-title">EP03片段1 / EP02片段2 / 0320_EP02片段2（剪輯再利用）</div>
+        <div class="phase-desc">將舊影片剪成短片段再投放。EP03片段1 19 潛客 CPL $1,338，EP02片段2 11 潛客 CPL $1,189，片段化策略效率明顯高於原版。</div>
+      </div>
+      <div class="phase-stat"><div class="phase-cpl">30 潛客</div><div class="phase-cpl-l">均CPL NT$1,189~1,338</div></div>
+    </div>
+    <div class="phase-row" style="border-color:var(--accent-border);background:#faf8fc">
+      <div class="phase-label" style="background:var(--accent-light);color:#5a3a7a">⚡ 現役</div>
+      <div class="phase-body">
+        <div class="phase-title">0416_旗艦公設第二版（✅ 1510爆發，主粉協測中）</div>
+        <div class="phase-desc">直接展示游泳池、健身房、KTV等公設。在1510粉專中 CPL NT$553、55潛客；主粉協測 5 潛客、CPL $1,164，確認公設展示型素材為正確方向。</div>
+      </div>
+      <div class="phase-stat"><div class="phase-cpl">60 潛客</div><div class="phase-cpl-l">⚡ 最低 CPL $553</div></div>
+    </div>
+  </div>
+
+  <div class="creative-grid">
+    <div class="creative-card best">
+      <div class="creative-name">1028 EP02（影片）</div>
+      <div><span class="creative-badge cb-top">🏆 全案主力</span></div>
+      <div class="creative-stats">
+        <b>累積</b> 139 潛客 · CPL NT$984<br>
+        <b>特點</b>：長篇故事型，品牌認知強，但頻率已高<br>
+        <b>建議</b>：降頻，製作30秒剪輯版降低CPL
+      </div>
+    </div>
+    <div class="creative-card best">
+      <div class="creative-name">EP03片段1 / EP02片段2</div>
+      <div><span class="creative-badge cb-active">✅ 效率最佳</span></div>
+      <div class="creative-stats">
+        <b>合計</b> 30 潛客 · CPL NT$1,189~1,338<br>
+        <b>特點</b>：片段剪輯效率高於原版，頻率低，CTR穩定<br>
+        <b>建議</b>：持續投放，增加新片段版本
+      </div>
+    </div>
+    <div class="creative-card best">
+      <div class="creative-name">0121 簡短版介紹 / EP03 V2</div>
+      <div><span class="creative-badge cb-active">✅ 長期有效</span></div>
+      <div class="creative-stats">
+        <b>合計</b> 42 潛客 · CPL NT$1,452~1,644<br>
+        <b>特點</b>：短版精準傳遞核心賣點，搭配再行銷效果更佳<br>
+        <b>建議</b>：維持投放，配合再行銷受眾
+      </div>
+    </div>
+    <div class="creative-card">
+      <div class="creative-name">1114 生活有品味 / 1028 不出門</div>
+      <div><span class="creative-badge cb-active">📦 輔助</span></div>
+      <div class="creative-stats">
+        <b>合計</b> 14 潛客 · CPL NT$1,105~1,232<br>
+        <b>特點</b>：情感型訴求，換屋族共鳴，花費控制良好<br>
+        <b>建議</b>：維持小量輔助，換屋族受眾組使用
+      </div>
+    </div>
+    <div class="creative-card">
+      <div class="creative-name">0416 旗艦公設第二版（主粉協測）</div>
+      <div><span class="creative-badge cb-new">🆕 跨粉測試</span></div>
+      <div class="creative-stats">
+        <b>主粉</b> 5 潛客 · CPL NT$1,164<br>
+        <b>特點</b>：1510主力，主粉協測CPL尚可，仍不如1510<br>
+        <b>建議</b>：維持協測，不需在主粉專大量加碼
+      </div>
+    </div>
+    <div class="creative-card" style="background:#f9f9f9">
+      <div class="creative-name">1222 千坪綠覆 V1 / V2</div>
+      <div><span class="creative-badge cb-retired">❌ 全面停止</span></div>
+      <div class="creative-stats">
+        <b>CPL</b> NT$3,344~3,688 · 全案最高<br>
+        <b>問題</b>：景觀美麗但未驅動轉換，視覺與需求脫節<br>
+        <b>建議</b>：立即停止所有版本，預算移轉至片段素材
+      </div>
+    </div>
+  </div>
+
+  <div class="insight-box">
+    <div class="insight-title">主粉專素材策略洞見</div>
+    <div class="insight-highlight">
+      片段化剪輯 &gt; 長版原片 &gt; 千坪綠覆：EP03片段1（CPL $1,338）比EP03原版（$1,584）效率高 15%，比千坪綠覆（$3,344）效率高 150%。舊素材剪短再利用是現階段最高效的素材升級策略。
+    </div>
+    <div class="insight-sub">後續素材建議：</div>
+    <ul class="insight-list">
+      <li>製作 EP02 30秒剪輯版本，目標 CPL NT$700 以下</li>
+      <li>模仿1510「旗艦公設」策略，拍攝主粉專專屬公設特寫版（健身房30秒、車位30秒）</li>
+      <li>再行銷組換上「預約私享賞宅」強 CTA 素材，二次轉換已互動受眾</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 主粉專 新受眾方向 -->
+<div class="section">
+  <div class="sec-title">建議新測試受眾方向</div>
+  <div class="new-grid">
+    <div class="new-card">
+      <div class="new-card-title">30–55 / COSTCO好市多+8 / 科技自營商B ↗</div>
+      <div class="new-card-desc">延伸科技自營商 CPL NT$565 成功方向，從中科改 COSTCO 地標，測試好市多消費力受眾是否對 APT 有類似響應</div>
+    </div>
+    <div class="new-card">
+      <div class="new-card-title">35-60 / 潭子北屯 / 子女置產+學區 ↗</div>
+      <div class="new-card-desc">從「子女置產 15潛客」延伸，加入衛道名校地標（+5km），搭配學區訴求素材，目標 CPL 降至 NT$700 以下</div>
+    </div>
+    <div class="new-card">
+      <div class="new-card-title">再行銷 / 旗艦公設影片觀看者 ↗</div>
+      <div class="new-card-desc">以「看過公設影片但未留名單」建立再行銷受眾，搭配「預約私享賞宅」強 CTA 素材，二次轉換高意向族群</div>
+    </div>
+    <div class="new-card">
+      <div class="new-card-title">30-50 / 大台中 / 金融投資+房地產 ↗</div>
+      <div class="new-card-desc">大台中金融投資組 CPL NT$645 / 7潛客，效率不差，建議擴大地理範圍並加入「房地產」興趣標籤強化轉換</div>
+    </div>
   </div>
 </div>
 
@@ -181,11 +451,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
     <div class="rk-body">
       <div class="rk-name">中彰投再行銷 / 原潮APT（0520調粉專）</div>
       <div class="rk-loc">中彰投已互動粉絲再行銷受眾</div>
-      <div class="rk-tags">
-        <span class="rk-tag t-sim">再行銷</span>
-        <span class="rk-tag t-prop">互動受眾</span>
-        <span class="rk-tag t-prop">房地產</span>
-      </div>
+      <div class="rk-tags"><span class="rk-tag t-sim">再行銷</span><span class="rk-tag t-prop">互動受眾</span><span class="rk-tag t-prop">房地產</span></div>
     </div>
     <div class="rk-stats">
       <div class="rk-stat-block"><div class="rk-result">80</div><div class="rk-result-l">成果</div></div>
@@ -199,11 +465,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
     <div class="rk-body">
       <div class="rk-name">35-60 / 潭子北屯太平 / 子女置產（1126調區域）</div>
       <div class="rk-loc">潭子 + 北屯 + 太平 各+3km</div>
-      <div class="rk-tags">
-        <span class="rk-tag t-edu">子女置產</span>
-        <span class="rk-tag t-prop">房地產投資</span>
-        <span class="rk-tag t-fin">投資理財</span>
-      </div>
+      <div class="rk-tags"><span class="rk-tag t-edu">子女置產</span><span class="rk-tag t-prop">房地產投資</span><span class="rk-tag t-fin">投資理財</span></div>
     </div>
     <div class="rk-stats">
       <div class="rk-stat-block"><div class="rk-result">15</div><div class="rk-result-l">成果</div></div>
@@ -217,11 +479,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
     <div class="rk-body">
       <div class="rk-name">27-45 / 東區北區洲際 / 小家庭自營商</div>
       <div class="rk-loc">東區 +4km · 北區 +4km · 洲際棒球場 +3km</div>
-      <div class="rk-tags">
-        <span class="rk-tag t-edu">小家庭</span>
-        <span class="rk-tag t-biz">自營商</span>
-        <span class="rk-tag t-prop">購屋置產</span>
-      </div>
+      <div class="rk-tags"><span class="rk-tag t-edu">小家庭</span><span class="rk-tag t-biz">自營商</span><span class="rk-tag t-prop">購屋置產</span></div>
     </div>
     <div class="rk-stats">
       <div class="rk-stat-block"><div class="rk-result">14</div><div class="rk-result-l">成果</div></div>
@@ -303,20 +561,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   <div class="rk-row">
     <div class="rk-rank">9</div>
     <div class="rk-body">
-      <div class="rk-name">30-50 / 大台中 / 金融投資</div>
-      <div class="rk-loc">大台中地區廣域</div>
-      <div class="rk-tags"><span class="rk-tag t-fin">金融投資</span><span class="rk-tag t-fin">股票</span><span class="rk-tag t-prop">房地產</span></div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-stat-block"><div class="rk-result">7</div><div class="rk-result-l">成果</div></div>
-      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$645</div><div class="rk-cpl-l">CPL</div></div>
-      <div class="rk-stat-block"><div class="rk-spend">$4,517</div><div class="rk-spend-l">花費</div></div>
-    </div>
-  </div>
-
-  <div class="rk-row">
-    <div class="rk-rank">10</div>
-    <div class="rk-body">
       <div class="rk-name">35-60 / 豐原潭子靜宜 / 長輩置產（1121+運動休閒/排除IG）</div>
       <div class="rk-loc">豐原 + 潭子 + 靜宜大學 各+3km</div>
       <div class="rk-tags"><span class="rk-tag t-edu">長輩置產</span><span class="rk-tag t-prop">房地產</span><span class="rk-tag t-beh">運動休閒</span></div>
@@ -327,132 +571,229 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
       <div class="rk-stat-block"><div class="rk-spend">$7,088</div><div class="rk-spend-l">花費</div></div>
     </div>
   </div>
-</div>
 
-<!-- 主粉專 素材績效 -->
-<div class="section">
-  <div class="sec-title">主粉專素材績效（2025/11–2026/06）</div>
-  <table class="crt-table">
-    <thead>
-      <tr><th>素材名稱</th><th>潛客</th><th>CPL</th><th>總花費</th><th>狀態</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>1028_EP02（影片）</strong></td>
-        <td><span class="leads-big">139</span></td>
-        <td><span class="cpl-ok">$984</span></td>
-        <td>$136,715</td>
-        <td>🏆 全案主力</td>
-      </tr>
-      <tr>
-        <td>1028_EP03（影片）</td>
-        <td><strong>38</strong></td>
-        <td><span class="cpl-high">$1,584</span></td>
-        <td>$60,174</td>
-        <td>📦 輔助中</td>
-      </tr>
-      <tr>
-        <td>1028_EP03（影片）V2</td>
-        <td><strong>23</strong></td>
-        <td><span class="cpl-high">$1,452</span></td>
-        <td>$33,386</td>
-        <td>✅ 有效</td>
-      </tr>
-      <tr>
-        <td>0121_簡短版介紹（影片）</td>
-        <td><strong>19</strong></td>
-        <td><span class="cpl-high">$1,644</span></td>
-        <td>$31,232</td>
-        <td>✅ 有效</td>
-      </tr>
-      <tr>
-        <td>1028_EP03片段1（影片）</td>
-        <td><strong>19</strong></td>
-        <td><span class="cpl-ok">$1,338</span></td>
-        <td>$25,425</td>
-        <td>✅ 有效</td>
-      </tr>
-      <tr>
-        <td>1114_生活有品味（影片）</td>
-        <td><strong>11</strong></td>
-        <td><span class="cpl-ok">$1,232</span></td>
-        <td>$13,549</td>
-        <td>📦 輔助</td>
-      </tr>
-      <tr>
-        <td>0320_EP02片段2（影片）</td>
-        <td><strong>11</strong></td>
-        <td><span class="cpl-ok">$1,189</span></td>
-        <td>$13,079</td>
-        <td>✅ 有效</td>
-      </tr>
-      <tr>
-        <td>0416_旗艦公設第二版（影片）</td>
-        <td><strong>5</strong></td>
-        <td><span class="cpl-ok">$1,164</span></td>
-        <td>$5,818</td>
-        <td>🆕 跨粉測試</td>
-      </tr>
-      <tr>
-        <td>1028_不出門（影片）</td>
-        <td><strong>3</strong></td>
-        <td><span class="cpl-ok">$1,105</span></td>
-        <td>$3,314</td>
-        <td>📦 輔助</td>
-      </tr>
-      <tr>
-        <td>1222_千坪綠覆（影片）V2</td>
-        <td><strong>8</strong></td>
-        <td><span class="cpl-high">$3,344</span></td>
-        <td>$26,750</td>
-        <td>❌ CPL 過高</td>
-      </tr>
-      <tr>
-        <td>1222_千坪綠覆（影片）</td>
-        <td><strong>2</strong></td>
-        <td><span class="cpl-high">$3,688</span></td>
-        <td>$7,377</td>
-        <td>❌ CPL 過高</td>
-      </tr>
-      <tr>
-        <td>0402_旗艦公設（影片）</td>
-        <td><strong>1</strong></td>
-        <td><span class="cpl-high">$4,906</span></td>
-        <td>$4,906</td>
-        <td>❌ 效益低</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <div class="insight-box">
-    <div class="insight-title">主粉專素材策略洞見</div>
-    <div class="insight-highlight">
-      EP02（影片）是絕對主力 — 139 潛客、花費 $136,715，CPL NT$984，遠低於全案均值。長期運作有效，但需注意頻率上升的疲乏風險。
+  <div class="rk-row">
+    <div class="rk-rank">10</div>
+    <div class="rk-body">
+      <div class="rk-name">30-50 / 大台中 / 金融投資</div>
+      <div class="rk-loc">大台中地區廣域</div>
+      <div class="rk-tags"><span class="rk-tag t-fin">金融投資</span><span class="rk-tag t-fin">股票</span><span class="rk-tag t-prop">房地產</span></div>
     </div>
-    <ul class="insight-list">
-      <li>EP02 持續有效但 CPL 偏高區間（$984）— 建議每月換新版本維持新鮮感</li>
-      <li>EP03片段1（CPL $1,338）比 EP03 原版（$1,584）效率更佳 — 片段化剪輯策略有效</li>
-      <li>千坪綠覆系列 CPL $3,344~3,688 — 全面停止，視覺訴求與購屋動機脫節</li>
-      <li>旗艦公設第二版在主粉專投放 5 潛客、CPL $1,164 — 1510 表現更佳，不需在主粉專加碼</li>
-    </ul>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">7</div><div class="rk-result-l">成果</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$645</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$4,517</div><div class="rk-spend-l">花費</div></div>
+    </div>
   </div>
 </div>
 
-<!-- ════════════════════════════════════════
-     區塊二：1510 粉專
-════════════════════════════════════════ -->
+
+<!-- ════════════════════════════════
+     1510 粉專
+════════════════════════════════ -->
 <div class="section-divider"></div>
 
 <div class="page-banner alt">
   <div class="banner-icon">15</div>
   <div>
     <div class="banner-title">1510 粉專｜APT 主題式粉專</div>
-    <div class="banner-sub">2026/04/15 起 · 聚焦公設型投放 · 23 個受眾組</div>
+    <div class="banner-sub">2026/04/15 起 · 公設展示型策略 · 23 個受眾組</div>
   </div>
   <div class="banner-stats">
     <div class="bs"><div class="bs-n">60</div><div class="bs-l">潛在顧客</div></div>
     <div class="bs"><div class="bs-n">NT$676</div><div class="bs-l">均CPL</div></div>
     <div class="bs"><div class="bs-n">NT$40,583</div><div class="bs-l">總花費</div></div>
+  </div>
+</div>
+
+<!-- 1510 輪廓 -->
+<div class="section">
+  <div class="sec-title teal-bar">三大核心受眾輪廓</div>
+  <div class="profiles">
+    <div class="profile-card">
+      <div class="profile-icon teal2">💻</div>
+      <div class="profile-name">科技自營商型</div>
+      <div class="profile-meta">年齡 30–55｜中科水湳中清</div>
+      <div class="profile-tags">興趣：科技業、自營商、科技投資、3C電腦</div>
+      <div class="profile-behavior">行為：中科/水湳/中清科技走廊在地工作，對公設型住宅視覺訴求高響應，14潛客是1510最大量</div>
+      <span class="profile-badge badge-teal2">CPL NT$428 · 14潛客 · 1510第一名</span>
+    </div>
+    <div class="profile-card">
+      <div class="profile-icon amber">🌿</div>
+      <div class="profile-name">投資/半退休型</div>
+      <div class="profile-meta">年齡 30–55｜北屯十期+8km</div>
+      <div class="profile-tags">興趣：投資、置產、半退休生活、旅遊休閒</div>
+      <div class="profile-behavior">行為：資產累積中的北屯在地族群，對「下一棟」保值型置產和舒適生活升級有強需求，公設實景更能觸動</div>
+      <span class="profile-badge badge-amber">CPL NT$297 · 全案絕對最低 CPL</span>
+    </div>
+    <div class="profile-card">
+      <div class="profile-icon teal">🍜</div>
+      <div class="profile-name">在地餐飲服務業型</div>
+      <div class="profile-meta">年齡 30–55｜中科水湳中清</div>
+      <div class="profile-tags">興趣：在地餐飲、服務業、自雇業主</div>
+      <div class="profile-behavior">行為：在地做生意的餐飲/服務業老闆，對北屯商圈熟悉度高、有換屋需求，公設生活感訴求有共鳴</div>
+      <span class="profile-badge badge-teal">CPL NT$516 · 8潛客 · 穩定有效</span>
+    </div>
+  </div>
+</div>
+
+<!-- 1510 核心標籤 -->
+<div class="section">
+  <div class="sec-title teal-bar">跨受眾必保留的核心標籤</div>
+  <div class="tags-row">
+    <span class="core-tag teal-tag">科技業（產業）<span class="arr">↗</span></span>
+    <span class="core-tag teal-tag">自營業者（商業）<span class="arr">↗</span></span>
+    <span class="core-tag teal-tag">投資（商業與財務）<span class="arr">↗</span></span>
+    <span class="core-tag teal-tag">房地產（產業）<span class="arr">↗</span></span>
+    <span class="core-tag teal-tag">餐飲業（商業）<span class="arr">↗</span></span>
+    <span class="core-tag teal-tag">半退休生活（興趣）<span class="arr">↗</span></span>
+  </div>
+</div>
+
+<!-- 1510 操作建議 -->
+<div class="section">
+  <div class="sec-title teal-bar">五大操作建議</div>
+  <div class="tips">
+    <div class="tip teal-tip">
+      <div class="tip-num ct1">1</div>
+      <div class="tip-body">
+        <div class="tip-title">科技自營商 14潛客 / CPL NT$428，立即提高預算放大</div>
+        <div class="tip-desc">1510粉專科技自營商（中科水湳中清）是所有進行中受眾中最高效的組合。建議將日預算從 NT$250 提高至 NT$500–800，同時複製到「逢甲+8km」和「太原+8km」測試科技廊道延伸效果。</div>
+      </div>
+    </div>
+    <div class="tip teal-tip">
+      <div class="tip-num ct2">2</div>
+      <div class="tip-body">
+        <div class="tip-title">投資/半退休 CPL NT$297 全案最低，十期+8 是黃金受眾</div>
+        <div class="tip-desc">「(test)30-55/十期+8/投資/半退休/休閒」只花 NT$2,078 得 7 潛客，CPL NT$297 是雙粉專合計最低。建議擴大至「十期+12km」和「洲際+10km」，素材強打「住的規格要跟上，莊園宅×半退休生活」。</div>
+      </div>
+    </div>
+    <div class="tip teal-tip">
+      <div class="tip-num ct3">3</div>
+      <div class="tip-body">
+        <div class="tip-title">旗艦公設第二版繼續作為1510核心，新增單一公設切角版本</div>
+        <div class="tip-desc">旗艦公設第二版（CPL $553 / 55潛客）是1510絕對主力。建議新增3支衍生版本：游泳池30秒版、健身房30秒版、KTV+社交30秒版，分別搭配不同受眾組A/B測試，進一步突破 CPL NT$400。</div>
+      </div>
+    </div>
+    <div class="tip teal-tip">
+      <div class="tip-num ct4">4</div>
+      <div class="tip-body">
+        <div class="tip-title">餐飲/服務業 CPL NT$516 穩定，新開北屯+太平延伸組</div>
+        <div class="tip-desc">在地餐飲/服務業 8 潛客 CPL $516 效果穩定，顯示在地業主對公設型住宅有需求。建議新開「35-55/北屯太平/在地服務業自雇」組，地標從中科換為北屯夜市+太平商圈，日預算 NT$300。</div>
+      </div>
+    </div>
+    <div class="tip teal-tip">
+      <div class="tip-num ct5">5</div>
+      <div class="tip-body">
+        <div class="tip-title">泳池花園宅觀察至 300+ 點擊再評估，成家在太原加強測試</div>
+        <div class="tip-desc">0512_泳池花園宅 5 潛客 CPL $1,145，數據量仍少；0526_成家在太原尚無轉換。兩支素材建議等待 300+ 點擊後再判斷效益。成家在太原可搭配「在地換屋首購」受眾組測試家庭訴求效果。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 1510 素材迭代 -->
+<div class="creative-section">
+  <div class="sec-title teal-bar">素材迭代分析</div>
+  <div class="creative-timeline">
+    <div class="phase-row" style="border-color:var(--teal-border);background:#f0f8fc">
+      <div class="phase-label" style="background:var(--teal-light);color:var(--teal-dark)">🏆 主力</div>
+      <div class="phase-body">
+        <div class="phase-title">0416_旗艦公設第二版（影片）✅ 1510 絕對核心</div>
+        <div class="phase-desc">4/15 起投，直接展示游泳池、健身房、KTV 等公設實景。55 潛客 CPL NT$553，是1510粉專建立以來唯一大量轉換的素材。公設展示型策略在北屯高端住宅市場獲得完整驗證。</div>
+      </div>
+      <div class="phase-stat"><div class="phase-cpl teal-cpl">55 潛客</div><div class="phase-cpl-l">⚡ CPL NT$553</div></div>
+    </div>
+    <div class="phase-row">
+      <div class="phase-label" style="background:#f0edf5;color:#7a5a8a">5/12</div>
+      <div class="phase-body">
+        <div class="phase-title">0512_泳池花園宅（影片）🆕 觀察中</div>
+        <div class="phase-desc">聚焦泳池花架庭院單一公設特色，5 潛客 CPL NT$1,145。數據量偏少（投放不足1個月），CPL 仍有下降空間，等待 300+ 點擊後再判斷。</div>
+      </div>
+      <div class="phase-stat"><div class="phase-cpl teal-cpl">5 潛客</div><div class="phase-cpl-l">CPL NT$1,145</div></div>
+    </div>
+    <div class="phase-row">
+      <div class="phase-label" style="background:#f0edf5;color:#7a5a8a">5/25</div>
+      <div class="phase-body">
+        <div class="phase-title">0526_成家在太原（影片）🔵 初期觀察</div>
+        <div class="phase-desc">家庭生活場景訴求，強調「在太原成家」生活感，5/25 起投。尚無潛客轉換，需等 300+ 點擊後評估。建議搭配「在地換屋首購」受眾組測試家庭訴求。</div>
+      </div>
+      <div class="phase-stat"><div class="phase-cpl teal-cpl">0 潛客</div><div class="phase-cpl-l">觀察中</div></div>
+    </div>
+    <div class="phase-row">
+      <div class="phase-label" style="background:#f0edf5;color:#7a5a8a">5/06</div>
+      <div class="phase-body">
+        <div class="phase-title">0416_旗艦公設第二版（單圖）🔵 輔助測試</div>
+        <div class="phase-desc">將旗艦公設影片的關鍵畫面轉為單圖廣告，測試靜態圖 vs 影片的轉換差異。尚無潛客，花費 NT$1,805，等數據足夠後分析格式差異。</div>
+      </div>
+      <div class="phase-stat"><div class="phase-cpl teal-cpl">0 潛客</div><div class="phase-cpl-l">格式測試中</div></div>
+    </div>
+  </div>
+
+  <div class="creative-grid">
+    <div class="creative-card best-teal">
+      <div class="creative-name">0416 旗艦公設第二版（影片）</div>
+      <div><span class="creative-badge cb-teal">🏆 1510 絕對主力</span></div>
+      <div class="creative-stats">
+        <b>累積</b> 55 潛客 · CPL NT$553<br>
+        <b>特點</b>：公設實景展示，真實感強，觀看完成率高<br>
+        <b>建議</b>：持續主力，延伸各公設切角版本
+      </div>
+    </div>
+    <div class="creative-card">
+      <div class="creative-name">0512 泳池花園宅</div>
+      <div><span class="creative-badge cb-new">🆕 觀察中</span></div>
+      <div class="creative-stats">
+        <b>初期</b> 5 潛客 · CPL NT$1,145<br>
+        <b>特點</b>：單一公設特色，數據量不足<br>
+        <b>建議</b>：等待 300+ 點擊後評估是否加碼
+      </div>
+    </div>
+    <div class="creative-card">
+      <div class="creative-name">0526 成家在太原</div>
+      <div><span class="creative-badge cb-new">🆕 剛起步</span></div>
+      <div class="creative-stats">
+        <b>狀態</b>：5/25 起投，尚無潛客<br>
+        <b>特點</b>：家庭生活場景，訴求成家購屋<br>
+        <b>建議</b>：搭配在地換屋首購受眾，觀察6/10後CPL
+      </div>
+    </div>
+  </div>
+
+  <div class="insight-box teal-insight">
+    <div class="insight-title">1510 素材策略洞見</div>
+    <div class="insight-highlight teal-hl">
+      公設展示型策略完整驗證：旗艦公設第二版 CPL NT$553，比主粉專均值低 52%。1510 粉專的核心優勢在於「素材新鮮 × 受眾未飽和 × 公設訴求精準」，這三個優勢必須同步維持。
+    </div>
+    <div class="insight-sub">後續素材建議：</div>
+    <ul class="insight-list teal-list">
+      <li>新拍「游泳池30秒」「健身房30秒」「KTV/社交空間30秒」三支單一公設深度版，分別獨立測試</li>
+      <li>製作「車位版」素材：「10席莊園宅室停3-4車」是北屯差異化賣點，對投資/自營商族群吸引力高</li>
+      <li>旗艦公設第二版每 3 週需換素材組合避免頻率升高影響 CPL</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 1510 新受眾方向 -->
+<div class="section">
+  <div class="sec-title teal-bar">建議新測試受眾方向</div>
+  <div class="new-grid">
+    <div class="new-card teal-new">
+      <div class="new-card-title">30-55 / 逢甲IKEA+8 / 科技自營商B ↗</div>
+      <div class="new-card-desc">延伸科技自營商 CPL NT$428 成功方向，從中科改逢甲IKEA+8km 地標，測試西屯科技廊道是否有相同表現</div>
+    </div>
+    <div class="new-card teal-new">
+      <div class="new-card-title">35-55 / 十期+12 / 半退休投資+品酒 ↗</div>
+      <div class="new-card-desc">延伸「投資/半退休 CPL NT$297」最低CPL組，擴大至十期+12km，加入品酒/高爾夫/旅遊標籤測試品味型高資產族群</div>
+    </div>
+    <div class="new-card teal-new">
+      <div class="new-card-title">35-55 / 北屯太平 / 在地服務業換屋 ↗</div>
+      <div class="new-card-desc">從餐飲服務業 CPL NT$516 延伸，擴大至北屯+太平在地服務業老闆，換屋訴求搭配公設生活感素材</div>
+    </div>
+    <div class="new-card teal-new">
+      <div class="new-card-title">1510 再行銷 / 公設影片觀看者 ↗</div>
+      <div class="new-card-desc">建立「看過旗艦公設影片但未留名單」的1510粉專專屬再行銷受眾，搭配「泳池花園宅」二次轉換</div>
+    </div>
   </div>
 </div>
 
@@ -465,11 +806,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
     <div class="rk-body">
       <div class="rk-name">（test）30-55 / 中科水湳中清 / 科技自營商A</div>
       <div class="rk-loc">中科路 +3km · 水湳中央公園 +3km · 中清交流道 +3km</div>
-      <div class="rk-tags">
-        <span class="rk-tag t-teal">1510專屬</span>
-        <span class="rk-tag t-ind">科技業</span>
-        <span class="rk-tag t-biz">自營商</span>
-      </div>
+      <div class="rk-tags"><span class="rk-tag t-teal">1510</span><span class="rk-tag t-ind">科技業</span><span class="rk-tag t-biz">自營商</span></div>
     </div>
     <div class="rk-stats">
       <div class="rk-stat-block"><div class="rk-result">14</div><div class="rk-result-l">成果</div></div>
@@ -481,13 +818,23 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   <div class="rk-row silver">
     <div class="rk-medal">🥈</div>
     <div class="rk-body">
+      <div class="rk-name">（test）30-55 / 中科水湳中清 / 房地產/股票</div>
+      <div class="rk-loc">中科路 + 水湳 + 中清 各+3km</div>
+      <div class="rk-tags"><span class="rk-tag t-teal">1510</span><span class="rk-tag t-prop">房地產</span><span class="rk-tag t-fin">股票投資</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">10</div><div class="rk-result-l">成果</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$558</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$5,577</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row bronze">
+    <div class="rk-medal">🥉</div>
+    <div class="rk-body">
       <div class="rk-name">（test）30-55 / 中科水湳中清 / 在地餐飲/服務業</div>
       <div class="rk-loc">中科路 + 水湳 + 中清 各+3km</div>
-      <div class="rk-tags">
-        <span class="rk-tag t-teal">1510專屬</span>
-        <span class="rk-tag t-biz">餐飲服務業</span>
-        <span class="rk-tag t-biz">在地業主</span>
-      </div>
+      <div class="rk-tags"><span class="rk-tag t-teal">1510</span><span class="rk-tag t-biz">餐飲服務業</span><span class="rk-tag t-biz">在地業主</span></div>
     </div>
     <div class="rk-stats">
       <div class="rk-stat-block"><div class="rk-result">8</div><div class="rk-result-l">成果</div></div>
@@ -496,16 +843,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
     </div>
   </div>
 
-  <div class="rk-row bronze">
-    <div class="rk-medal">🥉</div>
+  <div class="rk-row">
+    <div class="rk-rank teal-rank">4</div>
     <div class="rk-body">
       <div class="rk-name">（test）30-55 / 十期+8 / 投資/半退休/休閒</div>
       <div class="rk-loc">北屯十期重劃區 +8km</div>
-      <div class="rk-tags">
-        <span class="rk-tag t-teal">1510專屬</span>
-        <span class="rk-tag t-fin">投資置產</span>
-        <span class="rk-tag t-beh">半退休</span>
-      </div>
+      <div class="rk-tags"><span class="rk-tag t-teal">1510</span><span class="rk-tag t-fin">投資置產</span><span class="rk-tag t-beh">半退休</span></div>
     </div>
     <div class="rk-stats">
       <div class="rk-stat-block"><div class="rk-result">7</div><div class="rk-result-l">成果</div></div>
@@ -515,25 +858,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   </div>
 
   <div class="rk-row">
-    <div class="rk-rank teal-rank">4</div>
-    <div class="rk-body">
-      <div class="rk-name">（test）30-55 / 中科水湳中清 / 房地產/股票</div>
-      <div class="rk-loc">中科路 + 水湳 + 中清 各+3km</div>
-      <div class="rk-tags"><span class="rk-tag t-teal">1510專屬</span><span class="rk-tag t-prop">房地產</span><span class="rk-tag t-fin">股票投資</span></div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-stat-block"><div class="rk-result">10</div><div class="rk-result-l">成果</div></div>
-      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$558</div><div class="rk-cpl-l">CPL</div></div>
-      <div class="rk-stat-block"><div class="rk-spend">$5,577</div><div class="rk-spend-l">花費</div></div>
-    </div>
-  </div>
-
-  <div class="rk-row">
     <div class="rk-rank teal-rank">5</div>
     <div class="rk-body">
       <div class="rk-name">（test）30-55 / 十期+8 / 科技新貴/旅遊</div>
       <div class="rk-loc">北屯十期重劃區 +8km</div>
-      <div class="rk-tags"><span class="rk-tag t-teal">1510專屬</span><span class="rk-tag t-ind">科技新貴</span><span class="rk-tag t-beh">旅遊生活</span></div>
+      <div class="rk-tags"><span class="rk-tag t-teal">1510</span><span class="rk-tag t-ind">科技新貴</span><span class="rk-tag t-beh">旅遊生活</span></div>
     </div>
     <div class="rk-stats">
       <div class="rk-stat-block"><div class="rk-result">6</div><div class="rk-result-l">成果</div></div>
@@ -547,7 +876,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
     <div class="rk-body">
       <div class="rk-name">（test）30-55 / 太原+6 / 科技自營商A（備）</div>
       <div class="rk-loc">太原加油站 +6km</div>
-      <div class="rk-tags"><span class="rk-tag t-teal">1510專屬</span><span class="rk-tag t-ind">科技業</span><span class="rk-tag t-biz">自營商</span></div>
+      <div class="rk-tags"><span class="rk-tag t-teal">1510</span><span class="rk-tag t-ind">科技業</span><span class="rk-tag t-biz">自營商</span></div>
     </div>
     <div class="rk-stats">
       <div class="rk-stat-block"><div class="rk-result">4</div><div class="rk-result-l">成果</div></div>
@@ -561,7 +890,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
     <div class="rk-body">
       <div class="rk-name">（test）30-50 / 水湳中清洲際 / 製造業主管</div>
       <div class="rk-loc">水湳 + 中清 + 洲際</div>
-      <div class="rk-tags"><span class="rk-tag t-teal">1510專屬</span><span class="rk-tag t-ind">製造業</span><span class="rk-tag t-biz">主管</span></div>
+      <div class="rk-tags"><span class="rk-tag t-teal">1510</span><span class="rk-tag t-ind">製造業</span><span class="rk-tag t-biz">主管階層</span></div>
     </div>
     <div class="rk-stats">
       <div class="rk-stat-block"><div class="rk-result">2</div><div class="rk-result-l">成果</div></div>
@@ -575,7 +904,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
     <div class="rk-body">
       <div class="rk-name">（test）台中市名單再行銷 / APT（備）</div>
       <div class="rk-loc">台中市再行銷受眾</div>
-      <div class="rk-tags"><span class="rk-tag t-teal">1510專屬</span><span class="rk-tag t-sim">再行銷</span></div>
+      <div class="rk-tags"><span class="rk-tag t-teal">1510</span><span class="rk-tag t-sim">再行銷</span></div>
     </div>
     <div class="rk-stats">
       <div class="rk-stat-block"><div class="rk-result">1</div><div class="rk-result-l">成果</div></div>
@@ -585,86 +914,20 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   </div>
 </div>
 
-<!-- 1510 素材績效 -->
-<div class="section">
-  <div class="sec-title teal-bar">1510 素材績效（2026/04/15–2026/06/01）</div>
-  <table class="crt-table">
-    <thead>
-      <tr><th>素材名稱</th><th>潛客</th><th>CPL</th><th>總花費</th><th>狀態</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>0416_旗艦公設第二版（影片）</strong></td>
-        <td><span class="leads-big">55</span></td>
-        <td><span class="cpl-good">$553</span></td>
-        <td>$30,431</td>
-        <td>🏆 1510 絕對主力</td>
-      </tr>
-      <tr>
-        <td>0512_泳池花園宅</td>
-        <td><strong>5</strong></td>
-        <td><span class="cpl-ok">$1,145</span></td>
-        <td>$5,726</td>
-        <td>🆕 新測素材</td>
-      </tr>
-      <tr>
-        <td>0526_成家在太原</td>
-        <td><span class="cpl-na">—</span></td>
-        <td><span class="cpl-na">—</span></td>
-        <td>$2,621</td>
-        <td>🔵 觀察中</td>
-      </tr>
-      <tr>
-        <td>0416_旗艦公設第二版（單圖）</td>
-        <td><span class="cpl-na">—</span></td>
-        <td><span class="cpl-na">—</span></td>
-        <td>$1,805</td>
-        <td>🔵 觀察中</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <div class="insight-box teal-insight">
-    <div class="insight-title">1510 素材策略洞見</div>
-    <div class="insight-highlight teal-hl">
-      旗艦公設第二版（影片）是 1510 絕對核心 — 55 潛客、CPL NT$553，遠低於主粉專均值 NT$1,149。真實公設展示策略在新粉專取得壓倒性成效。
-    </div>
-    <ul class="insight-list teal-list">
-      <li>1510 整體均CPL $676，比主粉專 $1,149 優秀 38% — 新粉專受眾更精準、尚未飽和</li>
-      <li>0512_泳池花園宅 CPL $1,145 — 效果次於旗艦公設，但仍在可接受範圍，繼續測試</li>
-      <li>0526_成家在太原 與 旗艦公設（單圖）尚無潛客 — 觀察至 200+ 點擊後再評估</li>
-      <li>建議持續擴展「公設特寫型」素材：健身房版、KTV版、社區花園版，維持 1510 的低 CPL 優勢</li>
-    </ul>
-  </div>
-</div>
-
 <div class="page-footer">資料期間：2025-10-28 至 2026-06-01 · 原潮APT 台中北屯 · 主粉專 + 1510 雙粉專分析 · 最後更新 2026-06-01</div>
 
 </div>
 
+<div id="toast" style="position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);background:#2e2c29;color:#fff;font-size:12.5px;padding:10px 20px;border-radius:24px;opacity:0;transition:all .25s;pointer-events:none;z-index:999;white-space:nowrap">📋 已複製 → 貼至 Claude 對話</div>
 <script>
 const PROJECT = '原潮APT（台中北屯・太原路三段×和順路口・456潛客・均CPL NT$1,087）';
-function showToast(msg) {
-  const t = document.getElementById('toast');
-  if(!t) return;
-  t.textContent = msg || '📋 已複製';
-  t.style.opacity = '1'; t.style.transform = 'translateX(-50%) translateY(0)';
-  setTimeout(() => { t.style.opacity = '0'; t.style.transform = 'translateX(-50%) translateY(20px)'; }, 2200);
-}
-function copyPrompt(text) {
-  navigator.clipboard.writeText(text).then(() => showToast()).catch(() => {
-    const ta = document.createElement('textarea'); ta.value = text;
-    document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); showToast();
-  });
-}
-document.querySelectorAll('.rk-row').forEach(el => {
-  el.style.cursor = 'pointer';
-  el.addEventListener('click', () => {
-    const name = el.querySelector('.rk-name')?.textContent.trim() || '';
-    copyPrompt(`針對${PROJECT}，請分析受眾「${name}」的成效，並給我深度受眾策略建議。`);
-  });
-});
+function showToast(){const t=document.getElementById('toast');t.style.opacity='1';t.style.transform='translateX(-50%) translateY(0)';setTimeout(()=>{t.style.opacity='0';t.style.transform='translateX(-50%) translateY(20px)'},2200)}
+function copyPrompt(text){navigator.clipboard.writeText(text).then(showToast).catch(()=>{const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast()})}
+document.querySelectorAll('.core-tag').forEach(el=>{el.addEventListener('click',()=>{const tag=el.textContent.replace('↗','').trim();copyPrompt(`針對${PROJECT}，請深入分析「${tag}」這個興趣標籤：\n1. 在本案受眾中代表什麼輪廓？\n2. 搭配哪些標籤組合效果最好？\n3. 素材訴求應該怎麼寫？`)})});
+document.querySelectorAll('.new-card').forEach(el=>{el.addEventListener('click',()=>{const title=el.querySelector('.new-card-title').textContent.replace('↗','').trim();const desc=el.querySelector('.new-card-desc').textContent.trim();copyPrompt(`針對${PROJECT}，我想測試新受眾方向：「${title}」\n說明：${desc}\n\n請給我：\n1. META 興趣標籤清單（附中文，約 10–15 個）\n2. 地理設定建議\n3. 適合這組受眾的素材訴求角度`)})});
+document.querySelectorAll('.tip').forEach(el=>{el.addEventListener('click',()=>{const title=el.querySelector('.tip-title').textContent.trim();const desc=el.querySelector('.tip-desc').textContent.trim();copyPrompt(`針對${PROJECT}，關於這項操作建議：\n「${title}」\n背景：${desc}\n\n請幫我制定具體執行方案，包含受眾設定細節和素材方向。`)})});
+document.querySelectorAll('.creative-card,.phase-row').forEach(el=>{el.style.cursor='pointer';el.addEventListener('click',()=>{const name=el.querySelector('.creative-name,.phase-title');const desc=el.querySelector('.creative-stats,.phase-desc');if(!name)return;copyPrompt(`針對${PROJECT}，關於素材「${name.textContent.trim()}」：\n${desc?desc.textContent.trim():''}\n\n請分析：1. 成效好/差原因？ 2. 如何延伸下一支素材？ 3. 最適合搭配的受眾設定？`)})});
+document.querySelectorAll('.rk-row').forEach(el=>{el.addEventListener('click',()=>{const name=el.querySelector('.rk-name');if(name)copyPrompt(`針對${PROJECT}，請分析受眾「${name.textContent.trim()}」，給我深度受眾策略建議。`)})});
 </script>
-<div id="toast" style="position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);background:#2e2c29;color:#fff;font-size:12.5px;padding:10px 20px;border-radius:24px;opacity:0;transition:all .25s;pointer-events:none;z-index:999;white-space:nowrap">📋 已複製</div>
 </body>
 </html>
