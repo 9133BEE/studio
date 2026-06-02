@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>坤育師大苑｜受眾分析報告</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --accent:#3a7a5a;--accent-dark:#2a5a40;--accent-light:#e6f4ec;--accent-border:#7ac09a;
+  --bg:#f5f4f1;--s:#ffffff;--bd:#e4e1dd;--tx:#2e2c29;--sub:#7d7870;--sub2:#a8a199;
+  --good:#1e6e3f;--goodl:#e6f4ea;--warn:#c05c00;
+  --radius:12px;--shadow-xs:0 1px 3px rgba(0,0,0,.05);--shadow-sm:0 2px 8px rgba(0,0,0,.07);--shadow-card:0 2px 10px rgba(0,0,0,.06),0 1px 3px rgba(0,0,0,.04);
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft JhengHei','Segoe UI',sans-serif;background:var(--bg);color:var(--tx);font-size:14px;line-height:1.6;min-height:100vh}
+.page-header{background:linear-gradient(180deg,#0a1810 0%,#061208 100%);padding:0 40px;height:56px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.04),0 4px 20px rgba(0,0,0,.35);border-bottom:1px solid rgba(255,255,255,.06)}
+.ph-logo{width:30px;height:30px;background:linear-gradient(135deg,#5aa07a,var(--accent-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;flex-shrink:0}
+.ph-title{font-size:14px;font-weight:700;color:#e8f5ee;letter-spacing:-.2px}
+.ph-sub{font-size:11px;color:#1a4030;margin-left:2px}
+.ph-nav{margin-left:auto}
+.ph-nav a{font-size:12px;color:#7ac09a;text-decoration:none;padding:5px 13px;border-radius:6px;border:1px solid rgba(58,122,90,.25);background:rgba(58,122,90,.12);font-weight:500}
+.ph-nav a:hover{background:rgba(58,122,90,.22);color:#a0e0b8}
+.wrap{max-width:1200px;margin:0 auto;padding:32px 40px 48px}
+.case-header{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:20px 24px;margin-bottom:10px;display:flex;align-items:center;gap:18px;box-shadow:var(--shadow-card)}
+.case-logo{width:44px;height:44px;background:linear-gradient(135deg,#5aa07a,var(--accent-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;flex-shrink:0}
+.case-info h2{font-size:17px;font-weight:700;color:var(--tx);letter-spacing:-.3px}
+.case-info p{font-size:12px;color:var(--sub);margin-top:3px;line-height:1.5}
+.case-stats{margin-left:auto;display:flex;gap:28px;flex-shrink:0}
+.stat{text-align:right}
+.stat-n{font-size:24px;font-weight:800;color:var(--accent);line-height:1;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.stat-l{font-size:10px;color:var(--sub2);margin-top:3px;font-weight:600;letter-spacing:.3px;text-transform:uppercase}
+.top-link{font-size:12px;color:var(--accent);margin-bottom:24px;display:inline-block;text-decoration:none;font-weight:500}
+.top-link span{border-bottom:1px solid var(--accent-border)}
+.sec-title{font-size:12px;font-weight:700;color:var(--sub);margin-bottom:14px;display:flex;align-items:center;gap:10px;letter-spacing:.4px;text-transform:uppercase}
+.sec-title::before{content:'';display:inline-block;width:3px;height:14px;background:var(--accent);border-radius:2px;flex-shrink:0}
+.sec-title::after{content:'';flex:1;height:1px;background:var(--bd)}
+.section{margin-bottom:28px}
+.creative-section{margin-bottom:32px}
+.profiles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.profile-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow-xs);transition:box-shadow .2s,transform .2s}
+.profile-card:hover{box-shadow:var(--shadow-sm);transform:translateY(-2px)}
+.profile-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:17px;margin-bottom:12px}
+.profile-icon.green{background:var(--accent-light)}
+.profile-icon.amber{background:#fdf0dc}
+.profile-icon.blue{background:#eaecf6}
+.profile-name{font-size:15px;font-weight:700;color:var(--tx);margin-bottom:4px}
+.profile-meta{font-size:12px;color:var(--sub);margin-bottom:10px}
+.profile-tags{font-size:12px;color:#4a5568;margin-bottom:10px;line-height:1.6}
+.profile-behavior{font-size:12px;color:var(--sub);line-height:1.55;margin-bottom:12px}
+.profile-badge{display:inline-block;font-size:11px;font-weight:700;padding:4px 11px;border-radius:20px;margin-top:2px}
+.badge-green{background:var(--accent-light);color:#1a4a2a;border:1px solid var(--accent-border)}
+.badge-amber{background:#fdf0dc;color:#7a5c20;border:1px solid #d4b06a}
+.badge-blue{background:#eaecf6;color:#2a3a6a;border:1px solid #8a9ac8}
+.tags-row{display:flex;flex-wrap:wrap;gap:8px}
+.core-tag{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;background:var(--s);border:1.5px solid var(--bd);border-radius:20px;font-size:13px;font-weight:600;color:var(--tx);cursor:pointer;transition:all .15s}
+.core-tag:hover{border-color:var(--accent-border);background:var(--accent-light);color:#1a4a2a}
+.core-tag .arr{font-size:11px;color:var(--accent-border)}
+.tips{display:flex;flex-direction:column;gap:10px}
+.tip{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:16px 18px;display:flex;gap:16px;align-items:flex-start;cursor:pointer;transition:border-color .15s,box-shadow .15s;box-shadow:var(--shadow-xs)}
+.tip:hover{border-color:var(--accent-border);box-shadow:var(--shadow-sm)}
+.tip-num{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;flex-shrink:0;color:#fff}
+.c1{background:var(--accent)}.c2{background:#5a8a6a}.c3{background:#4a6a8a}.c4{background:#8a7a3a}.c5{background:#7a4a6a}
+.tip-body{flex:1}
+.tip-title{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:5px;line-height:1.4}
+.tip-desc{font-size:12px;color:var(--sub);line-height:1.65}
+.creative-timeline{display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
+.phase-row{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:14px 18px;display:flex;gap:14px;align-items:center;cursor:pointer;transition:box-shadow .15s;box-shadow:var(--shadow-xs)}
+.phase-row:hover{box-shadow:var(--shadow-sm)}
+.phase-label{width:52px;flex-shrink:0;font-size:11px;font-weight:800;text-align:center;padding:6px 4px;border-radius:8px;background:var(--accent-light);color:var(--accent-dark);letter-spacing:-.2px;line-height:1.3}
+.phase-body{flex:1;min-width:0}
+.phase-title{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:4px}
+.phase-desc{font-size:12px;color:var(--sub);line-height:1.6}
+.phase-stat{text-align:right;flex-shrink:0;min-width:80px}
+.phase-cpl{font-size:16px;font-weight:800;color:var(--accent);line-height:1;font-variant-numeric:tabular-nums}
+.phase-cpl-l{font-size:10px;color:var(--sub2);margin-top:3px;font-weight:600}
+.creative-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
+.creative-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow-xs);cursor:pointer;transition:box-shadow .15s,transform .15s}
+.creative-card:hover{box-shadow:var(--shadow-sm);transform:translateY(-2px)}
+.creative-card.best{border-color:var(--accent-border);background:#f0f8f4}
+.creative-name{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:6px}
+.creative-badge{display:inline-block;font-size:10px;font-weight:700;padding:3px 8px;border-radius:8px;margin-bottom:8px}
+.cb-top{background:var(--accent-light);color:#1a4a2a;border:1px solid var(--accent-border)}
+.cb-active{background:#d8ead2;color:#3d6b4f;border:1px solid #96c4a8}
+.cb-new{background:#fdf0dc;color:#7a5c20;border:1px solid #d4b06a}
+.cb-retired{background:#f0f0f0;color:#888;border:1px solid #ccc}
+.creative-stats{font-size:12px;color:var(--sub);line-height:1.75}
+.creative-stats b{color:var(--tx)}
+.insight-box{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow-xs)}
+.insight-title{font-size:14px;font-weight:700;color:var(--tx);margin-bottom:14px}
+.insight-highlight{background:var(--accent-light);border-left:3px solid var(--accent);padding:12px 16px;border-radius:0 8px 8px 0;margin-bottom:16px;font-size:13px;color:#0a2a1a;font-weight:600;line-height:1.65}
+.insight-sub{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:10px;margin-top:14px}
+.insight-list{list-style:none;display:flex;flex-direction:column;gap:7px}
+.insight-list li{font-size:13px;color:#4a5568;padding-left:18px;position:relative;line-height:1.6}
+.insight-list li::before{content:'→';position:absolute;left:0;color:var(--accent-border);font-size:12px;top:1px}
+.new-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.new-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:16px 18px;cursor:pointer;transition:border-color .15s,box-shadow .15s;box-shadow:var(--shadow-xs)}
+.new-card:hover{border-color:var(--accent-border);box-shadow:var(--shadow-sm)}
+.new-card-title{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:5px;line-height:1.4}
+.new-card-desc{font-size:12px;color:var(--sub);line-height:1.6}
+.rk-row{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:14px 18px;margin-bottom:8px;display:flex;gap:14px;align-items:center;box-shadow:var(--shadow-xs);transition:box-shadow .15s;cursor:pointer}
+.rk-row:hover{box-shadow:var(--shadow-sm)}
+.rk-row.gold{border-color:#d4b06a;background:#fdfaf2}
+.rk-row.silver{border-color:#b8c0cc;background:#f9f9fb}
+.rk-row.bronze{border-color:#c4a87a;background:#fdf7f0}
+.rk-medal{width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.rk-rank{width:32px;height:32px;border-radius:50%;background:var(--accent-light);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:var(--accent);flex-shrink:0}
+.rk-body{flex:1;min-width:0}
+.rk-name{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:4px;line-height:1.35}
+.rk-loc{font-size:11px;color:var(--sub2);line-height:1.4;margin-bottom:7px}
+.rk-tags{display:flex;flex-wrap:wrap;gap:4px}
+.rk-tag{font-size:10px;font-weight:600;padding:2px 8px;border-radius:8px;line-height:1.5}
+.t-fam{background:#f3e8ff;color:#5b21b6;border:1px solid #c4b5fd}
+.t-biz{background:#fff3e0;color:#bf5600;border:1px solid #ffd0a0}
+.t-edu{background:#e0f7f4;color:#00695c;border:1px solid #7cd6cc}
+.t-prop{background:#e6f4ea;color:#1e6e3f;border:1px solid #8ecba3}
+.t-loc{background:var(--accent-light);color:var(--accent-dark);border:1px solid var(--accent-border)}
+.t-young{background:#fef3c7;color:#92400e;border:1px solid #fcd34d}
+.rk-stats{display:flex;gap:24px;flex-shrink:0;align-items:center}
+.rk-stat-block{text-align:right}
+.rk-result{font-size:28px;font-weight:900;color:var(--tx);line-height:1;letter-spacing:-1px;font-variant-numeric:tabular-nums}
+.rk-result-l{font-size:10px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.2px;margin-top:2px}
+.rk-cpl{font-size:18px;font-weight:800;color:var(--warn);line-height:1;font-variant-numeric:tabular-nums}
+.rk-cpl.good-cpl{color:var(--good)}
+.rk-cpl-l{font-size:10px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.2px;margin-top:2px}
+.rk-spend{font-size:13px;font-weight:700;color:#6d6560;line-height:1;font-variant-numeric:tabular-nums}
+.rk-spend-l{font-size:10px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.2px;margin-top:2px}
+.page-footer{text-align:center;font-size:11px;color:var(--sub2);margin-top:12px;padding-bottom:8px}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="ph-logo">苑</div>
+  <span class="ph-title">坤育師大苑｜受眾分析</span>
+  <span class="ph-sub">· 彰化市 · 彰師大首排 · 捷運G22</span>
+  <nav class="ph-nav"><a href="hub.html">← 返回總覽</a></nav>
+</header>
+
+<div class="wrap">
+
+<div class="case-header">
+  <div class="case-logo">苑</div>
+  <div class="case-info">
+    <h2>坤育師大苑｜彰化市</h2>
+    <p>彰化師範大學首排 · 近彰化車站 · 捷運G22增值題材 · 進德路商圈步行圈 · 廣告目標：名單</p>
+  </div>
+  <div class="case-stats">
+    <div class="stat"><div class="stat-n">185</div><div class="stat-l">累積潛客</div></div>
+    <div class="stat"><div class="stat-n">NT$429</div><div class="stat-l">均CPL</div></div>
+    <div class="stat"><div class="stat-n">39</div><div class="stat-l">受眾組數</div></div>
+  </div>
+</div>
+
+<a class="top-link" href="hub.html"><span>← 返回報告集</span></a>
+
+<!-- ── 三大核心受眾輪廓 ── -->
+<div class="section">
+  <div class="sec-title">三大核心受眾輪廓</div>
+  <div class="profiles">
+
+    <div class="profile-card">
+      <div class="profile-icon green">💍</div>
+      <div class="profile-name">彰師大在地首購型</div>
+      <div class="profile-meta">年齡 28–55｜彰師大車站+5km / 基地周邊</div>
+      <div class="profile-tags">興趣：新婚成家、年輕首購、生活品質、在地定居</div>
+      <div class="profile-behavior">行為：彰化師大周邊的年輕族群，新婚或即將成家，捷運G22未來增值題材是加分項，「彰師大首排」地段稀缺性對本地居民有高說服力</div>
+      <span class="profile-badge badge-green">51 潛客 · CPL NT$261~378 · 全案最低CPL</span>
+    </div>
+
+    <div class="profile-card">
+      <div class="profile-icon amber">🏪</div>
+      <div class="profile-name">在地自營商/商業型</div>
+      <div class="profile-meta">年齡 28–60｜彰市和美 / 鹿港</div>
+      <div class="profile-tags">興趣：零售批發自營、貿易商、房地產、商業行銷</div>
+      <div class="profile-behavior">行為：彰化市/和美地區的在地自營商或業主，有穩定收入與置產需求，對進德路商圈步行圈生活機能有高度共鳴，是本案第二大有效受眾方向</div>
+      <span class="profile-badge badge-amber">41 潛客 · CPL NT$303~369 · 穩定第二</span>
+    </div>
+
+    <div class="profile-card">
+      <div class="profile-icon blue">👨‍👩‍👧</div>
+      <div class="profile-name">親子教育換屋型</div>
+      <div class="profile-meta">年齡 28–55｜彰化市和美 / 烏日</div>
+      <div class="profile-tags">興趣：教育業成家、育兒寵物、傳產親子教育、家庭</div>
+      <div class="profile-behavior">行為：有小孩或計劃生育的家庭，以「彰師大文教區+進德路生活圈」為居住條件首選，也包含烏日大肚的通勤換屋族</div>
+      <span class="profile-badge badge-blue">28 潛客 · CPL NT$340~514 · 第三大方向</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── 核心標籤 ── -->
+<div class="section">
+  <div class="sec-title">跨受眾必保留的核心標籤</div>
+  <div class="tags-row">
+    <span class="core-tag">房地產（產業）<span class="arr">↗</span></span>
+    <span class="core-tag">成家（家庭）<span class="arr">↗</span></span>
+    <span class="core-tag">自營業者（商業）<span class="arr">↗</span></span>
+    <span class="core-tag">教育業（職業）<span class="arr">↗</span></span>
+    <span class="core-tag">首購（房地產）<span class="arr">↗</span></span>
+    <span class="core-tag">建築/生活品質<span class="arr">↗</span></span>
+  </div>
+</div>
+
+<!-- ── 五大操作建議 ── -->
+<div class="section">
+  <div class="sec-title">五大操作建議</div>
+  <div class="tips">
+
+    <div class="tip">
+      <div class="tip-num c1">1</div>
+      <div class="tip-body">
+        <div class="tip-title">彰師大車站+5K/新婚成家 CPL NT$261 全案最低，立即加預算並擴大地標範圍</div>
+        <div class="tip-desc">28-55/彰師大車站+5K/新婚成家（1117擴）33 潛客 CPL NT$261，是全案效率最高組。建議從日預算 NT$300 提高至 NT$500–600，同時複製到「彰化車站+6km」和「彰師大+8km」測試更大覆蓋範圍，目標每月新婚成家潛客 50 組以上。</div>
+      </div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-num c2">2</div>
+      <div class="tip-body">
+        <div class="tip-title">0507_住師大 CPL NT$285 是全案素材最低，搭配新婚成家受眾最大化</div>
+        <div class="tip-desc">0507_住師大 18 潛客 CPL NT$285，是所有素材中效率最高（低於磅礡基地、彰師大首排）。素材直接點出「住師大旁」的地段優勢。建議主力配置在「新婚成家」+「年輕興趣」受眾組，並製作「住師大 V2」強化捷運G22增值題材，目標 CPL 壓至 NT$250 以下。</div>
+      </div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-num c3">3</div>
+      <div class="tip-body">
+        <div class="tip-title">烏日大肚/建築生活品質 20潛客 CPL $345，複製地標到彰市和美擴大</div>
+        <div class="tip-desc">28-55/烏日大肚/建築生活品質 20 潛客 CPL NT$345，是跨縣市通勤族的有效受眾，顯示烏日/台中市區的換屋族對彰化案也有需求。建議複製相同興趣組合到「彰市和美烏日+6km」，覆蓋更多彰化市核心族群，同時測試「彰化市區」單一地標版本效果。</div>
+      </div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-num c4">4</div>
+      <div class="tip-body">
+        <div class="tip-title">自營商/零售批發系列穩定，加入貿易商+服務業興趣擴大規模</div>
+        <div class="tip-desc">零售批發自營（12潛客 CPL $330）+ 貿易商自營商（4潛客 CPL $613）反應了進德路商圈對在地業主的吸引力。建議合併「零售批發」+「貿易商」+「服務業老闆」開一個大組，地標統一為「彰化市區進德路+5km」，日預算 NT$300，搭配「進德路商圈步行圈」素材。</div>
+      </div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-num c5">5</div>
+      <div class="tip-body">
+        <div class="tip-title">捷運G22題材應成為長期素材訴求核心，製作「捷運時代到來」版本</div>
+        <div class="tip-desc">1113_捷運來了（12潛客）和 0116_捷運G22（11潛客 CPL $300）都驗證捷運增值題材有效。建議製作「捷運G22時代系列」專屬素材：「彰師大首排 × 捷運G22，彰化城市升級的最好位置」，搭配捷運動工/完工時間軸，讓潛客對增值故事有明確想像。</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── 素材迭代 ── -->
+<div class="creative-section">
+  <div class="sec-title">素材迭代分析</div>
+  <div class="creative-timeline">
+
+    <div class="phase-row">
+      <div class="phase-label">Phase 1<br>11~12月</div>
+      <div class="phase-body">
+        <div class="phase-title">磅礡基地 / 捷運來了 / 捷運G22 / 坤育新案（建立認知）</div>
+        <div class="phase-desc">早期主力，磅礡基地 35潛客 CPL $350 貢獻最多；捷運來了 12潛客 + 捷運G22影片 11潛客 CPL $300，驗證捷運增值題材有效；坤育新案 12潛客 CPL $500 偏高。四支素材合計 70 潛客，建立市場認知。</div>
+      </div>
+      <div class="phase-stat"><div class="phase-cpl">70 潛客</div><div class="phase-cpl-l">均CPL NT$350~500</div></div>
+    </div>
+
+    <div class="phase-row">
+      <div class="phase-label">Phase 2<br>12月~2月</div>
+      <div class="phase-body">
+        <div class="phase-title">彰師大首排 / 風起師大 / 早鳥預約 / 即將登場（品牌升級）</div>
+        <div class="phase-desc">彰師大首排 25潛客 CPL $360，風起師大 11潛客 CPL $467，早鳥預約影片 33潛客 CPL $383，即將登場 6潛客 CPL $640。「彰師大首排」地段訴求比「磅礡基地」品牌名稱更有說服力，早鳥優惠稀缺感有效。合計 75 潛客，是全案最高產出階段。</div>
+      </div>
+      <div class="phase-stat"><div class="phase-cpl">75 潛客</div><div class="phase-cpl-l">均CPL NT$360~467</div></div>
+    </div>
+
+    <div class="phase-row">
+      <div class="phase-label">Phase 3<br>3~4月</div>
+      <div class="phase-body">
+        <div class="phase-title">正式公開 / D-ONE / 國家級耐震 / 彰化人首選 / 進德路商圈（多向測試）</div>
+        <div class="phase-desc">多支新素材測試：正式公開0潛客、D-ONE 4潛客 CPL $678、彰化人首選 1潛客 CPL $580、進德路商圈 5潛客 CPL $826。商圈/生活圈類素材效率明顯低於地段/稀缺類，「正式公開」訴求對已疲乏受眾無效。</div>
+      </div>
+      <div class="phase-stat"><div class="phase-cpl">10 潛客</div><div class="phase-cpl-l">均CPL NT$678+</div></div>
+    </div>
+
+    <div class="phase-row" style="border-color:var(--accent-border);background:#f0f8f4">
+      <div class="phase-label" style="background:var(--accent);color:#fff">⚡ 現役</div>
+      <div class="phase-body">
+        <div class="phase-title">0507_住師大（⚡ 全案最低CPL素材 NT$285）✅ 現役主力</div>
+        <div class="phase-desc">5/7 起投，直接以「住師大」地段訴求切入，18 潛客 CPL NT$285，是所有素材中效率最佳。簡潔有力的地段訴求勝過複雜的品牌故事，建議持續加碼並製作衍生版本。</div>
+      </div>
+      <div class="phase-stat"><div class="phase-cpl">18 潛客</div><div class="phase-cpl-l">⚡ CPL NT$285</div></div>
+    </div>
+
+    <div class="phase-row">
+      <div class="phase-label">5月末<br>測試</div>
+      <div class="phase-body">
+        <div class="phase-title">彰師大首排V2 / 大佛 / 近一點（最新素材測試）</div>
+        <div class="phase-desc">彰師大首排影片V2 1潛客 CPL $625，大佛 0潛客，近一點 0潛客。大佛/地標概念素材效率不明，需等更多數據。彰師大首排V2 vs 住師大效率差距值得觀察。</div>
+      </div>
+      <div class="phase-stat"><div class="phase-cpl">1 潛客</div><div class="phase-cpl-l">觀察中</div></div>
+    </div>
+
+  </div>
+
+  <div class="creative-grid">
+    <div class="creative-card best">
+      <div class="creative-name">0507 住師大</div>
+      <div><span class="creative-badge cb-top">⚡ 全案最低CPL</span></div>
+      <div class="creative-stats">
+        <b>累積</b> 18 潛客 · CPL NT$285<br>
+        <b>特點</b>：直接地段訴求，簡潔勝過複雜品牌故事<br>
+        <b>建議</b>：加碼主力，製作「住師大 V2 + 捷運G22版」
+      </div>
+    </div>
+    <div class="creative-card best">
+      <div class="creative-name">0211 早鳥預約（影片）</div>
+      <div><span class="creative-badge cb-top">🏆 潛客最多</span></div>
+      <div class="creative-stats">
+        <b>累積</b> 33 潛客 · CPL NT$383<br>
+        <b>特點</b>：稀缺感訴求，早鳥名額有限<br>
+        <b>建議</b>：仍有效，持續投放，更新「名額已剩最後X戶」版本
+      </div>
+    </div>
+    <div class="creative-card best">
+      <div class="creative-name">1103 磅礡基地</div>
+      <div><span class="creative-badge cb-active">✅ 早期主力</span></div>
+      <div class="creative-stats">
+        <b>累積</b> 35 潛客 · CPL NT$350<br>
+        <b>特點</b>：建立品牌認知，但頻率已高<br>
+        <b>建議</b>：降頻，讓「住師大」接替主力
+      </div>
+    </div>
+    <div class="creative-card">
+      <div class="creative-name">1219 彰師大首排 / 0116 捷運G22</div>
+      <div><span class="creative-badge cb-active">✅ 有效</span></div>
+      <div class="creative-stats">
+        <b>合計</b> 36 潛客 · CPL NT$300~360<br>
+        <b>特點</b>：地段+捷運雙訴求，效率穩定<br>
+        <b>建議</b>：合併訴求「彰師大首排 × 捷運G22」製作新版
+      </div>
+    </div>
+    <div class="creative-card">
+      <div class="creative-name">1113 捷運來了 / 0129 坤育新案</div>
+      <div><span class="creative-badge cb-active">📦 輔助</span></div>
+      <div class="creative-stats">
+        <b>合計</b> 24 潛客 · CPL NT$500~525<br>
+        <b>特點</b>：捷運訴求有效，CPL 偏高<br>
+        <b>建議</b>：降預算輔助，捷運題材換新版本接替
+      </div>
+    </div>
+    <div class="creative-card" style="background:#f9f9f9">
+      <div class="creative-name">進德路商圈 / 大佛 / 正式公開</div>
+      <div><span class="creative-badge cb-retired">❌ 效益低</span></div>
+      <div class="creative-stats">
+        <b>CPL</b> NT$826 / 0 潛客 / 0 潛客<br>
+        <b>問題</b>：商圈/地標/事件類訴求對本案受眾無效<br>
+        <b>建議</b>：全面停止，聚焦「地段 + 捷運 + 稀缺」三核心
+      </div>
+    </div>
+  </div>
+
+  <div class="insight-box">
+    <div class="insight-title">素材策略洞見</div>
+    <div class="insight-highlight">
+      關鍵發現：「彰師大地段直接訴求」勝過所有品牌故事<br>
+      0507_住師大（CPL $285）&gt; 1219_彰師大首排（$360）&gt; 1103_磅礡基地（$350）&gt; 商圈/大佛（$826~0）<br>
+      本案受眾是務實的首購成家族，他們最想確認的是「這個位置值得嗎？」直接說「住師大旁」就是最有力的回答。
+    </div>
+    <div class="insight-sub">素材升級方向：</div>
+    <ul class="insight-list">
+      <li>製作「住師大 × 捷運G22 雙訴求版」：地段稀缺 + 未來增值，兩個購屋最關鍵因素合一</li>
+      <li>製作「彰師大首排格局圖版」：加入格局平面圖，讓「值得買」的理性判斷直接呈現</li>
+      <li>製作「早鳥倒數版」更新：換新場景保留稀缺感，加入「剩最後 X 戶」具體數字</li>
+      <li>停止商圈/大佛/正式公開類概念素材，這類訴求對彰化首購族無效</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ── 建議新受眾方向 ── -->
+<div class="section">
+  <div class="sec-title">建議新測試受眾方向</div>
+  <div class="new-grid">
+    <div class="new-card">
+      <div class="new-card-title">28–55 / 彰化車站+6 / 新婚成家+捷運增值 ↗</div>
+      <div class="new-card-desc">延伸新婚成家（CPL $261）成功方向，地標換成「彰化車站+6km」覆蓋更大範圍，搭配「捷運G22 × 彰師大首排」雙訴求素材</div>
+    </div>
+    <div class="new-card">
+      <div class="new-card-title">28–55 / 彰市和美 / 進德路商圈業主 ↗</div>
+      <div class="new-card-desc">延伸自營商/零售批發成功方向，合併「零售批發+貿易商+服務業老闆」興趣，地標聚焦進德路商圈+5km，搭配「進德路步行圈置產」素材</div>
+    </div>
+    <div class="new-card">
+      <div class="new-card-title">35–55 / 台中烏日+彰化 / 通勤換屋族 ↗</div>
+      <div class="new-card-desc">延伸烏日大肚（20潛客 CPL $345）成功受眾，擴大到「台中烏日+彰化市通勤圈」，訴求「台中換彰化，同預算住大坪數，彰師大文教區」</div>
+    </div>
+    <div class="new-card">
+      <div class="new-card-title">28–50 / 彰師大+彰化高中 / 教師/學區家長 ↗</div>
+      <div class="new-card-desc">彰師大周邊有大量教育從業者和學區家長需求，延伸教育業成家（9潛客 CPL $340），加入「彰師大教職員+家長換屋」訴求</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 受眾排行 ── -->
+<div class="section">
+  <div class="sec-title">成果前 10 名受眾排行（2025/11–2026/06）</div>
+
+  <div class="rk-row gold">
+    <div class="rk-medal">🥇</div>
+    <div class="rk-body">
+      <div class="rk-name">28-55 / 彰師大車站+5K / 新婚成家（1117擴）</div>
+      <div class="rk-loc">彰化師範大學 + 彰化車站 +5km</div>
+      <div class="rk-tags">
+        <span class="rk-tag t-fam">新婚成家</span>
+        <span class="rk-tag t-loc">彰師大</span>
+        <span class="rk-tag t-young">首購</span>
+      </div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">33</div><div class="rk-result-l">成果</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$261</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$7,569</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row silver">
+    <div class="rk-medal">🥈</div>
+    <div class="rk-body">
+      <div class="rk-name">28-55 / 烏日大肚 / 建築生活品質（0304+地點興趣）</div>
+      <div class="rk-loc">台中烏日 + 大肚 · 跨縣市通勤換屋族</div>
+      <div class="rk-tags">
+        <span class="rk-tag t-prop">建築</span>
+        <span class="rk-tag t-prop">生活品質</span>
+        <span class="rk-tag t-young">換屋</span>
+      </div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">20</div><div class="rk-result-l">成果</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$345</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$6,217</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row bronze">
+    <div class="rk-medal">🥉</div>
+    <div class="rk-body">
+      <div class="rk-name">28-55 / 彰市和美 / 房地產（1119擴）</div>
+      <div class="rk-loc">彰化市 + 和美 · 有置產意願族群</div>
+      <div class="rk-tags">
+        <span class="rk-tag t-prop">房地產</span>
+        <span class="rk-tag t-prop">置產</span>
+        <span class="rk-tag t-loc">彰化</span>
+      </div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">19</div><div class="rk-result-l">成果</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl">$369</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$7,009</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row">
+    <div class="rk-rank">4</div>
+    <div class="rk-body">
+      <div class="rk-name">28-55 / 基地+5K / 年輕興趣（1231增加年輕興趣）</div>
+      <div class="rk-loc">建案基地 +5km · 年輕首購族群</div>
+      <div class="rk-tags"><span class="rk-tag t-young">年輕族群</span><span class="rk-tag t-fam">成家</span><span class="rk-tag t-loc">彰師大</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">18</div><div class="rk-result-l">成果</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl">$378</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$6,426</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row">
+    <div class="rk-rank">5</div>
+    <div class="rk-body">
+      <div class="rk-name">28-55 / 彰市和美 / 零售批發自營（0211+興趣）</div>
+      <div class="rk-loc">彰化市 + 和美 · 在地自營商</div>
+      <div class="rk-tags"><span class="rk-tag t-biz">零售批發</span><span class="rk-tag t-biz">自營商</span><span class="rk-tag t-loc">彰化</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">12</div><div class="rk-result-l">成果</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$330</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$3,632</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row">
+    <div class="rk-rank">6</div>
+    <div class="rk-body">
+      <div class="rk-name">28-60 / 彰化 / 傳產/親子教育/服務業（1210+興趣）</div>
+      <div class="rk-loc">彰化市區廣域</div>
+      <div class="rk-tags"><span class="rk-tag t-biz">傳產</span><span class="rk-tag t-edu">親子教育</span><span class="rk-tag t-biz">服務業</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">10</div><div class="rk-result-l">成果</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl">$400</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$4,003</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row">
+    <div class="rk-rank">7</div>
+    <div class="rk-body">
+      <div class="rk-name">28-45 / 彰市和美 / 教育業成家（0304調興趣）</div>
+      <div class="rk-loc">彰化市 + 和美 · 教育業族群</div>
+      <div class="rk-tags"><span class="rk-tag t-edu">教育業</span><span class="rk-tag t-fam">成家</span><span class="rk-tag t-loc">彰化</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">9</div><div class="rk-result-l">成果</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$340</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$3,061</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row">
+    <div class="rk-rank">8</div>
+    <div class="rk-body">
+      <div class="rk-name">28-55 / 彰市和美 / 育兒寵物（0115 FB）</div>
+      <div class="rk-loc">彰化市 + 和美 · 有小孩/寵物家庭</div>
+      <div class="rk-tags"><span class="rk-tag t-fam">育兒</span><span class="rk-tag t-fam">寵物</span><span class="rk-tag t-young">換屋</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">9</div><div class="rk-result-l">成果</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl">$514</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$3,601</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row">
+    <div class="rk-rank">9</div>
+    <div class="rk-body">
+      <div class="rk-name">30-60 / 烏日文心 / 房產/自營/親子</div>
+      <div class="rk-loc">台中烏日 + 文心路</div>
+      <div class="rk-tags"><span class="rk-tag t-prop">房產</span><span class="rk-tag t-biz">自營</span><span class="rk-tag t-fam">親子</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">9</div><div class="rk-result-l">成果</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl">$533</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$4,801</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row">
+    <div class="rk-rank">10</div>
+    <div class="rk-body">
+      <div class="rk-name">30-50 / 鹿港和美彰市 / 零售批發自營（0401+地點興趣）</div>
+      <div class="rk-loc">鹿港 + 和美 + 彰化市</div>
+      <div class="rk-tags"><span class="rk-tag t-biz">零售批發</span><span class="rk-tag t-biz">自營</span><span class="rk-tag t-loc">彰化</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">6</div><div class="rk-result-l">成果</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$304</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$1,822</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="page-footer">資料期間：2025-11-01 至 2026-06-02 · 坤育師大苑 彰化市 彰師大首排 · 最後更新 2026-06-02</div>
+
+</div>
+
+<div id="toast" style="position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);background:#2e2c29;color:#fff;font-size:12.5px;padding:10px 20px;border-radius:24px;opacity:0;transition:all .25s;pointer-events:none;z-index:999;white-space:nowrap">📋 已複製 → 貼至 Claude 對話</div>
+<script>
+const PROJECT = '坤育師大苑（彰化市・彰師大首排・捷運G22增值題材・185潛客・均CPL NT$429）';
+function showToast(){const t=document.getElementById('toast');t.style.opacity='1';t.style.transform='translateX(-50%) translateY(0)';setTimeout(()=>{t.style.opacity='0';t.style.transform='translateX(-50%) translateY(20px)'},2200)}
+function copyPrompt(text){navigator.clipboard.writeText(text).then(showToast).catch(()=>{const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast()})}
+document.querySelectorAll('.core-tag').forEach(el=>{el.addEventListener('click',()=>{const tag=el.textContent.replace('↗','').trim();copyPrompt(`針對${PROJECT}，請深入分析「${tag}」這個興趣標籤：\n1. 在本案受眾中代表什麼輪廓？\n2. 搭配哪些標籤組合效果最好？\n3. 素材訴求應該怎麼寫？`)})});
+document.querySelectorAll('.new-card').forEach(el=>{el.addEventListener('click',()=>{const title=el.querySelector('.new-card-title').textContent.replace('↗','').trim();const desc=el.querySelector('.new-card-desc').textContent.trim();copyPrompt(`針對${PROJECT}，我想測試新受眾方向：「${title}」\n說明：${desc}\n\n請給我：\n1. META 興趣標籤清單（附中文，約 10–15 個）\n2. 地理設定建議\n3. 適合這組受眾的素材訴求角度`)})});
+document.querySelectorAll('.tip').forEach(el=>{el.addEventListener('click',()=>{const title=el.querySelector('.tip-title').textContent.trim();const desc=el.querySelector('.tip-desc').textContent.trim();copyPrompt(`針對${PROJECT}，關於這項操作建議：\n「${title}」\n背景：${desc}\n\n請幫我制定具體執行方案，包含受眾設定細節和素材方向。`)})});
+document.querySelectorAll('.creative-card,.phase-row').forEach(el=>{el.style.cursor='pointer';el.addEventListener('click',()=>{const name=el.querySelector('.creative-name,.phase-title');const desc=el.querySelector('.creative-stats,.phase-desc');if(!name)return;copyPrompt(`針對${PROJECT}，關於素材「${name.textContent.trim()}」：\n${desc?desc.textContent.trim():''}\n\n請分析：1.成效好/差原因？ 2.如何延伸下一支？ 3.最適合搭配的受眾設定？`)})});
+document.querySelectorAll('.rk-row').forEach(el=>{el.addEventListener('click',()=>{const name=el.querySelector('.rk-name');if(name)copyPrompt(`針對${PROJECT}，請分析受眾「${name.textContent.trim()}」，給我深度策略建議。`)})});
+</script>
+</body>
+</html>
