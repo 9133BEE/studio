@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>新大墨｜受眾分析報告</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --accent:#3a4a7a;--accent-dark:#2a3a6a;--accent-light:#eaecf6;--accent-border:#8a9ac8;
+  --bg:#f5f4f1;--s:#ffffff;--bd:#e4e1dd;--tx:#2e2c29;--sub:#7d7870;--sub2:#a8a199;
+  --good:#1e6e3f;--goodl:#e6f4ea;--warn:#c05c00;
+  --radius:12px;--shadow-xs:0 1px 3px rgba(0,0,0,.05);--shadow-sm:0 2px 8px rgba(0,0,0,.07);--shadow-card:0 2px 10px rgba(0,0,0,.06),0 1px 3px rgba(0,0,0,.04);
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft JhengHei','Segoe UI',sans-serif;background:var(--bg);color:var(--tx);font-size:14px;line-height:1.6;min-height:100vh}
+.page-header{background:linear-gradient(180deg,#0a0f1e 0%,#060c18 100%);padding:0 40px;height:56px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.04),0 4px 20px rgba(0,0,0,.35);border-bottom:1px solid rgba(255,255,255,.06)}
+.ph-logo{width:30px;height:30px;background:linear-gradient(135deg,#6a7aaa,var(--accent-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;flex-shrink:0}
+.ph-title{font-size:14px;font-weight:700;color:#e8eaf5;letter-spacing:-.2px}
+.ph-sub{font-size:11px;color:#2a3050;margin-left:2px}
+.ph-nav{margin-left:auto}
+.ph-nav a{font-size:12px;color:#8a9ac8;text-decoration:none;padding:5px 13px;border-radius:6px;border:1px solid rgba(58,74,122,.25);background:rgba(58,74,122,.12);font-weight:500}
+.ph-nav a:hover{background:rgba(58,74,122,.22);color:#b0c0e8}
+.wrap{max-width:1200px;margin:0 auto;padding:32px 40px 48px}
+.case-header{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:20px 24px;margin-bottom:10px;display:flex;align-items:center;gap:18px;box-shadow:var(--shadow-card)}
+.case-logo{width:44px;height:44px;background:linear-gradient(135deg,#6a7aaa,var(--accent-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;flex-shrink:0}
+.case-info h2{font-size:17px;font-weight:700;color:var(--tx);letter-spacing:-.3px}
+.case-info p{font-size:12px;color:var(--sub);margin-top:3px;line-height:1.5}
+.case-stats{margin-left:auto;display:flex;gap:28px;flex-shrink:0}
+.stat{text-align:right}
+.stat-n{font-size:24px;font-weight:800;color:var(--accent);line-height:1;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.stat-l{font-size:10px;color:var(--sub2);margin-top:3px;font-weight:600;letter-spacing:.3px;text-transform:uppercase}
+.top-link{font-size:12px;color:var(--accent);margin-bottom:24px;display:inline-block;text-decoration:none;font-weight:500}
+.top-link span{border-bottom:1px solid var(--accent-border)}
+.sec-title{font-size:12px;font-weight:700;color:var(--sub);margin-bottom:14px;display:flex;align-items:center;gap:10px;letter-spacing:.4px;text-transform:uppercase}
+.sec-title::before{content:'';display:inline-block;width:3px;height:14px;background:var(--accent);border-radius:2px;flex-shrink:0}
+.sec-title::after{content:'';flex:1;height:1px;background:var(--bd)}
+.section{margin-bottom:28px}
+.creative-section{margin-bottom:32px}
+/* Profiles */
+.profiles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.profile-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow-xs);transition:box-shadow .2s,transform .2s}
+.profile-card:hover{box-shadow:var(--shadow-sm);transform:translateY(-2px)}
+.profile-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:17px;margin-bottom:12px}
+.profile-icon.navy{background:var(--accent-light)}
+.profile-icon.gold{background:#fdf0dc}
+.profile-icon.teal{background:#e0eff2}
+.profile-name{font-size:15px;font-weight:700;color:var(--tx);margin-bottom:4px}
+.profile-meta{font-size:12px;color:var(--sub);margin-bottom:10px}
+.profile-tags{font-size:12px;color:#4a5568;margin-bottom:10px;line-height:1.6}
+.profile-behavior{font-size:12px;color:var(--sub);line-height:1.55;margin-bottom:12px}
+.profile-badge{display:inline-block;font-size:11px;font-weight:700;padding:4px 11px;border-radius:20px;margin-top:2px}
+.badge-navy{background:var(--accent-light);color:#1a2a5a;border:1px solid var(--accent-border)}
+.badge-gold{background:#fdf0dc;color:#7a5c20;border:1px solid #d4b06a}
+.badge-teal{background:#e0eff2;color:#2f6672;border:1px solid #87b5be}
+/* Tags */
+.tags-row{display:flex;flex-wrap:wrap;gap:8px}
+.core-tag{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;background:var(--s);border:1.5px solid var(--bd);border-radius:20px;font-size:13px;font-weight:600;color:var(--tx);cursor:pointer;transition:all .15s}
+.core-tag:hover{border-color:var(--accent-border);background:var(--accent-light);color:#1a2a5a}
+.core-tag .arr{font-size:11px;color:var(--accent-border)}
+/* Tips */
+.tips{display:flex;flex-direction:column;gap:10px}
+.tip{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:16px 18px;display:flex;gap:16px;align-items:flex-start;cursor:pointer;transition:border-color .15s,box-shadow .15s;box-shadow:var(--shadow-xs)}
+.tip:hover{border-color:var(--accent-border);box-shadow:var(--shadow-sm)}
+.tip-num{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;flex-shrink:0;color:#fff}
+.c1{background:var(--accent)}.c2{background:#4a6a8a}.c3{background:#6a4a8a}.c4{background:#8a6a3a}.c5{background:#4a7a6a}
+.tip-body{flex:1}
+.tip-title{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:5px;line-height:1.4}
+.tip-desc{font-size:12px;color:var(--sub);line-height:1.65}
+/* Insight */
+.insight-box{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow-xs)}
+.insight-title{font-size:14px;font-weight:700;color:var(--tx);margin-bottom:14px}
+.insight-highlight{background:var(--accent-light);border-left:3px solid var(--accent);padding:12px 16px;border-radius:0 8px 8px 0;margin-bottom:16px;font-size:13px;color:#1a2a5a;font-weight:600;line-height:1.65}
+.insight-sub{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:10px;margin-top:14px}
+.insight-list{list-style:none;display:flex;flex-direction:column;gap:7px}
+.insight-list li{font-size:13px;color:#4a5568;padding-left:18px;position:relative;line-height:1.6}
+.insight-list li::before{content:'→';position:absolute;left:0;color:var(--accent-border);font-size:12px;top:1px}
+/* New directions */
+.new-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.new-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:16px 18px;cursor:pointer;transition:border-color .15s,box-shadow .15s;box-shadow:var(--shadow-xs)}
+.new-card:hover{border-color:var(--accent-border);box-shadow:var(--shadow-sm)}
+.new-card-title{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:5px;line-height:1.4}
+.new-card-desc{font-size:12px;color:var(--sub);line-height:1.6}
+/* Ranking */
+.rk-row{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:14px 18px;margin-bottom:8px;display:flex;gap:14px;align-items:center;box-shadow:var(--shadow-xs);transition:box-shadow .15s;cursor:pointer}
+.rk-row:hover{box-shadow:var(--shadow-sm)}
+.rk-row.gold{border-color:#d4b06a;background:#fdfaf2}
+.rk-row.silver{border-color:#b8c0cc;background:#f9f9fb}
+.rk-row.bronze{border-color:#c4a87a;background:#fdf7f0}
+.rk-medal{width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.rk-rank{width:32px;height:32px;border-radius:50%;background:var(--accent-light);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:var(--accent);flex-shrink:0}
+.rk-body{flex:1;min-width:0}
+.rk-name{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:4px;line-height:1.35}
+.rk-loc{font-size:11px;color:var(--sub2);line-height:1.4;margin-bottom:7px}
+.rk-tags{display:flex;flex-wrap:wrap;gap:4px}
+.rk-tag{font-size:10px;font-weight:600;padding:2px 8px;border-radius:8px;line-height:1.5}
+.t-tech{background:#e8f0fe;color:#1a56b0;border:1px solid #93b4e8}
+.t-fin{background:#e6f4ea;color:#1e6e3f;border:1px solid #8ecba3}
+.t-lux{background:#fef3c7;color:#92400e;border:1px solid #fcd34d}
+.t-nav{background:var(--accent-light);color:var(--accent-dark);border:1px solid var(--accent-border)}
+.t-sim{background:#fce4ec;color:#880e4f;border:1px solid #f48fb1}
+.t-ins{background:#e0f7f4;color:#00695c;border:1px solid #7cd6cc}
+.rk-stats{display:flex;gap:24px;flex-shrink:0;align-items:center}
+.rk-stat-block{text-align:right}
+.rk-result{font-size:28px;font-weight:900;color:var(--tx);line-height:1;letter-spacing:-1px;font-variant-numeric:tabular-nums}
+.rk-result-l{font-size:10px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.2px;margin-top:2px}
+.rk-cpl{font-size:18px;font-weight:800;color:var(--warn);line-height:1;font-variant-numeric:tabular-nums}
+.rk-cpl.good-cpl{color:var(--good)}
+.rk-cpl-l{font-size:10px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.2px;margin-top:2px}
+.rk-spend{font-size:13px;font-weight:700;color:#6d6560;line-height:1;font-variant-numeric:tabular-nums}
+.rk-spend-l{font-size:10px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.2px;margin-top:2px}
+.page-footer{text-align:center;font-size:11px;color:var(--sub2);margin-top:12px;padding-bottom:8px}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="ph-logo">墨</div>
+  <span class="ph-title">新大墨｜受眾分析</span>
+  <span class="ph-sub">· 桃園青埔 · A18高鐵4分鐘</span>
+  <nav class="ph-nav"><a href="hub.html">← 返回總覽</a></nav>
+</header>
+
+<div class="wrap">
+
+<div class="case-header">
+  <div class="case-logo">墨</div>
+  <div class="case-info">
+    <h2>新大墨｜桃園青埔</h2>
+    <p>中壢區青埔重劃區 · A18高鐵站4分鐘 · 三房46坪/四房60~66坪 · 總價3,303~5,146萬 · 僅87戶 · 廣告目標：名單</p>
+  </div>
+  <div class="case-stats">
+    <div class="stat"><div class="stat-n">374</div><div class="stat-l">累積潛客</div></div>
+    <div class="stat"><div class="stat-n">NT$261</div><div class="stat-l">均CPL</div></div>
+    <div class="stat"><div class="stat-n">37</div><div class="stat-l">受眾組數</div></div>
+  </div>
+</div>
+
+<a class="top-link" href="hub.html"><span>← 返回報告集</span></a>
+
+<!-- ── 三大核心受眾輪廓 ── -->
+<div class="section">
+  <div class="sec-title">三大核心受眾輪廓</div>
+  <div class="profiles">
+
+    <div class="profile-card">
+      <div class="profile-icon navy">💻</div>
+      <div class="profile-name">竹科科技型</div>
+      <div class="profile-meta">年齡 35–65｜青埔+竹科沿線</div>
+      <div class="profile-tags">興趣：科技業、IC設計、半導體工程師、投資理財</div>
+      <div class="profile-behavior">行為：竹科工程師/主管，A18高鐵4分鐘是最直接通勤訴求，35-65歲高薪族群有能力購入3,000萬以上豪宅，是本案最精準核心受眾</div>
+      <span class="profile-badge badge-navy">三組合計 140潛客 · CPL NT$102~213 · 全案支柱</span>
+    </div>
+
+    <div class="profile-card">
+      <div class="profile-icon gold">💰</div>
+      <div class="profile-name">高資產1%置產型</div>
+      <div class="profile-meta">年齡 35–65｜北部+誠佳+代代木 / 再行銷</div>
+      <div class="profile-tags">興趣：1%頂層族群、置產投資、高端配置、再行銷互動受眾</div>
+      <div class="profile-behavior">行為：有多棟置產習慣的高資產族群（誠佳/代代木豪宅既有買家輪廓），對87戶限量稀缺性高度響應，再行銷組是已接觸品牌的高意向族群</div>
+      <span class="profile-badge badge-gold">合計 69潛客 · CPL NT$122~185 · 第二大支柱</span>
+    </div>
+
+    <div class="profile-card">
+      <div class="profile-icon teal">✈️</div>
+      <div class="profile-name">雙北精品消費型</div>
+      <div class="profile-meta">年齡 30–65｜雙北地區</div>
+      <div class="profile-tags">興趣：精品旅遊、高端業務、保險金融、頂級消費</div>
+      <div class="profile-behavior">行為：雙北高消費力族群，台北買不起相同規格，青埔「5,000萬以下四房豪宅」對這類族群是高性價比選項，由消費力代理財務實力</div>
+      <span class="profile-badge badge-teal">28潛客 · CPL NT$133~274 · 雙北置產客</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── 核心標籤 ── -->
+<div class="section">
+  <div class="sec-title">跨受眾必保留的核心標籤</div>
+  <div class="tags-row">
+    <span class="core-tag">科技業（產業）<span class="arr">↗</span></span>
+    <span class="core-tag">1%族群（財務）<span class="arr">↗</span></span>
+    <span class="core-tag">投資（商業與財務）<span class="arr">↗</span></span>
+    <span class="core-tag">高端生活（消費）<span class="arr">↗</span></span>
+    <span class="core-tag">房地產（產業）<span class="arr">↗</span></span>
+    <span class="core-tag">保險業務（商業）<span class="arr">↗</span></span>
+  </div>
+</div>
+
+<!-- ── 五大操作建議 ── -->
+<div class="section">
+  <div class="sec-title">五大操作建議</div>
+  <div class="tips">
+
+    <div class="tip">
+      <div class="tip-num c1">1</div>
+      <div class="tip-body">
+        <div class="tip-title">科技業+一點投資三組 140潛客 CPL NT$102 全案最低，立即複製到竹北、新竹市區</div>
+        <div class="tip-desc">青埔+竹科/科技業+一點投資三個版本（CPL NT$102~213）合計 140 潛客，佔全案 37%，是整個帳戶的生命線。建議複製到「竹北高鐵站+5km」「新竹科學城+8km」，覆蓋更多竹科IC設計師/半導體工程師，素材強打「A18高鐵4分鐘，竹科上班族的人生最後一棟豪宅」。</div>
+      </div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-num c2">2</div>
+      <div class="tip-body">
+        <div class="tip-title">再行銷 CPL NT$122~165 全案次低，補充「87戶限量稀缺」素材強化轉換</div>
+        <div class="tip-desc">再行銷兩組合計 25 潛客，CPL NT$122~165 遠低於冷受眾。目前素材尚未針對再行銷受眾客製化。建議製作「你已看過新大墨，只剩 XX 戶未售出」的稀缺感倒數素材，搭配「87戶限量 × 2027Q4交屋」時間壓力，二次轉換高意向族群。</div>
+      </div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-num c3">3</div>
+      <div class="tip-body">
+        <div class="tip-title">北部+誠佳+代代木1% 44潛客 CPL $179~185，複製到竹北新竹高薪族</div>
+        <div class="tip-desc">「誠佳/代代木」是北台灣知名豪宅品牌，用作受眾錨點吸引到有類似消費能力的族群，兩組 44 潛客效果穩定。建議複製到「竹北+新竹市1%族群」測試竹科高薪族，以及「台北信義/大安+1%」測試雙北高端置產客。</div>
+      </div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-num c4">4</div>
+      <div class="tip-body">
+        <div class="tip-title">LILI NEW 31潛客 CPL NT$255，分析受眾組成找出高轉換人群</div>
+        <div class="tip-desc">LILI NEW（類似受眾組合）31 潛客 CPL $255，是科技業受眾外效果最好的組合。建議深入分析這組的人口統計和興趣組成，找出高轉換子族群，再針對性開新組。同時用此組的高轉換名單建立更精準的類似受眾，擴大覆蓋。</div>
+      </div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-num c5">5</div>
+      <div class="tip-body">
+        <div class="tip-title">博弈八大/名車名錶/酒精夜生活 全面停止，資源移至科技業與1%族群</div>
+        <div class="tip-desc">博弈八大精品 CPL $358、名車名錶 CPL $1,314、酒精夜生活股票 CPL $450，這類受眾雖看似高端消費力，但購屋決策路徑與科技業族群截然不同（娛樂消費 ≠ 資產配置型置產），名單品質不符。建議全面停止，釋放的預算加碼到科技業+一點投資組。</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── 受眾策略洞見 ── -->
+<div class="creative-section">
+  <div class="sec-title">受眾策略洞見</div>
+
+  <div class="insight-box">
+    <div class="insight-title">核心發現：本案有兩種完全不同的高效受眾邏輯</div>
+    <div class="insight-highlight">
+      第一類「直接地理錨點型」：竹科科技業，用「高鐵4分鐘通勤」直接對號入座。CPL NT$102，效率是均值的 2.5 倍。<br>
+      第二類「財富代理型」：1%族群/誠佳代代木，用消費行為代理購屋能力。CPL NT$122~185，效率是均值的 1.4~2 倍。<br>
+      <strong>這兩條路徑要分別維持，不要混用。</strong>
+    </div>
+    <div class="insight-sub">關於「科技業受眾」為何是本案最強：</div>
+    <ul class="insight-list">
+      <li>竹科工程師平均薪資 200~500萬/年，購屋能力完全匹配 3,000~5,000萬 總價</li>
+      <li>「A18高鐵4分鐘」解決了跨縣市通勤最核心的痛點，不需要其他說服</li>
+      <li>科技業族群習慣數字化思考：「高鐵4分鐘 vs 竹北自駕50分鐘」這樣的具體對比最有說服力</li>
+      <li>建議所有科技業受眾素材都加入「通勤時間計算」具體數字，而非模糊的「便利」描述</li>
+    </ul>
+    <div class="insight-sub">素材方向建議（無素材 CSV，基於受眾數據推導）：</div>
+    <ul class="insight-list">
+      <li>科技業核心訴求：「A18高鐵站4分鐘 × 竹科上班族 × 人生最後一棟豪宅」，加入通勤時間比較圖</li>
+      <li>87戶稀缺感訴求：「只有87個家庭能住這裡，你會是其中之一嗎？」配合倒數計時</li>
+      <li>學區型素材：「青埔國小＋青埔國中，孩子12年不換學區，住青埔」，針對換屋父母</li>
+      <li>雙北置產客訴求：「台北5,000萬買小套房，青埔5,000萬住四房豪宅」直接對比</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ── 建議新受眾方向 ── -->
+<div class="section">
+  <div class="sec-title">建議新測試受眾方向</div>
+  <div class="new-grid">
+    <div class="new-card">
+      <div class="new-card-title">35–55 / 竹北高鐵站+5 / 竹科IC設計/半導體 ↗</div>
+      <div class="new-card-desc">從青埔竹科科技業（CPL NT$102）延伸，將地標換成「竹北高鐵站+5km」，鎖定竹科IC設計/半導體工程師，A18高鐵通勤是最直接訴求</div>
+    </div>
+    <div class="new-card">
+      <div class="new-card-title">35–60 / 台北信義大安 / 置產換屋+雙北擠壓 ↗</div>
+      <div class="new-card-desc">以「台北同等總價只能買小套房，青埔四房豪宅更划算」為訴求，鎖定雙北有置產預算但被高房價壓縮的族群</div>
+    </div>
+    <div class="new-card">
+      <div class="new-card-title">40–55 / 桃園在地+青埔 / 學區換屋父母 ↗</div>
+      <div class="new-card-desc">青埔國小＋青埔國中雙明星學區，針對孩子即將就讀國小的換屋父母，訴求「12年不換學區，一次到位」</div>
+    </div>
+    <div class="new-card">
+      <div class="new-card-title">35–65 / 新竹市區+竹北 / 1%族群+高薪主管 ↗</div>
+      <div class="new-card-desc">延伸誠佳+代代木1%（CPL NT$179~185）成功方向，將地標換至新竹市/竹北，覆蓋本地高薪主管對青埔豪宅的置產興趣</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 受眾排行 ── -->
+<div class="section">
+  <div class="sec-title">成果前 12 名受眾排行（截至 2026/06）</div>
+
+  <div class="rk-row gold">
+    <div class="rk-medal">🥇</div>
+    <div class="rk-body">
+      <div class="rk-name">35-65 / 青埔+竹科 / 科技業+一點投資（4/17調，第一版）</div>
+      <div class="rk-loc">青埔重劃區 + 竹科沿線 · 科技業工程師族群</div>
+      <div class="rk-tags">
+        <span class="rk-tag t-tech">科技業</span>
+        <span class="rk-tag t-fin">投資理財</span>
+        <span class="rk-tag t-nav">高鐵通勤</span>
+      </div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">66</div><div class="rk-result-l">成果</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$102</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$6,750</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row silver">
+    <div class="rk-medal">🥈</div>
+    <div class="rk-body">
+      <div class="rk-name">35-65 / 青埔+竹科 / 科技業+一點投資（4/17調，第二版）</div>
+      <div class="rk-loc">青埔重劃區 + 竹科沿線 · 科技業工程師族群</div>
+      <div class="rk-tags">
+        <span class="rk-tag t-tech">科技業</span>
+        <span class="rk-tag t-fin">投資理財</span>
+        <span class="rk-tag t-nav">高鐵通勤</span>
+      </div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">43</div><div class="rk-result-l">成果</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$145</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$6,250</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row bronze">
+    <div class="rk-medal">🥉</div>
+    <div class="rk-body">
+      <div class="rk-name">LILI NEW（類似受眾組合）</div>
+      <div class="rk-loc">北台灣高資產族群類似受眾</div>
+      <div class="rk-tags">
+        <span class="rk-tag t-lux">高資產</span>
+        <span class="rk-tag t-fin">置產</span>
+        <span class="rk-tag t-nav">類似受眾</span>
+      </div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">31</div><div class="rk-result-l">成果</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl">$255</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$7,890</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row">
+    <div class="rk-rank">4</div>
+    <div class="rk-body">
+      <div class="rk-name">35-65 / 青埔+竹科 / 科技業+一點投資（4/17調，第三版）</div>
+      <div class="rk-loc">青埔重劃區 + 竹科沿線</div>
+      <div class="rk-tags"><span class="rk-tag t-tech">科技業</span><span class="rk-tag t-fin">投資</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">31</div><div class="rk-result-l">成果</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$213</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$6,610</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row">
+    <div class="rk-rank">5</div>
+    <div class="rk-body">
+      <div class="rk-name">35-65 / 北部+誠佳+代代木 / 1%族群（第一版）</div>
+      <div class="rk-loc">北台灣 + 誠佳/代代木豪宅品牌錨點</div>
+      <div class="rk-tags"><span class="rk-tag t-lux">1%族群</span><span class="rk-tag t-fin">置產</span><span class="rk-tag t-lux">豪宅</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">28</div><div class="rk-result-l">成果</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$179</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$5,016</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row">
+    <div class="rk-rank">6</div>
+    <div class="rk-body">
+      <div class="rk-name">35-65 / 再行銷（第二版）</div>
+      <div class="rk-loc">已互動/瀏覽未填表名單再行銷</div>
+      <div class="rk-tags"><span class="rk-tag t-sim">再行銷</span><span class="rk-tag t-fin">高意向</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">20</div><div class="rk-result-l">成果</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$165</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$3,308</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row">
+    <div class="rk-rank">7</div>
+    <div class="rk-body">
+      <div class="rk-name">35-65 / 雙北地區 / 精品愛旅遊（4/17調）</div>
+      <div class="rk-loc">雙北地區 · 高消費力族群</div>
+      <div class="rk-tags"><span class="rk-tag t-lux">精品旅遊</span><span class="rk-tag t-lux">高端消費</span><span class="rk-tag t-nav">雙北</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">17</div><div class="rk-result-l">成果</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl">$274</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$4,661</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row">
+    <div class="rk-rank">8</div>
+    <div class="rk-body">
+      <div class="rk-name">35-65 / 北部+誠佳+代代木 / 1%族群（第二版）</div>
+      <div class="rk-loc">北台灣 + 誠佳/代代木豪宅品牌錨點</div>
+      <div class="rk-tags"><span class="rk-tag t-lux">1%族群</span><span class="rk-tag t-fin">置產</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">16</div><div class="rk-result-l">成果</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$185</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$2,958</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row">
+    <div class="rk-rank">9</div>
+    <div class="rk-body">
+      <div class="rk-name">35-65 / 華泰+大江+竹科 / 科技業（7/15調整）</div>
+      <div class="rk-loc">華泰名品城 + 大江國際 + 竹科</div>
+      <div class="rk-tags"><span class="rk-tag t-tech">科技業</span><span class="rk-tag t-lux">名品商圈</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">21</div><div class="rk-result-l">成果</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl">$449</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$9,422</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row">
+    <div class="rk-rank">10</div>
+    <div class="rk-body">
+      <div class="rk-name">30-65 / 雙北地區 / 高端業務保險</div>
+      <div class="rk-loc">雙北地區 · 保險/業務高薪族群</div>
+      <div class="rk-tags"><span class="rk-tag t-ins">保險業務</span><span class="rk-tag t-fin">高收入</span><span class="rk-tag t-nav">雙北</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">11</div><div class="rk-result-l">成果</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$133</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$1,466</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row">
+    <div class="rk-rank">11</div>
+    <div class="rk-body">
+      <div class="rk-name">35-65 / 青埔+竹科 / 金融業+高階（618調）</div>
+      <div class="rk-loc">青埔 + 竹科 · 金融業高階族群</div>
+      <div class="rk-tags"><span class="rk-tag t-fin">金融業</span><span class="rk-tag t-lux">高階</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">11</div><div class="rk-result-l">成果</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$227</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$2,500</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row">
+    <div class="rk-rank">12</div>
+    <div class="rk-body">
+      <div class="rk-name">35-65 / 再行銷（第一版）</div>
+      <div class="rk-loc">已互動/瀏覽未填表名單再行銷</div>
+      <div class="rk-tags"><span class="rk-tag t-sim">再行銷</span><span class="rk-tag t-fin">高意向</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">5</div><div class="rk-result-l">成果</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$122</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$612</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="page-footer">資料期間：截至 2026-06-02 · 新大墨 桃園青埔 A18高鐵4分鐘 · 最後更新 2026-06-02</div>
+
+</div>
+
+<div id="toast" style="position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);background:#2e2c29;color:#fff;font-size:12.5px;padding:10px 20px;border-radius:24px;opacity:0;transition:all .25s;pointer-events:none;z-index:999;white-space:nowrap">📋 已複製 → 貼至 Claude 對話</div>
+<script>
+const PROJECT = '新大墨（桃園青埔・A18高鐵站4分鐘・三房46坪四房60坪・總價3303~5146萬・87戶限量・374潛客・均CPL NT$261）';
+function showToast(){const t=document.getElementById('toast');t.style.opacity='1';t.style.transform='translateX(-50%) translateY(0)';setTimeout(()=>{t.style.opacity='0';t.style.transform='translateX(-50%) translateY(20px)'},2200)}
+function copyPrompt(text){navigator.clipboard.writeText(text).then(showToast).catch(()=>{const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast()})}
+document.querySelectorAll('.core-tag').forEach(el=>{el.addEventListener('click',()=>{const tag=el.textContent.replace('↗','').trim();copyPrompt(`針對${PROJECT}，請深入分析「${tag}」這個興趣標籤：\n1. 在本案受眾中代表什麼輪廓？\n2. 搭配哪些標籤組合效果最好？\n3. 素材訴求應該怎麼寫？`)})});
+document.querySelectorAll('.new-card').forEach(el=>{el.addEventListener('click',()=>{const title=el.querySelector('.new-card-title').textContent.replace('↗','').trim();const desc=el.querySelector('.new-card-desc').textContent.trim();copyPrompt(`針對${PROJECT}，我想測試新受眾方向：「${title}」\n說明：${desc}\n\n請給我：\n1. META 興趣標籤清單（附中文，約 10–15 個）\n2. 地理設定建議\n3. 適合這組受眾的素材訴求角度`)})});
+document.querySelectorAll('.tip').forEach(el=>{el.addEventListener('click',()=>{const title=el.querySelector('.tip-title').textContent.trim();const desc=el.querySelector('.tip-desc').textContent.trim();copyPrompt(`針對${PROJECT}，關於這項操作建議：\n「${title}」\n背景：${desc}\n\n請幫我制定具體執行方案，包含受眾設定細節和素材方向。`)})});
+document.querySelectorAll('.rk-row').forEach(el=>{el.addEventListener('click',()=>{const name=el.querySelector('.rk-name');if(name)copyPrompt(`針對${PROJECT}，請分析受眾「${name.textContent.trim()}」，給我深度策略建議。`)})});
+</script>
+</body>
+</html>
