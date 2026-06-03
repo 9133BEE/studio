@@ -66,6 +66,17 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .tip-body{flex:1}
 .tip-title{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:5px;line-height:1.4}
 .tip-desc{font-size:12px;color:var(--sub);line-height:1.65}
+/* Creative timeline */
+.creative-timeline{display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
+.phase-row{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:14px 18px;display:flex;gap:14px;align-items:center;cursor:pointer;transition:box-shadow .15s;box-shadow:var(--shadow-xs)}
+.phase-row:hover{box-shadow:var(--shadow-sm)}
+.phase-label{width:52px;flex-shrink:0;font-size:11px;font-weight:800;text-align:center;padding:6px 4px;border-radius:8px;background:var(--accent-light);color:var(--accent-dark);letter-spacing:-.2px;line-height:1.3}
+.phase-body{flex:1;min-width:0}
+.phase-title{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:4px}
+.phase-desc{font-size:12px;color:var(--sub);line-height:1.6}
+.phase-stat{text-align:right;flex-shrink:0;min-width:80px}
+.phase-cpl{font-size:16px;font-weight:800;color:var(--accent);line-height:1;font-variant-numeric:tabular-nums}
+.phase-cpl-l{font-size:10px;color:var(--sub2);margin-top:3px;font-weight:600}
 /* Insight */
 .insight-box{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow-xs)}
 .insight-title{font-size:14px;font-weight:700;color:var(--tx);margin-bottom:14px}
@@ -233,9 +244,48 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   </div>
 </div>
 
-<!-- ── 受眾策略洞見 ── -->
+<!-- ── 素材方向 ── -->
 <div class="creative-section">
-  <div class="sec-title">受眾策略洞見</div>
+  <div class="sec-title">素材方向與受眾策略洞見</div>
+  <div class="creative-timeline">
+
+    <div class="phase-row" style="border-color:var(--accent-border);background:#eceef6">
+      <div class="phase-label" style="background:var(--accent);color:#fff">核心</div>
+      <div class="phase-body">
+        <div class="phase-title">A18高鐵4分鐘（本案最強差異化賣點，必須出現在每支素材）</div>
+        <div class="phase-desc">「A18高鐵桃園站 × 新大墨，開車4分鐘」解決竹科工程師最核心的通勤痛點，是別的豪宅沒有的地段優勢。所有素材必須在前3秒提到高鐵，科技業受眾 CPL NT$102 的背後就是這個訴求精準打到了需求。</div>
+      </div>
+      <div class="phase-stat"><div class="phase-cpl">核心差異化</div><div class="phase-cpl-l">通勤訴求</div></div>
+    </div>
+
+    <div class="phase-row">
+      <div class="phase-label">87戶<br>稀缺</div>
+      <div class="phase-body">
+        <div class="phase-title">87戶限量稀缺訴求（再行銷受眾專屬，CPL NT$122~165）</div>
+        <div class="phase-desc">再行銷兩組合計 25 潛客 CPL NT$122~165，是所有受眾中最低。這群已看過廣告的高意向族群，需要「稀缺感 + 時間壓力」才能推過門檻：「87戶限量，已售 XX 戶，若不行動就沒了」。建議製作再行銷專屬素材。</div>
+      </div>
+      <div class="phase-stat"><div class="phase-cpl">25 潛客</div><div class="phase-cpl-l">CPL NT$122</div></div>
+    </div>
+
+    <div class="phase-row">
+      <div class="phase-label">學區<br>換屋</div>
+      <div class="phase-body">
+        <div class="phase-title">學區換屋型素材（青埔國小+國中，尚未充分開發）</div>
+        <div class="phase-desc">青埔國小 + 青埔國中雙學區是明星資產，但目前受眾測試中學區型組別數量不多。建議製作「孩子12年不換學區，青埔國小步行 × 青埔國中直達，一次到位」素材，配合學區換屋父母受眾。</div>
+      </div>
+      <div class="phase-stat"><div class="phase-cpl">待測試</div><div class="phase-cpl-l">學區方向</div></div>
+    </div>
+
+    <div class="phase-row">
+      <div class="phase-label">雙北<br>比較</div>
+      <div class="phase-body">
+        <div class="phase-title">雙北置產客對比訴求（精品旅遊17潛客 CPL NT$274 已驗證）</div>
+        <div class="phase-desc">雙北精品旅遊族群 17 潛客 CPL NT$274，驗證雙北高消費力族群對青埔豪宅有興趣。素材切角建議：「台北 5,000萬買小套房，青埔 5,000萬住四房豪宅 + A18高鐵直達信義」，讓雙北族群算清楚性價比。</div>
+      </div>
+      <div class="phase-stat"><div class="phase-cpl">17 潛客</div><div class="phase-cpl-l">CPL NT$274</div></div>
+    </div>
+
+  </div>
 
   <div class="insight-box">
     <div class="insight-title">核心發現：本案有兩種完全不同的高效受眾邏輯</div>
@@ -280,6 +330,22 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
     <div class="new-card">
       <div class="new-card-title">35–65 / 新竹市區+竹北 / 1%族群+高薪主管 ↗</div>
       <div class="new-card-desc">延伸誠佳+代代木1%（CPL NT$179~185）成功方向，將地標換至新竹市/竹北，覆蓋本地高薪主管對青埔豪宅的置產興趣</div>
+    </div>
+    <div class="new-card">
+      <div class="new-card-title">再行銷 / 互動過未留名單族群 ↗</div>
+      <div class="new-card-desc">已點按廣告或互動過頁面但未留名單，配合現役最強素材二次觸及，低成本回收高意圖族群，CPL預期可壓至NT$80以下</div>
+    </div>
+    <div class="new-card">
+      <div class="new-card-title">30–55 / 竹科+新竹市 / 工程師換屋首購 ↗</div>
+      <div class="new-card-desc">從青埔竹科科技業（CPL NT$102）延伸，加入換屋訴求，針對在竹科工作已租房多年想買房的工程師，高鐵通勤是核心誘因</div>
+    </div>
+    <div class="new-card">
+      <div class="new-card-title">35–60 / 台北市 / 精品消費族・南遷置產 ↗</div>
+      <div class="new-card-desc">台北精品消費族對青埔豪宅感興趣，訴求「台北同等總價買的了這種規格嗎？青埔A18高鐵4分鐘直達台北」</div>
+    </div>
+    <div class="new-card">
+      <div class="new-card-title">28–50 / 桃園+中壢 / 年輕科技・在地首購 ↗</div>
+      <div class="new-card-desc">桃園中壢在地年輕科技族群，不用遷移工作地點即可入住青埔豪宅，訴求「桃園在地生活，豪宅不用去台北買」</div>
     </div>
   </div>
 </div>
