@@ -7,110 +7,116 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --accent:#5a7a60;
-  --accent-dark:#3d5e42;
-  --accent-light:#eaf3ec;
-  --accent-border:#8faa96;
+  --accent:#5a7a60;--accent-dark:#3d5e42;--accent-light:#eaf3ec;--accent-border:#8faa96;
   --bg:#f5f4f1;--s:#ffffff;--bd:#e4e1dd;--tx:#2e2c29;--sub:#7d7870;--sub2:#a8a199;
   --good:#1e6e3f;--goodl:#e6f4ea;--warn:#c05c00;
-  --radius:12px;
-  --shadow-xs:0 1px 3px rgba(0,0,0,.05);
-  --shadow-sm:0 2px 8px rgba(0,0,0,.07);
-  --shadow-card:0 2px 10px rgba(0,0,0,.06),0 1px 3px rgba(0,0,0,.04);
+  --radius:12px;--shadow-xs:0 1px 3px rgba(0,0,0,.05);--shadow-sm:0 2px 8px rgba(0,0,0,.07);--shadow-card:0 2px 10px rgba(0,0,0,.06),0 1px 3px rgba(0,0,0,.04);
 }
 body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft JhengHei','Segoe UI',sans-serif;background:var(--bg);color:var(--tx);font-size:14px;line-height:1.6;min-height:100vh}
-.page-header{background:linear-gradient(180deg,#0a1a0c 0%,#061009 100%);padding:0 40px;height:56px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.04),0 4px 20px rgba(0,0,0,.35);border-bottom:1px solid rgba(255,255,255,.06)}
-.ph-logo{width:30px;height:30px;background:linear-gradient(135deg,#7aaa82,var(--accent-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;flex-shrink:0;box-shadow:0 2px 8px rgba(90,122,96,.45),inset 0 1px 0 rgba(255,255,255,.15)}
-.ph-title{font-size:14px;font-weight:700;color:#ecf6ee;letter-spacing:-.2px}
-.ph-sub{font-size:11px;color:#4a7050;margin-left:2px}
+.page-header{background:linear-gradient(180deg,#0e1810 0%,#0a1209 100%);padding:0 40px;height:56px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.04),0 4px 20px rgba(0,0,0,.35);border-bottom:1px solid rgba(255,255,255,.06)}
+.ph-logo{width:30px;height:30px;background:linear-gradient(135deg,#7aaa80,var(--accent-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;flex-shrink:0}
+.ph-title{font-size:14px;font-weight:700;color:#e8f5ea;letter-spacing:-.2px}
+.ph-sub{font-size:11px;color:#3a5a3e;margin-left:2px}
 .ph-nav{margin-left:auto}
-.ph-nav a{font-size:12px;color:#7aaa82;text-decoration:none;padding:5px 13px;border-radius:6px;border:1px solid rgba(90,122,96,.25);background:rgba(90,122,96,.12);transition:all .15s;font-weight:500}
-.ph-nav a:hover{background:rgba(90,122,96,.22);color:#a8d8b0;border-color:rgba(90,122,96,.4)}
+.ph-nav a{font-size:12px;color:#8faa96;text-decoration:none;padding:5px 13px;border-radius:6px;border:1px solid rgba(90,122,96,.25);background:rgba(90,122,96,.12);font-weight:500}
+.ph-nav a:hover{background:rgba(90,122,96,.22);color:#b8d8be}
 .wrap{max-width:1200px;margin:0 auto;padding:32px 40px 48px}
 .case-header{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:20px 24px;margin-bottom:10px;display:flex;align-items:center;gap:18px;box-shadow:var(--shadow-card)}
-.case-logo{width:44px;height:44px;background:linear-gradient(135deg,var(--accent),var(--accent-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;flex-shrink:0;box-shadow:0 3px 10px rgba(90,122,96,.35),inset 0 1px 0 rgba(255,255,255,.15)}
+.case-logo{width:44px;height:44px;background:linear-gradient(135deg,#7aaa80,var(--accent-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;flex-shrink:0}
 .case-info h2{font-size:17px;font-weight:700;color:var(--tx);letter-spacing:-.3px}
 .case-info p{font-size:12px;color:var(--sub);margin-top:3px;line-height:1.5}
 .case-stats{margin-left:auto;display:flex;gap:28px;flex-shrink:0}
 .stat{text-align:right}
 .stat-n{font-size:24px;font-weight:800;color:var(--accent);line-height:1;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
 .stat-l{font-size:10px;color:var(--sub2);margin-top:3px;font-weight:600;letter-spacing:.3px;text-transform:uppercase}
-.back-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--accent);text-decoration:none;margin-bottom:16px;padding:5px 12px;background:var(--accent-light);border-radius:20px;border:1px solid var(--accent-border);transition:all .15s}
-.back-link:hover{background:#c8e0cc;color:var(--accent-dark)}
+.top-link{font-size:12px;color:var(--accent);margin-bottom:24px;display:inline-block;text-decoration:none;font-weight:500}
+.top-link span{border-bottom:1px solid var(--accent-border)}
 .sec-title{font-size:12px;font-weight:700;color:var(--sub);margin-bottom:14px;display:flex;align-items:center;gap:10px;letter-spacing:.4px;text-transform:uppercase}
 .sec-title::before{content:'';display:inline-block;width:3px;height:14px;background:var(--accent);border-radius:2px;flex-shrink:0}
 .sec-title::after{content:'';flex:1;height:1px;background:var(--bd)}
-.section{margin-bottom:32px}
+.section{margin-bottom:28px}
+.creative-section{margin-bottom:32px}
+.note-bar{background:var(--accent-light);border:1px solid var(--accent-border);border-radius:10px;padding:10px 16px;font-size:12px;color:#2a4a2e;margin-bottom:20px;line-height:1.6}
+/* Profiles */
 .profiles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .profile-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow-xs);transition:box-shadow .2s,transform .2s}
 .profile-card:hover{box-shadow:var(--shadow-sm);transform:translateY(-2px)}
 .profile-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:17px;margin-bottom:12px}
 .profile-icon.green{background:var(--accent-light)}
-.profile-icon.earth{background:#f0e8d8}
-.profile-icon.blue{background:#eaf0f6}
+.profile-icon.amber{background:#fdf0dc}
+.profile-icon.teal{background:#e0eff2}
 .profile-name{font-size:15px;font-weight:700;color:var(--tx);margin-bottom:4px}
 .profile-meta{font-size:12px;color:var(--sub);margin-bottom:10px}
 .profile-tags{font-size:12px;color:#4a5568;margin-bottom:10px;line-height:1.6}
 .profile-behavior{font-size:12px;color:var(--sub);line-height:1.55;margin-bottom:12px}
 .profile-badge{display:inline-block;font-size:11px;font-weight:700;padding:4px 11px;border-radius:20px;margin-top:2px}
-.badge-green{background:var(--accent-light);color:#3d5e42;border:1px solid var(--accent-border)}
-.badge-earth{background:#f0e8d8;color:#7a5020;border:1px solid #d4a870}
-.badge-blue{background:#eaf0f6;color:#4d6a82;border:1px solid #a8bed0}
+.badge-green{background:var(--accent-light);color:#2a4a2e;border:1px solid var(--accent-border)}
+.badge-amber{background:#fdf0dc;color:#7a5c20;border:1px solid #d4b06a}
+.badge-teal{background:#e0eff2;color:#2f6672;border:1px solid #87b5be}
+/* Tags */
 .tags-row{display:flex;flex-wrap:wrap;gap:8px}
 .core-tag{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;background:var(--s);border:1.5px solid var(--bd);border-radius:20px;font-size:13px;font-weight:600;color:var(--tx);cursor:pointer;transition:all .15s}
-.core-tag:hover{border-color:var(--accent-border);background:var(--accent-light);color:#3d5e42}
+.core-tag:hover{border-color:var(--accent-border);background:var(--accent-light);color:#2a4a2e}
 .core-tag .arr{font-size:11px;color:var(--accent-border)}
+/* Tips */
 .tips{display:flex;flex-direction:column;gap:10px}
 .tip{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:16px 18px;display:flex;gap:16px;align-items:flex-start;cursor:pointer;transition:border-color .15s,box-shadow .15s;box-shadow:var(--shadow-xs)}
-.tip:hover{border-color:var(--accent-border);box-shadow:0 3px 12px rgba(90,122,96,.12)}
-.tip-num{width:26px;height:26px;border-radius:7px;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.tip-num.c1{background:var(--accent-light);color:#3d5e42}
-.tip-num.c2{background:#d8ead2;color:#3d6b4f}
-.tip-num.c3{background:#fdf0dc;color:#7a5c20}
-.tip-num.c4{background:#e0eff2;color:#2f6672}
-.tip-num.c5{background:#faeaea;color:#8a3f3f}
-.tip-title{font-size:14px;font-weight:700;color:var(--tx);margin-bottom:5px;line-height:1.3}
-.tip-desc{font-size:13px;color:var(--sub);line-height:1.6}
-.new-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.new-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:16px 18px;cursor:pointer;transition:all .15s;box-shadow:var(--shadow-xs)}
-.new-card:hover{border-color:var(--accent-border);box-shadow:0 3px 12px rgba(90,122,96,.12);transform:translateY(-1px)}
-.new-card-title{font-size:14px;font-weight:700;color:var(--tx);margin-bottom:6px;line-height:1.35}
-.new-card-desc{font-size:12px;color:var(--sub);line-height:1.55}
+.tip:hover{border-color:var(--accent-border);box-shadow:var(--shadow-sm)}
+.tip-num{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;flex-shrink:0;color:#fff}
+.c1{background:var(--accent)}.c2{background:#6a8a6a}.c3{background:#8a7a4a}.c4{background:#4a6a8a}.c5{background:#7a5a4a}
+.tip-body{flex:1}
+.tip-title{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:5px;line-height:1.4}
+.tip-desc{font-size:12px;color:var(--sub);line-height:1.65}
+/* Creative timeline */
+.creative-timeline{display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
+.phase-row{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:14px 18px;display:flex;gap:14px;align-items:center;cursor:pointer;transition:box-shadow .15s;box-shadow:var(--shadow-xs)}
+.phase-row:hover{box-shadow:var(--shadow-sm)}
+.phase-label{width:52px;flex-shrink:0;font-size:11px;font-weight:800;text-align:center;padding:6px 4px;border-radius:8px;background:var(--accent-light);color:var(--accent-dark);letter-spacing:-.2px;line-height:1.3}
+.phase-body{flex:1;min-width:0}
+.phase-title{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:4px}
+.phase-desc{font-size:12px;color:var(--sub);line-height:1.6}
+.phase-stat{text-align:right;flex-shrink:0;min-width:80px}
+.phase-cpl{font-size:16px;font-weight:800;color:var(--accent);line-height:1;font-variant-numeric:tabular-nums}
+.phase-cpl-l{font-size:10px;color:var(--sub2);margin-top:3px;font-weight:600}
+/* Insight */
 .insight-box{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow-xs)}
 .insight-title{font-size:14px;font-weight:700;color:var(--tx);margin-bottom:14px}
-.insight-highlight{background:var(--accent-light);border-left:3px solid var(--accent);padding:12px 16px;border-radius:0 8px 8px 0;margin-bottom:16px;font-size:13px;color:#2d5e3a;font-weight:600;line-height:1.65}
+.insight-highlight{background:var(--accent-light);border-left:3px solid var(--accent);padding:12px 16px;border-radius:0 8px 8px 0;margin-bottom:16px;font-size:13px;color:#1a3a1e;font-weight:600;line-height:1.65}
 .insight-sub{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:10px;margin-top:14px}
 .insight-list{list-style:none;display:flex;flex-direction:column;gap:7px}
 .insight-list li{font-size:13px;color:#4a5568;padding-left:18px;position:relative;line-height:1.6}
 .insight-list li::before{content:'→';position:absolute;left:0;color:var(--accent-border);font-size:12px;top:1px}
-.principle-list{list-style:none;display:flex;flex-direction:column;gap:8px;margin-top:6px;counter-reset:item}
-.principle-list li{font-size:13px;color:#4a5568;padding-left:20px;position:relative;line-height:1.55}
-.principle-list li::before{content:counter(item);counter-increment:item;position:absolute;left:0;width:16px;height:16px;background:var(--accent-light);border-radius:4px;color:var(--accent);font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;top:1px}
-.rk-row{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:14px 18px;margin-bottom:8px;display:flex;gap:14px;align-items:center;box-shadow:var(--shadow-xs);transition:box-shadow .15s}
+/* New directions */
+.new-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.new-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:16px 18px;cursor:pointer;transition:border-color .15s,box-shadow .15s;box-shadow:var(--shadow-xs)}
+.new-card:hover{border-color:var(--accent-border);box-shadow:var(--shadow-sm)}
+.new-card-title{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:5px;line-height:1.4}
+.new-card-desc{font-size:12px;color:var(--sub);line-height:1.6}
+/* Ranking */
+.rk-row{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:14px 18px;margin-bottom:8px;display:flex;gap:14px;align-items:center;box-shadow:var(--shadow-xs);transition:box-shadow .15s;cursor:pointer}
 .rk-row:hover{box-shadow:var(--shadow-sm)}
 .rk-row.gold{border-color:#d4b06a;background:#fdfaf2}
 .rk-row.silver{border-color:#b8c0cc;background:#f9f9fb}
 .rk-row.bronze{border-color:#c4a87a;background:#fdf7f0}
 .rk-medal{width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
-.rk-rank{width:32px;height:32px;border-radius:50%;background:var(--accent-light);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:var(--accent-dark);flex-shrink:0}
+.rk-rank{width:32px;height:32px;border-radius:50%;background:var(--accent-light);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:var(--accent);flex-shrink:0}
 .rk-body{flex:1;min-width:0}
 .rk-name{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:4px;line-height:1.35}
 .rk-loc{font-size:11px;color:var(--sub2);line-height:1.4;margin-bottom:7px}
 .rk-tags{display:flex;flex-wrap:wrap;gap:4px}
 .rk-tag{font-size:10px;font-weight:600;padding:2px 8px;border-radius:8px;line-height:1.5}
-.t-biz{background:#fff3e0;color:#bf5600;border:1px solid #ffd0a0}
-.t-fin{background:#e8f0fe;color:#1a56b0;border:1px solid #93b4e8}
-.t-prop{background:#e6f4ea;color:#1e6e3f;border:1px solid #8ecba3}
-.t-lux{background:#f0e8f8;color:#6620a0;border:1px solid #c8a0e0}
-.t-beh{background:#fffde7;color:#c57a00;border:1px solid #ffe082}
-.t-edu{background:#e0f7f4;color:#00695c;border:1px solid #7cd6cc}
+.t-fam{background:#f3e8ff;color:#5b21b6;border:1px solid #c4b5fd}
+.t-agr{background:#e6f4ea;color:#1e6e3f;border:1px solid #8ecba3}
 .t-ind{background:#eceff1;color:#37474f;border:1px solid #b0bec5}
-.t-agr{background:#f1f8e9;color:#558b2f;border:1px solid #aed581}
-.rk-stats{display:flex;gap:24px;flex-shrink:0;align-items:center}
+.t-loc{background:var(--accent-light);color:var(--accent-dark);border:1px solid var(--accent-border)}
+.t-buy{background:#fef3c7;color:#92400e;border:1px solid #fcd34d}
+.t-tour{background:#e0f7f4;color:#00695c;border:1px solid #7cd6cc}
+.rk-stats{display:flex;gap:20px;flex-shrink:0;align-items:center}
 .rk-stat-block{text-align:right}
-.rk-result{font-size:28px;font-weight:900;color:var(--tx);line-height:1;letter-spacing:-1px;font-variant-numeric:tabular-nums}
+.rk-result{font-size:26px;font-weight:900;color:var(--tx);line-height:1;letter-spacing:-1px;font-variant-numeric:tabular-nums}
 .rk-result-l{font-size:10px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.2px;margin-top:2px}
-.rk-cpl{font-size:18px;font-weight:800;color:var(--warn);line-height:1;font-variant-numeric:tabular-nums}
+.rk-cpl{font-size:16px;font-weight:800;color:var(--warn);line-height:1;font-variant-numeric:tabular-nums}
+.rk-cpl.good-cpl{color:var(--good)}
 .rk-cpl-l{font-size:10px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.2px;margin-top:2px}
 .rk-spend{font-size:13px;font-weight:700;color:#6d6560;line-height:1;font-variant-numeric:tabular-nums}
 .rk-spend-l{font-size:10px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.2px;margin-top:2px}
@@ -120,176 +126,357 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 <body>
 
 <header class="page-header">
-  <div class="ph-logo">雅</div>
+  <div class="ph-logo">祐</div>
   <span class="ph-title">中祐雅苑｜受眾分析</span>
-  <span class="ph-sub">· 嘉義大林</span>
+  <span class="ph-sub">· 嘉義大林 · 零公設4房</span>
   <nav class="ph-nav"><a href="hub.html">← 返回總覽</a></nav>
 </header>
 
 <div class="wrap">
-<a class="back-link" href="hub.html">← 返回案件總覽</a>
 
 <div class="case-header">
-  <div class="case-logo">雅</div>
+  <div class="case-logo">祐</div>
   <div class="case-info">
     <h2>中祐雅苑｜嘉義大林</h2>
-    <p>大智三街口 · 近大林火車站 · 國道3號 · 零公設4房透天 · 2027下半年交屋 · 廣告目標：訊息</p>
+    <p>大林鎮大智三街×大智一街口 · 大林火車站步行圈 · 4房44~49坪 · 32戶 · 零公設無管理費 · 廣告目標：訊息</p>
   </div>
   <div class="case-stats">
-    <div class="stat"><div class="stat-n">508</div><div class="stat-l">總訊息</div></div>
-    <div class="stat"><div class="stat-n">NT$241</div><div class="stat-l">均CPL</div></div>
-    <div class="stat"><div class="stat-n">34組</div><div class="stat-l">累積受眾</div></div>
+    <div class="stat"><div class="stat-n">508</div><div class="stat-l">累積訊息</div></div>
+    <div class="stat"><div class="stat-n">NT$241</div><div class="stat-l">均每訊息成本</div></div>
+    <div class="stat"><div class="stat-n">34</div><div class="stat-l">受眾組數</div></div>
   </div>
 </div>
 
+<a class="top-link" href="hub.html"><span>← 返回報告集</span></a>
 
+<div class="note-bar">📌 本案廣告目標為「訊息」，主指標為每則訊息成本。CPL = 每則訊息成本（NT$165~242 為有效範圍）。潛客表單另計 20 筆。</div>
+
+<!-- ── 三大核心受眾輪廓 ── -->
 <div class="section">
   <div class="sec-title">三大核心受眾輪廓</div>
   <div class="profiles">
+
     <div class="profile-card">
       <div class="profile-icon green">👩‍👧</div>
       <div class="profile-name">家庭主婦在地型</div>
-      <div class="profile-meta">年齡 28–55｜大林/新港/嘉北圈</div>
-      <div class="profile-tags">興趣：家庭、育兒、傳統美食、戶外、生活</div>
-      <div class="profile-behavior">行為：在地傳統家庭主婦，熟悉大林生活圈，對學區（三和國小/大林國中）有需求，首購換屋動機明確</div>
-      <span class="profile-badge badge-green">代表組：大林新港/家庭主婦（153訊息 CPL175）</span>
+      <div class="profile-meta">年齡 28–55｜大林 / 新港圈</div>
+      <div class="profile-tags">興趣：家庭主婦、傳統家庭、在地生活、首購換屋</div>
+      <div class="profile-behavior">行為：大林/新港在地生活圈的家庭主婦，對「4房零公設+前院停車」訴求最直接，是本案主力 153 訊息佔全案 30%，對家庭空間實用性和生活機能高度重視</div>
+      <span class="profile-badge badge-green">153訊息 · CPL NT$175 · 全案訊息最多</span>
     </div>
+
     <div class="profile-card">
-      <div class="profile-icon earth">🏭</div>
+      <div class="profile-icon amber">🌾</div>
       <div class="profile-name">農工業在地型</div>
-      <div class="profile-meta">年齡 28–55｜大林/台3沿線/大埤</div>
-      <div class="profile-tags">興趣：農業、工廠、飲食加工、代工、傳統產業</div>
-      <div class="profile-behavior">行為：大林及台3沿線農工業就業者，在地工作、在地居住需求強，對「零公設、前院停車」等實用訴求反應佳</div>
-      <span class="profile-badge badge-earth">代表組：大林新港美食/農工業（62訊息 CPL206）</span>
+      <div class="profile-meta">年齡 28–60｜大林新港美食 / 台3沿線</div>
+      <div class="profile-tags">興趣：農業、工廠製造、食品加工、傳統產業就業</div>
+      <div class="profile-behavior">行為：大林嘉義縣農工業就業者，台3沿線工廠通勤族，換屋改善住居需求強烈，「零公設無管理費」對這類族群是實際降持有成本的有力訴求</div>
+      <span class="profile-badge badge-amber">合計90訊息 · CPL NT$206~299 · 主力購屋族群</span>
     </div>
+
     <div class="profile-card">
-      <div class="profile-icon blue">🚌</div>
+      <div class="profile-icon teal">🚌</div>
       <div class="profile-name">觀光遊覽業型</div>
-      <div class="profile-meta">年齡 28–60｜大林大崎頂/新港</div>
-      <div class="profile-tags">興趣：旅遊、遊覽車、導遊、觀光、傳統文化</div>
-      <div class="profile-behavior">行為：大林周邊觀光旅遊業從業者，在地換屋需求真實，對透天格局＋停車空間有強烈偏好</div>
-      <span class="profile-badge badge-blue">代表組：大林大崎頂/遊覽業車（20訊息 CPL194）</span>
+      <div class="profile-meta">年齡 28–60｜大崎頂 / 遊覽導遊</div>
+      <div class="profile-tags">興趣：遊覽業、遊覽車司機、導遊、觀光旅遊業</div>
+      <div class="profile-behavior">行為：大崎頂/大林在地觀光從業者，對大林火車站步行圈交通便利有直接需求，換屋動機真實且緊迫，CPL NT$194~282 均在有效範圍</div>
+      <span class="profile-badge badge-teal">37訊息 · CPL NT$194~282 · 在地觀光業</span>
     </div>
+
   </div>
 </div>
 
+<!-- ── 核心標籤 ── -->
 <div class="section">
   <div class="sec-title">跨受眾必保留的核心標籤</div>
   <div class="tags-row">
-    <span class="core-tag">房地產（產業）<span class="arr">↗</span></span>
-    <span class="core-tag">不動產（房地產）<span class="arr">↗</span></span>
-    <span class="core-tag">家庭主婦（身份）<span class="arr">↗</span></span>
+    <span class="core-tag">家庭主婦（家庭）<span class="arr">↗</span></span>
+    <span class="core-tag">傳統家庭（家庭）<span class="arr">↗</span></span>
     <span class="core-tag">農業（產業）<span class="arr">↗</span></span>
-    <span class="core-tag">傳統美食（飲食）<span class="arr">↗</span></span>
-    <span class="core-tag">首次購屋（行為）<span class="arr">↗</span></span>
+    <span class="core-tag">製造業（產業）<span class="arr">↗</span></span>
+    <span class="core-tag">在地生活（地域）<span class="arr">↗</span></span>
+    <span class="core-tag">首購換屋（房地產）<span class="arr">↗</span></span>
   </div>
 </div>
 
+<!-- ── 五大操作建議 ── -->
 <div class="section">
   <div class="sec-title">五大操作建議</div>
   <div class="tips">
+
     <div class="tip">
       <div class="tip-num c1">1</div>
       <div class="tip-body">
-        <div class="tip-title">「大林新港/家庭主婦」CPL NT$175 全案最強，立即擴預算</div>
-        <div class="tip-desc">此組單月累積 153 則訊息、7 筆潛客，目前仍進行中。日預算 NT$200 已跑出穩定效果，建議提升至 NT$350–400 觀察是否等比例成長，並同步測試同類標籤在「大林嘉北+5」圈的複製版本。</div>
+        <div class="tip-title">大林新港/家庭主婦 153訊息 CPL NT$175 是全案最強，立即從 NT$200 提高至 NT$350/日</div>
+        <div class="tip-desc">「大林新港/家庭主婦」進行中組 153 訊息是全案最多，CPL NT$175 全案次低。目前日預算 NT$200 明顯過低，限制了觸及量。建議提高至 NT$300~400/日，素材強打「4房零公設，一家四口住得下，管理費零負擔」，讓這個高效受眾組發揮最大效益。</div>
       </div>
     </div>
+
     <div class="tip">
       <div class="tip-num c2">2</div>
       <div class="tip-body">
-        <div class="tip-title">「戶外傳統美食」CPL NT$165 已停用，應立即重啟</div>
-        <div class="tip-desc">此組（大林嘉北/戶外傳統美食）CPL 全案最低 NT$165，41 則訊息。已停用但邏輯未失效——建議以相同標籤組合在「大林新港+5」重新啟動，素材訴求「前院停車+透天生活感」。</div>
+        <div class="tip-title">戶外傳統美食 CPL NT$165 全案最低但已停用，用相同標籤在「大林新港+5km」重新啟動</div>
+        <div class="tip-desc">「大林嘉北嘉北/戶外傳統美食」41 訊息 CPL NT$165 是全案最低 CPL，但已停用。建議在「大林新港+5km」重新開組，完整保留「戶外活動+傳統美食」的興趣標籤組合，搭配相同素材，目標 CPL 壓至 NT$150 以下。</div>
       </div>
     </div>
+
     <div class="tip">
       <div class="tip-num c3">3</div>
       <div class="tip-body">
-        <div class="tip-title">農工業進行中兩組（CPL NT$206–299）維持，加細分農業標籤</div>
-        <div class="tip-desc">「大林新港美食/農工業」和「台3沿線/工廠認知」共 77 訊息、6 潛客，目前進行中。建議在農工業組內加測「稻作農業、農機具、養殖業、傳統農產加工」等細分標籤，找出農業背景反應最強的子族群。</div>
+        <div class="tip-title">農工業/台3沿線 CPL NT$206~299，細分農業標籤測試找出最精準子族群</div>
+        <div class="tip-desc">「大林新港美食/農工業」62 訊息 CPL NT$206 進行中效果穩定。建議新增農業細分組：加入「傳統農業、農機具、稻米、雞蛋農場」等具體標籤，測試農業主族群是否比工業族群 CPL 更低。嘉義大林是農業縣城，這條路徑值得深挖。</div>
       </div>
     </div>
+
     <div class="tip">
       <div class="tip-num c4">4</div>
       <div class="tip-body">
-        <div class="tip-title">「傳統首購」CPL NT$247、33 訊息，是量最穩的有效組</div>
-        <div class="tip-desc">30-50/大林新港/傳統首購 是量較大且 CPL 合理的穩定組。建議維持並測試素材角度：「嘉義縣唯一零公設透天」＋「大林國中步行學區」雙重訴求，鎖定首購有孩族群。</div>
+        <div class="tip-title">遊覽業/導遊 CPL NT$194~282 穩定有效，擴大地理範圍到溪口、嘉北周邊</div>
+        <div class="tip-desc">大崎頂遊覽業車 20 訊息 CPL NT$194 表現穩定，大林遊覽導遊 17 訊息 CPL NT$282 也在合理範圍。建議複製到「溪口+5km」「嘉北嘉義+6km」測試觀光業從業者覆蓋範圍，素材切角強調「大林火車站步行，出車回家方便」。</div>
       </div>
     </div>
+
     <div class="tip">
       <div class="tip-num c5">5</div>
       <div class="tip-body">
-        <div class="tip-title">立即停止投資/置產/政治（CPL NT$1,095）和科技業系列</div>
-        <div class="tip-desc">「嘉北大林新港/投資置產政治」CPL NT$1,095、「中嘉嘉北/科技置產及工程師」CPL NT$333–350。嘉義大林投資客比例低、科技業就業人口少，預算應全部轉至家庭主婦型和農工業型組別。</div>
+        <div class="tip-title">停止投資/置產/科技業/新港溪口系列，資源集中到家庭主婦和農工業兩大核心</div>
+        <div class="tip-desc">投資/置產/政治 CPL NT$1,095；科技業系列 CPL NT$333~350；新港溪口戶外傳統美食 CPL NT$501 — 三類受眾均與「嘉義大林4房自住換屋」定位不符。嘉義大林不是投資客市場，建議全面停止這三類，將釋放的 NT$1,500+ 預算轉移至家庭主婦組加碼。</div>
       </div>
     </div>
+
   </div>
 </div>
 
+<!-- ── 素材方向分析 ── -->
+<div class="creative-section">
+  <div class="sec-title">素材方向分析</div>
+  <div class="creative-timeline">
+
+    <div class="phase-row">
+      <div class="phase-label">核心<br>訴求</div>
+      <div class="phase-body">
+        <div class="phase-title">零公設 × 前院停車 × 無管理費（本案最強差異化訴求）</div>
+        <div class="phase-desc">嘉義大林市場競品多為有公設的社區，中祐雅苑「零公設比 0%、前院停車含充電、無管理費」是絕對差異化。素材核心應圍繞「買了就是你的，不用養公設、不用繳管理費」，對在地農工業族群的月現金流敏感度有直接說服力。</div>
+      </div>
+      <div class="phase-stat"><div class="phase-cpl">核心賣點</div><div class="phase-cpl-l">差異化訴求</div></div>
+    </div>
+
+    <div class="phase-row" style="border-color:var(--accent-border);background:#f0f7f1">
+      <div class="phase-label" style="background:var(--accent);color:#fff">🏆 主力</div>
+      <div class="phase-body">
+        <div class="phase-title">家庭生活場景型素材（✅ 對家庭主婦族群最有效）</div>
+        <div class="phase-desc">家庭主婦族群 153 訊息是最強受眾，素材應搭配家庭生活場景：廚房空間、前院活動、孩子玩耍、一家四口生活。強調「4房住得下，前院停車方便，孩子學校7分鐘」，讓主婦族群代入「這就是我要的家」的畫面。</div>
+      </div>
+      <div class="phase-stat"><div class="phase-cpl">家庭場景</div><div class="phase-cpl-l">CPL NT$175</div></div>
+    </div>
+
+    <div class="phase-row">
+      <div class="phase-label">農工<br>訴求</div>
+      <div class="phase-body">
+        <div class="phase-title">在地實用型素材（農工業族群 × 台3沿線通勤族）</div>
+        <div class="phase-desc">農工業/台3沿線族群重視實用性：「無管理費，月省NT$3,000」「前院停車，農用車機車都能停」「大林火車站5分鐘，通勤方便」。素材切角應著重每月省錢、生活便利，避免精品感/設計感訴求，在地土地認同感強，中文字幕清楚為主。</div>
+      </div>
+      <div class="phase-stat"><div class="phase-cpl">實用訴求</div><div class="phase-cpl-l">CPL NT$206</div></div>
+    </div>
+
+    <div class="phase-row">
+      <div class="phase-label">學區<br>訴求</div>
+      <div class="phase-body">
+        <div class="phase-title">學區換屋型素材（尚未測試，建議優先開發）</div>
+        <div class="phase-desc">三和國小（車程7分）+ 大林國中（車程14分），是本案尚未充分利用的訴求。建議製作「孩子小學要讀哪間？三和國小7分鐘，4房零公設讓孩子長大也住得下」換屋父母素材，搭配新受眾方向「學區家長」測試 CPL 能否壓至 NT$200 以下。</div>
+      </div>
+      <div class="phase-stat"><div class="phase-cpl">待測試</div><div class="phase-cpl-l">建議新開</div></div>
+    </div>
+
+  </div>
+
+  <div class="insight-box">
+    <div class="insight-title">素材策略洞見</div>
+    <div class="insight-highlight">
+      本案受眾是嘉義大林在地族群（農工業、家庭主婦、觀光從業者），不是一般城市置產客。素材語言要「在地、實用、省錢」，而不是「品牌、生活品質、設計感」。訴求越接地氣，CPL 越低。
+    </div>
+    <div class="insight-sub">素材禁忌（避免以下切角）：</div>
+    <ul class="insight-list">
+      <li>建材規格訴求（廚具品牌、衛浴設備）— 在地農工族群對品牌無感</li>
+      <li>投資增值訴求 — 大林非投資市場，這個角度轉換率極低（CPL NT$1,095 已驗證）</li>
+      <li>設計美學訴求 — 家庭主婦要的是「住得下 + 停得了車」，不是「精緻空間感」</li>
+    </ul>
+    <div class="insight-sub">素材優先製作建議：</div>
+    <ul class="insight-list">
+      <li>「4房34坪出租，零公設每月省3000管理費，大林火車站5分鐘」— 對農工業族群省錢訴求</li>
+      <li>「前院停車+充電設備，農用車機車都能停，這才是嘉義人的家」— 農業族群認同感</li>
+      <li>「三和國小7分鐘，孩子學區不用搶，4房讓孩子長大也住得下」— 學區換屋父母</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ── 建議新受眾方向 ── -->
 <div class="section">
   <div class="sec-title">建議新測試受眾方向</div>
   <div class="new-grid">
     <div class="new-card">
-      <div class="new-card-title">28–55 / 大林新港+5 / 三和國小/大林國中家長 ↗</div>
-      <div class="new-card-desc">4房格局+大林學區，鎖定有小孩的換屋族群，訴求「大林學區透天，前院讓孩子騎單車」</div>
+      <div class="new-card-title">28–55 / 大林新港+5 / 戶外傳統美食（重啟）↗</div>
+      <div class="new-card-desc">直接重啟 CPL NT$165 全案最低組，換地標至大林新港+5km，保留相同標籤，目標 CPL 壓至 NT$150 以下</div>
     </div>
     <div class="new-card">
-      <div class="new-card-title">30–60 / 大林台3沿線 / 傳統農業主・換屋 ↗</div>
-      <div class="new-card-desc">農業背景+換屋改善需求，訴求「零公設、無管理費、前院可停農機或貨車」實用性</div>
+      <div class="new-card-title">30–55 / 大林新港 / 三和國小學區家長 ↗</div>
+      <div class="new-card-desc">4房格局+三和國小7分鐘，針對有小孩換屋需求的家長，訴求「孩子學區穩了，換一棟讓全家住得下」</div>
     </div>
     <div class="new-card">
-      <div class="new-card-title">30–55 / 大林新港 / 在地自營商・頂讓換居 ↗</div>
-      <div class="new-card-desc">傳統小生意頂讓後換屋，對「無管理費+前院停車+大林生活圈」認同感強</div>
+      <div class="new-card-title">30–60 / 台3沿線 / 農業主+換屋改善 ↗</div>
+      <div class="new-card-desc">細分農業主標籤（傳統農業/農機具/稻米），訴求「零公設無管理費，農忙後回家不用再繳公寓管理費」</div>
     </div>
     <div class="new-card">
-      <div class="new-card-title">28–50 / 大林溪口+8 / 國道3通勤族・首購 ↗</div>
-      <div class="new-card-desc">在嘉義市區或斗六上班的通勤族，訴求「大林交流道3分鐘、火車站步行可達」</div>
+      <div class="new-card-title">28–55 / 大林嘉北 / 國道3大林交流道通勤族 ↗</div>
+      <div class="new-card-desc">鎖定每天走國道3號通勤嘉義市區或斗六的族群，訴求「大林交流道步行可達，不用再繳市區高房租」</div>
     </div>
   </div>
 </div>
 
+<!-- ── 受眾排行 ── -->
 <div class="section">
-  <div class="insight-box">
-    <div class="insight-title">根據高效受眾設定邏輯，整理關鍵洞見：</div>
-    <div class="insight-highlight">
-      最重要的發現：「在地家庭主婦」是本案轉換率最高的代理維度<br>
-      大林新港/家庭主婦（CPL NT$175）與嘉北/戶外傳統美食（CPL NT$165）兩組合計 194 則訊息，佔全案 38%。本案買家輪廓是「在地生活深度嵌入者」而非外來投資客。
+  <div class="sec-title">成果受眾排行（2025/10–2026/05）· 訊息數排序</div>
+
+  <div class="rk-row gold">
+    <div class="rk-medal">🥇</div>
+    <div class="rk-body">
+      <div class="rk-name">28-55 / 大林新港 / 家庭主婦（進行中）</div>
+      <div class="rk-loc">大林 + 新港 · 在地家庭主婦族群</div>
+      <div class="rk-tags">
+        <span class="rk-tag t-fam">家庭主婦</span>
+        <span class="rk-tag t-loc">大林在地</span>
+        <span class="rk-tag t-buy">換屋</span>
+      </div>
     </div>
-    <div class="insight-sub">歸納出清晰的代理方式：</div>
-    <ul class="insight-list">
-      <li>生活型態代理：家庭主婦、傳統美食、戶外活動 → 在地生活圈深、換屋而非搬離意願</li>
-      <li>職業背景代理：農工業、飲食代工、遊覽業、工廠 → 嘉義大林在地就業，居住穩定性高</li>
-      <li>地理範圍代理：大林+新港+嘉北 是有效圈（半徑 8–10km），太保、溪口已稍遠且效益下降</li>
-    </ul>
-    <div class="insight-sub">未來新開受眾的設定原則：</div>
-    <ol class="principle-list">
-      <li>地理錨點優先：大林大智街口為核心，大林+新港+嘉北 8km 是有效範圍，勿擴至彰化或台南</li>
-      <li>底層標籤：房地產（產業）＋不動產（房地產）＋首次購屋 是購屋意願基本篩網</li>
-      <li>在地生活層：家庭主婦+傳統美食+戶外活動 是本案最有效的「非房產」標籤組合</li>
-      <li>本案核心賣點「零公設+前院停車+無管理費」對農工業族群吸引力強，可加「農業、工廠、卡車」等行為標籤</li>
-    </ol>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">153</div><div class="rk-result-l">訊息</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$175</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$26,740</div><div class="rk-spend-l">花費</div></div>
+    </div>
   </div>
-</div>
 
-<div class="section">
-  <div class="sec-title">成果前 N 名受眾（待補充）</div>
-  <div style="background:var(--s);border:1.5px dashed var(--bd);border-radius:var(--radius);padding:32px;text-align:center;color:var(--sub2);font-size:13px">
-    資料待補充 — 請提供受眾排行資料
+  <div class="rk-row silver">
+    <div class="rk-medal">🥈</div>
+    <div class="rk-body">
+      <div class="rk-name">28-55 / 大林新港美食 / 農工業（0203+地標興趣）</div>
+      <div class="rk-loc">大林 + 新港 · 農工業就業族群</div>
+      <div class="rk-tags">
+        <span class="rk-tag t-agr">農業</span>
+        <span class="rk-tag t-ind">工業</span>
+        <span class="rk-tag t-loc">台3沿線</span>
+      </div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">62</div><div class="rk-result-l">訊息</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$206</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$12,777</div><div class="rk-spend-l">花費</div></div>
+    </div>
   </div>
+
+  <div class="rk-row bronze">
+    <div class="rk-medal">🥉</div>
+    <div class="rk-body">
+      <div class="rk-name">28-55 / 大林嘉北嘉北 / 戶外傳統美食（0113+興趣，已停用）</div>
+      <div class="rk-loc">大林 + 嘉北 · 戶外活動/傳統美食族群</div>
+      <div class="rk-tags">
+        <span class="rk-tag t-loc">大林在地</span>
+        <span class="rk-tag t-buy">傳統美食</span>
+        <span class="rk-tag t-agr">戶外活動</span>
+      </div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">41</div><div class="rk-result-l">訊息</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$165</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$6,775</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row">
+    <div class="rk-rank">4</div>
+    <div class="rk-body">
+      <div class="rk-name">30-50 / 大林新港 / 傳統首購</div>
+      <div class="rk-loc">大林 + 新港 · 首購剛需族群</div>
+      <div class="rk-tags"><span class="rk-tag t-buy">首購</span><span class="rk-tag t-loc">大林在地</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">33</div><div class="rk-result-l">訊息</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl">$247</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$8,140</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row">
+    <div class="rk-rank">5</div>
+    <div class="rk-body">
+      <div class="rk-name">28-50 / 大林嘉北 / 家庭主婦</div>
+      <div class="rk-loc">大林 + 嘉北 · 家庭主婦族群</div>
+      <div class="rk-tags"><span class="rk-tag t-fam">家庭主婦</span><span class="rk-tag t-loc">大林</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">25</div><div class="rk-result-l">訊息</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl">$242</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$6,045</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row">
+    <div class="rk-rank">6</div>
+    <div class="rk-body">
+      <div class="rk-name">30-55 / 大埤嘉北 / 飲食代工</div>
+      <div class="rk-loc">大埤 + 嘉北 · 食品加工業族群</div>
+      <div class="rk-tags"><span class="rk-tag t-ind">飲食加工</span><span class="rk-tag t-ind">製造業</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">25</div><div class="rk-result-l">訊息</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl">$292</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$7,309</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row">
+    <div class="rk-rank">7</div>
+    <div class="rk-body">
+      <div class="rk-name">28-60 / 大林大崎頂 / 遊覽業車</div>
+      <div class="rk-loc">大林 + 大崎頂 · 遊覽業從業者</div>
+      <div class="rk-tags"><span class="rk-tag t-tour">遊覽業</span><span class="rk-tag t-loc">大林</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">20</div><div class="rk-result-l">訊息</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$194</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$3,883</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row">
+    <div class="rk-rank">8</div>
+    <div class="rk-body">
+      <div class="rk-name">28-55 / 大林新港 / 遊覽導遊</div>
+      <div class="rk-loc">大林 + 新港 · 導遊/觀光業</div>
+      <div class="rk-tags"><span class="rk-tag t-tour">導遊</span><span class="rk-tag t-tour">觀光業</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">17</div><div class="rk-result-l">訊息</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl">$282</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$4,792</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
 </div>
 
-<div class="page-footer">資料期間：2025-10-03 至 2026-05-28 · 中祐雅苑 嘉義大林 · 廣告目標：訊息</div>
+<div class="page-footer">資料期間：2025-10-03 至 2026-05-28 · 中祐雅苑 嘉義大林 · 廣告目標：訊息 · 最後更新 2026-05-28</div>
+
 </div>
 
-<div id="toast" style="position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);background:#2e2c29;color:#fff;font-size:12.5px;padding:10px 20px;border-radius:24px;opacity:0;transition:all .25s;pointer-events:none;z-index:999;white-space:nowrap">📋 詢問建議已複製 → 貼至 Claude 對話</div>
-
+<div id="toast" style="position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);background:#2e2c29;color:#fff;font-size:12.5px;padding:10px 20px;border-radius:24px;opacity:0;transition:all .25s;pointer-events:none;z-index:999;white-space:nowrap">📋 已複製 → 貼至 Claude 對話</div>
 <script>
-const PROJECT = '中祐雅苑（嘉義大林・大智三街口・零公設4房透天・508訊息・均CPL NT$241）';
-function showToast(msg){const t=document.getElementById('toast');t.textContent=msg||'📋 詢問建議已複製 → 貼至 Claude 對話';t.style.opacity='1';t.style.transform='translateX(-50%) translateY(0)';setTimeout(()=>{t.style.opacity='0';t.style.transform='translateX(-50%) translateY(20px)'},2200)}
-function copyPrompt(text){navigator.clipboard.writeText(text).then(()=>showToast()).catch(()=>{const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast()})}
-document.querySelectorAll('.core-tag').forEach(el=>{el.addEventListener('click',()=>{const tag=el.textContent.replace('↗','').trim();copyPrompt(`針對${PROJECT}的 META 廣告投放，請深入分析「${tag}」這個興趣標籤：\n1. 這個標籤在本案受眾中代表什麼輪廓的人？\n2. 搭配哪些其他標籤組合效果最好？\n3. 素材訴求應該怎麼寫才能匹配這類受眾？`)})});
-document.querySelectorAll('.new-card').forEach(el=>{el.addEventListener('click',()=>{const title=el.querySelector('.new-card-title').textContent.replace('↗','').trim();const desc=el.querySelector('.new-card-desc').textContent.trim();copyPrompt(`針對${PROJECT}，我想測試新受眾方向：「${title}」\n方向說明：${desc}\n\n請給我：\n1. 具體的 META 興趣標籤清單（附中文，約 10–15 個）\n2. 地理設定建議\n3. 適合這組受眾的素材訴求角度`)})});
-document.querySelectorAll('.tip').forEach(el=>{el.style.cursor='pointer';el.addEventListener('click',()=>{const title=el.querySelector('.tip-title').textContent.trim();const desc=el.querySelector('.tip-desc').textContent.trim();copyPrompt(`針對${PROJECT}，關於這項操作建議：\n「${title}」\n背景：${desc}\n\n請幫我制定具體的執行方案，包含受眾設定細節和素材方向。`)})});
+const PROJECT = '中祐雅苑（嘉義大林・大智三街・4房44~49坪・32戶・零公設・訊息508則・均CPL NT$241）';
+function showToast(){const t=document.getElementById('toast');t.style.opacity='1';t.style.transform='translateX(-50%) translateY(0)';setTimeout(()=>{t.style.opacity='0';t.style.transform='translateX(-50%) translateY(20px)'},2200)}
+function copyPrompt(text){navigator.clipboard.writeText(text).then(showToast).catch(()=>{const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast()})}
+document.querySelectorAll('.core-tag').forEach(el=>{el.addEventListener('click',()=>{const tag=el.textContent.replace('↗','').trim();copyPrompt(`針對${PROJECT}，請深入分析「${tag}」這個興趣標籤：\n1. 在本案受眾中代表什麼輪廓？\n2. 搭配哪些標籤組合效果最好？\n3. 素材訴求應該怎麼寫？`)})});
+document.querySelectorAll('.new-card').forEach(el=>{el.addEventListener('click',()=>{const title=el.querySelector('.new-card-title').textContent.replace('↗','').trim();const desc=el.querySelector('.new-card-desc').textContent.trim();copyPrompt(`針對${PROJECT}，我想測試新受眾方向：「${title}」\n說明：${desc}\n\n請給我：\n1. META 興趣標籤清單（附中文，約 10–15 個）\n2. 地理設定建議\n3. 適合這組受眾的素材訴求角度`)})});
+document.querySelectorAll('.tip').forEach(el=>{el.addEventListener('click',()=>{const title=el.querySelector('.tip-title').textContent.trim();const desc=el.querySelector('.tip-desc').textContent.trim();copyPrompt(`針對${PROJECT}，關於這項操作建議：\n「${title}」\n背景：${desc}\n\n請幫我制定具體執行方案，包含受眾設定細節和素材方向。`)})});
+document.querySelectorAll('.phase-row').forEach(el=>{el.style.cursor='pointer';el.addEventListener('click',()=>{const name=el.querySelector('.phase-title');const desc=el.querySelector('.phase-desc');if(!name)return;copyPrompt(`針對${PROJECT}，關於素材方向「${name.textContent.trim()}」：\n${desc?desc.textContent.trim():''}\n\n請幫我製作具體素材文案和視覺建議。`)})});
+document.querySelectorAll('.rk-row').forEach(el=>{el.addEventListener('click',()=>{const name=el.querySelector('.rk-name');if(name)copyPrompt(`針對${PROJECT}，請分析受眾「${name.textContent.trim()}」，給我深度策略建議。`)})});
 </script>
 </body>
 </html>

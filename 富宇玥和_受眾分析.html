@@ -110,6 +110,18 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .rk-cpl-l{font-size:10px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.2px;margin-top:2px}
 .rk-spend{font-size:13px;font-weight:700;color:#6d6560;line-height:1;font-variant-numeric:tabular-nums}
 .rk-spend-l{font-size:10px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.2px;margin-top:2px}
+/* Creative timeline */
+.creative-timeline{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
+.phase-row{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:14px 18px;display:flex;gap:14px;align-items:center;cursor:pointer;transition:box-shadow .15s;box-shadow:var(--shadow-xs)}
+.phase-row:hover{box-shadow:var(--shadow-sm)}
+.phase-label{width:52px;flex-shrink:0;font-size:11px;font-weight:800;text-align:center;padding:6px 4px;border-radius:8px;background:var(--accent-light);color:var(--accent-dark);letter-spacing:-.2px;line-height:1.3}
+.phase-body{flex:1;min-width:0}
+.phase-title{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:4px}
+.phase-desc{font-size:12px;color:var(--sub);line-height:1.6}
+.phase-stat{text-align:right;flex-shrink:0;min-width:80px}
+.phase-cpl{font-size:16px;font-weight:800;color:var(--accent);line-height:1;font-variant-numeric:tabular-nums}
+.phase-cpl.alt-cpl{color:var(--alt)}
+.phase-cpl-l{font-size:10px;color:var(--sub2);margin-top:3px;font-weight:600}
 /* Creative cards */
 .creative-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
 .creative-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow-xs);cursor:pointer;transition:box-shadow .15s,transform .15s}
@@ -398,6 +410,45 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 <!-- 主粉專 素材迭代 -->
 <div class="section">
   <div class="sec-title">主粉專素材迭代分析</div>
+  <div class="creative-timeline">
+
+    <div class="phase-row">
+      <div class="phase-label">3/20<br>首波</div>
+      <div class="phase-body">
+        <div class="phase-title">0320_首波pop（早期主力，奠定潛客基礎）</div>
+        <div class="phase-desc">建案起步素材，撐起所有早期受眾測試。累積 72 潛客佔全案最多，CPL NT$368。功成身退，現已停止投遞，建立了本案「台中南區 × 中興大學圈」的基礎受眾名單。</div>
+      </div>
+      <div class="phase-stat"><div class="phase-cpl">72 潛客</div><div class="phase-cpl-l">CPL NT$368</div></div>
+    </div>
+
+    <div class="phase-row">
+      <div class="phase-label">4/17<br>興大</div>
+      <div class="phase-body">
+        <div class="phase-title">0417_興大智醫（長青主力，多組並行）</div>
+        <div class="phase-desc">以「興大智醫圈」地標訴求切入，長期多組同時投放，累積 53 潛客 CPL NT$362。多個受眾組均有效，是本案覆蓋最廣的素材，驗證興大醫院商圈對南區置產族群有強烈吸引力。</div>
+      </div>
+      <div class="phase-stat"><div class="phase-cpl">53 潛客</div><div class="phase-cpl-l">CPL NT$362</div></div>
+    </div>
+
+    <div class="phase-row" style="border-color:var(--accent-border);background:#f4f8fc">
+      <div class="phase-label" style="background:var(--accent);color:#fff">⚡ 當前</div>
+      <div class="phase-body">
+        <div class="phase-title">0514_南區獻定（✅ 當前效率最高素材）</div>
+        <div class="phase-desc">5月14日起投，24 潛客 CPL NT$300 是目前主粉專效率最佳素材。「南區獻定」直接點出地段稀缺性，對南區在地換屋族群共鳴度高。進行中組 CPL NT$192~254，建議擴大為主力。</div>
+      </div>
+      <div class="phase-stat"><div class="phase-cpl">24 潛客</div><div class="phase-cpl-l">⚡ CPL NT$300</div></div>
+    </div>
+
+    <div class="phase-row">
+      <div class="phase-label">5/21<br>價位</div>
+      <div class="phase-body">
+        <div class="phase-title">0521_大里烏日價（測試中，效率偏低）</div>
+        <div class="phase-desc">以「大里烏日比價」競爭訴求切入，8 潛客但 CPL NT$462 高於全案均值。比價型訴求對本案精準受眾說服力不足，建議降低預算或停止。</div>
+      </div>
+      <div class="phase-stat"><div class="phase-cpl">8 潛客</div><div class="phase-cpl-l">CPL NT$462</div></div>
+    </div>
+
+  </div>
   <div class="creative-grid">
 
     <div class="creative-card best">
@@ -689,7 +740,37 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 
 <!-- 1510 素材分析 -->
 <div class="section">
-  <div class="sec-title alt-bar">1510 素材分析</div>
+  <div class="sec-title alt-bar">1510 素材迭代分析</div>
+  <div class="creative-timeline">
+
+    <div class="phase-row">
+      <div class="phase-label" style="background:var(--alt-light);color:var(--alt-dark)">4/17<br>興大B</div>
+      <div class="phase-body">
+        <div class="phase-title">0417_興大智醫B（1510早期主力，女性受眾王牌）</div>
+        <div class="phase-desc">1510 粉專啟動素材，10 潛客 CPL NT$270。在高資產女性組取得 9 潛客，是1510第一個驗證有效的受眾組合。B版比主粉專原版效率更高，女性興趣標籤在1510上的轉換力顯著。</div>
+      </div>
+      <div class="phase-stat"><div class="phase-cpl alt-cpl">10 潛客</div><div class="phase-cpl-l">CPL NT$270</div></div>
+    </div>
+
+    <div class="phase-row" style="border-color:var(--alt-border);background:#f2faf8">
+      <div class="phase-label" style="background:var(--alt);color:#fff">⚡ 最強</div>
+      <div class="phase-body">
+        <div class="phase-title">0514_南區獻定A（✅ 1510 CPL 最低素材）</div>
+        <div class="phase-desc">5月14日起投，11 潛客 CPL NT$237 是1510最低 CPL。A版針對1510粉專受眾調整切角，搭配年輕人興趣組 7 潛客，新組 4 潛客 CPL NT$209 更低。建議持續主力投放。</div>
+      </div>
+      <div class="phase-stat"><div class="phase-cpl alt-cpl">11 潛客</div><div class="phase-cpl-l">⚡ CPL NT$237</div></div>
+    </div>
+
+    <div class="phase-row">
+      <div class="phase-label" style="background:var(--alt-light);color:var(--alt-dark)">5/21<br>價位</div>
+      <div class="phase-body">
+        <div class="phase-title">0521_大里烏日價（1510有效，主粉專反差明顯）</div>
+        <div class="phase-desc">同一素材在1510 11 潛客 CPL NT$302，在主粉專只有 8 潛客 CPL NT$462。1510受眾對「比價」訴求接受度優於主粉專，推測1510受眾更年輕、比較型消費傾向強。維持投放觀察。</div>
+      </div>
+      <div class="phase-stat"><div class="phase-cpl alt-cpl">11 潛客</div><div class="phase-cpl-l">CPL NT$302</div></div>
+    </div>
+
+  </div>
   <div class="creative-grid">
 
     <div class="creative-card best-alt">
