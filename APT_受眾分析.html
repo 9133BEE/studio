@@ -9,7 +9,7 @@
 :root{
   --accent:#7a5a8a;--accent-dark:#5a3a6a;--accent-light:#ede8f4;--accent-border:#b89fcc;
   --teal:#2a7a8a;--teal-dark:#1a5a6a;--teal-light:#e0f0f4;--teal-border:#7abfcc;
-  --bg:#f7f8f6;--s:#ffffff;--bd:#e4e5e2;--tx:#2e2c29;--sub:#7d7870;--sub2:#a8a199;
+  --bg:#f2f3f1;--s:#ffffff;--bd:#e4e5e2;--tx:#2e2c29;--sub:#7d7870;--sub2:#a8a199;
   --good:#1e6e3f;--goodl:#e6f4ea;--warn:#c05c00;
   --radius:12px;--shadow-xs:0 1px 3px rgba(0,0,0,.05);--shadow-sm:0 2px 8px rgba(0,0,0,.07);--shadow-card:0 2px 10px rgba(0,0,0,.06),0 1px 3px rgba(0,0,0,.04);
 }
@@ -43,8 +43,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .creative-section{margin-bottom:32px}
 /* ── 粉專 banner ── */
 .page-banner{border-radius:var(--radius);padding:18px 24px;margin-bottom:22px;display:flex;align-items:center;gap:20px;box-shadow:var(--shadow-card)}
-.page-banner.main{background:linear-gradient(135deg,var(--accent-dark),var(--accent));color:#fff}
-.page-banner.alt{background:linear-gradient(135deg,var(--teal-dark),var(--teal));color:#fff}
+.page-banner.main{background:linear-gradient(135deg,#5a3a6a,#7a5a8a);color:#fff}
+.page-banner.alt{background:linear-gradient(135deg,#4d6a82,#607d96);color:#fff}
 .banner-icon{width:40px;height:40px;background:rgba(255,255,255,.2);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;flex-shrink:0}
 .banner-title{font-size:16px;font-weight:800;letter-spacing:-.2px}
 .banner-sub{font-size:12px;opacity:.8;margin-top:2px}
@@ -169,10 +169,38 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 /* ── Tab navigation ── */
 .tab-bar{display:flex;gap:6px;margin-bottom:22px;background:var(--s);border:1px solid var(--bd);border-radius:10px;padding:5px;box-shadow:var(--shadow-xs)}
 .tab-btn{flex:1;padding:8px 14px;border-radius:7px;border:none;background:transparent;font-size:13px;font-weight:600;color:var(--sub);cursor:pointer;transition:all .15s;text-align:center}
-.tab-btn.active{background:var(--accent);color:#fff;box-shadow:0 2px 6px rgba(0,0,0,.15)}
-.tab-btn:hover:not(.active){background:var(--accent-light);color:var(--accent-dark)}
+.tab-btn.active{background:#7a5a8a;color:#fff;box-shadow:0 2px 6px rgba(122,90,138,.3)}
+.tab-bar .tab-btn:nth-child(2).active{background:#607d96;color:#fff;box-shadow:0 2px 6px rgba(96,125,150,.3)}
+.tab-bar .tab-btn:nth-child(3).active{background:#4a6a5a;color:#fff;box-shadow:0 2px 6px rgba(74,106,90,.3)}
+.tab-btn:hover:not(.active){background:#f0edf5;color:#5a3a6a}
 .tab-pane{display:none}
 .tab-pane.show{display:block}
+/* ── Region Filter & Tag Frequency ── */
+.region-bar{display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding:12px 16px;background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);box-shadow:var(--shadow-xs);margin-bottom:12px}
+.rgn-label{font-size:11px;font-weight:700;color:var(--sub2);letter-spacing:.3px;white-space:nowrap;margin-right:2px}
+.rgn-btn{padding:5px 13px;border-radius:16px;border:1.5px solid var(--bd);background:transparent;font-size:12px;font-weight:600;color:var(--sub);cursor:pointer;transition:all .15s;white-space:nowrap}
+.rgn-btn.active{background:#7a5a8a;border-color:#7a5a8a;color:#fff;box-shadow:0 1px 4px rgba(122,90,138,.3)}
+.rgn-btn:hover:not(.active){background:#f0edf5;border-color:#b89fcc;color:#5a3a6a}
+.rk-row{position:relative;flex-wrap:wrap}
+.rk-row.expanded{border-left-color:#7a5a8a!important}
+.rk-expand-icon{display:inline-block;font-size:10px;color:var(--sub2);margin-left:6px;transition:transform .2s;vertical-align:middle}
+.rk-row.expanded .rk-expand-icon{transform:rotate(180deg);color:#7a5a8a}
+.rk-detail{display:none;width:100%;flex-basis:100%;background:#faf9fc;border-top:1px dashed #d8d0e8;padding:12px 14px;margin-top:10px;border-radius:0 0 8px 8px}
+.rk-detail.open{display:block}
+.rk-detail-label{font-size:11px;font-weight:700;color:#8a7a96;letter-spacing:.3px;margin-bottom:6px}
+.rk-hidden-tags{display:flex;flex-wrap:wrap;gap:4px}
+.rk-htag{font-size:11px;padding:3px 9px;border-radius:12px;background:#f0edf5;color:#5a3a6a;border:1px solid #d0c0e0;font-weight:600}
+.tag-freq-box{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:16px 20px;box-shadow:var(--shadow-xs);margin-top:10px}
+.tf-header{display:flex;align-items:center;gap:8px;margin-bottom:14px}
+.tf-icon{font-size:14px}
+.tf-title{font-size:12px;font-weight:700;color:var(--sub);letter-spacing:.3px;text-transform:uppercase;flex:1}
+.tf-count{font-size:11px;color:var(--sub2);background:var(--bg);padding:3px 9px;border-radius:10px;border:1px solid var(--bd)}
+.tf-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.tf-name{font-size:12px;font-weight:700;color:var(--tx);min-width:100px;flex-shrink:0}
+.tf-bar-wrap{flex:1;height:8px;background:var(--bg);border-radius:4px;overflow:hidden;border:1px solid var(--bd)}
+.tf-bar{height:100%;background:linear-gradient(90deg,#7a5a8a,#9a7aaa);border-radius:4px;transition:width .5s ease}
+.tf-cnt{font-size:12px;font-weight:800;color:#7a5a8a;min-width:22px;text-align:right}
+.rk-row.hidden-row{display:none}
 </style>
 </head>
 <body>
@@ -462,12 +490,31 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 <div class="section">
   <div class="sec-title">主粉專受眾成果排行（前 10）</div>
 
-  <div class="rk-row gold">
+  <!-- 地區篩選 -->
+  <div class="region-bar">
+    <span class="rgn-label">📍 地區</span>
+    <button class="rgn-btn active" onclick="filterRgn('main','all',this)">全部</button>
+    <button class="rgn-btn" onclick="filterRgn('main','北屯太平潭子',this)">北屯/潭子/太平</button>
+    <button class="rgn-btn" onclick="filterRgn('main','中科水湳中清',this)">中科/水湳/中清</button>
+    <button class="rgn-btn" onclick="filterRgn('main','東區北區洲際',this)">東區/洲際</button>
+    <button class="rgn-btn" onclick="filterRgn('main','74沿線',this)">74沿線</button>
+    <button class="rgn-btn" onclick="filterRgn('main','十期',this)">十期</button>
+    <button class="rgn-btn" onclick="filterRgn('main','豐原靜宜',this)">豐原/靜宜</button>
+    <button class="rgn-btn" onclick="filterRgn('main','大台中',this)">大台中</button>
+    <button class="rgn-btn" onclick="filterRgn('main','中彰投',this)">中彰投</button>
+  </div>
+
+  <div id="rk-list-main">
+  <div class="rk-row gold" data-region="中彰投" onclick="toggleDetail(this)">
     <div class="rk-medal">🥇</div>
     <div class="rk-body">
-      <div class="rk-name">中彰投再行銷 / 原潮APT（0520調粉專）</div>
+      <div class="rk-name">中彰投再行銷 / 原潮APT（0520調粉專）<span class="rk-expand-icon">▾</span></div>
       <div class="rk-loc">中彰投已互動粉絲再行銷受眾</div>
       <div class="rk-tags"><span class="rk-tag t-sim">再行銷</span><span class="rk-tag t-prop">互動受眾</span><span class="rk-tag t-prop">房地產</span></div>
+      <div class="rk-detail">
+        <div class="rk-detail-label">完整興趣標籤</div>
+        <div class="rk-hidden-tags"><span class="rk-htag">中彰投粉絲再行銷</span><span class="rk-htag">房地產（產業）</span><span class="rk-htag">不動產（房地產）</span><span class="rk-htag">已互動訪客</span><span class="rk-htag">網站訪客</span></div>
+      </div>
     </div>
     <div class="rk-stats">
       <div class="rk-stat-block"><div class="rk-result">80</div><div class="rk-result-l">成果</div></div>
@@ -476,12 +523,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
     </div>
   </div>
 
-  <div class="rk-row silver">
+  <div class="rk-row silver" data-region="北屯太平潭子" onclick="toggleDetail(this)">
     <div class="rk-medal">🥈</div>
     <div class="rk-body">
-      <div class="rk-name">35-60 / 潭子北屯太平 / 子女置產（1126調區域）</div>
+      <div class="rk-name">35-60 / 潭子北屯太平 / 子女置產（1126調區域）<span class="rk-expand-icon">▾</span></div>
       <div class="rk-loc">潭子 + 北屯 + 太平 各+3km</div>
       <div class="rk-tags"><span class="rk-tag t-edu">子女置產</span><span class="rk-tag t-prop">房地產投資</span><span class="rk-tag t-fin">投資理財</span></div>
+      <div class="rk-detail">
+        <div class="rk-detail-label">完整興趣標籤</div>
+        <div class="rk-hidden-tags"><span class="rk-htag">子女置產（家庭）</span><span class="rk-htag">房地產（產業）</span><span class="rk-htag">投資（商業與財務）</span><span class="rk-htag">房地產投資（投資）</span><span class="rk-htag">幼兒教育</span><span class="rk-htag">591房屋交易網</span></div>
+      </div>
     </div>
     <div class="rk-stats">
       <div class="rk-stat-block"><div class="rk-result">15</div><div class="rk-result-l">成果</div></div>
@@ -490,12 +541,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
     </div>
   </div>
 
-  <div class="rk-row bronze">
+  <div class="rk-row bronze" data-region="東區北區洲際" onclick="toggleDetail(this)">
     <div class="rk-medal">🥉</div>
     <div class="rk-body">
-      <div class="rk-name">27-45 / 東區北區洲際 / 小家庭自營商</div>
+      <div class="rk-name">27-45 / 東區北區洲際 / 小家庭自營商<span class="rk-expand-icon">▾</span></div>
       <div class="rk-loc">東區 +4km · 北區 +4km · 洲際棒球場 +3km</div>
       <div class="rk-tags"><span class="rk-tag t-edu">小家庭</span><span class="rk-tag t-biz">自營商</span><span class="rk-tag t-prop">購屋置產</span></div>
+      <div class="rk-detail">
+        <div class="rk-detail-label">完整興趣標籤</div>
+        <div class="rk-hidden-tags"><span class="rk-htag">小型企業（商業與財務）</span><span class="rk-htag">獨資企業（商業與財務）</span><span class="rk-htag">房屋（房地產）</span><span class="rk-htag">公寓（房地產）</span><span class="rk-htag">家庭（社會觀念）</span><span class="rk-htag">591房屋交易網</span></div>
+      </div>
     </div>
     <div class="rk-stats">
       <div class="rk-stat-block"><div class="rk-result">14</div><div class="rk-result-l">成果</div></div>
@@ -504,12 +559,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
     </div>
   </div>
 
-  <div class="rk-row">
+  <div class="rk-row" data-region="中科水湳中清" onclick="toggleDetail(this)">
     <div class="rk-rank">4</div>
     <div class="rk-body">
-      <div class="rk-name">30-55 / 中科水湳中清 / 科技自營商A</div>
+      <div class="rk-name">30-55 / 中科水湳中清 / 科技自營商A<span class="rk-expand-icon">▾</span></div>
       <div class="rk-loc">中科路 +3km · 水湳中央公園 +3km · 中清交流道 +3km</div>
       <div class="rk-tags"><span class="rk-tag t-ind">科技業</span><span class="rk-tag t-biz">自營商</span><span class="rk-tag t-fin">投資理財</span></div>
+      <div class="rk-detail">
+        <div class="rk-detail-label">完整興趣標籤</div>
+        <div class="rk-hidden-tags"><span class="rk-htag">高科技（電腦和電子產品）</span><span class="rk-htag">科技業（產業）</span><span class="rk-htag">小型企業（商業與財務）</span><span class="rk-htag">投資（商業與財務）</span><span class="rk-htag">3C電腦</span><span class="rk-htag">房地產（產業）</span></div>
+      </div>
     </div>
     <div class="rk-stats">
       <div class="rk-stat-block"><div class="rk-result">11</div><div class="rk-result-l">成果</div></div>
@@ -518,12 +577,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
     </div>
   </div>
 
-  <div class="rk-row">
+  <div class="rk-row" data-region="74沿線" onclick="toggleDetail(this)">
     <div class="rk-rank">5</div>
     <div class="rk-body">
-      <div class="rk-name">28-55 / 74沿線 / 通勤傳產零售</div>
+      <div class="rk-name">28-55 / 74沿線 / 通勤傳產零售<span class="rk-expand-icon">▾</span></div>
       <div class="rk-loc">74快速道路沿線</div>
       <div class="rk-tags"><span class="rk-tag t-ind">傳產業</span><span class="rk-tag t-biz">零售業</span><span class="rk-tag t-ind">通勤上班族</span></div>
+      <div class="rk-detail">
+        <div class="rk-detail-label">完整興趣標籤</div>
+        <div class="rk-hidden-tags"><span class="rk-htag">製造業（產業）</span><span class="rk-htag">零售業（產業）</span><span class="rk-htag">通勤 (旅遊觀光)</span><span class="rk-htag">公共運輸（交通運輸）</span><span class="rk-htag">房地產（產業）</span><span class="rk-htag">591房屋交易網</span></div>
+      </div>
     </div>
     <div class="rk-stats">
       <div class="rk-stat-block"><div class="rk-result">11</div><div class="rk-result-l">成果</div></div>
@@ -532,12 +595,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
     </div>
   </div>
 
-  <div class="rk-row">
+  <div class="rk-row" data-region="東區北區洲際" onclick="toggleDetail(this)">
     <div class="rk-rank">6</div>
     <div class="rk-body">
-      <div class="rk-name">27-55 / 中區北區洲際 / 跑咖追星出國 2.0</div>
+      <div class="rk-name">27-55 / 中區北區洲際 / 跑咖追星出國 2.0<span class="rk-expand-icon">▾</span></div>
       <div class="rk-loc">中區 +4km · 北區 +4km · 洲際 +3km</div>
       <div class="rk-tags"><span class="rk-tag t-edu">追星/娛樂</span><span class="rk-tag t-edu">出國旅遊</span><span class="rk-tag t-biz">消費力族群</span></div>
+      <div class="rk-detail">
+        <div class="rk-detail-label">完整興趣標籤</div>
+        <div class="rk-hidden-tags"><span class="rk-htag">旅遊（旅遊觀光）</span><span class="rk-htag">流行音樂</span><span class="rk-htag">娛樂（社會觀念）</span><span class="rk-htag">網路購物（零售）</span><span class="rk-htag">信用卡（借貸）</span><span class="rk-htag">免稅商店</span></div>
+      </div>
     </div>
     <div class="rk-stats">
       <div class="rk-stat-block"><div class="rk-result">11</div><div class="rk-result-l">成果</div></div>
@@ -546,12 +613,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
     </div>
   </div>
 
-  <div class="rk-row">
+  <div class="rk-row" data-region="中科水湳中清" onclick="toggleDetail(this)">
     <div class="rk-rank">7</div>
     <div class="rk-body">
-      <div class="rk-name">28-50 / 中科中清 / 年輕買房（0304改地點）</div>
+      <div class="rk-name">28-50 / 中科中清 / 年輕買房（0304改地點）<span class="rk-expand-icon">▾</span></div>
       <div class="rk-loc">中科路 +3km · 中清交流道 +3km</div>
       <div class="rk-tags"><span class="rk-tag t-prop">買房置產</span><span class="rk-tag t-edu">年輕首購族</span><span class="rk-tag t-fin">投資理財</span></div>
+      <div class="rk-detail">
+        <div class="rk-detail-label">完整興趣標籤</div>
+        <div class="rk-hidden-tags"><span class="rk-htag">房屋（房地產）</span><span class="rk-htag">公寓大樓（房地產）</span><span class="rk-htag">首次購房者</span><span class="rk-htag">個人理財（銀行業）</span><span class="rk-htag">投資（商業與財務）</span><span class="rk-htag">591房屋交易網</span></div>
+      </div>
     </div>
     <div class="rk-stats">
       <div class="rk-stat-block"><div class="rk-result">11</div><div class="rk-result-l">成果</div></div>
@@ -560,12 +631,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
     </div>
   </div>
 
-  <div class="rk-row">
+  <div class="rk-row" data-region="十期" onclick="toggleDetail(this)">
     <div class="rk-rank">8</div>
     <div class="rk-body">
-      <div class="rk-name">27-55 / 十期 / 行銷設計</div>
+      <div class="rk-name">27-55 / 十期 / 行銷設計<span class="rk-expand-icon">▾</span></div>
       <div class="rk-loc">十期重劃區 +2km</div>
       <div class="rk-tags"><span class="rk-tag t-biz">行銷/設計</span><span class="rk-tag t-biz">創意工作者</span><span class="rk-tag t-prop">購屋置產</span></div>
+      <div class="rk-detail">
+        <div class="rk-detail-label">完整興趣標籤</div>
+        <div class="rk-hidden-tags"><span class="rk-htag">行銷（商業與財務）</span><span class="rk-htag">廣告（行銷）</span><span class="rk-htag">平面設計（視覺藝術）</span><span class="rk-htag">Adobe Illustrator</span><span class="rk-htag">Canva</span><span class="rk-htag">房地產（產業）</span></div>
+      </div>
     </div>
     <div class="rk-stats">
       <div class="rk-stat-block"><div class="rk-result">9</div><div class="rk-result-l">成果</div></div>
@@ -574,12 +649,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
     </div>
   </div>
 
-  <div class="rk-row">
+  <div class="rk-row" data-region="豐原靜宜 北屯太平潭子" onclick="toggleDetail(this)">
     <div class="rk-rank">9</div>
     <div class="rk-body">
-      <div class="rk-name">35-60 / 豐原潭子靜宜 / 長輩置產（1121+運動休閒/排除IG）</div>
+      <div class="rk-name">35-60 / 豐原潭子靜宜 / 長輩置產<span class="rk-expand-icon">▾</span></div>
       <div class="rk-loc">豐原 + 潭子 + 靜宜大學 各+3km</div>
       <div class="rk-tags"><span class="rk-tag t-edu">長輩置產</span><span class="rk-tag t-prop">房地產</span><span class="rk-tag t-beh">運動休閒</span></div>
+      <div class="rk-detail">
+        <div class="rk-detail-label">完整興趣標籤</div>
+        <div class="rk-hidden-tags"><span class="rk-htag">子女置產（家庭）</span><span class="rk-htag">長輩、父母（家庭）</span><span class="rk-htag">房地產（產業）</span><span class="rk-htag">運動（體育運動）</span><span class="rk-htag">休閒（社會觀念）</span><span class="rk-htag">591房屋交易網</span></div>
+      </div>
     </div>
     <div class="rk-stats">
       <div class="rk-stat-block"><div class="rk-result">8</div><div class="rk-result-l">成果</div></div>
@@ -588,18 +667,33 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
     </div>
   </div>
 
-  <div class="rk-row">
+  <div class="rk-row" data-region="大台中" onclick="toggleDetail(this)">
     <div class="rk-rank">10</div>
     <div class="rk-body">
-      <div class="rk-name">30-50 / 大台中 / 金融投資</div>
+      <div class="rk-name">30-50 / 大台中 / 金融投資<span class="rk-expand-icon">▾</span></div>
       <div class="rk-loc">大台中地區廣域</div>
       <div class="rk-tags"><span class="rk-tag t-fin">金融投資</span><span class="rk-tag t-fin">股票</span><span class="rk-tag t-prop">房地產</span></div>
+      <div class="rk-detail">
+        <div class="rk-detail-label">完整興趣標籤</div>
+        <div class="rk-hidden-tags"><span class="rk-htag">投資（商業與財務）</span><span class="rk-htag">股票（投資）</span><span class="rk-htag">金融市場（投資）</span><span class="rk-htag">財富（經濟）</span><span class="rk-htag">房地產（產業）</span><span class="rk-htag">被動收入（商業與財務）</span></div>
+      </div>
     </div>
     <div class="rk-stats">
       <div class="rk-stat-block"><div class="rk-result">7</div><div class="rk-result-l">成果</div></div>
       <div class="rk-stat-block"><div class="rk-cpl good-cpl">$645</div><div class="rk-cpl-l">CPL</div></div>
       <div class="rk-stat-block"><div class="rk-spend">$4,517</div><div class="rk-spend-l">花費</div></div>
     </div>
+  </div>
+  </div><!-- end rk-list-main -->
+
+  <!-- 興趣標籤出現率統計 -->
+  <div class="tag-freq-box">
+    <div class="tf-header">
+      <span class="tf-icon">📊</span>
+      <div class="tf-title">成效受眾中出現率最高的興趣標籤</div>
+      <div class="tf-count" id="tf-count-main">共 10 組</div>
+    </div>
+    <div id="tf-rows-main"></div>
   </div>
 </div>
 
@@ -954,7 +1048,67 @@ document.querySelectorAll('.core-tag').forEach(el=>{el.addEventListener('click',
 document.querySelectorAll('.new-card').forEach(el=>{el.addEventListener('click',()=>{const title=el.querySelector('.new-card-title').textContent.replace('↗','').trim();const desc=el.querySelector('.new-card-desc').textContent.trim();copyPrompt(`針對${PROJECT}，我想測試新受眾方向：「${title}」\n說明：${desc}\n\n請給我：\n1. META 興趣標籤清單（附中文，約 10–15 個）\n2. 地理設定建議\n3. 適合這組受眾的素材訴求角度`)})});
 document.querySelectorAll('.tip').forEach(el=>{el.addEventListener('click',()=>{const title=el.querySelector('.tip-title').textContent.trim();const desc=el.querySelector('.tip-desc').textContent.trim();copyPrompt(`針對${PROJECT}，關於這項操作建議：\n「${title}」\n背景：${desc}\n\n請幫我制定具體執行方案，包含受眾設定細節和素材方向。`)})});
 document.querySelectorAll('.creative-card,.phase-row').forEach(el=>{el.style.cursor='pointer';el.addEventListener('click',()=>{const name=el.querySelector('.creative-name,.phase-title');const desc=el.querySelector('.creative-stats,.phase-desc');if(!name)return;copyPrompt(`針對${PROJECT}，關於素材「${name.textContent.trim()}」：\n${desc?desc.textContent.trim():''}\n\n請分析：1. 成效好/差原因？ 2. 如何延伸下一支素材？ 3. 最適合搭配的受眾設定？`)})});
-document.querySelectorAll('.rk-row').forEach(el=>{el.addEventListener('click',()=>{const name=el.querySelector('.rk-name');if(name)copyPrompt(`針對${PROJECT}，請分析受眾「${name.textContent.trim()}」，給我深度受眾策略建議。`)})});
+
+/* rk-row click now handled by toggleDetail inline */
+</script>
+<script>
+/* ── 展開受眾詳情 ── */
+function toggleDetail(row){
+  const detail=row.querySelector('.rk-detail');
+  if(!detail)return;
+  const open=detail.classList.contains('open');
+  document.querySelectorAll('.rk-detail.open').forEach(d=>{
+    d.classList.remove('open');
+    d.closest('.rk-row').classList.remove('expanded');
+  });
+  if(!open){detail.classList.add('open');row.classList.add('expanded');}
+}
+
+/* ── 地區篩選 ── */
+function filterRgn(listId,region,btn){
+  btn.closest('.region-bar').querySelectorAll('.rgn-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const list=document.getElementById('rk-list-'+listId);
+  if(!list)return;
+  let cnt=0;
+  list.querySelectorAll('.rk-row[data-region]').forEach(row=>{
+    const show=region==='all'||row.dataset.region.includes(region);
+    row.classList.toggle('hidden-row',!show);
+    if(show)cnt++;
+  });
+  const countEl=document.getElementById('tf-count-'+listId);
+  if(countEl)countEl.textContent='共 '+cnt+' 組';
+  updateTagFreq(listId,region);
+}
+
+/* ── 標籤出現率統計 ── */
+function updateTagFreq(listId,region){
+  const list=document.getElementById('rk-list-'+listId);
+  const freqEl=document.getElementById('tf-rows-'+listId);
+  if(!list||!freqEl)return;
+  const map={};
+  list.querySelectorAll('.rk-row[data-region]').forEach(row=>{
+    if(region==='all'||row.dataset.region.includes(region)){
+      row.querySelectorAll('.rk-tag,.rk-htag').forEach(t=>{
+        const s=t.textContent.trim();
+        if(s)map[s]=(map[s]||0)+1;
+      });
+    }
+  });
+  const sorted=Object.entries(map).sort((a,b)=>b[1]-a[1]).slice(0,8);
+  const max=sorted[0]?.[1]||1;
+  freqEl.innerHTML=sorted.map(([tag,cnt])=>`
+    <div class="tf-row">
+      <div class="tf-name">${tag}</div>
+      <div class="tf-bar-wrap"><div class="tf-bar" style="width:${Math.round(cnt/max*100)}%"></div></div>
+      <div class="tf-cnt">${cnt}</div>
+    </div>`).join('');
+}
+
+/* 初始化 */
+document.addEventListener('DOMContentLoaded',()=>{
+  updateTagFreq('main','all');
+});
 </script>
 <button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到頂部">↑</button>
 <script>window.addEventListener('scroll',()=>document.getElementById('btt').classList.toggle('show',window.scrollY>300))</script>
