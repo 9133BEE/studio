@@ -8,7 +8,7 @@
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
   --accent:#2a5a7a;--accent-dark:#1a3f5a;--accent-light:#e0ecf5;--accent-border:#7aaac8;
-  --bg:#f4f5f7;--s:#ffffff;--bd:#e2e5ea;--tx:#1e2228;--sub:#6b7280;--sub2:#9ca3af;
+  --bg:#f7f8f6;--s:#ffffff;--bd:#e4e5e2;--tx:#1e2228;--sub:#6b7280;--sub2:#9ca3af;
   --good:#1f7a52;--goodl:#e6f5ee;--goodb:#7dd3a8;--warn:#c05c00;
   --radius:12px;--shadow-xs:0 1px 3px rgba(0,0,0,.05);--shadow-sm:0 2px 8px rgba(0,0,0,.08);--shadow-card:0 2px 10px rgba(0,0,0,.07),0 1px 3px rgba(0,0,0,.04);
 }
@@ -17,9 +17,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .ph-logo{width:30px;height:30px;background:linear-gradient(135deg,#5a9ac8,var(--accent-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;flex-shrink:0;box-shadow:0 2px 8px rgba(42,90,122,.5),inset 0 1px 0 rgba(255,255,255,.15)}
 .ph-title{font-size:14px;font-weight:700;color:#e8f3f9;letter-spacing:-.2px}
 .ph-sub{font-size:11px;color:#3a6080;margin-left:2px}
-.ph-nav{margin-left:auto}
+.ph-nav{margin-left:auto;display:flex;gap:8px;align-items:center}
 .ph-nav a{font-size:12px;color:#7aaac8;text-decoration:none;padding:5px 13px;border-radius:6px;border:1px solid rgba(42,90,122,.3);background:rgba(42,90,122,.15);transition:all .15s;font-weight:500}
 .ph-nav a:hover{background:rgba(42,90,122,.28);color:#a8d0e8;border-color:rgba(42,90,122,.45)}
+#btt{position:fixed;right:24px;bottom:28px;width:38px;height:38px;border-radius:50%;background:rgba(8,18,28,.75);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.85);font-size:15px;cursor:pointer;opacity:0;transform:translateY(8px);transition:opacity .2s,transform .2s;pointer-events:none;z-index:150;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.3);font-family:inherit}
+#btt.show{opacity:1;transform:translateY(0);pointer-events:auto}
+#btt:hover{background:rgba(15,35,55,.9);transform:translateY(-2px)}
 .wrap{max-width:1200px;margin:0 auto;padding:32px 40px 48px}
 .case-header{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:20px 24px;margin-bottom:10px;display:flex;align-items:center;gap:18px;box-shadow:var(--shadow-card)}
 .case-logo{width:44px;height:44px;background:linear-gradient(135deg,var(--accent),var(--accent-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;flex-shrink:0;box-shadow:0 3px 10px rgba(42,90,122,.35),inset 0 1px 0 rgba(255,255,255,.15)}
@@ -97,6 +100,23 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .phase-desc{font-size:12px;color:var(--sub);line-height:1.55;margin-bottom:10px}
 .phase-stat{font-size:13px;font-weight:700;color:var(--accent)}
 .page-footer{text-align:center;font-size:11px;color:var(--sub2);margin-top:12px;padding-bottom:8px}
+/* Stats bar */
+.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:24px}
+.sb-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:14px 16px;box-shadow:var(--shadow-xs);text-align:center}
+.sb-n{font-size:26px;font-weight:900;color:var(--accent);line-height:1;letter-spacing:-1px;font-variant-numeric:tabular-nums}
+.sb-n.good{color:var(--good)}
+.sb-l{font-size:10px;color:var(--sub2);font-weight:600;margin-top:4px;text-transform:uppercase;letter-spacing:.3px}
+/* New directions */
+.new-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.new-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:16px 18px;cursor:pointer;transition:border-color .15s,box-shadow .15s;box-shadow:var(--shadow-xs)}
+.new-card:hover{border-color:var(--accent-border);box-shadow:var(--shadow-sm)}
+.new-card-title{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:5px;line-height:1.4}
+.new-card-desc{font-size:12px;color:var(--sub);line-height:1.6}
+.stop-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:14px 18px;margin-bottom:8px;display:flex;gap:14px;align-items:flex-start;box-shadow:var(--shadow-xs)}
+.stop-icon{width:28px;height:28px;border-radius:50%;background:#fde8e8;color:#9b1c1c;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;flex-shrink:0}
+.stop-body{flex:1}
+.stop-title{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:4px}
+.stop-desc{font-size:12px;color:var(--sub);line-height:1.6}
 </style>
 </head>
 <body>
@@ -105,7 +125,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   <div class="ph-logo">全</div>
   <span class="ph-title">景立方 ALL｜全案受眾分析</span>
   <span class="ph-sub">· 台中北屯 · 2024-03 起全期數據</span>
-  <nav class="ph-nav"><a href="hub.html">← 返回總覽</a></nav>
+  <nav class="ph-nav"><a href="index.html">標籤資料庫</a><a href="hub.html">← 返回總覽</a></nav>
 </header>
 
 <div class="wrap">
@@ -125,6 +145,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 </div>
 
 <div class="note-bar">📊 本報告為景立方全期（2024/03 至 2026/06）受眾數據彙整，同名受眾不同版本已合併計算。總花費 NT$820,516 / 累積潛客 1,574 / 均CPL NT$521。</div>
+
+<!-- ── 全案統計數字列 ── -->
+<div class="stats-bar">
+  <div class="sb-card"><div class="sb-n">$820,516</div><div class="sb-l">全期總花費</div></div>
+  <div class="sb-card"><div class="sb-n">1,574</div><div class="sb-l">累積潛客</div></div>
+  <div class="sb-card"><div class="sb-n good">$192</div><div class="sb-l">全案最佳CPL</div></div>
+  <div class="sb-card"><div class="sb-n">300+</div><div class="sb-l">受眾組數</div></div>
+</div>
 
 <!-- ── 三大核心受眾輪廓 ── -->
 <div class="section">
@@ -429,6 +457,72 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 
 </div>
 
+<!-- ── 下一輪建議受眾方向 ── -->
+<div class="section">
+  <div class="sec-title">下一輪建議受眾方向（未測試或值得重啟）</div>
+  <div class="new-grid">
+
+    <div class="new-card">
+      <div class="new-card-title">北屯換屋父母 × 雙語學區（景立方層峰已驗證，ALL 未獨立測試）↗</div>
+      <div class="new-card-desc">有子女的 33-55 歲換屋家庭，關注雙語教育與學區，景立方層峰帳號的換屋父母組 CPL 良好，建議在 ALL 帳號開一組「北屯潭子/換屋父母/雙語學區/親子」，搭配「讓孩子在捷運站旁長大」情境素材。</div>
+    </div>
+
+    <div class="new-card">
+      <div class="new-card-title">中科/后科製造業主管 × 置產換屋（豐原后科 59 潛客驗證有效）↗</div>
+      <div class="new-card-desc">豐原后科潭子科技業已累積 59 潛客 CPL $282，但多為置產目的，未測試「製造業中階主管換屋」這個切角。建議新開「28-50/后科潭子/製造業主管/換屋意向」組，訴求「中科就在旁邊，三房離公司 15 分鐘」。</div>
+    </div>
+
+    <div class="new-card">
+      <div class="new-card-title">台中金融/保險業高收入 × 自住置產（純金融業方向尚未獨立驗證）↗</div>
+      <div class="new-card-desc">現有金融興趣都混在「投資置產+雙語」組中，未有純「金融業工作者自住置產」受眾。建議開「30-55/台中市區+北屯/金融保險業/自住置產」，素材強調「每天通勤距離不超過 20 分鐘的高品質住宅」。</div>
+    </div>
+
+    <div class="new-card">
+      <div class="new-card-title">再行銷 × 電話名單自訂受眾（高意向池尚未完整利用）↗</div>
+      <div class="new-card-desc">現有再行銷 44 潛客 CPL $273 效率極好，但主要用廣告互動受眾。建議加入「已留名單電話/Email 自訂受眾 × 粉絲行銷人 × 網站訪客 180 天」三層再行銷池，理論 CPL 可再降至 $180 以下。</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── 停損方向 ── -->
+<div class="section">
+  <div class="sec-title">已確認停損方向（不建議重新測試）</div>
+
+  <div class="stop-card">
+    <div class="stop-icon">✗</div>
+    <div class="stop-body">
+      <div class="stop-title">逢甲中科方向 → CPL NT$809，比均值貴 55%</div>
+      <div class="stop-desc">23 潛客均 CPL $809，花費 NT$18,607，嚴重虧損。逢甲/中科西屯族群偏好西屯/北屯市中心地段，對北屯南興路位置吸引力不足。已測試多個版本，均無法壓低 CPL，建議永久停止。</div>
+    </div>
+  </div>
+
+  <div class="stop-card">
+    <div class="stop-icon">✗</div>
+    <div class="stop-body">
+      <div class="stop-title">南台中方向（烏日/南屯/東區）→ 出量不穩、CPL 偏高</div>
+      <div class="stop-desc">南屯西屯烏日精品投資組合雖有 35 潛客，但花費 NT$13,926，CPL $398 偏高且不穩定。此區族群更傾向南屯市中心或高鐵特區，對北屯地段距離感明顯。建議停止南台中地理定向，預算集中在北屯+潭子+豐原。</div>
+    </div>
+  </div>
+
+  <div class="stop-card">
+    <div class="stop-icon">✗</div>
+    <div class="stop-body">
+      <div class="stop-title">彰化/南投/海線 → 外圍地段零出量</div>
+      <div class="stop-desc">早期曾測試彰化烏日西屯擴展到彰化市區方向，以及海線（梧棲/清水）受眾，均無轉換。景立方的核心客群集中在台中市北屯+潭子+豐原，超過此範圍的受眾對「30-40分鐘通勤到北屯」定位不感興趣，已確認停止。</div>
+    </div>
+  </div>
+
+  <div class="stop-card">
+    <div class="stop-icon">✗</div>
+    <div class="stop-body">
+      <div class="stop-title">追星/跑咖/藝文 → 高互動低轉換的娛樂族群</div>
+      <div class="stop-desc">追星族 19 潛客，跑咖追星出國系列 11 潛客，CPL 均在 $800 以上。此類族群雖然 CTR 高、互動多，但對置產決策的影響力弱，轉換率極低。娛樂興趣族群不是景立方核心買家輪廓，建議停止此類標籤組合。</div>
+    </div>
+  </div>
+
+</div>
+
 <div class="page-footer">資料期間：2024-03-16 至 2026-06-03 · 景立方 台中北屯 · 總花費 NT$820,516 / 累積潛客 1,574 / 均CPL NT$521 · 最後更新 2026-06-03</div>
 
 </div>
@@ -442,5 +536,7 @@ document.querySelectorAll('.core-tag').forEach(el=>{el.addEventListener('click',
 document.querySelectorAll('.tip').forEach(el=>{el.addEventListener('click',()=>{const title=el.querySelector('.tip-title').textContent.trim();const desc=el.querySelector('.tip-desc').textContent.trim();copyPrompt(`針對${PROJECT}，關於這項策略發現：\n「${title}」\n背景：${desc}\n\n請幫我制定具體執行方案，包含受眾設定和素材方向。`)})});
 document.querySelectorAll('.rk-row').forEach(el=>{el.addEventListener('click',()=>{const name=el.querySelector('.rk-name');if(name)copyPrompt(`針對${PROJECT}，請分析受眾「${name.textContent.trim()}」，給我深度策略建議和受眾標籤清單。`)})});
 </script>
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到頂部">↑</button>
+<script>window.addEventListener('scroll',()=>document.getElementById('btt').classList.toggle('show',window.scrollY>300))</script>
 </body>
 </html>
