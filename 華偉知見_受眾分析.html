@@ -136,6 +136,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .rk-spend{font-size:13px;font-weight:700;color:#6d6560;line-height:1;font-variant-numeric:tabular-nums}
 .rk-spend-l{font-size:10px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.2px;margin-top:2px}
 .page-footer{text-align:center;font-size:11px;color:var(--sub2);margin-top:12px;padding-bottom:8px}
+/* ── Tab navigation ── */
+.tab-bar{display:flex;gap:6px;margin-bottom:22px;background:var(--s);border:1px solid var(--bd);border-radius:10px;padding:5px;box-shadow:var(--shadow-xs)}
+.tab-btn{flex:1;padding:8px 14px;border-radius:7px;border:none;background:transparent;font-size:13px;font-weight:600;color:var(--sub);cursor:pointer;transition:all .15s;text-align:center}
+.tab-btn.active{background:var(--accent);color:#fff;box-shadow:0 2px 6px rgba(0,0,0,.15)}
+.tab-btn:hover:not(.active){background:var(--accent-light);color:var(--accent-dark)}
+.tab-pane{display:none}
+.tab-pane.show{display:block}
 </style>
 </head>
 <body>
@@ -166,6 +173,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 
 <div class="note-bar">📌 本案廣告目標為「訊息」，主指標為每則訊息成本（CPM）。以下分析同時追蹤訊息數與潛客表單兩項成效，CPL 代表每則訊息成本，除特別標註外。</div>
 
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="switchTab('analysis')">成效分析</button>
+  <button class="tab-btn" onclick="switchTab('next')">下一步建議</button>
+</div>
+
+<div id="tab-analysis" class="tab-pane show">
 <!-- ── 三大核心受眾輪廓 ── -->
 <div class="section">
   <div class="sec-title">三大核心受眾輪廓</div>
@@ -378,6 +391,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   </div>
 </div>
 
+</div><!-- end tab-analysis -->
+
+<div id="tab-next" class="tab-pane">
 <!-- ── 建議新受眾方向 ── -->
 <div class="section">
   <div class="sec-title">建議新測試受眾方向</div>
@@ -587,12 +603,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   </div>
 </div>
 
+</div><!-- end tab-next -->
+
 <div class="page-footer">資料期間：2025-10-17 至 2026-06-03 · 華偉知見 台中沙鹿 · 廣告目標：訊息 · 最後更新 2026-06-03</div>
 
 </div>
 
 <div id="toast" style="position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);background:#2e2c29;color:#fff;font-size:12.5px;padding:10px 20px;border-radius:24px;opacity:0;transition:all .25s;pointer-events:none;z-index:999;white-space:nowrap">📋 已複製 → 貼至 Claude 對話</div>
 <script>
+function switchTab(name){document.querySelectorAll('.tab-btn').forEach((b,i)=>{const names=['analysis','next'];b.classList.toggle('active',names[i]===name)});document.querySelectorAll('.tab-pane').forEach(p=>{p.classList.remove('show')});document.getElementById('tab-'+name).classList.add('show');window.scrollTo({top:0,behavior:'smooth'})}
 const PROJECT = '華偉知見（台中沙鹿・中山路永安巷・純二房26坪・訊息143則・潛客28表單）';
 function showToast(){const t=document.getElementById('toast');t.style.opacity='1';t.style.transform='translateX(-50%) translateY(0)';setTimeout(()=>{t.style.opacity='0';t.style.transform='translateX(-50%) translateY(20px)'},2200)}
 function copyPrompt(text){navigator.clipboard.writeText(text).then(showToast).catch(()=>{const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast()})}
