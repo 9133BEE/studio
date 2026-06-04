@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>后麗18｜受眾分析報告</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --accent:#7a5a4a;--accent-dark:#5a3e30;--accent-light:#f5ede8;--accent-border:#c8a090;
+  --bg:#f7f8f6;--s:#ffffff;--bd:#e4e5e2;--tx:#2e2c29;--sub:#7d7870;--sub2:#a8a199;
+  --good:#1e6e3f;--goodl:#e6f4ea;--warn:#c05c00;
+  --radius:12px;--shadow-xs:0 1px 3px rgba(0,0,0,.05);--shadow-sm:0 2px 8px rgba(0,0,0,.07);--shadow-card:0 2px 10px rgba(0,0,0,.06),0 1px 3px rgba(0,0,0,.04);
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft JhengHei','Segoe UI',sans-serif;background:var(--bg);color:var(--tx);font-size:14px;line-height:1.6;min-height:100vh}
+.page-header{background:linear-gradient(180deg,#1c100a 0%,#120a06 100%);padding:0 40px;height:56px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.04),0 4px 20px rgba(0,0,0,.35);border-bottom:1px solid rgba(255,255,255,.06)}
+.ph-logo{width:30px;height:30px;background:linear-gradient(135deg,#b08060,var(--accent-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;flex-shrink:0}
+.ph-title{font-size:14px;font-weight:700;color:#f5ede0;letter-spacing:-.2px}
+.ph-sub{font-size:11px;color:#6a4a38;margin-left:2px}
+.ph-nav{margin-left:auto;display:flex;gap:8px;align-items:center}
+.ph-nav a{font-size:12px;color:#c8a090;text-decoration:none;padding:5px 13px;border-radius:6px;border:1px solid rgba(122,90,74,.25);background:rgba(122,90,74,.12);font-weight:500}
+.ph-nav a:hover{background:rgba(122,90,74,.22);color:#e8c0a0}
+#btt{position:fixed;right:24px;bottom:28px;width:38px;height:38px;border-radius:50%;background:rgba(20,10,6,.75);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.85);font-size:15px;cursor:pointer;opacity:0;transform:translateY(8px);transition:opacity .2s,transform .2s;pointer-events:none;z-index:150;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.3);font-family:inherit}
+#btt.show{opacity:1;transform:translateY(0);pointer-events:auto}
+.wrap{max-width:1200px;margin:0 auto;padding:32px 40px 48px}
+.case-header{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:20px 24px;margin-bottom:10px;display:flex;align-items:center;gap:18px;box-shadow:var(--shadow-card)}
+.case-logo{width:44px;height:44px;background:linear-gradient(135deg,#b08060,var(--accent-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;flex-shrink:0}
+.case-info h2{font-size:17px;font-weight:700;color:var(--tx);letter-spacing:-.3px}
+.case-info p{font-size:12px;color:var(--sub);margin-top:3px;line-height:1.5}
+.case-stats{margin-left:auto;display:flex;gap:28px;flex-shrink:0}
+.stat{text-align:right}
+.stat-n{font-size:24px;font-weight:800;color:var(--accent);line-height:1;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.stat-l{font-size:10px;color:var(--sub2);margin-top:3px;font-weight:600;letter-spacing:.3px;text-transform:uppercase}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--accent);text-decoration:none;margin-bottom:20px;padding:5px 12px;background:var(--accent-light);border-radius:20px;border:1px solid var(--accent-border)}
+/* Tab navigation */
+.tab-bar{display:flex;gap:6px;margin-bottom:22px;background:var(--s);border:1px solid var(--bd);border-radius:10px;padding:5px;box-shadow:var(--shadow-xs)}
+.tab-btn{flex:1;padding:8px 14px;border-radius:7px;border:none;background:transparent;font-size:13px;font-weight:600;color:var(--sub);cursor:pointer;transition:all .15s;text-align:center}
+.tab-btn.active{background:var(--accent);color:#fff;box-shadow:0 2px 6px rgba(0,0,0,.15)}
+.tab-btn:hover:not(.active){background:var(--accent-light);color:var(--accent-dark)}
+.tab-pane{display:none}
+.tab-pane.show{display:block}
+/* Section */
+.sec-title{font-size:12px;font-weight:700;color:var(--sub);margin-bottom:14px;display:flex;align-items:center;gap:10px;letter-spacing:.4px;text-transform:uppercase}
+.sec-title::before{content:'';display:inline-block;width:3px;height:14px;background:var(--accent);border-radius:2px;flex-shrink:0}
+.sec-title::after{content:'';flex:1;height:1px;background:var(--bd)}
+.section{margin-bottom:28px}
+.note-bar{background:var(--accent-light);border:1px solid var(--accent-border);border-radius:10px;padding:10px 16px;font-size:12px;color:#5a3a2a;margin-bottom:20px;line-height:1.6}
+/* Stats bar */
+.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:22px}
+.sb-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:14px 16px;box-shadow:var(--shadow-xs);text-align:center}
+.sb-n{font-size:26px;font-weight:900;color:var(--accent);line-height:1;letter-spacing:-1px;font-variant-numeric:tabular-nums}
+.sb-n.good{color:var(--good)}
+.sb-l{font-size:10px;color:var(--sub2);font-weight:600;margin-top:4px;text-transform:uppercase;letter-spacing:.3px}
+/* Profiles */
+.profiles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.profile-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow-xs);transition:box-shadow .2s,transform .2s}
+.profile-card:hover{box-shadow:var(--shadow-sm);transform:translateY(-2px)}
+.profile-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:17px;margin-bottom:12px}
+.pi-warm{background:var(--accent-light)}.pi-teal{background:#e0eff2}.pi-green{background:#d8ead2}
+.profile-name{font-size:15px;font-weight:700;color:var(--tx);margin-bottom:4px}
+.profile-meta{font-size:12px;color:var(--sub);margin-bottom:10px}
+.profile-tags{font-size:12px;color:#4a5568;margin-bottom:10px;line-height:1.6}
+.profile-behavior{font-size:12px;color:var(--sub);line-height:1.55;margin-bottom:12px}
+.profile-badge{display:inline-block;font-size:11px;font-weight:700;padding:4px 11px;border-radius:20px;margin-top:2px}
+.badge-warm{background:var(--accent-light);color:#5a3a2a;border:1px solid var(--accent-border)}
+.badge-teal{background:#e0eff2;color:#2f6672;border:1px solid #87b5be}
+.badge-green{background:#d8ead2;color:#2f5c3f;border:1px solid #96c4a8}
+/* Tags */
+.tags-row{display:flex;flex-wrap:wrap;gap:8px}
+.core-tag{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;background:var(--s);border:1.5px solid var(--bd);border-radius:20px;font-size:13px;font-weight:600;color:var(--tx);cursor:pointer;transition:all .15s}
+.core-tag:hover{border-color:var(--accent-border);background:var(--accent-light);color:#5a3a2a}
+.core-tag .arr{font-size:11px;color:var(--accent-border)}
+/* Tips */
+.tips{display:flex;flex-direction:column;gap:10px}
+.tip{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:16px 18px;display:flex;gap:16px;align-items:flex-start;cursor:pointer;transition:border-color .15s,box-shadow .15s;box-shadow:var(--shadow-xs)}
+.tip:hover{border-color:var(--accent-border);box-shadow:var(--shadow-sm)}
+.tip-num{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;flex-shrink:0;color:#fff}
+.c1{background:var(--accent)}.c2{background:#6a7a4a}.c3{background:#4a6a7a}.c4{background:#7a6a4a}.c5{background:#6a4a7a}
+.tip-body{flex:1}
+.tip-title{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:5px;line-height:1.4}
+.tip-desc{font-size:12px;color:var(--sub);line-height:1.65}
+/* Creative timeline */
+.creative-timeline{display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
+.phase-row{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:14px 18px;display:flex;gap:14px;align-items:center;cursor:pointer;transition:box-shadow .15s;box-shadow:var(--shadow-xs)}
+.phase-row:hover{box-shadow:var(--shadow-sm)}
+.phase-row.best{border-color:var(--accent-border);background:var(--accent-light)}
+.phase-label{width:64px;flex-shrink:0;font-size:11px;font-weight:800;text-align:center;padding:6px 4px;border-radius:8px;background:var(--accent-light);color:var(--accent-dark);letter-spacing:-.2px;line-height:1.3}
+.phase-body{flex:1;min-width:0}
+.phase-title{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:4px}
+.phase-desc{font-size:12px;color:var(--sub);line-height:1.6}
+.phase-stat{text-align:right;flex-shrink:0;min-width:90px}
+.phase-cpl{font-size:16px;font-weight:800;color:var(--accent);line-height:1;font-variant-numeric:tabular-nums}
+.phase-cpl-l{font-size:10px;color:var(--sub2);margin-top:3px;font-weight:600}
+/* Rankings */
+.rk-row{background:var(--s);border:1px solid var(--bd);border-left:3px solid var(--bd);border-radius:var(--radius);padding:14px 18px 14px 14px;margin-bottom:6px;display:flex;gap:14px;align-items:center;box-shadow:none;transition:border-left-color .15s,box-shadow .15s,transform .15s;cursor:pointer}
+.rk-row:hover{border-left-color:var(--accent);box-shadow:0 2px 12px rgba(0,0,0,.06);transform:translateX(2px)}
+.rk-row.gold{border-left-color:#e6a820;background:linear-gradient(90deg,#fffef0 0%,#fff 70%)}
+.rk-row.silver{border-left-color:#9aa5b4;background:linear-gradient(90deg,#f5f7fa 0%,#fff 70%)}
+.rk-row.bronze{border-left-color:#c47f3a;background:linear-gradient(90deg,#fdf7f0 0%,#fff 70%)}
+.rk-medal{width:26px;height:26px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.rk-rank{width:26px;height:26px;border-radius:6px;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;color:var(--sub);border:1px solid var(--bd);flex-shrink:0}
+.rk-body{flex:1;min-width:0}
+.rk-name{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:3px;line-height:1.3}
+.rk-loc{font-size:11px;color:var(--sub2);line-height:1.3;margin-bottom:6px}
+.rk-tags{display:flex;flex-wrap:wrap;gap:4px}
+.rk-tag{font-size:10px;font-weight:600;padding:2px 8px;border-radius:20px;line-height:1.5}
+.t-tech{background:#e8f0fe;color:#1a56b0;border:1px solid #93b4e8}
+.t-biz{background:#fff3e0;color:#bf5600;border:1px solid #ffd0a0}
+.t-inv{background:#fef3c7;color:#92400e;border:1px solid #fcd34d}
+.t-loc{background:var(--accent-light);color:var(--accent-dark);border:1px solid var(--accent-border)}
+.t-fam{background:#f3e8ff;color:#5b21b6;border:1px solid #c4b5fd}
+.t-active{background:#d8ead2;color:#3d6b4f;border:1px solid #96c4a8;font-weight:800}
+.rk-stats{display:flex;gap:16px;flex-shrink:0;align-items:center}
+.rk-stat-block{text-align:right;min-width:50px}
+.rk-result{font-size:22px;font-weight:900;color:var(--tx);line-height:1;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.rk-result-l{font-size:9px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.3px;margin-top:2px}
+.rk-cpl{font-size:15px;font-weight:800;color:var(--warn);line-height:1;font-variant-numeric:tabular-nums}
+.rk-cpl.good-cpl{color:var(--good)}
+.rk-cpl-l{font-size:9px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.3px;margin-top:2px}
+.rk-spend{font-size:12px;font-weight:600;color:var(--sub2);line-height:1;font-variant-numeric:tabular-nums}
+.rk-spend-l{font-size:9px;color:var(--sub2);font-weight:500;text-transform:uppercase;letter-spacing:.3px;margin-top:2px}
+/* New directions */
+.new-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.new-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:16px 18px;cursor:pointer;transition:border-color .15s,box-shadow .15s;box-shadow:var(--shadow-xs)}
+.new-card:hover{border-color:var(--accent-border);box-shadow:var(--shadow-sm)}
+.new-card-title{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:5px;line-height:1.4}
+.new-card-desc{font-size:12px;color:var(--sub);line-height:1.6}
+.page-footer{text-align:center;font-size:11px;color:var(--sub2);margin-top:12px;padding-bottom:8px}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="ph-logo">麗</div>
+  <span class="ph-title">后麗18｜受眾分析</span>
+  <span class="ph-sub">· 台中后里 · 4房透天別墅 · 18戶新成屋</span>
+  <nav class="ph-nav"><a href="index.html">標籤資料庫</a><a href="hub.html">← 返回總覽</a></nav>
+</header>
+
+<div class="wrap">
+
+<div class="case-header">
+  <div class="case-logo">麗</div>
+  <div class="case-info">
+    <h2>后麗18｜台中后里</h2>
+    <p>四月路49之16號・4房透天47~81坪・總價NT$1,488萬・麗寶Outlet鄰近・育英國小學區・前院停車+EV充電・新成屋隨時交屋・廣告目標：訊息</p>
+  </div>
+  <div class="case-stats">
+    <div class="stat"><div class="stat-n">167</div><div class="stat-l">累積訊息</div></div>
+    <div class="stat"><div class="stat-n">7</div><div class="stat-l">潛客表單</div></div>
+    <div class="stat"><div class="stat-n">7組</div><div class="stat-l">受眾組數</div></div>
+  </div>
+</div>
+
+<a class="back-link" href="hub.html">← 返回報告集</a>
+
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="switchTab('analysis')">成效分析</button>
+  <button class="tab-btn" onclick="switchTab('next')">下一步建議</button>
+</div>
+
+<!-- ════ TAB 1：成效分析 ════ -->
+<div id="tab-analysis" class="tab-pane show">
+
+<div class="note-bar">📌 廣告目標為「訊息對話」，主指標為每則訊息成本。CPL = 每則訊息成本。NT$175~205 為有效範圍，NT$255 以上偏高。</div>
+
+<!-- 統計 -->
+<div class="section">
+  <div class="sec-title">全案統計（截至 2026-06-04）</div>
+  <div class="stats-bar">
+    <div class="sb-card"><div class="sb-n">NT$32,523</div><div class="sb-l">累積花費</div></div>
+    <div class="sb-card"><div class="sb-n">167</div><div class="sb-l">訊息對話</div></div>
+    <div class="sb-card"><div class="sb-n good">NT$175.70</div><div class="sb-l">最佳CPL</div></div>
+    <div class="sb-card"><div class="sb-n">7</div><div class="sb-l">潛客表單</div></div>
+  </div>
+</div>
+
+<!-- 三大受眾輪廓 -->
+<div class="section">
+  <div class="sec-title">三大核心受眾輪廓</div>
+  <div class="profiles">
+
+    <div class="profile-card">
+      <div class="profile-icon pi-warm">🏭</div>
+      <div class="profile-name">傳產自營換屋主力</div>
+      <div class="profile-meta">年齡 30–60｜后里豐原</div>
+      <div class="profile-tags">興趣：傳產、自營商、工程師、軍警、換屋升格</div>
+      <div class="profile-behavior">行為：后里豐原在地傳產與自營業主，有換屋換大需求，4房透天無管理費對自營商/軍警家庭吸引力強。42訊息是全案最多，現仍進行中。</div>
+      <span class="profile-badge badge-warm">42訊息 · 進行中 · 全案最多</span>
+    </div>
+
+    <div class="profile-card">
+      <div class="profile-icon pi-teal">💻</div>
+      <div class="profile-name">后里科技業家庭</div>
+      <div class="profile-meta">年齡 28–50｜后里+中科</div>
+      <div class="profile-tags">興趣：科技業、工程師、家庭成長、換屋</div>
+      <div class="profile-behavior">行為：中科/后科園區科技業有穩定薪資，后里透天是「不用擠台中市區」的高CP選擇。21訊息＋2潛客，配合「大樓價」素材，CPL NT$154 是全案素材最低。</div>
+      <span class="profile-badge badge-teal">21訊息 · 2潛客 · 最佳素材CPL $154</span>
+    </div>
+
+    <div class="profile-card">
+      <div class="profile-icon pi-green">💰</div>
+      <div class="profile-name">后里豐原投資理財族</div>
+      <div class="profile-meta">年齡 30–55｜后里豐原</div>
+      <div class="profile-tags">興趣：投資理財、置產、觀光農企、戶外活動</div>
+      <div class="profile-behavior">行為：有投資意識的在地族群，18戶稀缺限量＋NT$1,488萬固定總價＋新成屋即可入住，是主動型置產最佳訴求。投資理財組 CPL NT$175.70 是全案最低。</div>
+      <span class="profile-badge badge-green">27訊息 · CPL $175.70 · 全案最低CPL</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- 核心標籤 -->
+<div class="section">
+  <div class="sec-title">跨受眾必保留的核心標籤</div>
+  <div class="tags-row">
+    <span class="core-tag">透天別墅（房型）<span class="arr">↗</span></span>
+    <span class="core-tag">麗寶Outlet（地標）<span class="arr">↗</span></span>
+    <span class="core-tag">科技業（職業）<span class="arr">↗</span></span>
+    <span class="core-tag">投資理財（行為）<span class="arr">↗</span></span>
+    <span class="core-tag">傳產自營商（職業）<span class="arr">↗</span></span>
+    <span class="core-tag">換屋（動機）<span class="arr">↗</span></span>
+  </div>
+</div>
+
+<!-- 操作建議 -->
+<div class="section">
+  <div class="sec-title">五大操作建議</div>
+  <div class="tips">
+    <div class="tip">
+      <div class="tip-num c1">1</div>
+      <div class="tip-body">
+        <div class="tip-title">傳產/自營/工程師/軍警（42訊息）仍active → 維持並測試新素材</div>
+        <div class="tip-desc">全案訊息最多組，CPL NT$203.86 在合理範圍內仍在跑。建議搭配「20260601_后科鄰距離」新素材測試，素材強調透天別墅就在后科旁，讓科技業家庭感受到近距離優勢。</div>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-num c2">2</div>
+      <div class="tip-body">
+        <div class="tip-title">投資理財組 CPL NT$175.70 最低但已停 → 換素材重開</div>
+        <div class="tip-desc">27訊息＋1潛客，CPL NT$175.70 是全案最低，但已停止。建議搭配「大樓價」對比素材重開，強調「大樓的錢買后里4房透天，NT$1,488萬固定總價，18戶限量」，投資置產族對稀缺性＋固定總價訴求最敏感。</div>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-num c3">3</div>
+      <div class="tip-body">
+        <div class="tip-title">科技業家庭（21訊息 CPL $154 素材）配合新素材重啟</div>
+        <div class="tip-desc">「0302_大樓價」搭配科技業受眾時 CPL $154 全案最低，但整組已停。建議重開「28-50/后里中科/科技業家庭」搭配新素材「后科鄰距離」，強調「中科下班到后里15分鐘，4房透天換公寓同樣預算」。</div>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-num c4">4</div>
+      <div class="tip-body">
+        <div class="tip-title">「大樓價」對比素材是全案王牌，應持續作為主力</div>
+        <div class="tip-desc">0302_大樓價（影片＋單圖）合計貢獻約 95+ 訊息，CPL 最低 $154，是全案效率最高素材系列。「大樓的錢買得到透天嗎？后里可以」這個對比訴求對換屋族群說服力強。新素材應延伸此邏輯，不要偏離太遠。</div>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-num c5">5</div>
+      <div class="tip-body">
+        <div class="tip-title">「后科鄰距離」最新素材 CPL $127 最低，需更多量驗證</div>
+        <div class="tip-desc">20260601_后科鄰距離是最新推出素材，最低版本 CPL NT$127，但目前只有 2 則訊息量太少。建議擴大測試：搭配傳產/自營組和科技業組，給予足夠預算（NT$200/日×7天），驗證是否能穩定在 CPL $150 以下。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 素材分析 -->
+<div class="section">
+  <div class="sec-title">素材成效分析</div>
+  <div class="creative-timeline">
+    <div class="phase-row best">
+      <div class="phase-label">0302<br>大樓價</div>
+      <div class="phase-body">
+        <div class="phase-title">0302_大樓價（影片＋單圖）- 全案主力素材</div>
+        <div class="phase-desc">「大樓的錢買后里4房透天」對比訴求，所有受眾中效率最強。影片版配合科技業受眾達到全案最低 CPL NT$154.47，單圖版長期穩定 CPL NT$167~193。</div>
+      </div>
+      <div class="phase-stat"><div class="phase-cpl">~95訊息</div><div class="phase-cpl-l">CPL最低$154</div></div>
+    </div>
+    <div class="phase-row">
+      <div class="phase-label">0401<br>宜居后里</div>
+      <div class="phase-body">
+        <div class="phase-title">0401_宜居后里 - 地標生活切角，仍active</div>
+        <div class="phase-desc">「宜居后里」生活訴求，CPL NT$188~233 穩定。目前有一組仍active，配合傳產自營組投放中。相比大樓價，這支轉換率稍低但訴求不同，適合補充覆蓋不同受眾心理。</div>
+      </div>
+      <div class="phase-stat"><div class="phase-cpl">36+訊息</div><div class="phase-cpl-l">CPL $188~233</div></div>
+    </div>
+    <div class="phase-row">
+      <div class="phase-label">0430<br>1488萬</div>
+      <div class="phase-body">
+        <div class="phase-title">0430_1488萬 - 價格切角，效果有限</div>
+        <div class="phase-desc">直接標示「1488萬」總價，共 4 則訊息 CPL $210+，效果不如預期。在訊息型廣告中，直接秀價格降低好奇心，建議停用，改以「大樓價」對比方式帶出總價。</div>
+      </div>
+      <div class="phase-stat"><div class="phase-cpl">4訊息</div><div class="phase-cpl-l">CPL $210+ 停用</div></div>
+    </div>
+    <div class="phase-row best">
+      <div class="phase-label">0601<br>后科鄰距</div>
+      <div class="phase-body">
+        <div class="phase-title">20260601_后科鄰距離 - 最新素材，CPL最低待驗證</div>
+        <div class="phase-desc">強調「后科/中科鄰近距離」的通勤訴求，最低 CPL NT$127，但只有 2 則訊息量不夠。建議擴大預算測試，若能穩定在 $150 以下，可成為下一主力。</div>
+      </div>
+      <div class="phase-stat"><div class="phase-cpl">2訊息</div><div class="phase-cpl-l">CPL $127 待驗證</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 受眾排行 -->
+<div class="section">
+  <div class="sec-title">受眾成效排行（依訊息數排序）</div>
+
+  <div class="rk-row gold">
+    <div class="rk-medal">🥇</div>
+    <div class="rk-body">
+      <div class="rk-name">30-60 / 后里豐原 / 傳產・自營・工程師・軍警 <span class="rk-tag t-active">進行中</span></div>
+      <div class="rk-loc">后里+豐原 · 在地傳產與穩定職業族群</div>
+      <div class="rk-tags"><span class="rk-tag t-biz">傳產自營</span><span class="rk-tag t-tech">工程師</span><span class="rk-tag t-loc">后里豐原</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">42</div><div class="rk-result-l">訊息</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl">$204</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$8,562</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row silver">
+    <div class="rk-medal">🥈</div>
+    <div class="rk-body">
+      <div class="rk-name">30-55 / 后里外埔 / 主管・成家・休旅車</div>
+      <div class="rk-loc">后里+外埔 · 中高收入家庭換屋族</div>
+      <div class="rk-tags"><span class="rk-tag t-biz">主管</span><span class="rk-tag t-fam">成家</span><span class="rk-tag t-loc">后里外埔</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">38</div><div class="rk-result-l">訊息</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl">$204</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$7,743</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row bronze">
+    <div class="rk-medal">🥉</div>
+    <div class="rk-body">
+      <div class="rk-name">30-55 / 后里豐原 / 投資理財</div>
+      <div class="rk-loc">后里+豐原 · 投資置產意向族群</div>
+      <div class="rk-tags"><span class="rk-tag t-inv">投資理財</span><span class="rk-tag t-loc">后里豐原</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">27</div><div class="rk-result-l">訊息</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$176</div><div class="rk-cpl-l">全案最低CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$4,744</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row">
+    <div class="rk-rank">4</div>
+    <div class="rk-body">
+      <div class="rk-name">30-55 / 大甲外埔 / 觀光農企家庭</div>
+      <div class="rk-loc">大甲+外埔 · 農企業主與觀光業族群</div>
+      <div class="rk-tags"><span class="rk-tag t-biz">農企業主</span><span class="rk-tag t-fam">家庭</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">25</div><div class="rk-result-l">訊息</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl">$189</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$4,719</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row">
+    <div class="rk-rank">5</div>
+    <div class="rk-body">
+      <div class="rk-name">28-50 / 后里中科 / 科技業家庭</div>
+      <div class="rk-loc">后里+中科科技園區 · 科技業換屋族</div>
+      <div class="rk-tags"><span class="rk-tag t-tech">科技業</span><span class="rk-tag t-loc">中科</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">21</div><div class="rk-result-l">訊息</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$180</div><div class="rk-cpl-l">CPL 素材最低$154</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$3,789</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row">
+    <div class="rk-rank">6</div>
+    <div class="rk-body">
+      <div class="rk-name">30-55 / 后里豐原 / 零售批發自營</div>
+      <div class="rk-loc">后里+豐原 · 零售批發業主</div>
+      <div class="rk-tags"><span class="rk-tag t-biz">零售批發</span><span class="rk-tag t-biz">自營</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">9</div><div class="rk-result-l">訊息</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl">$187</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$1,687</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row">
+    <div class="rk-rank">7</div>
+    <div class="rk-body">
+      <div class="rk-name">30-55 / 后里豐原 / 建築生活品質</div>
+      <div class="rk-loc">后里+豐原 · 生活品質重視族群</div>
+      <div class="rk-tags"><span class="rk-tag t-fam">生活品質</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">5</div><div class="rk-result-l">訊息</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl">$256</div><div class="rk-cpl-l">CPL 偏高</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$1,279</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+</div>
+
+</div><!-- end tab-analysis -->
+
+<!-- ════ TAB 2：下一步建議 ════ -->
+<div id="tab-next" class="tab-pane">
+
+<!-- 建議新受眾方向 -->
+<div class="section">
+  <div class="sec-title">建議新測試受眾方向</div>
+  <div class="new-grid">
+
+    <div class="new-card">
+      <div class="new-card-title">28–50 / 后里中科 / 科技業換屋重啟 + 后科鄰距素材（最佳組合）↗</div>
+      <div class="new-card-desc">科技業家庭是全案素材CPL $154最低組合，但已停止。建議搭配最新「后科鄰距離」素材重開，強調「中科/后科到后里透天15分鐘，同樣預算住大4倍」。這是CPL記錄最好的受眾+素材配對，應優先重啟。</div>
+    </div>
+
+    <div class="new-card">
+      <div class="new-card-title">30–55 / 后里豐原 / 投資理財重開（最低CPL $175.70）↗</div>
+      <div class="new-card-desc">全案最低CPL NT$175.70已驗證，但已停。建議換「大樓價」新版素材重開，訴求「18戶限量透天，NT$1,488萬固定總價，現在新成屋隨時入住，投資早鳥最佳時機」。投資族對稀缺性+固定總價最敏感。</div>
+    </div>
+
+    <div class="new-card">
+      <div class="new-card-title">30–55 / 大甲外埔苑裡 / 麗寶Outlet消費族 × 置產（完全未測試）↗</div>
+      <div class="new-card-desc">麗寶Outlet Mall是后麗18最大生活機能賣點，但廣告從未開過「麗寶消費族」受眾。建議開「30-55 / 大甲外埔苑裡 / 消費精品+麗寶+戶外活動」，訴求「麗寶Outlet步行可達，4房透天過你最想要的生活」。喜愛Outlet的消費族群對生活品質重視，與透天別墅訴求契合。</div>
+    </div>
+
+    <div class="new-card">
+      <div class="new-card-title">30–52 / 后里豐原 / 育英國小/后里國中學區家長換屋 ↗</div>
+      <div class="new-card-desc">591顯示學區（育英國小、后里國中）是建案賣點，但廣告從未針對「學區家長」開組。建議開「30-52 / 后里豐原 / 子女學區換屋/有國小生家長」，訴求「育英國小學區，4房透天前院停車，孩子有院子可以跑，2026就能入住」。學區+院子訴求對有小孩家庭打擊力強。</div>
+    </div>
+
+    <div class="new-card">
+      <div class="new-card-title">33–55 / 豐原神岡潭子 / 豐原舊市區透天老屋換新 ↗</div>
+      <div class="new-card-desc">豐原有大量住老透天的在地人，但老透天維修費高、格局舊。后麗18新透天「同縣市換新屋」是完美升格。建議開「33-55 / 豐原神岡潭子 / 住老透天想換新/傳統住宅升格」，訴求「豐原老透天換后里全新4房透天，EV充電+前院停車，NT$1,488萬現在入住」。豐原到后里距離近，換屋阻力小。</div>
+    </div>
+
+    <div class="new-card">
+      <div class="new-card-title">35–60 / 后里豐原外埔 / 半退休度假宅族（第二戶投資）↗</div>
+      <div class="new-card-desc">后里有溫泉、麗寶Outlet、鄰近大雪山風景，適合「第二戶度假宅」定位。建議開「35-60 / 豐原外埔大甲 / 半退休/戶外活動/溫泉/第二戶置產」，訴求「后里溫泉度假後不想走，NT$1,488萬買4房透天，週末住、平日出租或自用，18戶稀缺值得投」。度假宅切角是全案完全未使用的訴求。</div>
+    </div>
+
+    <div class="new-card">
+      <div class="new-card-title">28–50 / 台中北屯太平 / 台中城區上班族 × 后里大透天省錢換屋 ↗</div>
+      <div class="new-card-desc">台中市區4房透天要NT$3,000萬+，后里同等格局NT$1,488萬，差距懸殊。建議開「28-50 / 台中北屯北區太平 / 公寓換透天/城市外移/省錢首購換屋」，訴求「台中市4房的錢，后里買4房透天帶前院，國道1號通台中，開車不到30分鐘」。城市外移訴求對台中積累資金但買不到的族群具強大吸引力。</div>
+    </div>
+
+    <div class="new-card">
+      <div class="new-card-title">再行銷 × 已互動未回訊族群（高意向二次觸達）↗</div>
+      <div class="new-card-desc">已有167則訊息記錄，部分受眾互動但未深入接觸。建議建立「廣告互動90天+粉專互動180天+網站訪客」再行銷受眾，搭配強 CTA 素材「后麗18限18戶，有意願立刻預約看屋」，理論 CPL 比冷受眾低 30~40%，是最高意向轉換途徑。</div>
+    </div>
+
+  </div>
+</div>
+
+</div><!-- end tab-next -->
+
+<div class="page-footer">資料期間：2026-03-02 至 2026-06-04 · 后麗18 台中后里 · 廣告目標：訊息 · 最後更新 2026-06-04</div>
+
+</div><!-- end wrap -->
+
+<button id="btt" onclick="scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+function switchTab(name){document.querySelectorAll('.tab-btn').forEach((b,i)=>{const names=['analysis','next'];b.classList.toggle('active',names[i]===name)});document.querySelectorAll('.tab-pane').forEach(p=>{p.classList.remove('show')});document.getElementById('tab-'+name).classList.add('show');window.scrollTo({top:0,behavior:'smooth'})}
+window.addEventListener('scroll',()=>{document.getElementById('btt').classList.toggle('show',window.scrollY>300)});
+const PROJECT = '后麗18（台中后里・四月路・4房透天47~81坪・NT$1,488萬・18戶限量・訊息167則・均CPL NT$195）';
+function showToast(){const t=document.getElementById('toast');t.style.opacity='1';t.style.transform='translateX(-50%) translateY(0)';setTimeout(()=>{t.style.opacity='0';t.style.transform='translateX(-50%) translateY(20px)'},2200)}
+function copyPrompt(text){navigator.clipboard.writeText(text).then(showToast).catch(()=>{const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast()})}
+document.querySelectorAll('.core-tag').forEach(el=>{el.addEventListener('click',()=>{const tag=el.textContent.replace('↗','').trim();copyPrompt(`針對${PROJECT}，請深入分析「${tag}」這個興趣標籤：\n1.在本案受眾中代表什麼輪廓？\n2.搭配哪些標籤組合效果最好？\n3.素材訴求應該怎麼寫？`)})});
+document.querySelectorAll('.tip').forEach(el=>{el.addEventListener('click',()=>{const title=el.querySelector('.tip-title').textContent.trim();const desc=el.querySelector('.tip-desc').textContent.trim();copyPrompt(`針對${PROJECT}，關於這項操作建議：\n「${title}」\n背景：${desc}\n\n請幫我制定具體執行方案，包含受眾設定細節和素材方向。`)})});
+document.querySelectorAll('.new-card').forEach(el=>{el.addEventListener('click',()=>{const title=el.querySelector('.new-card-title').textContent.replace('↗','').trim();const desc=el.querySelector('.new-card-desc').textContent.trim();copyPrompt(`針對${PROJECT}，我想測試新受眾方向：「${title}」\n說明：${desc}\n\n請給我：\n1.META 興趣標籤清單（附中文，約10-15個）\n2.地理設定建議\n3.適合這組的素材訴求角度`)})});
+document.querySelectorAll('.rk-row').forEach(el=>{el.addEventListener('click',()=>{const name=el.querySelector('.rk-name');if(name)copyPrompt(`針對${PROJECT}，請分析受眾「${name.textContent.trim()}」，給我深度受眾策略建議。`)})});
+document.querySelectorAll('.phase-row').forEach(el=>{el.addEventListener('click',()=>{const name=el.querySelector('.phase-title');const desc=el.querySelector('.phase-desc');if(!name)return;copyPrompt(`針對${PROJECT}，關於素材「${name.textContent.trim()}」：\n${desc?desc.textContent.trim():''}\n\n請分析：1.成效好/差原因？ 2.如何延伸下一支？ 3.最適合搭配的受眾？`)})});
+</script>
+<div id="toast" style="position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);background:#2e2c29;color:#fff;font-size:12.5px;padding:10px 20px;border-radius:24px;opacity:0;transition:all .25s;pointer-events:none;z-index:999;white-space:nowrap">📋 已複製 → 貼至 Claude 對話</div>
+</body>
+</html>
