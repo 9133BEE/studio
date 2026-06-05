@@ -164,6 +164,45 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .new-card.alt-new:hover{border-color:var(--alt-border);box-shadow:0 3px 12px rgba(42,122,106,.12)}
 .new-card-title{font-size:14px;font-weight:700;color:var(--tx);margin-bottom:6px;line-height:1.35}
 .new-card-desc{font-size:12px;color:var(--sub);line-height:1.55}
+.new-card-detail{margin-top:10px;border-top:1px solid var(--bd);padding-top:10px}
+.ncd-meta{font-size:11px;color:var(--sub);line-height:1.55;margin-bottom:5px}
+.ncd-meta b{color:var(--tx)}
+.tag-tbl{width:100%;border-collapse:collapse;font-size:11px;margin-top:6px}
+.tag-tbl th{padding:3px 8px;text-align:left;font-weight:600;border:1px solid var(--bd);background:var(--accent-light);color:var(--accent-dark)}
+.tag-tbl td{padding:2px 8px;border:1px solid var(--bd);color:var(--sub)}
+.tag-tbl tr:nth-child(even) td{background:var(--bg)}
+.new-card.alt-new .tag-tbl th{background:var(--alt-light);color:var(--alt-dark);border-color:var(--alt-border)}
+/* ── aud-card 2欄+複製系統 ── */
+.aud-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;align-items:start}
+@media(max-width:760px){.aud-grid-2{grid-template-columns:1fr}}
+.aud-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);box-shadow:var(--shadow-xs);overflow:hidden}
+.aud-header{display:flex;align-items:center;gap:12px;padding:13px 16px;cursor:pointer;transition:background .15s;user-select:none}
+.aud-header:hover{background:var(--accent-light)}
+.aud-header.alt-h:hover{background:var(--alt-light)}
+.aud-num{width:24px;height:24px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0}
+.aud-num.alt{background:var(--alt)}
+.aud-info{flex:1;min-width:0}
+.aud-name{font-size:12px;font-weight:700;color:var(--tx);line-height:1.3}
+.aud-sub{font-size:10px;color:var(--sub2);margin-top:2px}
+.aud-arrow{font-size:12px;color:var(--sub2);transition:transform .2s;flex-shrink:0}
+.aud-card.open .aud-arrow{transform:rotate(90deg)}
+.aud-body{display:none;padding:0 16px 16px;border-top:1px solid var(--bd)}
+.aud-card.open .aud-body{display:block}
+.aud-sl{font-size:10px;font-weight:700;color:var(--sub2);text-transform:uppercase;letter-spacing:.4px;margin:12px 0 6px}
+.aud-logic{font-size:11px;color:var(--tx);line-height:1.65;background:var(--accent-light);border:1px solid var(--accent-border);border-radius:8px;padding:9px 12px}
+.aud-logic.alt-l{background:var(--alt-light);border-color:var(--alt-border)}
+.aud-lm{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px}
+.aud-lm-tag{background:var(--bg);border:1px solid var(--bd);border-radius:12px;padding:2px 9px;font-size:10px;color:var(--sub)}
+/* tag-tbl 複製增強 */
+.tag-tbl tbody tr{cursor:pointer;transition:background .1s}
+.tag-tbl tbody tr:hover{background:var(--accent-light)}
+.tag-tbl tbody tr.flash{background:#c8f0d4}
+.copy-all-row{display:flex;justify-content:flex-end;margin-top:6px}
+.copy-all-btn{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:600;color:var(--accent-dark);background:var(--accent-light);border:1px solid var(--accent-border);border-radius:6px;padding:4px 10px;cursor:pointer;transition:background .15s}
+.copy-all-btn:hover{background:#c8e8d0}
+.copy-all-btn.done{background:#c8f0d4;color:#1a5a34}
+#copy-toast{position:fixed;bottom:72px;left:50%;transform:translateX(-50%) translateY(8px);background:#162016;color:#90d8a8;font-size:11px;font-weight:600;padding:7px 16px;border-radius:18px;opacity:0;pointer-events:none;transition:opacity .18s,transform .18s;z-index:300;white-space:nowrap}
+#copy-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 /* Insight */
 .insight-box{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow-xs)}
 .insight-title{font-size:14px;font-weight:700;color:var(--tx);margin-bottom:14px}
@@ -277,6 +316,124 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
     <span class="core-tag" data-q="銀行（金融服務）">銀行（金融服務）<span class="arr">↗</span></span>
     <span class="core-tag" data-q="理財（商業與財務）">理財（商業與財務）<span class="arr">↗</span></span>
   </div>
+</div>
+
+<!-- 主粉專 近兩周受眾排行 -->
+<div class="section">
+  <div class="sec-title">近兩周主力受眾（2026-05-23 至 2026-06-05）· 54潛客｜34組</div>
+
+  <div class="rk-row gold">
+    <div class="rk-medal">🥇</div>
+    <div class="rk-body">
+      <div class="rk-name">奧大南區 / 教授教育(銷FB)-30D廣告互動</div>
+      <div class="rk-loc">35–60｜台中市南區 奧大地標圈</div>
+      <div class="rk-tags"><span class="rk-tag t-edu">教授教育</span><span class="rk-tag t-beh">30D再行銷</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">12</div><div class="rk-result-l">潛在顧客</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl">NT$292</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">NT$3,507</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row silver">
+    <div class="rk-rank">2</div>
+    <div class="rk-body">
+      <div class="rk-name">國圖館+6km / 高資產女性置產族</div>
+      <div class="rk-loc">28–60｜國立公共資訊圖書館+6km</div>
+      <div class="rk-tags"><span class="rk-tag t-sim">高資產女性</span><span class="rk-tag t-prop">置產</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">9</div><div class="rk-result-l">潛在顧客</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">NT$281</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">NT$2,527</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row silver">
+    <div class="rk-rank">3</div>
+    <div class="rk-body">
+      <div class="rk-name">東區南屯南區 / 注重教育·銀行業·理財顧問</div>
+      <div class="rk-loc">33–60｜東區南屯南區</div>
+      <div class="rk-tags"><span class="rk-tag t-edu">注重教育</span><span class="rk-tag t-fin">銀行理財</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">9</div><div class="rk-result-l">潛在顧客</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl">NT$399</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">NT$2,790</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row bronze">
+    <div class="rk-rank">4</div>
+    <div class="rk-body">
+      <div class="rk-name">南區東區大里 / 年輕人興趣</div>
+      <div class="rk-loc">28–60｜南區東區大里</div>
+      <div class="rk-tags"><span class="rk-tag t-beh">年輕族群</span><span class="rk-tag t-beh">首購</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">7</div><div class="rk-result-l">潛在顧客</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl">NT$355</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">NT$2,483</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row">
+    <div class="rk-rank">5</div>
+    <div class="rk-body">
+      <div class="rk-name">中興國圖 / 新婚·首購·成家（0603擴大）</div>
+      <div class="rk-loc">28–55｜中興大學＆國圖館圈｜2026-06-03起</div>
+      <div class="rk-tags"><span class="rk-tag t-beh">新婚首購</span><span class="rk-tag t-beh">成家</span><span class="rk-tag t-new">新組</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">5</div><div class="rk-result-l">潛在顧客</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl">NT$358</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">NT$1,789</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row">
+    <div class="rk-rank">6</div>
+    <div class="rk-body">
+      <div class="rk-name">國圖大廈 / 雙語教育·文青</div>
+      <div class="rk-loc">28–55｜國圖大廈周邊</div>
+      <div class="rk-tags"><span class="rk-tag t-edu">雙語教育</span><span class="rk-tag t-beh">文青族</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">4</div><div class="rk-result-l">潛在顧客</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">NT$179</div><div class="rk-cpl-l">CPL ⚡</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">NT$716</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row">
+    <div class="rk-rank">7</div>
+    <div class="rk-body">
+      <div class="rk-name">南區大里 / 理財·保險·自營業</div>
+      <div class="rk-loc">30–55｜南區大里</div>
+      <div class="rk-tags"><span class="rk-tag t-biz">理財保險</span><span class="rk-tag t-ind">自營業</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">2</div><div class="rk-result-l">潛在顧客</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl">NT$457</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">NT$914</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row">
+    <div class="rk-rank">8</div>
+    <div class="rk-body">
+      <div class="rk-name">國圖大廈 / 教授·學術研究</div>
+      <div class="rk-loc">30–60｜國圖大廈周邊｜學習中</div>
+      <div class="rk-tags"><span class="rk-tag t-edu">教授</span><span class="rk-tag t-edu">學術研究</span><span class="rk-tag t-new">新開</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">2</div><div class="rk-result-l">潛在顧客</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">NT$123</div><div class="rk-cpl-l">CPL 🔥</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">NT$245</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
 </div>
 
 <!-- 主粉專 受眾排行 -->
@@ -566,50 +723,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 
 <!-- 主粉專 建議嘗試受眾（8組） -->
 <div class="section">
-  <div class="sec-title">主粉專｜建議嘗試受眾（8組）· 更新 2026-06-04</div>
-  <div class="new-grid">
-
-    <div class="new-card" data-nt="主粉專">
-      <div class="new-card-title">30–55 / 台中市區 / 居家裝潢+IKEA興趣族 ↗</div>
-      <div class="new-card-desc">主動搜尋家具/室內設計/裝潢的人多數正在「換屋前規劃」，IKEA+宜得利+系統家具標籤，切角「先挑好設計，再選好地段」，此行為信號比興趣標籤更精準，完全未測</div>
-    </div>
-
-    <div class="new-card" data-nt="主粉專">
-      <div class="new-card-title">28–50 / 大台中 / 親子活動+幼兒教育族群 ↗</div>
-      <div class="new-card-desc">孩子2–7歲的家長正處「換屋甜蜜期」——需要第二房、更大空間、接近學區。標籤：幼兒照護+親子活動+早教+學區，切角「孩子上小學前，住進最好的三房」，方向全新</div>
-    </div>
-
-    <div class="new-card" data-nt="主粉專">
-      <div class="new-card-title">30–55 / 南區+烏日 / 健身運動生活族 ↗</div>
-      <div class="new-card-desc">運動族群消費力強、生活品質要求高，與精品消費族群重疊。羽球+健身房+游泳+跑步標籤，切角「大慶捷運站旁，下班跑步散步就回家」，生活型態完全未開過</div>
-    </div>
-
-    <div class="new-card" data-nt="主粉專">
-      <div class="new-card-title">28–45 / 台中市 / 電動車+Tesla+BMW車主 ↗</div>
-      <div class="new-card-desc">車主行為是高消費力強代理指標。Tesla/BMW/Lexus車主+電動車興趣，此族群年收高、對升級換屋意願強，切角「停車位+充電樁規劃完善」，資產型受眾方向未嘗試</div>
-    </div>
-
-    <div class="new-card" data-nt="主粉專">
-      <div class="new-card-title">35–60 / 台中南區 / 寵物飼主換屋族 ↗</div>
-      <div class="new-card-desc">飼養毛孩的家庭換屋需求特殊（需要較大空間、有電梯、社區友善），寵物食品+動物醫院+寵物用品興趣，切角「大慶公園跑跑，帶毛孩回三房休息」，完全全新方向</div>
-    </div>
-
-    <div class="new-card" data-nt="主粉專">
-      <div class="new-card-title">25–40 / 台中市 / 591主動搜尋行為再行銷 ↗</div>
-      <div class="new-card-desc">最精準的熱需求：在 META 外搜尋 591/樂屋/信義房屋 的人，使用「訪問過競品網站」行為受眾，配合強效素材當下收割，此行為型受眾CPL歷史最低，完全未建立</div>
-    </div>
-
-    <div class="new-card" data-nt="主粉專">
-      <div class="new-card-title">28–50 / 嘉義+雲林 / 外縣市北移台中族 ↗</div>
-      <div class="new-card-desc">嘉義/雲林/彰化南部人口往台中移動的趨勢明顯，此族群「台中第一間房」需求強烈，南區房價CP值高是核心訴求。地理+年齡設定，切角「台中出發，南區起家」，地理擴展全新</div>
-    </div>
-
-    <div class="new-card" data-nt="主粉專">
-      <div class="new-card-title">30–55 / 台中市 / 日本旅遊+精緻生活族 ↗</div>
-      <div class="new-card-desc">年旅日2次以上的族群，對生活品質與空間美學要求高，收入中高且對「精緻但不炫耀」的換屋邏輯共鳴強。日本旅遊+日式生活+質感設計標籤，切角「你對生活有要求，這棟懂你」</div>
-    </div>
-
-  </div>
+  <div class="sec-title">主粉專｜建議嘗試受眾（8組）· 更新 2026-06-05</div>
+  <div id="main-aud-grid" class="aud-grid-2"></div>
 </div>
 
 </div><!-- end tab-main -->
@@ -886,50 +1001,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 
 <!-- 1510 建議嘗試受眾（8組） -->
 <div class="section">
-  <div class="sec-title alt-bar">1510｜建議嘗試受眾（8組）· 更新 2026-06-04</div>
-  <div class="new-grid">
-
-    <div class="new-card alt-new" data-nt="1510">
-      <div class="new-card-title">28–50 / 台中市 / 居家辦公+自由工作者 ↗</div>
-      <div class="new-card-desc">WFH族群對「第二房間當書房/工作室」需求強烈，三房規格剛好符合。Freelancer+數位行銷+設計師+工作者標籤，切角「一房睡覺，一房上班，一房給孩子」，1510受眾池偏年輕適合</div>
-    </div>
-
-    <div class="new-card alt-new" data-nt="1510">
-      <div class="new-card-title">28–45 / 台中市 / 手搖飲+咖啡廳+美食族群 ↗</div>
-      <div class="new-card-desc">高頻消費在地餐飲的族群對「生活便利性」敏感，大慶商圈餐飲密度高是核心優勢。咖啡廳+美食+餐廳+網美打卡標籤，切角「你的下班路，每天都是五星級」，完全新方向</div>
-    </div>
-
-    <div class="new-card alt-new" data-nt="1510">
-      <div class="new-card-title">30–50 / 台中+彰化 / 健身重訓+運動員族群 ↗</div>
-      <div class="new-card-desc">運動族群收入中高、生活品質意識強，對社區健身房/大空間有需求。健身房+重量訓練+羽球+游泳標籤，切角「回家比健身房還舒服的三房」，1510偏年輕活力族群適配</div>
-    </div>
-
-    <div class="new-card alt-new" data-nt="1510">
-      <div class="new-card-title">28–45 / 台中市 / 寵物飼主+毛孩家庭 ↗</div>
-      <div class="new-card-desc">養狗/貓的族群對空間、樓層、社區環境要求特殊，大慶公園是毛孩散步首選。寵物食品+動物醫院+寵物用品標籤，切角「大公園遛狗，三房寬敞活動」，1510可觸及主粉未接觸族群</div>
-    </div>
-
-    <div class="new-card alt-new" data-nt="1510">
-      <div class="new-card-title">25–40 / 大台中 / 短租租客+租轉買族群 ↗</div>
-      <div class="new-card-desc">長期租屋但考慮買房的族群——Airbnb使用者+租屋行為+591看屋紀錄，切角「每個月繳房租不如供房貸，南區CP最高」，行為信號精準，完全未開過此行為受眾</div>
-    </div>
-
-    <div class="new-card alt-new" data-nt="1510">
-      <div class="new-card-title">30–55 / 台中市 / 投資型房東+第二間房 ↗</div>
-      <div class="new-card-desc">已有一間房、想買第二間收租或自住兼投資的族群。房地產投資+租賃+被動收入標籤，切角「2028完工前訂，台中南區升值空間最確定」，與首購族分開測試</div>
-    </div>
-
-    <div class="new-card alt-new" data-nt="1510">
-      <div class="new-card-title">28–45 / 台中+新竹+高雄 / 外地人回台中定居 ↗</div>
-      <div class="new-card-desc">在外地工作但計畫回台中的族群，南區是「父母在附近又有自己空間」的理想選擇。設定居住地=台中但工作/互動在其他城市，切角「離家近，又不離家太近」</div>
-    </div>
-
-    <div class="new-card alt-new" data-nt="1510">
-      <div class="new-card-title">30–50 / 台中市 / 韓劇+韓國流行文化族群 ↗</div>
-      <div class="new-card-desc">韓流族群（Netflix韓劇+K-pop+韓國旅遊）通常為25–45歲女性，消費力強、對居家生活美感重視，是高資產女性組的「年輕版本」，用文化興趣代替精品品牌觸及更廣</div>
-    </div>
-
-  </div>
+  <div class="sec-title alt-bar">1510｜建議嘗試受眾（8組）· 更新 2026-06-05</div>
+  <div id="alt-aud-grid" class="aud-grid-2"></div>
 </div>
 
 <!-- ════════════════════════════════
@@ -972,7 +1045,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 
 <div style="text-align:center;font-size:11px;color:#b8b5b0;margin-top:8px;padding-bottom:8px">
   資料期間：主粉專 2026-03-20 至 2026-06-02 · 1510 2026-04-17 至 2026-06-02<br>
-  富宇玥和 台中南區 · 雙粉專總計 198潛客 / NT$73,132 / 均CPL NT$369 · 最後更新 2026-06-02
+  富宇玥和 台中南區 · 雙粉專總計 198潛客 / NT$73,132 / 均CPL NT$369 · 最後更新 2026-06-05
 </div>
 
 </div><!-- end tab-1510 -->
@@ -1026,14 +1099,140 @@ document.querySelectorAll('.rk-row').forEach(el=>{
     copyPrompt(`針對${PROJECT}，請針對受眾「${name}」提供：\n1. 完整興趣標籤清單（附中文，約15個）\n2. 配對素材訴求角度\n3. 下一步優化方向`);
   });
 });
-document.querySelectorAll('.new-card').forEach(el=>{
-  el.addEventListener('click',()=>{
-    const title=el.querySelector('.new-card-title').textContent.replace('↗','').trim();
-    const desc=el.querySelector('.new-card-desc').textContent.trim();
-    const page=el.dataset.nt||'主粉專';
-    copyPrompt(`針對${PROJECT}（${page}），我想測試新受眾：「${title}」\n說明：${desc}\n\n請給我：\n1. 具體 META 興趣標籤清單（附中文，約10–15個）\n2. 地理設定建議\n3. 適合這組的素材訴求角度`);
+/* ── aud-card 資料 ── */
+const MAIN_G=[
+  {n:'30–55 / 中興大學圈 / 醫護+共榮醫院職員',sub:'教授教育CPL $321驗證興大圈·醫護完全未測',
+   logic:'教授教育組CPL $321持續有效，驗證中興大學圈高轉換力。共榮醫院距案場10分鐘，醫護人員收入穩定換屋需求明確，對「走路到醫院」有安全感共鳴。切角：「醫院走路回家，三房等你換衣服」，學術＋醫療圈完全未測，空白方向。',
+   lm:['共榮醫院','台中榮總','中山醫學大學','中興大學'],
+   tags:[['Nursing','護理'],['Healthcare','醫療保健'],['Hospital','醫院'],['Pharmacy','藥學藥劑'],['Physical therapy','物理治療'],['Dentistry','牙醫'],['Medical technology','醫療技術'],['Health insurance','健保醫療'],['First aid','急救'],['Wellness','健康養生'],['Real estate','不動產'],['Property investment','置產投資'],['Home buying','購屋'],['Mortgage','房屋貸款'],['Financial planning','財務規劃'],['Investment','投資理財'],['Saving','儲蓄'],['National Chung Hsing University','中興大學'],['Work-life balance','工作生活平衡'],['Family','家庭'],['Children','子女親子'],['Education','教育'],['Yoga','瑜珈'],['Running','路跑'],['Health food','健康飲食'],['Coffee','咖啡'],['Reading','閱讀'],['Continuing education','進修'],['Professional development','職涯發展'],['Taichung','台中']]},
+  {n:'28–48 / 台中市 / 雙語教育+國際學校家長',sub:'雙語文青CPL $179全案最低·延伸學區家長',
+   logic:'年輕人興趣5/21版CPL $189全案最低，雙語文青是有效延伸方向。台中國際學校與雙語幼稚園密集，家長注重學區，中興大學學術環境是最強訴求。切角：「孩子要雙語，家也要選最好的學區旁」，未與現有受眾重疊。',
+   lm:['中興大學','大慶火車站','台中美國學校','南區各雙語學校'],
+   tags:[['Bilingual education','雙語教育'],['International school','國際學校'],['English learning','英語學習'],['Children\'s education','兒童教育'],['Parenting','親子教養'],['Early childhood education','幼兒教育'],['Education','教育'],['School','學校'],['Learning','學習'],['Reading','閱讀'],['Children\'s books','童書'],['Family','家庭'],['Real estate','不動產'],['Property investment','置產投資'],['Home buying','購屋'],['Mortgage','房貸'],['First home','首購'],['School district','學區'],['National Chung Hsing University','中興大學'],['Financial planning','財務規劃'],['Investment','投資理財'],['Travel','旅遊'],['Japan','日本旅遊'],['English language','英語'],['Online course','線上課程'],['Private school','私立學校'],['Children','子女'],['Work-life balance','工作生活平衡'],['Taichung','台中'],['Health food','健康飲食']]},
+  {n:'35–65 / 國圖館圈 / 圖書館讀者+研究機構',sub:'教授學術CPL $123全案最低·高知識在地族',
+   logic:'教授學術研究CPL $123全案最低（剛開2天），國立公共資訊圖書館讀者為高知識穩定族群，對在地換屋黏著性強，認同「知識環境」的居住選擇。切角：「每天走進圖書館，走出去就是自己的家」，地段情感連結強。',
+   lm:['國立公共資訊圖書館','中興大學','國圖館周邊','中興新村'],
+   tags:[['Library','圖書館'],['Reading','閱讀'],['Books','書籍'],['Literature','文學'],['Academic research','學術研究'],['Higher education','高等教育'],['University','大學'],['Continuing education','進修教育'],['Knowledge','知識'],['Writing','寫作'],['History','歷史'],['Science','科學'],['Philosophy','哲學'],['National Chung Hsing University','中興大學'],['Real estate','不動產'],['Property investment','置產投資'],['Home buying','購屋'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Investment','投資理財'],['Family','家庭'],['Education','教育'],['Museum','博物館'],['Art','藝術'],['Classical music','古典音樂'],['Travel','旅遊'],['Yoga','瑜珈'],['Health food','健康飲食'],['Professional development','職涯發展'],['Taichung','台中']]},
+  {n:'28–45 / 台中市 / 醫美+高端SPA+精品健康族',sub:'藝文精品組開即2潛客$231·高資產女性年輕延伸',
+   logic:'高資產女性置產族兩組合計17潛客，醫美消費族群是年輕版延伸。台中醫美市場發達，消費力強的女性對生活品質不妥協，對南區高品質住宅有共鳴。切角：「美不將就，住也不妥協」，精品消費行為與置產決策高度相關。',
+   lm:['大慶火車站','台中LALAPORT','南屯醫美診所圈','台中美術館'],
+   tags:[['Medical aesthetics','醫美'],['Beauty salon','美容沙龍'],['Spa','水療SPA'],['Skincare','保養品'],['Cosmetics','化妝品'],['Anti-aging','抗老美容'],['Nail salon','美甲'],['Wellness','養生保健'],['Yoga','瑜珈'],['Pilates','皮拉提斯'],['Luxury goods','精品'],['Fashion','時尚'],['Designer brands','設計師品牌'],['Fine dining','精緻餐飲'],['Hotel','飯店住宿'],['Real estate','不動產'],['Property investment','置產投資'],['Home buying','購屋'],['Interior design','室內設計'],['Home decor','居家布置'],['Financial planning','財務規劃'],['Investment','投資理財'],['Travel','旅遊'],['Japan','日本旅遊'],['Photography','攝影'],['Healthy eating','健康飲食'],['Taichung','台中'],['First home','首購'],['Mortgage','房貸'],['Social media','社群媒體']]},
+  {n:'28–45 / 台中市 / 婚禮籌備+婚攝+準新人',sub:'新婚成家0603擴3天已5潛客$234·往前延伸',
+   logic:'新婚首購成家0603擴大3天已5潛客CPL $234，往前延伸到籌備婚禮階段。婚禮準備期是購房決策最密集時段，婚攝+婚宴+蜜月規劃標籤精準觸及「正在規劃人生下一步」的準新人。切角：「婚禮辦完，新家交屋，人生最完美的時間點」。',
+   lm:['中興大學附近','大慶火車站','南區婚宴場地','南屯婚攝工作室'],
+   tags:[['Wedding','婚禮'],['Wedding photography','婚攝'],['Wedding venue','婚宴場地'],['Engagement','訂婚求婚'],['Marriage','婚姻'],['Honeymoon','蜜月旅行'],['Wedding dress','婚紗'],['Wedding planning','婚禮規劃'],['Bridal','新娘'],['Couple','情侶'],['Family','家庭'],['Children','育兒親子'],['Real estate','不動產'],['First home','首購'],['Home buying','購屋'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Investment','投資理財'],['Interior design','室內設計'],['Home decor','居家布置'],['Furniture','家具'],['Home appliances','家電'],['National Chung Hsing University','中興大學'],['Taichung','台中'],['Travel','旅遊'],['Photography','攝影'],['Fashion','時尚'],['Lifestyle','生活品質'],['Saving','儲蓄'],['Life insurance','壽險']]},
+  {n:'40–58 / 南屯+南區 / 在地換屋族（同區升級）',sub:'完全未測·與年輕受眾互補的在地升格族',
+   logic:'完全未測空白方向，補充現有年輕受眾。已在南屯/南區居住10年以上的在地人，有既有房產可出售，想在同區升級到三房電梯大樓。不搬離熟悉的生活圈是核心決策因素。切角：「不想搬遠，就在南區換一間更好的」，在地黏著性強。',
+   lm:['南區區公所','南屯路商圈','大慶火車站','南區傳統市場'],
+   tags:[['Real estate','不動產'],['Property investment','置產投資'],['Home upgrade','換屋升級'],['Selling home','售屋'],['Moving','搬家'],['Home buying','購屋'],['Mortgage','房貸'],['Local community','在地社區'],['Neighborhood','社區生活'],['Family','家庭'],['Children','子女親子'],['Education','教育'],['Taichung','台中'],['Financial planning','財務規劃'],['Investment','投資理財'],['Banking','銀行理財'],['Life insurance','壽險'],['Retirement planning','退休規劃'],['Traditional market','傳統市場'],['Local restaurant','在地美食'],['Walking','散步健走'],['Park','公園'],['Health','健康'],['Cooking','烹飪'],['Home improvement','居家改善'],['Interior design','室內設計'],['National Chung Hsing University','中興大學'],['South District','南區'],['Nantun','南屯區'],['Community','社區']]},
+  {n:'30–55 / 南區+東區 / 私立學校老師+補教業',sub:'教育從業者CPL $179–$291雙重驗證·未測分類',
+   logic:'注重教育/銀行業CPL $291和雙語文青$179雙重確認教育從業者轉換率高。私立學校教師和補習班講師收入穩定，對子女學區有高度重視，中興大學學術圈是理想居住環境。切角：「教書育人的人，對自己住的地方更有標準」。',
+   lm:['南區各私立學校','東區補習班商圈','中興大學','南區圖書館'],
+   tags:[['Teaching','教學'],['Education','教育'],['Private school','私立學校'],['Cram school','補習班'],['Tutoring','家教'],['Curriculum','課程設計'],['Children\'s education','兒童教育'],['School district','學區'],['Learning','學習'],['Academic','學術'],['National Chung Hsing University','中興大學'],['University','大學教育'],['Reading','閱讀'],['Books','書籍'],['Family','家庭'],['Children','子女'],['Parenting','親子教養'],['Real estate','不動產'],['Home buying','購屋'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Investment','投資理財'],['Saving','儲蓄'],['Life insurance','壽險'],['Taichung','台中'],['Health food','健康飲食'],['Yoga','瑜珈'],['Work-life balance','工作生活平衡'],['Professional development','職涯發展'],['Running','路跑']]},
+  {n:'28–50 / 台中市 / 保險業務+財務規劃+投資人',sub:'銀行理財方向12潛客穩健·延伸財務意識族',
+   logic:'注重教育/銀行業理財方向12潛客持續穩健，延伸到更廣財務意識族群。保險業務員了解資產規劃，對「南區2028完工升值空間」最有共鳴，自帶置產思維。切角：「懂錢的人，更懂這個時間點」，投資型與自住型皆可轉換。',
+   lm:['南區金融商圈','台中各銀行聚集區','東區保險公司','國圖館圈'],
+   tags:[['Life insurance','壽險保險'],['Investment','投資理財'],['Stock market','股票市場'],['Mutual fund','共同基金'],['ETF','ETF指數基金'],['Financial planning','財務規劃'],['Wealth management','財富管理'],['Banking','銀行理財'],['Tax planning','稅務規劃'],['Retirement planning','退休規劃'],['Real estate','不動產'],['Property investment','置產投資'],['Home buying','購屋'],['Mortgage','房貸'],['Passive income','被動收入'],['Asset management','資產管理'],['Capital gain','資本利得'],['Business owner','企業主'],['Self-employment','自營商'],['Entrepreneurship','創業'],['Financial advisor','理財顧問'],['Accounting','會計'],['Insurance','保險'],['Financial independence','財務自由'],['Taichung','台中'],['Saving','儲蓄'],['Family','家庭'],['Education','教育'],['Premium credit card','白金信用卡'],['National Chung Hsing University','中興大學']]}
+];
+
+const ALT_G=[
+  {n:'28–45 / 國圖館+6km / 女性投資理財+股票基金族',sub:'高資產女性22潛客$270·延伸投資型女性',
+   logic:'1510最強高資產女性置產族22潛客CPL $270，延伸到投資型女性。她們懂資產配置，對「南區2028完工前買進升值」邏輯最有共鳴。股票+ETF+財務自由標籤精準觸及有資金且有意識的女性買家。切角：「懂投資的女人，更懂現在是最好的時間點」。',
+   lm:['國立公共資訊圖書館','中興大學','南區金融商圈','大慶火車站'],
+   tags:[['Investment','投資理財'],['Stock market','股票市場'],['ETF','ETF基金'],['Mutual fund','共同基金'],['Financial independence','財務自由'],['Wealth management','財富管理'],['Financial planning','財務規劃'],['Passive income','被動收入'],['Real estate investing','房地產投資'],['Property investment','置產投資'],['Banking','銀行理財'],['Tax planning','稅務規劃'],['Retirement planning','退休規劃'],['Asset management','資產管理'],['Premium credit card','白金信用卡'],['Luxury goods','精品'],['Travel','旅遊'],['Fine dining','精緻餐飲'],['Beauty','美容保養'],['Fashion','時尚'],['Yoga','瑜珈'],['Wellness','健康養生'],['Taichung','台中'],['National Chung Hsing University','中興大學'],['Home buying','購屋'],['Mortgage','房貸'],['Interior design','室內設計'],['Reading','閱讀'],['Professional development','職涯發展'],['Self-employment','自營商']]},
+  {n:'28–42 / 南區+大里 / 已婚升級換屋小家庭（婚後2–5年）',sub:'新婚成家$234有效·往後延伸孩子出生前',
+   logic:'新婚成家5潛客CPL $234有效，往後延伸到婚後2-5年族群。孩子即將出生，原本二房或套房住不夠，三房升級是剛性需求。訴求：「孩子要來了，現在的房已經不夠了」，搭配教育學區＋中興大學圈的品質承諾。',
+   lm:['南區','大里','南屯','台中大里婦幼診所周邊'],
+   tags:[['Family','家庭'],['Children','育兒親子'],['Parenting','親子教養'],['Baby','嬰幼兒'],['Pregnancy','懷孕生育'],['Marriage','婚姻'],['Home upgrade','換屋升級'],['Moving','搬家'],['Real estate','不動產'],['First home','首購'],['Home buying','購屋'],['Mortgage','房貸'],['School district','學區'],['Children\'s education','兒童教育'],['Nursery','托嬰托育'],['Kindergarten','幼兒園'],['Baby products','嬰兒用品'],['Financial planning','財務規劃'],['Investment','投資理財'],['Life insurance','壽險'],['Saving','儲蓄'],['Interior design','室內設計'],['Home decor','居家布置'],['Furniture','家具'],['Taichung','台中'],['National Chung Hsing University','中興大學'],['Cooking','料理烹飪'],['Health food','健康飲食'],['Park','公園散步'],['Work-life balance','工作生活平衡']]},
+  {n:'28–42 / 大慶火車站+5km / 健身瑜珈+養生生活型女性',sub:'親子運動1潛客失敗·改鎖生活方式型女性',
+   logic:'親子運動組1潛客失敗，改鎖定「生活方式型女性」。瑜珈/養生族群與高資產女性高度重疊，大慶公園和綠化環境是最強共鳴點。切角：「每天早上公園跑步，走進自己的三房」，對健康環境和生活品質的需求直接轉換為購屋動機。',
+   lm:['大慶火車站','大慶公園','南區運動公園','LALAPORT南屯'],
+   tags:[['Yoga','瑜珈'],['Pilates','皮拉提斯'],['Fitness','健身'],['Running','路跑'],['Cycling','單車'],['Hiking','登山健行'],['Health food','健康飲食'],['Organic food','有機食品'],['Vegan','素食'],['Wellness','健康養生'],['Meditation','冥想'],['Spa','水療SPA'],['Beauty','美容保養'],['Skincare','保養品'],['Self-care','自我照護'],['Real estate','不動產'],['Home buying','購屋'],['Mortgage','房貸'],['Interior design','室內設計'],['Home decor','居家布置'],['Financial planning','財務規劃'],['Investment','投資理財'],['Taichung','台中'],['Park','公園'],['Travel','旅遊'],['Japan','日本旅遊'],['Photography','攝影'],['Cooking','料理烹飪'],['Fashion','時尚'],['Lifestyle','精緻生活']]},
+  {n:'28–45 / 中興大學+5km / 藥師+醫技+醫院行政',sub:'1510教授學術CPL $126最低·非臨床醫護延伸',
+   logic:'1510教授學術CPL $126全案最低，驗證中興大學圈高轉換力。藥師/醫技/醫院行政收入穩定，10分鐘通勤是天然優勢，鎖定非臨床職類，與護理師方向不重疊。切角：「每天走進醫院，走出來就是自己的三房」，完全未測空白方向。',
+   lm:['共榮醫院','台中榮總','中興大學','中山醫學大學'],
+   tags:[['Pharmacy','藥學藥劑'],['Medical technology','醫療技術'],['Hospital administration','醫院行政'],['Healthcare','醫療保健'],['Medicine','醫學'],['Laboratory','實驗室檢驗'],['Radiology','放射技術'],['Physical therapy','物理治療'],['Occupational therapy','職能治療'],['Health insurance','健康保險'],['Medical licensing','醫療證照'],['Continuing education','進修教育'],['Real estate','不動產'],['Property investment','置產投資'],['Home buying','購屋'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Investment','投資理財'],['Saving','儲蓄'],['Life insurance','壽險'],['National Chung Hsing University','中興大學'],['Taichung','台中'],['Work-life balance','工作生活平衡'],['Family','家庭'],['Wellness','健康養生'],['Yoga','瑜珈'],['Health food','健康飲食'],['Reading','閱讀'],['Professional development','職涯發展'],['Cooking','料理烹飪']]},
+  {n:'25–35 / 中興大學+6km / 社會新鮮人+初職場1–3年',sub:'年輕人興趣10潛客$289第二強·往下延伸',
+   logic:'年輕人興趣10潛客CPL $289是1510第二強，延伸到25-35歲剛踏入職場1-3年的族群。他們正在「是否在台中買第一間房」的敏感決策期，中興大學旁代表留台中的最好起點。切角：「工作第一年就在想，台中要住哪裡」，稀缺感＋地點優勢最有說服力。',
+   lm:['中興大學','大慶火車站','南區科技廠區','台中軟體園區'],
+   tags:[['Career','職涯'],['First job','初入職場'],['Young professional','年輕上班族'],['Entrepreneurship','創業'],['Startup','新創'],['Technology','科技'],['Engineering','工程師'],['Finance','金融'],['Marketing','行銷'],['Design','設計'],['Online learning','線上學習'],['Professional development','職涯發展'],['First home','首購'],['Real estate','不動產'],['Home buying','購屋'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Investment','投資理財'],['National Chung Hsing University','中興大學'],['Taichung','台中'],['Travel','旅遊'],['Japan','日本旅遊'],['Coffee','咖啡'],['Music','音樂'],['Fitness','健身'],['Reading','閱讀'],['Social media','社群媒體'],['Lifestyle','生活品質'],['Gaming','電競遊戲']]},
+  {n:'30–45 / 台中市 / 日本旅遊+精緻生活族（1510版）',sub:'主粉驗證中·1510完全未測品味型受眾',
+   logic:'主粉日本旅遊方向驗證中，1510尚未測試。年旅日2次以上的年輕族群對生活美學要求高，這類「品味型生活方式」受眾對南區高品質住宅的說服角度是「你對生活有要求，這棟懂你」，精品消費＋旅遊行為是強購屋力訊號。',
+   lm:['台中美術館','國家歌劇院','南屯精品商圈','LALAPORT'],
+   tags:[['Japan','日本旅遊'],['Travel','旅遊'],['International travel','國際旅遊'],['Fine dining','精緻餐飲'],['Japanese cuisine','日式料理'],['Aesthetics','美學'],['Design','設計'],['Luxury goods','精品'],['Fashion','時尚'],['Photography','攝影'],['Art','藝術'],['Museum','博物館'],['Coffee','精品咖啡'],['Lifestyle','生活品質'],['Interior design','室內設計'],['Home decor','居家布置'],['Real estate','不動產'],['Property investment','置產投資'],['Home buying','購屋'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Investment','投資理財'],['Taichung','台中'],['National Chung Hsing University','中興大學'],['Wellness','健康養生'],['Yoga','瑜珈'],['Spa','水療'],['Beauty','美容保養'],['Skincare','保養品'],['Social media','社群影響力']]},
+  {n:'28–42 / 台中市 / 線上課程+自我提升+知識型消費族',sub:'高知識文學0潛客失敗·但付費學習族完全不同',
+   logic:'高知識文學0潛客失敗，但「付費學習型族群」完全不同——他們花錢在成長投資，對資產配置也有意識。Podcast重度用戶+線上課程付費者是教授學術的年輕延伸，自我提升的意識轉換為置產意識。切角：「投資自己，也要投資最好的居住環境」。',
+   lm:['中興大學','國圖館','南屯','台中各線上課程舉辦場所'],
+   tags:[['Online course','線上課程'],['E-learning','數位學習'],['Podcast','Podcast播客'],['Self-improvement','自我提升'],['Personal development','個人成長'],['Reading','閱讀'],['Books','書籍'],['Business books','商業書籍'],['Learning','學習'],['Skill development','技能提升'],['Professional certification','專業認證'],['Leadership','領導力'],['Productivity','生產力'],['Mindfulness','正念'],['Meditation','冥想'],['Real estate','不動產'],['Property investment','置產投資'],['Home buying','購屋'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Investment','投資理財'],['ETF','ETF基金'],['Financial independence','財務自由'],['Taichung','台中'],['National Chung Hsing University','中興大學'],['Career','職涯'],['Entrepreneurship','創業'],['Marketing','數位行銷'],['Social media','社群媒體'],['Tech startup','科技新創']]},
+  {n:'28–42 / 台中+台北+新竹 / 北漂歸鄉+返台中定居首購',sub:'台北高房價讓北漂族回看台中·1510年輕池觸及',
+   logic:'在台北/新竹工作但根在台中的族群，台北高房價讓他們回看台中吸引力倍增。設定互動地含台中+台北/新竹，1510年輕受眾池最適合觸及這群準回流族。切角：「台北工作、台中安家，南區是最好的落腳點」，高鐵通勤30分鐘的地理邏輯說服力強。',
+   lm:['台中高鐵烏日站','大慶火車站','中興大學','南屯'],
+   tags:[['Commuting','通勤'],['Remote work','遠距工作'],['Work from home','居家辦公'],['Technology','科技業'],['Engineering','工程師'],['Finance','金融業'],['Career','職涯發展'],['First home','首購'],['Real estate','不動產'],['Home buying','購屋'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Investment','投資理財'],['Taichung','台中'],['High speed rail','高鐵'],['Train','台鐵通勤'],['National Chung Hsing University','中興大學'],['Travel','旅遊'],['Taipei','台北'],['Hsinchu','新竹'],['Saving','儲蓄'],['Life insurance','壽險'],['Family','家庭'],['Hometown','家鄉故里'],['Community','社區'],['Fitness','健身'],['Coffee','咖啡'],['Reading','閱讀'],['Technology gadgets','科技產品'],['Social media','社群媒體']]}
+];
+
+/* ── 渲染函式 ── */
+let toastT2;
+function showToast2(msg){
+  let t=document.getElementById('copy-toast');
+  if(!t){t=document.createElement('div');t.id='copy-toast';document.body.appendChild(t);}
+  t.textContent=msg;t.classList.add('show');
+  clearTimeout(toastT2);toastT2=setTimeout(()=>t.classList.remove('show'),1400);
+}
+function copyTxt(txt){return navigator.clipboard?navigator.clipboard.writeText(txt):Promise.reject();}
+
+function initAudCard(card){
+  if(card.dataset.cb)return;card.dataset.cb='1';
+  card.querySelectorAll('.tag-tbl tbody tr').forEach(row=>{
+    const en=row.cells[1]?.textContent.trim();if(!en)return;
+    row.addEventListener('click',()=>{
+      copyTxt(en).then(()=>{row.classList.add('flash');setTimeout(()=>row.classList.remove('flash'),600);showToast2('已複製：'+en);});
+    });
   });
-});
+  card.querySelectorAll('.tag-tbl').forEach(tbl=>{
+    const wrap=document.createElement('div');wrap.className='copy-all-row';
+    const btn=document.createElement('button');btn.className='copy-all-btn';btn.innerHTML='⎘ 複製全部30個標籤';
+    btn.addEventListener('click',e=>{
+      e.stopPropagation();
+      const tags=Array.from(tbl.querySelectorAll('tbody tr')).map(r=>r.cells[1]?.textContent.trim()).filter(Boolean).join('\n');
+      copyTxt(tags).then(()=>{btn.classList.add('done');btn.textContent='✓ 已複製30個';showToast2('已複製全部30個標籤');setTimeout(()=>{btn.classList.remove('done');btn.innerHTML='⎘ 複製全部30個標籤';},2000);});
+    });
+    wrap.appendChild(btn);tbl.after(wrap);
+  });
+}
+
+function toggleAud2(id){
+  const c=document.getElementById(id);
+  c.classList.toggle('open');
+  if(c.classList.contains('open'))initAudCard(c);
+}
+
+function buildAudCard(g,idx,prefix,isAlt){
+  const id=prefix+(idx+1);
+  const rows=g.tags.map((t,i)=>`<tr><td>${i+1}</td><td>${t[0]}</td><td>${t[1]}</td></tr>`).join('');
+  const lmTags=g.lm.map(l=>`<span class="aud-lm-tag">${l}</span>`).join('');
+  return `<div class="aud-card" id="${id}">
+    <div class="aud-header${isAlt?' alt-h':''}" onclick="toggleAud2('${id}')">
+      <div class="aud-num${isAlt?' alt':''}">${idx+1}</div>
+      <div class="aud-info"><div class="aud-name">${g.n}</div><div class="aud-sub">${g.sub}</div></div>
+      <div class="aud-arrow">▶</div>
+    </div>
+    <div class="aud-body">
+      <div class="aud-sl">評估邏輯</div>
+      <div class="aud-logic${isAlt?' alt-l':''}">${g.logic}</div>
+      <div class="aud-sl">地標定位</div>
+      <div class="aud-lm">${lmTags}</div>
+      <div class="aud-sl">興趣標籤（點擊列複製單個）</div>
+      <table class="tag-tbl"><thead><tr><th>#</th><th>English</th><th>中文</th></tr></thead><tbody>${rows}</tbody></table>
+    </div>
+  </div>`;
+}
+
+(function(){
+  const mg=document.getElementById('main-aud-grid');
+  if(mg)mg.innerHTML=MAIN_G.map((g,i)=>buildAudCard(g,i,'m',false)).join('');
+  const ag=document.getElementById('alt-aud-grid');
+  if(ag)ag.innerHTML=ALT_G.map((g,i)=>buildAudCard(g,i,'a',true)).join('');
+})();
 document.querySelectorAll('.tip').forEach(el=>{
   el.addEventListener('click',()=>{
     const title=el.querySelector('.tip-title').textContent.trim();

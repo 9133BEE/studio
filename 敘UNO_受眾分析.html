@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>敘UNO｜受眾分析報告</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --accent:#8a6a3a;--accent-dark:#6a4e28;--accent-light:#fdf3e3;--accent-border:#d4a96a;
+  --bg:#f5f3ef;--s:#ffffff;--bd:#e8e4dc;--tx:#2e2a22;--sub:#7a7268;--sub2:#a8a09a;
+  --good:#1e6e3f;--goodl:#e6f4ea;--warn:#c05c00;--warnl:#fff4e8;
+  --radius:12px;--shadow-xs:0 1px 3px rgba(0,0,0,.05);--shadow-sm:0 2px 8px rgba(0,0,0,.07);--shadow-card:0 2px 10px rgba(0,0,0,.06),0 1px 3px rgba(0,0,0,.04);
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft JhengHei','Segoe UI',sans-serif;background:var(--bg);color:var(--tx);font-size:14px;line-height:1.6;min-height:100vh}
+.page-header{background:linear-gradient(180deg,#1a140c 0%,#150f08 100%);padding:0 40px;height:56px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.04),0 4px 20px rgba(0,0,0,.35);border-bottom:1px solid rgba(255,255,255,.06)}
+.ph-logo{width:30px;height:30px;background:linear-gradient(135deg,#c4945a,var(--accent-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;flex-shrink:0}
+.ph-title{font-size:14px;font-weight:700;color:#f5ede0;letter-spacing:-.2px}
+.ph-sub{font-size:11px;color:#8a6a3a;margin-left:2px}
+.ph-nav{margin-left:auto;display:flex;gap:8px;align-items:center}
+.ph-nav a{font-size:12px;color:#c4945a;text-decoration:none;padding:5px 13px;border-radius:6px;border:1px solid rgba(196,148,90,.3);background:rgba(196,148,90,.1);font-weight:500}
+.ph-nav a:hover{background:rgba(196,148,90,.2);color:#e8c090}
+#btt{position:fixed;right:24px;bottom:28px;width:38px;height:38px;border-radius:50%;background:rgba(26,20,12,.75);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.85);font-size:15px;cursor:pointer;opacity:0;transform:translateY(8px);transition:opacity .2s,transform .2s;pointer-events:none;z-index:150;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.3);font-family:inherit}
+#btt.show{opacity:1;transform:translateY(0);pointer-events:auto}
+.wrap{max-width:1100px;margin:0 auto;padding:32px 40px 48px}
+.case-header{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:20px 24px;margin-bottom:10px;display:flex;align-items:center;gap:18px;box-shadow:var(--shadow-card)}
+.case-logo{width:44px;height:44px;background:linear-gradient(135deg,#c4945a,var(--accent-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;flex-shrink:0}
+.case-info h2{font-size:17px;font-weight:700;color:var(--tx);letter-spacing:-.3px}
+.case-info p{font-size:12px;color:var(--sub);margin-top:3px;line-height:1.5}
+.case-stats{margin-left:auto;display:flex;gap:28px;flex-shrink:0}
+.stat{text-align:right}
+.stat-n{font-size:24px;font-weight:800;color:var(--accent);line-height:1;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.stat-l{font-size:10px;color:var(--sub2);margin-top:3px;font-weight:600;letter-spacing:.3px;text-transform:uppercase}
+.top-link{font-size:12px;color:var(--accent);margin-bottom:24px;display:inline-block;text-decoration:none;font-weight:500}
+.top-link span{border-bottom:1px solid var(--accent-border)}
+/* Tabs */
+.tab-bar{display:flex;gap:6px;margin-bottom:22px;background:var(--s);border:1px solid var(--bd);border-radius:10px;padding:5px;box-shadow:var(--shadow-xs)}
+.tab-btn{flex:1;padding:8px 14px;border-radius:7px;border:none;background:transparent;font-size:13px;font-weight:600;color:var(--sub);cursor:pointer;transition:all .15s;text-align:center}
+.tab-btn.active{background:var(--accent);color:#fff;box-shadow:0 2px 6px rgba(138,106,58,.35)}
+.tab-btn:nth-child(2).active{background:#607d96;color:#fff;box-shadow:0 2px 6px rgba(96,125,150,.3)}
+.tab-btn:hover:not(.active){background:var(--accent-light);color:var(--accent-dark)}
+.tab-pane{display:none}
+.tab-pane.show{display:block}
+/* Sections */
+.sec-title{font-size:12px;font-weight:700;color:var(--sub);margin-bottom:14px;display:flex;align-items:center;gap:10px;letter-spacing:.4px;text-transform:uppercase}
+.sec-title::before{content:'';display:inline-block;width:3px;height:14px;background:var(--accent);border-radius:2px;flex-shrink:0}
+.sec-title::after{content:'';flex:1;height:1px;background:var(--bd)}
+.section{margin-bottom:28px}
+.note-bar{background:var(--accent-light);border:1px solid var(--accent-border);border-radius:10px;padding:10px 16px;font-size:12px;color:#6a4e28;margin-bottom:20px;line-height:1.6}
+.note-bar.warn{background:var(--warnl);border-color:#f4c08a;color:#7a3e00}
+/* Stats bar */
+.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:22px}
+.sb-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:14px 16px;box-shadow:var(--shadow-xs);text-align:center}
+.sb-n{font-size:26px;font-weight:900;color:var(--accent);line-height:1;letter-spacing:-1px;font-variant-numeric:tabular-nums}
+.sb-n.good{color:var(--good)}
+.sb-n.warn{color:var(--warn)}
+.sb-l{font-size:10px;color:var(--sub2);font-weight:600;margin-top:4px;text-transform:uppercase;letter-spacing:.3px}
+/* Profiles */
+.profiles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.profile-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow-xs);transition:box-shadow .2s,transform .2s}
+.profile-card:hover{box-shadow:var(--shadow-sm);transform:translateY(-2px)}
+.profile-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:17px;margin-bottom:12px}
+.pi-a{background:var(--accent-light)}.pi-b{background:#e8f0fe}.pi-c{background:#fef3e2}
+.profile-name{font-size:15px;font-weight:700;color:var(--tx);margin-bottom:4px}
+.profile-meta{font-size:12px;color:var(--sub);margin-bottom:10px}
+.profile-tags{font-size:12px;color:#4a5568;margin-bottom:10px;line-height:1.6}
+.profile-behavior{font-size:12px;color:var(--sub);line-height:1.55;margin-bottom:12px}
+.profile-badge{display:inline-block;font-size:11px;font-weight:700;padding:4px 11px;border-radius:20px;margin-top:2px}
+.badge-a{background:var(--accent-light);color:var(--accent-dark);border:1px solid var(--accent-border)}
+.badge-b{background:#e8f0fe;color:#1a56b0;border:1px solid #93b4e8}
+.badge-c{background:#fef9e7;color:#8a6000;border:1px solid #ddb860}
+/* Ranking */
+.rk-row{background:var(--s);border:1px solid var(--bd);border-left:3px solid var(--bd);border-radius:var(--radius);padding:14px 18px 14px 14px;margin-bottom:8px;display:flex;gap:14px;align-items:center;box-shadow:var(--shadow-xs);transition:border-left-color .15s,box-shadow .15s;cursor:default}
+.rk-row.gold{border-left-color:#c8a000}
+.rk-row.silver{border-left-color:#9aacbe}
+.rk-row.bronze{border-left-color:#c08060}
+.rk-medal{font-size:20px;flex-shrink:0;width:30px;text-align:center}
+.rk-rank{width:30px;height:30px;border-radius:50%;background:var(--bg);border:1.5px solid var(--bd);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:var(--sub);flex-shrink:0}
+.rk-body{flex:1;min-width:0}
+.rk-name{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:4px}
+.rk-loc{font-size:11px;color:var(--sub2);margin-bottom:6px}
+.rk-tags{display:flex;flex-wrap:wrap;gap:5px}
+.rk-tag{font-size:10px;font-weight:600;padding:2px 8px;border-radius:10px;background:var(--bg);border:1px solid var(--bd);color:var(--sub)}
+.t-biz{background:#fef3e2;border-color:var(--accent-border);color:var(--accent-dark)}
+.t-loc{background:#e8f4ee;border-color:#9ac8b0;color:#1e6e3f}
+.t-active{background:#e8f4ee;border-color:#7ac08a;color:#1a5a34}
+.t-stop{background:var(--bg);border-color:var(--bd);color:var(--sub2)}
+.rk-badge{font-size:10px;font-weight:700;padding:2px 8px;border-radius:8px;margin-left:6px;vertical-align:middle}
+.rb-active{background:#e8f4ee;color:#1a5a34;border:1px solid #7ac08a}
+.rb-stopped{background:var(--bg);color:var(--sub2);border:1px solid var(--bd)}
+.rk-stats{display:flex;gap:18px;flex-shrink:0;align-items:center}
+.rk-stat-block{text-align:right;min-width:56px}
+.rk-result{font-size:18px;font-weight:800;color:var(--accent);line-height:1;font-variant-numeric:tabular-nums}
+.rk-result-l{font-size:10px;color:var(--sub2);font-weight:600}
+.rk-cpl{font-size:16px;font-weight:800;color:var(--tx);line-height:1;font-variant-numeric:tabular-nums}
+.rk-cpl.good-cpl{color:var(--good)}
+.rk-cpl-l{font-size:10px;color:var(--sub2);font-weight:600}
+.rk-spend{font-size:13px;font-weight:600;color:var(--sub);line-height:1;font-variant-numeric:tabular-nums}
+.rk-spend-l{font-size:10px;color:var(--sub2)}
+/* Tags */
+.tags-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.core-tag{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;background:var(--s);border:1.5px solid var(--bd);border-radius:20px;font-size:13px;font-weight:600;color:var(--tx)}
+.core-tag .arr{font-size:11px;color:var(--accent-border)}
+/* Tips */
+.tips{display:flex;flex-direction:column;gap:10px}
+.tip{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:16px 18px;display:flex;gap:16px;align-items:flex-start;box-shadow:var(--shadow-xs)}
+.tip-num{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;flex-shrink:0;color:#fff;background:var(--accent)}
+.c2{background:#6a8a4a}.c3{background:#4a6a8a}.c4{background:#8a4a4a}
+.tip-body{flex:1}
+.tip-title{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:5px;line-height:1.4}
+.tip-desc{font-size:12px;color:var(--sub);line-height:1.65}
+/* Hist note */
+.hist-bar{background:#f0ede8;border:1px solid #d8d0c4;border-radius:10px;padding:12px 16px;margin-bottom:20px}
+.hist-bar h4{font-size:12px;font-weight:700;color:var(--sub);margin-bottom:8px;letter-spacing:.3px}
+.hist-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.hist-item{text-align:center}
+.hist-n{font-size:20px;font-weight:800;color:var(--sub);line-height:1}
+.hist-l{font-size:10px;color:var(--sub2);margin-top:2px}
+/* Audience recommendation cards */
+.aud-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);box-shadow:var(--shadow-xs);overflow:hidden;margin-bottom:10px}
+.aud-header{display:flex;align-items:center;gap:12px;padding:14px 18px;cursor:pointer;transition:background .15s;user-select:none}
+.aud-header:hover{background:var(--accent-light)}
+.aud-num{width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;flex-shrink:0}
+.aud-info{flex:1}
+.aud-name{font-size:13px;font-weight:700;color:var(--tx)}
+.aud-sub{font-size:11px;color:var(--sub2);margin-top:2px}
+.aud-arrow{font-size:13px;color:var(--sub2);transition:transform .2s;flex-shrink:0}
+.aud-card.open .aud-arrow{transform:rotate(90deg)}
+.aud-body{display:none;padding:0 18px 18px;border-top:1px solid var(--bd)}
+.aud-card.open .aud-body{display:block}
+.aud-sl{font-size:10px;font-weight:700;color:var(--sub2);text-transform:uppercase;letter-spacing:.4px;margin:14px 0 7px}
+.aud-logic{font-size:12px;color:#5a4a2a;line-height:1.65;background:var(--accent-light);border:1px solid var(--accent-border);border-radius:8px;padding:10px 14px}
+.aud-lm{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.aud-lm-tag{background:var(--bg);border:1px solid var(--bd);border-radius:14px;padding:3px 10px;font-size:11px;color:var(--sub)}
+.tag-tbl{width:100%;border-collapse:collapse;margin-top:6px;font-size:12px}
+.tag-tbl th{text-align:left;padding:5px 10px;background:var(--bg);border-bottom:1.5px solid var(--bd);font-size:10px;font-weight:700;color:var(--sub2);letter-spacing:.3px;text-transform:uppercase}
+.tag-tbl td{padding:4px 10px;border-bottom:1px solid var(--bd)}
+.tag-tbl tr:last-child td{border-bottom:none}
+.tag-tbl td:first-child{width:28px;color:var(--sub2);font-weight:600;text-align:center}
+.tag-tbl td:nth-child(2){font-weight:500;color:var(--tx)}
+.tag-tbl td:nth-child(3){color:var(--sub)}
+/* 2-column grid */
+.aud-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;align-items:start}
+@media(max-width:760px){.aud-grid-2{grid-template-columns:1fr}}
+/* Click to copy */
+.tag-tbl tbody tr{cursor:pointer;transition:background .12s}
+.tag-tbl tbody tr:hover{background:var(--accent-light)}
+.tag-tbl tbody tr:hover td:nth-child(2)::after{content:' ⎘';font-size:10px;color:var(--accent-border)}
+.tag-tbl tbody tr.flash{background:#d4f0dc}
+/* Copy all button */
+.copy-all-row{display:flex;justify-content:flex-end;margin-top:8px}
+.copy-all-btn{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;color:var(--accent-dark);background:var(--accent-light);border:1px solid var(--accent-border);border-radius:6px;padding:5px 12px;cursor:pointer;transition:background .15s}
+.copy-all-btn:hover{background:#f5e8d0}
+.copy-all-btn.done{background:#d4f0dc;border-color:#7ac09a;color:#1a5a34}
+/* Toast */
+#copy-toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(10px);background:#1a2a18;color:#a8e8b8;font-size:12px;font-weight:600;padding:8px 18px;border-radius:20px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:200;white-space:nowrap}
+#copy-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="ph-logo">敘</div>
+  <div class="ph-title">敘UNO</div>
+  <div class="ph-sub">台中龍井・投資店面・1510帳號</div>
+  <nav class="ph-nav">
+    <a href="hub.html">← 返回總覽</a>
+  </nav>
+</div>
+
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<div class="wrap">
+
+  <a href="hub.html" class="top-link">← <span>返回受眾分析總覽</span></a>
+
+  <!-- Case header -->
+  <div class="case-header">
+    <div class="case-logo">敘</div>
+    <div class="case-info">
+      <h2>敘UNO｜台中龍井投資店面</h2>
+      <p>台中市龍井區龍新路90號・龍井車站附近・公寓36戶・成交均價28萬/坪<br>主打：投資・店面・開店創業｜廣告目標：名單｜1510帳號</p>
+    </div>
+    <div class="case-stats">
+      <div class="stat">
+        <div class="stat-n">65</div>
+        <div class="stat-l">2026潛客</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">$331</div>
+        <div class="stat-l">最佳CPL</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">$24K</div>
+        <div class="stat-l">2026花費</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tab bar -->
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab('perf',this)">受眾成效</button>
+    <button class="tab-btn" onclick="switchTab('insight',this)">策略建議</button>
+  </div>
+
+  <!-- ══ TAB 1：受眾成效 ══ -->
+  <div id="tab-perf" class="tab-pane show">
+
+    <div class="note-bar">2026年 名單廣告｜海線自營商族群是核心，零售批發自營跨龍井/沙鹿均有效，最佳CPL NT$331</div>
+
+    <!-- Stats -->
+    <div class="stats-bar">
+      <div class="sb-card">
+        <div class="sb-n good">65</div>
+        <div class="sb-l">2026 潛客總數</div>
+      </div>
+      <div class="sb-card">
+        <div class="sb-n good">$331</div>
+        <div class="sb-l">最佳 CPL</div>
+      </div>
+      <div class="sb-card">
+        <div class="sb-n">$24,044</div>
+        <div class="sb-l">2026 總花費</div>
+      </div>
+      <div class="sb-card">
+        <div class="sb-n">3%</div>
+        <div class="sb-l">平均 CTR</div>
+      </div>
+    </div>
+
+    <!-- 三大輪廓 -->
+    <div class="section">
+      <div class="sec-title">三大核心受眾輪廓</div>
+      <div class="profiles">
+
+        <div class="profile-card">
+          <div class="profile-icon pi-a">🏪</div>
+          <div class="profile-name">零售批發創業型</div>
+          <div class="profile-meta">年齡 30–55｜沙鹿東海 ＋ 龍井</div>
+          <div class="profile-tags">興趣：零售批發自營、創業開店、商業經營</div>
+          <div class="profile-behavior">行為：有開店或擴點意向的自營商，對龍井海線商辦店面有地利需求。沙鹿東海33潛客CPL $331、龍井17潛客CPL $337，跨兩地均有效，是全案最強核心標籤組合</div>
+          <span class="profile-badge badge-a">50潛客 · CPL $331~337 · 核心標籤</span>
+        </div>
+
+        <div class="profile-card">
+          <div class="profile-icon pi-b">💼</div>
+          <div class="profile-name">開店投資準備型</div>
+          <div class="profile-meta">年齡 30–55｜靜宜清水（進行中）</div>
+          <div class="profile-tags">興趣：零售批發自營、開店投資、自營商（含嶺東周邊）</div>
+          <div class="profile-behavior">行為：有投資置產或開店計畫的海線族群，0505起擴入嶺東增加觸及。目前active唯一組，CPL $397 穩定，建議維持並擴大預算</div>
+          <span class="profile-badge badge-b">12潛客 · CPL $397 · 進行中</span>
+        </div>
+
+        <div class="profile-card">
+          <div class="profile-icon pi-c">🏡</div>
+          <div class="profile-name">生活風格混合型</div>
+          <div class="profile-meta">年齡 30–55｜龍井</div>
+          <div class="profile-tags">興趣：上班族、家具設計、生活美學</div>
+          <div class="profile-behavior">行為：以生活風格/家具設計為切入點，測試上班族族群對投資店面的反應。CPL $673 偏高，標籤與開店投資意圖連結較弱，已暫停</div>
+          <span class="profile-badge badge-c">3潛客 · CPL $673 · 已暫停</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 受眾排行 -->
+    <div class="section">
+      <div class="sec-title">受眾成效排行（2026年名單廣告）</div>
+
+      <div class="rk-row gold">
+        <div class="rk-medal">🥇</div>
+        <div class="rk-body">
+          <div class="rk-name">30-55 / 沙鹿東海 / 零售批發自營 <span class="rk-badge rb-stopped">已暫停</span></div>
+          <div class="rk-loc">沙鹿區＋東海大學周邊・目標：名單・2026-03-13 ~ 2026-05-09</div>
+          <div class="rk-tags"><span class="rk-tag t-biz">零售批發</span><span class="rk-tag t-biz">自營商</span><span class="rk-tag t-loc">沙鹿東海</span></div>
+        </div>
+        <div class="rk-stats">
+          <div class="rk-stat-block"><div class="rk-result">33</div><div class="rk-result-l">潛客</div></div>
+          <div class="rk-stat-block"><div class="rk-cpl good-cpl">$331</div><div class="rk-cpl-l">最佳CPL</div></div>
+          <div class="rk-stat-block"><div class="rk-spend">$10,938</div><div class="rk-spend-l">花費</div></div>
+        </div>
+      </div>
+
+      <div class="rk-row silver">
+        <div class="rk-medal">🥈</div>
+        <div class="rk-body">
+          <div class="rk-name">30-55 / 龍井 / 零售批發自營 <span class="rk-badge rb-stopped">已暫停</span></div>
+          <div class="rk-loc">龍井區周邊・目標：名單・2026-02-10 ~ 2026-03-09</div>
+          <div class="rk-tags"><span class="rk-tag t-biz">零售批發</span><span class="rk-tag t-biz">自營商</span><span class="rk-tag t-loc">龍井</span></div>
+        </div>
+        <div class="rk-stats">
+          <div class="rk-stat-block"><div class="rk-result">17</div><div class="rk-result-l">潛客</div></div>
+          <div class="rk-stat-block"><div class="rk-cpl good-cpl">$337</div><div class="rk-cpl-l">CPL</div></div>
+          <div class="rk-stat-block"><div class="rk-spend">$5,725</div><div class="rk-spend-l">花費</div></div>
+        </div>
+      </div>
+
+      <div class="rk-row bronze">
+        <div class="rk-medal">🥉</div>
+        <div class="rk-body">
+          <div class="rk-name">30-55 / 靜宜清水 / 零售批發自營(0505+嶺東) <span class="rk-badge rb-active">進行中</span></div>
+          <div class="rk-loc">靜宜大學周邊＋清水區＋嶺東・目標：名單・2026-04-23 起</div>
+          <div class="rk-tags"><span class="rk-tag t-biz">零售批發</span><span class="rk-tag t-active">進行中</span><span class="rk-tag t-loc">靜宜清水</span></div>
+        </div>
+        <div class="rk-stats">
+          <div class="rk-stat-block"><div class="rk-result">12</div><div class="rk-result-l">潛客</div></div>
+          <div class="rk-stat-block"><div class="rk-cpl">$397</div><div class="rk-cpl-l">CPL</div></div>
+          <div class="rk-stat-block"><div class="rk-spend">$4,759</div><div class="rk-spend-l">花費</div></div>
+        </div>
+      </div>
+
+      <div class="rk-row">
+        <div class="rk-rank">4</div>
+        <div class="rk-body">
+          <div class="rk-name">30-55 / 龍井 / 上班族家具設計 <span class="rk-badge rb-stopped">已暫停</span></div>
+          <div class="rk-loc">龍井區・目標：名單・2026-03-06 ~ 2026-04-09</div>
+          <div class="rk-tags"><span class="rk-tag t-stop">上班族</span><span class="rk-tag t-stop">家具設計</span></div>
+        </div>
+        <div class="rk-stats">
+          <div class="rk-stat-block"><div class="rk-result">3</div><div class="rk-result-l">潛客</div></div>
+          <div class="rk-stat-block"><div class="rk-cpl warn">$673</div><div class="rk-cpl-l">CPL偏高</div></div>
+          <div class="rk-stat-block"><div class="rk-spend">$2,019</div><div class="rk-spend-l">花費</div></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 歷史資料 -->
+    <div class="section">
+      <div class="sec-title">歷史數據｜2023年訊息廣告（參考）</div>
+      <div class="hist-bar">
+        <h4>2023年資料（目標為訊息，非名單，不直接比較CPL）</h4>
+        <div class="hist-grid">
+          <div class="hist-item"><div class="hist-n">NT$94,522</div><div class="hist-l">總花費</div></div>
+          <div class="hist-item"><div class="hist-n">618</div><div class="hist-l">訊息總數</div></div>
+          <div class="hist-item"><div class="hist-n">NT$67</div><div class="hist-l">最佳訊息CPL（龍井-親子教育/工業）</div></div>
+        </div>
+      </div>
+      <div class="note-bar warn">2023年最有效的受眾為「龍井-親子教育/工業區」（66訊息 CPL $67）與「台中海線上班族教育通勤」系列。此為訊息目標數據，可作為日後名單模式測試的方向參考。</div>
+    </div>
+
+  </div><!-- end tab-perf -->
+
+  <!-- ══ TAB 2：策略建議 ══ -->
+  <div id="tab-insight" class="tab-pane">
+
+    <div class="note-bar">全案洞察：2026年 NT$24,044花費・65潛客・最佳CPL NT$331（沙鹿東海零售批發自營）・1組active</div>
+
+    <div class="section">
+      <div class="sec-title">核心有效標籤</div>
+      <div class="tags-row">
+        <span class="core-tag">零售批發（最強核心）<span class="arr">↗</span></span>
+        <span class="core-tag">自營商<span class="arr">↗</span></span>
+        <span class="core-tag">開店投資<span class="arr">↗</span></span>
+        <span class="core-tag">海線（龍井/沙鹿/清水）<span class="arr">↗</span></span>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sec-title">立即行動建議</div>
+      <div class="tips">
+
+        <div class="tip">
+          <div class="tip-num">1</div>
+          <div class="tip-body">
+            <div class="tip-title">靜宜清水組維持，監控 CPL 低於 NT$450</div>
+            <div class="tip-desc">目前唯一active組（CPL $397），是3組零售批發系列中地區最寬的版本（靜宜+清水+嶺東）。建議維持預算，若CPL持續低於NT$450則可擴大至NT$350/日，目標月帶出15-20潛客。</div>
+          </div>
+        </div>
+
+        <div class="tip">
+          <div class="tip-num c2">2</div>
+          <div class="tip-body">
+            <div class="tip-title">往彰化和美、梧棲工業區擴散新組</div>
+            <div class="tip-desc">沙鹿東海（CPL $331）是目前最強組，地理上往彰化和美/梧棲方向有相似的工業+零售批發族群。建議新開「30-55/和美梧棲/零售批發自營」測試，預算NT$300/日，驗證是否可維持$350以下CPL。</div>
+          </div>
+        </div>
+
+        <div class="tip">
+          <div class="tip-num c3">3</div>
+          <div class="tip-body">
+            <div class="tip-title">以名單模式重測 2023 最強方向：親子教育/工業區</div>
+            <div class="tip-desc">2023訊息廣告中「龍井-親子教育/工業」創下最低訊息CPL NT$67，族群可能與投資開店有高度重疊（工業區附近的家長型自營商）。建議用名單廣告模式、地標重設為龍井工業區周邊重新測試。</div>
+          </div>
+        </div>
+
+        <div class="tip">
+          <div class="tip-num c4" style="background:#c05c00">✗</div>
+          <div class="tip-body">
+            <div class="tip-title">停用：上班族家具設計、純房產興趣</div>
+            <div class="tip-desc">上班族家具設計 CPL $673，標籤與開店投資意圖連結弱。2023的純房產、高收退休男等組也無法轉換，不適合此案「投資店面」的產品定位。</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 8組受眾建議 -->
+    <div class="section">
+      <div class="sec-title">下一步受眾測試建議（8組）</div>
+      <div class="note-bar">依據廣告素材：888萬起・挑高6米・1F+2F黃金店面・龍井站前・新光田生活圈・全新完工立可營業</div>
+
+      <div class="aud-grid-2">
+
+      <!-- 組1 -->
+      <div class="aud-card" id="a1">
+        <div class="aud-header" onclick="toggleAud('a1')">
+          <div class="aud-num">1</div>
+          <div class="aud-info">
+            <div class="aud-name">30-55 / 沙鹿梧棲清水 / 零售批發擴點型</div>
+            <div class="aud-sub">已驗證核心標籤地區延伸 · 預估CPL $320-360</div>
+          </div>
+          <div class="aud-arrow">▶</div>
+        </div>
+        <div class="aud-body">
+          <div class="aud-sl">評估邏輯</div>
+          <div class="aud-logic">沙鹿東海（CPL $331）是全案最強，此組往梧棲工業港、清水延伸相同標籤。有既有店面或倉庫的批發業主，888萬第二個展示點需求明確，龍井站前地利強吸引力。</div>
+          <div class="aud-sl">地標定位</div>
+          <div class="aud-lm">
+            <span class="aud-lm-tag">梧棲工業區</span><span class="aud-lm-tag">清水區公所周邊</span><span class="aud-lm-tag">沙鹿市區</span><span class="aud-lm-tag">台61西濱快速道路沿線</span>
+          </div>
+          <div class="aud-sl">興趣標籤</div>
+          <table class="tag-tbl"><thead><tr><th>#</th><th>English</th><th>中文</th></tr></thead><tbody>
+            <tr><td>1</td><td>Retail</td><td>零售業</td></tr>
+            <tr><td>2</td><td>Wholesale</td><td>批發業</td></tr>
+            <tr><td>3</td><td>Self-employment</td><td>自營商</td></tr>
+            <tr><td>4</td><td>Small business</td><td>小型企業</td></tr>
+            <tr><td>5</td><td>Business owner</td><td>企業主</td></tr>
+            <tr><td>6</td><td>Entrepreneurship</td><td>創業</td></tr>
+            <tr><td>7</td><td>Business expansion</td><td>企業擴展</td></tr>
+            <tr><td>8</td><td>Franchising</td><td>加盟連鎖</td></tr>
+            <tr><td>9</td><td>Supply chain</td><td>供應鏈管理</td></tr>
+            <tr><td>10</td><td>Logistics</td><td>物流配送</td></tr>
+            <tr><td>11</td><td>Inventory management</td><td>庫存管理</td></tr>
+            <tr><td>12</td><td>Commercial real estate</td><td>商業不動產</td></tr>
+            <tr><td>13</td><td>Property investment</td><td>房地產投資</td></tr>
+            <tr><td>14</td><td>Investment</td><td>投資理財</td></tr>
+            <tr><td>15</td><td>Business loan</td><td>商業貸款</td></tr>
+            <tr><td>16</td><td>Import/Export</td><td>進出口貿易</td></tr>
+            <tr><td>17</td><td>Manufacturing</td><td>製造業</td></tr>
+            <tr><td>18</td><td>Trade</td><td>貿易</td></tr>
+            <tr><td>19</td><td>Warehouse</td><td>倉儲管理</td></tr>
+            <tr><td>20</td><td>Business networking</td><td>商業社交</td></tr>
+            <tr><td>21</td><td>E-commerce</td><td>電商</td></tr>
+            <tr><td>22</td><td>Sales</td><td>業務銷售</td></tr>
+            <tr><td>23</td><td>Marketing</td><td>行銷</td></tr>
+            <tr><td>24</td><td>Market</td><td>市場/商場</td></tr>
+            <tr><td>25</td><td>Shopping center</td><td>購物中心</td></tr>
+            <tr><td>26</td><td>Chamber of commerce</td><td>工商公會</td></tr>
+            <tr><td>27</td><td>Trade show</td><td>展覽博覽</td></tr>
+            <tr><td>28</td><td>Business plan</td><td>商業計畫</td></tr>
+            <tr><td>29</td><td>Business management</td><td>企業管理</td></tr>
+            <tr><td>30</td><td>Startup</td><td>新創事業</td></tr>
+          </tbody></table>
+        </div>
+      </div>
+
+      <!-- 組2 -->
+      <div class="aud-card" id="a2">
+        <div class="aud-header" onclick="toggleAud('a2')">
+          <div class="aud-num">2</div>
+          <div class="aud-info">
+            <div class="aud-name">25-50 / 龍井沙鹿清水 / 餐飲咖啡創業型</div>
+            <div class="aud-sub">挑高6米雙層適合餐廳咖啡廳 · 龍井站前高人流</div>
+          </div>
+          <div class="aud-arrow">▶</div>
+        </div>
+        <div class="aud-body">
+          <div class="aud-sl">評估邏輯</div>
+          <div class="aud-logic">1F+2F挑高6米是餐飲業夢想格局：廚房＋用餐區一體，龍井站前人流穩定。888萬起在海線屬可接受總價，訴求「買店不用再看房東臉色」，針對已有餐飲創業夢的族群。</div>
+          <div class="aud-sl">地標定位</div>
+          <div class="aud-lm">
+            <span class="aud-lm-tag">龍井車站周邊</span><span class="aud-lm-tag">新光三越台中中港店</span><span class="aud-lm-tag">沙鹿市場商圈</span><span class="aud-lm-tag">清水夜市周邊</span>
+          </div>
+          <div class="aud-sl">興趣標籤</div>
+          <table class="tag-tbl"><thead><tr><th>#</th><th>English</th><th>中文</th></tr></thead><tbody>
+            <tr><td>1</td><td>Restaurant</td><td>餐廳</td></tr>
+            <tr><td>2</td><td>Café</td><td>咖啡廳</td></tr>
+            <tr><td>3</td><td>Food and beverage</td><td>餐飲業</td></tr>
+            <tr><td>4</td><td>Cooking</td><td>料理烹飪</td></tr>
+            <tr><td>5</td><td>Baking</td><td>烘焙</td></tr>
+            <tr><td>6</td><td>Coffee</td><td>咖啡</td></tr>
+            <tr><td>7</td><td>Entrepreneurship</td><td>創業</td></tr>
+            <tr><td>8</td><td>Small business</td><td>小型企業</td></tr>
+            <tr><td>9</td><td>Food truck</td><td>餐車</td></tr>
+            <tr><td>10</td><td>Catering</td><td>外燴餐飲服務</td></tr>
+            <tr><td>11</td><td>Dessert</td><td>甜點</td></tr>
+            <tr><td>12</td><td>Bubble tea</td><td>手搖飲</td></tr>
+            <tr><td>13</td><td>Brunch</td><td>早午餐</td></tr>
+            <tr><td>14</td><td>Japanese cuisine</td><td>日式料理</td></tr>
+            <tr><td>15</td><td>Korean cuisine</td><td>韓式料理</td></tr>
+            <tr><td>16</td><td>Western cuisine</td><td>西式料理</td></tr>
+            <tr><td>17</td><td>Food blogger</td><td>美食部落客</td></tr>
+            <tr><td>18</td><td>Fine dining</td><td>精緻餐飲</td></tr>
+            <tr><td>19</td><td>Food delivery</td><td>外送平台</td></tr>
+            <tr><td>20</td><td>Restaurant management</td><td>餐廳經營管理</td></tr>
+            <tr><td>21</td><td>Health food</td><td>健康飲食</td></tr>
+            <tr><td>22</td><td>Organic food</td><td>有機食品</td></tr>
+            <tr><td>23</td><td>Bar</td><td>酒吧</td></tr>
+            <tr><td>24</td><td>Night market</td><td>夜市</td></tr>
+            <tr><td>25</td><td>Food photography</td><td>美食攝影</td></tr>
+            <tr><td>26</td><td>Commercial real estate</td><td>商業不動產</td></tr>
+            <tr><td>27</td><td>Property investment</td><td>房地產投資</td></tr>
+            <tr><td>28</td><td>Business loan</td><td>商業貸款</td></tr>
+            <tr><td>29</td><td>Self-employment</td><td>自營商</td></tr>
+            <tr><td>30</td><td>Business networking</td><td>商業社交</td></tr>
+          </tbody></table>
+        </div>
+      </div>
+
+      <!-- 組3 -->
+      <div class="aud-card" id="a3">
+        <div class="aud-header" onclick="toggleAud('a3')">
+          <div class="aud-num">3</div>
+          <div class="aud-info">
+            <div class="aud-name">35-60 / 龍井梧棲工業區 / 工業區老闆置產型</div>
+            <div class="aud-sub">工業區老闆在站前置店面 · 出租/展示/辦公室多用途</div>
+          </div>
+          <div class="aud-arrow">▶</div>
+        </div>
+        <div class="aud-body">
+          <div class="aud-sl">評估邏輯</div>
+          <div class="aud-logic">龍井/梧棲工業區老闆有錢、需要在龍井站前有個展示店面或租出去當被動收入。訴求「買下來出租，每月收租不心慌」，888萬總價在有工廠資產的老闆眼中是零頭，購買動機是「資產配置」。</div>
+          <div class="aud-sl">地標定位</div>
+          <div class="aud-lm">
+            <span class="aud-lm-tag">梧棲工業區</span><span class="aud-lm-tag">龍井工業區</span><span class="aud-lm-tag">台中港特貿區</span><span class="aud-lm-tag">大肚工業區</span>
+          </div>
+          <div class="aud-sl">興趣標籤</div>
+          <table class="tag-tbl"><thead><tr><th>#</th><th>English</th><th>中文</th></tr></thead><tbody>
+            <tr><td>1</td><td>Manufacturing</td><td>製造業</td></tr>
+            <tr><td>2</td><td>Factory</td><td>工廠管理</td></tr>
+            <tr><td>3</td><td>B2B</td><td>企業對企業</td></tr>
+            <tr><td>4</td><td>Industrial real estate</td><td>工業地產</td></tr>
+            <tr><td>5</td><td>Logistics</td><td>物流配送</td></tr>
+            <tr><td>6</td><td>Supply chain</td><td>供應鏈管理</td></tr>
+            <tr><td>7</td><td>Business owner</td><td>企業主</td></tr>
+            <tr><td>8</td><td>Machinery</td><td>機械設備</td></tr>
+            <tr><td>9</td><td>Metal working</td><td>金屬加工</td></tr>
+            <tr><td>10</td><td>Electronics manufacturing</td><td>電子製造</td></tr>
+            <tr><td>11</td><td>Plastic manufacturing</td><td>塑膠製品</td></tr>
+            <tr><td>12</td><td>Import/Export</td><td>進出口貿易</td></tr>
+            <tr><td>13</td><td>Warehouse</td><td>倉儲管理</td></tr>
+            <tr><td>14</td><td>Freight</td><td>貨運物流</td></tr>
+            <tr><td>15</td><td>Commercial vehicle</td><td>商用車輛</td></tr>
+            <tr><td>16</td><td>Commercial real estate</td><td>商業不動產</td></tr>
+            <tr><td>17</td><td>Property investment</td><td>房地產投資</td></tr>
+            <tr><td>18</td><td>Rental income</td><td>租金收入</td></tr>
+            <tr><td>19</td><td>Passive income</td><td>被動收入</td></tr>
+            <tr><td>20</td><td>Investment</td><td>投資理財</td></tr>
+            <tr><td>21</td><td>Business expansion</td><td>企業擴展</td></tr>
+            <tr><td>22</td><td>Office space</td><td>辦公空間</td></tr>
+            <tr><td>23</td><td>Business loan</td><td>商業融資</td></tr>
+            <tr><td>24</td><td>Tax planning</td><td>稅務規劃</td></tr>
+            <tr><td>25</td><td>Insurance</td><td>商業保險</td></tr>
+            <tr><td>26</td><td>Business networking</td><td>商業社交</td></tr>
+            <tr><td>27</td><td>Chamber of commerce</td><td>工商公會</td></tr>
+            <tr><td>28</td><td>Trade show</td><td>展覽博覽</td></tr>
+            <tr><td>29</td><td>Wealth management</td><td>財富管理</td></tr>
+            <tr><td>30</td><td>Asset management</td><td>資產管理</td></tr>
+          </tbody></table>
+        </div>
+      </div>
+
+      <!-- 組4 -->
+      <div class="aud-card" id="a4">
+        <div class="aud-header" onclick="toggleAud('a4')">
+          <div class="aud-num">4</div>
+          <div class="aud-info">
+            <div class="aud-name">30-55 / 彰化和美伸港 / 海線跨縣自營商型</div>
+            <div class="aud-sub">彰化海線跨縣購商辦 · 同屬海線生活圈</div>
+          </div>
+          <div class="aud-arrow">▶</div>
+        </div>
+        <div class="aud-body">
+          <div class="aud-sl">評估邏輯</div>
+          <div class="aud-logic">和美/伸港/彰化海線與龍井同屬台61西濱沿線生活圈，開車15分鐘可達。彰化有大量紡織、家具、五金傳產自營商，888萬在台中買商辦比彰化有更高的商業曝光，跨縣投資動機明確。</div>
+          <div class="aud-sl">地標定位</div>
+          <div class="aud-lm">
+            <span class="aud-lm-tag">彰化和美工業區</span><span class="aud-lm-tag">伸港工業區</span><span class="aud-lm-tag">彰化鹿港商業區</span><span class="aud-lm-tag">台61西濱沿線</span>
+          </div>
+          <div class="aud-sl">興趣標籤</div>
+          <table class="tag-tbl"><thead><tr><th>#</th><th>English</th><th>中文</th></tr></thead><tbody>
+            <tr><td>1</td><td>Retail</td><td>零售業</td></tr>
+            <tr><td>2</td><td>Wholesale</td><td>批發業</td></tr>
+            <tr><td>3</td><td>Self-employment</td><td>自營商</td></tr>
+            <tr><td>4</td><td>Small business</td><td>小型企業</td></tr>
+            <tr><td>5</td><td>Business owner</td><td>企業主</td></tr>
+            <tr><td>6</td><td>Textile</td><td>紡織業</td></tr>
+            <tr><td>7</td><td>Furniture</td><td>家具業</td></tr>
+            <tr><td>8</td><td>Hardware</td><td>五金業</td></tr>
+            <tr><td>9</td><td>Wholesale market</td><td>批發市場</td></tr>
+            <tr><td>10</td><td>Food distribution</td><td>食品批發</td></tr>
+            <tr><td>11</td><td>Manufacturing</td><td>製造業</td></tr>
+            <tr><td>12</td><td>Supply chain</td><td>供應鏈</td></tr>
+            <tr><td>13</td><td>Logistics</td><td>物流</td></tr>
+            <tr><td>14</td><td>Import/Export</td><td>進出口貿易</td></tr>
+            <tr><td>15</td><td>Commercial real estate</td><td>商業不動產</td></tr>
+            <tr><td>16</td><td>Property investment</td><td>房地產投資</td></tr>
+            <tr><td>17</td><td>Investment</td><td>投資理財</td></tr>
+            <tr><td>18</td><td>Business expansion</td><td>企業擴展</td></tr>
+            <tr><td>19</td><td>Business loan</td><td>商業貸款</td></tr>
+            <tr><td>20</td><td>Entrepreneurship</td><td>創業</td></tr>
+            <tr><td>21</td><td>Business networking</td><td>商業社交</td></tr>
+            <tr><td>22</td><td>Chamber of commerce</td><td>商業公會</td></tr>
+            <tr><td>23</td><td>Trade</td><td>貿易</td></tr>
+            <tr><td>24</td><td>Machinery</td><td>機械設備</td></tr>
+            <tr><td>25</td><td>Business management</td><td>企業管理</td></tr>
+            <tr><td>26</td><td>Tax planning</td><td>稅務規劃</td></tr>
+            <tr><td>27</td><td>Accounting</td><td>會計</td></tr>
+            <tr><td>28</td><td>Insurance</td><td>保險</td></tr>
+            <tr><td>29</td><td>Rental income</td><td>租金收入</td></tr>
+            <tr><td>30</td><td>Passive income</td><td>被動收入</td></tr>
+          </tbody></table>
+        </div>
+      </div>
+
+      <!-- 組5 -->
+      <div class="aud-card" id="a5">
+        <div class="aud-header" onclick="toggleAud('a5')">
+          <div class="aud-num">5</div>
+          <div class="aud-info">
+            <div class="aud-name">35-60 / 台中西屯北屯 / 市區外溢投資客型</div>
+            <div class="aud-sub">台中市區買不到 · 888萬海線商辦CP高</div>
+          </div>
+          <div class="aud-arrow">▶</div>
+        </div>
+        <div class="aud-body">
+          <div class="aud-sl">評估邏輯</div>
+          <div class="aud-logic">台中精華區商辦動輒2000萬以上，888萬在龍井站前買到1F+2F雙層對投資客有明顯CP值誘因。訴求「買來收租，站前位置不愁租客」，鎖定有餘裕資金做商業不動產配置的市區族群。</div>
+          <div class="aud-sl">地標定位</div>
+          <div class="aud-lm">
+            <span class="aud-lm-tag">台中七期重劃區</span><span class="aud-lm-tag">西屯路沿線</span><span class="aud-lm-tag">北屯四期</span><span class="aud-lm-tag">大里中興路商圈</span>
+          </div>
+          <div class="aud-sl">興趣標籤</div>
+          <table class="tag-tbl"><thead><tr><th>#</th><th>English</th><th>中文</th></tr></thead><tbody>
+            <tr><td>1</td><td>Real estate investing</td><td>房地產投資</td></tr>
+            <tr><td>2</td><td>Commercial real estate</td><td>商業不動產</td></tr>
+            <tr><td>3</td><td>Passive income</td><td>被動收入</td></tr>
+            <tr><td>4</td><td>Rental income</td><td>租金收入</td></tr>
+            <tr><td>5</td><td>Property management</td><td>物業管理</td></tr>
+            <tr><td>6</td><td>Investment</td><td>投資理財</td></tr>
+            <tr><td>7</td><td>Wealth management</td><td>財富管理</td></tr>
+            <tr><td>8</td><td>Financial planning</td><td>財務規劃</td></tr>
+            <tr><td>9</td><td>Asset management</td><td>資產管理</td></tr>
+            <tr><td>10</td><td>Stock market</td><td>股票市場</td></tr>
+            <tr><td>11</td><td>Mutual fund</td><td>共同基金</td></tr>
+            <tr><td>12</td><td>Tax planning</td><td>稅務規劃</td></tr>
+            <tr><td>13</td><td>Business owner</td><td>企業主</td></tr>
+            <tr><td>14</td><td>Self-employment</td><td>自營商</td></tr>
+            <tr><td>15</td><td>Life insurance</td><td>壽險</td></tr>
+            <tr><td>16</td><td>Banking</td><td>銀行理財</td></tr>
+            <tr><td>17</td><td>Premium credit card</td><td>白金信用卡</td></tr>
+            <tr><td>18</td><td>Luxury goods</td><td>精品</td></tr>
+            <tr><td>19</td><td>Business loan</td><td>商業貸款</td></tr>
+            <tr><td>20</td><td>Mortgage</td><td>房屋貸款</td></tr>
+            <tr><td>21</td><td>Portfolio</td><td>投資組合</td></tr>
+            <tr><td>22</td><td>Capital gain</td><td>資本利得</td></tr>
+            <tr><td>23</td><td>Entrepreneurship</td><td>創業</td></tr>
+            <tr><td>24</td><td>Franchise</td><td>加盟</td></tr>
+            <tr><td>25</td><td>Real estate agent</td><td>房仲業</td></tr>
+            <tr><td>26</td><td>Accounting</td><td>會計</td></tr>
+            <tr><td>27</td><td>Retirement planning</td><td>退休規劃</td></tr>
+            <tr><td>28</td><td>Business networking</td><td>商業社交</td></tr>
+            <tr><td>29</td><td>Chamber of commerce</td><td>商業公會</td></tr>
+            <tr><td>30</td><td>Property development</td><td>房地產開發</td></tr>
+          </tbody></table>
+        </div>
+      </div>
+
+      <!-- 組6 -->
+      <div class="aud-card" id="a6">
+        <div class="aud-header" onclick="toggleAud('a6')">
+          <div class="aud-num">6</div>
+          <div class="aud-info">
+            <div class="aud-name">25-45 / 台中海線 / 電商轉實體族</div>
+            <div class="aud-sub">有電商有品牌，想要第一個實體空間</div>
+          </div>
+          <div class="aud-arrow">▶</div>
+        </div>
+        <div class="aud-body">
+          <div class="aud-sl">評估邏輯</div>
+          <div class="aud-logic">有蝦皮/網路商店的海線賣家，電商做到一定規模想要實體展示間或品牌旗艦店。1F+2F挑高6米適合網美風拍攝場所兼展示間，訴求「把你的品牌從螢幕搬到現實」，對30歲以下創業族有強吸引力。</div>
+          <div class="aud-sl">地標定位</div>
+          <div class="aud-lm">
+            <span class="aud-lm-tag">龍井東海大學商圈</span><span class="aud-lm-tag">沙鹿市區</span><span class="aud-lm-tag">清水商業區</span><span class="aud-lm-tag">梧棲港區商圈</span>
+          </div>
+          <div class="aud-sl">興趣標籤</div>
+          <table class="tag-tbl"><thead><tr><th>#</th><th>English</th><th>中文</th></tr></thead><tbody>
+            <tr><td>1</td><td>E-commerce</td><td>電商</td></tr>
+            <tr><td>2</td><td>Online shopping</td><td>網路購物</td></tr>
+            <tr><td>3</td><td>Shopee</td><td>蝦皮購物</td></tr>
+            <tr><td>4</td><td>Entrepreneurship</td><td>創業</td></tr>
+            <tr><td>5</td><td>Small business</td><td>小型企業</td></tr>
+            <tr><td>6</td><td>Social commerce</td><td>社群電商</td></tr>
+            <tr><td>7</td><td>Dropshipping</td><td>代發貨</td></tr>
+            <tr><td>8</td><td>Digital marketing</td><td>數位行銷</td></tr>
+            <tr><td>9</td><td>Brand building</td><td>品牌建立</td></tr>
+            <tr><td>10</td><td>Content creator</td><td>內容創作者</td></tr>
+            <tr><td>11</td><td>Instagram marketing</td><td>IG行銷</td></tr>
+            <tr><td>12</td><td>Facebook marketing</td><td>FB行銷</td></tr>
+            <tr><td>13</td><td>KOL marketing</td><td>網紅行銷</td></tr>
+            <tr><td>14</td><td>Product photography</td><td>商品攝影</td></tr>
+            <tr><td>15</td><td>Packaging design</td><td>包裝設計</td></tr>
+            <tr><td>16</td><td>Logistics</td><td>物流</td></tr>
+            <tr><td>17</td><td>Inventory management</td><td>庫存管理</td></tr>
+            <tr><td>18</td><td>Business expansion</td><td>事業擴展</td></tr>
+            <tr><td>19</td><td>Retail</td><td>零售</td></tr>
+            <tr><td>20</td><td>Pop-up store</td><td>快閃店</td></tr>
+            <tr><td>21</td><td>Business plan</td><td>商業計畫</td></tr>
+            <tr><td>22</td><td>Startup</td><td>新創</td></tr>
+            <tr><td>23</td><td>Market research</td><td>市場研究</td></tr>
+            <tr><td>24</td><td>Fashion</td><td>時尚</td></tr>
+            <tr><td>25</td><td>Lifestyle</td><td>生活風格</td></tr>
+            <tr><td>26</td><td>Commercial real estate</td><td>商業不動產</td></tr>
+            <tr><td>27</td><td>Property investment</td><td>房地產投資</td></tr>
+            <tr><td>28</td><td>Business loan</td><td>商業貸款</td></tr>
+            <tr><td>29</td><td>Self-employment</td><td>自營商</td></tr>
+            <tr><td>30</td><td>Business networking</td><td>商業社交</td></tr>
+          </tbody></table>
+        </div>
+      </div>
+
+      <!-- 組7 -->
+      <div class="aud-card" id="a7">
+        <div class="aud-header" onclick="toggleAud('a7')">
+          <div class="aud-num">7</div>
+          <div class="aud-info">
+            <div class="aud-name">28-50 / 龍井沙鹿清水 / 服務業開業型</div>
+            <div class="aud-sub">美容診所工作室 · 站前穩定客源</div>
+          </div>
+          <div class="aud-arrow">▶</div>
+        </div>
+        <div class="aud-body">
+          <div class="aud-sl">評估邏輯</div>
+          <div class="aud-logic">美容、診所、瑜珈、補習班等服務業最需要「站前固定人流＋合理總價」，龍井站前一次滿足。1F門面吸客、2F可做體驗空間或倉儲，訴求「買下來，裝潢費都幫你省回來了」，針對有技術想開店的服務業自營者。</div>
+          <div class="aud-sl">地標定位</div>
+          <div class="aud-lm">
+            <span class="aud-lm-tag">龍井車站前商圈</span><span class="aud-lm-tag">沙鹿中山路商圈</span><span class="aud-lm-tag">清水中山路商業區</span><span class="aud-lm-tag">龍井區公所周邊</span>
+          </div>
+          <div class="aud-sl">興趣標籤</div>
+          <table class="tag-tbl"><thead><tr><th>#</th><th>English</th><th>中文</th></tr></thead><tbody>
+            <tr><td>1</td><td>Beauty salon</td><td>美容美髮</td></tr>
+            <tr><td>2</td><td>Nail salon</td><td>美甲</td></tr>
+            <tr><td>3</td><td>Spa</td><td>水療SPA</td></tr>
+            <tr><td>4</td><td>Massage</td><td>按摩養生</td></tr>
+            <tr><td>5</td><td>Yoga</td><td>瑜珈</td></tr>
+            <tr><td>6</td><td>Fitness</td><td>健身</td></tr>
+            <tr><td>7</td><td>Personal trainer</td><td>私人教練</td></tr>
+            <tr><td>8</td><td>Physiotherapy</td><td>物理治療</td></tr>
+            <tr><td>9</td><td>Traditional Chinese medicine</td><td>中醫診所</td></tr>
+            <tr><td>10</td><td>Dental clinic</td><td>牙科診所</td></tr>
+            <tr><td>11</td><td>Pet grooming</td><td>寵物美容</td></tr>
+            <tr><td>12</td><td>Veterinary</td><td>寵物獸醫</td></tr>
+            <tr><td>13</td><td>Photography studio</td><td>攝影工作室</td></tr>
+            <tr><td>14</td><td>Music school</td><td>音樂教室</td></tr>
+            <tr><td>15</td><td>Cram school</td><td>補習班</td></tr>
+            <tr><td>16</td><td>Language school</td><td>語言教室</td></tr>
+            <tr><td>17</td><td>Art class</td><td>才藝班</td></tr>
+            <tr><td>18</td><td>Entrepreneurship</td><td>創業</td></tr>
+            <tr><td>19</td><td>Small business</td><td>小型企業</td></tr>
+            <tr><td>20</td><td>Self-employment</td><td>自營商</td></tr>
+            <tr><td>21</td><td>Commercial real estate</td><td>商業不動產</td></tr>
+            <tr><td>22</td><td>Business loan</td><td>商業貸款</td></tr>
+            <tr><td>23</td><td>Interior design</td><td>室內設計</td></tr>
+            <tr><td>24</td><td>Brand building</td><td>品牌建立</td></tr>
+            <tr><td>25</td><td>Social media marketing</td><td>社群媒體行銷</td></tr>
+            <tr><td>26</td><td>Customer service</td><td>客戶服務</td></tr>
+            <tr><td>27</td><td>Business networking</td><td>商業社交</td></tr>
+            <tr><td>28</td><td>Insurance</td><td>保險</td></tr>
+            <tr><td>29</td><td>Property investment</td><td>房地產投資</td></tr>
+            <tr><td>30</td><td>Startup</td><td>新創事業</td></tr>
+          </tbody></table>
+        </div>
+      </div>
+
+      <!-- 組8 -->
+      <div class="aud-card" id="a8">
+        <div class="aud-header" onclick="toggleAud('a8')">
+          <div class="aud-num">8</div>
+          <div class="aud-info">
+            <div class="aud-name">30-55 / 龍井大肚烏日 / 在地換業型（租轉買）</div>
+            <div class="aud-sub">現在租店面的業主 · 直接買下更划算</div>
+          </div>
+          <div class="aud-arrow">▶</div>
+        </div>
+        <div class="aud-body">
+          <div class="aud-sl">評估邏輯</div>
+          <div class="aud-logic">龍井在地已租店面的業主，每月租金5-8萬，20年就花掉1200-1920萬。訴求「繳租金不如付貸款，888萬買下屬於自己的店」，這是所有族群中購買決策最直接的一群，有店面才能比較。</div>
+          <div class="aud-sl">地標定位</div>
+          <div class="aud-lm">
+            <span class="aud-lm-tag">龍井區公所商圈</span><span class="aud-lm-tag">龍井新光三越周邊</span><span class="aud-lm-tag">大肚商業區</span><span class="aud-lm-tag">烏日高鐵周邊商業區</span>
+          </div>
+          <div class="aud-sl">興趣標籤</div>
+          <table class="tag-tbl"><thead><tr><th>#</th><th>English</th><th>中文</th></tr></thead><tbody>
+            <tr><td>1</td><td>Retail</td><td>零售業</td></tr>
+            <tr><td>2</td><td>Self-employment</td><td>自營商</td></tr>
+            <tr><td>3</td><td>Small business</td><td>小型企業</td></tr>
+            <tr><td>4</td><td>Business owner</td><td>企業主</td></tr>
+            <tr><td>5</td><td>Commercial real estate</td><td>商業不動產</td></tr>
+            <tr><td>6</td><td>Property investment</td><td>房地產投資</td></tr>
+            <tr><td>7</td><td>Rental property</td><td>出租物業</td></tr>
+            <tr><td>8</td><td>Mortgage</td><td>房屋貸款</td></tr>
+            <tr><td>9</td><td>Business loan</td><td>商業貸款</td></tr>
+            <tr><td>10</td><td>Financial planning</td><td>財務規劃</td></tr>
+            <tr><td>11</td><td>Investment</td><td>投資理財</td></tr>
+            <tr><td>12</td><td>Business expansion</td><td>企業擴展</td></tr>
+            <tr><td>13</td><td>Local business</td><td>在地商業</td></tr>
+            <tr><td>14</td><td>Community</td><td>社區商業</td></tr>
+            <tr><td>15</td><td>Food and beverage</td><td>餐飲業</td></tr>
+            <tr><td>16</td><td>Service industry</td><td>服務業</td></tr>
+            <tr><td>17</td><td>Entrepreneurship</td><td>創業</td></tr>
+            <tr><td>18</td><td>Business networking</td><td>商業社交</td></tr>
+            <tr><td>19</td><td>Chamber of commerce</td><td>商業公會</td></tr>
+            <tr><td>20</td><td>Tax planning</td><td>稅務規劃</td></tr>
+            <tr><td>21</td><td>Accounting</td><td>會計</td></tr>
+            <tr><td>22</td><td>Insurance</td><td>保險</td></tr>
+            <tr><td>23</td><td>Customer loyalty</td><td>客戶忠誠度</td></tr>
+            <tr><td>24</td><td>Brand building</td><td>品牌建立</td></tr>
+            <tr><td>25</td><td>Social media marketing</td><td>社群媒體行銷</td></tr>
+            <tr><td>26</td><td>Wholesale</td><td>批發業</td></tr>
+            <tr><td>27</td><td>Convenience store</td><td>便利商店</td></tr>
+            <tr><td>28</td><td>Passive income</td><td>被動收入</td></tr>
+            <tr><td>29</td><td>Rental income</td><td>租金收入</td></tr>
+            <tr><td>30</td><td>Property management</td><td>物業管理</td></tr>
+          </tbody></table>
+        </div>
+      </div>
+
+      </div><!-- end aud-grid-2 -->
+    </div><!-- end 8組受眾 -->
+
+  </div><!-- end tab-insight -->
+
+</div><!-- end wrap -->
+
+<div id="copy-toast">已複製</div>
+
+<script>
+/* ── tab ── */
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('show'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('show');
+  btn.classList.add('active');
+}
+
+/* ── accordion ── */
+function toggleAud(id) {
+  const card = document.getElementById(id);
+  const wasOpen = card.classList.contains('open');
+  card.classList.toggle('open');
+  if (!wasOpen) initCopyForCard(card);
+}
+
+/* ── toast ── */
+let toastTimer;
+function showToast(msg) {
+  const t = document.getElementById('copy-toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 1400);
+}
+
+/* ── copy helpers ── */
+function copyText(text) {
+  return navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject();
+}
+
+function initCopyForCard(card) {
+  /* skip if already bound */
+  if (card.dataset.copyBound) return;
+  card.dataset.copyBound = '1';
+
+  /* bind each row */
+  card.querySelectorAll('.tag-tbl tbody tr').forEach(row => {
+    const en = row.cells[1]?.textContent.trim();
+    if (!en) return;
+    row.addEventListener('click', () => {
+      copyText(en).then(() => {
+        row.classList.add('flash');
+        setTimeout(() => row.classList.remove('flash'), 600);
+        showToast('已複製：' + en);
+      });
+    });
+  });
+
+  /* inject copy-all button below table */
+  card.querySelectorAll('.tag-tbl').forEach(tbl => {
+    const wrap = document.createElement('div');
+    wrap.className = 'copy-all-row';
+    const btn = document.createElement('button');
+    btn.className = 'copy-all-btn';
+    btn.innerHTML = '⎘ 複製全部30個標籤';
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const tags = Array.from(tbl.querySelectorAll('tbody tr'))
+        .map(r => r.cells[1]?.textContent.trim()).filter(Boolean).join('\n');
+      copyText(tags).then(() => {
+        btn.classList.add('done');
+        btn.innerHTML = '✓ 已複製30個';
+        showToast('已複製全部30個標籤');
+        setTimeout(() => { btn.classList.remove('done'); btn.innerHTML = '⎘ 複製全部30個標籤'; }, 2000);
+      });
+    });
+    wrap.appendChild(btn);
+    tbl.parentNode.insertBefore(wrap, tbl.nextSibling);
+  });
+}
+
+/* ── scroll to top ── */
+window.addEventListener('scroll', () => {
+  document.getElementById('btt').classList.toggle('show', window.scrollY > 300);
+});
+</script>
+</body>
+</html>
