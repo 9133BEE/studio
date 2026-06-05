@@ -128,6 +128,19 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .new-card-title{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:5px;line-height:1.4}
 .new-card-desc{font-size:12px;color:var(--sub);line-height:1.6}
 .page-footer{text-align:center;font-size:11px;color:var(--sub2);margin-top:12px;padding-bottom:8px}
+/* ── 策略建議 3:7 並排 ── */
+.strat-layout{display:grid;grid-template-columns:3fr 7fr;gap:20px;align-items:start}
+@media(max-width:860px){.strat-layout{grid-template-columns:1fr}}
+.strat-left .sec-title{font-size:11px}
+.strat-left .rk-row{padding:10px 12px;gap:10px}
+.strat-left .rk-name{font-size:12px}
+.strat-left .rk-loc{font-size:10px}
+.strat-left .rk-tags{display:none}
+.strat-left .rk-stats{display:flex;gap:8px;margin-top:6px;flex-wrap:wrap}
+.strat-left .rk-stat-block{text-align:left;min-width:0}
+.strat-left .rk-result{font-size:15px}
+.strat-left .rk-cpl{font-size:13px}
+.strat-left .rk-spend{font-size:11px}
 </style>
 </head>
 <body>
@@ -158,7 +171,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 
 <div class="tab-bar">
   <button class="tab-btn active" onclick="switchTab('analysis')">成效分析</button>
-  <button class="tab-btn" onclick="switchTab('next')">下一步建議</button>
+  <button class="tab-btn" onclick="switchTab('next')">策略建議</button>
 </div>
 
 <!-- ════ TAB 1：成效分析 ════ -->
@@ -412,10 +425,100 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 
 </div><!-- end tab-analysis -->
 
-<!-- ════ TAB 2：下一步建議 ════ -->
+<!-- ════ TAB 2：策略建議 ════ -->
 <div id="tab-next" class="tab-pane">
+<div class="strat-layout">
 
-<!-- 建議新受眾方向 -->
+<!-- 左欄：受眾排行 (30%) -->
+<div class="strat-left section">
+  <div class="sec-title">受眾成效排行</div>
+
+  <div class="rk-row gold">
+    <div class="rk-medal">🥇</div>
+    <div class="rk-body">
+      <div class="rk-name">后里豐原／傳產・自營・工程師</div>
+      <div class="rk-loc">后里+豐原 在地傳產族群</div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">42</div><div class="rk-result-l">訊息</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl">$204</div><div class="rk-cpl-l">CPL</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row silver">
+    <div class="rk-medal">🥈</div>
+    <div class="rk-body">
+      <div class="rk-name">后里外埔／主管・成家</div>
+      <div class="rk-loc">后里+外埔 換屋族</div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">38</div><div class="rk-result-l">訊息</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl">$204</div><div class="rk-cpl-l">CPL</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row bronze">
+    <div class="rk-medal">🥉</div>
+    <div class="rk-body">
+      <div class="rk-name">后里豐原／投資理財</div>
+      <div class="rk-loc">后里+豐原 投資族群</div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">27</div><div class="rk-result-l">訊息</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$176</div><div class="rk-cpl-l">最低CPL</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row">
+    <div class="rk-rank">4</div>
+    <div class="rk-body">
+      <div class="rk-name">大甲外埔／觀光農企</div>
+      <div class="rk-loc">大甲+外埔</div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">25</div><div class="rk-result-l">訊息</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl">$189</div><div class="rk-cpl-l">CPL</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row">
+    <div class="rk-rank">5</div>
+    <div class="rk-body">
+      <div class="rk-name">后里中科／科技業家庭</div>
+      <div class="rk-loc">后里+中科</div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">21</div><div class="rk-result-l">訊息</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$180</div><div class="rk-cpl-l">CPL</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row">
+    <div class="rk-rank">6</div>
+    <div class="rk-body">
+      <div class="rk-name">后里豐原／零售批發</div>
+      <div class="rk-loc">后里+豐原</div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">9</div><div class="rk-result-l">訊息</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl">$187</div><div class="rk-cpl-l">CPL</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row">
+    <div class="rk-rank">7</div>
+    <div class="rk-body">
+      <div class="rk-name">后里豐原／生活品質</div>
+      <div class="rk-loc">后里+豐原</div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">5</div><div class="rk-result-l">訊息</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl">$256</div><div class="rk-cpl-l">CPL 偏高</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 右欄：建議新測試受眾 (70%) -->
 <div class="section">
   <div class="sec-title">建議新測試受眾方向 · 更新 2026-06-04</div>
   <div class="new-grid">
@@ -461,8 +564,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
     </div>
 
   </div>
-</div>
+</div><!-- end strat-right -->
 
+</div><!-- end strat-layout -->
 </div><!-- end tab-next -->
 
 <div class="page-footer">資料期間：2026-03-02 至 2026-06-04 · 后麗18 台中后里 · 廣告目標：訊息 · 最後更新 2026-06-04</div>
