@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>受眾資料庫｜跨案分析總覽</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --accent:#7a5a8a;--accent-dark:#5a3a6a;--accent-light:#f0edf5;--accent-border:#c0a8d8;
+  --blue:#607d96;--blue-dark:#4d6a82;--blue-light:#eaf0f6;--blue-border:#a8bed0;
+  --good-color:#1e6e3f;--good-bg:#e6f4ea;--warn-color:#c05c00;--warn-bg:#fff3e0;--bad-color:#8a2222;--bad-bg:#fdecea;
+  --bg:#f2f3f1;--s:#ffffff;--bd:#e4e1dd;--tx:#2e2c29;--sub:#7d7870;--sub2:#a8a199;
+  --radius:12px;--shadow-xs:0 1px 3px rgba(0,0,0,.05);--shadow-sm:0 2px 8px rgba(0,0,0,.08);--shadow-card:0 2px 10px rgba(0,0,0,.06)
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft JhengHei','Segoe UI',sans-serif;background:var(--bg);color:var(--tx);font-size:14px;line-height:1.6;min-height:100vh}
+
+/* ── Header ── */
+.ph{background:linear-gradient(180deg,#1a1018,#160d14);padding:0 36px;height:54px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:100;box-shadow:0 4px 20px rgba(0,0,0,.3);border-bottom:1px solid rgba(255,255,255,.06)}
+.ph-logo{width:28px;height:28px;background:linear-gradient(135deg,#9a7aaa,#5a3a6a);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;color:#fff}
+.ph-title{font-size:13px;font-weight:700;color:#f1eaf6}
+.ph-nav{margin-left:auto;display:flex;gap:8px}
+.ph-nav a{font-size:11px;color:#9d8aae;text-decoration:none;padding:4px 12px;border-radius:6px;border:1px solid rgba(122,90,138,.25);background:rgba(122,90,138,.1)}
+.ph-nav a:hover{background:rgba(122,90,138,.22);color:#c8a0e0}
+
+.wrap{max-width:1280px;margin:0 auto;padding:28px 36px 60px}
+
+/* ── Summary stats ── */
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
+.sc{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:16px 20px;box-shadow:var(--shadow-xs);position:relative;overflow:hidden}
+.sc::after{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;border-radius:2px 0 0 2px}
+.sc:nth-child(1)::after{background:linear-gradient(180deg,#7a5a8a,#5a3a6a)}
+.sc:nth-child(2)::after{background:linear-gradient(180deg,#1e6e3f,#156032)}
+.sc:nth-child(3)::after{background:linear-gradient(180deg,#607d96,#4d6a82)}
+.sc:nth-child(4)::after{background:linear-gradient(180deg,#c05c00,#9a4800)}
+.sc-n{font-size:26px;font-weight:900;letter-spacing:-1px;line-height:1;margin-bottom:4px}
+.sc:nth-child(1) .sc-n{color:var(--accent)}
+.sc:nth-child(2) .sc-n{color:var(--good-color)}
+.sc:nth-child(3) .sc-n{color:var(--blue)}
+.sc:nth-child(4) .sc-n{color:var(--warn-color)}
+.sc-l{font-size:11px;color:var(--sub2);font-weight:600;letter-spacing:.3px;text-transform:uppercase}
+
+/* ── Section title ── */
+.sec{margin-bottom:22px}
+.sec-title{font-size:12px;font-weight:700;color:var(--sub);margin-bottom:14px;display:flex;align-items:center;gap:10px;letter-spacing:.4px;text-transform:uppercase}
+.sec-title::before{content:'';width:3px;height:14px;background:var(--accent);border-radius:2px;flex-shrink:0}
+.sec-title::after{content:'';flex:1;height:1px;background:var(--bd)}
+.sec-title.blue-bar::before{background:var(--blue)}
+
+/* ── Region filter ── */
+.region-bar{display:flex;flex-wrap:wrap;gap:6px;padding:14px 16px;background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);box-shadow:var(--shadow-xs);margin-bottom:18px}
+.rgn-label{font-size:11px;font-weight:700;color:var(--sub2);letter-spacing:.3px;white-space:nowrap;align-self:center;margin-right:4px}
+.rgn-btn{padding:6px 14px;border-radius:16px;border:1.5px solid var(--bd);background:transparent;font-size:12px;font-weight:600;color:var(--sub);cursor:pointer;transition:all .15s;white-space:nowrap}
+.rgn-btn.active{background:#7a5a8a;border-color:#7a5a8a;color:#fff;box-shadow:0 1px 5px rgba(122,90,138,.3)}
+.rgn-btn:hover:not(.active){background:#f0edf5;border-color:#b89fcc;color:#5a3a6a}
+
+/* ── Perf filter ── */
+.perf-filter{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap}
+.pf-btn{padding:4px 12px;border-radius:10px;border:1.5px solid var(--bd);background:transparent;font-size:11px;font-weight:700;color:var(--sub);cursor:pointer;transition:all .15s}
+.pf-btn.active-good{background:var(--good-bg);border-color:#8ecba3;color:var(--good-color)}
+.pf-btn.active-ok{background:#fffde7;border-color:#ffe082;color:#b77800}
+.pf-btn.active-bad{background:var(--bad-bg);border-color:#f8a8a8;color:var(--bad-color)}
+.pf-btn:hover:not(.active-good):not(.active-ok):not(.active-bad){background:var(--accent-light);color:var(--accent-dark)}
+
+/* ── Main layout ── */
+.main-layout{display:grid;grid-template-columns:1fr 320px;gap:18px;margin-bottom:24px}
+
+/* ── Audience list ── */
+.aud-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.aud-count{font-size:12px;color:var(--sub2);background:var(--bg);padding:3px 10px;border-radius:10px;border:1px solid var(--bd)}
+.aud-row{background:var(--s);border:1px solid var(--bd);border-left:3px solid var(--bd);border-radius:var(--radius);padding:11px 14px;margin-bottom:6px;display:flex;gap:12px;align-items:flex-start;cursor:pointer;transition:all .15s}
+.aud-row:hover{border-left-color:var(--accent);box-shadow:var(--shadow-sm);transform:translateX(2px)}
+.aud-row.perf-優{border-left-color:#4aaa6a}
+.aud-row.perf-可{border-left-color:#e6a820}
+.aud-row.perf-差{border-left-color:#d4d0ca;opacity:.65}
+.perf-dot{width:22px;height:22px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;flex-shrink:0;margin-top:1px}
+.perf-dot.d-優{background:var(--good-bg);color:var(--good-color)}
+.perf-dot.d-可{background:#fffde7;color:#b77800}
+.perf-dot.d-差{background:var(--bg);color:var(--sub2)}
+.aud-body{flex:1;min-width:0}
+.aud-proj{font-size:10px;font-weight:700;color:var(--accent);margin-bottom:2px;letter-spacing:.2px}
+.aud-ta{font-size:12px;font-weight:700;color:var(--tx);line-height:1.35;margin-bottom:3px}
+.aud-region{font-size:10px;color:var(--sub2)}
+.aud-type{font-size:10px;padding:2px 7px;border-radius:8px;background:var(--blue-light);color:var(--blue-dark);border:1px solid var(--blue-border);font-weight:600;white-space:nowrap;flex-shrink:0}
+
+/* ── Tag frequency ── */
+.tag-box{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow-xs);position:sticky;top:70px}
+.tf-header{display:flex;align-items:center;gap:8px;margin-bottom:14px}
+.tf-icon{font-size:15px}
+.tf-title{font-size:12px;font-weight:700;color:var(--sub);letter-spacing:.3px;flex:1;text-transform:uppercase}
+.tf-subtitle{font-size:10px;color:var(--sub2)}
+.tf-row{display:flex;align-items:center;gap:8px;margin-bottom:9px}
+.tf-name{font-size:12px;font-weight:600;color:var(--tx);min-width:90px;max-width:120px;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tf-bar-wrap{flex:1;height:8px;background:var(--bg);border-radius:4px;overflow:hidden;border:1px solid var(--bd)}
+.tf-bar{height:100%;background:linear-gradient(90deg,#7a5a8a,#a07ab8);border-radius:4px;transition:width .5s ease}
+.tf-cnt{font-size:11px;font-weight:800;color:#7a5a8a;min-width:20px;text-align:right}
+.tf-empty{text-align:center;color:var(--sub2);font-size:12px;padding:20px 0}
+
+/* ── Project breakdown ── */
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:4px}
+.proj-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:14px 16px;box-shadow:var(--shadow-xs);transition:box-shadow .2s,transform .2s}
+.proj-card:hover{box-shadow:var(--shadow-sm);transform:translateY(-2px)}
+.pc-head{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.pc-icon{width:30px;height:30px;background:linear-gradient(135deg,#9a7aaa,#5a3a6a);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;flex-shrink:0}
+.pc-name{font-size:13px;font-weight:700;color:var(--tx);flex:1}
+.pc-total{font-size:11px;color:var(--sub2)}
+.pc-bars{display:flex;gap:4px;height:6px;border-radius:3px;overflow:hidden;margin-bottom:8px}
+.pcb-g{background:#4aaa6a;flex:var(--g)}
+.pcb-o{background:#e6a820;flex:var(--o)}
+.pcb-b{background:#ddd;flex:var(--b)}
+.pc-legend{display:flex;gap:10px}
+.pcl{font-size:10px;color:var(--sub2);display:flex;align-items:center;gap:3px}
+.pcl::before{content:'';width:7px;height:7px;border-radius:2px}
+.pcl.g::before{background:#4aaa6a}
+.pcl.o::before{background:#e6a820}
+.pcl.b::before{background:#ddd}
+.pcl strong{color:var(--tx);font-weight:700}
+
+/* ── Empty state ── */
+.empty{text-align:center;padding:48px 20px;color:var(--sub2)}
+.empty-icon{font-size:36px;margin-bottom:12px}
+
+/* ── Back to top ── */
+#btt{position:fixed;right:22px;bottom:26px;width:36px;height:36px;border-radius:50%;background:rgba(20,15,25,.7);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.85);font-size:14px;cursor:pointer;opacity:0;transform:translateY(8px);transition:opacity .2s,transform .2s;pointer-events:none;z-index:150;display:flex;align-items:center;justify-content:center}
+#btt.show{opacity:1;transform:translateY(0);pointer-events:auto}
+</style>
+</head>
+<body>
+
+<div class="ph">
+  <div class="ph-logo">受</div>
+  <div class="ph-title">受眾資料庫｜跨案分析總覽</div>
+  <nav class="ph-nav">
+    <a href="hub.html">← 返回總覽</a>
+    <a href="META興趣標籤查詢工具.html">標籤資料庫</a>
+  </nav>
+</div>
+
+<div class="wrap">
+
+  <!-- Summary stats -->
+  <div class="stats-row" id="statsRow">
+    <div class="sc"><div class="sc-n" id="s-total">—</div><div class="sc-l">受眾組總數</div></div>
+    <div class="sc"><div class="sc-n" id="s-good">—</div><div class="sc-l">優成效組數</div></div>
+    <div class="sc"><div class="sc-n" id="s-proj">—</div><div class="sc-l">涵蓋案件數</div></div>
+    <div class="sc"><div class="sc-n" id="s-region">—</div><div class="sc-l">地區數</div></div>
+  </div>
+
+  <!-- Region filter -->
+  <div class="region-bar" id="regionBar">
+    <span class="rgn-label">📍 地區</span>
+  </div>
+
+  <!-- Perf filter -->
+  <div class="perf-filter" id="perfFilter">
+    <button class="pf-btn active-good" data-perf="優" onclick="togglePerf(this)">優 ✓</button>
+    <button class="pf-btn active-ok"   data-perf="可" onclick="togglePerf(this)">可 ✓</button>
+    <button class="pf-btn"             data-perf="差" onclick="togglePerf(this)">差</button>
+  </div>
+
+  <!-- Main layout: list + tag frequency -->
+  <div class="main-layout">
+    <!-- Audience list -->
+    <div>
+      <div class="sec-title">成效受眾列表
+        <span class="aud-count" id="audCount">載入中…</span>
+      </div>
+      <div id="audList"></div>
+    </div>
+
+    <!-- Tag frequency -->
+    <div>
+      <div class="tag-box">
+        <div class="tf-header">
+          <span class="tf-icon">📊</span>
+          <div>
+            <div class="tf-title">興趣標籤出現率</div>
+            <div class="tf-subtitle" id="tfSub">優成效組中最常出現的標籤</div>
+          </div>
+        </div>
+        <div id="tagFreqRows"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project breakdown -->
+  <div class="sec">
+    <div class="sec-title blue-bar">各案件受眾概況 <span style="font-size:11px;color:var(--sub2);text-transform:none;font-weight:500" id="projCountLabel"></span></div>
+    <div class="proj-grid" id="projGrid"></div>
+  </div>
+
+</div>
+
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script src="aud_data.js"></script>
+<script>
+// ── State ──
+let activeRegion = 'all';
+let activePerfs  = new Set(['優','可']);
+
+// ── Build region buttons ──
+function initRegions() {
+  const regions = ['all',...new Set(AUD_DATA.map(d=>d.r).filter(Boolean).sort())];
+  const bar = document.getElementById('regionBar');
+  regions.forEach(r => {
+    const btn = document.createElement('button');
+    btn.className = 'rgn-btn' + (r==='all'?' active':'');
+    btn.textContent = r==='all'?'全部':r;
+    btn.onclick = () => setRegion(r, btn);
+    bar.appendChild(btn);
+  });
+}
+
+// ── Region select ──
+function setRegion(r, btn) {
+  activeRegion = r;
+  document.querySelectorAll('.rgn-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  render();
+}
+
+// ── Perf toggle ──
+function togglePerf(btn) {
+  const p = btn.dataset.perf;
+  if (activePerfs.has(p)) {
+    if (activePerfs.size <= 1) return;
+    activePerfs.delete(p);
+    btn.className = 'pf-btn';
+  } else {
+    activePerfs.add(p);
+    btn.className = 'pf-btn active-' + (p==='優'?'good':p==='可'?'ok':'bad');
+  }
+  render();
+}
+
+// ── Filter data ──
+function getFiltered() {
+  return AUD_DATA.filter(d => {
+    const regionOk = activeRegion==='all' || d.r===activeRegion;
+    const perfOk   = activePerfs.has(d.e);
+    return regionOk && perfOk;
+  });
+}
+
+function getGoodFiltered() {
+  return AUD_DATA.filter(d => {
+    const regionOk = activeRegion==='all' || d.r===activeRegion;
+    return regionOk && d.e==='優';
+  });
+}
+
+// ── Render audience list ──
+function renderAudList(data) {
+  const el = document.getElementById('audList');
+  document.getElementById('audCount').textContent = '共 '+data.length+' 組';
+  if (!data.length) {
+    el.innerHTML = '<div class="empty"><div class="empty-icon">🔍</div>此條件無資料</div>';
+    return;
+  }
+  // Sort: 優 first, then 可, then 差
+  const order = {優:0,可:1,差:2};
+  const sorted = [...data].sort((a,b)=>(order[a.e]??9)-(order[b.e]??9));
+  el.innerHTML = sorted.slice(0,80).map(d=>`
+    <div class="aud-row perf-${d.e}">
+      <div class="perf-dot d-${d.e}">${d.e||'—'}</div>
+      <div class="aud-body">
+        <div class="aud-proj">${d.p}</div>
+        <div class="aud-ta">${d.ta||'—'}</div>
+        <div class="aud-region">📍 ${d.r}</div>
+      </div>
+      ${d.t?`<div class="aud-type">${d.t}</div>`:''}
+    </div>`).join('');
+  if (data.length > 80) {
+    el.innerHTML += `<div style="text-align:center;padding:12px;color:var(--sub2);font-size:12px">顯示前 80 筆（共 ${data.length} 筆）</div>`;
+  }
+}
+
+// ── Render tag frequency ──
+function renderTagFreq(data) {
+  const el = document.getElementById('tagFreqRows');
+  const sub = document.getElementById('tfSub');
+  const goodData = getGoodFiltered();
+  sub.textContent = `優成效 ${goodData.length} 組中最常出現`;
+
+  const map = {};
+  goodData.forEach(d => {
+    if (!d.tg) return;
+    d.tg.split('||').forEach(t => {
+      t = t.trim();
+      if (t.length < 2) return;
+      map[t] = (map[t]||0) + 1;
+    });
+  });
+
+  const sorted = Object.entries(map).sort((a,b)=>b[1]-a[1]).slice(0,12);
+  if (!sorted.length) {
+    el.innerHTML = '<div class="tf-empty">無優成效資料</div>';
+    return;
+  }
+  const max = sorted[0][1];
+  el.innerHTML = sorted.map(([tag,cnt])=>`
+    <div class="tf-row">
+      <div class="tf-name" title="${tag}">${tag}</div>
+      <div class="tf-bar-wrap"><div class="tf-bar" style="width:${Math.round(cnt/max*100)}%"></div></div>
+      <div class="tf-cnt">${cnt}</div>
+    </div>`).join('');
+}
+
+// ── Render project breakdown ──
+function renderProjGrid() {
+  const el = document.getElementById('projGrid');
+  const label = document.getElementById('projCountLabel');
+
+  // Group by project
+  const scope = activeRegion==='all'
+    ? AUD_DATA
+    : AUD_DATA.filter(d=>d.r===activeRegion);
+
+  const projMap = {};
+  scope.forEach(d=>{
+    if (!projMap[d.p]) projMap[d.p]={total:0,g:0,o:0,b:0};
+    projMap[d.p].total++;
+    if(d.e==='優')projMap[d.p].g++;
+    else if(d.e==='可')projMap[d.p].o++;
+    else projMap[d.p].b++;
+  });
+
+  const projs = Object.entries(projMap)
+    .filter(([,v])=>v.g>0||v.o>0)
+    .sort((a,b)=>b[1].g-a[1].g||b[1].o-a[1].o);
+
+  label.textContent = `（${projs.length} 個案件有有效受眾）`;
+
+  el.innerHTML = projs.map(([name,v])=>{
+    const icon = name.charAt(0)||'?';
+    const gPct = Math.round(v.g/v.total*100)||0;
+    const oPct = Math.round(v.o/v.total*100)||0;
+    const bPct = 100-gPct-oPct;
+    return `<div class="proj-card">
+      <div class="pc-head">
+        <div class="pc-icon">${icon}</div>
+        <div>
+          <div class="pc-name">${name}</div>
+          <div class="pc-total">共 ${v.total} 組受眾</div>
+        </div>
+      </div>
+      <div class="pc-bars" style="--g:${v.g};--o:${v.o};--b:${v.b}">
+        ${v.g?'<div class="pcb-g"></div>':''}
+        ${v.o?'<div class="pcb-o"></div>':''}
+        ${v.b?'<div class="pcb-b"></div>':''}
+      </div>
+      <div class="pc-legend">
+        <div class="pcl g"><strong>${v.g}</strong> 優</div>
+        <div class="pcl o"><strong>${v.o}</strong> 可</div>
+        <div class="pcl b"><strong>${v.b}</strong> 差</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ── Render summary stats ──
+function renderStats() {
+  const scope = activeRegion==='all' ? AUD_DATA : AUD_DATA.filter(d=>d.r===activeRegion);
+  const good = scope.filter(d=>d.e==='優').length;
+  const projs = new Set(scope.map(d=>d.p)).size;
+  const regions = new Set(AUD_DATA.map(d=>d.r).filter(Boolean)).size;
+  document.getElementById('s-total').textContent = scope.length;
+  document.getElementById('s-good').textContent = good;
+  document.getElementById('s-proj').textContent = projs;
+  document.getElementById('s-region').textContent = regions;
+}
+
+// ── Master render ──
+function render() {
+  const filtered = getFiltered();
+  renderStats();
+  renderAudList(filtered);
+  renderTagFreq(filtered);
+  renderProjGrid();
+}
+
+// ── Init ──
+initRegions();
+render();
+window.addEventListener('scroll',()=>document.getElementById('btt').classList.toggle('show',window.scrollY>300));
+</script>
+</body>
+</html>
