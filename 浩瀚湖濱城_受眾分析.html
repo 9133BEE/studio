@@ -148,6 +148,38 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .sub-label{font-size:12px;font-weight:700;color:var(--accent);letter-spacing:.4px;margin-bottom:12px;margin-top:4px;display:flex;align-items:center;gap:8px;text-transform:uppercase}
 .sub-label::after{content:'';flex:1;height:1px;background:var(--accent-light)}
 .page-footer{text-align:center;font-size:11px;color:var(--sub2);margin-top:12px;padding-bottom:8px}
+/* ── aud-card 展開系統 ── */
+.aud-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;align-items:start}
+@media(max-width:760px){.aud-grid-2{grid-template-columns:1fr}}
+.aud-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);box-shadow:var(--shadow-xs);overflow:hidden}
+.aud-header{display:flex;align-items:center;gap:12px;padding:14px 16px;cursor:pointer;user-select:none;transition:background .15s}
+.aud-header:hover{background:#f5f0fa}
+.aud-num{width:28px;height:28px;border-radius:50%;background:#607d96;color:#fff;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.aud-info{flex:1;min-width:0}
+.aud-name{font-size:13px;font-weight:700;color:var(--tx);line-height:1.35}
+.aud-sub{font-size:11px;color:var(--sub);margin-top:2px;line-height:1.4}
+.aud-arrow{font-size:11px;color:var(--sub2);transition:transform .2s;flex-shrink:0}
+.aud-card.open .aud-arrow{transform:rotate(90deg)}
+.aud-body{display:none;padding:0 16px 16px;border-top:1px solid var(--bd)}
+.aud-card.open .aud-body{display:block}
+.aud-sl{font-size:10px;font-weight:700;color:var(--sub2);letter-spacing:.5px;text-transform:uppercase;margin:12px 0 6px}
+.aud-logic{font-size:12px;color:var(--sub);line-height:1.7;background:#f8f6fc;border-left:3px solid #607d96;padding:10px 12px;border-radius:0 6px 6px 0}
+.aud-lm{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:4px}
+.aud-lm-tag{font-size:11px;font-weight:600;color:#3a5a70;background:#e8f0f7;padding:3px 10px;border-radius:10px;border:1px solid #c8dae8}
+.tag-tbl{width:100%;border-collapse:collapse;font-size:12px;margin-top:4px}
+.tag-tbl thead tr{background:#f0f4f8}
+.tag-tbl th{padding:5px 8px;text-align:left;font-size:10px;font-weight:700;color:var(--sub2);border-bottom:1px solid var(--bd)}
+.tag-tbl tbody tr{cursor:pointer;transition:background .12s;border-bottom:1px solid #f0f0f0}
+.tag-tbl tbody tr:hover{background:#eef4f8}
+.tag-tbl tbody tr.flash{background:#c8e8f8}
+.tag-tbl td{padding:5px 8px;color:var(--tx)}
+.tag-tbl td:first-child{color:var(--sub2);font-size:10px;width:24px}
+.copy-all-row{display:flex;justify-content:flex-end;margin-top:8px}
+.copy-all-btn{font-size:11px;font-weight:600;color:#3a5a70;background:#e8f0f7;border:1px solid #c8dae8;border-radius:8px;padding:5px 14px;cursor:pointer;transition:all .15s}
+.copy-all-btn:hover{background:#d0e4f0}
+.copy-all-btn.done{background:#d0ecd8;color:#2a6a3a;border-color:#a8d8b8}
+#copy-toast{position:fixed;bottom:72px;left:50%;transform:translateX(-50%) translateY(8px);background:#162030;color:#90c8d8;font-size:11px;font-weight:600;padding:7px 16px;border-radius:18px;opacity:0;pointer-events:none;transition:opacity .18s,transform .18s;z-index:300;white-space:nowrap}
+#copy-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 /* ── Tab navigation ── */
 .tab-bar{display:flex;gap:6px;margin-bottom:22px;background:var(--s);border:1px solid var(--bd);border-radius:10px;padding:5px;box-shadow:var(--shadow-xs)}
 .tab-btn{flex:1;padding:8px 14px;border-radius:7px;border:none;background:transparent;font-size:13px;font-weight:600;color:var(--sub);cursor:pointer;transition:all .15s;text-align:center}
@@ -344,45 +376,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 
 <div id="tab-next" class="tab-pane">
 <div class="section">
-  <div class="sec-title">建議新測試受眾方向</div>
-  <div class="sub-label" style="margin-bottom:12px">🏢 商辦受眾</div>
-  <div class="new-grid" style="margin-bottom:20px">
-    <div class="new-card">
-      <div class="new-card-title">35–55 / 東區水湳 / 辦公室自用+SOHO ↗</div>
-      <div class="new-card-desc">記帳士、地政士、顧問師等自雇族，訴求「19坪辦公室，早上下樓上班，晚上上樓回家」</div>
-    </div>
-    <div class="new-card">
-      <div class="new-card-title">30–55 / 台中市區+6km / 自雇記帳士+地政士 ↗</div>
-      <div class="new-card-desc">延伸 CPL NT$562 法律執業者成功方向，加入地政士、會計師、專業顧問職稱行為層</div>
-    </div>
-    <div class="new-card">
-      <div class="new-card-title">30–55 / 台中市區+8km / 小型企業主+商業決策者 ↗</div>
-      <div class="new-card-desc">行為標籤：小型企業主＋商業決策者，搭配「接台中站19坪辦公室，員工通勤方便」訴求</div>
-    </div>
-    <div class="new-card">
-      <div class="new-card-title">商辦投資 / 591辦公室+房地產投資 ↗</div>
-      <div class="new-card-desc">以 591 辦公室＋商業不動產投資標籤篩出商辦買方，切入「台中最核心地段、租金保值」</div>
-    </div>
-  </div>
-  <div class="sub-label" style="margin-bottom:12px">🏠 住宅受眾</div>
-  <div class="new-grid">
-    <div class="new-card">
-      <div class="new-card-title">30–55 / 台中車站+3km / 通勤族 ↗</div>
-      <div class="new-card-desc">每天進出台中車站的上班族，訴求「步行10分鐘到家，六百億大車站計畫受惠者」</div>
-    </div>
-    <div class="new-card">
-      <div class="new-card-title">30–50 / 東區北屯大里 / 在地換屋升級 ↗</div>
-      <div class="new-card-desc">延伸 CPL NT$423 換屋首購成功方向，強調「不用換生活圈，住進 LALAPORT 旁新成屋」</div>
-    </div>
-    <div class="new-card">
-      <div class="new-card-title">35–60 / 逢甲北屯 / 六百億增值投資 ↗</div>
-      <div class="new-card-desc">有置產習慣的投資人，切入「台中車站計畫＋捷運藍線＋喜來登物業三重增值保障」</div>
-    </div>
-    <div class="new-card">
-      <div class="new-card-title">再行銷 / 互動過未留名單 ↗</div>
-      <div class="new-card-desc">已曝光互動但未填名單族群，搭配「現在入住，不用等交屋」稀缺感素材二次觸及</div>
-    </div>
-  </div>
+  <div class="sec-title">建議嘗試受眾（8組）· 更新 2026-06-08</div>
+  <div id="main-aud-grid" class="aud-grid-2"></div>
 </div>
 
 <div class="section">
@@ -560,7 +555,102 @@ const PROJECT = '浩瀚湖濱城（台中東區・LALAPORT對面・進德路×�
 function showToast(msg){const t=document.getElementById('toast');t.textContent=msg||'📋 詢問建議已複製 → 貼至 Claude 對話';t.style.opacity='1';t.style.transform='translateX(-50%) translateY(0)';setTimeout(()=>{t.style.opacity='0';t.style.transform='translateX(-50%) translateY(20px)'},2200)}
 function copyPrompt(text){navigator.clipboard.writeText(text).then(()=>showToast()).catch(()=>{const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast()})}
 document.querySelectorAll('.core-tag').forEach(el=>{el.addEventListener('click',()=>{const tag=el.textContent.replace('↗','').trim();copyPrompt(`針對${PROJECT}的 META 廣告投放，請深入分析「${tag}」這個興趣標籤：\n1. 這個標籤在本案受眾中代表什麼輪廓的人？\n2. 搭配哪些其他標籤組合效果最好？\n3. 素材訴求應該怎麼寫才能匹配這類受眾？`)})});
-document.querySelectorAll('.new-card').forEach(el=>{el.addEventListener('click',()=>{const title=el.querySelector('.new-card-title').textContent.replace('↗','').trim();const desc=el.querySelector('.new-card-desc').textContent.trim();copyPrompt(`針對${PROJECT}，我想測試新受眾方向：「${title}」\n方向說明：${desc}\n\n請給我：\n1. 具體的 META 興趣標籤清單（附中文，約 10–15 個）\n2. 地理設定建議\n3. 適合這組受眾的素材訴求角度`)})});
+/* ── 建議受眾 aud-card 系統 ── */
+const MAIN_G=[
+  {n:'35-55 / 東區水湳 / 辦公室自用+SOHO',sub:'全案最低CPL $341 active · 商辦產品首選受眾',
+   logic:'35-55/東區水湳/辦公室自用SOHO只花NT$1,022帶出3潛客，CPL $341是全案最低且仍active。湖濱城辦公室（19-21坪）是本案特有產品，但目前所有其他受眾都是住宅混搭，沒有一組是純商辦切入。記帳士、地政士、顧問師、SOHO族對「早上下樓上班，晚上上樓回家，台中車站步行10分鐘」訴求響應極強。建議立即加預算至NT$400/日，同時開延伸地標組擴大覆蓋。',
+   lm:['台中車站','LALAPORT台中','台中水湳機場','東區文化路商圈'],
+   tags:[['SOHO','在家工作'],['Remote work','遠端工作'],['Freelancing','自由接案'],['Coworking space','共同工作空間'],['Office space','辦公室空間'],['Commercial property','商業不動產'],['Small business','小型企業'],['Self-employment','自雇'],['Entrepreneurship','創業'],['Accounting','會計'],['Tax law','稅法'],['Professional services','專業服務'],['Consulting','顧問業'],['Real estate','不動產'],['Investment','投資理財'],['Financial planning','財務規劃'],['Property investment','置產投資'],['Home buying','購屋'],['Office renovation','辦公室裝潢'],['Business networking','商業人脈'],['Business management','商業管理'],['Work-life balance','工作生活平衡'],['Productivity','生產力效率'],['Technology','科技'],['Coffee','咖啡'],['Taichung','台中'],['Travel','旅遊'],['Fitness','健身'],['Career development','職涯發展'],['Interior design','室內設計']]},
+  {n:'35-55 / 東區北區 / 法律執業者+運動',sub:'11潛客 CPL $562 · 5/28確認有效 · 全案規模最大',
+   logic:'法律相關執業者+運動是全案規模最大（11潛客）且最確認有效的冷受眾，5/28正式驗證。法律/記帳/顧問職業背景的自雇族群對「工作生活同棟」訴求共鳴強，且置產決策力強。建議以同標籤組合開「東區+5km」新組，加入Patent Attorney、Accountant職稱行為層強化精準度。預算提升至NT$300-400/日，目標CPL壓至NT$500以下。素材切角：「台中最核心辦公室，律師事務所樓上就是家，台中站10分鐘。」',
+   lm:['台中地方法院','東區台中車站','台中北區法院周邊','水湳運動公園'],
+   tags:[['Law','法律'],['Attorney','律師'],['Legal services','法律服務'],['Accounting','會計'],['Tax law','稅法'],['Professional services','專業服務'],['Patent law','專利法'],['Notary','公證人'],['Compliance','法規遵循'],['Corporate law','公司法'],['Running','路跑'],['Fitness','健身'],['Sports','運動'],['Marathon','馬拉松'],['Cycling','單車'],['Gym','健身房'],['Investment','投資理財'],['Financial planning','財務規劃'],['Real estate','不動產'],['Office space','辦公室空間'],['Property investment','置產投資'],['Home buying','購屋'],['Business networking','商業人脈'],['Professional development','職涯發展'],['Work-life balance','工作生活平衡'],['Taichung','台中'],['Travel','旅遊'],['Fine dining','精緻餐飲'],['Coffee','咖啡'],['Self-employment','自雇']]},
+  {n:'35-65 / 台中市區 / 電商網拍創業者',sub:'11潛客 CPL $622 · 與百貨年輕興趣組合可規模化',
+   logic:'電商/網拍受眾11潛客CPL$622，和百貨年輕興趣（同11潛客$734）輪廓高度重疊——都是台中市區年輕消費力族群，工作分散在市區各處。電商/網拍族群收入彈性、有投資意識，對台中車站旁「辦公+住家」雙用訴求接受度高。建議合組成「電商+百貨年輕+消費力」大組，覆蓋更廣台中市區輪廓，預算提高至NT$400/日，縮小CPL差距。素材：「台中最核心地段，工作在這裡，家也在這裡。」',
+   lm:['LALAPORT台中','台中車站','大魯閣新時代購物中心','秀泰影城'],
+   tags:[['E-commerce','電子商務'],['Online retail','網路零售'],['Online shopping','網路購物'],['Dropshipping','代購批發'],['Social media marketing','社群媒體行銷'],['Digital marketing','數位行銷'],['Brand management','品牌管理'],['Content creation','內容創作'],['Instagram','Instagram社群'],['Entrepreneurship','創業'],['Small business','中小企業'],['Self-employment','自雇'],['Investment','投資理財'],['Financial planning','財務規劃'],['Real estate','不動產'],['Property investment','置產投資'],['Home buying','購屋'],['Office space','辦公室空間'],['Work-life balance','工作生活平衡'],['Technology','科技'],['Logistics','物流'],['Taichung','台中'],['Shopping mall','購物中心'],['Fashion','時尚'],['Luxury goods','精品'],['Travel','旅遊'],['Coffee','咖啡'],['Fitness','健身'],['Career development','職涯發展'],['Business networking','商業人脈']]},
+  {n:'30-50 / 東區北屯大里 / 在地換屋首購菁英',sub:'8潛客 CPL $423 · 5/28確認有效 · 在地性最強',
+   logic:'北屯在地換屋首購菁英8潛客CPL$423，是所有住宅受眾中CPL最低（$423遠低均值$856）。台中東區/北屯/大里在地居民對LALAPORT商圈最熟悉，「不用換生活圈，住進LALAPORT旁新成屋」訴求接受度高。建議複製至「北區西屯大里+6km」擴大覆蓋，或加入台糖湖濱園區、大魯閣為地標做新組。素材：「住在東區長大，現在就在你熟悉的地方買一間，LALAPORT旁，台中站10分鐘。」',
+   lm:['LALAPORT台中','大魯閣新時代','台中東區市場','台糖湖濱園區'],
+   tags:[['Home buying','購屋'],['First home','首購'],['Home upgrade','換屋升格'],['Moving','搬家'],['Interior design','室內設計'],['Home decor','居家布置'],['Furniture','家具'],['New construction','新成屋'],['Real estate','不動產'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Investment','投資理財'],['Family','家庭'],['Children','子女'],['School district','學區'],['Community','社區'],['Local community','在地社區'],['Shopping mall','購物中心'],['Work-life balance','工作生活平衡'],['Taichung','台中'],['Parks','公園'],['Fitness','健身'],['Running','路跑'],['Coffee','咖啡'],['Dining','餐廳'],['High-end residential','高端住宅'],['Urban living','都市生活'],['Home appliances','家電'],['Property investment','置產投資'],['Saving','儲蓄']]},
+  {n:'35-65 / 逢甲水湳北屯 / 六百億大車站增值投資',sub:'投資相關6潛客 $665 · 六百億概念尚未完整發揮',
+   logic:'逢甲/水湳/北屯/投資相關6潛客CPL$665，是有效受眾中投資型最大組。但這組從未搭配「六百億大車站計畫+捷運藍線」訴求——是最大的素材未被利用方向。台中車站六百億計畫＋捷運藍線＋喜來登物業是三重增值保障，對有置產習慣的中年投資人說服力極強。建議換新素材切角：「台中車站旁，六百億計畫紅利，捷運藍線＋喜來登物業三重增值。」後重開擴大版。',
+   lm:['逢甲夜市商圈','台中水湳機場','台中車站','北屯洲際廣場'],
+   tags:[['Investment','投資理財'],['Real estate investing','房地產投資'],['Property investment','置產投資'],['Stock market','股票市場'],['ETF','ETF基金'],['Financial planning','財務規劃'],['Wealth management','財富管理'],['Passive income','被動收入'],['Asset management','資產管理'],['Rental income','租金收入'],['Capital gain','資本利得'],['Infrastructure','基礎建設'],['Urban development','都市開發'],['Commercial real estate','商業不動產'],['Retirement planning','退休規劃'],['Tax planning','稅務規劃'],['Luxury goods','精品名牌'],['Luxury car','名車豪車'],['Golf','高爾夫'],['Travel','旅遊'],['Business class','商務艙旅行'],['Fine dining','精緻餐飲'],['Business owner','企業主'],['Self-employment','自雇'],['Home buying','購屋'],['Mortgage','房貸'],['Taichung','台中'],['Premium credit card','白金信用卡'],['Financial independence','財務自由'],['High-net-worth individual','高資產族群']]},
+  {n:'30-55 / 台中市區 / 自雇顧問+記帳士+地政士',sub:'延伸法律$562有效方向 · 商辦產品精準切入',
+   logic:'法律/記帳/顧問有效方向確認後，最直接的延伸是把「職業精準度」拉更高——加入記帳士、地政士、會計師的職稱行為層。這群人（30-55歲）收入穩定、工作自主、辦公室購需求強，對「台中最核心19坪辦公室，步行到台中車站10分鐘，員工通勤方便」的商辦訴求最具說服力。建議以職稱標籤層（Patent Attorney、Accountant、Notary Public）搭配台中市區+6km定向。',
+   lm:['台中車站','台中地政事務所','東區台中地方法院','LALAPORT台中'],
+   tags:[['Accounting','會計'],['Bookkeeping','記帳'],['Tax preparation','報稅'],['Certified public accountant','會計師執照'],['Land administration','地政'],['Real estate agent','房仲'],['Notary','公證人'],['Professional services','專業服務'],['Consulting','顧問業'],['Business consulting','商業顧問'],['Financial consulting','財務顧問'],['Legal consulting','法律顧問'],['Office space','辦公室空間'],['Commercial property','商業不動產'],['Self-employment','自雇'],['Small business','中小企業'],['Tax law','稅法'],['Investment','投資理財'],['Financial planning','財務規劃'],['Property investment','置產投資'],['Real estate','不動產'],['Home buying','購屋'],['Mortgage','房貸'],['Business networking','商業人脈'],['Professional development','職涯發展'],['Taichung','台中'],['Work-life balance','工作生活平衡'],['Technology','科技'],['Coffee','咖啡'],['Career advancement','職涯晉升']]},
+  {n:'35-65 / 北屯洲際 / 物流倉儲業主（重開）',sub:'11潛客 $784 暫停中 · 換素材切商辦可重開',
+   logic:'物流倉儲組11潛客CPL$784是暫停前第二大組，規模有效但CPL偏高——問題在素材，不在受眾。原素材是住宅概念，但物流/倉儲業主對「工作生活同棟＋台中車站辦公室」訴求更強共鳴。建議換新素材：「台中最核心的辦公室，倉庫在外圍，指揮部在台中站旁，19坪自用一間最划算。」ISO財稅顧問10潛客$705類似方向也建議同步重開。兩組潛力合計21潛客。',
+   lm:['北屯洲際廣場','台中物流倉儲聚落','台中車站','水湳工業區'],
+   tags:[['Logistics','物流'],['Warehousing','倉儲'],['Supply chain','供應鏈'],['Freight','貨運'],['Import export','進出口'],['Transportation','運輸'],['Manufacturing','製造業'],['Distribution','配銷通路'],['Inventory management','庫存管理'],['E-commerce logistics','電商物流'],['Business owner','企業主'],['Self-employment','自雇'],['Small business','中小企業'],['Trading','貿易業'],['Investment','投資理財'],['Real estate','不動產'],['Property investment','置產投資'],['Commercial property','商業不動產'],['Office space','辦公室空間'],['Home buying','購屋'],['Financial planning','財務規劃'],['Tax planning','稅務規劃'],['Luxury car','名車豪車'],['Business networking','商業人脈'],['Taichung','台中'],['Travel','旅遊'],['Golf','高爾夫'],['Home upgrade','換屋升格'],['Asset management','資產管理'],['Wealth management','財富管理']]},
+  {n:'30-50 / 台中車站周邊 / 通勤族換屋',sub:'台中車站步行10分鐘 · 全案唯一未測試通勤族定向',
+   logic:'湖濱城最核心的地理優勢是「台中車站步行10分鐘」，但全案60+組從未有過「通勤族」受眾直接定向——所有受眾都是職業/產業切入，沒有針對「每天進出台中車站的上班族」。這群人對「下班步行10分鐘到家」有最直接的需求共鳴，且通勤族換屋動機強、決策速度快。素材：「台中車站旁新成屋，今天下班走進來，二三四房任選，辦公室空間也有，現在決定最早住進去。」',
+   lm:['台中車站','台鐵台中站前廣場','秀泰影城','LALAPORT台中'],
+   tags:[['Commuting','通勤'],['Public transportation','大眾運輸'],['Train','火車鐵路'],['Metro','捷運'],['Transit','交通通勤'],['Urban planning','都市計畫'],['Infrastructure','基礎建設'],['Work-life balance','工作生活平衡'],['Career','職涯'],['Home buying','購屋'],['First home','首購'],['Home upgrade','換屋升格'],['Moving','搬家'],['New construction','新成屋'],['Real estate','不動產'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Investment','投資理財'],['Property investment','置產投資'],['Interior design','室內設計'],['Home decor','居家布置'],['Family','家庭'],['Children','子女'],['School district','學區'],['Taichung','台中'],['Fitness','健身'],['Running','路跑'],['Coffee','咖啡'],['Dining','餐廳'],['Professional development','職涯發展']]}
+];
+
+let audToastT;
+function showCopyToast(msg){
+  let t=document.getElementById('copy-toast');
+  if(!t){t=document.createElement('div');t.id='copy-toast';document.body.appendChild(t);}
+  t.textContent=msg;t.classList.add('show');
+  clearTimeout(audToastT);audToastT=setTimeout(()=>t.classList.remove('show'),1400);
+}
+function copyTxt(txt){return navigator.clipboard?navigator.clipboard.writeText(txt):Promise.reject();}
+
+function initAudCard(card){
+  if(card.dataset.cb)return;card.dataset.cb='1';
+  card.querySelectorAll('.tag-tbl tbody tr').forEach(row=>{
+    const en=row.cells[1]?.textContent.trim();if(!en)return;
+    row.addEventListener('click',()=>{
+      copyTxt(en).then(()=>{row.classList.add('flash');setTimeout(()=>row.classList.remove('flash'),600);showCopyToast('已複製：'+en);});
+    });
+  });
+  card.querySelectorAll('.tag-tbl').forEach(tbl=>{
+    const wrap=document.createElement('div');wrap.className='copy-all-row';
+    const btn=document.createElement('button');btn.className='copy-all-btn';btn.innerHTML='⎘ 複製全部30個標籤';
+    btn.addEventListener('click',e=>{
+      e.stopPropagation();
+      const tags=Array.from(tbl.querySelectorAll('tbody tr')).map(r=>r.cells[1]?.textContent.trim()).filter(Boolean).join('\n');
+      copyTxt(tags).then(()=>{btn.classList.add('done');btn.textContent='✓ 已複製30個';showCopyToast('已複製全部30個標籤');setTimeout(()=>{btn.classList.remove('done');btn.innerHTML='⎘ 複製全部30個標籤';},2000);});
+    });
+    wrap.appendChild(btn);tbl.after(wrap);
+  });
+}
+
+function toggleAud(id){
+  const c=document.getElementById(id);
+  c.classList.toggle('open');
+  if(c.classList.contains('open'))initAudCard(c);
+}
+
+function buildAudCard(g,idx){
+  const id='m'+(idx+1);
+  const rows=g.tags.map((t,i)=>`<tr><td>${i+1}</td><td>${t[0]}</td><td>${t[1]}</td></tr>`).join('');
+  const lmTags=g.lm.map(l=>`<span class="aud-lm-tag">${l}</span>`).join('');
+  return `<div class="aud-card" id="${id}">
+    <div class="aud-header" onclick="toggleAud('${id}')">
+      <div class="aud-num">${idx+1}</div>
+      <div class="aud-info"><div class="aud-name">${g.n}</div><div class="aud-sub">${g.sub}</div></div>
+      <div class="aud-arrow">▶</div>
+    </div>
+    <div class="aud-body">
+      <div class="aud-sl">評估邏輯</div>
+      <div class="aud-logic">${g.logic}</div>
+      <div class="aud-sl">地標定位</div>
+      <div class="aud-lm">${lmTags}</div>
+      <div class="aud-sl">興趣標籤（點擊列複製單個）</div>
+      <table class="tag-tbl"><thead><tr><th>#</th><th>English</th><th>中文</th></tr></thead><tbody>${rows}</tbody></table>
+    </div>
+  </div>`;
+}
+
+(function(){
+  const mg=document.getElementById('main-aud-grid');
+  if(mg)mg.innerHTML=MAIN_G.map((g,i)=>buildAudCard(g,i)).join('');
+})();
 document.querySelectorAll('.pack-tbl tr').forEach(tr=>{const cells=tr.querySelectorAll('td');if(cells.length<2)return;tr.classList.add('data-row');tr.addEventListener('click',()=>{const eng=cells[1].textContent.trim();navigator.clipboard.writeText(eng).then(()=>showToast('📋 已複製：'+eng)).catch(()=>{const ta=document.createElement('textarea');ta.value=eng;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast('📋 已複製：'+eng)})})});
 document.querySelectorAll('.tip').forEach(el=>{el.style.cursor='pointer';el.addEventListener('click',()=>{const title=el.querySelector('.tip-title').textContent.trim();const desc=el.querySelector('.tip-desc').textContent.trim();copyPrompt(`針對${PROJECT}，關於這項操作建議：\n「${title}」\n背景：${desc}\n\n請幫我制定具體的執行方案，包含受眾設定細節和素材方向。`)})});
 document.querySelectorAll('.phase-row').forEach(el=>{el.addEventListener('click',()=>{const title=el.querySelector('.phase-title');const desc=el.querySelector('.phase-desc');const stat=el.querySelector('.phase-cpl');if(!title)return;copyPrompt(`針對${PROJECT}，關於素材「${title.textContent.trim()}」：\n績效：${stat?stat.textContent.trim():''}\n說明：${desc?desc.textContent.trim():''}\n\n請分析：\n1. 這支素材表現好/差的原因？\n2. 如何延伸或改進這個素材方向？\n3. 最適合搭配這個素材的受眾設定？`)})});
