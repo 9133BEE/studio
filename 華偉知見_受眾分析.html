@@ -145,6 +145,37 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .tab-btn:hover:not(.active){background:#f0edf5;color:#5a3a6a}
 .tab-pane{display:none}
 .tab-pane.show{display:block}
+/* ── Aud-card ── */
+.aud-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;align-items:start}
+@media(max-width:760px){.aud-grid-2{grid-template-columns:1fr}}
+.aud-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);box-shadow:var(--shadow-xs);overflow:hidden}
+.aud-header{display:flex;align-items:center;gap:12px;padding:13px 16px;cursor:pointer;transition:background .15s;user-select:none}
+.aud-header:hover{background:var(--accent-light)}
+.aud-num{width:24px;height:24px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0}
+.aud-info{flex:1;min-width:0}
+.aud-name{font-size:12px;font-weight:700;color:var(--tx);line-height:1.3}
+.aud-sub{font-size:10px;color:var(--sub2);margin-top:2px}
+.aud-arrow{font-size:12px;color:var(--sub2);transition:transform .2s;flex-shrink:0}
+.aud-card.open .aud-arrow{transform:rotate(90deg)}
+.aud-body{display:none;padding:0 16px 16px;border-top:1px solid var(--bd)}
+.aud-card.open .aud-body{display:block}
+.aud-sl{font-size:10px;font-weight:700;color:var(--sub2);text-transform:uppercase;letter-spacing:.4px;margin:12px 0 6px}
+.aud-logic{font-size:11px;color:var(--tx);line-height:1.65;background:var(--accent-light);border:1px solid var(--accent-border);border-radius:8px;padding:9px 12px}
+.aud-lm{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px}
+.aud-lm-tag{background:var(--bg);border:1px solid var(--bd);border-radius:12px;padding:2px 9px;font-size:10px;color:var(--sub)}
+.tag-tbl{width:100%;border-collapse:collapse;font-size:11px;margin-top:6px}
+.tag-tbl th{padding:3px 8px;text-align:left;font-weight:600;border:1px solid var(--bd);background:var(--accent-light);color:var(--accent-dark)}
+.tag-tbl td{padding:2px 8px;border:1px solid var(--bd);color:var(--sub)}
+.tag-tbl tr:nth-child(even) td{background:var(--bg)}
+.tag-tbl tbody tr{cursor:pointer;transition:background .1s}
+.tag-tbl tbody tr:hover{background:var(--accent-light)}
+.tag-tbl tbody tr.flash{background:#c8f0d4}
+.copy-all-row{display:flex;justify-content:flex-end;margin-top:6px}
+.copy-all-btn{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:600;color:var(--accent-dark);background:var(--accent-light);border:1px solid var(--accent-border);border-radius:6px;padding:4px 10px;cursor:pointer;transition:background .15s}
+.copy-all-btn:hover{background:var(--accent-border);color:#fff}
+.copy-all-btn.done{background:#c8f0d4;color:#1a5a34}
+#copy-toast{position:fixed;bottom:72px;left:50%;transform:translateX(-50%) translateY(8px);background:#162016;color:#90d8a8;font-size:11px;font-weight:600;padding:7px 16px;border-radius:18px;opacity:0;pointer-events:none;transition:opacity .18s,transform .18s;z-index:300;white-space:nowrap}
+#copy-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 </style>
 </head>
 <body>
@@ -398,41 +429,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 <div id="tab-next" class="tab-pane">
 <!-- ── 建議新受眾方向 ── -->
 <div class="section">
-  <div class="sec-title">建議新測試受眾方向</div>
-  <div class="new-grid">
-    <div class="new-card">
-      <div class="new-card-title">28–50 / 台中工業區+精密機械區 / 工程師首購 ↗</div>
-      <div class="new-card-desc">延伸科技工業 36訊息成功方向，換地標至「台中工業區/精密機械區+6km」，覆蓋更多台1沿線工程師，搭配「台鐵沙鹿站通勤直達」素材</div>
-    </div>
-    <div class="new-card">
-      <div class="new-card-title">27–40 / 沙鹿清水+梧棲 / 首購年輕族+捷運增值 ↗</div>
-      <div class="new-card-desc">結合「首購成家+捷運藍線2026動工」雙訴求，針對27-40歲在地年輕族群，強調現在入場捷運通車前最划算</div>
-    </div>
-    <div class="new-card">
-      <div class="new-card-title">28–55 / 沙鹿清水 / 光田醫院醫護人員 ↗</div>
-      <div class="new-card-desc">光田醫院是沙鹿步行圈內最大雇主之一，醫護人員有穩定收入且在地，訴求「光田步行圈，下班直接回家，26坪二房首購」</div>
-    </div>
-    <div class="new-card">
-      <div class="new-card-title">35–55 / 沙鹿梧棲 / 捷運藍線置產客 ↗</div>
-      <div class="new-card-desc">針對有置產念頭的熟齡族群，以「捷運藍線題材」切入，強調沙鹿目前相對低價但捷運效益即將到來，搭配投資保值訴求</div>
-    </div>
-    <div class="new-card">
-      <div class="new-card-title">35–60 / 沙鹿+清水 / 在地換屋升級族 ↗</div>
-      <div class="new-card-desc">沙鹿清水在地住了10年以上的老住戶，想換新屋改善居住品質，訴求「不離開沙鹿生活圈，換一間比較好的」</div>
-    </div>
-    <div class="new-card">
-      <div class="new-card-title">30–55 / 沙鹿+大甲 / 傳產業主・在地置產 ↗</div>
-      <div class="new-card-desc">沙鹿大甲傳統產業老闆有穩定收入且在地生活，加入製造業+五金傳產+在地商業標籤，以自住置產為訴求</div>
-    </div>
-    <div class="new-card">
-      <div class="new-card-title">40–65 / 沙鹿清水梧棲 / 長輩協助子女置產 ↗</div>
-      <div class="new-card-desc">沙鹿在地父母幫子女買房需求，訴求「光田步行圈旁，幫孩子在老家附近置產，近又方便」</div>
-    </div>
-    <div class="new-card">
-      <div class="new-card-title">28–55 / 台中西屯+沙鹿 / 公教職員・通勤首購 ↗</div>
-      <div class="new-card-desc">台中市區公教族群通勤沙鹿，沙鹿房價相對低，訴求「台中市區價格買沙鹿大空間，台1線通勤方便」</div>
-    </div>
-  </div>
+  <div class="sec-title">建議嘗試受眾（8組）· 更新 2026-06-09</div>
+  <div id="main-aud-grid" class="aud-grid-2"></div>
 </div>
 
 <!-- ── 受眾排行 ── -->
@@ -607,14 +605,97 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 
 </div><!-- end tab-next -->
 
-<div class="page-footer">資料期間：2025-10-17 至 2026-06-03 · 華偉知見 台中沙鹿 · 廣告目標：訊息 · 最後更新 2026-06-03</div>
+<div class="page-footer">資料期間：2025-10-17 至 2026-06-09 · 華偉知見 台中沙鹿 · 廣告目標：訊息 · 最後更新 2026-06-09</div>
 
 </div>
 
 <div id="toast" style="position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);background:#2e2c29;color:#fff;font-size:12.5px;padding:10px 20px;border-radius:24px;opacity:0;transition:all .25s;pointer-events:none;z-index:999;white-space:nowrap">📋 已複製 → 貼至 Claude 對話</div>
 <script>
 function switchTab(name){document.querySelectorAll('.tab-btn').forEach((b,i)=>{const names=['analysis','next'];b.classList.toggle('active',names[i]===name)});document.querySelectorAll('.tab-pane').forEach(p=>{p.classList.remove('show')});document.getElementById('tab-'+name).classList.add('show');window.scrollTo({top:0,behavior:'smooth'})}
-const PROJECT = '華偉知見（台中沙鹿・中山路永安巷・純二房26坪・訊息143則・潛客28表單）';
+
+const MAIN_G=[
+  {n:'28-50 / 台1+中科沿線+8km / 工程師首購通勤',sub:'科技工業36訊息$274全案最強·換地標擴大覆蓋科技廊道',
+   logic:'台1中科科技工業（0113擴大）36訊息CPL$274是全案訊息量第一。此組換地標到台中科學園區+台中工業區+8km，覆蓋更多科技廊道工程師與技術工，而非只守原有受眾池。台鐵沙鹿站每日通勤路線直接，26坪二房是首購入場理想格局。素材切角：「中科下班10分鐘，台鐵沙鹿直達，26坪二房捷運藍線旁，現在入場最划算。」',
+   lm:['台中科學園區','台中工業區','台鐵沙鹿站','國道3號交流道'],
+   tags:[['Technology','科技業'],['Manufacturing','製造業'],['Engineering','工程師'],['Semiconductor','半導體'],['Electronics','電子業'],['Software','軟體業'],['Research and development','研發'],['Science park','科學園區'],['Precision manufacturing','精密機械'],['Industrial design','工業設計'],['Commuting','通勤'],['Train travel','火車鐵路'],['Mass Rapid Transit','捷運'],['First home','首購'],['Home buying','購屋'],['Real estate','不動產'],['Mortgage','房貸'],['Apartment','公寓住宅'],['Investment','投資理財'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Work-life balance','工作生活平衡'],['Career','職涯發展'],['Young professional','年輕專業人士'],['Office worker','上班族'],['Taichung','台中'],['Travel','旅遊'],['Fitness','健身'],['Running','路跑'],['Coffee','咖啡']]},
+  {n:'27-40 / 沙鹿清水梧棲+6km / 首購年輕族+捷運增值',sub:'捷運藍線2026動工是最強價值增長題材·年輕首購主訴求',
+   logic:'捷運藍線預計2026年動工，沙鹿是捷運前低點，對27-40歲在地年輕族群「現在買最划算、等捷運到就貴了」是時間緊迫訴求。純二房26坪是年輕人負擔得起的首購格局，雙衛在同價位中稀有。沙鹿清水梧棲在地年輕族群對生活圈熟悉，認同感強。素材切角：「捷運藍線2026動工，沙鹿26坪二房，現在是入場最後機會。」',
+   lm:['沙鹿火車站','清水區公所','梧棲漁港','光田醫院'],
+   tags:[['Mass Rapid Transit','捷運'],['Commuting','通勤'],['Public transportation','大眾運輸'],['Urban planning','都市規劃'],['Apartment','公寓住宅'],['First home','首購'],['Home buying','購屋'],['Real estate','不動產'],['Mortgage','房貸'],['Investment','投資理財'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Young adults','年輕人'],['Young professional','年輕專業人士'],['Marriage','婚姻'],['Wedding','婚禮'],['Family planning','成家計畫'],['Work-life balance','工作生活平衡'],['Career','職涯發展'],['Life planning','生活規劃'],['Moving','搬家'],['New construction','新成屋'],['Property value','房產增值'],['Taichung','台中'],['Local community','在地社區'],['Coffee','咖啡'],['Travel','旅遊'],['Fitness','健身'],['Running','路跑'],['Health food','健康飲食']]},
+  {n:'28-55 / 光田醫院+5km / 醫護安居首購族',sub:'光田醫院步行圈地標·全案從未做過醫護職業定向',
+   logic:'光田醫院是本案591頁標示的步行圈核心地標，是沙鹿最大雇主之一，但全案從未開過醫護職員定向受眾，是最大盲點。醫護人員收入穩定（護理師月薪5-8萬），首購需求強，下班走路回家對忙碌醫護是直接賣點。26坪二房正符合單身或新婚醫護的首購需求。素材切角：「光田醫院走路5分鐘，下班不用開車，26坪二房首購，稀有二房雙衛格局。」',
+   lm:['光田綜合醫院','沙鹿火車站','竹林國小','沙鹿老街'],
+   tags:[['Nursing','護理'],['Healthcare','醫療保健'],['Hospital','醫院'],['Medicine','醫學'],['Pharmacy','藥學藥劑'],['Medical technology','醫療技術'],['Physical therapy','物理治療'],['Dentistry','牙醫'],['Health insurance','健保醫療'],['Work-life balance','工作生活平衡'],['Investment','投資理財'],['Financial planning','財務規劃'],['Real estate','不動產'],['Property investment','置產投資'],['Home buying','購屋'],['Mortgage','房貸'],['First home','首購'],['Saving','儲蓄'],['Life insurance','壽險'],['Family','家庭'],['Education','教育'],['Wellness','健康養生'],['Health food','健康飲食'],['Yoga','瑜珈'],['Running','路跑'],['Continuing education','進修教育'],['Professional development','職涯發展'],['Taichung','台中'],['Local community','在地社區'],['Apartment','公寓住宅']]},
+  {n:'35-55 / 沙鹿梧棲中科+6km / 捷運藍線置產增值客',sub:'1%+房地產11訊息$402驗證置產族有效·擴大投資置產方向',
+   logic:'1%+房地產11訊息CPL$402驗證了置產型族群有效。捷運藍線2026年動工，沙鹿目前房價相對低，等捷運通車房價就漲了。針對35-55歲有置產念頭的熟齡族群，以「捷運效益即將到來，現在買最划算」為時間緊迫訴求。26坪二房總價低、入手門檻低，是置產客最輕鬆的持有格局。素材切角：「捷運藍線2026動工，沙鹿現在買，坐等增值。」',
+   lm:['沙鹿火車站','梧棲漁港','台中科學園區','光田醫院'],
+   tags:[['Real estate investing','房地產投資'],['Property investment','置產投資'],['Investment','投資理財'],['Stock market','股票市場'],['ETF','ETF基金'],['Financial planning','財務規劃'],['Wealth management','財富管理'],['Passive income','被動收入'],['Asset management','資產管理'],['Mass Rapid Transit','捷運'],['Urban planning','都市規劃'],['Property value','房產增值'],['Home buying','購屋'],['Real estate','不動產'],['Mortgage','房貸'],['Home upgrade','換屋升格'],['New construction','新成屋'],['Apartment','公寓住宅'],['Retirement planning','退休規劃'],['Life insurance','壽險'],['Saving','儲蓄'],['Financial independence','財務自由'],['Capital gain','資本利得'],['Taichung','台中'],['Travel','旅遊'],['Golf','高爾夫'],['Luxury car','名車豪車'],['Fine dining','精緻餐飲'],['Business networking','商業人脈'],['Tax planning','稅務規劃']]},
+  {n:'35-60 / 沙鹿+清水+6km / 在地換屋升格族',sub:'乘載鄉里情素材7-8訊息驗證在地認同感有效',
+   logic:'沙鹿清水在地住了10年以上的老住戶，想換新屋改善居住品質，不想離開熟悉的生活圈。「乘載鄉里情」素材7-8訊息有效，驗證在地認同感是真實需求。此族群對「不離開沙鹿、換一間比較好的」訴求有強共鳴。26坪新成屋比舊公寓格局更優，且捷運藍線增值題材是額外誘因。素材切角：「住沙鹿30年，換一間沙鹿新成屋，不用去台中，26坪二房剛剛好。」',
+   lm:['沙鹿老街','光田醫院','家樂福沙鹿','竹林國小'],
+   tags:[['Home upgrade','換屋升格'],['Home improvement','家居改善'],['Home ownership','自有房屋'],['Renovation','裝修翻新'],['Moving','搬家'],['Local community','在地社區'],['Neighborhood','社區鄰里'],['Real estate','不動產'],['Property investment','置產投資'],['Home buying','購屋'],['Mortgage','房貸'],['New construction','新成屋'],['Interior design','室內設計'],['Home decor','居家布置'],['Furniture','家具'],['Investment','投資理財'],['Financial planning','財務規劃'],['Retirement planning','退休規劃'],['Saving','儲蓄'],['Life insurance','壽險'],['Family','家庭'],['Health','健康'],['Walking','健走散步'],['Cooking','烹飪'],['Traditional market','傳統市場'],['Gardening','園藝'],['Taichung','台中'],['Park','公園'],['Local business','在地商業'],['Banking','銀行理財']]},
+  {n:'30-55 / 沙鹿大甲清水+8km / 傳產業主在地置產',sub:'沙鹿大甲製造業聚落·業主收入穩定比上班族更快決策',
+   logic:'沙鹿/大甲/清水傳統產業聚落（機械/五金/紡織）的業主或主管，收入穩定且在地生活。之前傳產農業CPL$1,058偏高是因為興趣標籤太散，此組精準到「製造業主管/企業主」層級。這族群決策快、有自住或投資雙需求，26坪二房入手門檻低且在老家附近。素材切角：「沙鹿做生意30年，台1沿線一路打拼，換一間自己的家，26坪二房首購入場。」',
+   lm:['沙鹿老街','大甲老街','清水市區','光田醫院'],
+   tags:[['Manufacturing','製造業'],['Small business','中小企業'],['Business owner','企業主'],['Self-employment','自營商'],['Entrepreneurship','創業精神'],['Family business','家族企業'],['Industrial design','工業設計'],['Machinery','機械設備'],['Supply chain','供應鏈'],['Trading','貿易業'],['Local business','在地商業'],['Investment','投資理財'],['Stock market','股票市場'],['Financial planning','財務規劃'],['Wealth management','財富管理'],['Real estate','不動產'],['Property investment','置產投資'],['Home buying','購屋'],['Mortgage','房貸'],['Home upgrade','換屋升格'],['Tax planning','稅務規劃'],['Retirement planning','退休規劃'],['Luxury car','名車豪車'],['Golf','高爾夫'],['Business networking','商業人脈'],['Taichung','台中'],['Travel','旅遊'],['Fine dining','精緻餐飲'],['Health','健康'],['Work-life balance','工作生活平衡']]},
+  {n:'40-65 / 沙鹿清水梧棲+6km / 長輩協助子女首購',sub:'父母幫子女買房動機強·26坪低門檻符合首置贈與',
+   logic:'40-65歲沙鹿清水梧棲在地父母，幫子女在老家附近買房需求明確，尤其26坪二房總價低是「幫孩子入場」最輕鬆的格局。光田醫院步行圈+竹林國小雙學區是說服父母的強賣點，在地熟悉感讓父母放心。素材切角：「孩子要在沙鹿成家，光田旁26坪二房，捷運藍線2026動工，早買早增值，給他一個好的起點。」',
+   lm:['光田醫院','竹林國小','鹿寮國中','沙鹿老街'],
+   tags:[['Parenting','親子教養'],['Family','家庭'],['Children','子女'],['Marriage','婚姻'],['Home buying','購屋'],['Real estate','不動產'],['Property investment','置產投資'],['Mortgage','房貸'],['First home','首購'],['Retirement planning','退休規劃'],['Saving','儲蓄'],['Investment','投資理財'],['Financial planning','財務規劃'],['Life insurance','壽險'],['Education','教育'],['School district','學區'],['Health','健康'],['Walking','健走散步'],['Park','公園'],['Local community','在地社區'],['Traditional market','傳統市場'],['Cooking','烹飪'],['Gardening','園藝'],['Banking','銀行理財'],['Tax planning','稅務規劃'],['Taichung','台中'],['Home upgrade','換屋升格'],['New construction','新成屋'],['Grandchildren','孫子女'],['Family values','家庭價值觀']]},
+  {n:'28-55 / 沙鹿清水+西屯+8km / 公教職員通勤首購（擴大）',sub:'公教CPL$268全案最低·擴大至台中市區公教通勤族',
+   logic:'公教職員是全案CPL最低受眾（NT$268），目前只鎖定沙鹿清水在地。此組擴大到台中市區（西屯/北區）公教職員，他們通勤沙鹿上班或考慮沙鹿置產，沙鹿房價相對台中市區低，捷運藍線加持下更具吸引力。公教穩定收入+首購需求是最直接轉換動機。素材切角：「公教穩定收入，台中市區買不下，沙鹿26坪二房輕鬆入手，捷運藍線加持增值。」',
+   lm:['沙鹿火車站','光田醫院','清水市區','竹林國小'],
+   tags:[['Civil servant','公務員'],['Government employee','政府機關人員'],['Teacher','教職人員'],['Education','教育'],['School','學校'],['Public administration','公共行政'],['Military','軍人'],['Police','警察'],['Fire department','消防員'],['Public service','公共服務'],['Work-life balance','工作生活平衡'],['Investment','投資理財'],['Financial planning','財務規劃'],['Real estate','不動產'],['Property investment','置產投資'],['Home buying','購屋'],['Mortgage','房貸'],['First home','首購'],['Saving','儲蓄'],['Life insurance','壽險'],['Family','家庭'],['School district','學區'],['Commuting','通勤'],['Train travel','火車鐵路'],['Public transportation','大眾運輸'],['Taichung','台中'],['Local community','在地社區'],['Health food','健康飲食'],['Running','路跑'],['Professional development','職涯發展']]}
+];
+
+let toastT;
+function showCopyToast(msg){
+  let t=document.getElementById('copy-toast');
+  if(!t){t=document.createElement('div');t.id='copy-toast';document.body.appendChild(t);}
+  t.textContent=msg;t.classList.add('show');
+  clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove('show'),1400);
+}
+function copyTxt(txt){return navigator.clipboard?navigator.clipboard.writeText(txt):Promise.reject();}
+function initAudCard(card){
+  if(card.dataset.cb)return;card.dataset.cb='1';
+  card.querySelectorAll('.tag-tbl tbody tr').forEach(row=>{
+    const en=row.cells[1]?.textContent.trim();if(!en)return;
+    row.addEventListener('click',()=>{copyTxt(en).then(()=>{row.classList.add('flash');setTimeout(()=>row.classList.remove('flash'),600);showCopyToast('已複製：'+en);});});
+  });
+  card.querySelectorAll('.tag-tbl').forEach(tbl=>{
+    const wrap=document.createElement('div');wrap.className='copy-all-row';
+    const btn=document.createElement('button');btn.className='copy-all-btn';btn.innerHTML='⎘ 複製全部30個標籤';
+    btn.addEventListener('click',e=>{
+      e.stopPropagation();
+      const tags=Array.from(tbl.querySelectorAll('tbody tr')).map(r=>r.cells[1]?.textContent.trim()).filter(Boolean).join('\n');
+      copyTxt(tags).then(()=>{btn.classList.add('done');btn.textContent='✓ 已複製30個';showCopyToast('已複製全部30個標籤');setTimeout(()=>{btn.classList.remove('done');btn.innerHTML='⎘ 複製全部30個標籤';},2000);});
+    });
+    wrap.appendChild(btn);tbl.after(wrap);
+  });
+}
+function toggleAud(id){const c=document.getElementById(id);c.classList.toggle('open');if(c.classList.contains('open'))initAudCard(c);}
+function buildAudCard(g,idx){
+  const id='m'+(idx+1);
+  const rows=g.tags.map((t,i)=>`<tr><td>${i+1}</td><td>${t[0]}</td><td>${t[1]}</td></tr>`).join('');
+  const lmTags=g.lm.map(l=>`<span class="aud-lm-tag">${l}</span>`).join('');
+  return `<div class="aud-card" id="${id}">
+    <div class="aud-header" onclick="toggleAud('${id}')">
+      <div class="aud-num">${idx+1}</div>
+      <div class="aud-info"><div class="aud-name">${g.n}</div><div class="aud-sub">${g.sub}</div></div>
+      <div class="aud-arrow">▶</div>
+    </div>
+    <div class="aud-body">
+      <div class="aud-sl">評估邏輯</div>
+      <div class="aud-logic">${g.logic}</div>
+      <div class="aud-sl">地標定位</div>
+      <div class="aud-lm">${lmTags}</div>
+      <div class="aud-sl">興趣標籤（點擊列複製單個）</div>
+      <table class="tag-tbl"><thead><tr><th>#</th><th>English</th><th>中文</th></tr></thead><tbody>${rows}</tbody></table>
+    </div>
+  </div>`;}
+(function(){const mg=document.getElementById('main-aud-grid');if(mg)mg.innerHTML=MAIN_G.map((g,i)=>buildAudCard(g,i)).join('');})();
+
+const PROJECT = '華偉知見（台中沙鹿・中山路永安巷・純二房26坪・訊息145則・潛客28表單）';
 function showToast(){const t=document.getElementById('toast');t.style.opacity='1';t.style.transform='translateX(-50%) translateY(0)';setTimeout(()=>{t.style.opacity='0';t.style.transform='translateX(-50%) translateY(20px)'},2200)}
 function copyPrompt(text){navigator.clipboard.writeText(text).then(showToast).catch(()=>{const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast()})}
 document.querySelectorAll('.core-tag').forEach(el=>{el.addEventListener('click',()=>{const tag=el.textContent.replace('↗','').trim();copyPrompt(`針對${PROJECT}，請深入分析「${tag}」這個興趣標籤：\n1. 在本案受眾中代表什麼輪廓？\n2. 搭配哪些標籤組合效果最好？\n3. 素材訴求應該怎麼寫？`)})});
