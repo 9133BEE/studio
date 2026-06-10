@@ -133,6 +133,37 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .acct-main{background:#e0f2fe;color:#075985;border:1px solid #7dd3fc}
 .acct-1510{background:#f3e8ff;color:#5b21b6;border:1px solid #c4b5fd}
 .page-footer{text-align:center;font-size:11px;color:var(--sub2);margin-top:12px;padding-bottom:8px}
+/* ── aud-card 2欄+複製系統 ── */
+.aud-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;align-items:start}
+@media(max-width:760px){.aud-grid-2{grid-template-columns:1fr}}
+.aud-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);box-shadow:var(--shadow-xs);overflow:hidden}
+.aud-header{display:flex;align-items:center;gap:12px;padding:13px 16px;cursor:pointer;transition:background .15s;user-select:none}
+.aud-header:hover{background:var(--accent-light)}
+.aud-num{width:24px;height:24px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0}
+.aud-info{flex:1;min-width:0}
+.aud-name{font-size:12px;font-weight:700;color:var(--tx);line-height:1.3}
+.aud-sub{font-size:10px;color:var(--sub2);margin-top:2px}
+.aud-arrow{font-size:12px;color:var(--sub2);transition:transform .2s;flex-shrink:0}
+.aud-card.open .aud-arrow{transform:rotate(90deg)}
+.aud-body{display:none;padding:0 16px 16px;border-top:1px solid var(--bd)}
+.aud-card.open .aud-body{display:block}
+.aud-sl{font-size:10px;font-weight:700;color:var(--sub2);text-transform:uppercase;letter-spacing:.4px;margin:12px 0 6px}
+.aud-logic{font-size:11px;color:var(--tx);line-height:1.65;background:var(--accent-light);border:1px solid var(--accent-border);border-radius:8px;padding:9px 12px}
+.aud-lm{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px}
+.aud-lm-tag{background:var(--bg);border:1px solid var(--bd);border-radius:12px;padding:2px 9px;font-size:10px;color:var(--sub)}
+.tag-tbl{width:100%;border-collapse:collapse;font-size:11px;margin-top:6px}
+.tag-tbl th{padding:3px 8px;text-align:left;font-weight:600;border:1px solid var(--bd);background:var(--accent-light);color:var(--accent-dark)}
+.tag-tbl td{padding:2px 8px;border:1px solid var(--bd);color:var(--sub)}
+.tag-tbl tr:nth-child(even) td{background:var(--bg)}
+.tag-tbl tbody tr{cursor:pointer;transition:background .1s}
+.tag-tbl tbody tr:hover{background:var(--accent-light)}
+.tag-tbl tbody tr.flash{background:#c8f0d4}
+.copy-all-row{display:flex;justify-content:flex-end;margin-top:6px}
+.copy-all-btn{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:600;color:var(--accent-dark);background:var(--accent-light);border:1px solid var(--accent-border);border-radius:6px;padding:4px 10px;cursor:pointer;transition:background .15s}
+.copy-all-btn:hover{background:#c8e8d0}
+.copy-all-btn.done{background:#c8f0d4;color:#1a5a34}
+#copy-toast{position:fixed;bottom:72px;left:50%;transform:translateX(-50%) translateY(8px);background:#162016;color:#90d8a8;font-size:11px;font-weight:600;padding:7px 16px;border-radius:18px;opacity:0;pointer-events:none;transition:opacity .18s,transform .18s;z-index:300;white-space:nowrap}
+#copy-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 </style>
 </head>
 <body>
@@ -765,75 +796,116 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 
   <!-- 下一輪方向 -->
   <div class="section">
-    <div class="sec-title">下一輪未測試受眾方向</div>
-    <div class="tips">
-      <div class="tip">
-        <div class="tip-num c1">A</div>
-        <div class="tip-body">
-          <div class="tip-title">30-50 / 太平東嗣大里 / 年輕換屋首購菁英（未開過，浩瀚湖濱城驗證 CPL $423）</div>
-          <div class="tip-desc">浩瀚湖濱城（台中東區）「換屋首購菁英」組拿下全案最低CPL $423，且重疊地圖東區→太平。坤悅涵仰完全未開此角度，建議新開：30-50歲 / 太平+大里+東區 / 年輕換屋首購行為，搭配「2028完工、現在卡位、74快速道路通台中」素材。</div>
-        </div>
-      </div>
-      <div class="tip">
-        <div class="tip-num c2">B</div>
-        <div class="tip-body">
-          <div class="tip-title">30-48 / 太平東嗣南屯 / 太平國小學區×親子家庭（完全未開）</div>
-          <div class="tip-desc">「太平國小步行3分鐘」是此案唯一硬賣點地標，但雙帳號從未開過學區親子受眾。景立方ALL「親子幼兒教育」21潛客CPL $290，方向已驗證。建議開一組：30-48歲/太平東嗣/親子教育×學區，素材用「孩子上學走路到，三房讓一家人住得更好」情境圖。</div>
-        </div>
-      </div>
-      <div class="tip">
-        <div class="tip-num c3">C</div>
-        <div class="tip-body">
-          <div class="tip-title">35-55 / 太平大里南屯 / 自營商×傳產×換屋（主粉專真版本從未跑）</div>
-          <div class="tip-desc">1510已驗證換屋/自營商/傳產是最強方向（另有5訊息紀錄），但主粉專只試過「傳產+上班族」（不同）和「生活品質+自營商」（不同）。建議主粉專開真正的「自營商×換屋」包：35-55/太平大里南屯/傳產二代×自營商×換屋動機，素材切角「同樣預算，太平三房住得比市區還寬敞」。</div>
-        </div>
-      </div>
-      <div class="tip">
-        <div class="tip-num c4">D</div>
-        <div class="tip-body">
-          <div class="tip-title">35-52 / 太平東嗣大里 / 中平國中學區家長換屋（591顯示車程3分鐘，完全未開）</div>
-          <div class="tip-desc">591建案頁顯示「中平國中車程約3分鐘」，是除太平國小外的第二學區賣點，但廣告從未針對「有國中生的家長」開過受眾。建議開「35-52 / 太平東嗣大里 / 有國中生子女/學區換屋」，訴求「孩子要念國中了，中平國中就在旁邊，37~41坪三房讓一家人住得更舒適」。學區家長的換屋動機比純首購更強烈，有明確時間壓力。</div>
-        </div>
-      </div>
-      <div class="tip">
-        <div class="tip-num c5">E</div>
-        <div class="tip-body">
-          <div class="tip-title">30-52 / 太平東嗣 / 新太平澄清醫院醫護職員（完全未開，建案緊鄰）</div>
-          <div class="tip-desc">591顯示「新太平澄清醫院」是周邊重要地標，醫護人員穩定高收入、換屋購屋意願強。全案從未開過醫護定向受眾。建議開「30-52 / 太平東嗣 / 醫護職員/澄清醫院周邊」，訴求「下班走路到家，三房精裝2028完工，澄清醫院旁的高品質住宅」。醫護人員CPL通常偏高但成交率高，值得測試。</div>
-        </div>
-      </div>
-      <div class="tip">
-        <div class="tip-num c1">F</div>
-        <div class="tip-body">
-          <div class="tip-title">30-50 / 台中東嗣南屯 / 74快速道路通勤換屋（主要交通賣點尚未獨立成組）</div>
-          <div class="tip-desc">74號快速道路是坤悅涵仰對台中市區通勤的核心連結，但廣告主要在「太平/大里在地族群」，從未針對「台中市上班、想住太平節省預算」的通勤換屋族開過受眾。建議開「30-50 / 東區南屯太原路 / 台中上班族通勤換屋」，訴求「台中上班，太平三房，74快速道路15分鐘，同樣預算多出10坪」。這是此案未被利用的最大通勤優勢。</div>
-        </div>
-      </div>
-      <div class="tip">
-        <div class="tip-num c2">G</div>
-        <div class="tip-body">
-          <div class="tip-title">38-58 / 太平大里 / 近公園景觀宅 × 半退休品質生活（建案主打賣點未對應受眾）</div>
-          <div class="tip-desc">591建案頁主打「近公園景觀宅」並強調健身房/空中花園等休閒設施，但廣告從未開過「重視生活品質/半退休/戶外運動」的族群。建議開「38-58 / 太平大里 / 半退休/喜愛戶外/生活品質/公園健走」，訴求「公園景觀宅，健身房空中花園一應俱全，太平的慢生活空間，三房讓生活有更多餘裕」。這是與換屋動機不同的「生活升格」切角，補充現有年輕換屋族群的覆蓋缺口。</div>
-        </div>
-      </div>
-      <div class="tip">
-        <div class="tip-num c3">H</div>
-        <div class="tip-body">
-          <div class="tip-title">30-50 / 太平市區 / 家樂福生活圈在地住戶升格換屋（在地認同感強）</div>
-          <div class="tip-desc">家樂福太平店+全聯福利中心是坤悅涵仰最接近的大型商場，周邊有大量在地居民住老公寓或透天。建議開「30-50 / 太平市區+家樂福周邊 / 在地家庭換新成屋」，訴求「就在家樂福旁，日常採購5分鐘，舊公寓換到三房新成屋，2028完工等你入住」。地標定位精準（家樂福），在地認同感強，對太平居民的吸引力遠大於外來受眾。</div>
-        </div>
-      </div>
-    </div>
+    <div class="sec-title">下一輪建議受眾（2026-06-10）</div>
+    <div id="main-aud-grid" class="aud-grid-2"></div>
   </div>
 
 </div><!-- end tab-insight -->
 
-<div class="page-footer">坤悅涵仰 受眾分析報告 · 最後更新 2026-06-04</div>
+<div class="page-footer">坤悅涵仰 受眾分析報告 · 最後更新 2026-06-10</div>
 </div><!-- end wrap -->
 
 <button id="btt" onclick="scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <script>
+/* ── aud-card 資料 ── */
+const MAIN_G=[
+  {n:'30–50 / 太平東嗣大里 / 年輕換屋首購菁英',sub:'浩瀚湖濱城CPL $423驗證·東區→太平地圖重疊·首購換屋完全未開',
+   logic:'浩瀚湖濱城（台中東區）「換屋首購菁英」組拿下全案最低CPL $423，且地圖覆蓋從東區延伸至太平，地理重疊度高。坤悅涵仰完全未開此方向，搭配「2028完工、現在卡位、74快速道路通台中」素材，切角「同樣預算，太平三房住得比東區更寬敞」。',
+   lm:['太平區中心 3km','大里區 5km','台中東區 5km'],
+   tags:[['Real estate','房地產'],['Home improvement','居家裝修'],['Interior design','室內設計'],['Property investment','不動產投資'],['First-time home buyer','首購族'],['Mortgage loan','房屋貸款'],['Home ownership','自有住宅'],['Personal finance','個人理財'],['Financial planning','財務規劃'],['Investment','投資'],['Saving money','存錢儲蓄'],['Wealth management','財富管理'],['Career development','職涯發展'],['Young professionals','年輕專業人士'],['Work–life balance','工作生活平衡'],['Commuting','通勤生活'],['Urban living','城市生活'],['Quality of life','生活品質'],['Family planning','家庭規劃'],['Marriage','婚姻成家'],['New home','新成屋'],['Architecture','建築設計'],['House hunting','找房看屋'],['Home staging','居家佈置'],['Apartment','公寓住宅'],['Home appliances','家電設備'],['Home furniture','居家家具'],['Neighborhood','社區環境'],['Lifestyle','生活方式'],['Home renovation','整修翻新']]},
+  {n:'30–48 / 太平東嗣南屯 / 太平國小學區 × 親子換屋',sub:'景立方ALL親子21潛客CPL $290驗證·太平國小步行3分鐘硬賣點從未利用',
+   logic:'太平國小步行3分鐘是此案最強硬地標賣點，但雙帳號從未開過學區親子受眾。景立方ALL「親子幼兒教育」組拿下21潛客CPL $290，已驗證台中學區親子換屋方向有效。切角「孩子上學走路到，三房讓一家人住得更好」，30-48歲有小孩家庭是此案最核心覆蓋缺口。',
+   lm:['太平國小 0.3km','太平東嗣 3km','南屯區 5km'],
+   tags:[['Primary school','國小學區'],['Education','教育資源'],['Parenting','親子教養'],['Child care','兒童照護'],['Family','家庭生活'],['Motherhood','媽媽族群'],['Early childhood education','幼兒教育'],['School district','學區選擇'],['Elementary school','小學'],['Children\'s education','子女教育'],['Tutoring','課後輔導'],['Kids activities','兒童活動'],['Family travel','親子出遊'],['Family life','居家生活'],['Real estate','房地產'],['Home improvement','居家裝修'],['Interior design','室內設計'],['Home ownership','自有住宅'],['Property investment','不動產投資'],['Family planning','家庭規劃'],['Home safety','居家安全'],['Home appliances','家電'],['Home furniture','家具'],['Neighborhood','社區環境'],['Quality of life','生活品質'],['Marriage','婚姻家庭'],['Personal finance','個人理財'],['Investment','投資'],['Saving money','儲蓄存錢'],['Financial planning','財務規劃']]},
+  {n:'35–55 / 太平大里南屯 / 自營商 × 傳產 × 換屋',sub:'1510換屋/自營商CPL $528最強·主粉專真版本從未跑過',
+   logic:'1510帳號「換屋/自營商/傳產」是坤悅涵仰全案最有效方向（CPL $528，5則訊息），但主粉專只試過「傳產+上班族」和「生活品質+自營商」（兩組均0轉換）——兩者都不是真正的「自營商×換屋」包。主粉專開真版本，35-55/太平大里南屯/傳產二代×自營商×換屋動機，素材切角「同樣預算，太平三房住得比市區還寬敞」。',
+   lm:['太平區 3km','大里區 5km','南屯區 5km'],
+   tags:[['Small business','小型企業'],['Entrepreneurship','創業精神'],['Business owner','企業主'],['Self-employment','自僱/自營'],['Manufacturing','製造業'],['Traditional industry','傳統產業'],['Business management','企業管理'],['Supply chain','供應鏈管理'],['Trade','貿易進出口'],['Real estate','房地產'],['Property investment','不動產投資'],['Home improvement','居家裝修'],['Interior design','室內設計'],['Home ownership','自有住宅'],['Wealth management','財富管理'],['Investment','投資理財'],['Personal finance','個人理財'],['Family','家庭'],['Quality of life','生活品質'],['Business networking','商業人脈'],['Commerce','商業活動'],['Business strategy','商業策略'],['Sales','業務銷售'],['Finance','金融'],['Tax planning','稅務規劃'],['Insurance','保險'],['Retirement planning','退休規劃'],['Family business','家族事業'],['Luxury goods','精品生活'],['Home renovation','整修翻新']]},
+  {n:'35–52 / 太平東嗣大里 / 中平國中學區家長換屋',sub:'591顯示中平國中車程3分鐘·有國中生家長換屋動機強·完全未開',
+   logic:'591建案頁顯示「中平國中車程約3分鐘」，是除太平國小外的第二學區賣點。有國中生的家長換屋動機比純首購更強烈（有明確時間壓力：孩子要念國中了）。雙帳號從未針對「有國中生子女/學區換屋」開過受眾，完全空白方向，訴求「孩子要念國中了，中平國中就在旁邊，三房讓一家人住得更舒適」。',
+   lm:['中平國中 0.5km','太平東嗣 3km','大里區 5km'],
+   tags:[['Junior high school','國中教育'],['Education','教育資源'],['Parenting','親子教養'],['Family','家庭生活'],['Teenagers','青少年教育'],['School district','學區選擇'],['Education planning','教育規劃'],['Tutoring','補習課輔'],['Children\'s education','子女教育'],['Family life','居家生活'],['Motherhood','媽媽族群'],['Fatherhood','爸爸族群'],['Real estate','房地產'],['Home improvement','居家裝修'],['Interior design','室內設計'],['Home ownership','自有住宅'],['Property investment','不動產投資'],['Mortgage loan','房貸規劃'],['Family planning','家庭規劃'],['Neighborhood','社區環境'],['Quality of life','生活品質'],['Home appliances','家電'],['Home furniture','家具'],['Financial planning','財務規劃'],['Personal finance','個人理財'],['Investment','投資'],['Saving money','儲蓄'],['Wealth management','財富管理'],['Work–life balance','工作生活平衡'],['New home','新成屋']]},
+  {n:'30–52 / 太平東嗣 / 澄清醫院周邊醫護換屋',sub:'新太平澄清醫院緊鄰·醫護收入穩定換屋意願強·與舊醫生置產組完全不同切角',
+   logic:'591顯示「新太平澄清醫院」是周邊重要地標，醫護人員收入穩定、換屋購屋意願強。注意：之前的「醫生興趣」0轉換，因為那是醫生置產取向；此組是醫護員工換屋取向，定位不同。全案從未開過醫護員工換屋定向受眾，訴求「下班走路到家，三房精裝2028完工，澄清醫院旁的品質住宅」。',
+   lm:['新太平澄清醫院 0.8km','太平東嗣 2km','太平國小 0.3km'],
+   tags:[['Healthcare','醫療保健'],['Medicine','醫學'],['Nursing','護理照護'],['Hospital','醫院'],['Medical professional','醫療專業人員'],['Doctor','醫師'],['Nurse','護理師'],['Healthcare worker','醫療工作者'],['Medical technology','醫療科技'],['Pharmacy','藥學'],['Public health','公共衛生'],['Wellness','健康促進'],['Health','健康'],['Real estate','房地產'],['Home improvement','居家裝修'],['Interior design','室內設計'],['Home ownership','自有住宅'],['Property investment','不動產投資'],['Mortgage loan','房貸規劃'],['Quality of life','生活品質'],['Personal finance','個人理財'],['Wealth management','財富管理'],['Investment','投資'],['Family','家庭生活'],['Family planning','家庭規劃'],['Neighborhood','社區環境'],['Home appliances','家電'],['Home furniture','家具'],['Work–life balance','工作生活平衡'],['Career development','職涯發展']]},
+  {n:'30–50 / 東區南屯太原路 / 74快速道路通勤換屋',sub:'74號快速道路核心交通賣點從未獨立開組·台中市區上班族換屋空白角度',
+   logic:'74號快速道路是坤悅涵仰對台中市區通勤的核心連結，但所有廣告都針對「太平/大里在地族群」，從未針對「台中市上班、想住太平節省預算」的通勤換屋族。此角度是最大未被利用的交通賣點，訴求「台中上班，太平三房，74快速道路15分鐘，同樣預算多出10坪」。',
+   lm:['太平區 74快速道路出口 2km','台中東區 5km','南屯區 5km'],
+   tags:[['Commuting','通勤生活'],['Traffic','交通出行'],['Transportation','交通運輸'],['Urban living','城市生活'],['Suburban living','郊區生活'],['Lifestyle','生活方式'],['Quality of life','生活品質'],['Work–life balance','工作生活平衡'],['Career development','職涯發展'],['Real estate','房地產'],['Home improvement','居家裝修'],['Interior design','室內設計'],['Home ownership','自有住宅'],['Property investment','不動產投資'],['Mortgage loan','房屋貸款'],['Personal finance','個人理財'],['Financial planning','財務規劃'],['Investment','投資'],['Saving money','省錢儲蓄'],['Wealth management','財富管理'],['Family planning','家庭規劃'],['Family','家庭'],['Neighborhood','社區鄰里'],['New home','新成屋'],['Home appliances','家電'],['Home furniture','家具'],['House hunting','找房看屋'],['Architecture','建築'],['Apartment','公寓住宅'],['Home renovation','整修翻新']]},
+  {n:'38–58 / 太平大里 / 近公園景觀宅 × 半退休品質生活',sub:'591主打近公園/健身房/空中花園·半退休族群生活升格切角完全未開',
+   logic:'591建案頁主打「近公園景觀宅」並強調健身房/空中花園等休閒設施，但廣告從未開過「重視生活品質/半退休/戶外運動」的族群。這是與換屋動機不同的「生活升格」切角，填補換屋年輕族群之外的覆蓋缺口。訴求「公園景觀宅，健身房空中花園一應俱全，太平的慢生活空間，三房讓生活有更多餘裕」。',
+   lm:['太平公園 1km','太平區中心 3km','大里區 5km'],
+   tags:[['Outdoor activities','戶外活動'],['Hiking','健行登山'],['Walking','散步健走'],['Jogging','慢跑運動'],['Fitness','健身運動'],['Yoga','瑜珈'],['Golf','高爾夫'],['Health','健康養生'],['Wellness','身心保健'],['Gardening','園藝植栽'],['Nature','自然環境'],['Park','公園休閒'],['Retirement planning','退休規劃'],['Retirement','退休生活'],['Quality of life','生活品質'],['Real estate','房地產'],['Home improvement','居家裝修'],['Interior design','室內設計'],['Home ownership','自有住宅'],['Property investment','不動產投資'],['Luxury goods','精品生活'],['Travel','旅遊'],['Fine dining','美食'],['Personal finance','個人理財'],['Wealth management','財富管理'],['Investment','投資'],['Financial planning','財務規劃'],['Family','家庭'],['Lifestyle','生活風格'],['Home appliances','家電']]},
+  {n:'30–50 / 太平市區 / 家樂福生活圈在地升格換屋',sub:'家樂福太平店精準地標定位·在地老公寓居民升格換屋·認同感最強',
+   logic:'家樂福太平店+全聯福利中心是坤悅涵仰最接近的大型商場，周邊有大量在地居民住老公寓或透天。此組核心優勢是「地標定位精準」（直接定位家樂福），在地認同感強，對太平居民吸引力遠大於外來受眾。訴求「就在家樂福旁，日常採購5分鐘，舊公寓換到三房新成屋，2028完工等你入住」。',
+   lm:['家樂福太平店 0.5km','全聯太平 1km','太平市區 2km'],
+   tags:[['Grocery shopping','超市採購'],['Hypermarket','量販店'],['Supermarket','超市'],['Local shopping','在地購物'],['Daily necessities','日用品'],['Food','飲食'],['Cooking','烹飪'],['Home cooking','家常料理'],['Local community','在地社區'],['Neighborhood','鄰里社區'],['Community','社群活動'],['Local events','在地活動'],['Real estate','房地產'],['Home improvement','居家裝修'],['Interior design','室內設計'],['Home ownership','自有住宅'],['Property investment','不動產投資'],['Mortgage loan','房屋貸款'],['Quality of life','生活品質'],['Personal finance','個人理財'],['Investment','投資'],['Saving money','省錢儲蓄'],['Family','家庭'],['Family planning','家庭規劃'],['Home appliances','家電'],['Home furniture','家具'],['Lifestyle','生活方式'],['New home','新成屋'],['House hunting','找房看屋'],['Financial planning','財務規劃']]}
+];
+
+/* ── 渲染函式 ── */
+let toastT2;
+function showToast2(msg){
+  let t=document.getElementById('copy-toast');
+  if(!t){t=document.createElement('div');t.id='copy-toast';document.body.appendChild(t);}
+  t.textContent=msg;t.classList.add('show');
+  clearTimeout(toastT2);toastT2=setTimeout(()=>t.classList.remove('show'),1400);
+}
+function copyTxt(txt){return navigator.clipboard?navigator.clipboard.writeText(txt):Promise.reject();}
+
+function initAudCard(card){
+  if(card.dataset.cb)return;card.dataset.cb='1';
+  card.querySelectorAll('.tag-tbl tbody tr').forEach(row=>{
+    const en=row.cells[1]?.textContent.trim();if(!en)return;
+    row.addEventListener('click',()=>{
+      copyTxt(en).then(()=>{row.classList.add('flash');setTimeout(()=>row.classList.remove('flash'),600);showToast2('已複製：'+en);});
+    });
+  });
+  card.querySelectorAll('.tag-tbl').forEach(tbl=>{
+    const wrap=document.createElement('div');wrap.className='copy-all-row';
+    const btn=document.createElement('button');btn.className='copy-all-btn';btn.innerHTML='⎘ 複製全部30個標籤';
+    btn.addEventListener('click',e=>{
+      e.stopPropagation();
+      const tags=Array.from(tbl.querySelectorAll('tbody tr')).map(r=>r.cells[1]?.textContent.trim()).filter(Boolean).join('\n');
+      copyTxt(tags).then(()=>{btn.classList.add('done');btn.textContent='✓ 已複製30個';showToast2('已複製全部30個標籤');setTimeout(()=>{btn.classList.remove('done');btn.innerHTML='⎘ 複製全部30個標籤';},2000);});
+    });
+    wrap.appendChild(btn);tbl.after(wrap);
+  });
+}
+
+function toggleAud2(id){
+  const c=document.getElementById(id);
+  c.classList.toggle('open');
+  if(c.classList.contains('open'))initAudCard(c);
+}
+
+function buildAudCard(g,idx,prefix,isAlt){
+  const id=prefix+(idx+1);
+  const rows=g.tags.map((t,i)=>`<tr><td>${i+1}</td><td>${t[0]}</td><td>${t[1]}</td></tr>`).join('');
+  const lmTags=g.lm.map(l=>`<span class="aud-lm-tag">${l}</span>`).join('');
+  return `<div class="aud-card" id="${id}">
+    <div class="aud-header${isAlt?' alt-h':''}" onclick="toggleAud2('${id}')">
+      <div class="aud-num${isAlt?' alt':''}">${idx+1}</div>
+      <div class="aud-info"><div class="aud-name">${g.n}</div><div class="aud-sub">${g.sub}</div></div>
+      <div class="aud-arrow">▶</div>
+    </div>
+    <div class="aud-body">
+      <div class="aud-sl">評估邏輯</div>
+      <div class="aud-logic${isAlt?' alt-l':''}">${g.logic}</div>
+      <div class="aud-sl">地標定位</div>
+      <div class="aud-lm">${lmTags}</div>
+      <div class="aud-sl">興趣標籤（點擊列複製單個）</div>
+      <table class="tag-tbl"><thead><tr><th>#</th><th>English</th><th>中文</th></tr></thead><tbody>${rows}</tbody></table>
+    </div>
+  </div>`;
+}
+
+(function(){
+  const mg=document.getElementById('main-aud-grid');
+  if(mg)mg.innerHTML=MAIN_G.map((g,i)=>buildAudCard(g,i,'m',false)).join('');
+})();
+
 function switchTab(name){
   document.querySelectorAll('.tab-btn').forEach((b,i)=>{
     const names=['main','1510','insight'];
