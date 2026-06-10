@@ -189,6 +189,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .tab-btn:hover:not(.active){background:#f0edf5;color:#5a3a6a}
 .tab-pane{display:none}
 .tab-pane.show{display:block}
+.page-banner{border-radius:var(--radius);padding:18px 24px;margin-bottom:22px;display:flex;align-items:center;gap:20px;box-shadow:var(--shadow-card)}
+.page-banner.main{background:linear-gradient(135deg,#5a3a6a,#7a5a8a);color:#fff}
+.page-banner.alt{background:linear-gradient(135deg,#4d6a82,#607d96);color:#fff}
+.banner-icon{width:40px;height:40px;background:rgba(255,255,255,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;flex-shrink:0}
+.banner-title{font-size:16px;font-weight:800;letter-spacing:-.2px}
+.banner-sub{font-size:12px;opacity:.8;margin-top:2px}
+.banner-stats{margin-left:auto;display:flex;gap:28px;flex-shrink:0}
+.bs{text-align:right}
+.bs-n{font-size:22px;font-weight:800;color:#fff;line-height:1;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.bs-l{font-size:10px;color:rgba(255,255,255,.7);margin-top:3px;font-weight:600;letter-spacing:.3px;text-transform:uppercase}
 </style>
 </head>
 <body>
@@ -216,12 +226,18 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   </div>
 </div>
 
-<div class="tab-bar">
-  <button class="tab-btn active" onclick="switchTab('analysis')">成效分析</button>
-  <button class="tab-btn" onclick="switchTab('next')">策略建議</button>
+<div class="page-banner main">
+  <div class="banner-icon">湖</div>
+  <div>
+    <div class="banner-title">主粉專｜浩瀚湖濱城 FB</div>
+    <div class="banner-sub">2026/02/23 起 · 70+ 組受眾</div>
+  </div>
+  <div class="banner-stats">
+    <div class="bs"><div class="bs-n">181</div><div class="bs-l">總潛客</div></div>
+    <div class="bs"><div class="bs-n">NT$856</div><div class="bs-l">均CPL</div></div>
+    <div class="bs"><div class="bs-n">70+</div><div class="bs-l">累積組</div></div>
+  </div>
 </div>
-
-<div id="tab-analysis" class="tab-pane show">
 <div class="section">
   <div class="sec-title">三大核心受眾輪廓</div>
   <div class="profiles">
@@ -372,9 +388,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   </div>
 </div>
 
-</div><!-- end tab-analysis -->
-
-<div id="tab-next" class="tab-pane">
 <div class="section">
   <div class="sec-title">建議嘗試受眾（8組）· 更新 2026-06-10</div>
   <div id="main-aud-grid" class="aud-grid-2"></div>
@@ -542,7 +555,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 <div style="background:#e5f3f7;border:1px solid #87b5be;border-radius:10px;padding:12px 16px;margin-bottom:16px;font-size:12px;color:#1e4f5c">
   <b>⚡ 新進亮點（2026/05/29 起測）：</b> 35-55/東區水湳/辦公室自用+SOHO 3 潛客・CPL <b style="color:#c05c00">NT$341</b>・花費 NT$1,022 ── 全案最低 CPL，商辦受眾潛力組，建議加碼觀察。
 </div>
-</div><!-- end tab-next -->
 
 <div class="page-footer">資料期間：2026-02-23 至 2026-06-01 · 浩瀚湖濱城 台中東區 · 最後更新 2026-06-01</div>
 </div>
@@ -550,7 +562,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 <div id="toast" style="position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);background:#2e2c29;color:#fff;font-size:12.5px;padding:10px 20px;border-radius:24px;opacity:0;transition:all .25s;pointer-events:none;z-index:999;white-space:nowrap">📋 詢問建議已複製 → 貼至 Claude 對話</div>
 
 <script>
-function switchTab(name){document.querySelectorAll('.tab-btn').forEach((b,i)=>{const names=['analysis','next'];b.classList.toggle('active',names[i]===name)});document.querySelectorAll('.tab-pane').forEach(p=>{p.classList.remove('show')});document.getElementById('tab-'+name).classList.add('show');window.scrollTo({top:0,behavior:'smooth'})}
 const PROJECT = '浩瀚湖濱城（台中東區・LALAPORT對面・進德路×樂業二路口・181潛客・均CPL NT$856）';
 function showToast(msg){const t=document.getElementById('toast');t.textContent=msg||'📋 詢問建議已複製 → 貼至 Claude 對話';t.style.opacity='1';t.style.transform='translateX(-50%) translateY(0)';setTimeout(()=>{t.style.opacity='0';t.style.transform='translateX(-50%) translateY(20px)'},2200)}
 function copyPrompt(text){navigator.clipboard.writeText(text).then(()=>showToast()).catch(()=>{const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast()})}
