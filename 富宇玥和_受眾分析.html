@@ -37,8 +37,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .stat-l{font-size:10px;color:var(--sub2);margin-top:3px;font-weight:600;letter-spacing:.3px;text-transform:uppercase}
 /* Page banners */
 .page-banner{border-radius:var(--radius);padding:18px 24px;margin-bottom:22px;display:flex;align-items:center;gap:20px;box-shadow:var(--shadow-card)}
-.page-banner.main{background:#2a2826;color:#e8e4e0}
-.page-banner.alt{background:#2a2826;color:#e8e4e0}
+.page-banner.main{background:linear-gradient(135deg,#5a3a6a,#7a5a8a);color:#fff}
+.page-banner.alt{background:linear-gradient(135deg,#4d6a82,#607d96);color:#fff}
 .banner-icon{width:40px;height:40px;background:rgba(255,255,255,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;flex-shrink:0}
 .banner-title{font-size:16px;font-weight:800;letter-spacing:-.2px}
 .banner-sub{font-size:12px;opacity:.8;margin-top:2px}
@@ -75,12 +75,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 /* Rankings */
 .rk-row{background:var(--s);border:1px solid var(--bd);border-left:3px solid var(--bd);border-radius:var(--radius);padding:14px 18px 14px 14px;margin-bottom:6px;display:flex;gap:14px;align-items:center;box-shadow:none;transition:border-left-color .15s,box-shadow .15s,transform .15s;cursor:pointer}
 .rk-row:hover{border-left-color:var(--accent);box-shadow:0 2px 12px rgba(0,0,0,.06);transform:translateX(2px)}
-.rk-row.gold{border-left-color:#e6a820;background:linear-gradient(90deg,#fffef0 0%,#fff 70%)}
-.rk-row.silver{border-left-color:#9aa5b4;background:linear-gradient(90deg,#f5f7fa 0%,#fff 70%)}
-.rk-row.bronze{border-left-color:#c47f3a;background:linear-gradient(90deg,#fdf7f0 0%,#fff 70%)}
-.rk-medal{width:26px;height:26px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.rk-row.gold,.rk-row.silver,.rk-row.bronze{border-left-color:var(--bd);background:var(--s)}
+.rk-medal{width:26px;height:26px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;color:var(--sub);flex-shrink:0}
 .rk-rank{width:26px;height:26px;border-radius:6px;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;color:var(--sub);border:1px solid var(--bd);flex-shrink:0}
-.rk-rank.alt-rank{background:var(--alt-light);color:var(--alt-dark)}
+.rk-rank.alt-rank{background:var(--bg);color:var(--sub)}
 .rk-body{flex:1;min-width:0}
 .rk-name{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:4px;line-height:1.35}
 .rk-loc{font-size:11px;color:var(--sub2);line-height:1.4;margin-bottom:7px}
