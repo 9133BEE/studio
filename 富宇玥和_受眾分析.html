@@ -96,10 +96,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .rk-spend{font-size:13px;font-weight:700;color:#6d6560;line-height:1;font-variant-numeric:tabular-nums}
 .rk-spend-l{font-size:10px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.2px;margin-top:2px}
 /* rank-op-grid：排行(左上) + 素材迭代(下全寬) + 操作建議(右上) */
-.rank-op-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:20px;align-items:start}
-.rank-op-grid>.section:nth-child(1){grid-column:1;grid-row:1}
+.rank-op-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:20px;align-items:stretch}
+.rank-op-grid>.section:nth-child(1){grid-column:1;grid-row:1;display:flex;flex-direction:column;margin-bottom:0}
 .rank-op-grid>.section:nth-child(2){grid-column:1/3;grid-row:2}
-.rank-op-grid>.section:nth-child(3){grid-column:2;grid-row:1}
+.rank-op-grid>.section:nth-child(3){grid-column:2;grid-row:1;display:flex;flex-direction:column;margin-bottom:0}
+.rank-op-grid>.section:nth-child(1) .rk-grid,
+.rank-op-grid>.section:nth-child(3) .tips{flex:1}
 @media(max-width:900px){.rank-op-grid{display:block}}
 /* rk-grid 單欄列式排行 */
 .rk-grid{display:flex;flex-direction:column;gap:7px}
@@ -940,7 +942,15 @@ const MAIN_G=[
   {n:'28–50 / 台中市 / 保險業務+財務規劃+投資人',sub:'銀行理財方向12潛客穩健·延伸財務意識族',
    logic:'注重教育/銀行業理財方向12潛客持續穩健，延伸到更廣財務意識族群。保險業務員了解資產規劃，對「南區2028完工升值空間」最有共鳴，自帶置產思維。切角：「懂錢的人，更懂這個時間點」，投資型與自住型皆可轉換。',
    lm:['南區金融商圈','台中各銀行聚集區','東區保險公司','國圖館圈'],
-   tags:[['Life insurance','壽險保險'],['Investment','投資理財'],['Stock market','股票市場'],['Mutual fund','共同基金'],['ETF','ETF指數基金'],['Financial planning','財務規劃'],['Wealth management','財富管理'],['Banking','銀行理財'],['Tax planning','稅務規劃'],['Retirement planning','退休規劃'],['Real estate','不動產'],['Property investment','置產投資'],['Home buying','購屋'],['Mortgage','房貸'],['Passive income','被動收入'],['Asset management','資產管理'],['Capital gain','資本利得'],['Business owner','企業主'],['Self-employment','自營商'],['Entrepreneurship','創業'],['Financial advisor','理財顧問'],['Accounting','會計'],['Insurance','保險'],['Financial independence','財務自由'],['Taichung','台中'],['Saving','儲蓄'],['Family','家庭'],['Education','教育'],['Premium credit card','白金信用卡'],['National Chung Hsing University','中興大學']]}
+   tags:[['Life insurance','壽險保險'],['Investment','投資理財'],['Stock market','股票市場'],['Mutual fund','共同基金'],['ETF','ETF指數基金'],['Financial planning','財務規劃'],['Wealth management','財富管理'],['Banking','銀行理財'],['Tax planning','稅務規劃'],['Retirement planning','退休規劃'],['Real estate','不動產'],['Property investment','置產投資'],['Home buying','購屋'],['Mortgage','房貸'],['Passive income','被動收入'],['Asset management','資產管理'],['Capital gain','資本利得'],['Business owner','企業主'],['Self-employment','自營商'],['Entrepreneurship','創業'],['Financial advisor','理財顧問'],['Accounting','會計'],['Insurance','保險'],['Financial independence','財務自由'],['Taichung','台中'],['Saving','儲蓄'],['Family','家庭'],['Education','教育'],['Premium credit card','白金信用卡'],['National Chung Hsing University','中興大學']]},
+  {n:'30–50 / 大慶火車站+3km / 台鐵通勤族換屋',sub:'大慶站在地通勤族·步行5分鐘到站未測試',
+   logic:'大慶火車站是台中南區最核心交通樞紐，每天進出的通勤族對「步行5分鐘到站」有最直接的購屋共鳴——通勤族換屋的核心動機是縮短通勤時間，而非投資。南區大慶商圈是在地人熟悉的生活圈，黏著性強，不需要被說服「為什麼住南區」。這組完全未測試，是最接近日常行為觸發的冷受眾。素材切角：「大慶站走5分鐘就到家，三房37坪，台鐵族最理想的新家。」',
+   lm:['大慶火車站','南區傳統市場','中山醫學大學附設醫院','大慶商圈'],
+   tags:[['Commuting','通勤'],['Train','火車台鐵'],['Public transportation','大眾運輸'],['Metro','捷運'],['Transit','交通出行'],['Work-life balance','工作生活平衡'],['Career','職涯工作'],['Home buying','購屋'],['First home','首購'],['Home upgrade','換屋升格'],['Moving','搬家'],['New construction','新成屋'],['Real estate','不動產'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Investment','投資理財'],['Property investment','置產投資'],['Interior design','室內設計'],['Home decor','居家布置'],['Family','家庭'],['Children','子女'],['School district','學區'],['Taichung','台中'],['Fitness','健身'],['Running','路跑'],['Coffee','咖啡'],['Dining','餐廳'],['Local community','在地社區'],['Saving','儲蓄'],['Life insurance','壽險']]},
+  {n:'35–58 / 中山醫大+3km / 醫師+藥師+醫院行政',sub:'中山醫大周邊三院環繞·高收入醫護空白受眾',
+   logic:'中山醫學大學在南區，周邊中山醫院+仁愛醫院+共榮醫院三院環繞，是台中醫護最集中的區域，全案從未精準測試這個地標定向。醫師（月薪20-50萬）、藥師（月薪8-15萬）、醫院行政職（月薪4-7萬）收入穩定，對「醫院走路到家」有最強的生活品質共鳴。台中中山醫學院附近房產供給少，換屋意願強。素材：「中山醫大出門右轉，三房37坪，南區最適合醫護的新家。」',
+   lm:['中山醫學大學','中山醫學大學附設醫院','台中仁愛醫院','大慶火車站'],
+   tags:[['Physician','醫師'],['Medicine','醫學'],['Nursing','護理'],['Pharmacy','藥師'],['Healthcare','醫療保健'],['Hospital administration','醫院行政'],['Medical technology','醫療技術'],['Physical therapy','物理治療'],['Occupational therapy','職能治療'],['Dentistry','牙醫'],['Health insurance','健保'],['Medical licensing','醫療證照'],['Continuing education','進修教育'],['Work-life balance','工作生活平衡'],['Investment','投資理財'],['Financial planning','財務規劃'],['Real estate','不動產'],['Property investment','置產投資'],['Home buying','購屋'],['Mortgage','房貸'],['Saving','儲蓄'],['Life insurance','壽險'],['Family','家庭'],['Children','子女親子'],['Education','教育'],['Wellness','健康養生'],['Health food','健康飲食'],['Yoga','瑜珈'],['Running','路跑'],['Taichung','台中']]}
 ];
 
 const ALT_G=[
