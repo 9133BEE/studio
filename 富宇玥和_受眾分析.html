@@ -37,9 +37,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .stat-l{font-size:10px;color:var(--sub2);margin-top:3px;font-weight:600;letter-spacing:.3px;text-transform:uppercase}
 /* Page banners */
 .page-banner{border-radius:var(--radius);padding:18px 24px;margin-bottom:22px;display:flex;align-items:center;gap:20px;box-shadow:var(--shadow-card)}
-.page-banner.main{background:linear-gradient(135deg,#5a3a6a,#7a5a8a);color:#fff}
-.page-banner.alt{background:linear-gradient(135deg,#4d6a82,#607d96);color:#fff}
-.banner-icon{width:40px;height:40px;background:rgba(255,255,255,.2);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;flex-shrink:0}
+.page-banner.main{background:#2a2826;color:#e8e4e0}
+.page-banner.alt{background:#2a2826;color:#e8e4e0}
+.banner-icon{width:40px;height:40px;background:rgba(255,255,255,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;flex-shrink:0}
 .banner-title{font-size:16px;font-weight:800;letter-spacing:-.2px}
 .banner-sub{font-size:12px;opacity:.8;margin-top:2px}
 .banner-stats{margin-left:auto;display:flex;gap:28px;flex-shrink:0}
@@ -58,21 +58,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .profile-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow-xs);transition:box-shadow .2s,transform .2s}
 .profile-card:hover{box-shadow:var(--shadow-sm);transform:translateY(-2px)}
 .profile-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:17px;margin-bottom:12px}
-.profile-icon.blue{background:var(--accent-light)}
-.profile-icon.green{background:#d8ead2}
-.profile-icon.pink{background:#faeaea}
-.profile-icon.teal{background:var(--alt-light)}
-.profile-icon.amber{background:#fdf0dc}
+.profile-icon.blue,.profile-icon.green,.profile-icon.pink,.profile-icon.teal,.profile-icon.amber{background:var(--bg)}
 .profile-name{font-size:15px;font-weight:700;color:var(--tx);margin-bottom:4px}
 .profile-meta{font-size:12px;color:var(--sub);margin-bottom:10px}
 .profile-tags{font-size:12px;color:#4a5568;margin-bottom:10px;line-height:1.6}
 .profile-behavior{font-size:12px;color:var(--sub);line-height:1.55;margin-bottom:12px}
 .profile-badge{display:inline-block;font-size:11px;font-weight:700;padding:4px 11px;border-radius:20px;margin-top:2px}
-.badge-blue{background:var(--accent-light);color:#4d6a82;border:1px solid var(--accent-border)}
-.badge-green{background:#d8ead2;color:#3d6b4f;border:1px solid #96c4a8}
-.badge-pink{background:#faeaea;color:#8a3f3f;border:1px solid #c89090}
-.badge-teal{background:var(--alt-light);color:var(--alt-dark);border:1px solid var(--alt-border)}
-.badge-amber{background:#fdf0dc;color:#7a5c20;border:1px solid #d4b06a}
+.badge-blue,.badge-green,.badge-pink,.badge-teal,.badge-amber{background:var(--bg);color:var(--sub);border:1px solid var(--bd)}
 /* Core tags */
 .tags-row{display:flex;flex-wrap:wrap;gap:8px}
 .core-tag{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;background:var(--s);border:1.5px solid var(--bd);border-radius:20px;font-size:13px;font-weight:600;color:var(--tx);cursor:pointer;transition:all .15s}
@@ -93,17 +85,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .rk-name{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:4px;line-height:1.35}
 .rk-loc{font-size:11px;color:var(--sub2);line-height:1.4;margin-bottom:7px}
 .rk-tags{display:flex;flex-wrap:wrap;gap:4px}
-.rk-tag{font-size:10px;font-weight:600;padding:2px 8px;border-radius:8px;line-height:1.5}
-.t-biz{background:#fff3e0;color:#bf5600;border:1px solid #ffd0a0}
-.t-fin{background:#e8f0fe;color:#1a56b0;border:1px solid #93b4e8}
-.t-prop{background:#e6f4ea;color:#1e6e3f;border:1px solid #8ecba3}
-.t-edu{background:#e0f7f4;color:#00695c;border:1px solid #7cd6cc}
-.t-ind{background:#eceff1;color:#37474f;border:1px solid #b0bec5}
-.t-sim{background:#fce4ec;color:#880e4f;border:1px solid #f48fb1}
-.t-beh{background:#fffde7;color:#c57a00;border:1px solid #ffe082}
-.t-new{background:#e8f0fe;color:#3a5aaa;border:1px solid #93b4e8}
-.t-teal{background:var(--alt-light);color:var(--alt-dark);border:1px solid var(--alt-border)}
-.t-active{background:#e6f4ea;color:#1e6e3f;border:1px solid #8ecba3;font-weight:800}
+.rk-tag{font-size:10px;font-weight:600;padding:2px 8px;border-radius:8px;line-height:1.5;background:var(--bg);color:var(--sub);border:1px solid var(--bd)}
+.t-biz,.t-fin,.t-prop,.t-edu,.t-ind,.t-sim,.t-beh,.t-new,.t-teal{background:var(--bg);color:var(--sub);border:1px solid var(--bd)}
+.t-active{background:#e8f0f7;color:#3a5a70;border:1px solid #b8d0e4;font-weight:800}
 .rk-stats{display:flex;gap:24px;flex-shrink:0;align-items:center}
 .rk-stat-block{text-align:right}
 .rk-result{font-size:28px;font-weight:900;color:var(--tx);line-height:1;letter-spacing:-1px;font-variant-numeric:tabular-nums}
@@ -327,6 +311,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   </div>
 </div>
 
+<!-- 主粉專 建議嘗試受眾（8組） -->
+<div class="section">
+  <div class="sec-title">主粉專｜建議嘗試受眾（8組）· 更新 2026-06-05</div>
+  <div id="main-aud-grid" class="aud-grid-2"></div>
+</div>
+
 <div class="rank-op-grid">
 <!-- 主粉專 受眾排行 -->
 <div class="section">
@@ -545,11 +535,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 </div>
 </div><!-- /rank-op-grid -->
 
-<!-- 主粉專 建議嘗試受眾（8組） -->
-<div class="section">
-  <div class="sec-title">主粉專｜建議嘗試受眾（8組）· 更新 2026-06-05</div>
-  <div id="main-aud-grid" class="aud-grid-2"></div>
-</div>
 
 </div><!-- end tab-main -->
 
