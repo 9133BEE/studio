@@ -113,6 +113,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .rk-cpl-l{font-size:10px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.2px;margin-top:2px}
 .rk-spend{font-size:13px;font-weight:700;color:#6d6560;line-height:1;font-variant-numeric:tabular-nums}
 .rk-spend-l{font-size:10px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.2px;margin-top:2px}
+/* rank-op-grid：排行(左上) + 素材迭代(下全寬) + 操作建議(右上) */
+.rank-op-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:20px;align-items:start}
+.rank-op-grid>.section:nth-child(1){grid-column:1;grid-row:1}
+.rank-op-grid>.section:nth-child(2){grid-column:1/3;grid-row:2}
+.rank-op-grid>.section:nth-child(3){grid-column:2;grid-row:1}
+@media(max-width:900px){.rank-op-grid{display:block}}
 /* rk-grid 2欄緊湊排行 */
 .rk-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}
 .rk-grid .rk-row{margin-bottom:0;padding:9px 13px 9px 11px}
@@ -192,14 +198,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .aud-num{width:24px;height:24px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0}
 .aud-num.alt{background:var(--alt)}
 .aud-info{flex:1;min-width:0}
-.aud-name{font-size:12px;font-weight:700;color:var(--tx);line-height:1.3}
-.aud-sub{font-size:10px;color:var(--sub2);margin-top:2px}
+.aud-name{font-size:14px;font-weight:700;color:var(--tx);line-height:1.3}
+.aud-sub{font-size:11px;color:var(--sub2);margin-top:2px}
 .aud-arrow{font-size:12px;color:var(--sub2);transition:transform .2s;flex-shrink:0}
 .aud-card.open .aud-arrow{transform:rotate(90deg)}
 .aud-body{display:none;padding:0 16px 16px;border-top:1px solid var(--bd)}
 .aud-card.open .aud-body{display:block}
 .aud-sl{font-size:10px;font-weight:700;color:var(--sub2);text-transform:uppercase;letter-spacing:.4px;margin:12px 0 6px}
-.aud-logic{font-size:11px;color:var(--tx);line-height:1.65;background:var(--accent-light);border:1px solid var(--accent-border);border-radius:8px;padding:9px 12px}
+.aud-logic{font-size:12px;color:var(--tx);line-height:1.65;background:var(--accent-light);border:1px solid var(--accent-border);border-radius:8px;padding:9px 12px}
 .aud-logic.alt-l{background:var(--alt-light);border-color:var(--alt-border)}
 .aud-lm{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px}
 .aud-lm-tag{background:var(--bg);border:1px solid var(--bd);border-radius:12px;padding:2px 9px;font-size:10px;color:var(--sub)}
@@ -328,6 +334,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   </div>
 </div>
 
+<div class="rank-op-grid">
 <!-- 主粉專 受眾排行 -->
 <div class="section">
   <div class="sec-title">主粉專受眾排行（2026-03-20 至 2026-06-02）</div>
@@ -399,76 +406,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
       <div class="rk-stat-block"><div class="rk-result">12</div><div class="rk-result-l">潛在顧客</div></div>
       <div class="rk-stat-block"><div class="rk-cpl">NT$400</div><div class="rk-cpl-l">CPL</div></div>
       <div class="rk-stat-block"><div class="rk-spend">NT$4,796</div><div class="rk-spend-l">花費</div></div>
-    </div>
-  </div>
-
-  <div class="rk-row">
-    <div class="rk-rank">6</div>
-    <div class="rk-body">
-      <div class="rk-name">興大大里 / 科技醫療</div>
-      <div class="rk-loc">28–60｜中興大學大里｜2026-04-21起</div>
-      <div class="rk-tags"><span class="rk-tag t-biz">科技業</span><span class="rk-tag t-edu">醫療</span></div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-stat-block"><div class="rk-result">11</div><div class="rk-result-l">潛在顧客</div></div>
-      <div class="rk-stat-block"><div class="rk-cpl">NT$390</div><div class="rk-cpl-l">CPL</div></div>
-      <div class="rk-stat-block"><div class="rk-spend">NT$4,288</div><div class="rk-spend-l">花費</div></div>
-    </div>
-  </div>
-
-  <div class="rk-row">
-    <div class="rk-rank">7</div>
-    <div class="rk-body">
-      <div class="rk-name">南屯西區東區 / 藝文時尚(0514調整區域)</div>
-      <div class="rk-loc">28–60｜南屯西區東區｜2026-04-22起</div>
-      <div class="rk-tags"><span class="rk-tag t-sim">藝文展覽</span><span class="rk-tag t-sim">精品時尚</span></div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-stat-block"><div class="rk-result">7</div><div class="rk-result-l">潛在顧客</div></div>
-      <div class="rk-stat-block"><div class="rk-cpl">NT$406</div><div class="rk-cpl-l">CPL</div></div>
-      <div class="rk-stat-block"><div class="rk-spend">NT$2,839</div><div class="rk-spend-l">花費</div></div>
-    </div>
-  </div>
-
-  <div class="rk-row">
-    <div class="rk-rank">8</div>
-    <div class="rk-body">
-      <div class="rk-name">南區東區大里 / 金融投資興趣(0511調整)</div>
-      <div class="rk-loc">28–60｜南區東區大里｜2026-04-02至05-19</div>
-      <div class="rk-tags"><span class="rk-tag t-fin">金融投資</span></div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-stat-block"><div class="rk-result">6</div><div class="rk-result-l">潛在顧客</div></div>
-      <div class="rk-stat-block"><div class="rk-cpl">NT$392</div><div class="rk-cpl-l">CPL</div></div>
-      <div class="rk-stat-block"><div class="rk-spend">NT$2,353</div><div class="rk-spend-l">花費</div></div>
-    </div>
-  </div>
-
-  <div class="rk-row">
-    <div class="rk-rank">9</div>
-    <div class="rk-body">
-      <div class="rk-name">中興國圖 / 新婚·首購·成家</div>
-      <div class="rk-loc">28–55｜中興大學+國圖館｜2026-05-28起 🟢 新啟最低CPL</div>
-      <div class="rk-tags"><span class="rk-tag t-beh">新婚</span><span class="rk-tag t-beh">首購</span><span class="rk-tag t-active">進行中</span></div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-stat-block"><div class="rk-result">5</div><div class="rk-result-l">潛在顧客</div></div>
-      <div class="rk-stat-block"><div class="rk-cpl good-cpl">NT$234</div><div class="rk-cpl-l">CPL</div></div>
-      <div class="rk-stat-block"><div class="rk-spend">NT$1,169</div><div class="rk-spend-l">花費</div></div>
-    </div>
-  </div>
-
-  <div class="rk-row">
-    <div class="rk-rank">10</div>
-    <div class="rk-body">
-      <div class="rk-name">國圖館+6km / 高資產女性置產族</div>
-      <div class="rk-loc">28–60｜國圖館+6km｜2026-04-24至06-19</div>
-      <div class="rk-tags"><span class="rk-tag t-sim">高資產女性</span><span class="rk-tag t-prop">置產</span></div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-stat-block"><div class="rk-result">5</div><div class="rk-result-l">潛在顧客</div></div>
-      <div class="rk-stat-block"><div class="rk-cpl">NT$502</div><div class="rk-cpl-l">CPL</div></div>
-      <div class="rk-stat-block"><div class="rk-spend">NT$2,512</div><div class="rk-spend-l">花費</div></div>
     </div>
   </div>
   </div><!-- /rk-grid -->
@@ -566,7 +503,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   </div>
 </div>
 
-<!-- 主粉專 五大操作建議 -->
+<!-- 主粉專 操作建議 （右欄）-->
 <div class="section">
   <div class="sec-title">主粉專操作建議</div>
   <div class="tips">
@@ -613,6 +550,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 
   </div>
 </div>
+</div><!-- /rank-op-grid -->
 
 <!-- 主粉專 建議嘗試受眾（8組） -->
 <div class="section">
