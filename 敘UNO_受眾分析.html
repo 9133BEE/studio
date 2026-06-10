@@ -155,6 +155,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 /* Toast */
 #copy-toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(10px);background:#1a2a18;color:#a8e8b8;font-size:12px;font-weight:600;padding:8px 18px;border-radius:20px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:200;white-space:nowrap}
 #copy-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.page-banner{border-radius:var(--radius);padding:18px 24px;margin-bottom:22px;display:flex;align-items:center;gap:20px;box-shadow:var(--shadow-card)}
+.page-banner.main{background:linear-gradient(135deg,#5a3a6a,#7a5a8a);color:#fff}
+.page-banner.alt{background:linear-gradient(135deg,#4d6a82,#607d96);color:#fff}
+.banner-icon{width:40px;height:40px;background:rgba(255,255,255,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;flex-shrink:0}
+.banner-title{font-size:16px;font-weight:800;letter-spacing:-.2px}
+.banner-sub{font-size:12px;opacity:.8;margin-top:2px}
+.banner-stats{margin-left:auto;display:flex;gap:28px;flex-shrink:0}
+.bs{text-align:right}
+.bs-n{font-size:22px;font-weight:800;color:#fff;line-height:1;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.bs-l{font-size:10px;color:rgba(255,255,255,.7);margin-top:3px;font-weight:600;letter-spacing:.3px;text-transform:uppercase}
 </style>
 </head>
 <body>
@@ -198,13 +208,18 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   </div>
 
   <!-- Tab bar -->
-  <div class="tab-bar">
-    <button class="tab-btn active" onclick="switchTab('perf',this)">受眾成效</button>
-    <button class="tab-btn" onclick="switchTab('insight',this)">策略建議</button>
+  <div class="page-banner main">
+    <div class="banner-icon">敘</div>
+    <div>
+      <div class="banner-title">主粉專｜敘UNO FB</div>
+      <div class="banner-sub">2026/02 起 · 2026 受眾數據</div>
+    </div>
+    <div class="banner-stats">
+      <div class="bs"><div class="bs-n">65</div><div class="bs-l">2026潛客</div></div>
+      <div class="bs"><div class="bs-n">$331</div><div class="bs-l">最佳CPL</div></div>
+      <div class="bs"><div class="bs-n">$24K</div><div class="bs-l">2026花費</div></div>
+    </div>
   </div>
-
-  <!-- ══ TAB 1：受眾成效 ══ -->
-  <div id="tab-perf" class="tab-pane show">
 
     <div class="note-bar">2026年 名單廣告｜海線自營商族群是核心，零售批發自營跨龍井/沙鹿均有效，最佳CPL NT$331</div>
 
@@ -339,10 +354,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
       <div class="note-bar warn">2023年最有效的受眾為「龍井-親子教育/工業區」（66訊息 CPL $67）與「台中海線上班族教育通勤」系列。此為訊息目標數據，可作為日後名單模式測試的方向參考。</div>
     </div>
 
-  </div><!-- end tab-perf -->
-
-  <!-- ══ TAB 2：策略建議 ══ -->
-  <div id="tab-insight" class="tab-pane">
 
     <div class="note-bar">全案洞察：2026年 NT$24,044花費・65潛客・最佳CPL NT$331（沙鹿東海零售批發自營）・1組active</div>
 
@@ -829,7 +840,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
       </div><!-- end aud-grid-2 -->
     </div><!-- end 8組受眾 -->
 
-  </div><!-- end tab-insight -->
 
 </div><!-- end wrap -->
 
@@ -837,13 +847,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 
 <script>
 /* ── tab ── */
-function switchTab(id, btn) {
-  document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('show'));
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('tab-' + id).classList.add('show');
-  btn.classList.add('active');
-}
-
 /* ── accordion ── */
 function toggleAud(id) {
   const card = document.getElementById(id);
