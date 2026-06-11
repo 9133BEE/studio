@@ -23,7 +23,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 #btt{position:fixed;right:24px;bottom:28px;width:38px;height:38px;border-radius:50%;background:rgba(10,20,15,.75);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.85);font-size:15px;cursor:pointer;opacity:0;transform:translateY(8px);transition:opacity .2s,transform .2s;pointer-events:none;z-index:150;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.3);font-family:inherit}
 #btt.show{opacity:1;transform:translateY(0);pointer-events:auto}
 #btt:hover{background:rgba(20,45,30,.9);transform:translateY(-2px)}
-.wrap{max-width:1200px;margin:0 auto;padding:32px 40px 48px}
+.wrap{max-width:1440px;margin:0 auto;padding:32px 48px 48px}
 .case-header{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:20px 24px;margin-bottom:10px;display:flex;align-items:center;gap:18px;box-shadow:var(--shadow-card)}
 .case-logo{width:44px;height:44px;background:linear-gradient(135deg,#5aa07a,var(--accent-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;flex-shrink:0}
 .case-info h2{font-size:17px;font-weight:700;color:var(--tx);letter-spacing:-.3px}
@@ -147,6 +147,35 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .bs{text-align:right}
 .bs-n{font-size:22px;font-weight:800;color:#fff;line-height:1;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
 .bs-l{font-size:10px;color:rgba(255,255,255,.7);margin-top:3px;font-weight:600;letter-spacing:.3px;text-transform:uppercase}
+.rank-op-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:20px;align-items:start}
+.rank-op-grid>*:nth-child(1){grid-column:1;grid-row:1}
+.rank-op-grid>*:nth-child(2){grid-column:1/3;grid-row:2}
+.rank-op-grid>*:nth-child(3){grid-column:2;grid-row:1}
+@media(max-width:900px){.rank-op-grid{display:block}}
+.rk-grid{display:flex;flex-direction:column;gap:7px}
+.rk-grid .rk-row{margin-bottom:0}
+.aud-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;align-items:start}
+@media(max-width:760px){.aud-grid-2{grid-template-columns:1fr}}
+.aud-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);box-shadow:var(--shadow-xs);overflow:hidden}
+.aud-header{display:flex;align-items:center;gap:12px;padding:13px 16px;cursor:pointer;transition:background .15s;user-select:none}
+.aud-header:hover{background:var(--accent-light)}
+.aud-arrow{font-size:12px;color:var(--sub2);transition:transform .2s;flex-shrink:0}
+.aud-card.open .aud-arrow{transform:rotate(90deg)}
+.aud-body{display:none;padding:0 16px 16px;border-top:1px solid var(--bd)}
+.aud-card.open .aud-body{display:block}
+.aud-name{font-size:14px;font-weight:700;color:var(--tx);line-height:1.4}
+.aud-num{width:24px;height:24px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0}
+.aud-info{flex:1;min-width:0}
+.aud-sub{font-size:11px;color:var(--sub2);margin-top:2px}
+.aud-sl{font-size:10px;font-weight:700;color:var(--sub2);text-transform:uppercase;letter-spacing:.4px;margin:12px 0 6px}
+.aud-logic{font-size:12px;color:var(--tx);line-height:1.65;background:var(--accent-light);border:1px solid var(--accent-border);border-radius:8px;padding:9px 12px}
+.aud-lm{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px}
+.aud-lm-tag{background:var(--bg);border:1px solid var(--bd);border-radius:12px;padding:2px 9px;font-size:10px;color:var(--sub)}
+.tag-tbl{width:100%;border-collapse:collapse;font-size:11px;margin-top:6px}
+.tag-tbl th{padding:3px 8px;text-align:left;font-weight:600;border:1px solid var(--bd);background:var(--accent-light);color:var(--accent-dark)}
+.tag-tbl td{padding:2px 8px;border:1px solid var(--bd);color:var(--sub)}
+.tag-tbl tr:nth-child(even) td{background:var(--bg)}
+.tag-tbl tbody tr{cursor:pointer;transition:background .1s}
 </style>
 </head>
 <body>
@@ -237,53 +266,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 
 <div class="section">
   <div class="sec-title">建議新測試受眾方向</div>
-  <div class="new-grid">
-    <div class="new-card" style="border-color:var(--accent-border);background:#f0f8f4">
-      <div class="new-card-title">✅ 已上線｜28–55 / 彰師大+6K / 新婚成家(0604擴) · 34潛客 CPL $269</div>
-      <div class="new-card-desc">0604已從+5K擴至+6K並持續 active，34 潛客 CPL NT$269，是全案唯一穩定產出受眾。下一步測試 +8K 版本擴大覆蓋，搭配 0603_與行家共鳴 新素材觀察效果。</div>
-    </div>
-    <div class="new-card" style="border-color:var(--accent-border);background:#f0f8f4">
-      <div class="new-card-title">✅ 已上線（0603）｜再行銷/坤育師大苑 + 彰化烏日/房產591 Reach · active</div>
-      <div class="new-card-desc">0603已新開「再行銷/坤育師大苑」＋「彰化烏日/房產591」Reach觸及組，目前均 active 但尚無名單轉換。觀察1-2週後，將 Reach 曝光名單轉入再行銷漏斗，搭配住師大素材二次喚回，形成「觸及→再行銷→名單」完整漏斗。</div>
-    </div>
-    <div class="new-card">
-      <div class="new-card-title">28–55 / 彰市和美 / 進德路商圈業主 ↗</div>
-      <div class="new-card-desc">延伸自營商/零售批發成功方向，合併「零售批發+貿易商+服務業老闆」興趣，地標聚焦進德路商圈+5km，搭配「進德路步行圈置產」素材</div>
-    </div>
-    <div class="new-card">
-      <div class="new-card-title">35–55 / 台中烏日+彰化 / 通勤換屋族 ↗</div>
-      <div class="new-card-desc">延伸烏日大肚（20潛客 CPL $345）成功受眾，擴大到「台中烏日+彰化市通勤圈」，訴求「台中換彰化，同預算住大坪數，彰師大文教區」</div>
-    </div>
-    <div class="new-card" style="border-color:var(--accent-border);background:#f0f8f4">
-      <div class="new-card-title">✅ 已上線（0603）｜28-55 / 彰化市學區 / 教師/家長/投資理財 · 觀察中</div>
-      <div class="new-card-desc">延伸教育業成家（9潛客 CPL $340），0603已開「28-55/彰化市學區/教師/家長/投資理財」，目前 inactive（花費 NT$456，尚無潛客）。需觀察1-2週評估，若仍無轉換考慮調整為彰師大地標版本。</div>
-    </div>
-
-    <div class="new-card">
-      <div class="new-card-title">28–50 / 台中南屯大肚霧峰 / 科技業南下首購（台中買不起的出路）↗</div>
-      <div class="new-card-desc">台中科技業（台積電/中科協力廠商）薪資不低但台中房價高，彰化師大旁是「同樣預算換更大更新成屋」的替代選擇。建議開「28-50 / 台中南屯+大肚+霧峰 / 科技業工程師+研發人員」，訴求「台中買不到，彰化師大旁三房，台中高鐵20分鐘」，搭配台中↔彰化距離感消除素材。</div>
-    </div>
-
-    <div class="new-card">
-      <div class="new-card-title">35–60 / 彰化員林北斗 / 南彰化返鄉置產（文教區升格）↗</div>
-      <div class="new-card-desc">彰化南縣鎮（員林、北斗、田中）有外地工作返鄉或想讓孩子在彰化市念書的族群，彰化市文教區+彰師大是首選升格地。建議開「35-60 / 員林北斗田中 / 返鄉置產+子女學區」，訴求「回彰化安家，彰師大學區，捷運G22未來增值，現在進場值得」。地理標籤從南彰化往彰化市中心設定。</div>
-    </div>
-
-    <div class="new-card">
-      <div class="new-card-title">30–55 / 彰化市+彰化高鐵 / 捷運G22投資客×早鳥佈局 ↗</div>
-      <div class="new-card-desc">彰化捷運G22動工倒數，「彰化版台中水湳」投資邏輯成立。建議開「30-55 / 彰化市區+高鐵特區 / 投資置產+捷運增值+預售早鳥」，訴求「G22捷運站周邊預售建案，彰師大文教區投資早鳥，現在進場等捷運開通」，素材帶捷運路線圖和增值概念。投資族看的是增值時間差，這組和自住族群完全互補。</div>
-    </div>
-
-    <div class="new-card">
-      <div class="new-card-title">30–50 / 彰化市和美秀水 / 在地老公寓升格換屋 ↗</div>
-      <div class="new-card-desc">彰化市及和美/秀水/線西有大量住老公寓/老透天的在地人，想換到新成屋但不想離開彰化縣。彰師大首排新成屋是「同縣市升格」的最佳選擇。建議開「30-50 / 彰化市和美秀水 / 在地家庭換屋+舊公寓升格」，訴求「住了20年的老公寓，換到彰師大旁新成屋，同樣是彰化人，生活品質直升一個等級」。在地升格情感強烈，比異地移居更好轉換。</div>
-    </div>
-  </div>
+  <div id="main-aud-grid" class="aud-grid-2"></div>
 </div>
 
+<div class="rank-op-grid">
 <div class="section">
   <div class="sec-title">成果前 10 名受眾排行（2025/11–2026/06）</div>
-
+  <div class="rk-grid">
   <div class="rk-row gold">
     <div class="rk-medal">🥇</div>
     <div class="rk-body">
@@ -365,75 +354,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
       <div class="rk-stat-block"><div class="rk-spend">$3,632</div><div class="rk-spend-l">花費</div></div>
     </div>
   </div>
+  </div><!-- /rk-grid -->
 
-  <div class="rk-row">
-    <div class="rk-rank">6</div>
-    <div class="rk-body">
-      <div class="rk-name">28-60 / 彰化 / 傳產/親子教育/服務業（1210+興趣）</div>
-      <div class="rk-loc">彰化市區廣域</div>
-      <div class="rk-tags"><span class="rk-tag t-biz">傳產</span><span class="rk-tag t-edu">親子教育</span><span class="rk-tag t-biz">服務業</span></div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-stat-block"><div class="rk-result">10</div><div class="rk-result-l">成果</div></div>
-      <div class="rk-stat-block"><div class="rk-cpl">$400</div><div class="rk-cpl-l">CPL</div></div>
-      <div class="rk-stat-block"><div class="rk-spend">$4,003</div><div class="rk-spend-l">花費</div></div>
-    </div>
-  </div>
-
-  <div class="rk-row">
-    <div class="rk-rank">7</div>
-    <div class="rk-body">
-      <div class="rk-name">28-45 / 彰市和美 / 教育業成家（0304調興趣）</div>
-      <div class="rk-loc">彰化市 + 和美 · 教育業族群</div>
-      <div class="rk-tags"><span class="rk-tag t-edu">教育業</span><span class="rk-tag t-fam">成家</span><span class="rk-tag t-loc">彰化</span></div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-stat-block"><div class="rk-result">9</div><div class="rk-result-l">成果</div></div>
-      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$340</div><div class="rk-cpl-l">CPL</div></div>
-      <div class="rk-stat-block"><div class="rk-spend">$3,061</div><div class="rk-spend-l">花費</div></div>
-    </div>
-  </div>
-
-  <div class="rk-row">
-    <div class="rk-rank">8</div>
-    <div class="rk-body">
-      <div class="rk-name">28-55 / 彰市和美 / 育兒寵物（0115 FB）</div>
-      <div class="rk-loc">彰化市 + 和美 · 有小孩/寵物家庭</div>
-      <div class="rk-tags"><span class="rk-tag t-fam">育兒</span><span class="rk-tag t-fam">寵物</span><span class="rk-tag t-young">換屋</span></div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-stat-block"><div class="rk-result">9</div><div class="rk-result-l">成果</div></div>
-      <div class="rk-stat-block"><div class="rk-cpl">$514</div><div class="rk-cpl-l">CPL</div></div>
-      <div class="rk-stat-block"><div class="rk-spend">$3,601</div><div class="rk-spend-l">花費</div></div>
-    </div>
-  </div>
-
-  <div class="rk-row">
-    <div class="rk-rank">9</div>
-    <div class="rk-body">
-      <div class="rk-name">30-60 / 烏日文心 / 房產/自營/親子</div>
-      <div class="rk-loc">台中烏日 + 文心路</div>
-      <div class="rk-tags"><span class="rk-tag t-prop">房產</span><span class="rk-tag t-biz">自營</span><span class="rk-tag t-fam">親子</span></div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-stat-block"><div class="rk-result">9</div><div class="rk-result-l">成果</div></div>
-      <div class="rk-stat-block"><div class="rk-cpl">$533</div><div class="rk-cpl-l">CPL</div></div>
-      <div class="rk-stat-block"><div class="rk-spend">$4,801</div><div class="rk-spend-l">花費</div></div>
-    </div>
-  </div>
-
-  <div class="rk-row">
-    <div class="rk-rank">10</div>
-    <div class="rk-body">
-      <div class="rk-name">30-50 / 鹿港和美彰市 / 零售批發自營（0401+地點興趣）</div>
-      <div class="rk-loc">鹿港 + 和美 + 彰化市</div>
-      <div class="rk-tags"><span class="rk-tag t-biz">零售批發</span><span class="rk-tag t-biz">自營</span><span class="rk-tag t-loc">彰化</span></div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-stat-block"><div class="rk-result">6</div><div class="rk-result-l">成果</div></div>
-      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$304</div><div class="rk-cpl-l">CPL</div></div>
-      <div class="rk-stat-block"><div class="rk-spend">$1,822</div><div class="rk-spend-l">花費</div></div>
-    </div>
   </div>
 
 </div>
@@ -618,6 +540,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 
   </div>
 </div>
+</div><!-- /rank-op-grid -->
 
 <div class="page-footer">資料期間：2025-11-01 至 2026-06-05 · 坤育師大苑 彰化市 彰師大首排 · 最後更新 2026-06-05</div>
 
@@ -626,6 +549,75 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 <div id="toast" style="position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);background:#2e2c29;color:#fff;font-size:12.5px;padding:10px 20px;border-radius:24px;opacity:0;transition:all .25s;pointer-events:none;z-index:999;white-space:nowrap">📋 已複製 → 貼至 Claude 對話</div>
 <script>
 const PROJECT = '坤育師大苑（彰化市・彰師大首排・捷運G22增值題材・185潛客・均CPL NT$429）';
+const MAIN_G=[
+  {n:'28–55 / 彰師大+6K / 新婚成家(0604擴)',sub:'0604上線·34潛客·CPL $269 全案最優',
+   logic:'0604已從+5K擴至+6K並持續 active，34 潛客 CPL NT$269，是全案唯一穩定產出受眾。下一步測試 +8K 版本擴大覆蓋，搭配 0603_與行家共鳴 新素材觀察效果。',
+   lm:['彰化師範大學','彰化市中心','民族路商圈','彰化火車站'],
+   tags:[['Newly married','新婚成家'],['Wedding','婚禮婚慶'],['Home buying','購屋'],['Real estate','不動產'],['Property investment','置產投資'],['First home','首購成家'],['Mortgage','房屋貸款'],['Interior design','室內設計'],['Home decoration','家居裝潢'],['Family','家庭生活'],['Children','孩子親子'],['Financial planning','財務規劃'],['Investment','投資理財'],['Saving','儲蓄存錢'],['National Changhua University of Education','彰化師範大學'],['Changhua','彰化市'],['Health food','健康飲食'],['Yoga','瑜珈健身'],['Work-life balance','工作生活平衡'],['Local community','在地社區'],['Cooking','料理烹飪'],['Pet','寵物'],['Furniture','家具'],['Home appliances','家電'],['Travel','旅遊'],['Running','路跑'],['Coffee','咖啡'],['Couple','伴侶'],['Marriage','婚姻'],['Lifestyle','生活品味']]},
+  {n:'再行銷/坤育師大苑 + 彰化烏日/房產591 Reach',sub:'0603上線·再行銷漏斗＋Reach觸及·觀察轉換',
+   logic:'0603已新開「再行銷/坤育師大苑」＋「彰化烏日/房產591」Reach觸及組，目前均 active 但尚無名單轉換。觀察1-2週後，將 Reach 曝光名單轉入再行銷漏斗，搭配住師大素材二次喚回，形成「觸及→再行銷→名單」完整漏斗。',
+   lm:['彰化師範大學','烏日高鐵站','大肚山','彰化市'],
+   tags:[['Real estate','不動產'],['Property investment','置產投資'],['Home buying','購屋置產'],['Mortgage','房屋貸款'],['First home','首購成家'],['Financial planning','財務規劃'],['Investment','投資理財'],['Saving','儲蓄'],['Property value','房產增值'],['High-speed rail','高鐵'],['Commuting','通勤'],['National Changhua University of Education','彰化師範大學'],['Changhua','彰化'],['Taichung','台中'],['Family','家庭'],['Interior design','室內設計'],['Home decoration','家居'],['Work-life balance','工作生活平衡'],['Local community','在地生活'],['Urban living','城市生活'],['Moving','搬家'],['Neighborhood','社區生活'],['Car','汽車'],['Sports','運動健身'],['Technology','科技'],['Smart home','智慧住宅'],['Restaurant','餐廳美食'],['Shopping mall','購物中心'],['Green living','綠色生活'],['New construction','新建案']]},
+  {n:'28–55 / 彰市和美 / 進德路商圈業主',sub:'延伸自營商/零售批發方向·商圈業主完全未測',
+   logic:'延伸自營商/零售批發成功方向，合併「零售批發+貿易商+服務業老闆」興趣，地標聚焦進德路商圈+5km，搭配「進德路步行圈置產」素材',
+   lm:['進德路商圈','和美市區','彰化師範大學','秀水工業區'],
+   tags:[['Small business','小型企業'],['Entrepreneurship','創業'],['Retail','零售'],['Wholesale','批發'],['Trade','貿易'],['Business owner','企業主'],['Self-employed','自營商'],['Service industry','服務業'],['Commerce','商業'],['Real estate','不動產'],['Property investment','置產投資'],['Home buying','購屋'],['Mortgage','房屋貸款'],['Financial planning','財務規劃'],['Investment','投資理財'],['Saving','儲蓄'],['National Changhua University of Education','彰化師範大學'],['Changhua','彰化'],['Business','商業經營'],['Local business','在地商業'],['Marketing','行銷'],['E-commerce','電商'],['Logistics','物流'],['Food industry','餐飲業'],['Social media','社群媒體'],['Management','管理'],['Accounting','會計'],['Human resources','人力資源'],['Business networking','商業人脈'],['Leadership','領導力']]},
+  {n:'35–55 / 台中烏日+彰化 / 通勤換屋族',sub:'烏日大肚20潛客CPL$345驗證·跨縣市通勤換屋',
+   logic:'延伸烏日大肚（20潛客 CPL $345）成功受眾，擴大到「台中烏日+彰化市通勤圈」，訴求「台中換彰化，同預算住大坪數，彰師大文教區」',
+   lm:['烏日高鐵站','大肚','彰化師範大學','台中南屯'],
+   tags:[['Commuting','通勤'],['Relocation','搬家'],['Real estate','不動產'],['Property investment','置產投資'],['Home buying','購屋'],['Mortgage','房屋貸款'],['Upgrade housing','換屋升格'],['Financial planning','財務規劃'],['Investment','投資理財'],['Saving','儲蓄'],['Taichung','台中'],['Changhua','彰化'],['High-speed rail','高鐵'],['Family','家庭'],['Work-life balance','工作生活平衡'],['National Changhua University of Education','彰化師範大學'],['Transportation','交通'],['Property value','房屋增值'],['Second home','換屋'],['Urban living','都市生活'],['Car','汽車'],['Driving','開車通勤'],['Outdoor','戶外活動'],['Hiking','登山健行'],['Cycling','腳踏車'],['Nature','自然'],['Gardening','庭園'],['Sports','運動'],['Cooking','料理'],['Family vacation','全家旅遊']]},
+  {n:'28-55 / 彰化市學區 / 教師/家長/投資理財',sub:'延伸教育業成家9潛客·0603上線觀察中',
+   logic:'延伸教育業成家（9潛客 CPL $340），0603已開「28-55/彰化市學區/教師/家長/投資理財」，目前 inactive（花費 NT$456，尚無潛客）。需觀察1-2週評估，若仍無轉換考慮調整為彰師大地標版本。',
+   lm:['彰化師範大學','彰化市學區','彰化縣政府','民族路國小'],
+   tags:[['Education','教育'],['Teaching','教學'],['School','學校'],['Parenting','親子教養'],['Children\'s education','兒童教育'],['School district','學區'],['National Changhua University of Education','彰化師範大學'],['Real estate','不動產'],['Property investment','置產投資'],['Home buying','購屋'],['Mortgage','房屋貸款'],['Financial planning','財務規劃'],['Investment','投資理財'],['Saving','儲蓄'],['Family','家庭'],['Children','孩子'],['Higher education','高等教育'],['Professional development','職涯發展'],['Work-life balance','工作生活平衡'],['Changhua','彰化'],['Reading','閱讀'],['Books','書籍'],['Online course','線上課程'],['Continuing education','進修'],['Music','音樂'],['Art','藝術'],['Cultural activities','藝文活動'],['Volunteering','志工服務'],['Nature','自然生態'],['Healthy lifestyle','健康生活']]},
+  {n:'28–50 / 台中南屯大肚霧峰 / 科技業南下首購',sub:'台積電/中科廠商薪資族·台中買不起的替代解',
+   logic:'台中科技業（台積電/中科協力廠商）薪資不低但台中房價高，彰化師大旁是「同樣預算換更大更新成屋」的替代選擇。建議開「28-50 / 台中南屯+大肚+霧峰 / 科技業工程師+研發人員」，訴求「台中買不到，彰化師大旁三房，台中高鐵20分鐘」，搭配台中↔彰化距離感消除素材。',
+   lm:['大肚山科技園區','霧峰','台中南屯','彰化師範大學'],
+   tags:[['Technology','科技'],['Engineering','工程'],['Information technology','資訊科技'],['Electronics','電子產業'],['Manufacturing','製造業'],['STEM','理工STEM'],['First home','首購'],['Real estate','不動產'],['Property investment','置產投資'],['Home buying','購屋'],['Mortgage','房屋貸款'],['Financial planning','財務規劃'],['Investment','投資理財'],['Saving','儲蓄'],['Taichung','台中'],['Changhua','彰化'],['National Changhua University of Education','彰化師範大學'],['Commuting','通勤'],['Work-life balance','工作生活平衡'],['Professional development','職涯發展'],['Artificial intelligence','人工智慧'],['Software','軟體'],['Programming','程式設計'],['Data science','數據科學'],['Startup','新創'],['Innovation','創新'],['Gaming','遊戲'],['Travel','旅遊'],['Fitness','健身'],['Coffee','咖啡精品']]},
+  {n:'35–60 / 彰化員林北斗 / 南彰化返鄉置產',sub:'南彰化返鄉+子女學區訴求·文教區升格方向',
+   logic:'彰化南縣鎮（員林、北斗、田中）有外地工作返鄉或想讓孩子在彰化市念書的族群，彰化市文教區+彰師大是首選升格地。建議開「35-60 / 員林北斗田中 / 返鄉置產+子女學區」，訴求「回彰化安家，彰師大學區，捷運G22未來增值，現在進場值得」。地理標籤從南彰化往彰化市中心設定。',
+   lm:['員林市','北斗鎮','彰化師範大學','彰化市中心'],
+   tags:[['Family','家庭'],['Children\'s education','兒童教育'],['School district','學區'],['Real estate','不動產'],['Property investment','置產投資'],['Home buying','購屋'],['Mortgage','房屋貸款'],['Financial planning','財務規劃'],['Investment','投資理財'],['Saving','儲蓄'],['National Changhua University of Education','彰化師範大學'],['Changhua','彰化'],['Education','教育'],['School','學校'],['Parenting','親子教養'],['Local living','在地生活'],['Community','社區'],['Property value','房屋增值'],['Work-life balance','工作生活平衡'],['Home decoration','家居裝潢'],['Nature','自然'],['Outdoor','戶外'],['Rural life','鄉村生活'],['Cooking','料理'],['Traditional culture','傳統文化'],['Food','美食'],['Festival','節慶活動'],['Hiking','登山'],['Cycling','腳踏車'],['Agriculture','農業體驗']]},
+  {n:'30–55 / 彰化市+彰化高鐵 / 捷運G22投資客×早鳥佈局',sub:'捷運G22動工·彰化版水湳增值邏輯·投資早鳥',
+   logic:'彰化捷運G22動工倒數，「彰化版台中水湳」投資邏輯成立。建議開「30-55 / 彰化市區+高鐵特區 / 投資置產+捷運增值+預售早鳥」，訴求「G22捷運站周邊預售建案，彰師大文教區投資早鳥，現在進場等捷運開通」，素材帶捷運路線圖和增值概念。投資族看的是增值時間差，這組和自住族群完全互補。',
+   lm:['彰化高鐵站','彰化市區','捷運G22預定站','彰化師範大學'],
+   tags:[['Property investment','置產投資'],['Real estate investment','不動產投資'],['Investment','投資理財'],['Financial planning','財務規劃'],['Asset allocation','資產配置'],['Rental property','出租置產'],['Capital appreciation','增值保值'],['High-speed rail','高鐵'],['Metro system','捷運'],['Transportation','交通建設'],['Real estate','不動產'],['Home buying','購屋'],['Mortgage','房屋貸款'],['Saving','儲蓄'],['Changhua','彰化'],['National Changhua University of Education','彰化師範大學'],['Urban development','都市開發'],['Infrastructure','基礎建設'],['Stock market','股票投資'],['Early bird','早鳥佈局'],['Cryptocurrency','加密貨幣'],['Trading','交易投資'],['Wealth management','財富管理'],['Passive income','被動收入'],['Tax planning','稅務規劃'],['Insurance','保險'],['Retirement','退休規劃'],['Fund','基金'],['Portfolio','投資組合'],['Business news','財經新聞']]},
+  {n:'30–50 / 彰化市和美秀水 / 在地老公寓升格換屋',sub:'在地老公寓→彰師大旁新成屋·在地升格情感訴求',
+   logic:'彰化市及和美/秀水/線西有大量住老公寓/老透天的在地人，想換到新成屋但不想離開彰化縣。彰師大首排新成屋是「同縣市升格」的最佳選擇。建議開「30-50 / 彰化市和美秀水 / 在地家庭換屋+舊公寓升格」，訴求「住了20年的老公寓，換到彰師大旁新成屋，同樣是彰化人，生活品質直升一個等級」。在地升格情感強烈，比異地移居更好轉換。',
+   lm:['彰化市','和美鎮','秀水鄉','彰化師範大學'],
+   tags:[['Home renovation','翻新裝潢'],['Home improvement','居家改善'],['Interior design','室內設計'],['Real estate','不動產'],['Property investment','置產投資'],['Home buying','購屋換屋'],['Mortgage','房屋貸款'],['Upgrade housing','換屋升格'],['Financial planning','財務規劃'],['Investment','投資理財'],['Saving','儲蓄'],['Changhua','彰化'],['National Changhua University of Education','彰化師範大學'],['Family','家庭'],['Local living','在地生活'],['Community','社區'],['Property value','房屋增值'],['Home decoration','家居裝潢'],['New home','新成屋'],['Work-life balance','工作生活平衡'],['Moving','搬家'],['Smart home','智慧住宅'],['Minimalism','簡約生活'],['Green living','綠色生活'],['Energy saving','節能環保'],['Cooking','料理'],['Pets','寵物'],['Gardening','庭園綠化'],['Declutter','整理收納'],['Fresh start','嶄新開始']]}
+];
+function buildAudCard(g,idx,prefix){
+  const id=prefix+(idx+1);
+  const rows=g.tags.map((t,i)=>`<tr><td>${i+1}</td><td>${t[0]}</td><td>${t[1]}</td></tr>`).join('');
+  const lmTags=g.lm.map(l=>`<span class="aud-lm-tag">${l}</span>`).join('');
+  return `<div class="aud-card" id="${id}">
+    <div class="aud-header" onclick="toggleAud2('${id}')">
+      <div class="aud-num">${idx+1}</div>
+      <div class="aud-info"><div class="aud-name">${g.n}</div><div class="aud-sub">${g.sub}</div></div>
+      <div class="aud-arrow">▶</div>
+    </div>
+    <div class="aud-body">
+      <div class="aud-sl">評估邏輯</div>
+      <div class="aud-logic">${g.logic}</div>
+      <div class="aud-sl">地標定位</div>
+      <div class="aud-lm">${lmTags}</div>
+      <div class="aud-sl">興趣標籤（點擊列複製單個）</div>
+      <table class="tag-tbl"><thead><tr><th>#</th><th>English</th><th>中文</th></tr></thead><tbody>${rows}</tbody></table>
+    </div>
+  </div>`;
+}
+function toggleAud2(id){document.getElementById(id).classList.toggle('open')}
+(function(){
+  const mg=document.getElementById('main-aud-grid');
+  if(mg)mg.innerHTML=MAIN_G.map((g,i)=>buildAudCard(g,i,'m')).join('');
+  document.querySelectorAll('.tag-tbl tbody tr').forEach(tr=>{
+    tr.addEventListener('click',()=>{
+      const cells=tr.querySelectorAll('td');
+      if(cells.length>=3)copyPrompt(cells[1].textContent.trim()+' / '+cells[2].textContent.trim());
+    });
+  });
+})();
 function showToast(){const t=document.getElementById('toast');t.style.opacity='1';t.style.transform='translateX(-50%) translateY(0)';setTimeout(()=>{t.style.opacity='0';t.style.transform='translateX(-50%) translateY(20px)'},2200)}
 function copyPrompt(text){navigator.clipboard.writeText(text).then(showToast).catch(()=>{const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast()})}
 document.querySelectorAll('.core-tag').forEach(el=>{el.addEventListener('click',()=>{const tag=el.textContent.replace('↗','').trim();copyPrompt(`針對${PROJECT}，請深入分析「${tag}」這個興趣標籤：\n1. 在本案受眾中代表什麼輪廓？\n2. 搭配哪些標籤組合效果最好？\n3. 素材訴求應該怎麼寫？`)})});
