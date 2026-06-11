@@ -11,8 +11,8 @@
   --bd:#e2e5ea;--bd2:#c8cdd6;
   --tx:#1a1d23;--sub:#6b7280;--sub2:#9ca3af;
   --a:#607d96;--al:#eef3f8;--ab:#9db8cc;--a-dark:#4d6a82;
-  --good:#1f7a52;--goodl:#e6f5ee;--goodb:#7dd3a8;
-  --warn:#c05c00;--warnl:#fff4e8;--warnb:#fdb870;
+  --good:#1e3a6e;--goodl:#e6eaf4;--goodb:#7a9ac8;
+  --warn:#4a6a8a;--warnl:#eaecf6;--warnb:#8a9ac8;
   --radius:12px;--radius-pill:24px;
   --shadow-xs:0 1px 3px rgba(0,0,0,.05),0 1px 2px rgba(0,0,0,.03);
   --shadow-sm:0 2px 8px rgba(0,0,0,.07),0 1px 3px rgba(0,0,0,.04);
@@ -113,8 +113,8 @@ main{padding:28px 40px;max-width:1400px;margin:0 auto}
   transition:box-shadow .2s,transform .2s;
 }
 .stat-card:nth-child(1)::after{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;background:linear-gradient(180deg,#607d96,#4d6a82)}
-.stat-card:nth-child(2)::after{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;background:linear-gradient(180deg,#1f7a52,#166040)}
-.stat-card:nth-child(3)::after{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;background:linear-gradient(180deg,#c05c00,#9a4800)}
+.stat-card:nth-child(2)::after{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;background:linear-gradient(180deg,#1e3a6e,#162a5e)}
+.stat-card:nth-child(3)::after{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;background:linear-gradient(180deg,#5a3a7a,#3a2a5a)}
 .stat-card:nth-child(4)::after{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;background:linear-gradient(180deg,#7a5a8a,#5a3a6a)}
 .stat-card:hover{box-shadow:var(--shadow-sm);transform:translateY(-2px)}
 .stat-card .sc-icon{
@@ -261,21 +261,21 @@ main{padding:28px 40px;max-width:1400px;margin:0 auto}
 .ah-region{font-size:10px;font-weight:700;color:var(--sub);background:var(--s2);padding:3px 6px;border-radius:4px;white-space:nowrap;text-align:center;border:1px solid var(--bd)}
 .ah-type{font-size:11.5px;color:var(--tx);font-weight:600;line-height:1.3}
 .ah-cpl{font-size:13px;font-weight:800;color:var(--good);text-align:right;font-variant-numeric:tabular-nums;letter-spacing:-.3px}
-.ah-cpl.mid{color:#d97706}
+.ah-cpl.mid{color:#4a6a8a}
 .ah-cpl.hi{color:var(--warn)}
 .ah-proj{font-size:10px;color:var(--sub2);text-align:right;white-space:nowrap}
 /* Category ranking */
 .cat-row{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid var(--bd)}
 .cat-row:last-child{border-bottom:none;padding-bottom:0}
 .cat-rank{width:20px;height:20px;border-radius:5px;background:var(--s2);font-size:10px;font-weight:900;color:var(--sub);display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid var(--bd)}
-.cat-rank.bad{background:#fde8e8;color:#9b1c1c;border-color:#fca5a5}
+.cat-rank.bad{background:#eaecf6;color:#2a3a6a;border-color:#8a9ac8}
 .cat-body{flex:1;min-width:0}
 .cat-name{font-size:12px;font-weight:700;color:var(--tx);line-height:1.2;margin-bottom:2px}
 .cat-name.muted{color:var(--sub)}
 .cat-range{font-size:10px;color:var(--sub2)}
 .cat-bar-wrap{margin-top:4px;height:3px;background:var(--s2);border-radius:2px;overflow:hidden}
 .cat-bar{height:100%;background:var(--a);border-radius:2px;transition:width .3s}
-.cat-bar.bad{background:#fca5a5}
+.cat-bar.bad{background:#8a9ac8}
 .cat-badge{font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px;background:var(--goodl);color:var(--good);border:1px solid var(--goodb);white-space:nowrap;flex-shrink:0}
 </style>
 </head>
@@ -343,143 +343,6 @@ main{padding:28px 40px;max-width:1400px;margin:0 auto}
       <div class="sc-icon">🟢</div>
       <div class="sn" id="activeCount">—</div>
       <div class="sl">進行中案件</div>
-    </div>
-  </div>
-
-  <!-- 跨案受眾成效速覽 -->
-  <div class="analysis-hub">
-    <div class="section-label">跨案受眾成效速覽</div>
-    <div class="ah-cols">
-
-      <!-- 左：各區最佳受眾 -->
-      <div class="ah-block">
-        <div class="ah-block-title">各區最佳受眾 · 依最低 CPL</div>
-        <div class="ah-row">
-          <span class="ah-region">嘉義大林</span>
-          <span class="ah-type">家庭主婦在地型（訊息）</span>
-          <span class="ah-cpl">$175</span>
-          <span class="ah-proj">中祐雅苑</span>
-        </div>
-        <div class="ah-row">
-          <span class="ah-region">台中北屯</span>
-          <span class="ah-type">投資置產 ＋ 雙語高收</span>
-          <span class="ah-cpl">$192</span>
-          <span class="ah-proj">景立方ALL</span>
-        </div>
-        <div class="ah-row">
-          <span class="ah-region">台中南區</span>
-          <span class="ah-type">首購年輕成家</span>
-          <span class="ah-cpl">$234</span>
-          <span class="ah-proj">富宇玥和</span>
-        </div>
-        <div class="ah-row">
-          <span class="ah-region">桃園青埔</span>
-          <span class="ah-type">投資顧問 ＋ 外語留學</span>
-          <span class="ah-cpl">$261</span>
-          <span class="ah-proj">新大墨</span>
-        </div>
-        <div class="ah-row">
-          <span class="ah-region">台中沙鹿</span>
-          <span class="ah-type">公教職員（訊息）</span>
-          <span class="ah-cpl">$268</span>
-          <span class="ah-proj">華偉知見</span>
-        </div>
-        <div class="ah-row">
-          <span class="ah-region">台中烏日</span>
-          <span class="ah-type">企業主管置產 ＋ 商辦</span>
-          <span class="ah-cpl mid">$414</span>
-          <span class="ah-proj">富旺商城</span>
-        </div>
-        <div class="ah-row">
-          <span class="ah-region">台中東區</span>
-          <span class="ah-type">換屋首購菁英</span>
-          <span class="ah-cpl mid">$423</span>
-          <span class="ah-proj">浩瀚湖濱城</span>
-        </div>
-        <div class="ah-row">
-          <span class="ah-region">彰化市</span>
-          <span class="ah-type">捷運議題首購成家</span>
-          <span class="ah-cpl mid">$429</span>
-          <span class="ah-proj">坤育師大苑</span>
-        </div>
-        <div class="ah-row">
-          <span class="ah-region">台中太平</span>
-          <span class="ah-type">財稅顧問菁英</span>
-          <span class="ah-cpl hi">$570</span>
-          <span class="ah-proj">坤悅涵仰</span>
-        </div>
-      </div>
-
-      <!-- 右：受眾類型跨案效益排行 -->
-      <div class="ah-block">
-        <div class="ah-block-title">受眾類型跨案效益排行</div>
-        <div class="cat-row">
-          <div class="cat-rank">1</div>
-          <div class="cat-body">
-            <div class="cat-name">再行銷 / 自訂受眾</div>
-            <div class="cat-range">CPL $192–$318 · 所有進行中案件均有效</div>
-            <div class="cat-bar-wrap"><div class="cat-bar" style="width:100%"></div></div>
-          </div>
-          <span class="cat-badge">最穩定</span>
-        </div>
-        <div class="cat-row">
-          <div class="cat-rank">2</div>
-          <div class="cat-body">
-            <div class="cat-name">投資置產類（置產 ＋ 高收入）</div>
-            <div class="cat-range">CPL $192–$400 · 8個案件有效</div>
-            <div class="cat-bar-wrap"><div class="cat-bar" style="width:90%"></div></div>
-          </div>
-        </div>
-        <div class="cat-row">
-          <div class="cat-rank">3</div>
-          <div class="cat-body">
-            <div class="cat-name">年輕首購成家類</div>
-            <div class="cat-range">CPL $234–$290 · 5個案件有效</div>
-            <div class="cat-bar-wrap"><div class="cat-bar" style="width:76%"></div></div>
-          </div>
-        </div>
-        <div class="cat-row">
-          <div class="cat-rank">4</div>
-          <div class="cat-body">
-            <div class="cat-name">公教職員類</div>
-            <div class="cat-range">CPL $268–$429 · 5個案件有效</div>
-            <div class="cat-bar-wrap"><div class="cat-bar" style="width:64%"></div></div>
-          </div>
-        </div>
-        <div class="cat-row">
-          <div class="cat-rank">5</div>
-          <div class="cat-body">
-            <div class="cat-name">科技工業 / 中科科技業</div>
-            <div class="cat-range">CPL $253–$429 · 4個案件有效</div>
-            <div class="cat-bar-wrap"><div class="cat-bar" style="width:56%"></div></div>
-          </div>
-        </div>
-        <div class="cat-row">
-          <div class="cat-rank">6</div>
-          <div class="cat-body">
-            <div class="cat-name">財金顧問 / 保險銀行類</div>
-            <div class="cat-range">CPL $268–$624 · 4個案件有效</div>
-            <div class="cat-bar-wrap"><div class="cat-bar" style="width:48%"></div></div>
-          </div>
-        </div>
-        <div class="cat-row">
-          <div class="cat-rank">7</div>
-          <div class="cat-body">
-            <div class="cat-name">傳產自營商換屋類</div>
-            <div class="cat-range">CPL $400–$600 · 3個案件有效</div>
-            <div class="cat-bar-wrap"><div class="cat-bar" style="width:38%"></div></div>
-          </div>
-        </div>
-        <div class="cat-row">
-          <div class="cat-rank bad">✗</div>
-          <div class="cat-body">
-            <div class="cat-name muted">醫生 / 高管 / 律師精準定向</div>
-            <div class="cat-range">CPL $800+ · 跨案均無效 → 停用</div>
-            <div class="cat-bar-wrap"><div class="cat-bar bad" style="width:15%"></div></div>
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
 
@@ -582,7 +445,7 @@ const PROJECTS = [
     updated: "2026-06-05",
     tags: ["彰化", "彰化市", "名單", "首購", "捷運"],
     icon: "苑",
-    color: "#3a7a5a",
+    color: "#5a3a7a",
     file: "坤育師大苑_受眾分析.html"
   },
   {
@@ -613,12 +476,12 @@ const PROJECTS = [
     leads: 181,
     cpl: 856,
     spend: 154930,
-    groups: 70,
+    groups: 78,
     startDate: "2026-02-23",
-    updated: "2026-06-01",
+    updated: "2026-06-11",
     tags: ["台中", "東區", "名單", "辦公室"],
     icon: "湖",
-    color: "#4a7a8a",
+    color: "#4a6a8a",
     file: "浩瀚湖濱城_受眾分析.html"
   },
   {
@@ -636,7 +499,7 @@ const PROJECTS = [
     updated: "2026-05-28",
     tags: ["嘉義", "大林", "訊息", "透天"],
     icon: "雅",
-    color: "#5a7a60",
+    color: "#5a6a8a",
     file: "中祐雅苑_受眾分析.html"
   },
   {
@@ -654,7 +517,7 @@ const PROJECTS = [
     updated: "2026-06-09",
     tags: ["台中", "沙鹿", "訊息", "首購"],
     icon: "見",
-    color: "#8a6a4a",
+    color: "#6a5a8a",
     file: "華偉知見_受眾分析.html"
   },
   {
@@ -685,12 +548,12 @@ const PROJECTS = [
     leads: 17,
     cpl: 1734,
     spend: 29469,
-    groups: 35,
+    groups: 41,
     startDate: "2026-04-25",
     updated: "2026-06-10",
     tags: ["台中", "太平", "名單", "換屋", "雙帳號"],
     icon: "仰",
-    color: "#4a7a5a",
+    color: "#5a4a8a",
     file: "坤悅涵仰_受眾分析.html"
   },
   {
@@ -708,7 +571,7 @@ const PROJECTS = [
     updated: "2026-06-04",
     tags: ["台中", "后里", "訊息", "透天別墅"],
     icon: "麗",
-    color: "#7a5a4a",
+    color: "#5a6a8a",
     file: "后麗18_受眾分析.html"
   },
   {
@@ -726,7 +589,7 @@ const PROJECTS = [
     updated: "2026-06-05",
     tags: ["台中", "龍井", "名單", "投資", "店面"],
     icon: "敘",
-    color: "#8a6a3a",
+    color: "#6a4a8a",
     file: "敘UNO_受眾分析.html"
   },
   // ── 範本：複製上面這筆，填入新案件 ──
