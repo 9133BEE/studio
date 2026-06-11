@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
@@ -201,6 +201,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .tf-bar{height:100%;background:linear-gradient(90deg,#7a5a8a,#9a7aaa);border-radius:4px;transition:width .5s ease}
 .tf-cnt{font-size:12px;font-weight:800;color:#7a5a8a;min-width:22px;text-align:right}
 .rk-row.hidden-row{display:none}
+/* ── Rank-Op Grid ── */
+.rk-grid{display:flex;flex-direction:column;gap:7px}
+.rank-op-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:20px;align-items:stretch}
+.rank-op-grid>.section:nth-child(1){grid-column:1;grid-row:1;display:flex;flex-direction:column;margin-bottom:0}
+.rank-op-grid>.section:nth-child(2){grid-column:1/3;grid-row:2}
+.rank-op-grid>.section:nth-child(3){grid-column:2;grid-row:1;display:flex;flex-direction:column;margin-bottom:0}
+.rank-op-grid>.section:nth-child(1) .rk-grid,.rank-op-grid>.section:nth-child(3) .tips{flex:1}
+.rank-op-grid>.section:nth-child(1) .rk-row,.rank-op-grid>.section:nth-child(3) .tip{flex:1;min-height:0}
+@media(max-width:900px){.rank-op-grid{display:block}}
 </style>
 </head>
 <body>
@@ -283,7 +292,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 </div>
 
 <!-- 主粉專 核心標籤 -->
-<div class="section">
+<div class="section core-tags-row">
   <div class="sec-title">跨受眾必保留的核心標籤</div>
   <div class="tags-row">
     <span class="core-tag">房地產（產業）<span class="arr">↗</span></span>
@@ -293,173 +302,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
     <span class="core-tag">置產（房地產）<span class="arr">↗</span></span>
     <span class="core-tag">理財規劃（財務）<span class="arr">↗</span></span>
     <span class="core-tag">子女置產（家庭）<span class="arr">↗</span></span>
-  </div>
-</div>
-
-<!-- 主粉專 操作建議 -->
-<div class="section">
-  <div class="sec-title">五大操作建議</div>
-  <div class="tips">
-    <div class="tip">
-      <div class="tip-num c1">1</div>
-      <div class="tip-body">
-        <div class="tip-title">再行銷 CPL NT$560 / 80潛客，每2週換素材維持新鮮感</div>
-        <div class="tip-desc">中彰投再行銷是整案最強組。目前已調整至1510粉專素材加持，建議每2週換一批素材（旗艦公設第二版為現役最強），維持頻率避免廣告疲乏。同時擴充粉絲池，加入近期互動影片觀看者。</div>
-      </div>
-    </div>
-    <div class="tip">
-      <div class="tip-num c2">2</div>
-      <div class="tip-body">
-        <div class="tip-title">EP02 是主力但CPL $984偏高，應降頻並換新剪輯版本</div>
-        <div class="tip-desc">1028_EP02 全案貢獻 139 潛客，但 CPL NT$984、花費超 $136K，頻率已上升。建議降低 EP02 原版比重，改以 EP03片段1（CPL $1,338 但效率更佳）為輔，同時製作 EP02 30秒剪輯版本降低 CPL。</div>
-      </div>
-    </div>
-    <div class="tip">
-      <div class="tip-num c3">3</div>
-      <div class="tip-body">
-        <div class="tip-title">科技自營商 CPL NT$565 / 11潛客，複製擴大至 COSTCO+8km</div>
-        <div class="tip-desc">主粉專科技自營商 CPL $565 是冷受眾最佳。建議從「中科水湳中清」擴展到「COSTCO好市多+8km」，覆蓋更多科技業族群；同時複製到「逢甲+10km」測試科技廊道延伸效果。</div>
-      </div>
-    </div>
-    <div class="tip">
-      <div class="tip-num c4">4</div>
-      <div class="tip-body">
-        <div class="tip-title">子女置產 15潛客最穩定，換素材「衛道學區」角度重啟</div>
-        <div class="tip-desc">35-60/潭子北屯太平/子女置產花費 NT$13,000 共 15 潛客，但 CPL $867 偏高。建議更換素材角度為「衛道名校旁，為孩子留一棟，出租自住兩相宜」，搭配學區地圖視覺，降低 CPL 至 NT$650 以下。</div>
-      </div>
-    </div>
-    <div class="tip">
-      <div class="tip-num c5">5</div>
-      <div class="tip-body">
-        <div class="tip-title">千坪綠覆系列全面停止，資源移至 EP03片段格式</div>
-        <div class="tip-desc">1222_千坪綠覆 V2 CPL NT$3,344、原版 NT$3,688，是全案 CPL 最高素材，視覺訴求與購屋動機脫節。建議立即停止所有千坪綠覆組，預算轉移至 EP03片段1（CPL $1,338）和 EP02片段格式測試。</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- 主粉專 素材迭代 -->
-<div class="creative-section">
-  <div class="sec-title">素材迭代分析</div>
-  <div class="creative-timeline">
-    <div class="phase-row">
-      <div class="phase-label">Ph.1<br>10/28</div>
-      <div class="phase-body">
-        <div class="phase-title">EP02 / EP03 故事型影片（長篇主力素材）</div>
-        <div class="phase-desc">長篇敘事影片建立品牌認知。EP02 長期主力累計 139 潛客；EP03 38 潛客。兩支影片撐起早期大量曝光。</div>
-      </div>
-      <div class="phase-stat"><div class="phase-cpl">177 潛客</div><div class="phase-cpl-l">均CPL NT$984~1,584</div></div>
-    </div>
-    <div class="phase-row">
-      <div class="phase-label">Ph.2<br>11~12月</div>
-      <div class="phase-body">
-        <div class="phase-title">1114_生活有品味 / 1028_不出門（情感型素材）</div>
-        <div class="phase-desc">強調居住情感價值，吸引換屋族共鳴。生活有品味 11 潛客 CPL $1,232，不出門 3 潛客 CPL $1,105，皆作為輔助素材。</div>
-      </div>
-      <div class="phase-stat"><div class="phase-cpl">14 潛客</div><div class="phase-cpl-l">均CPL NT$1,105~1,232</div></div>
-    </div>
-    <div class="phase-row">
-      <div class="phase-label">Ph.3<br>12月~1月</div>
-      <div class="phase-body">
-        <div class="phase-title">1222_千坪綠覆（景觀型素材）❌</div>
-        <div class="phase-desc">以千坪綠覆景觀為訴求，兩版本共 10 潛客但 CPL NT$3,344~3,688 全案最高。視覺美麗但未能驅動轉換，已確認無效。</div>
-      </div>
-      <div class="phase-stat"><div class="phase-cpl">10 潛客</div><div class="phase-cpl-l">⚠️ CPL NT$3,344+</div></div>
-    </div>
-    <div class="phase-row">
-      <div class="phase-label">Ph.4<br>1月~2月</div>
-      <div class="phase-body">
-        <div class="phase-title">0121_簡短版介紹 / EP03 V2（高點擊短版）</div>
-        <div class="phase-desc">縮短影片長度、提升點閱率。簡短版 19 潛客 CPL $1,644，EP03 V2 23 潛客 CPL $1,452，效率高於原版但仍偏貴。</div>
-      </div>
-      <div class="phase-stat"><div class="phase-cpl">42 潛客</div><div class="phase-cpl-l">均CPL NT$1,452~1,644</div></div>
-    </div>
-    <div class="phase-row">
-      <div class="phase-label">Ph.5<br>3月~4月</div>
-      <div class="phase-body">
-        <div class="phase-title">EP03片段1 / EP02片段2 / 0320_EP02片段2（剪輯再利用）</div>
-        <div class="phase-desc">將舊影片剪成短片段再投放。EP03片段1 19 潛客 CPL $1,338，EP02片段2 11 潛客 CPL $1,189，片段化策略效率明顯高於原版。</div>
-      </div>
-      <div class="phase-stat"><div class="phase-cpl">30 潛客</div><div class="phase-cpl-l">均CPL NT$1,189~1,338</div></div>
-    </div>
-    <div class="phase-row" style="border-color:var(--accent-border);background:#faf8fc">
-      <div class="phase-label" style="background:var(--accent-light);color:#5a3a7a">⚡ 現役</div>
-      <div class="phase-body">
-        <div class="phase-title">0416_旗艦公設第二版（✅ 1510爆發，主粉協測中）</div>
-        <div class="phase-desc">直接展示游泳池、健身房、KTV等公設。在1510粉專中 CPL NT$553、55潛客；主粉協測 5 潛客、CPL $1,164，確認公設展示型素材為正確方向。</div>
-      </div>
-      <div class="phase-stat"><div class="phase-cpl">60 潛客</div><div class="phase-cpl-l">⚡ 最低 CPL $553</div></div>
-    </div>
-  </div>
-
-  <div class="creative-grid">
-    <div class="creative-card best">
-      <div class="creative-name">1028 EP02（影片）</div>
-      <div><span class="creative-badge cb-top">🏆 全案主力</span></div>
-      <div class="creative-stats">
-        <b>累積</b> 139 潛客 · CPL NT$984<br>
-        <b>特點</b>：長篇故事型，品牌認知強，但頻率已高<br>
-        <b>建議</b>：降頻，製作30秒剪輯版降低CPL
-      </div>
-    </div>
-    <div class="creative-card best">
-      <div class="creative-name">EP03片段1 / EP02片段2</div>
-      <div><span class="creative-badge cb-active">✅ 效率最佳</span></div>
-      <div class="creative-stats">
-        <b>合計</b> 30 潛客 · CPL NT$1,189~1,338<br>
-        <b>特點</b>：片段剪輯效率高於原版，頻率低，CTR穩定<br>
-        <b>建議</b>：持續投放，增加新片段版本
-      </div>
-    </div>
-    <div class="creative-card best">
-      <div class="creative-name">0121 簡短版介紹 / EP03 V2</div>
-      <div><span class="creative-badge cb-active">✅ 長期有效</span></div>
-      <div class="creative-stats">
-        <b>合計</b> 42 潛客 · CPL NT$1,452~1,644<br>
-        <b>特點</b>：短版精準傳遞核心賣點，搭配再行銷效果更佳<br>
-        <b>建議</b>：維持投放，配合再行銷受眾
-      </div>
-    </div>
-    <div class="creative-card">
-      <div class="creative-name">1114 生活有品味 / 1028 不出門</div>
-      <div><span class="creative-badge cb-active">📦 輔助</span></div>
-      <div class="creative-stats">
-        <b>合計</b> 14 潛客 · CPL NT$1,105~1,232<br>
-        <b>特點</b>：情感型訴求，換屋族共鳴，花費控制良好<br>
-        <b>建議</b>：維持小量輔助，換屋族受眾組使用
-      </div>
-    </div>
-    <div class="creative-card">
-      <div class="creative-name">0416 旗艦公設第二版（主粉協測）</div>
-      <div><span class="creative-badge cb-new">🆕 跨粉測試</span></div>
-      <div class="creative-stats">
-        <b>主粉</b> 5 潛客 · CPL NT$1,164<br>
-        <b>特點</b>：1510主力，主粉協測CPL尚可，仍不如1510<br>
-        <b>建議</b>：維持協測，不需在主粉專大量加碼
-      </div>
-    </div>
-    <div class="creative-card" style="background:#f9f9f9">
-      <div class="creative-name">1222 千坪綠覆 V1 / V2</div>
-      <div><span class="creative-badge cb-retired">❌ 全面停止</span></div>
-      <div class="creative-stats">
-        <b>CPL</b> NT$3,344~3,688 · 全案最高<br>
-        <b>問題</b>：景觀美麗但未驅動轉換，視覺與需求脫節<br>
-        <b>建議</b>：立即停止所有版本，預算移轉至片段素材
-      </div>
-    </div>
-  </div>
-
-  <div class="insight-box">
-    <div class="insight-title">主粉專素材策略洞見</div>
-    <div class="insight-highlight">
-      片段化剪輯 &gt; 長版原片 &gt; 千坪綠覆：EP03片段1（CPL $1,338）比EP03原版（$1,584）效率高 15%，比千坪綠覆（$3,344）效率高 150%。舊素材剪短再利用是現階段最高效的素材升級策略。
-    </div>
-    <div class="insight-sub">後續素材建議：</div>
-    <ul class="insight-list">
-      <li>製作 EP02 30秒剪輯版本，目標 CPL NT$700 以下</li>
-      <li>模仿1510「旗艦公設」策略，拍攝主粉專專屬公設特寫版（健身房30秒、車位30秒）</li>
-      <li>再行銷組換上「預約私享賞宅」強 CTA 素材，二次轉換已互動受眾</li>
-    </ul>
   </div>
 </div>
 
@@ -511,217 +353,185 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   </div>
 </div>
 
-<!-- 主粉專 受眾排行 -->
-<div class="section">
-  <div class="sec-title">主粉專受眾成果排行（前 10）</div>
+<!-- 主粉專 rank-op-grid -->
+<div class="rank-op-grid">
 
-  <!-- 地區篩選 -->
-  <div class="region-bar">
-    <span class="rgn-label">📍 地區</span>
-    <button class="rgn-btn active" onclick="filterRgn('main','all',this)">全部</button>
-    <button class="rgn-btn" onclick="filterRgn('main','北屯太平潭子',this)">北屯/潭子/太平</button>
-    <button class="rgn-btn" onclick="filterRgn('main','中科水湳中清',this)">中科/水湳/中清</button>
-    <button class="rgn-btn" onclick="filterRgn('main','東區北區洲際',this)">東區/洲際</button>
-    <button class="rgn-btn" onclick="filterRgn('main','74沿線',this)">74沿線</button>
-    <button class="rgn-btn" onclick="filterRgn('main','十期',this)">十期</button>
-    <button class="rgn-btn" onclick="filterRgn('main','豐原靜宜',this)">豐原/靜宜</button>
-    <button class="rgn-btn" onclick="filterRgn('main','大台中',this)">大台中</button>
-    <button class="rgn-btn" onclick="filterRgn('main','中彰投',this)">中彰投</button>
+  <!-- CHILD 1: 受眾排行 (grid-column:1 grid-row:1) -->
+  <div class="section">
+    <div class="sec-title">主粉專受眾成果排行（前 5）</div>
+    <div class="rk-grid">
+
+      <div class="rk-row gold">
+        <div class="rk-medal">🥇</div>
+        <div class="rk-body">
+          <div class="rk-name">中彰投再行銷 / 原潮APT（0520調粉專）</div>
+          <div class="rk-loc">中彰投已互動粉絲再行銷受眾</div>
+          <div class="rk-tags"><span class="rk-tag t-sim">再行銷</span><span class="rk-tag t-prop">互動受眾</span><span class="rk-tag t-prop">房地產</span></div>
+        </div>
+        <div class="rk-stats">
+          <div class="rk-stat-block"><div class="rk-result">80</div><div class="rk-result-l">成果</div></div>
+          <div class="rk-stat-block"><div class="rk-cpl good-cpl">$560</div><div class="rk-cpl-l">CPL</div></div>
+          <div class="rk-stat-block"><div class="rk-spend">$44,805</div><div class="rk-spend-l">花費</div></div>
+        </div>
+      </div>
+
+      <div class="rk-row silver">
+        <div class="rk-medal">🥈</div>
+        <div class="rk-body">
+          <div class="rk-name">35-60 / 潭子北屯太平 / 子女置產（1126調區域）</div>
+          <div class="rk-loc">潭子 + 北屯 + 太平 各+3km</div>
+          <div class="rk-tags"><span class="rk-tag t-edu">子女置產</span><span class="rk-tag t-prop">房地產投資</span><span class="rk-tag t-fin">投資理財</span></div>
+        </div>
+        <div class="rk-stats">
+          <div class="rk-stat-block"><div class="rk-result">15</div><div class="rk-result-l">成果</div></div>
+          <div class="rk-stat-block"><div class="rk-cpl">$867</div><div class="rk-cpl-l">CPL</div></div>
+          <div class="rk-stat-block"><div class="rk-spend">$13,000</div><div class="rk-spend-l">花費</div></div>
+        </div>
+      </div>
+
+      <div class="rk-row bronze">
+        <div class="rk-medal">🥉</div>
+        <div class="rk-body">
+          <div class="rk-name">27-45 / 東區北區洲際 / 小家庭自營商</div>
+          <div class="rk-loc">東區 +4km · 北區 +4km · 洲際棒球場 +3km</div>
+          <div class="rk-tags"><span class="rk-tag t-edu">小家庭</span><span class="rk-tag t-biz">自營商</span><span class="rk-tag t-prop">購屋置產</span></div>
+        </div>
+        <div class="rk-stats">
+          <div class="rk-stat-block"><div class="rk-result">14</div><div class="rk-result-l">成果</div></div>
+          <div class="rk-stat-block"><div class="rk-cpl">$811</div><div class="rk-cpl-l">CPL</div></div>
+          <div class="rk-stat-block"><div class="rk-spend">$11,356</div><div class="rk-spend-l">花費</div></div>
+        </div>
+      </div>
+
+      <div class="rk-row">
+        <div class="rk-rank">4</div>
+        <div class="rk-body">
+          <div class="rk-name">30-55 / 中科水湳中清 / 科技自營商A</div>
+          <div class="rk-loc">中科路 +3km · 水湳中央公園 +3km · 中清交流道 +3km</div>
+          <div class="rk-tags"><span class="rk-tag t-ind">科技業</span><span class="rk-tag t-biz">自營商</span><span class="rk-tag t-fin">投資理財</span></div>
+        </div>
+        <div class="rk-stats">
+          <div class="rk-stat-block"><div class="rk-result">11</div><div class="rk-result-l">成果</div></div>
+          <div class="rk-stat-block"><div class="rk-cpl good-cpl">$565</div><div class="rk-cpl-l">CPL</div></div>
+          <div class="rk-stat-block"><div class="rk-spend">$6,210</div><div class="rk-spend-l">花費</div></div>
+        </div>
+      </div>
+
+      <div class="rk-row">
+        <div class="rk-rank">5</div>
+        <div class="rk-body">
+          <div class="rk-name">28-55 / 74沿線 / 通勤傳產零售</div>
+          <div class="rk-loc">74快速道路沿線</div>
+          <div class="rk-tags"><span class="rk-tag t-ind">傳產業</span><span class="rk-tag t-biz">零售業</span><span class="rk-tag t-ind">通勤上班族</span></div>
+        </div>
+        <div class="rk-stats">
+          <div class="rk-stat-block"><div class="rk-result">11</div><div class="rk-result-l">成果</div></div>
+          <div class="rk-stat-block"><div class="rk-cpl">$808</div><div class="rk-cpl-l">CPL</div></div>
+          <div class="rk-stat-block"><div class="rk-spend">$8,885</div><div class="rk-spend-l">花費</div></div>
+        </div>
+      </div>
+
+    </div>
   </div>
 
-  <div id="rk-list-main">
-  <div class="rk-row gold" data-region="中彰投" onclick="toggleDetail(this)">
-    <div class="rk-medal">🥇</div>
-    <div class="rk-body">
-      <div class="rk-name">中彰投再行銷 / 原潮APT（0520調粉專）<span class="rk-expand-icon">▾</span></div>
-      <div class="rk-loc">中彰投已互動粉絲再行銷受眾</div>
-      <div class="rk-tags"><span class="rk-tag t-sim">再行銷</span><span class="rk-tag t-prop">互動受眾</span><span class="rk-tag t-prop">房地產</span></div>
-      <div class="rk-detail">
-        <div class="rk-detail-label">完整興趣標籤</div>
-        <div class="rk-hidden-tags"><span class="rk-htag">中彰投粉絲再行銷</span><span class="rk-htag">房地產（產業）</span><span class="rk-htag">不動產（房地產）</span><span class="rk-htag">已互動訪客</span><span class="rk-htag">網站訪客</span></div>
+  <!-- CHILD 2: 素材迭代 (grid-column:1/3 grid-row:2) -->
+  <div class="section">
+    <div class="sec-title">素材迭代分析</div>
+    <div class="creative-timeline">
+      <div class="phase-row">
+        <div class="phase-label">Ph.1<br>10/28</div>
+        <div class="phase-body">
+          <div class="phase-title">EP02 / EP03 故事型影片（長篇主力素材）</div>
+          <div class="phase-desc">長篇敘事影片建立品牌認知。EP02 長期主力累計 139 潛客；EP03 38 潛客。兩支影片撐起早期大量曝光。</div>
+        </div>
+        <div class="phase-stat"><div class="phase-cpl">177 潛客</div><div class="phase-cpl-l">均CPL NT$984~1,584</div></div>
+      </div>
+      <div class="phase-row">
+        <div class="phase-label">Ph.2<br>11~12月</div>
+        <div class="phase-body">
+          <div class="phase-title">1114_生活有品味 / 1028_不出門（情感型素材）</div>
+          <div class="phase-desc">強調居住情感價值，吸引換屋族共鳴。生活有品味 11 潛客 CPL $1,232，不出門 3 潛客 CPL $1,105，皆作為輔助素材。</div>
+        </div>
+        <div class="phase-stat"><div class="phase-cpl">14 潛客</div><div class="phase-cpl-l">均CPL NT$1,105~1,232</div></div>
+      </div>
+      <div class="phase-row">
+        <div class="phase-label">Ph.3<br>12月~1月</div>
+        <div class="phase-body">
+          <div class="phase-title">1222_千坪綠覆（景觀型素材）❌</div>
+          <div class="phase-desc">以千坪綠覆景觀為訴求，兩版本共 10 潛客但 CPL NT$3,344~3,688 全案最高。視覺美麗但未能驅動轉換，已確認無效。</div>
+        </div>
+        <div class="phase-stat"><div class="phase-cpl">10 潛客</div><div class="phase-cpl-l">⚠️ CPL NT$3,344+</div></div>
+      </div>
+      <div class="phase-row">
+        <div class="phase-label">Ph.4<br>1月~2月</div>
+        <div class="phase-body">
+          <div class="phase-title">0121_簡短版介紹 / EP03 V2（高點擊短版）</div>
+          <div class="phase-desc">縮短影片長度、提升點閱率。簡短版 19 潛客 CPL $1,644，EP03 V2 23 潛客 CPL $1,452，效率高於原版但仍偏貴。</div>
+        </div>
+        <div class="phase-stat"><div class="phase-cpl">42 潛客</div><div class="phase-cpl-l">均CPL NT$1,452~1,644</div></div>
+      </div>
+      <div class="phase-row">
+        <div class="phase-label">Ph.5<br>3月~4月</div>
+        <div class="phase-body">
+          <div class="phase-title">EP03片段1 / EP02片段2 / 0320_EP02片段2（剪輯再利用）</div>
+          <div class="phase-desc">將舊影片剪成短片段再投放。EP03片段1 19 潛客 CPL $1,338，EP02片段2 11 潛客 CPL $1,189，片段化策略效率明顯高於原版。</div>
+        </div>
+        <div class="phase-stat"><div class="phase-cpl">30 潛客</div><div class="phase-cpl-l">均CPL NT$1,189~1,338</div></div>
+      </div>
+      <div class="phase-row" style="border-color:var(--accent-border);background:#faf8fc">
+        <div class="phase-label" style="background:var(--accent-light);color:#5a3a7a">⚡ 現役</div>
+        <div class="phase-body">
+          <div class="phase-title">0416_旗艦公設第二版（✅ 1510爆發，主粉協測中）</div>
+          <div class="phase-desc">直接展示游泳池、健身房、KTV等公設。在1510粉專中 CPL NT$553、55潛客；主粉協測 5 潛客、CPL $1,164，確認公設展示型素材為正確方向。</div>
+        </div>
+        <div class="phase-stat"><div class="phase-cpl">60 潛客</div><div class="phase-cpl-l">⚡ 最低 CPL $553</div></div>
       </div>
     </div>
-    <div class="rk-stats">
-      <div class="rk-stat-block"><div class="rk-result">80</div><div class="rk-result-l">成果</div></div>
-      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$560</div><div class="rk-cpl-l">CPL</div></div>
-      <div class="rk-stat-block"><div class="rk-spend">$44,805</div><div class="rk-spend-l">花費</div></div>
-    </div>
   </div>
 
-  <div class="rk-row silver" data-region="北屯太平潭子" onclick="toggleDetail(this)">
-    <div class="rk-medal">🥈</div>
-    <div class="rk-body">
-      <div class="rk-name">35-60 / 潭子北屯太平 / 子女置產（1126調區域）<span class="rk-expand-icon">▾</span></div>
-      <div class="rk-loc">潭子 + 北屯 + 太平 各+3km</div>
-      <div class="rk-tags"><span class="rk-tag t-edu">子女置產</span><span class="rk-tag t-prop">房地產投資</span><span class="rk-tag t-fin">投資理財</span></div>
-      <div class="rk-detail">
-        <div class="rk-detail-label">完整興趣標籤</div>
-        <div class="rk-hidden-tags"><span class="rk-htag">子女置產（家庭）</span><span class="rk-htag">房地產（產業）</span><span class="rk-htag">投資（商業與財務）</span><span class="rk-htag">房地產投資（投資）</span><span class="rk-htag">幼兒教育</span><span class="rk-htag">591房屋交易網</span></div>
+  <!-- CHILD 3: 操作建議 (grid-column:2 grid-row:1) -->
+  <div class="section">
+    <div class="sec-title">五大操作建議</div>
+    <div class="tips">
+      <div class="tip">
+        <div class="tip-num c1">1</div>
+        <div class="tip-body">
+          <div class="tip-title">再行銷 CPL NT$560 / 80潛客，每2週換素材維持新鮮感</div>
+          <div class="tip-desc">中彰投再行銷是整案最強組。目前已調整至1510粉專素材加持，建議每2週換一批素材（旗艦公設第二版為現役最強），維持頻率避免廣告疲乏。同時擴充粉絲池，加入近期互動影片觀看者。</div>
+        </div>
+      </div>
+      <div class="tip">
+        <div class="tip-num c2">2</div>
+        <div class="tip-body">
+          <div class="tip-title">EP02 是主力但CPL $984偏高，應降頻並換新剪輯版本</div>
+          <div class="tip-desc">1028_EP02 全案貢獻 139 潛客，但 CPL NT$984、花費超 $136K，頻率已上升。建議降低 EP02 原版比重，改以 EP03片段1（CPL $1,338 但效率更佳）為輔，同時製作 EP02 30秒剪輯版本降低 CPL。</div>
+        </div>
+      </div>
+      <div class="tip">
+        <div class="tip-num c3">3</div>
+        <div class="tip-body">
+          <div class="tip-title">科技自營商 CPL NT$565 / 11潛客，複製擴大至 COSTCO+8km</div>
+          <div class="tip-desc">主粉專科技自營商 CPL $565 是冷受眾最佳。建議從「中科水湳中清」擴展到「COSTCO好市多+8km」，覆蓋更多科技業族群；同時複製到「逢甲+10km」測試科技廊道延伸效果。</div>
+        </div>
+      </div>
+      <div class="tip">
+        <div class="tip-num c4">4</div>
+        <div class="tip-body">
+          <div class="tip-title">子女置產 15潛客最穩定，換素材「衛道學區」角度重啟</div>
+          <div class="tip-desc">35-60/潭子北屯太平/子女置產花費 NT$13,000 共 15 潛客，但 CPL $867 偏高。建議更換素材角度為「衛道名校旁，為孩子留一棟，出租自住兩相宜」，搭配學區地圖視覺，降低 CPL 至 NT$650 以下。</div>
+        </div>
+      </div>
+      <div class="tip">
+        <div class="tip-num c5">5</div>
+        <div class="tip-body">
+          <div class="tip-title">千坪綠覆系列全面停止，資源移至 EP03片段格式</div>
+          <div class="tip-desc">1222_千坪綠覆 V2 CPL NT$3,344、原版 NT$3,688，是全案 CPL 最高素材，視覺訴求與購屋動機脫節。建議立即停止所有千坪綠覆組，預算轉移至 EP03片段1（CPL $1,338）和 EP02片段格式測試。</div>
+        </div>
       </div>
     </div>
-    <div class="rk-stats">
-      <div class="rk-stat-block"><div class="rk-result">15</div><div class="rk-result-l">成果</div></div>
-      <div class="rk-stat-block"><div class="rk-cpl">$867</div><div class="rk-cpl-l">CPL</div></div>
-      <div class="rk-stat-block"><div class="rk-spend">$13,000</div><div class="rk-spend-l">花費</div></div>
-    </div>
   </div>
 
-  <div class="rk-row bronze" data-region="東區北區洲際" onclick="toggleDetail(this)">
-    <div class="rk-medal">🥉</div>
-    <div class="rk-body">
-      <div class="rk-name">27-45 / 東區北區洲際 / 小家庭自營商<span class="rk-expand-icon">▾</span></div>
-      <div class="rk-loc">東區 +4km · 北區 +4km · 洲際棒球場 +3km</div>
-      <div class="rk-tags"><span class="rk-tag t-edu">小家庭</span><span class="rk-tag t-biz">自營商</span><span class="rk-tag t-prop">購屋置產</span></div>
-      <div class="rk-detail">
-        <div class="rk-detail-label">完整興趣標籤</div>
-        <div class="rk-hidden-tags"><span class="rk-htag">小型企業（商業與財務）</span><span class="rk-htag">獨資企業（商業與財務）</span><span class="rk-htag">房屋（房地產）</span><span class="rk-htag">公寓（房地產）</span><span class="rk-htag">家庭（社會觀念）</span><span class="rk-htag">591房屋交易網</span></div>
-      </div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-stat-block"><div class="rk-result">14</div><div class="rk-result-l">成果</div></div>
-      <div class="rk-stat-block"><div class="rk-cpl">$811</div><div class="rk-cpl-l">CPL</div></div>
-      <div class="rk-stat-block"><div class="rk-spend">$11,356</div><div class="rk-spend-l">花費</div></div>
-    </div>
-  </div>
-
-  <div class="rk-row" data-region="中科水湳中清" onclick="toggleDetail(this)">
-    <div class="rk-rank">4</div>
-    <div class="rk-body">
-      <div class="rk-name">30-55 / 中科水湳中清 / 科技自營商A<span class="rk-expand-icon">▾</span></div>
-      <div class="rk-loc">中科路 +3km · 水湳中央公園 +3km · 中清交流道 +3km</div>
-      <div class="rk-tags"><span class="rk-tag t-ind">科技業</span><span class="rk-tag t-biz">自營商</span><span class="rk-tag t-fin">投資理財</span></div>
-      <div class="rk-detail">
-        <div class="rk-detail-label">完整興趣標籤</div>
-        <div class="rk-hidden-tags"><span class="rk-htag">高科技（電腦和電子產品）</span><span class="rk-htag">科技業（產業）</span><span class="rk-htag">小型企業（商業與財務）</span><span class="rk-htag">投資（商業與財務）</span><span class="rk-htag">3C電腦</span><span class="rk-htag">房地產（產業）</span></div>
-      </div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-stat-block"><div class="rk-result">11</div><div class="rk-result-l">成果</div></div>
-      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$565</div><div class="rk-cpl-l">CPL</div></div>
-      <div class="rk-stat-block"><div class="rk-spend">$6,210</div><div class="rk-spend-l">花費</div></div>
-    </div>
-  </div>
-
-  <div class="rk-row" data-region="74沿線" onclick="toggleDetail(this)">
-    <div class="rk-rank">5</div>
-    <div class="rk-body">
-      <div class="rk-name">28-55 / 74沿線 / 通勤傳產零售<span class="rk-expand-icon">▾</span></div>
-      <div class="rk-loc">74快速道路沿線</div>
-      <div class="rk-tags"><span class="rk-tag t-ind">傳產業</span><span class="rk-tag t-biz">零售業</span><span class="rk-tag t-ind">通勤上班族</span></div>
-      <div class="rk-detail">
-        <div class="rk-detail-label">完整興趣標籤</div>
-        <div class="rk-hidden-tags"><span class="rk-htag">製造業（產業）</span><span class="rk-htag">零售業（產業）</span><span class="rk-htag">通勤 (旅遊觀光)</span><span class="rk-htag">公共運輸（交通運輸）</span><span class="rk-htag">房地產（產業）</span><span class="rk-htag">591房屋交易網</span></div>
-      </div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-stat-block"><div class="rk-result">11</div><div class="rk-result-l">成果</div></div>
-      <div class="rk-stat-block"><div class="rk-cpl">$808</div><div class="rk-cpl-l">CPL</div></div>
-      <div class="rk-stat-block"><div class="rk-spend">$8,885</div><div class="rk-spend-l">花費</div></div>
-    </div>
-  </div>
-
-  <div class="rk-row" data-region="東區北區洲際" onclick="toggleDetail(this)">
-    <div class="rk-rank">6</div>
-    <div class="rk-body">
-      <div class="rk-name">27-55 / 中區北區洲際 / 跑咖追星出國 2.0<span class="rk-expand-icon">▾</span></div>
-      <div class="rk-loc">中區 +4km · 北區 +4km · 洲際 +3km</div>
-      <div class="rk-tags"><span class="rk-tag t-edu">追星/娛樂</span><span class="rk-tag t-edu">出國旅遊</span><span class="rk-tag t-biz">消費力族群</span></div>
-      <div class="rk-detail">
-        <div class="rk-detail-label">完整興趣標籤</div>
-        <div class="rk-hidden-tags"><span class="rk-htag">旅遊（旅遊觀光）</span><span class="rk-htag">流行音樂</span><span class="rk-htag">娛樂（社會觀念）</span><span class="rk-htag">網路購物（零售）</span><span class="rk-htag">信用卡（借貸）</span><span class="rk-htag">免稅商店</span></div>
-      </div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-stat-block"><div class="rk-result">11</div><div class="rk-result-l">成果</div></div>
-      <div class="rk-stat-block"><div class="rk-cpl">$815</div><div class="rk-cpl-l">CPL</div></div>
-      <div class="rk-stat-block"><div class="rk-spend">$8,964</div><div class="rk-spend-l">花費</div></div>
-    </div>
-  </div>
-
-  <div class="rk-row" data-region="中科水湳中清" onclick="toggleDetail(this)">
-    <div class="rk-rank">7</div>
-    <div class="rk-body">
-      <div class="rk-name">28-50 / 中科中清 / 年輕買房（0304改地點）<span class="rk-expand-icon">▾</span></div>
-      <div class="rk-loc">中科路 +3km · 中清交流道 +3km</div>
-      <div class="rk-tags"><span class="rk-tag t-prop">買房置產</span><span class="rk-tag t-edu">年輕首購族</span><span class="rk-tag t-fin">投資理財</span></div>
-      <div class="rk-detail">
-        <div class="rk-detail-label">完整興趣標籤</div>
-        <div class="rk-hidden-tags"><span class="rk-htag">房屋（房地產）</span><span class="rk-htag">公寓大樓（房地產）</span><span class="rk-htag">首次購房者</span><span class="rk-htag">個人理財（銀行業）</span><span class="rk-htag">投資（商業與財務）</span><span class="rk-htag">591房屋交易網</span></div>
-      </div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-stat-block"><div class="rk-result">11</div><div class="rk-result-l">成果</div></div>
-      <div class="rk-stat-block"><div class="rk-cpl">$888</div><div class="rk-cpl-l">CPL</div></div>
-      <div class="rk-stat-block"><div class="rk-spend">$9,768</div><div class="rk-spend-l">花費</div></div>
-    </div>
-  </div>
-
-  <div class="rk-row" data-region="十期" onclick="toggleDetail(this)">
-    <div class="rk-rank">8</div>
-    <div class="rk-body">
-      <div class="rk-name">27-55 / 十期 / 行銷設計<span class="rk-expand-icon">▾</span></div>
-      <div class="rk-loc">十期重劃區 +2km</div>
-      <div class="rk-tags"><span class="rk-tag t-biz">行銷/設計</span><span class="rk-tag t-biz">創意工作者</span><span class="rk-tag t-prop">購屋置產</span></div>
-      <div class="rk-detail">
-        <div class="rk-detail-label">完整興趣標籤</div>
-        <div class="rk-hidden-tags"><span class="rk-htag">行銷（商業與財務）</span><span class="rk-htag">廣告（行銷）</span><span class="rk-htag">平面設計（視覺藝術）</span><span class="rk-htag">Adobe Illustrator</span><span class="rk-htag">Canva</span><span class="rk-htag">房地產（產業）</span></div>
-      </div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-stat-block"><div class="rk-result">9</div><div class="rk-result-l">成果</div></div>
-      <div class="rk-stat-block"><div class="rk-cpl">$861</div><div class="rk-cpl-l">CPL</div></div>
-      <div class="rk-stat-block"><div class="rk-spend">$7,753</div><div class="rk-spend-l">花費</div></div>
-    </div>
-  </div>
-
-  <div class="rk-row" data-region="豐原靜宜 北屯太平潭子" onclick="toggleDetail(this)">
-    <div class="rk-rank">9</div>
-    <div class="rk-body">
-      <div class="rk-name">35-60 / 豐原潭子靜宜 / 長輩置產<span class="rk-expand-icon">▾</span></div>
-      <div class="rk-loc">豐原 + 潭子 + 靜宜大學 各+3km</div>
-      <div class="rk-tags"><span class="rk-tag t-edu">長輩置產</span><span class="rk-tag t-prop">房地產</span><span class="rk-tag t-beh">運動休閒</span></div>
-      <div class="rk-detail">
-        <div class="rk-detail-label">完整興趣標籤</div>
-        <div class="rk-hidden-tags"><span class="rk-htag">子女置產（家庭）</span><span class="rk-htag">長輩、父母（家庭）</span><span class="rk-htag">房地產（產業）</span><span class="rk-htag">運動（體育運動）</span><span class="rk-htag">休閒（社會觀念）</span><span class="rk-htag">591房屋交易網</span></div>
-      </div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-stat-block"><div class="rk-result">8</div><div class="rk-result-l">成果</div></div>
-      <div class="rk-stat-block"><div class="rk-cpl">$886</div><div class="rk-cpl-l">CPL</div></div>
-      <div class="rk-stat-block"><div class="rk-spend">$7,088</div><div class="rk-spend-l">花費</div></div>
-    </div>
-  </div>
-
-  <div class="rk-row" data-region="大台中" onclick="toggleDetail(this)">
-    <div class="rk-rank">10</div>
-    <div class="rk-body">
-      <div class="rk-name">30-50 / 大台中 / 金融投資<span class="rk-expand-icon">▾</span></div>
-      <div class="rk-loc">大台中地區廣域</div>
-      <div class="rk-tags"><span class="rk-tag t-fin">金融投資</span><span class="rk-tag t-fin">股票</span><span class="rk-tag t-prop">房地產</span></div>
-      <div class="rk-detail">
-        <div class="rk-detail-label">完整興趣標籤</div>
-        <div class="rk-hidden-tags"><span class="rk-htag">投資（商業與財務）</span><span class="rk-htag">股票（投資）</span><span class="rk-htag">金融市場（投資）</span><span class="rk-htag">財富（經濟）</span><span class="rk-htag">房地產（產業）</span><span class="rk-htag">被動收入（商業與財務）</span></div>
-      </div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-stat-block"><div class="rk-result">7</div><div class="rk-result-l">成果</div></div>
-      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$645</div><div class="rk-cpl-l">CPL</div></div>
-      <div class="rk-stat-block"><div class="rk-spend">$4,517</div><div class="rk-spend-l">花費</div></div>
-    </div>
-  </div>
-  </div><!-- end rk-list-main -->
-
-  <!-- 興趣標籤出現率統計 -->
-  <div class="tag-freq-box">
-    <div class="tf-header">
-      <span class="tf-icon">📊</span>
-      <div class="tf-title">成效受眾中出現率最高的興趣標籤</div>
-      <div class="tf-count" id="tf-count-main">共 10 組</div>
-    </div>
-    <div id="tf-rows-main"></div>
-  </div>
-</div>
-
+</div><!-- end rank-op-grid -->
 
 </div><!-- end tab-main -->
 
@@ -774,7 +584,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 </div>
 
 <!-- 1510 核心標籤 -->
-<div class="section">
+<div class="section core-tags-row">
   <div class="sec-title teal-bar">跨受眾必保留的核心標籤</div>
   <div class="tags-row">
     <span class="core-tag teal-tag">科技業（產業）<span class="arr">↗</span></span>
@@ -783,130 +593,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
     <span class="core-tag teal-tag">房地產（產業）<span class="arr">↗</span></span>
     <span class="core-tag teal-tag">餐飲業（商業）<span class="arr">↗</span></span>
     <span class="core-tag teal-tag">半退休生活（興趣）<span class="arr">↗</span></span>
-  </div>
-</div>
-
-<!-- 1510 操作建議 -->
-<div class="section">
-  <div class="sec-title teal-bar">五大操作建議</div>
-  <div class="tips">
-    <div class="tip teal-tip">
-      <div class="tip-num ct1">1</div>
-      <div class="tip-body">
-        <div class="tip-title">科技自營商 14潛客 / CPL NT$428，立即提高預算放大</div>
-        <div class="tip-desc">1510粉專科技自營商（中科水湳中清）是所有進行中受眾中最高效的組合。建議將日預算從 NT$250 提高至 NT$500–800，同時複製到「逢甲+8km」和「太原+8km」測試科技廊道延伸效果。</div>
-      </div>
-    </div>
-    <div class="tip teal-tip">
-      <div class="tip-num ct2">2</div>
-      <div class="tip-body">
-        <div class="tip-title">投資/半退休 CPL NT$297 全案最低，十期+8 是黃金受眾</div>
-        <div class="tip-desc">「(test)30-55/十期+8/投資/半退休/休閒」只花 NT$2,078 得 7 潛客，CPL NT$297 是雙粉專合計最低。建議擴大至「十期+12km」和「洲際+10km」，素材強打「住的規格要跟上，莊園宅×半退休生活」。</div>
-      </div>
-    </div>
-    <div class="tip teal-tip">
-      <div class="tip-num ct3">3</div>
-      <div class="tip-body">
-        <div class="tip-title">旗艦公設第二版繼續作為1510核心，新增單一公設切角版本</div>
-        <div class="tip-desc">旗艦公設第二版（CPL $553 / 55潛客）是1510絕對主力。建議新增3支衍生版本：游泳池30秒版、健身房30秒版、KTV+社交30秒版，分別搭配不同受眾組A/B測試，進一步突破 CPL NT$400。</div>
-      </div>
-    </div>
-    <div class="tip teal-tip">
-      <div class="tip-num ct4">4</div>
-      <div class="tip-body">
-        <div class="tip-title">餐飲/服務業 CPL NT$516 穩定，新開北屯+太平延伸組</div>
-        <div class="tip-desc">在地餐飲/服務業 8 潛客 CPL $516 效果穩定，顯示在地業主對公設型住宅有需求。建議新開「35-55/北屯太平/在地服務業自雇」組，地標從中科換為北屯夜市+太平商圈，日預算 NT$300。</div>
-      </div>
-    </div>
-    <div class="tip teal-tip">
-      <div class="tip-num ct5">5</div>
-      <div class="tip-body">
-        <div class="tip-title">泳池花園宅觀察至 300+ 點擊再評估，成家在太原加強測試</div>
-        <div class="tip-desc">0512_泳池花園宅 5 潛客 CPL $1,145，數據量仍少；0526_成家在太原尚無轉換。兩支素材建議等待 300+ 點擊後再判斷效益。成家在太原可搭配「在地換屋首購」受眾組測試家庭訴求效果。</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- 1510 素材迭代 -->
-<div class="creative-section">
-  <div class="sec-title teal-bar">素材迭代分析</div>
-  <div class="creative-timeline">
-    <div class="phase-row" style="border-color:var(--teal-border);background:#f0f8fc">
-      <div class="phase-label" style="background:var(--teal-light);color:var(--teal-dark)">🏆 主力</div>
-      <div class="phase-body">
-        <div class="phase-title">0416_旗艦公設第二版（影片）✅ 1510 絕對核心</div>
-        <div class="phase-desc">4/15 起投，直接展示游泳池、健身房、KTV 等公設實景。55 潛客 CPL NT$553，是1510粉專建立以來唯一大量轉換的素材。公設展示型策略在北屯高端住宅市場獲得完整驗證。</div>
-      </div>
-      <div class="phase-stat"><div class="phase-cpl teal-cpl">55 潛客</div><div class="phase-cpl-l">⚡ CPL NT$553</div></div>
-    </div>
-    <div class="phase-row">
-      <div class="phase-label" style="background:#f0edf5;color:#7a5a8a">5/12</div>
-      <div class="phase-body">
-        <div class="phase-title">0512_泳池花園宅（影片）🆕 觀察中</div>
-        <div class="phase-desc">聚焦泳池花架庭院單一公設特色，5 潛客 CPL NT$1,145。數據量偏少（投放不足1個月），CPL 仍有下降空間，等待 300+ 點擊後再判斷。</div>
-      </div>
-      <div class="phase-stat"><div class="phase-cpl teal-cpl">5 潛客</div><div class="phase-cpl-l">CPL NT$1,145</div></div>
-    </div>
-    <div class="phase-row">
-      <div class="phase-label" style="background:#f0edf5;color:#7a5a8a">5/25</div>
-      <div class="phase-body">
-        <div class="phase-title">0526_成家在太原（影片）🔵 初期觀察</div>
-        <div class="phase-desc">家庭生活場景訴求，強調「在太原成家」生活感，5/25 起投。尚無潛客轉換，需等 300+ 點擊後評估。建議搭配「在地換屋首購」受眾組測試家庭訴求。</div>
-      </div>
-      <div class="phase-stat"><div class="phase-cpl teal-cpl">0 潛客</div><div class="phase-cpl-l">觀察中</div></div>
-    </div>
-    <div class="phase-row">
-      <div class="phase-label" style="background:#f0edf5;color:#7a5a8a">5/06</div>
-      <div class="phase-body">
-        <div class="phase-title">0416_旗艦公設第二版（單圖）🔵 輔助測試</div>
-        <div class="phase-desc">將旗艦公設影片的關鍵畫面轉為單圖廣告，測試靜態圖 vs 影片的轉換差異。尚無潛客，花費 NT$1,805，等數據足夠後分析格式差異。</div>
-      </div>
-      <div class="phase-stat"><div class="phase-cpl teal-cpl">0 潛客</div><div class="phase-cpl-l">格式測試中</div></div>
-    </div>
-  </div>
-
-  <div class="creative-grid">
-    <div class="creative-card best-teal">
-      <div class="creative-name">0416 旗艦公設第二版（影片）</div>
-      <div><span class="creative-badge cb-teal">🏆 1510 絕對主力</span></div>
-      <div class="creative-stats">
-        <b>累積</b> 55 潛客 · CPL NT$553<br>
-        <b>特點</b>：公設實景展示，真實感強，觀看完成率高<br>
-        <b>建議</b>：持續主力，延伸各公設切角版本
-      </div>
-    </div>
-    <div class="creative-card">
-      <div class="creative-name">0512 泳池花園宅</div>
-      <div><span class="creative-badge cb-new">🆕 觀察中</span></div>
-      <div class="creative-stats">
-        <b>初期</b> 5 潛客 · CPL NT$1,145<br>
-        <b>特點</b>：單一公設特色，數據量不足<br>
-        <b>建議</b>：等待 300+ 點擊後評估是否加碼
-      </div>
-    </div>
-    <div class="creative-card">
-      <div class="creative-name">0526 成家在太原</div>
-      <div><span class="creative-badge cb-new">🆕 剛起步</span></div>
-      <div class="creative-stats">
-        <b>狀態</b>：5/25 起投，尚無潛客<br>
-        <b>特點</b>：家庭生活場景，訴求成家購屋<br>
-        <b>建議</b>：搭配在地換屋首購受眾，觀察6/10後CPL
-      </div>
-    </div>
-  </div>
-
-  <div class="insight-box teal-insight">
-    <div class="insight-title">1510 素材策略洞見</div>
-    <div class="insight-highlight teal-hl">
-      公設展示型策略完整驗證：旗艦公設第二版 CPL NT$553，比主粉專均值低 52%。1510 粉專的核心優勢在於「素材新鮮 × 受眾未飽和 × 公設訴求精準」，這三個優勢必須同步維持。
-    </div>
-    <div class="insight-sub">後續素材建議：</div>
-    <ul class="insight-list teal-list">
-      <li>新拍「游泳池30秒」「健身房30秒」「KTV/社交空間30秒」三支單一公設深度版，分別獨立測試</li>
-      <li>製作「車位版」素材：「10席莊園宅室停3-4車」是北屯差異化賣點，對投資/自營商族群吸引力高</li>
-      <li>旗艦公設第二版每 3 週需換素材組合避免頻率升高影響 CPL</li>
-    </ul>
   </div>
 </div>
 
@@ -958,124 +644,187 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   </div>
 </div>
 
-<!-- 1510 受眾排行 -->
+<!-- 1510 rank-op-grid -->
+<div class="rank-op-grid">
+
+  <!-- CHILD 1: 受眾排行 (grid-column:1 grid-row:1) -->
+  <div class="section">
+    <div class="sec-title teal-bar">1510 受眾成果排行（前 5）</div>
+    <div class="rk-grid">
+
+      <div class="rk-row gold">
+        <div class="rk-medal">🥇</div>
+        <div class="rk-body">
+          <div class="rk-name">（test）30-55 / 中科水湳中清 / 科技自營商A</div>
+          <div class="rk-loc">中科路 +3km · 水湳中央公園 +3km · 中清交流道 +3km</div>
+          <div class="rk-tags"><span class="rk-tag t-teal">1510</span><span class="rk-tag t-ind">科技業</span><span class="rk-tag t-biz">自營商</span></div>
+        </div>
+        <div class="rk-stats">
+          <div class="rk-stat-block"><div class="rk-result">14</div><div class="rk-result-l">成果</div></div>
+          <div class="rk-stat-block"><div class="rk-cpl good-cpl">$428</div><div class="rk-cpl-l">CPL</div></div>
+          <div class="rk-stat-block"><div class="rk-spend">$5,996</div><div class="rk-spend-l">花費</div></div>
+        </div>
+      </div>
+
+      <div class="rk-row silver">
+        <div class="rk-medal">🥈</div>
+        <div class="rk-body">
+          <div class="rk-name">（test）30-55 / 中科水湳中清 / 房地產/股票</div>
+          <div class="rk-loc">中科路 + 水湳 + 中清 各+3km</div>
+          <div class="rk-tags"><span class="rk-tag t-teal">1510</span><span class="rk-tag t-prop">房地產</span><span class="rk-tag t-fin">股票投資</span></div>
+        </div>
+        <div class="rk-stats">
+          <div class="rk-stat-block"><div class="rk-result">10</div><div class="rk-result-l">成果</div></div>
+          <div class="rk-stat-block"><div class="rk-cpl good-cpl">$558</div><div class="rk-cpl-l">CPL</div></div>
+          <div class="rk-stat-block"><div class="rk-spend">$5,577</div><div class="rk-spend-l">花費</div></div>
+        </div>
+      </div>
+
+      <div class="rk-row bronze">
+        <div class="rk-medal">🥉</div>
+        <div class="rk-body">
+          <div class="rk-name">（test）30-55 / 中科水湳中清 / 在地餐飲/服務業</div>
+          <div class="rk-loc">中科路 + 水湳 + 中清 各+3km</div>
+          <div class="rk-tags"><span class="rk-tag t-teal">1510</span><span class="rk-tag t-biz">餐飲服務業</span><span class="rk-tag t-biz">在地業主</span></div>
+        </div>
+        <div class="rk-stats">
+          <div class="rk-stat-block"><div class="rk-result">8</div><div class="rk-result-l">成果</div></div>
+          <div class="rk-stat-block"><div class="rk-cpl good-cpl">$516</div><div class="rk-cpl-l">CPL</div></div>
+          <div class="rk-stat-block"><div class="rk-spend">$4,125</div><div class="rk-spend-l">花費</div></div>
+        </div>
+      </div>
+
+      <div class="rk-row">
+        <div class="rk-rank teal-rank">4</div>
+        <div class="rk-body">
+          <div class="rk-name">（test）30-55 / 十期+8 / 投資/半退休/休閒</div>
+          <div class="rk-loc">北屯十期重劃區 +8km</div>
+          <div class="rk-tags"><span class="rk-tag t-teal">1510</span><span class="rk-tag t-fin">投資置產</span><span class="rk-tag t-beh">半退休</span></div>
+        </div>
+        <div class="rk-stats">
+          <div class="rk-stat-block"><div class="rk-result">7</div><div class="rk-result-l">成果</div></div>
+          <div class="rk-stat-block"><div class="rk-cpl good-cpl">$297</div><div class="rk-cpl-l">CPL</div></div>
+          <div class="rk-stat-block"><div class="rk-spend">$2,078</div><div class="rk-spend-l">花費</div></div>
+        </div>
+      </div>
+
+      <div class="rk-row">
+        <div class="rk-rank teal-rank">5</div>
+        <div class="rk-body">
+          <div class="rk-name">（test）30-55 / 十期+8 / 科技新貴/旅遊</div>
+          <div class="rk-loc">北屯十期重劃區 +8km</div>
+          <div class="rk-tags"><span class="rk-tag t-teal">1510</span><span class="rk-tag t-ind">科技新貴</span><span class="rk-tag t-beh">旅遊生活</span></div>
+        </div>
+        <div class="rk-stats">
+          <div class="rk-stat-block"><div class="rk-result">6</div><div class="rk-result-l">成果</div></div>
+          <div class="rk-stat-block"><div class="rk-cpl">$709</div><div class="rk-cpl-l">CPL</div></div>
+          <div class="rk-stat-block"><div class="rk-spend">$4,252</div><div class="rk-spend-l">花費</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CHILD 2: 素材迭代 (grid-column:1/3 grid-row:2) -->
+  <div class="section">
+    <div class="sec-title teal-bar">素材迭代分析</div>
+    <div class="creative-timeline">
+      <div class="phase-row" style="border-color:var(--teal-border);background:#f0f8fc">
+        <div class="phase-label" style="background:var(--teal-light);color:var(--teal-dark)">🏆 主力</div>
+        <div class="phase-body">
+          <div class="phase-title">0416_旗艦公設第二版（影片）✅ 1510 絕對核心</div>
+          <div class="phase-desc">4/15 起投，直接展示游泳池、健身房、KTV 等公設實景。55 潛客 CPL NT$553，是1510粉專建立以來唯一大量轉換的素材。公設展示型策略在北屯高端住宅市場獲得完整驗證。</div>
+        </div>
+        <div class="phase-stat"><div class="phase-cpl teal-cpl">55 潛客</div><div class="phase-cpl-l">⚡ CPL NT$553</div></div>
+      </div>
+      <div class="phase-row">
+        <div class="phase-label" style="background:#f0edf5;color:#7a5a8a">5/12</div>
+        <div class="phase-body">
+          <div class="phase-title">0512_泳池花園宅（影片）🆕 觀察中</div>
+          <div class="phase-desc">聚焦泳池花架庭院單一公設特色，5 潛客 CPL NT$1,145。數據量偏少（投放不足1個月），CPL 仍有下降空間，等待 300+ 點擊後再判斷。</div>
+        </div>
+        <div class="phase-stat"><div class="phase-cpl teal-cpl">5 潛客</div><div class="phase-cpl-l">CPL NT$1,145</div></div>
+      </div>
+      <div class="phase-row">
+        <div class="phase-label" style="background:#f0edf5;color:#7a5a8a">5/25</div>
+        <div class="phase-body">
+          <div class="phase-title">0526_成家在太原（影片）🔵 初期觀察</div>
+          <div class="phase-desc">家庭生活場景訴求，強調「在太原成家」生活感，5/25 起投。尚無潛客轉換，需等 300+ 點擊後評估。建議搭配「在地換屋首購」受眾組測試家庭訴求。</div>
+        </div>
+        <div class="phase-stat"><div class="phase-cpl teal-cpl">0 潛客</div><div class="phase-cpl-l">觀察中</div></div>
+      </div>
+      <div class="phase-row">
+        <div class="phase-label" style="background:#f0edf5;color:#7a5a8a">5/06</div>
+        <div class="phase-body">
+          <div class="phase-title">0416_旗艦公設第二版（單圖）🔵 輔助測試</div>
+          <div class="phase-desc">將旗艦公設影片的關鍵畫面轉為單圖廣告，測試靜態圖 vs 影片的轉換差異。尚無潛客，花費 NT$1,805，等數據足夠後分析格式差異。</div>
+        </div>
+        <div class="phase-stat"><div class="phase-cpl teal-cpl">0 潛客</div><div class="phase-cpl-l">格式測試中</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHILD 3: 操作建議 (grid-column:2 grid-row:1) -->
+  <div class="section">
+    <div class="sec-title teal-bar">五大操作建議</div>
+    <div class="tips">
+      <div class="tip teal-tip">
+        <div class="tip-num ct1">1</div>
+        <div class="tip-body">
+          <div class="tip-title">科技自營商 14潛客 / CPL NT$428，立即提高預算放大</div>
+          <div class="tip-desc">1510粉專科技自營商（中科水湳中清）是所有進行中受眾中最高效的組合。建議將日預算從 NT$250 提高至 NT$500–800，同時複製到「逢甲+8km」和「太原+8km」測試科技廊道延伸效果。</div>
+        </div>
+      </div>
+      <div class="tip teal-tip">
+        <div class="tip-num ct2">2</div>
+        <div class="tip-body">
+          <div class="tip-title">投資/半退休 CPL NT$297 全案最低，十期+8 是黃金受眾</div>
+          <div class="tip-desc">「(test)30-55/十期+8/投資/半退休/休閒」只花 NT$2,078 得 7 潛客，CPL NT$297 是雙粉專合計最低。建議擴大至「十期+12km」和「洲際+10km」，素材強打「住的規格要跟上，莊園宅×半退休生活」。</div>
+        </div>
+      </div>
+      <div class="tip teal-tip">
+        <div class="tip-num ct3">3</div>
+        <div class="tip-body">
+          <div class="tip-title">旗艦公設第二版繼續作為1510核心，新增單一公設切角版本</div>
+          <div class="tip-desc">旗艦公設第二版（CPL $553 / 55潛客）是1510絕對主力。建議新增3支衍生版本：游泳池30秒版、健身房30秒版、KTV+社交30秒版，分別搭配不同受眾組A/B測試，進一步突破 CPL NT$400。</div>
+        </div>
+      </div>
+      <div class="tip teal-tip">
+        <div class="tip-num ct4">4</div>
+        <div class="tip-body">
+          <div class="tip-title">餐飲/服務業 CPL NT$516 穩定，新開北屯+太平延伸組</div>
+          <div class="tip-desc">在地餐飲/服務業 8 潛客 CPL $516 效果穩定，顯示在地業主對公設型住宅有需求。建議新開「35-55/北屯太平/在地服務業自雇」組，地標從中科換為北屯夜市+太平商圈，日預算 NT$300。</div>
+        </div>
+      </div>
+      <div class="tip teal-tip">
+        <div class="tip-num ct5">5</div>
+        <div class="tip-body">
+          <div class="tip-title">泳池花園宅觀察至 300+ 點擊再評估，成家在太原加強測試</div>
+          <div class="tip-desc">0512_泳池花園宅 5 潛客 CPL $1,145，數據量仍少；0526_成家在太原尚無轉換。兩支素材建議等待 300+ 點擊後再判斷效益。成家在太原可搭配「在地換屋首購」受眾組測試家庭訴求效果。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end rank-op-grid -->
+
+<!-- 1510 insight-box (standalone section after rank-op-grid) -->
 <div class="section">
-  <div class="sec-title teal-bar">1510 受眾成果排行（所有有潛客組）</div>
-
-  <div class="rk-row gold">
-    <div class="rk-medal">🥇</div>
-    <div class="rk-body">
-      <div class="rk-name">（test）30-55 / 中科水湳中清 / 科技自營商A</div>
-      <div class="rk-loc">中科路 +3km · 水湳中央公園 +3km · 中清交流道 +3km</div>
-      <div class="rk-tags"><span class="rk-tag t-teal">1510</span><span class="rk-tag t-ind">科技業</span><span class="rk-tag t-biz">自營商</span></div>
+  <div class="insight-box teal-insight">
+    <div class="insight-title">1510 素材策略洞見</div>
+    <div class="insight-highlight teal-hl">
+      公設展示型策略完整驗證：旗艦公設第二版 CPL NT$553，比主粉專均值低 52%。1510 粉專的核心優勢在於「素材新鮮 × 受眾未飽和 × 公設訴求精準」，這三個優勢必須同步維持。
     </div>
-    <div class="rk-stats">
-      <div class="rk-stat-block"><div class="rk-result">14</div><div class="rk-result-l">成果</div></div>
-      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$428</div><div class="rk-cpl-l">CPL</div></div>
-      <div class="rk-stat-block"><div class="rk-spend">$5,996</div><div class="rk-spend-l">花費</div></div>
-    </div>
-  </div>
-
-  <div class="rk-row silver">
-    <div class="rk-medal">🥈</div>
-    <div class="rk-body">
-      <div class="rk-name">（test）30-55 / 中科水湳中清 / 房地產/股票</div>
-      <div class="rk-loc">中科路 + 水湳 + 中清 各+3km</div>
-      <div class="rk-tags"><span class="rk-tag t-teal">1510</span><span class="rk-tag t-prop">房地產</span><span class="rk-tag t-fin">股票投資</span></div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-stat-block"><div class="rk-result">10</div><div class="rk-result-l">成果</div></div>
-      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$558</div><div class="rk-cpl-l">CPL</div></div>
-      <div class="rk-stat-block"><div class="rk-spend">$5,577</div><div class="rk-spend-l">花費</div></div>
-    </div>
-  </div>
-
-  <div class="rk-row bronze">
-    <div class="rk-medal">🥉</div>
-    <div class="rk-body">
-      <div class="rk-name">（test）30-55 / 中科水湳中清 / 在地餐飲/服務業</div>
-      <div class="rk-loc">中科路 + 水湳 + 中清 各+3km</div>
-      <div class="rk-tags"><span class="rk-tag t-teal">1510</span><span class="rk-tag t-biz">餐飲服務業</span><span class="rk-tag t-biz">在地業主</span></div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-stat-block"><div class="rk-result">8</div><div class="rk-result-l">成果</div></div>
-      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$516</div><div class="rk-cpl-l">CPL</div></div>
-      <div class="rk-stat-block"><div class="rk-spend">$4,125</div><div class="rk-spend-l">花費</div></div>
-    </div>
-  </div>
-
-  <div class="rk-row">
-    <div class="rk-rank teal-rank">4</div>
-    <div class="rk-body">
-      <div class="rk-name">（test）30-55 / 十期+8 / 投資/半退休/休閒</div>
-      <div class="rk-loc">北屯十期重劃區 +8km</div>
-      <div class="rk-tags"><span class="rk-tag t-teal">1510</span><span class="rk-tag t-fin">投資置產</span><span class="rk-tag t-beh">半退休</span></div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-stat-block"><div class="rk-result">7</div><div class="rk-result-l">成果</div></div>
-      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$297</div><div class="rk-cpl-l">CPL</div></div>
-      <div class="rk-stat-block"><div class="rk-spend">$2,078</div><div class="rk-spend-l">花費</div></div>
-    </div>
-  </div>
-
-  <div class="rk-row">
-    <div class="rk-rank teal-rank">5</div>
-    <div class="rk-body">
-      <div class="rk-name">（test）30-55 / 十期+8 / 科技新貴/旅遊</div>
-      <div class="rk-loc">北屯十期重劃區 +8km</div>
-      <div class="rk-tags"><span class="rk-tag t-teal">1510</span><span class="rk-tag t-ind">科技新貴</span><span class="rk-tag t-beh">旅遊生活</span></div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-stat-block"><div class="rk-result">6</div><div class="rk-result-l">成果</div></div>
-      <div class="rk-stat-block"><div class="rk-cpl">$709</div><div class="rk-cpl-l">CPL</div></div>
-      <div class="rk-stat-block"><div class="rk-spend">$4,252</div><div class="rk-spend-l">花費</div></div>
-    </div>
-  </div>
-
-  <div class="rk-row">
-    <div class="rk-rank teal-rank">6</div>
-    <div class="rk-body">
-      <div class="rk-name">（test）30-55 / 太原+6 / 科技自營商A（備）</div>
-      <div class="rk-loc">太原加油站 +6km</div>
-      <div class="rk-tags"><span class="rk-tag t-teal">1510</span><span class="rk-tag t-ind">科技業</span><span class="rk-tag t-biz">自營商</span></div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-stat-block"><div class="rk-result">4</div><div class="rk-result-l">成果</div></div>
-      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$323</div><div class="rk-cpl-l">CPL</div></div>
-      <div class="rk-stat-block"><div class="rk-spend">$1,291</div><div class="rk-spend-l">花費</div></div>
-    </div>
-  </div>
-
-  <div class="rk-row">
-    <div class="rk-rank teal-rank">7</div>
-    <div class="rk-body">
-      <div class="rk-name">（test）30-50 / 水湳中清洲際 / 製造業主管</div>
-      <div class="rk-loc">水湳 + 中清 + 洲際</div>
-      <div class="rk-tags"><span class="rk-tag t-teal">1510</span><span class="rk-tag t-ind">製造業</span><span class="rk-tag t-biz">主管階層</span></div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-stat-block"><div class="rk-result">2</div><div class="rk-result-l">成果</div></div>
-      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$403</div><div class="rk-cpl-l">CPL</div></div>
-      <div class="rk-stat-block"><div class="rk-spend">$805</div><div class="rk-spend-l">花費</div></div>
-    </div>
-  </div>
-
-  <div class="rk-row">
-    <div class="rk-rank teal-rank">8</div>
-    <div class="rk-body">
-      <div class="rk-name">（test）台中市名單再行銷 / APT（備）</div>
-      <div class="rk-loc">台中市再行銷受眾</div>
-      <div class="rk-tags"><span class="rk-tag t-teal">1510</span><span class="rk-tag t-sim">再行銷</span></div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-stat-block"><div class="rk-result">1</div><div class="rk-result-l">成果</div></div>
-      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$199</div><div class="rk-cpl-l">CPL</div></div>
-      <div class="rk-stat-block"><div class="rk-spend">$199</div><div class="rk-spend-l">花費</div></div>
-    </div>
+    <div class="insight-sub">後續素材建議：</div>
+    <ul class="insight-list teal-list">
+      <li>新拍「游泳池30秒」「健身房30秒」「KTV/社交空間30秒」三支單一公設深度版，分別獨立測試</li>
+      <li>製作「車位版」素材：「10席莊園宅室停3-4車」是北屯差異化賣點，對投資/自營商族群吸引力高</li>
+      <li>旗艦公設第二版每 3 週需換素材組合避免頻率升高影響 CPL</li>
+    </ul>
   </div>
 </div>
 
-<div class="page-footer">資料期間：2025-10-28 至 2026-06-01 · 原潮APT 台中北屯 · 主粉專 + 1510 雙粉專分析 · 最後更新 2026-06-01</div>
+<div class="page-footer">資料期間：2025-10-28 至 2026-06-11 · 原潮APT 台中北屯 · 主粉專 + 1510 雙粉專分析 · 最後更新 2026-06-11</div>
 
 </div><!-- end tab-1510 -->
 </div>
@@ -1164,4 +913,3 @@ document.addEventListener('DOMContentLoaded',()=>{
 <script>window.addEventListener('scroll',()=>document.getElementById('btt').classList.toggle('show',window.scrollY>300))</script>
 </body>
 </html>
-
