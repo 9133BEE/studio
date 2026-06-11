@@ -188,6 +188,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .bs{text-align:right}
 .bs-n{font-size:22px;font-weight:800;color:#fff;line-height:1;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
 .bs-l{font-size:10px;color:rgba(255,255,255,.7);margin-top:3px;font-weight:600;letter-spacing:.3px;text-transform:uppercase}
+.rk-grid{display:flex;flex-direction:column;gap:7px}
+.rank-op-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:20px;align-items:stretch}
+.rank-op-grid>.section:nth-child(1){grid-column:1;grid-row:1;display:flex;flex-direction:column;margin-bottom:0}
+.rank-op-grid>.section:nth-child(2){grid-column:1/3;grid-row:2}
+.rank-op-grid>.section:nth-child(3){grid-column:2;grid-row:1;display:flex;flex-direction:column;margin-bottom:0}
+.rank-op-grid>.section:nth-child(1) .rk-grid,.rank-op-grid>.section:nth-child(3) .tips{flex:1}
+.rank-op-grid>.section:nth-child(1) .rk-row,.rank-op-grid>.section:nth-child(3) .tip{flex:1;min-height:0}
+@media(max-width:900px){.rank-op-grid{display:block}}
 </style>
 </head>
 <body>
@@ -264,7 +272,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 </div>
 
 <!-- ── 核心標籤 ── -->
-<div class="section">
+<div class="section core-tags-row">
   <div class="sec-title">跨受眾必保留的核心標籤</div>
   <div class="tags-row">
     <span class="core-tag">房地產（產業）<span class="arr">↗</span></span>
@@ -282,9 +290,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   <div id="main-aud-grid" class="aud-grid-2"></div>
 </div>
 
+<div class="rank-op-grid">
 <div class="section">
-  <div class="sec-title">成果前 15 名受眾排行（2026/03–2026/06/08）</div>
-
+  <div class="sec-title">成果前 5 名受眾排行（2026/03–2026/06/08）</div>
+  <div class="rk-grid">
   <div class="rk-row gold">
     <div class="rk-medal">🥇</div>
     <div class="rk-body">
@@ -302,7 +311,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
       <div class="rk-stat-block"><div class="rk-spend">$6,865</div><div class="rk-spend-l">花費</div></div>
     </div>
   </div>
-
   <div class="rk-row silver">
     <div class="rk-medal">🥈</div>
     <div class="rk-body">
@@ -320,7 +328,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
       <div class="rk-stat-block"><div class="rk-spend">$7,489</div><div class="rk-spend-l">花費</div></div>
     </div>
   </div>
-
   <div class="rk-row bronze">
     <div class="rk-medal">🥉</div>
     <div class="rk-body">
@@ -338,7 +345,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
       <div class="rk-stat-block"><div class="rk-spend">$5,665</div><div class="rk-spend-l">花費</div></div>
     </div>
   </div>
-
   <div class="rk-row">
     <div class="rk-rank">4</div>
     <div class="rk-body">
@@ -352,7 +358,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
       <div class="rk-stat-block"><div class="rk-spend">$3,231</div><div class="rk-spend-l">花費</div></div>
     </div>
   </div>
-
   <div class="rk-row" style="border-left-color:#4a8a6a;background:linear-gradient(90deg,#e8f8f0 0%,#fff 70%)">
     <div class="rk-rank" style="background:#d8f0e0;color:#2a6a4a">5</div>
     <div class="rk-body">
@@ -366,150 +371,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
       <div class="rk-stat-block"><div class="rk-spend">$3,292</div><div class="rk-spend-l">花費</div></div>
     </div>
   </div>
-
-  <div class="rk-row" style="border-left-color:#4a8a6a;background:linear-gradient(90deg,#e8f8f0 0%,#fff 70%)">
-    <div class="rk-rank" style="background:#d8f0e0;color:#2a6a4a">6</div>
-    <div class="rk-body">
-      <div class="rk-name">30-55 / 洲際+8K / 置產客/自營商/高消費 <span style="font-size:10px;background:#d8f0e0;color:#2a6a4a;border:1px solid #8ecba3;border-radius:6px;padding:2px 6px;margin-left:4px;font-weight:700">🟢 進行中</span></div>
-      <div class="rk-loc">漢神洲際 +8km · 0528起 active</div>
-      <div class="rk-tags"><span class="rk-tag t-biz">自營商</span><span class="rk-tag t-prop">置產客</span><span class="rk-tag t-lux">高消費</span></div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-stat-block"><div class="rk-result">10</div><div class="rk-result-l">成果</div></div>
-      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$306</div><div class="rk-cpl-l">CPL</div></div>
-      <div class="rk-stat-block"><div class="rk-spend">$3,060</div><div class="rk-spend-l">花費</div></div>
-    </div>
-  </div>
-
-  <div class="rk-row">
-    <div class="rk-rank">7</div>
-    <div class="rk-body">
-      <div class="rk-name">30-55 / 洲際+5 / 投資置產/會計師/政府（0601擴大）</div>
-      <div class="rk-loc">漢神洲際 +5km · 0601擴大版</div>
-      <div class="rk-tags"><span class="rk-tag t-prop">投資置產</span><span class="rk-tag t-fin">會計師</span><span class="rk-tag t-biz">政府機關</span></div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-stat-block"><div class="rk-result">8</div><div class="rk-result-l">成果</div></div>
-      <div class="rk-stat-block"><div class="rk-cpl">$365</div><div class="rk-cpl-l">CPL</div></div>
-      <div class="rk-stat-block"><div class="rk-spend">$2,918</div><div class="rk-spend-l">花費</div></div>
-    </div>
-  </div>
-
-  <div class="rk-row">
-    <div class="rk-rank">8</div>
-    <div class="rk-body">
-      <div class="rk-name">35-60 / 中科 / 工程師/主管（0601擴大）</div>
-      <div class="rk-loc">台中科學園區 · 0601擴大版</div>
-      <div class="rk-tags"><span class="rk-tag t-ind">工程師</span><span class="rk-tag t-ind">主管</span><span class="rk-tag t-prop">購屋</span></div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-stat-block"><div class="rk-result">7</div><div class="rk-result-l">成果</div></div>
-      <div class="rk-stat-block"><div class="rk-cpl">$378</div><div class="rk-cpl-l">CPL</div></div>
-      <div class="rk-stat-block"><div class="rk-spend">$2,645</div><div class="rk-spend-l">花費</div></div>
-    </div>
-  </div>
-
-  <div class="rk-row">
-    <div class="rk-rank">9</div>
-    <div class="rk-body">
-      <div class="rk-name">30–50 / 北屯東區大里 / 在地換屋首購菁英</div>
-      <div class="rk-loc">北屯+東區+大里 · 0513起</div>
-      <div class="rk-tags"><span class="rk-tag t-fam">換屋首購</span><span class="rk-tag t-prop">在地剛需</span><span class="rk-tag t-ind">菁英</span></div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-stat-block"><div class="rk-result">7</div><div class="rk-result-l">成果</div></div>
-      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$312</div><div class="rk-cpl-l">CPL</div></div>
-      <div class="rk-stat-block"><div class="rk-spend">$2,185</div><div class="rk-spend-l">花費</div></div>
-    </div>
-  </div>
-
-  <div class="rk-row">
-    <div class="rk-rank">10</div>
-    <div class="rk-body">
-      <div class="rk-name">30-65 / 南興公園+6 / 父母名車興趣</div>
-      <div class="rk-loc">南興公園 +6km · 高端消費父母</div>
-      <div class="rk-tags"><span class="rk-tag t-fam">父母</span><span class="rk-tag t-lux">名車</span><span class="rk-tag t-prop">置產</span></div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-stat-block"><div class="rk-result">7</div><div class="rk-result-l">成果</div></div>
-      <div class="rk-stat-block"><div class="rk-cpl">$316</div><div class="rk-cpl-l">CPL</div></div>
-      <div class="rk-stat-block"><div class="rk-spend">$2,209</div><div class="rk-spend-l">花費</div></div>
-    </div>
-  </div>
-
-  <div class="rk-row">
-    <div class="rk-rank">11</div>
-    <div class="rk-body">
-      <div class="rk-name">28-55 / 洲際 / 年輕人興趣（0511純洲際）</div>
-      <div class="rk-loc">漢神洲際棒球場 +3km</div>
-      <div class="rk-tags"><span class="rk-tag t-edu">年輕人</span><span class="rk-tag t-edu">生活興趣</span><span class="rk-tag t-prop">首購換屋</span></div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-stat-block"><div class="rk-result">6</div><div class="rk-result-l">成果</div></div>
-      <div class="rk-stat-block"><div class="rk-cpl">$410</div><div class="rk-cpl-l">CPL</div></div>
-      <div class="rk-stat-block"><div class="rk-spend">$2,459</div><div class="rk-spend-l">花費</div></div>
-    </div>
-  </div>
-
-  <div class="rk-row">
-    <div class="rk-rank">12</div>
-    <div class="rk-body">
-      <div class="rk-name">28-55 / 中科 / 高科技興趣</div>
-      <div class="rk-loc">台中科學園區</div>
-      <div class="rk-tags"><span class="rk-tag t-ind">高科技業</span><span class="rk-tag t-ind">科技廊道</span><span class="rk-tag t-fin">理財</span></div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-stat-block"><div class="rk-result">6</div><div class="rk-result-l">成果</div></div>
-      <div class="rk-stat-block"><div class="rk-cpl">$406</div><div class="rk-cpl-l">CPL</div></div>
-      <div class="rk-stat-block"><div class="rk-spend">$2,438</div><div class="rk-spend-l">花費</div></div>
-    </div>
-  </div>
-
-  <div class="rk-row" style="border-left-color:#e6a820;background:linear-gradient(90deg,#fffbee 0%,#fff 70%)">
-    <div class="rk-rank">13</div>
-    <div class="rk-body">
-      <div class="rk-name">27-55 / 十期 / 新婚成家教育 ⚡全案CPL新低</div>
-      <div class="rk-loc">北屯十期重劃區 · 0518起 · CPL $154 全案最低紀錄</div>
-      <div class="rk-tags"><span class="rk-tag t-fam">新婚成家</span><span class="rk-tag t-edu">子女教育</span><span class="rk-tag t-prop">購屋首購</span></div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-stat-block"><div class="rk-result">5</div><div class="rk-result-l">成果</div></div>
-      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$154</div><div class="rk-cpl-l">CPL 🔥</div></div>
-      <div class="rk-stat-block"><div class="rk-spend">$770</div><div class="rk-spend-l">花費</div></div>
-    </div>
-  </div>
-
-  <div class="rk-row">
-    <div class="rk-rank">14</div>
-    <div class="rk-body">
-      <div class="rk-name">33-65 / 大台中 / 科技業通勤族</div>
-      <div class="rk-loc">大台中範圍 · 科技廊道通勤族群</div>
-      <div class="rk-tags"><span class="rk-tag t-ind">科技通勤</span><span class="rk-tag t-prop">置產</span><span class="rk-tag t-ind">工程師</span></div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-stat-block"><div class="rk-result">5</div><div class="rk-result-l">成果</div></div>
-      <div class="rk-stat-block"><div class="rk-cpl">$472</div><div class="rk-cpl-l">CPL</div></div>
-      <div class="rk-stat-block"><div class="rk-spend">$2,362</div><div class="rk-spend-l">花費</div></div>
-    </div>
-  </div>
-
-  <div class="rk-row">
-    <div class="rk-rank">15</div>
-    <div class="rk-body">
-      <div class="rk-name">30-55 / 洲際+8K / 置產客/雙語/國際學校</div>
-      <div class="rk-loc">漢神洲際 +8km</div>
-      <div class="rk-tags"><span class="rk-tag t-prop">置產客</span><span class="rk-tag t-edu">雙語學校</span><span class="rk-tag t-edu">國際學校</span></div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-stat-block"><div class="rk-result">5</div><div class="rk-result-l">成果</div></div>
-      <div class="rk-stat-block"><div class="rk-cpl">$421</div><div class="rk-cpl-l">CPL</div></div>
-      <div class="rk-stat-block"><div class="rk-spend">$2,106</div><div class="rk-spend-l">花費</div></div>
-    </div>
-  </div>
-
+  </div><!-- /rk-grid -->
 </div>
 
-<div class="creative-section">
+<div class="section">
   <div class="sec-title">素材迭代分析</div>
   <div class="creative-timeline">
 
@@ -559,78 +424,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
     </div>
 
   </div>
-
-  <div class="creative-grid">
-    <div class="creative-card best">
-      <div class="creative-name">0410 訂簽68萬</div>
-      <div><span class="creative-badge cb-top">🏆 全案主力</span></div>
-      <div class="creative-stats">
-        <b>累積</b> 117 潛客 · CPL NT$242<br>
-        <b>特點</b>：直接財務誘因，回應「能負擔嗎」核心焦慮<br>
-        <b>建議</b>：頻率上升，6月中準備 V2 替換版本
-      </div>
-    </div>
-    <div class="creative-card best">
-      <div class="creative-name">0424 南興角地 V2</div>
-      <div><span class="creative-badge cb-active">✅ 效率穩定</span></div>
-      <div class="creative-stats">
-        <b>累積</b> 46 潛客 · CPL NT$366<br>
-        <b>特點</b>：南興路角地稀缺性，地利訴求有效<br>
-        <b>建議</b>：持續投放，搭配父母成家受眾效果更佳
-      </div>
-    </div>
-    <div class="creative-card">
-      <div class="creative-name">0508 黑馬 B版</div>
-      <div><span class="creative-badge cb-active">✅ 有效</span></div>
-      <div class="creative-stats">
-        <b>累積</b> 30 潛客 · CPL NT$542<br>
-        <b>特點</b>：B版 &gt; A版，北屯新地標概念次要主力<br>
-        <b>建議</b>：維持，搭配科技財務型受眾組
-      </div>
-    </div>
-    <div class="creative-card">
-      <div class="creative-name">0430 南興訂簽68萬 / 0410 new版</div>
-      <div><span class="creative-badge cb-active">📦 輔助</span></div>
-      <div class="creative-stats">
-        <b>合計</b> 7 潛客 · CPL NT$571~642<br>
-        <b>特點</b>：訂簽訴求衍生版本，效率低於原版<br>
-        <b>建議</b>：降預算，原版仍是主力
-      </div>
-    </div>
-    <div class="creative-card">
-      <div class="creative-name">0522 北屯表參道 B版</div>
-      <div><span class="creative-badge cb-new">🆕 觀察中</span></div>
-      <div class="creative-stats">
-        <b>初期</b> 7 潛客 · CPL NT$793<br>
-        <b>特點</b>：生活圈概念，初期數據，CPL 偏高<br>
-        <b>建議</b>：等300+點擊評估，若 CPL 不降停止
-      </div>
-    </div>
-    <div class="creative-card" style="background:#f9f9f9">
-      <div class="creative-name">0512 雙捷運 / 0518 好市多森活圈</div>
-      <div><span class="creative-badge cb-retired">❌ 效益低</span></div>
-      <div class="creative-stats">
-        <b>CPL</b> NT$1,129~1,898 · 全案最高<br>
-        <b>問題</b>：生活圈交通訴求未能驅動名單轉換<br>
-        <b>建議</b>：停止，資源集中至「訂簽」系列
-      </div>
-    </div>
-  </div>
-
-  <div class="insight-box">
-    <div class="insight-title">素材策略洞見</div>
-    <div class="insight-highlight">
-      關鍵發現：「直接財務誘因」遠勝「生活圈概念」<br>
-      訂簽68萬（CPL $242）比生活圈/交通類素材（CPL $793~1,898）效率高 3~7 倍。景立方層峰的買家不是被生活感打動的——他們是被「68萬就能入手」這個財務錨點推過門檻的。
-    </div>
-    <div class="insight-sub">素材升級建議：</div>
-    <ul class="insight-list">
-      <li>6月中製作「訂簽68萬 V2」：換背景/人物，保留核心訴求，目標 CPL 維持 NT$200–250</li>
-      <li>製作「三四房坪數直接比較版」：36坪三房 vs 42坪四房，讓受眾直接對號入座</li>
-      <li>製作「父母成家版」素材：「孩子長大了，這一棟留給他」，搭配父母成家受眾 CPL 預期可壓至 NT$150 以下</li>
-      <li>停止生活圈交通類素材（雙捷運、好市多森活圈、表參道）— 這類訴求對本案購屋族群無效</li>
-    </ul>
-  </div>
 </div>
 
 <div class="section">
@@ -679,8 +472,26 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 
   </div>
 </div>
+</div><!-- /rank-op-grid -->
 
-<div class="page-footer">資料期間：2026-03-12 至 2026-06-09 · 景立方層峰 台中北屯 南興路 · 最後更新 2026-06-09</div>
+<div class="section">
+  <div class="insight-box">
+    <div class="insight-title">素材策略洞見</div>
+    <div class="insight-highlight">
+      關鍵發現：「直接財務誘因」遠勝「生活圈概念」<br>
+      訂簽68萬（CPL $242）比生活圈/交通類素材（CPL $793~1,898）效率高 3~7 倍。景立方層峰的買家不是被生活感打動的——他們是被「68萬就能入手」這個財務錨點推過門檻的。
+    </div>
+    <div class="insight-sub">素材升級建議：</div>
+    <ul class="insight-list">
+      <li>6月中製作「訂簽68萬 V2」：換背景/人物，保留核心訴求，目標 CPL 維持 NT$200–250</li>
+      <li>製作「三四房坪數直接比較版」：36坪三房 vs 42坪四房，讓受眾直接對號入座</li>
+      <li>製作「父母成家版」素材：「孩子長大了，這一棟留給他」，搭配父母成家受眾 CPL 預期可壓至 NT$150 以下</li>
+      <li>停止生活圈交通類素材（雙捷運、好市多森活圈、表參道）— 這類訴求對本案購屋族群無效</li>
+    </ul>
+  </div>
+</div>
+
+<div class="page-footer">資料期間：2026-03-12 至 2026-06-11 · 景立方層峰 台中北屯 南興路 · 最後更新 2026-06-11</div>
 
 </div>
 
