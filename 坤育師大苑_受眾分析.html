@@ -147,16 +147,19 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .bs{text-align:right}
 .bs-n{font-size:22px;font-weight:800;color:#fff;line-height:1;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
 .bs-l{font-size:10px;color:rgba(255,255,255,.7);margin-top:3px;font-weight:600;letter-spacing:.3px;text-transform:uppercase}
-.rank-op-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:20px;align-items:start}
-.rank-op-grid>*:nth-child(1){grid-column:1;grid-row:1}
+.rank-op-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:20px;align-items:stretch}
+.rank-op-grid>*:nth-child(1){grid-column:1;grid-row:1;display:flex;flex-direction:column}
 .rank-op-grid>*:nth-child(2){grid-column:1/3;grid-row:2}
-.rank-op-grid>*:nth-child(3){grid-column:2;grid-row:1}
+.rank-op-grid>*:nth-child(3){grid-column:2;grid-row:1;display:flex;flex-direction:column}
+.rank-op-grid>.section{margin-bottom:0}
+.rank-op-grid>*:nth-child(1) .rk-grid,.rank-op-grid>*:nth-child(3) .tips{flex:1}
+.rank-op-grid>*:nth-child(1) .rk-row,.rank-op-grid>*:nth-child(3) .tip{flex:1;min-height:0}
 @media(max-width:900px){.rank-op-grid{display:block}}
 .rk-grid{display:flex;flex-direction:column;gap:7px}
 .rk-grid .rk-row{margin-bottom:0}
-.aud-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;align-items:start}
+.aud-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;align-items:stretch}
 @media(max-width:760px){.aud-grid-2{grid-template-columns:1fr}}
-.aud-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);box-shadow:var(--shadow-xs);overflow:hidden}
+.aud-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);box-shadow:var(--shadow-xs);overflow:hidden;display:flex;flex-direction:column}
 .aud-header{display:flex;align-items:center;gap:12px;padding:13px 16px;cursor:pointer;transition:background .15s;user-select:none}
 .aud-header:hover{background:var(--accent-light)}
 .aud-arrow{font-size:12px;color:var(--sub2);transition:transform .2s;flex-shrink:0}
@@ -552,10 +555,6 @@ const MAIN_G=[
    logic:'0604已從+5K擴至+6K並持續 active，34 潛客 CPL NT$269，是全案唯一穩定產出受眾。下一步測試 +8K 版本擴大覆蓋，搭配 0603_與行家共鳴 新素材觀察效果。',
    lm:['彰化師範大學','彰化市中心','民族路商圈','彰化火車站'],
    tags:[['Newly married','新婚成家'],['Wedding','婚禮婚慶'],['Home buying','購屋'],['Real estate','不動產'],['Property investment','置產投資'],['First home','首購成家'],['Mortgage','房屋貸款'],['Interior design','室內設計'],['Home decoration','家居裝潢'],['Family','家庭生活'],['Children','孩子親子'],['Financial planning','財務規劃'],['Investment','投資理財'],['Saving','儲蓄存錢'],['National Changhua University of Education','彰化師範大學'],['Changhua','彰化市'],['Health food','健康飲食'],['Yoga','瑜珈健身'],['Work-life balance','工作生活平衡'],['Local community','在地社區'],['Cooking','料理烹飪'],['Pet','寵物'],['Furniture','家具'],['Home appliances','家電'],['Travel','旅遊'],['Running','路跑'],['Coffee','咖啡'],['Couple','伴侶'],['Marriage','婚姻'],['Lifestyle','生活品味']]},
-  {n:'再行銷/坤育師大苑 + 彰化烏日/房產591 Reach',sub:'0603上線·再行銷漏斗＋Reach觸及·觀察轉換',
-   logic:'0603已新開「再行銷/坤育師大苑」＋「彰化烏日/房產591」Reach觸及組，目前均 active 但尚無名單轉換。觀察1-2週後，將 Reach 曝光名單轉入再行銷漏斗，搭配住師大素材二次喚回，形成「觸及→再行銷→名單」完整漏斗。',
-   lm:['彰化師範大學','烏日高鐵站','大肚山','彰化市'],
-   tags:[['Real estate','不動產'],['Property investment','置產投資'],['Home buying','購屋置產'],['Mortgage','房屋貸款'],['First home','首購成家'],['Financial planning','財務規劃'],['Investment','投資理財'],['Saving','儲蓄'],['Property value','房產增值'],['High-speed rail','高鐵'],['Commuting','通勤'],['National Changhua University of Education','彰化師範大學'],['Changhua','彰化'],['Taichung','台中'],['Family','家庭'],['Interior design','室內設計'],['Home decoration','家居'],['Work-life balance','工作生活平衡'],['Local community','在地生活'],['Urban living','城市生活'],['Moving','搬家'],['Neighborhood','社區生活'],['Car','汽車'],['Sports','運動健身'],['Technology','科技'],['Smart home','智慧住宅'],['Restaurant','餐廳美食'],['Shopping mall','購物中心'],['Green living','綠色生活'],['New construction','新建案']]},
   {n:'28–55 / 彰市和美 / 進德路商圈業主',sub:'延伸自營商/零售批發方向·商圈業主完全未測',
    logic:'延伸自營商/零售批發成功方向，合併「零售批發+貿易商+服務業老闆」興趣，地標聚焦進德路商圈+5km，搭配「進德路步行圈置產」素材',
    lm:['進德路商圈','和美市區','彰化師範大學','秀水工業區'],
@@ -583,7 +582,15 @@ const MAIN_G=[
   {n:'30–50 / 彰化市和美秀水 / 在地老公寓升格換屋',sub:'在地老公寓→彰師大旁新成屋·在地升格情感訴求',
    logic:'彰化市及和美/秀水/線西有大量住老公寓/老透天的在地人，想換到新成屋但不想離開彰化縣。彰師大首排新成屋是「同縣市升格」的最佳選擇。建議開「30-50 / 彰化市和美秀水 / 在地家庭換屋+舊公寓升格」，訴求「住了20年的老公寓，換到彰師大旁新成屋，同樣是彰化人，生活品質直升一個等級」。在地升格情感強烈，比異地移居更好轉換。',
    lm:['彰化市','和美鎮','秀水鄉','彰化師範大學'],
-   tags:[['Home renovation','翻新裝潢'],['Home improvement','居家改善'],['Interior design','室內設計'],['Real estate','不動產'],['Property investment','置產投資'],['Home buying','購屋換屋'],['Mortgage','房屋貸款'],['Upgrade housing','換屋升格'],['Financial planning','財務規劃'],['Investment','投資理財'],['Saving','儲蓄'],['Changhua','彰化'],['National Changhua University of Education','彰化師範大學'],['Family','家庭'],['Local living','在地生活'],['Community','社區'],['Property value','房屋增值'],['Home decoration','家居裝潢'],['New home','新成屋'],['Work-life balance','工作生活平衡'],['Moving','搬家'],['Smart home','智慧住宅'],['Minimalism','簡約生活'],['Green living','綠色生活'],['Energy saving','節能環保'],['Cooking','料理'],['Pets','寵物'],['Gardening','庭園綠化'],['Declutter','整理收納'],['Fresh start','嶄新開始']]}
+   tags:[['Home renovation','翻新裝潢'],['Home improvement','居家改善'],['Interior design','室內設計'],['Real estate','不動產'],['Property investment','置產投資'],['Home buying','購屋換屋'],['Mortgage','房屋貸款'],['Upgrade housing','換屋升格'],['Financial planning','財務規劃'],['Investment','投資理財'],['Saving','儲蓄'],['Changhua','彰化'],['National Changhua University of Education','彰化師範大學'],['Family','家庭'],['Local living','在地生活'],['Community','社區'],['Property value','房屋增值'],['Home decoration','家居裝潢'],['New home','新成屋'],['Work-life balance','工作生活平衡'],['Moving','搬家'],['Smart home','智慧住宅'],['Minimalism','簡約生活'],['Green living','綠色生活'],['Energy saving','節能環保'],['Cooking','料理'],['Pets','寵物'],['Gardening','庭園綠化'],['Declutter','整理收納'],['Fresh start','嶄新開始']]},
+  {n:'28–45 / 彰師大校友+師範院校 / 情感回流置產',sub:'畢業生對師大旁有情感連結·母校旁安家共鳴強',
+   logic:'彰化師範大學及中部師範院校（台中教育大學、台師大）畢業生，在彰化或台中從事教職/公職，對「師大旁置產」有強烈情感共鳴。建議開「28-45 / 彰化市+台中南區 / 師範院校校友+教育工作者」，訴求「從學生變鄰居，彰師大旁首排新成屋，彰師大人首選」，搭配校園步行場景素材，情感連結轉換率高，且屬尚未觸及的藍海受眾。',
+   lm:['彰化師範大學','民族路','彰化市中心','彰化火車站'],
+   tags:[['National Changhua University of Education','彰化師範大學'],['University alumni','校友會'],['Education','教育'],['Teaching','教師職涯'],['School','學校'],['Higher education','高等教育'],['Campus life','校園生活'],['Academic','學術'],['Continuing education','進修深造'],['Professional development','職涯發展'],['Real estate','不動產'],['Property investment','置產投資'],['Home buying','購屋'],['Mortgage','房屋貸款'],['First home','首購成家'],['Financial planning','財務規劃'],['Investment','投資理財'],['Saving','儲蓄'],['Changhua','彰化'],['Nostalgia','懷念故鄉'],['Cultural activities','藝文活動'],['Reading','閱讀'],['Books','書籍'],['Music','音樂'],['Art','藝術'],['Community','社區'],['Local living','在地生活'],['Coffee','咖啡'],['Work-life balance','工作生活平衡'],['New construction','新成屋']]},
+  {n:'40–65 / 南彰化溪湖員林北斗 / 退休換屋+子女彰化市就學',sub:'孩子念彰師大·全家跟著搬·兩代需求一棟解決',
+   logic:'南彰化（溪湖、員林、北斗）年齡層較長的族群，子女或孫子女即將就讀彰師大或彰化市學校，想在彰化市購置居所兼顧探視與就學。彰師大首排新成屋是「退休換屋＋學區置產」雙重需求最佳方案。建議開「40-65 / 溪湖員林北斗 / 退休族+子女學區+養老換屋」，訴求「孩子念師大旁，全家搬過來，一棟安頓兩代」。此族群衝動低但決策力強，重視學區、安全、環境，搭配文教區生活場景素材效果佳。',
+   lm:['溪湖鎮','員林市','北斗鎮','彰化師範大學'],
+   tags:[['Family','家庭'],['Parenting','親子教養'],['Children\'s education','子女教育'],['School district','學區'],['Higher education','高等教育'],['Retirement','退休規劃'],['Retirement lifestyle','退休生活'],['Elderly care','養老'],['Health','健康'],['Healthy lifestyle','健康生活'],['Real estate','不動產'],['Property investment','置產投資'],['Home buying','購屋換屋'],['Mortgage','房屋貸款'],['Financial planning','財務規劃'],['Investment','投資理財'],['Saving','儲蓄'],['National Changhua University of Education','彰化師範大學'],['Changhua','彰化'],['Local living','在地生活'],['Community','社區'],['Cooking','料理'],['Traditional culture','傳統文化'],['Gardening','庭園'],['Nature','自然'],['Outdoor','戶外活動'],['Cycling','腳踏車'],['Travel','旅遊'],['Religious activities','宗教活動'],['Property value','房屋增值']]}
 ];
 function buildAudCard(g,idx,prefix){
   const id=prefix+(idx+1);
