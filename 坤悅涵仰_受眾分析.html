@@ -174,6 +174,21 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .bs{text-align:right}
 .bs-n{font-size:22px;font-weight:800;color:#fff;line-height:1;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
 .bs-l{font-size:10px;color:rgba(255,255,255,.7);margin-top:3px;font-weight:600;letter-spacing:.3px;text-transform:uppercase}
+.rk-grid{display:flex;flex-direction:column;gap:7px}
+.rank-op-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:20px;align-items:stretch}
+.rank-op-grid>.section:nth-child(1){grid-column:1;grid-row:1;display:flex;flex-direction:column;margin-bottom:0}
+.rank-op-grid>.section:nth-child(2){grid-column:1/3;grid-row:2}
+.rank-op-grid>.section:nth-child(3){grid-column:2;grid-row:1;display:flex;flex-direction:column;margin-bottom:0}
+.rank-op-grid>.section:nth-child(1) .rk-grid,.rank-op-grid>.section:nth-child(3) .tips{flex:1}
+.rank-op-grid>.section:nth-child(1) .rk-row,.rank-op-grid>.section:nth-child(3) .tip{flex:1;min-height:0}
+@media(max-width:900px){.rank-op-grid{display:block}}
+.insight-box{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow-xs);margin-top:20px}
+.insight-title{font-size:14px;font-weight:700;color:var(--tx);margin-bottom:14px}
+.insight-highlight{background:var(--accent-light);border-left:3px solid var(--accent);padding:12px 16px;border-radius:0 8px 8px 0;margin-bottom:16px;font-size:13px;color:#2e5c3e;font-weight:600;line-height:1.65}
+.insight-sub{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:10px;margin-top:14px}
+.insight-list{list-style:none;display:flex;flex-direction:column;gap:7px}
+.insight-list li{font-size:13px;color:var(--sub);padding-left:18px;position:relative;line-height:1.6}
+.insight-list li::before{content:'→';position:absolute;left:0;color:var(--accent-border);font-size:12px;top:1px}
 </style>
 </head>
 <body>
@@ -217,7 +232,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 <div class="tab-bar">
   <button class="tab-btn active" onclick="switchTab('main')">主粉專（21組 · $16,784）</button>
   <button class="tab-btn" onclick="switchTab('1510')">1510（14組 · $12,685）</button>
-  <button class="tab-btn" onclick="switchTab('insight')">策略總結</button>
 </div>
 
 <!-- ════════════════════════════════════════
@@ -237,19 +251,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
     <div class="bs"><div class="bs-n">21</div><div class="bs-l">受眾組數</div></div>
   </div>
 </div>
-
-  <div class="note-bar">主粉專帳號（坤悅涵仰 FB粉專）· 廣告期間 2026-04-25 起 · 累積花費 NT$16,784 · 6潛客 ＋ 4訊息對話</div>
-
-  <!-- 主粉專統計 -->
-  <div class="section">
-    <div class="sec-title">主粉專帳號成效統計</div>
-    <div class="stats-bar">
-      <div class="sb-card"><div class="sb-n">$16,784</div><div class="sb-l">主粉專花費</div></div>
-      <div class="sb-card"><div class="sb-n">6</div><div class="sb-l">潛客</div></div>
-      <div class="sb-card"><div class="sb-n">4</div><div class="sb-l">訊息對話</div></div>
-      <div class="sb-card"><div class="sb-n">21</div><div class="sb-l">受眾組數</div></div>
-    </div>
-  </div>
 
   <!-- 主粉專三大輪廓 -->
   <div class="section">
@@ -286,152 +287,195 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
     </div>
   </div>
 
-  <!-- 主粉專受眾排行 -->
-  <div class="section">
-    <div class="sec-title">主粉專受眾成效排行（有轉換組）</div>
-
-    <div class="rk-row gold">
-      <div class="rk-medal">🥇</div>
-      <div class="rk-body">
-        <div class="rk-name">再行銷(北屯) / 坤悅涵仰(0528+電話名單) <span class="rk-badge rb-active">進行中</span></div>
-        <div class="rk-loc">北屯再行銷受眾＋電話名單自訂 · 目標：訊息對話</div>
-        <div class="rk-tags"><span class="rk-tag t-ret">再行銷</span><span class="rk-tag t-loc">自訂受眾</span></div>
-      </div>
-      <div class="rk-stats">
-        <div class="rk-stat-block"><div class="rk-result">4</div><div class="rk-result-l">訊息</div></div>
-        <div class="rk-stat-block"><div class="rk-cpl good-cpl">$644</div><div class="rk-cpl-l">CPL/則</div></div>
-        <div class="rk-stat-block"><div class="rk-spend">$2,579</div><div class="rk-spend-l">花費</div></div>
-      </div>
-    </div>
-
-    <div class="rk-row silver">
-      <div class="rk-medal">🥈</div>
-      <div class="rk-body">
-        <div class="rk-name">35-55 / 太平大里 / 家庭換屋・理財置產 <span class="rk-badge rb-stopped">已停</span></div>
-        <div class="rk-loc">太平區+4km · 大里區+3km · 目標：名單</div>
-        <div class="rk-tags"><span class="rk-tag t-fam">換屋</span><span class="rk-tag t-fin">理財</span><span class="rk-tag t-loc">太平大里</span></div>
-      </div>
-      <div class="rk-stats">
-        <div class="rk-stat-block"><div class="rk-result">2</div><div class="rk-result-l">潛客</div></div>
-        <div class="rk-stat-block"><div class="rk-cpl">$1,123</div><div class="rk-cpl-l">CPL</div></div>
-        <div class="rk-stat-block"><div class="rk-spend">$2,246</div><div class="rk-spend-l">花費</div></div>
-      </div>
-    </div>
-
-    <div class="rk-row silver">
-      <div class="rk-medal">🥈</div>
-      <div class="rk-body">
-        <div class="rk-name">28-60 / 太平市區 / 傳產・公務員興趣 <span class="rk-badge rb-stopped">已停</span></div>
-        <div class="rk-loc">太平市區+4km · 目標：名單</div>
-        <div class="rk-tags"><span class="rk-tag t-biz">傳產</span><span class="rk-tag t-pub">公務員</span><span class="rk-tag t-loc">太平</span></div>
-      </div>
-      <div class="rk-stats">
-        <div class="rk-stat-block"><div class="rk-result">2</div><div class="rk-result-l">潛客</div></div>
-        <div class="rk-stat-block"><div class="rk-cpl">$884</div><div class="rk-cpl-l">CPL</div></div>
-        <div class="rk-stat-block"><div class="rk-spend">$1,767</div><div class="rk-spend-l">花費</div></div>
-      </div>
-    </div>
-
-    <div class="rk-row bronze">
-      <div class="rk-medal">🥉</div>
-      <div class="rk-body">
-        <div class="rk-name">30-60 / 東區太原 / 老闆・餐廳・串流媒體 <span class="rk-badge rb-stopped">已停</span></div>
-        <div class="rk-loc">東區+3km · 太原路周邊 · 目標：名單</div>
-        <div class="rk-tags"><span class="rk-tag t-biz">自營商</span><span class="rk-tag t-fin">餐飲業</span></div>
-      </div>
-      <div class="rk-stats">
-        <div class="rk-stat-block"><div class="rk-result">1</div><div class="rk-result-l">潛客</div></div>
-        <div class="rk-stat-block"><div class="rk-cpl">$1,437</div><div class="rk-cpl-l">CPL</div></div>
-        <div class="rk-stat-block"><div class="rk-spend">$1,437</div><div class="rk-spend-l">花費</div></div>
-      </div>
-    </div>
-
-    <div class="rk-row bronze">
-      <div class="rk-medal">🥉</div>
-      <div class="rk-body">
-        <div class="rk-name">28-60 / 太平市區 / 行銷・小資族 <span class="rk-badge rb-stopped">已停</span></div>
-        <div class="rk-loc">太平市區+4km · 0430調區</div>
-        <div class="rk-tags"><span class="rk-tag t-young">年輕族群</span><span class="rk-tag t-loc">太平</span></div>
-      </div>
-      <div class="rk-stats">
-        <div class="rk-stat-block"><div class="rk-result">1</div><div class="rk-result-l">潛客</div></div>
-        <div class="rk-stat-block"><div class="rk-cpl">$1,534</div><div class="rk-cpl-l">CPL</div></div>
-        <div class="rk-stat-block"><div class="rk-spend">$1,534</div><div class="rk-spend-l">花費</div></div>
-      </div>
+  <!-- 核心有效標籤 -->
+  <div class="section core-tags-row">
+    <div class="sec-title">主粉專核心有效標籤</div>
+    <div class="tags-row">
+      <span class="core-tag">家庭換屋（動機明確）<span class="arr">↗</span></span>
+      <span class="core-tag">再行銷（高意向）<span class="arr">↗</span></span>
+      <span class="core-tag">傳產公務員（穩定收入）<span class="arr">↗</span></span>
+      <span class="core-tag">太平大里（在地認同）<span class="arr">↗</span></span>
+      <span class="core-tag">情境化素材（實地轉換）<span class="arr">↗</span></span>
+      <span class="core-tag">三房換屋（功能訴求）<span class="arr">↗</span></span>
     </div>
   </div>
 
-  <!-- 主粉專素材 -->
+  <!-- 建議嘗試受眾 -->
   <div class="section">
-    <div class="sec-title">主粉專素材成效</div>
-    <div class="creative-timeline">
-
-      <div class="phase-row best">
-        <div class="phase-label">0529<br>好無止境</div>
-        <div class="phase-body">
-          <div class="phase-title">20260529_好無止境（最新素材）</div>
-          <div class="phase-desc">最新推出素材，1潛客 CPL NT$685，目前active跑中。訴求方向為品質生活，搭配換屋家庭受眾響應較佳。</div>
-        </div>
-        <div class="phase-stat"><div class="phase-cpl">1 潛客</div><div class="phase-cpl-l">CPL NT$685</div></div>
-      </div>
-
-      <div class="phase-row best">
-        <div class="phase-label">0522<br>新視覺</div>
-        <div class="phase-body">
-          <div class="phase-title">0522_新視覺（影片＋單圖）</div>
-          <div class="phase-desc">1潛客＋3訊息（影片&單圖合計），是再行銷組的主要投放素材，影片版對訊息對話目標效果好，單圖版帶出名單。目前仍active。</div>
-        </div>
-        <div class="phase-stat"><div class="phase-cpl">1潛+3訊</div><div class="phase-cpl-l">active進行中</div></div>
-      </div>
-
-      <div class="phase-row">
-        <div class="phase-label">0428<br>對望東區</div>
-        <div class="phase-body">
-          <div class="phase-title">0428_對望東區</div>
-          <div class="phase-desc">1潛客 CPL NT$752，情境式素材，「從東區望向太平」概念，已在傳產公務員組別中有轉換，但整體已停用。</div>
-        </div>
-        <div class="phase-stat"><div class="phase-cpl">1 潛客</div><div class="phase-cpl-l">已停用</div></div>
-      </div>
-
-      <div class="phase-row">
-        <div class="phase-label">0430<br>奢華3房</div>
-        <div class="phase-body">
-          <div class="phase-title">0430_太平奢華3房</div>
-          <div class="phase-desc">1潛客 CPL NT$1,015，訴求高端三房，但CPL偏高，與早期受眾CPL偏高有關而非素材本身問題。現已停用。</div>
-        </div>
-        <div class="phase-stat"><div class="phase-cpl">1 潛客</div><div class="phase-cpl-l">已停用</div></div>
-      </div>
-
-    </div>
+    <div class="sec-title">建議嘗試受眾（8組）· 更新 2026-06-10</div>
+    <div id="main-aud-grid" class="aud-grid-2"></div>
   </div>
 
-  <!-- 主粉專無效受眾統計 -->
-  <div class="section">
-    <div class="sec-title">主粉專 ✗ 無效受眾（建議永久停用）</div>
-    <div class="note-bar warn">以下16組合計花費 NT$9,191，零潛客零訊息，對象與三房換屋定位不符，建議不再開類似包。</div>
-    <div class="tips">
-      <div class="tip">
-        <div class="tip-num" style="background:#c05c00">✗</div>
-        <div class="tip-body">
-          <div class="tip-title">高端職業定向（銀行精算師、置產醫生高管、教授醫療、北屯西屯純房產）</div>
-          <div class="tip-desc">合計花費 NT$551，零轉換。此案定位三房換屋非高端置產，高端職業族群預期高規格，太平區對他們吸引力不足。停用。</div>
+  <!-- 成效排行 + 素材 + 操作建議 -->
+  <div class="rank-op-grid">
+
+    <div class="section">
+      <div class="sec-title">成果前 5 名受眾</div>
+      <div class="rk-grid">
+
+        <div class="rk-row gold">
+          <div class="rk-medal">🥇</div>
+          <div class="rk-body">
+            <div class="rk-name">再行銷(北屯) / 坤悅涵仰(0528+電話名單) <span class="rk-badge rb-active">進行中</span></div>
+            <div class="rk-loc">北屯再行銷受眾＋電話名單自訂 · 目標：訊息對話</div>
+            <div class="rk-tags"><span class="rk-tag t-ret">再行銷</span><span class="rk-tag t-loc">自訂受眾</span></div>
+          </div>
+          <div class="rk-stats">
+            <div class="rk-stat-block"><div class="rk-result">4</div><div class="rk-result-l">訊息</div></div>
+            <div class="rk-stat-block"><div class="rk-cpl good-cpl">$644</div><div class="rk-cpl-l">CPL/則</div></div>
+            <div class="rk-stat-block"><div class="rk-spend">$2,579</div><div class="rk-spend-l">花費</div></div>
+          </div>
         </div>
-      </div>
-      <div class="tip">
-        <div class="tip-num" style="background:#c05c00">✗</div>
-        <div class="tip-body">
-          <div class="tip-title">北屯/成家自然、大里太平傳產上班族、74沿線小家庭</div>
-          <div class="tip-desc">合計花費 NT$1,047，零轉換。「自然」與「傳產上班族」標籤組合不夠精準，購屋動機模糊，建議停用。</div>
+
+        <div class="rk-row silver">
+          <div class="rk-medal">🥈</div>
+          <div class="rk-body">
+            <div class="rk-name">35-55 / 太平大里 / 家庭換屋・理財置產 <span class="rk-badge rb-stopped">已停</span></div>
+            <div class="rk-loc">太平區+4km · 大里區+3km · 目標：名單</div>
+            <div class="rk-tags"><span class="rk-tag t-fam">換屋</span><span class="rk-tag t-fin">理財</span><span class="rk-tag t-loc">太平大里</span></div>
+          </div>
+          <div class="rk-stats">
+            <div class="rk-stat-block"><div class="rk-result">2</div><div class="rk-result-l">潛客</div></div>
+            <div class="rk-stat-block"><div class="rk-cpl">$1,123</div><div class="rk-cpl-l">CPL</div></div>
+            <div class="rk-stat-block"><div class="rk-spend">$2,246</div><div class="rk-spend-l">花費</div></div>
+          </div>
         </div>
-      </div>
-      <div class="tip">
-        <div class="tip-num" style="background:#c05c00">✗</div>
-        <div class="tip-body">
-          <div class="tip-title">建築生活品質自營商、生活品質自營商、理財政治置產、公務員自營商二代換屋（分開測試版）</div>
-          <div class="tip-desc">合計花費 NT$2,422，零轉換。「自營商」需搭配「換屋/傳產」明確動機標籤才有效（見傳產公務員 2潛客組），純生活品質/政治/置產興趣對此案無作用。</div>
+
+        <div class="rk-row silver">
+          <div class="rk-medal">🥈</div>
+          <div class="rk-body">
+            <div class="rk-name">28-60 / 太平市區 / 傳產・公務員興趣 <span class="rk-badge rb-stopped">已停</span></div>
+            <div class="rk-loc">太平市區+4km · 目標：名單</div>
+            <div class="rk-tags"><span class="rk-tag t-biz">傳產</span><span class="rk-tag t-pub">公務員</span><span class="rk-tag t-loc">太平</span></div>
+          </div>
+          <div class="rk-stats">
+            <div class="rk-stat-block"><div class="rk-result">2</div><div class="rk-result-l">潛客</div></div>
+            <div class="rk-stat-block"><div class="rk-cpl">$884</div><div class="rk-cpl-l">CPL</div></div>
+            <div class="rk-stat-block"><div class="rk-spend">$1,767</div><div class="rk-spend-l">花費</div></div>
+          </div>
         </div>
+
+        <div class="rk-row bronze">
+          <div class="rk-medal">🥉</div>
+          <div class="rk-body">
+            <div class="rk-name">30-60 / 東區太原 / 老闆・餐廳・串流媒體 <span class="rk-badge rb-stopped">已停</span></div>
+            <div class="rk-loc">東區+3km · 太原路周邊 · 目標：名單</div>
+            <div class="rk-tags"><span class="rk-tag t-biz">自營商</span><span class="rk-tag t-fin">餐飲業</span></div>
+          </div>
+          <div class="rk-stats">
+            <div class="rk-stat-block"><div class="rk-result">1</div><div class="rk-result-l">潛客</div></div>
+            <div class="rk-stat-block"><div class="rk-cpl">$1,437</div><div class="rk-cpl-l">CPL</div></div>
+            <div class="rk-stat-block"><div class="rk-spend">$1,437</div><div class="rk-spend-l">花費</div></div>
+          </div>
+        </div>
+
+        <div class="rk-row bronze">
+          <div class="rk-medal">🥉</div>
+          <div class="rk-body">
+            <div class="rk-name">28-60 / 太平市區 / 行銷・小資族 <span class="rk-badge rb-stopped">已停</span></div>
+            <div class="rk-loc">太平市區+4km · 0430調區</div>
+            <div class="rk-tags"><span class="rk-tag t-young">年輕族群</span><span class="rk-tag t-loc">太平</span></div>
+          </div>
+          <div class="rk-stats">
+            <div class="rk-stat-block"><div class="rk-result">1</div><div class="rk-result-l">潛客</div></div>
+            <div class="rk-stat-block"><div class="rk-cpl">$1,534</div><div class="rk-cpl-l">CPL</div></div>
+            <div class="rk-stat-block"><div class="rk-spend">$1,534</div><div class="rk-spend-l">花費</div></div>
+          </div>
+        </div>
+
       </div>
     </div>
+
+    <div class="section">
+      <div class="sec-title">素材迭代分析</div>
+      <div class="creative-timeline">
+
+        <div class="phase-row best">
+          <div class="phase-label">0529<br>好無止境</div>
+          <div class="phase-body">
+            <div class="phase-title">20260529_好無止境（最新素材）</div>
+            <div class="phase-desc">最新推出素材，1潛客 CPL NT$685，目前active跑中。訴求方向為品質生活，搭配換屋家庭受眾響應較佳。</div>
+          </div>
+          <div class="phase-stat"><div class="phase-cpl">1 潛客</div><div class="phase-cpl-l">CPL NT$685</div></div>
+        </div>
+
+        <div class="phase-row best">
+          <div class="phase-label">0522<br>新視覺</div>
+          <div class="phase-body">
+            <div class="phase-title">0522_新視覺（影片＋單圖）</div>
+            <div class="phase-desc">1潛客＋3訊息（影片&單圖合計），是再行銷組的主要投放素材，影片版對訊息對話目標效果好，單圖版帶出名單。目前仍active。</div>
+          </div>
+          <div class="phase-stat"><div class="phase-cpl">1潛+3訊</div><div class="phase-cpl-l">active進行中</div></div>
+        </div>
+
+        <div class="phase-row">
+          <div class="phase-label">0428<br>對望東區</div>
+          <div class="phase-body">
+            <div class="phase-title">0428_對望東區</div>
+            <div class="phase-desc">1潛客 CPL NT$752，情境式素材，「從東區望向太平」概念，已在傳產公務員組別中有轉換，但整體已停用。</div>
+          </div>
+          <div class="phase-stat"><div class="phase-cpl">1 潛客</div><div class="phase-cpl-l">已停用</div></div>
+        </div>
+
+        <div class="phase-row">
+          <div class="phase-label">0430<br>奢華3房</div>
+          <div class="phase-body">
+            <div class="phase-title">0430_太平奢華3房</div>
+            <div class="phase-desc">1潛客 CPL NT$1,015，訴求高端三房，但CPL偏高，與早期受眾CPL偏高有關而非素材本身問題。現已停用。</div>
+          </div>
+          <div class="phase-stat"><div class="phase-cpl">1 潛客</div><div class="phase-cpl-l">已停用</div></div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sec-title">操作建議</div>
+      <div class="tips">
+
+        <div class="tip">
+          <div class="tip-num c1">1</div>
+          <div class="tip-body">
+            <div class="tip-title">再行銷維持，新增「太平國小學區×親子家庭」未測試受眾</div>
+            <div class="tip-desc">再行銷4訊息穩定有效，是主粉專支柱。主粉專完全未測試「太平國小步行3分鐘」這個核心賣點的學區家長受眾，建議開一組 30-48歲 / 太平市區 / 親子教育×國小學區，素材用「孩子上學走路到」情境圖，預期對30-45歲有小孩族群響應高。</div>
+          </div>
+        </div>
+
+        <div class="tip">
+          <div class="tip-num c2">2</div>
+          <div class="tip-body">
+            <div class="tip-title">自營商傳產換屋重開（主粉專純版本從未真正跑過）</div>
+            <div class="tip-desc">1510「換屋/自營商/傳產」是坤悅涵仰全案成效最強受眾方向（CPL NT$528，另有5訊息），但主粉專只試過「傳產+上班族」和「生活品質+自營商」（兩組均0轉換），兩組都不是真正的「自營商×換屋」包。建議主粉專開一組 35-55/太平大里南屯/自營商×傳產×換屋，與1510驗證邏輯對齊。</div>
+          </div>
+        </div>
+
+        <div class="tip">
+          <div class="tip-num c3">3</div>
+          <div class="tip-body">
+            <div class="tip-title">高端職業定向不再開啟，預算轉向換屋動機受眾</div>
+            <div class="tip-desc">銀行精算師、置產醫生高管、教授醫療、北屯西屯純房產 合計花費 NT$551，零轉換。此案定位三房換屋非高端置產，高端職業族群預期高規格，太平區對他們吸引力不足，建議不再重開類似方向。</div>
+          </div>
+        </div>
+
+        <div class="tip">
+          <div class="tip-num c4">4</div>
+          <div class="tip-body">
+            <div class="tip-title">聚焦換屋動機標籤，停用模糊興趣組合</div>
+            <div class="tip-desc">北屯/成家自然、大里太平傳產上班族、74沿線小家庭 合計花費 NT$1,047，零轉換。「自然」與「傳產上班族」標籤購屋動機模糊；應改用「換屋+傳產」明確組合，參考傳產公務員 2潛客組的成功邏輯。</div>
+          </div>
+        </div>
+
+        <div class="tip">
+          <div class="tip-num c5">5</div>
+          <div class="tip-body">
+            <div class="tip-title">單一興趣標籤需搭配換屋行為才有效</div>
+            <div class="tip-desc">建築生活品質自營商、生活品質自營商、理財政治置產、公務員自營商二代換屋 合計花費 NT$2,422，零轉換。純生活品質/政治/置產興趣對此案無作用；「自營商」需搭配「換屋/傳產」明確動機標籤才有效（見傳產公務員 2潛客組）。</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 
 </div><!-- end tab-main -->
@@ -453,19 +497,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
     <div class="bs"><div class="bs-n">14</div><div class="bs-l">受眾組數</div></div>
   </div>
 </div>
-
-  <div class="note-bar">1510帳號（坤悅涵仰 1510粉專）· 廣告期間 2026-05-04 起 · 累積花費 NT$12,685 · 11潛客 ＋ 1訊息</div>
-
-  <!-- 1510統計 -->
-  <div class="section">
-    <div class="sec-title">1510帳號成效統計</div>
-    <div class="stats-bar">
-      <div class="sb-card"><div class="sb-n">$12,685</div><div class="sb-l">1510花費</div></div>
-      <div class="sb-card"><div class="sb-n">11</div><div class="sb-l">潛客</div></div>
-      <div class="sb-card"><div class="sb-n warn">$570</div><div class="sb-l">最佳CPL</div></div>
-      <div class="sb-card"><div class="sb-n">14</div><div class="sb-l">受眾組數</div></div>
-    </div>
-  </div>
 
   <!-- 1510三大輪廓 -->
   <div class="section">
@@ -502,139 +533,218 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
     </div>
   </div>
 
-  <!-- 1510受眾排行 -->
-  <div class="section">
-    <div class="sec-title">1510受眾成效排行（有轉換組）</div>
-
-    <div class="rk-row gold">
-      <div class="rk-medal">🥇</div>
-      <div class="rk-body">
-        <div class="rk-name">30-55 / 東區太平+74沿線 / 年輕人興趣 <span class="rk-badge rb-stopped">已停</span></div>
-        <div class="rk-loc">東區+4km · 太平+4km · 0519擴74沿線 · 目標：名單</div>
-        <div class="rk-tags"><span class="rk-tag t-young">年輕興趣</span><span class="rk-tag t-loc">東區太平</span><span class="rk-tag t-loc">74沿線</span></div>
-      </div>
-      <div class="rk-stats">
-        <div class="rk-stat-block"><div class="rk-result">5</div><div class="rk-result-l">潛客</div></div>
-        <div class="rk-stat-block"><div class="rk-cpl">$772</div><div class="rk-cpl-l">CPL</div></div>
-        <div class="rk-stat-block"><div class="rk-spend">$3,858</div><div class="rk-spend-l">花費</div></div>
-      </div>
-    </div>
-
-    <div class="rk-row silver">
-      <div class="rk-medal">🥈</div>
-      <div class="rk-body">
-        <div class="rk-name">35-55 / 北區南區 / 財稅顧問菁英 <span class="rk-badge rb-active">進行中</span></div>
-        <div class="rk-loc">北區+3km · 南區+3km · 目標：名單</div>
-        <div class="rk-tags"><span class="rk-tag t-fin">財稅顧問</span><span class="rk-tag t-biz">自雇菁英</span></div>
-      </div>
-      <div class="rk-stats">
-        <div class="rk-stat-block"><div class="rk-result">3</div><div class="rk-result-l">潛客</div></div>
-        <div class="rk-stat-block"><div class="rk-cpl good-cpl">$624</div><div class="rk-cpl-l">CPL</div></div>
-        <div class="rk-stat-block"><div class="rk-spend">$1,873</div><div class="rk-spend-l">花費</div></div>
-      </div>
-    </div>
-
-    <div class="rk-row bronze">
-      <div class="rk-medal">🥉</div>
-      <div class="rk-body">
-        <div class="rk-name">30-64 / 東區太平太原 / 金融保險＋精品興趣 <span class="rk-badge rb-stopped">已停</span></div>
-        <div class="rk-loc">東區+4km · 太平+4km · 太原路周邊 · 目標：名單</div>
-        <div class="rk-tags"><span class="rk-tag t-fin">金融保險</span><span class="rk-tag t-fin">精品</span><span class="rk-tag t-loc">東區太平</span></div>
-      </div>
-      <div class="rk-stats">
-        <div class="rk-stat-block"><div class="rk-result">2</div><div class="rk-result-l">潛客</div></div>
-        <div class="rk-stat-block"><div class="rk-cpl good-cpl">$570</div><div class="rk-cpl-l">CPL</div></div>
-        <div class="rk-stat-block"><div class="rk-spend">$1,140</div><div class="rk-spend-l">花費</div></div>
-      </div>
-    </div>
-
-    <div class="rk-row">
-      <div class="rk-rank">4</div>
-      <div class="rk-body">
-        <div class="rk-name">35-60 / 東區太平 / 重視教育・保健・精品 <span class="rk-badge rb-stopped">已停</span></div>
-        <div class="rk-loc">東區+4km · 太平+3km · 0513調區排除IG · 目標：名單</div>
-        <div class="rk-tags"><span class="rk-tag t-fam">教育重視</span><span class="rk-tag t-fin">精品</span></div>
-      </div>
-      <div class="rk-stats">
-        <div class="rk-stat-block"><div class="rk-result">1</div><div class="rk-result-l">潛客</div></div>
-        <div class="rk-stat-block"><div class="rk-cpl">$1,251</div><div class="rk-cpl-l">CPL</div></div>
-        <div class="rk-stat-block"><div class="rk-spend">$1,251</div><div class="rk-spend-l">花費</div></div>
-      </div>
+  <!-- 核心有效標籤 -->
+  <div class="section core-tags-row">
+    <div class="sec-title">1510核心有效標籤</div>
+    <div class="tags-row">
+      <span class="core-tag">財金置產（自雇菁英）<span class="arr">↗</span></span>
+      <span class="core-tag">年輕換屋（生活升格）<span class="arr">↗</span></span>
+      <span class="core-tag">重視教育（親子需求）<span class="arr">↗</span></span>
+      <span class="core-tag">北區南區（菁英聚落）<span class="arr">↗</span></span>
+      <span class="core-tag">74沿線（通勤便利）<span class="arr">↗</span></span>
+      <span class="core-tag">太平最美（情感訴求）<span class="arr">↗</span></span>
     </div>
   </div>
 
-  <!-- 1510素材 -->
+  <!-- 建議嘗試受眾 -->
   <div class="section">
-    <div class="sec-title">1510素材成效</div>
-    <div class="creative-timeline">
-
-      <div class="phase-row best">
-        <div class="phase-label">0508<br>太平最美<br>19XX</div>
-        <div class="phase-body">
-          <div class="phase-title">0508_太平最美19XX（1510最強素材）</div>
-          <div class="phase-desc">5潛客＋1訊息，其中最強版本 CPL NT$271，是全案所有素材中最低CPL。搭配年輕人興趣組投放成效最顯著，「太平最美」訴求命中換屋升格心理。</div>
-        </div>
-        <div class="phase-stat"><div class="phase-cpl">5潛+1訊</div><div class="phase-cpl-l">CPL NT$271 最強</div></div>
-      </div>
-
-      <div class="phase-row best">
-        <div class="phase-label">0428<br>對望東區</div>
-        <div class="phase-body">
-          <div class="phase-title">0428_對望東區（1510版）</div>
-          <div class="phase-desc">1潛客 CPL NT$415，是1510帳號第二低CPL素材，「從東區對望太平」概念對財金置產族群有效，畫面感強。已停，建議換素材重開。</div>
-        </div>
-        <div class="phase-stat"><div class="phase-cpl">1 潛客</div><div class="phase-cpl-l">CPL NT$415</div></div>
-      </div>
-
-      <div class="phase-row best">
-        <div class="phase-label">0430<br>奢華3房<br>18XX</div>
-        <div class="phase-body">
-          <div class="phase-title">0430_太平奢華3房18XX（1510版）</div>
-          <div class="phase-desc">1潛客 CPL NT$446，強調「18XX即可入主三房」的價格訴求，對財金置產族群有吸引力，已停但CPL良好。</div>
-        </div>
-        <div class="phase-stat"><div class="phase-cpl">1 潛客</div><div class="phase-cpl-l">CPL NT$446</div></div>
-      </div>
-
-      <div class="phase-row">
-        <div class="phase-label">0508<br>太平最美<br>18XX</div>
-        <div class="phase-body">
-          <div class="phase-title">0508_太平最美18XX（現仍active）</div>
-          <div class="phase-desc">1潛客 CPL NT$669，目前配合財稅顧問菁英組投放中，CTR 4.06%優秀。是目前1510唯一active素材。</div>
-        </div>
-        <div class="phase-stat"><div class="phase-cpl">1 潛客</div><div class="phase-cpl-l">CTR 4.06% active</div></div>
-      </div>
-
-    </div>
+    <div class="sec-title">建議嘗試受眾（8組）· 更新 2026-06-10</div>
+    <div id="1510-aud-grid" class="aud-grid-2"></div>
   </div>
 
-  <!-- 1510無效組 -->
-  <div class="section">
-    <div class="sec-title">1510 ✗ 無效受眾（建議停用）</div>
-    <div class="note-bar warn">以下9組合計花費 NT$5,773，零潛客，方向與換屋置產定位不符或標籤過於分散。</div>
-    <div class="tips">
-      <div class="tip">
-        <div class="tip-num" style="background:#c05c00">✗</div>
-        <div class="tip-body">
-          <div class="tip-title">醫生興趣、公務員教師傳產（1510大組）、在地上班族</div>
-          <div class="tip-desc">合計花費 NT$3,368，零轉換。醫生/高管定位與太平三房預算段不符；公務員教師在1510大組（$5,000預算）的投放效率差，不如拆成小組精準投。在地上班族標籤太廣，無購屋意圖信號。</div>
+  <!-- 成效排行 + 素材 + 操作建議 -->
+  <div class="rank-op-grid">
+
+    <div class="section">
+      <div class="sec-title">成果前 5 名受眾</div>
+      <div class="rk-grid">
+
+        <div class="rk-row gold">
+          <div class="rk-medal">🥇</div>
+          <div class="rk-body">
+            <div class="rk-name">30-55 / 東區太平+74沿線 / 年輕人興趣 <span class="rk-badge rb-stopped">已停</span></div>
+            <div class="rk-loc">東區+4km · 太平+4km · 0519擴74沿線 · 目標：名單</div>
+            <div class="rk-tags"><span class="rk-tag t-young">年輕興趣</span><span class="rk-tag t-loc">東區太平</span><span class="rk-tag t-loc">74沿線</span></div>
+          </div>
+          <div class="rk-stats">
+            <div class="rk-stat-block"><div class="rk-result">5</div><div class="rk-result-l">潛客</div></div>
+            <div class="rk-stat-block"><div class="rk-cpl">$772</div><div class="rk-cpl-l">CPL</div></div>
+            <div class="rk-stat-block"><div class="rk-spend">$3,858</div><div class="rk-spend-l">花費</div></div>
+          </div>
         </div>
-      </div>
-      <div class="tip">
-        <div class="tip-num" style="background:#c05c00">✗</div>
-        <div class="tip-body">
-          <div class="tip-title">五金傳產+親子教育+室內設計、洲際傳產家具、74沿線科技主管</div>
-          <div class="tip-desc">合計花費 NT$841，零轉換。三個標籤疊加太分散，科技主管往西屯北屯走、親子室內設計興趣連結換屋決策弱。</div>
+
+        <div class="rk-row silver">
+          <div class="rk-medal">🥈</div>
+          <div class="rk-body">
+            <div class="rk-name">35-55 / 北區南區 / 財稅顧問菁英 <span class="rk-badge rb-active">進行中</span></div>
+            <div class="rk-loc">北區+3km · 南區+3km · 目標：名單</div>
+            <div class="rk-tags"><span class="rk-tag t-fin">財稅顧問</span><span class="rk-tag t-biz">自雇菁英</span></div>
+          </div>
+          <div class="rk-stats">
+            <div class="rk-stat-block"><div class="rk-result">3</div><div class="rk-result-l">潛客</div></div>
+            <div class="rk-stat-block"><div class="rk-cpl good-cpl">$624</div><div class="rk-cpl-l">CPL</div></div>
+            <div class="rk-stat-block"><div class="rk-spend">$1,873</div><div class="rk-spend-l">花費</div></div>
+          </div>
         </div>
+
+        <div class="rk-row bronze">
+          <div class="rk-medal">🥉</div>
+          <div class="rk-body">
+            <div class="rk-name">30-64 / 東區太平太原 / 金融保險＋精品興趣 <span class="rk-badge rb-stopped">已停</span></div>
+            <div class="rk-loc">東區+4km · 太平+4km · 太原路周邊 · 目標：名單</div>
+            <div class="rk-tags"><span class="rk-tag t-fin">金融保險</span><span class="rk-tag t-fin">精品</span><span class="rk-tag t-loc">東區太平</span></div>
+          </div>
+          <div class="rk-stats">
+            <div class="rk-stat-block"><div class="rk-result">2</div><div class="rk-result-l">潛客</div></div>
+            <div class="rk-stat-block"><div class="rk-cpl good-cpl">$570</div><div class="rk-cpl-l">CPL</div></div>
+            <div class="rk-stat-block"><div class="rk-spend">$1,140</div><div class="rk-spend-l">花費</div></div>
+          </div>
+        </div>
+
+        <div class="rk-row">
+          <div class="rk-rank">4</div>
+          <div class="rk-body">
+            <div class="rk-name">35-60 / 東區太平 / 重視教育・保健・精品 <span class="rk-badge rb-stopped">已停</span></div>
+            <div class="rk-loc">東區+4km · 太平+3km · 0513調區排除IG · 目標：名單</div>
+            <div class="rk-tags"><span class="rk-tag t-fam">教育重視</span><span class="rk-tag t-fin">精品</span></div>
+          </div>
+          <div class="rk-stats">
+            <div class="rk-stat-block"><div class="rk-result">1</div><div class="rk-result-l">潛客</div></div>
+            <div class="rk-stat-block"><div class="rk-cpl">$1,251</div><div class="rk-cpl-l">CPL</div></div>
+            <div class="rk-stat-block"><div class="rk-spend">$1,251</div><div class="rk-spend-l">花費</div></div>
+          </div>
+        </div>
+
+        <div class="rk-row">
+          <div class="rk-rank">5</div>
+          <div class="rk-body">
+            <div class="rk-name">30-60 / 臺中市區 / 公務員教師傳產（大組測試） <span class="rk-badge rb-stopped">已停</span></div>
+            <div class="rk-loc">臺中市區 · 大組預算 $5,000 · 目標：名單</div>
+            <div class="rk-tags"><span class="rk-tag t-pub">公務員</span><span class="rk-tag t-biz">傳產</span></div>
+          </div>
+          <div class="rk-stats">
+            <div class="rk-stat-block"><div class="rk-result">0</div><div class="rk-result-l">潛客</div></div>
+            <div class="rk-stat-block"><div class="rk-cpl">—</div><div class="rk-cpl-l">CPL</div></div>
+            <div class="rk-stat-block"><div class="rk-spend">$5,000</div><div class="rk-spend-l">花費</div></div>
+          </div>
+        </div>
+
       </div>
     </div>
+
+    <div class="section">
+      <div class="sec-title">素材迭代分析</div>
+      <div class="creative-timeline">
+
+        <div class="phase-row best">
+          <div class="phase-label">0508<br>太平最美<br>19XX</div>
+          <div class="phase-body">
+            <div class="phase-title">0508_太平最美19XX（1510最強素材）</div>
+            <div class="phase-desc">5潛客＋1訊息，其中最強版本 CPL NT$271，是全案所有素材中最低CPL。搭配年輕人興趣組投放成效最顯著，「太平最美」訴求命中換屋升格心理。</div>
+          </div>
+          <div class="phase-stat"><div class="phase-cpl">5潛+1訊</div><div class="phase-cpl-l">CPL NT$271 最強</div></div>
+        </div>
+
+        <div class="phase-row best">
+          <div class="phase-label">0428<br>對望東區</div>
+          <div class="phase-body">
+            <div class="phase-title">0428_對望東區（1510版）</div>
+            <div class="phase-desc">1潛客 CPL NT$415，是1510帳號第二低CPL素材，「從東區對望太平」概念對財金置產族群有效，畫面感強。已停，建議換素材重開。</div>
+          </div>
+          <div class="phase-stat"><div class="phase-cpl">1 潛客</div><div class="phase-cpl-l">CPL NT$415</div></div>
+        </div>
+
+        <div class="phase-row best">
+          <div class="phase-label">0430<br>奢華3房<br>18XX</div>
+          <div class="phase-body">
+            <div class="phase-title">0430_太平奢華3房18XX（1510版）</div>
+            <div class="phase-desc">1潛客 CPL NT$446，強調「18XX即可入主三房」的價格訴求，對財金置產族群有吸引力，已停但CPL良好。</div>
+          </div>
+          <div class="phase-stat"><div class="phase-cpl">1 潛客</div><div class="phase-cpl-l">CPL NT$446</div></div>
+        </div>
+
+        <div class="phase-row">
+          <div class="phase-label">0508<br>太平最美<br>18XX</div>
+          <div class="phase-body">
+            <div class="phase-title">0508_太平最美18XX（現仍active）</div>
+            <div class="phase-desc">1潛客 CPL NT$669，目前配合財稅顧問菁英組投放中，CTR 4.06%優秀。是目前1510唯一active素材。</div>
+          </div>
+          <div class="phase-stat"><div class="phase-cpl">1 潛客</div><div class="phase-cpl-l">CTR 4.06% active</div></div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sec-title">操作建議</div>
+      <div class="tips">
+
+        <div class="tip">
+          <div class="tip-num c1">1</div>
+          <div class="tip-body">
+            <div class="tip-title">財稅顧問菁英 CPL NT$624 仍active → 增加預算到 NT$400/日</div>
+            <div class="tip-desc">目前每日 NT$250，已累積3潛客，CPL NT$624 是全案現存active受眾最低CPL。建議從 NT$250 提升至 NT$400，素材維持 0508_太平最美18XX（CTR 4.06%優秀），目標下一個月再帶出 5~8 潛客。</div>
+          </div>
+        </div>
+
+        <div class="tip">
+          <div class="tip-num c2">2</div>
+          <div class="tip-body">
+            <div class="tip-title">金融保險+精品 CPL NT$570 最低但已停 → 換素材重開</div>
+            <div class="tip-desc">只花了 NT$1,140 就帶出2潛客，CPL NT$570 是全案最低，但已停止。建議用新素材（0508_太平最美19XX或新版換屋訴求）重開此組，預期可持續有效，每日預算 NT$250 起。</div>
+          </div>
+        </div>
+
+        <div class="tip">
+          <div class="tip-num c3">3</div>
+          <div class="tip-body">
+            <div class="tip-title">年輕人興趣 5潛客是1510最多，素材已舊 → 換素材重開加74沿線</div>
+            <div class="tip-desc">原組 CPL NT$772 花費 NT$3,858，素材已舊頻率上升。受眾方向驗證有效（東太平年輕換屋族），建議換新素材：切角「74快速道路通台中，2028完工現在卡位」，重開時加74沿線範圍，預期CPL可壓到 NT$600-700。</div>
+          </div>
+        </div>
+
+        <div class="tip">
+          <div class="tip-num c4">4</div>
+          <div class="tip-body">
+            <div class="tip-title">醫生興趣、公務員教師大組、在地上班族停用</div>
+            <div class="tip-desc">合計花費 NT$3,368，零轉換。醫生/高管定位與太平三房預算段不符；公務員教師在1510大組（$5,000預算）的投放效率差，不如拆成小組精準投；在地上班族標籤太廣，無購屋意圖信號。建議不再重開這三個方向。</div>
+          </div>
+        </div>
+
+        <div class="tip">
+          <div class="tip-num c5">5</div>
+          <div class="tip-body">
+            <div class="tip-title">疊加標籤受眾停用，聚焦精準財金換屋方向</div>
+            <div class="tip-desc">五金傳產+親子教育+室內設計、洲際傳產家具、74沿線科技主管 合計花費 NT$841，零轉換。三個標籤疊加太分散，科技主管往西屯北屯走，親子室內設計興趣連結換屋決策弱。1510帳號應聚焦財金置產路線，停止分散測試。</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 綜合洞見 -->
+  <div class="insight-box">
+    <div class="insight-title">1510 綜合洞見分析</div>
+    <div class="insight-highlight">最重要發現：1510帳號 CPL 表現優於主粉專——全案最低 CPL NT$570（金融保險精品組）與 CPL NT$624（財稅顧問，進行中）均來自此帳號，且「太平最美19XX」素材 CPL NT$271 是全案最強素材。</div>
+    <div class="insight-sub">現狀問題：</div>
+    <ul class="insight-list">
+      <li>最強受眾（年輕人興趣 5潛客、金融保險精品 2潛客）皆因素材老化而停止，而非受眾本身失效</li>
+      <li>大組測試（公務員教師傳產 $5,000 預算）投放效率遠低於精準小組，浪費預算</li>
+      <li>疊加標籤受眾（五金傳產+親子教育等）轉換率極低，顯示興趣標籤需精準</li>
+    </ul>
+    <div class="insight-sub">立即行動：</div>
+    <ul class="insight-list">
+      <li>換新素材重開金融保險精品組與年輕人興趣組，預期每月可帶出 10–15 潛客</li>
+      <li>財稅顧問菁英提升日預算至 NT$400，持續累積 CPL NT$624 的優質轉換</li>
+      <li>停止大組和疊加標籤測試，將預算集中在已驗證有效的財金換屋路線</li>
+    </ul>
   </div>
 
 </div><!-- end tab-1510 -->
 
-<!-- ════════════════════════════════════════
-     TAB 3：策略總結
-════════════════════════════════════════ -->
-<div id="tab-insight" class="tab-pane">
+<div id="tab-insight" class="tab-pane" style="display:none">
 
   <div class="note-bar">全案洞察：雙帳號合計 NT$29,469 花費 · 17潛客 · 最佳CPL NT$570（1510金融保險精品組）</div>
 
@@ -833,7 +943,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   <!-- 下一輪方向 -->
   <div class="section">
     <div class="sec-title">下一輪建議受眾（2026-06-10）</div>
-    <div id="main-aud-grid" class="aud-grid-2"></div>
+    <div id="legacy-main-aud-grid" class="aud-grid-2"></div>
   </div>
 
   <!-- 主粉專新方向 2026-06-10 -->
@@ -954,6 +1064,8 @@ function buildAudCard(g,idx,prefix,isAlt){
 (function(){
   const mg=document.getElementById('main-aud-grid');
   if(mg)mg.innerHTML=MAIN_G.map((g,i)=>buildAudCard(g,i,'m',false)).join('');
+  const mg2=document.getElementById('1510-aud-grid');
+  if(mg2)mg2.innerHTML=MAIN_G.map((g,i)=>buildAudCard(g,i,'m15',true)).join('');
 })();
 
 const NEW_MAIN_G=[
@@ -995,7 +1107,7 @@ const NEW_1510_G=[
 
 function switchTab(name){
   document.querySelectorAll('.tab-btn').forEach((b,i)=>{
-    const names=['main','1510','insight'];
+    const names=['main','1510'];
     b.classList.toggle('active',names[i]===name);
   });
   document.querySelectorAll('.tab-pane').forEach(p=>{
