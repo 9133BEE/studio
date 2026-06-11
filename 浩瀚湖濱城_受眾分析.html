@@ -128,6 +128,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .rk-cpl-l{font-size:10px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.2px;margin-top:2px}
 .rk-spend{font-size:13px;font-weight:700;color:#6d6560;line-height:1;font-variant-numeric:tabular-nums}
 .rk-spend-l{font-size:10px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.2px;margin-top:2px}
+.rk-grid{display:flex;flex-direction:column;gap:7px}
+.rank-op-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:20px;align-items:stretch}
+.rank-op-grid>.section:nth-child(1){grid-column:1;grid-row:1;display:flex;flex-direction:column;margin-bottom:0}
+.rank-op-grid>.section:nth-child(2){grid-column:1/3;grid-row:2}
+.rank-op-grid>.section:nth-child(3){grid-column:2;grid-row:1;display:flex;flex-direction:column;margin-bottom:0}
+.rank-op-grid>.section:nth-child(1) .rk-grid,.rank-op-grid>.section:nth-child(3) .tips{flex:1}
+.rank-op-grid>.section:nth-child(1) .rk-row,.rank-op-grid>.section:nth-child(3) .tip{flex:1;min-height:0}
+@media(max-width:900px){.rank-op-grid{display:block}}
 .pack-group{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);margin-bottom:14px;overflow:hidden;box-shadow:var(--shadow-xs)}
 .pack-hdr{display:flex;align-items:center;gap:10px;padding:11px 16px;background:#f2f8fa;border-bottom:1px solid var(--bd)}
 .pack-num{width:22px;height:22px;border-radius:6px;background:var(--accent);color:#fff;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
@@ -268,7 +276,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   </div>
 </div>
 
-<div class="section">
+<div class="section core-tags-row">
   <div class="sec-title">跨受眾必保留的核心標籤</div>
   <div class="tags-row">
     <span class="core-tag">房地產（產業）<span class="arr">↗</span></span>
@@ -281,12 +289,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 </div>
 
 <div class="section">
-  <div class="sec-title">建議嘗試受眾（8組）· 更新 2026-06-10</div>
+  <div class="sec-title">建議嘗試受眾（16組）· 更新 2026-06-11</div>
   <div id="main-aud-grid" class="aud-grid-2"></div>
 </div>
 
+<div class="rank-op-grid">
 <div class="section">
-  <div class="sec-title">成果前 10 名受眾（2026/02–2026/06/01）</div>
+  <div class="sec-title">成果前 5 名受眾（2026/02–2026/06/01）</div>
+  <div class="rk-grid">
   <div class="rk-row gold">
     <div class="rk-medal">🥇</div>
     <div class="rk-body">
@@ -352,80 +362,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
       <div class="rk-stat-block"><div class="rk-spend">$7,052</div><div class="rk-spend-l">花費</div></div>
     </div>
   </div>
-  <div class="rk-row">
-    <div class="rk-rank">6</div>
-    <div class="rk-body">
-      <div class="rk-name">30-50 / 東區北區大里 / 北屯在地換屋首購菁英</div>
-      <div class="rk-loc">東區 +4km · 北屯 +4km · 大里 +4km</div>
-      <div class="rk-tags"><span class="rk-tag t-prop">換屋</span><span class="rk-tag t-prop">首購族</span><span class="rk-tag t-edu">在地菁英</span><span class="rk-tag t-prop">591房屋</span></div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-stat-block"><div class="rk-result">8</div><div class="rk-result-l">成果</div></div>
-      <div class="rk-stat-block"><div class="rk-cpl">$423</div><div class="rk-cpl-l">CPL</div></div>
-      <div class="rk-stat-block"><div class="rk-spend">$3,386</div><div class="rk-spend-l">花費</div></div>
-    </div>
-  </div>
-  <div class="rk-row">
-    <div class="rk-rank">7</div>
-    <div class="rk-body">
-      <div class="rk-name">30-55 / 東區太平 / 房產591</div>
-      <div class="rk-loc">東區 +4km · 太平 +4km</div>
-      <div class="rk-tags"><span class="rk-tag t-prop">591房屋交易網</span><span class="rk-tag t-prop">房地產</span><span class="rk-tag t-fin">投資置產</span></div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-stat-block"><div class="rk-result">7</div><div class="rk-result-l">成果</div></div>
-      <div class="rk-stat-block"><div class="rk-cpl">$651</div><div class="rk-cpl-l">CPL</div></div>
-      <div class="rk-stat-block"><div class="rk-spend">$4,554</div><div class="rk-spend-l">花費</div></div>
-    </div>
-  </div>
-  <div class="rk-row">
-    <div class="rk-rank">8</div>
-    <div class="rk-body">
-      <div class="rk-name">35-55 / 東區北區中區 / 直播主公司</div>
-      <div class="rk-loc">東區 +4km · 北區 +4km · 中區 +4km</div>
-      <div class="rk-tags"><span class="rk-tag t-biz">直播主/KOL</span><span class="rk-tag t-biz">自媒體</span><span class="rk-tag t-prop">辦公室空間</span></div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-stat-block"><div class="rk-result">7</div><div class="rk-result-l">成果</div></div>
-      <div class="rk-stat-block"><div class="rk-cpl">$811</div><div class="rk-cpl-l">CPL</div></div>
-      <div class="rk-stat-block"><div class="rk-spend">$5,675</div><div class="rk-spend-l">花費</div></div>
-    </div>
-  </div>
-  <div class="rk-row">
-    <div class="rk-rank">9</div>
-    <div class="rk-body">
-      <div class="rk-name">30-55 / 台中市區 / 顧問專業事務所</div>
-      <div class="rk-loc">台中市中心 +5km</div>
-      <div class="rk-tags"><span class="rk-tag t-fin">顧問/事務所</span><span class="rk-tag t-biz">專業服務業</span><span class="rk-tag t-prop">辦公室自用</span></div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-stat-block"><div class="rk-result">6</div><div class="rk-result-l">成果</div></div>
-      <div class="rk-stat-block"><div class="rk-cpl">$600</div><div class="rk-cpl-l">CPL</div></div>
-      <div class="rk-stat-block"><div class="rk-spend">$3,597</div><div class="rk-spend-l">花費</div></div>
-    </div>
-  </div>
-  <div class="rk-row">
-    <div class="rk-rank">10</div>
-    <div class="rk-body">
-      <div class="rk-name">28-65 / 東區潭子大里 / 類似1% 軟體工程</div>
-      <div class="rk-loc">東區 +4km · 潭子 +3km · 大里 +4km</div>
-      <div class="rk-tags"><span class="rk-tag t-sim">1%類似受眾</span><span class="rk-tag t-ind">軟體工程</span><span class="rk-tag t-fin">投資</span></div>
-    </div>
-    <div class="rk-stats">
-      <div class="rk-stat-block"><div class="rk-result">6</div><div class="rk-result-l">成果</div></div>
-      <div class="rk-stat-block"><div class="rk-cpl">$647</div><div class="rk-cpl-l">CPL</div></div>
-      <div class="rk-stat-block"><div class="rk-spend">$3,883</div><div class="rk-spend-l">花費</div></div>
-    </div>
-  </div>
-
+  </div><!-- /rk-grid -->
 </div>
 
-
-<div style="background:#e5f3f7;border:1px solid #87b5be;border-radius:10px;padding:12px 16px;margin-bottom:16px;font-size:12px;color:#1e4f5c">
-  <b>⚡ 新進亮點（2026/05/29 起測）：</b> 35-55/東區水湳/辦公室自用+SOHO 3 潛客・CPL <b style="color:#c05c00">NT$341</b>・花費 NT$1,022 ── 全案最低 CPL，商辦受眾潛力組，建議加碼觀察。
-</div>
-
-<div class="creative-section">
+<div class="section">
+  <div style="background:#e5f3f7;border:1px solid #87b5be;border-radius:10px;padding:12px 16px;margin-bottom:16px;font-size:12px;color:#1e4f5c">
+    <b>⚡ 新進亮點（2026/05/29 起測）：</b> 35-55/東區水湳/辦公室自用+SOHO 3 潛客・CPL <b style="color:#c05c00">NT$341</b>・花費 NT$1,022 ── 全案最低 CPL，商辦受眾潛力組，建議加碼觀察。
+  </div>
   <div class="sec-title">素材迭代分析</div>
   <div class="creative-timeline">
     <div class="phase-row" style="border-color:var(--accent-border);background:#f0f8fa">
@@ -477,20 +420,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
       <div class="phase-stat"><div class="phase-cpl" style="color:#7a5c20">6 潛客</div><div class="phase-cpl-l">⚡ CPL NT$207</div></div>
     </div>
   </div>
-  <div class="insight-box">
-    <div class="insight-title">素材策略洞見</div>
-    <div class="insight-highlight">
-      關鍵發現：0311_接台中站微辦公 CPL NT$207，是全案均值的 1/4，但預算不到 NT$1,300<br>
-      這支素材針對「辦公室自用族」精準切入，是本案最被低估的訴求方向。建議立即提高預算至 NT$500/日。
-    </div>
-    <ul class="insight-list">
-      <li>0311_微辦公素材建議擴大：搭配「自雇/記帳士/SOHO」受眾組，加碼至 NT$400–600/日</li>
-      <li>高含氧主題驗證有效，但 CPL NT$793 偏高，建議製作 30 秒以內的剪輯版本降低 CPL</li>
-      <li>短影片（0422）是目前最均衡的主力，維持投放並測試新版本（公設設施版）</li>
-      <li>0401_立可交屋的「隨時入住」USP 是競品難以複製的優勢，應在更多素材中強調此訴求</li>
-    </ul>
-  </div>
-</div>
+</div><!-- /素材迭代 section -->
 
 <div class="section">
   <div class="sec-title">五大操作建議</div>
@@ -532,6 +462,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
     </div>
   </div>
 </div>
+</div><!-- /rank-op-grid -->
 
 <div class="section">
   <div class="insight-box">
@@ -557,7 +488,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 </div>
 
 
-<div class="page-footer">資料期間：2026-02-23 至 2026-06-01 · 浩瀚湖濱城 台中東區 · 最後更新 2026-06-01</div>
+<div class="page-footer">資料期間：2026-02-23 至 2026-06-01 · 浩瀚湖濱城 台中東區 · 最後更新 2026-06-11</div>
 </div>
 
 <div id="toast" style="position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);background:#2e2c29;color:#fff;font-size:12.5px;padding:10px 20px;border-radius:24px;opacity:0;transition:all .25s;pointer-events:none;z-index:999;white-space:nowrap">📋 詢問建議已複製 → 貼至 Claude 對話</div>
@@ -600,7 +531,39 @@ const MAIN_G=[
   {n:'30-52 / 台中東區 +4km / 商辦SOHO自雇精準族',sub:'微辦公CPL $207全案最低 + 法律$562驗證有效 · 精準職業行為層版本',
    logic:'微辦公素材（CPL $207全案最低）和法律執業者（CPL $562全案第一）共同驗證了「台中東區自雇/商辦族」是此案最確定的有效受眾方向。本組精煉原有標籤，聚焦最精準的職業切入（記帳士、地政士、會計師、律師、顧問師），搭配台中東區+4km覆蓋。19-21坪商辦是湖濱城獨有產品（450戶辦公室），對需要台中市中心小型辦公室的自雇者有極強吸引力——收入穩定、工作自主、置產決策力強。「早上下樓上班，晚上上樓回家，台中車站步行10分鐘」是這組唯一需要說的一句話。',
    lm:['台中車站','台中地方法院','台中地政事務所','LALAPORT台中'],
-   tags:[['SOHO','SOHO在家辦公'],['Freelancing','自由接案'],['Self-employment','自雇'],['Small business','小型企業'],['Office space','辦公室空間'],['Commercial property','商業不動產'],['Accounting','會計'],['Bookkeeping','記帳'],['Tax preparation','報稅'],['Certified public accountant','會計師'],['Legal services','法律服務'],['Attorney','律師'],['Notary','公證人'],['Land administration','地政'],['Consulting','顧問業'],['Professional services','專業服務'],['Business consulting','商業顧問'],['Financial consulting','財務顧問'],['Office renovation','辦公室裝潢'],['Business networking','商業人脈'],['Investment','投資理財'],['Real estate','不動產'],['Property investment','置產投資'],['Financial planning','財務規劃'],['Work-life balance','工作生活平衡'],['Productivity','效率生產力'],['Technology','科技'],['Coffee','咖啡'],['Career development','職涯發展'],['Business management','商業管理']]}
+   tags:[['SOHO','SOHO在家辦公'],['Freelancing','自由接案'],['Self-employment','自雇'],['Small business','小型企業'],['Office space','辦公室空間'],['Commercial property','商業不動產'],['Accounting','會計'],['Bookkeeping','記帳'],['Tax preparation','報稅'],['Certified public accountant','會計師'],['Legal services','法律服務'],['Attorney','律師'],['Notary','公證人'],['Land administration','地政'],['Consulting','顧問業'],['Professional services','專業服務'],['Business consulting','商業顧問'],['Financial consulting','財務顧問'],['Office renovation','辦公室裝潢'],['Business networking','商業人脈'],['Investment','投資理財'],['Real estate','不動產'],['Property investment','置產投資'],['Financial planning','財務規劃'],['Work-life balance','工作生活平衡'],['Productivity','效率生產力'],['Technology','科技'],['Coffee','咖啡'],['Career development','職涯發展'],['Business management','商業管理']]},
+  {n:'35-55 / 北屯西屯台中市區 / 財務稅務CPA理財師換房組',sub:'CPA/稅務/審計有效驗證基礎 · 擴展至完整財務規劃族群',
+   logic:'此有效組核心是會計師（CPA）、稅務準備、審計、記帳研究領域，本組擴展至財富管理、理財顧問、私人銀行、CFO等完整財務專業人士輪廓。這群人財務知識強、收入高穩定、有主動置產規劃意識，「台中東區LALAPORT旁28層新成屋」符合其對生活品質的期待。均價46萬/坪在其資產配置中屬標準住宅比例。地理鎖定台中市北屯/西屯財務機構聚集區工作圈。素材：「你幫別人規劃財務，現在幫自己選一間對的房，LALAPORT旁28層東區新成屋。」',
+   lm:['台中會計師事務所聚集區（北屯西屯）','台灣銀行台中分行','台中金融廣場','勤業眾信台中辦'],
+   tags:[['Certified Public Accountant (CPA)','註冊會計師'],['Tax preparation','稅務準備'],['Auditing','審計'],['Bookkeeping','記帳'],['Financial planning','財務規劃'],['Wealth management','財富管理'],['Financial adviser','理財顧問'],['Private banking','私人銀行'],['Personal finance','個人理財'],['Estate planning','遺產規劃'],['Retirement planning','退休規劃'],['Insurance','保險'],['Tax law','稅法'],['Corporate finance','企業財務'],['Financial analysis','財務分析'],['Business valuation','企業估值'],['Chief Financial Officer','財務長'],['Asset management','資產管理'],['Investment (finance)','投資（財務）'],['Portfolio management','投資組合管理'],['Risk management','風險管理'],['Mutual funds','共同基金'],['Real estate investment trust (REIT)','不動產投資信託'],['Securities (finance)','證券（財務）'],['Financial regulation','金融法規'],['Mergers and acquisitions','併購'],['Pension','退休金'],['Annuity','年金'],['Financial independence','財務獨立'],['Professional services','專業服務']]},
+  {n:'35-55 / 台中中區西區 / 律師事務所企業法務換房組',sub:'法律/法律服務有效驗證 · 深化至律師事務所全職業層',
+   logic:'原有效組含法律/法律服務標籤，本組深化至律師、企業法務、合規官、司法行政等，這群人收入穩定中高、工作在台中法院/事務所周邊，對「LALAPORT旁台中東區」生活圈有高度認可。台中東區距台中地方法院車程約10分鐘，置產首選熟悉的中心地段。此組加入合規/法規事務職能，涵蓋企業內部法務部門高薪主管族群。素材：「你懂合約條款，所以看房更清楚，台中東區28層新成屋，進德路×樂業，對的地方買對的房。」',
+   lm:['台中地方法院','台中高等法院','台中律師公會（中區）','台中市政府法制局'],
+   tags:[['Law','法律'],['Legal services','法律服務'],['Law firm','律師事務所'],['Corporate law','公司法'],['Contract law','合約法'],['Litigation','訴訟'],['Legal counsel','法律顧問'],['Compliance','合規'],['Regulatory affairs','法規事務'],['Intellectual property','智慧財產'],['Criminal law','刑事法'],['Civil law','民法'],['Tax law','稅法'],['Labor law','勞動法'],['Real estate law','不動產法'],['Estate law','遺產法'],['Arbitration','仲裁'],['Mediation','調解'],['Notary public','公證人'],['Legal research','法律研究'],['Paralegal','法律助理'],['Privacy law','隱私法'],['Financial regulation','金融法規'],['Judiciary','司法'],['Public administration','公共行政'],['Government (Government entity)','政府機構'],['Legal technology','法律科技'],['Mergers and acquisitions','併購'],['Professional services','專業服務'],['Human resource management','人力資源管理']]},
+  {n:'35-58 / 台中市政府 +5km / 政府公務員軍公教置產換房組',sub:'政府機構/時事政治有效驗證 · 軍公教穩定薪資換房族群',
+   logic:'原有效組含政府機構、時事政治標籤，軍公教族群收入穩定且有政府優惠房貸，退休後有換房升格需求。台中市政府及各局處員工約2-3萬人，北屯/東區為主要居住帶，對「LALAPORT旁28層東區新成屋」換屋訴求強烈。此組鎖定「已有一間、想換更好的」熟齡換屋族（35-58歲），強調「換一個配得上穩定生活的家」。素材：「公務員人生最穩定，換一間也要最穩定，台中東區28層新成屋，LALAPORT旁。」',
+   lm:['台中市政府','台中市北區區公所','台中市立醫院','台灣鐵路台中站'],
+   tags:[['Government (Government entity)','政府機構'],['Public administration','公共行政'],['Civil service','公務員'],['Local government','地方政府'],['Public sector','公共部門'],['Government policy','政府政策'],['Politics','政治'],['Current events','時事'],['Military','軍事'],['Education (field of study)','教育（研究領域）'],['Teacher','教師'],['Social services','社會服務'],['Urban planning','都市規劃'],['Public finance','公共財政'],['Pension','退休金'],['Retirement planning','退休規劃'],['Infrastructure','基礎建設'],['Transportation','交通運輸'],['Environmental policy','環境政策'],['Trade union','工會'],['Health care','醫療保健'],['Tax law','稅法'],['Law','法律'],['Compliance','合規'],['Human resource management','人力資源管理'],['Leadership','領導力'],['Community','社區'],['Financial planning','財務規劃'],['Home upgrade','換屋升格'],['Property investment','置產投資']]},
+  {n:'35-55 / 台中七期商業區 +4km / HR管理顧問企業高階主管換房組',sub:'人力資源管理/管理諮詢有效驗證 · 擴展至CHRO/COO策略主管層',
+   logic:'原有效組含人力資源管理（商業與財務）、管理諮詢標籤，HR主管和管理顧問薪資中高，台中七期商業區和科學園區有大量跨國企業HR部門，本組擴展至組織發展、CHRO、策略顧問、COO等完整企業管理主管輪廓。這群人換屋需求明確、決策理性且快速，台中東區進德路×樂業二路口交通便捷，符合其通勤效率需求。素材：「帶著公司成長，現在換一間成長的家，台中東區LALAPORT旁28層新成屋。」',
+   lm:['台中七期重劃區商業中心','台中工業區','中部科學工業園區','台中世貿中心'],
+   tags:[['Human resource management','人力資源管理'],['Management consulting','管理諮詢'],['Organizational development','組織發展'],['Talent management','人才管理'],['Recruitment','招募'],['Employee benefits','員工福利'],['Training and development','培訓與發展'],['Performance management','績效管理'],['Leadership development','領導力發展'],['Business administration','企業管理'],['Chief Executive Officer','執行長'],['Chief Human Resources Officer','人資長'],['Operations management','營運管理'],['Strategic management','策略管理'],['Business strategy','商業策略'],['Change management','變革管理'],['Project management','專案管理'],['MBA','工商管理碩士'],['Executive education','高階主管教育'],['Professional development','專業發展'],['Career development','職涯發展'],['Coaching','教練/輔導'],['Consulting','顧問'],['Corporate governance','公司治理'],['Business intelligence','商業智慧'],['Analytics','分析'],['Supply chain management','供應鏈管理'],['Mergers and acquisitions','併購'],['Business process management','業務流程管理'],['Professional services','專業服務']]},
+  {n:'35-55 / 中國醫大附設醫院 +3km / 醫療專科醫師私人診所主換房組',sub:'鄰近有效專業服務輪廓 · 醫療高薪穩定職業換房族群',
+   logic:'此組為鄰近有效輪廓（專業服務/高收入/決策力強）的延伸，醫師、牙醫師、藥師是台中購屋最穩定主力，收入高且工作地點固定。台中東區鄰近中國醫藥大學附設醫院、中山醫院，北屯中清路有大量醫療診所，換屋需求明確且資金充足。LALAPORT旁28層新成屋的「台中東區醫療圈核心地段」是說服此組最直接的地理優勢。素材：「工作二十年，台中最核心的那一間，現在輪到你，28層東區新成屋，LALAPORT旁。」',
+   lm:['中國醫藥大學附設醫院','台中中山醫院','北屯診所聚集區（中清路）','台中榮民總醫院'],
+   tags:[['Medicine','醫學'],['Physician','醫師'],['Dentistry','牙醫'],['Pharmacy','藥學'],['Health care','醫療保健'],['Hospital','醫院'],['Clinic','診所'],['Surgery','外科手術'],['Cardiology','心臟科'],['Dermatology','皮膚科'],['Orthopedics','骨科'],['Pediatrics','小兒科'],['Psychiatry','精神科'],['Nursing','護理'],['Physical therapy','物理治療'],['Optometry','視光學/眼科'],['Healthcare management','醫療管理'],['Health insurance','健康保險'],['Medical research','醫學研究'],['Biomedical sciences','生物醫學科學'],['Clinical research','臨床研究'],['Medical technology','醫療科技'],['Medical education','醫學教育'],['Private practice','私人診所執業'],['Nutrition','營養學'],['Wellness','健康養生'],['Mental health','心理健康'],['Financial planning','財務規劃'],['Property investment','置產投資'],['Professional services','專業服務']]},
+  {n:'32-50 / 台中軟體園區大里 +5km / 中科科技業主管工程師換房組',sub:'台中軟體園區+中科高薪族群 · 地標覆蓋範圍內最大高薪群體',
+   logic:'台中軟體園區（大里）及中部科學工業園區聚集大量高薪科技業工程師與主管，月薪中位數高於台中均值，且多有換屋需求。大里軟體園區距湖濱城約10-15分鐘，地理覆蓋直接。這群人財務決策理性、對資產配置有規劃，「台中東區28層新成屋、LALAPORT旁、未來捷運藍線」的地段增值故事能引起強烈共鳴。素材：「在大里軟體園區做台中最好的工作，現在換一間台中最好的地段，LALAPORT旁28層東區地標。」',
+   lm:['台中軟體園區（大里）','中部科學工業園區（中科）','大里工業區','台中精密機械科技創新園區'],
+   tags:[['Technology','科技'],['Software engineering','軟體工程'],['Information technology','資訊科技'],['Computer science','電腦科學'],['Semiconductor','半導體'],['Electronics','電子'],['Engineering','工程'],['Artificial intelligence','人工智慧'],['Data science','資料科學'],['Cloud computing','雲端運算'],['Cybersecurity','網路安全'],['Project management','專案管理'],['Product management','產品管理'],['Chief Technology Officer','技術長'],['Research and development','研究與開發'],['Manufacturing','製造業'],['Supply chain management','供應鏈管理'],['Quality assurance','品質保證'],['Operations management','營運管理'],['Business development','業務開發'],['Startup company','新創公司'],['Entrepreneurship','創業精神'],['Innovation','創新'],['STEM','科學技術工程數學'],['Science park','科學園區'],['Industrial park','工業園區'],['High technology','高科技'],['Electronics industry','電子產業'],['Financial planning','財務規劃'],['Property investment','置產投資']]},
+  {n:'35-55 / 北屯中清路 +4km / 企業主自營商創業家換房組',sub:'自僱（工作機會）有效驗證 · 擴展至創業家SME老闆完整輪廓',
+   logic:'原有效組含自僱（工作機會）標籤，台中北屯/大里有大量中小企業主和自營商，是台灣置產購屋主力之一。這群人財務自主、置產決策快、資金靈活，對「LALAPORT旁台中東區地段升值」的投資型置產邏輯最能接受。北屯中清路商業帶匯集大量自營商，大里工業區有眾多中小企業主，地理覆蓋精準。素材：「你開了公司，現在也該住一間有格局的家，台中東區28層新成屋，LALAPORT旁。」',
+   lm:['北屯中清路商業帶','大里工業區自營商聚集','逢甲商圈自營業主','台中工業區中小企業'],
+   tags:[['Self-employed','自僱'],['Entrepreneurship','創業精神'],['Small business','小型企業'],['Business owner','企業主'],['Startup company','新創公司'],['Freelancer','自由工作者'],['E-commerce','電子商務'],['Retail','零售'],['Wholesale','批發'],['Import and export','進出口'],['Business networking','商業社群'],['Marketing','行銷'],['Sales','銷售'],['Business administration','企業管理'],['Manufacturing','製造業'],['Food industry','食品業'],['Franchise','加盟連鎖'],['Supply chain management','供應鏈管理'],['Logistics','物流'],['Business plan','創業計畫'],['Investment','投資'],['Financial planning','財務規劃'],['Business development','業務開發'],['Networking','人脈建立'],['Leadership','領導力'],['Strategic management','策略管理'],['Work-life balance','工作生活平衡'],['Wealth management','財富管理'],['Property investment','置產投資'],['Professional services','專業服務']]},
+  {n:'35-55 / 台中東區北屯 / 房仲代銷建商物業管理業者自購組',sub:'商用不動產/物業管理/RE broker職稱有效驗證 · 不動產業者自購組',
+   logic:'原有效組含商用不動產（房地產）、物業管理（房地產）、房地產行銷和培訓、職稱Real estate broker，不動產業者對市場最了解，自購決策最快，且傾向買指標建案作為自住資產。台中各大房仲在北屯東區有大量門市和業務，代銷公司員工、建商工程師也是潛在買家。此組核心訴求以住宅自購切入。素材：「你賣房給別人，你的下一間在哪裡？台中東區LALAPORT旁28層新成屋，這間你自己住。」',
+   lm:['台中北屯各大房仲門市','信義/永慶房屋台中東區','台中代銷公司聚集區','台中不動產公會'],
+   tags:[['Real estate','房地產'],['Real estate broker','房地產經紀人'],['Commercial real estate','商用不動產'],['Real estate marketing and training','房地產行銷與培訓'],['Property management','物業管理'],['Real estate development','房地產開發'],['Real estate investing','房地產投資'],['Property investment','置產投資'],['Real estate appraisal','不動產估價'],['Mortgage','房貸'],['Home buying','購屋'],['Interior design','室內設計'],['Architecture','建築'],['Construction','建設/營造'],['Leasing','租賃'],['Professional services','專業服務'],['Business networking','商業社群'],['Investment','投資'],['Financial planning','財務規劃'],['Real estate law','不動產法'],['Title insurance','產權保險'],['Home staging','房屋佈置'],['Property tax','房屋稅'],['Asset management','資產管理'],['Management consulting','管理諮詢'],['Self-employed','自僱'],['Small business','小型企業'],['Business owner','企業主'],['Wealth management','財富管理'],['Financial independence','財務獨立']]}
 ];
 
 let audToastT;
