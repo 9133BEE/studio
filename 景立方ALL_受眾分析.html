@@ -684,7 +684,7 @@ function toggleAud2(id){document.getElementById(id).classList.toggle('open')}
   document.querySelectorAll('.tag-tbl tbody tr').forEach(tr=>{
     tr.addEventListener('click',()=>{
       const cells=tr.querySelectorAll('td');
-      if(cells.length>=3)copyPrompt(cells[1].textContent.trim()+' / '+cells[2].textContent.trim());
+      if(cells.length>=3)copyPrompt(cells[1].textContent.trim());
     });
   });
 })();
