@@ -134,6 +134,29 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .new-card.teal-new:hover{border-color:var(--teal-border)}
 .new-card-title{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:5px;line-height:1.4}
 .new-card-desc{font-size:12px;color:var(--sub);line-height:1.6}
+/* ── aud-card system ── */
+.aud-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.aud-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-xs);cursor:pointer;transition:border-color .15s,box-shadow .15s}
+.aud-card:hover{border-color:var(--accent-border);box-shadow:var(--shadow-sm)}
+.aud-header{padding:14px 16px;display:flex;align-items:center;gap:10px}
+.aud-num{width:28px;height:28px;background:var(--accent-light);border-radius:8px;font-size:12px;font-weight:800;color:var(--accent-dark);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.aud-title{font-size:13px;font-weight:700;color:var(--tx);flex:1;line-height:1.3}
+.aud-toggle{font-size:11px;color:var(--sub2);margin-left:auto;flex-shrink:0;transition:transform .2s}
+.aud-card.open .aud-toggle{transform:rotate(180deg)}
+.aud-body{display:none;padding:0 16px 14px}
+.aud-card.open .aud-body{display:block}
+.aud-lm{font-size:11px;color:var(--sub);margin-bottom:8px;line-height:1.5}
+.aud-lm strong{color:var(--accent);font-weight:700}
+.aud-logic{font-size:11.5px;color:var(--sub);line-height:1.6;margin-bottom:10px;padding:8px 10px;background:var(--accent-light);border-radius:6px}
+.tag-tbl{width:100%;border-collapse:collapse;font-size:11.5px}
+.tag-tbl th{text-align:left;color:var(--sub2);font-weight:600;font-size:10.5px;padding:4px 6px;border-bottom:1px solid var(--bd);text-transform:uppercase;letter-spacing:.3px}
+.tag-tbl td{padding:3.5px 6px;border-bottom:1px solid #f0f0ee;vertical-align:top}
+.tag-tbl tr:last-child td{border-bottom:none}
+.tag-tbl td:first-child{color:var(--sub);white-space:nowrap}
+.tag-tbl td:nth-child(2){color:var(--tx);font-weight:500}
+.tag-tbl td:nth-child(3){color:var(--sub2);font-size:11px}
+.copy-all-btn{margin-top:10px;width:100%;padding:7px;background:var(--accent-light);border:1px solid var(--accent-border);border-radius:7px;font-size:11.5px;font-weight:700;color:var(--accent-dark);cursor:pointer;transition:all .15s}
+.copy-all-btn:hover{background:var(--accent);color:#fff}
 /* ── Ranking ── */
 .rk-row{background:var(--s);border:1px solid var(--bd);border-left:3px solid var(--bd);border-radius:var(--radius);padding:14px 18px 14px 14px;margin-bottom:6px;display:flex;gap:14px;align-items:center;box-shadow:none;transition:border-left-color .15s,box-shadow .15s,transform .15s;cursor:pointer}
 .rk-row:hover{border-left-color:var(--accent);box-shadow:0 2px 12px rgba(0,0,0,.06);transform:translateX(2px)}
@@ -305,52 +328,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   </div>
 </div>
 
-<!-- 主粉專 新受眾方向 -->
+<!-- 主粉專 建議嘗試受眾 -->
 <div class="section">
-  <div class="sec-title">建議新測試受眾方向 · 更新 2026-06-04</div>
-  <div class="new-grid">
-
-    <div class="new-card">
-      <div class="new-card-title">28–50 / 台中市 / 居家裝潢+宜得利+系統家具族 ↗</div>
-      <div class="new-card-desc">主動搜尋室內設計/系統家具/宜得利的人多數正在「換屋備料」階段，是最接近成交的潛在買家。IKEA+宜得利+系統家具+室內設計標籤，切角「先挑好設計，APT 交屋剛好入住」，行為信號精準，完全未測試</div>
-    </div>
-
-    <div class="new-card">
-      <div class="new-card-title">28–45 / 台中+北屯 / 親子游泳+洲際體育館生活族 ↗</div>
-      <div class="new-card-desc">APT 緊鄰洲際體育館，對帶孩子運動的家庭是核心賣點，但廣告從未針對「運動親子家庭」開組。游泳+室內球類+親子運動標籤，切角「洲際體育館就在門口，帶孩子下樓就到」，地理優勢完全未變現</div>
-    </div>
-
-    <div class="new-card">
-      <div class="new-card-title">28–50 / 台中市 / Tesla+電動車+EV充電族群 ↗</div>
-      <div class="new-card-desc">電動車主換屋首看充電設施與停車空間，高樓住商若有完善停車是加分項。Tesla+電動車+充電樁+新能源車標籤，切角「APT 停車位充電方便，北屯最適合科技人住」，高消費力精準受眾，完全未開</div>
-    </div>
-
-    <div class="new-card">
-      <div class="new-card-title">30–55 / 台中市 / 日韓旅遊+精緻生活年旅2次以上 ↗</div>
-      <div class="new-card-desc">年均旅日/旅韓的族群有穩定可支配收入，對「生活品質」的定義與 APT 高樓公設訴求高度契合。日本旅遊+韓國旅遊+飯店住宿+精緻生活標籤，切角「住 APT 就像住度假飯店」，生活型態全新維度</div>
-    </div>
-
-    <div class="new-card">
-      <div class="new-card-title">25–40 / 台北新北 / 北漂族回台中定居（南移置產）↗</div>
-      <div class="new-card-desc">在台北工作但考慮回台中的族群，台中北屯房價相較台北差距極大。設定居住地=台北/新北但出身台中或互動在台中，切角「台北的半價，買台中最好的24樓，遠端工作的首選」，地理擴展全新方向</div>
-    </div>
-
-    <div class="new-card">
-      <div class="new-card-title">28–50 / 台中市 / 養貓族群+公寓友善寵物 ↗</div>
-      <div class="new-card-desc">貓咪飼主偏好高樓公寓（貓不需要大院子，但需要安全環境）。貓咪食品+寵物用品+貓咪玩具+動物醫院標籤，切角「APT 高樓安全不逃跑，讓毛孩也愛你的新家」，寵物族換屋需求強，完全未觸及</div>
-    </div>
-
-    <div class="new-card">
-      <div class="new-card-title">28–45 / 台中+豐原 / 居家辦公+接案設計師+自由工作者 ↗</div>
-      <div class="new-card-desc">WFH族群需要獨立書房空間，APT 多房格局是關鍵賣點。Freelancer+遠端工作+設計師+數位行銷+接案標籤，切角「北屯一間工作，一間生活，APT 讓在家上班變享受」，完全未開此方向</div>
-    </div>
-
-    <div class="new-card">
-      <div class="new-card-title">25–40 / 大台中 / 591主動搜尋行為 × APT 精準再行銷 ↗</div>
-      <div class="new-card-desc">目前在 591/樂屋/信義搜尋台中北屯 24 樓住商的人是最熱需求族群。使用「訪問過競品房產網站」行為受眾設定，立刻搭配「APT 旗艦公設影片」強 CTA 收割，行為型受眾 CPL 歷史最低，APT 從未建立</div>
-    </div>
-
-  </div>
+  <div class="sec-title">建議嘗試受眾（8組）· 更新 2026-06-12</div>
+  <div id="main-aud-grid" class="aud-grid-2"></div>
 </div>
 
 <!-- 主粉專 rank-op-grid -->
@@ -596,52 +577,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   </div>
 </div>
 
-<!-- 1510 新受眾方向 -->
+<!-- 1510 建議嘗試受眾 -->
 <div class="section">
-  <div class="sec-title teal-bar">建議新測試受眾方向 · 更新 2026-06-04</div>
-  <div class="new-grid">
-
-    <div class="new-card teal-new">
-      <div class="new-card-title">28–48 / 台中市 / 健身重訓+健身房重度使用者 ↗</div>
-      <div class="new-card-desc">APT 公設泳池健身是核心賣點，但從未針對「健身族群」建組。健身房+重量訓練+羽球+跑步+迪卡儂標籤，切角「下樓就是泳池健身房，別再付健身房月費了」，運動族生活品質意識強，是高樓住商的精準受眾</div>
-    </div>
-
-    <div class="new-card teal-new">
-      <div class="new-card-title">28–45 / 台中市 / 美食+高端餐廳+咖啡廳打卡族 ↗</div>
-      <div class="new-card-desc">頻繁造訪高端餐廳/咖啡廳的族群，消費力強且對「生活便利性」極敏感，北屯餐飲密度高是 APT 隱藏賣點。美食+咖啡廳+網美打卡+米其林標籤，切角「水湳美食都在家門口，APT 住起來就是品味」</div>
-    </div>
-
-    <div class="new-card teal-new">
-      <div class="new-card-title">28–45 / 台中市 / 股票ETF+主動投資族（非房地產角度）↗</div>
-      <div class="new-card-desc">投資型受眾一直用「房地產投資」角度切，但股票/ETF投資族同樣有資產配置需求。股票+ETF+指數基金+股市+被動收入標籤，切角「股票放長線，APT 買了出租更穩」，用投資邏輯說服，是全新角度</div>
-    </div>
-
-    <div class="new-card teal-new">
-      <div class="new-card-title">30–55 / 彰化+南投+苗栗 / 中彰投外縣市北移台中 ↗</div>
-      <div class="new-card-desc">彰化/南投/苗栗人口往台中移動明顯，這群人「台中第一間房」預算精打細算，北屯 CP 值是核心吸引力。設定居住地在中彰投各縣市，切角「台中最好的24樓，從彰化/南投搬進來」，地理擴展全新方向</div>
-    </div>
-
-    <div class="new-card teal-new">
-      <div class="new-card-title">25–38 / 台中市 / 韓流+K-pop+韓劇追星族 ↗</div>
-      <div class="new-card-desc">25–38 歲韓流族群是 1510 高資產女性的年輕版本，消費力強、對生活美感有要求。Netflix 韓劇+K-pop+韓國旅遊+韓國文化標籤，切角「你對生活有品味，APT 懂你」，文化興趣切入比職業標籤更輕鬆觸及</div>
-    </div>
-
-    <div class="new-card teal-new">
-      <div class="new-card-title">28–50 / 台中市 / 二手精品+名牌包+精品消費族 ↗</div>
-      <div class="new-card-desc">購買精品包/名錶的族群消費力是最直接的高資產代理指標，且對「居住品質升級」共鳴強。二手精品+名牌包+LV+Chanel+精品收藏標籤，切角「你對每一件東西都有要求，APT 的家也值得這樣對待」</div>
-    </div>
-
-    <div class="new-card teal-new">
-      <div class="new-card-title">28–45 / 台中+北屯 / 攝影師+視覺設計+文青創意族 ↗</div>
-      <div class="new-card-desc">攝影師/設計師族群對居住美感要求高，APT 高樓視野與公設質感是強力賣點。攝影+Canva+Adobe+室內設計+視覺藝術標籤，切角「24樓視野，每天起床就是你最美的照片」，創意族群完全未嘗試</div>
-    </div>
-
-    <div class="new-card teal-new">
-      <div class="new-card-title">30–55 / 台中市 / 線上購物重度用戶+電商消費族 ↗</div>
-      <div class="new-card-desc">高頻電商消費（蝦皮/momo/SHOPEE月消費高）的族群數位敏感度高、消費力可觀，對品牌內容觸及效果好。momo+蝦皮+網路購物+線上訂餐+便利性生活標籤，切角「什麼都在家解決，APT 就是你的生活中心」</div>
-    </div>
-
-  </div>
+  <div class="sec-title teal-bar">1510｜建議嘗試受眾（8組）· 更新 2026-06-12</div>
+  <div id="alt-aud-grid" class="aud-grid-2"></div>
 </div>
 
 <!-- 1510 rank-op-grid -->
@@ -841,6 +780,39 @@ function switchTab(name){
   window.scrollTo({top:0,behavior:'smooth'});
 }
 const PROJECT = '原潮APT（台中北屯・太原路三段×和順路口・456潛客・均CPL NT$1,087）';
+/* ── aud-card: MAIN_G ── */
+const MAIN_G=[
+  {n:'28–50 / 台中市 / 換屋裝潢族',sub:'居家裝潢+系統家具+宜得利+室內設計',logic:'主動瀏覽宜得利/系統家具/室內設計的人，多數正在「換屋備料」黃金期，購屋意圖是一般受眾的3倍以上。APT 高規公設與大坪數格局，是這群人「裝潢一次到位」的理想對象。',lm:['洲際棒球場','LALAPORT台中','十期重劃區','北屯崇德商圈'],tags:[['Interior design','室內設計'],['Home improvement','居家裝潢'],['IKEA','宜家家居'],['Furniture','傢俱'],['Home renovation','房屋翻新'],['Real estate','房地產'],['Property','不動產'],['Home décor','居家裝飾'],['Kitchen design','廚房設計'],['Architecture','建築設計'],['Modular furniture','系統家具'],['Storage','收納整理'],['Interior decorator','室內設計師'],['Smart home','智慧居家'],['Flooring','地板材料'],['Lighting design','燈光設計'],['Home appliances','家電'],['Bathroom design','衛浴設計'],['Window treatments','窗簾百葉'],['Paint','油漆塗料'],['Space planning','空間規劃'],['Air conditioning','空調設備'],['Property management','物業管理'],['Investment','投資'],['Mortgage','房貸'],['Moving services','搬家服務'],['Home security','居家安全'],['Energy efficiency','節能省電'],['Construction','建設開發'],['Garden furniture','庭園家具']]},
+  {n:'28–45 / 台中北屯 / 親子運動生活族',sub:'洲際體育館+游泳+親子運動公設',logic:'帶孩子使用洲際體育館/游泳池的家庭，對「下樓就有公設」的訴求極度共鳴。APT 緊鄰洲際體育館且有泳池健身公設，是此族群最精準的地理＋生活方式完美匹配，競品沒有同樣優勢。',lm:['洲際棒球場','LALAPORT台中','北屯運動中心','崇德路商圈'],tags:[['Swimming','游泳'],['Swimming pool','游泳池'],['Indoor sports','室內運動'],['Badminton','羽球'],['Basketball','籃球'],['Parenting','親子教養'],['Family activities','家庭活動'],['Child development','兒童發展'],['Youth sports','青少年運動'],['Sports centre','運動中心'],['Gym','健身房'],['Fitness','健身'],['Running','跑步'],['Yoga','瑜珈'],['Health and wellness','健康生活'],['Recreation','休閒娛樂'],['Family (Facebook)','家庭（有孩子）'],['School choice','學校選擇'],['Real estate','房地產'],['Property','不動產'],['Investment','投資'],['Home amenities','居家設施'],['Community living','社區生活'],['Water sports','水上運動'],['Cycling','騎自行車'],['Outdoor activities','戶外活動'],['Moving services','搬家服務'],['Interior design','室內設計'],['Sports nutrition','運動營養'],['Children\'s sports','兒童運動']]},
+  {n:'28–50 / 台中市 / 電動車科技新貴',sub:'Tesla+EV充電+科技業高消費力',logic:'台中EV車主多集中北屯/西屯科技廊帶，換屋首看充電設施與停車空間。高消費力且對品牌質感敏感，APT 車位充裕、24樓高規，完全符合此族群的換屋清單，且完全未被競品觸及。',lm:['洲際棒球場','中科工業園區','LALAPORT台中','水湳機場特區'],tags:[['Tesla','特斯拉'],['Electric vehicle','電動車'],['EV charging','電動車充電'],['Technology','科技'],['Software engineer','軟體工程師'],['Science and technology','科學與科技'],['Green energy','綠色能源'],['Sustainability','永續環保'],['Renewable energy','再生能源'],['Smart car','智慧汽車'],['Luxury car','豪華名車'],['BMW','寶馬汽車'],['Automobile','汽車'],['Investment','投資'],['Real estate','房地產'],['Property','不動產'],['Science park','科學園區'],['Startup','新創企業'],['Business owner','企業主'],['Consumer electronics','消費電子'],['Gadget','3C配件'],['Stock market','股票市場'],['Wealth management','財富管理'],['High-income individual','高收入人士'],['Smart home','智慧居家'],['Solar energy','太陽能'],['Engineering','工程師'],['Mobile app','手機應用程式'],['Photography','攝影'],['Travel','旅遊']]},
+  {n:'30–55 / 台中市 / 日韓旅遊精緻生活族',sub:'年旅2次以上+精品消費+高端生活型態',logic:'年均出國2次以上且消費精品的族群，有穩定可支配收入，對「居住品質升級」共鳴強烈。APT 24樓公設「住起來像飯店」訴求完全對接此族群的生活哲學，是感性消費最精準的切入角度。',lm:['洲際棒球場','LALAPORT台中','北屯愛買','崇德路商圈'],tags:[['Travel','旅遊'],['Japan','日本'],['South Korea','韓國'],['Overseas travel','出國旅遊'],['Hotel','飯店住宿'],['Luxury travel','奢華旅遊'],['Business travel','商務旅遊'],['Air travel','搭乘飛機'],['Travel photography','旅遊攝影'],['Fine dining','精緻料理'],['Gourmet restaurant','高級餐廳'],['Cafe','咖啡廳'],['Fashion','流行時尚'],['Luxury goods','精品奢侈品'],['Cosmetics','化妝品保養'],['Lifestyle','生活品味'],['Spa','水療中心'],['Wine','葡萄酒'],['Premium coffee','精品咖啡'],['Real estate','房地產'],['Property','不動產'],['Investment','投資'],['High-end shopping','高級購物'],['Credit card rewards','信用卡回饋'],['Art collection','藝術收藏'],['Interior design','室內設計'],['Health supplements','保健食品'],['Personal care','個人保養'],['Yoga','瑜珈'],['Fitness','健身']]},
+  {n:'25–40 / 台北新北 / 北漂回流置產族',sub:'台北居住×台中出身×遠端工作南移',logic:'在台北工作但對台中有強連結的人，台中北屯同等格局售價約台北一半。「台北的薪水買台中最好的24樓」是此族群的置產計算邏輯，地區設定=台北/新北+台中互動行為。',lm:['台北車站','信義區','松山區','南港區'],tags:[['Real estate','房地產'],['Property investment','房地產投資'],['Home buying','購屋置產'],['Relocation','搬遷移居'],['Working from home','遠端工作'],['Remote work','居家辦公'],['Digital nomad','數位遊牧族'],['Freelancing','自由接案'],['Career','職業生涯'],['Cost of living','生活成本'],['Investment','投資'],['Mortgage','房貸'],['First home','首購自住'],['Moving','搬家'],['Interior design','室內設計'],['Work-life balance','工作生活平衡'],['Quality of life','生活品質'],['Technology','科技業'],['Startup','新創企業'],['Entrepreneurship','創業'],['Finance','金融財務'],['Savings','儲蓄理財'],['Banking','銀行服務'],['Commuting','通勤'],['High-speed rail','台灣高鐵'],['Urban planning','都市計畫'],['Community development','社區發展'],['Food','美食'],['Travel','旅遊'],['Photography','攝影']]},
+  {n:'28–50 / 台中市 / 養貓族＋高樓友善寵物',sub:'貓咪飼主+電梯大樓+安全室內環境',logic:'養貓族偏好高樓公寓（安全不逃跑、不需院子）。此族群換屋首看「寵物友善+電梯大樓」，APT 高樓住商格局與此需求精準匹配，且全台中幾乎無競品針對此族群投放廣告，是未開發藍海。',lm:['洲際棒球場','LALAPORT台中','北屯崇德商圈','北屯大坑'],tags:[['Cat','貓咪'],['Pet','寵物'],['Cat food','貓咪食品'],['Pet care','寵物照護'],['Veterinarian','動物醫院'],['Pet supplies','寵物用品'],['Cat breed','貓咪品種'],['Animal lover','動物愛好者'],['Cat litter','貓砂'],['Pet health','寵物健康'],['Cat toy','貓咪玩具'],['Pet insurance','寵物保險'],['Animal welfare','動物福利'],['Indoor cat','室內貓'],['Real estate','房地產'],['Property','不動產'],['Apartment living','公寓生活'],['Investment','投資'],['Home purchase','購屋'],['Interior design','室內設計'],['Smart home','智慧居家'],['Air purifier','空氣清淨機'],['Online shopping','網路購物'],['Pet photography','寵物攝影'],['Lifestyle','生活風格'],['Home appliances','家電'],['Home cleaning','居家清潔'],['E-commerce','電子商務'],['Community living','社區生活'],['YouTube','YouTube']]},
+  {n:'28–45 / 台中北屯 / WFH+接案設計師',sub:'居家辦公+自由工作者+書房需求',logic:'WFH族群需要獨立書房，APT 多房大坪數是這群人的剛性需求。「北屯一間工作一間生活」是切角，數位行銷/設計師對品牌質感敏感，APT 高規公設符合其自我形象，競品無同等吸引力。',lm:['洲際棒球場','中科工業園區','LALAPORT台中','北屯崇德商圈'],tags:[['Freelancing','自由接案'],['Remote work','遠端工作'],['Work from home','居家辦公'],['Digital marketing','數位行銷'],['Graphic design','平面設計'],['Web design','網頁設計'],['Content creation','內容創作'],['Video editing','影片剪輯'],['Photography','攝影'],['Startup','新創企業'],['Entrepreneurship','創業'],['Business owner','自營業者'],['E-commerce','電子商務'],['Marketing','行銷'],['Social media','社群媒體'],['Instagram','Instagram'],['Real estate','房地產'],['Property','不動產'],['Investment','投資'],['Interior design','室內設計'],['Smart home','智慧居家'],['Technology','科技'],['Software','軟體'],['Computer','電腦'],['Gadget','3C設備'],['Coffee','精品咖啡'],['Lifestyle','生活品味'],['Books','閱讀'],['YouTube creator','YouTube創作者'],['LinkedIn','領英']]},
+  {n:'25–40 / 大台中 / 591房市主動搜尋再行銷',sub:'在591/樂屋/信義搜尋北屯物件的高意圖族群',logic:'當前正在591搜尋台中北屯物件的人是全案轉換率最高的族群，行為型受眾CPL歷史最低。APT從未建立此組，是立即可執行且預期成效最強的方向。搭配「APT旗艦公設影片」強CTA收割。',lm:['洲際棒球場','LALAPORT台中','十期重劃區','中科工業園區'],tags:[['Real estate','房地產'],['Property','不動產'],['Home purchase','購屋置產'],['Investment property','置產投資'],['Real estate agent','房仲業'],['Property market','房市行情'],['New construction','新成屋'],['Pre-sale housing','預售屋'],['Mortgage','房貸'],['Mortgage rate','房貸利率'],['Down payment','頭期款'],['First home buyer','首購族'],['Real estate investment','房地產投資'],['Property valuation','房價估價'],['Apartment','公寓住宅'],['Condominium','大樓住宅'],['Real estate developer','建設公司'],['Urban planning','都市計畫'],['Moving services','搬家服務'],['Interior design','室內設計'],['Home inspection','房屋檢驗'],['Property management','物業管理'],['Investment','投資'],['Finance','金融財務'],['Banking','銀行'],['Stock market','股票市場'],['Wealth management','財富管理'],['Savings','儲蓄理財'],['Home appliances','家電'],['Smart home','智慧居家']]},
+];
+/* ── aud-card: ALT_G (1510) ── */
+const ALT_G=[
+  {n:'28–48 / 台中市 / 健身重訓+游泳族',sub:'健身房重度使用者+泳池+洲際體育館',logic:'APT 公設泳池健身是1510核心賣點，但從未針對「健身族群」建組。健身房重度使用者對「下樓就是泳池健身房」訴求接受度最高，此族群消費力強、生活品質意識高，是高樓住商的精準受眾。',lm:['洲際棒球場','LALAPORT台中','北屯運動中心','崇德路商圈'],tags:[['Gym','健身房'],['Weight training','重量訓練'],['Swimming','游泳'],['Swimming pool','游泳池'],['Fitness','健身'],['CrossFit','交叉訓練'],['Bodybuilding','健美運動'],['Running','跑步'],['Yoga','瑜珈'],['Personal trainer','私人教練'],['Badminton','羽球'],['Sports nutrition','運動營養'],['Protein supplement','蛋白質補充'],['Cycling','騎自行車'],['Outdoor activities','戶外活動'],['Health and wellness','健康生活'],['Real estate','房地產'],['Property','不動產'],['Investment','投資'],['Apartment','公寓住宅'],['Community living','社區生活'],['Home amenities','居家設施'],['Interior design','室內設計'],['Smart home','智慧居家'],['Sports centre','運動中心'],['Basketball','籃球'],['Tennis','網球'],['Marathon','馬拉松'],['Hiking','登山健行'],['Home appliances','家電']]},
+  {n:'28–45 / 台中市 / 美食高端餐廳打卡族',sub:'精緻料理+高端咖啡廳+北屯美食圈',logic:'頻繁造訪高端餐廳/咖啡廳的族群消費力強，對「生活便利性」極敏感，北屯餐飲密度是 APT 隱藏賣點。「住 APT 就是品味生活」訴求，與美食族群的自我認同高度契合。',lm:['洲際棒球場','LALAPORT台中','北屯崇德商圈','北屯愛買'],tags:[['Food','美食'],['Restaurant','餐廳'],['Fine dining','精緻料理'],['Cafe','咖啡廳'],['Specialty coffee','精品咖啡'],['Brunch','早午餐'],['Foodie','美食愛好者'],['Michelin restaurant','米其林餐廳'],['Wine','葡萄酒'],['Cocktail','雞尾酒'],['Cooking','料理烹飪'],['Baking','烘焙'],['Tea','茶文化'],['Beer','精釀啤酒'],['Japanese food','日本料理'],['Korean food','韓式料理'],['Dessert','甜點'],['Bubble tea','珍珠奶茶'],['Real estate','房地產'],['Property','不動產'],['Investment','投資'],['Lifestyle','生活品味'],['Travel','旅遊'],['Luxury goods','精品奢侈品'],['Fashion','流行時尚'],['Interior design','室內設計'],['Photography','攝影'],['Social media','社群媒體'],['Instagram','Instagram'],['Community living','社區生活']]},
+  {n:'28–45 / 台中市 / 股票ETF主動投資族',sub:'股票+ETF+主動投資+資產配置',logic:'投資型受眾一直用「房地產投資」角度切，但股票/ETF族同樣有資產配置需求。「股票放長線，APT買了出租更穩」，從資產多元配置角度說服，是全新未測試訴求角度，且與房地產投資屬性互補。',lm:['洲際棒球場','中科工業園區','LALAPORT台中','十期重劃區'],tags:[['Stock market','股票市場'],['ETF','指數股票型基金'],['Index fund','指數基金'],['Investment','投資'],['Stock trading','股票交易'],['Financial market','金融市場'],['Dividend investing','股息投資'],['Passive income','被動收入'],['Wealth management','財富管理'],['Financial planning','財務規劃'],['Personal finance','個人理財'],['Mutual fund','共同基金'],['Cryptocurrency','加密貨幣'],['Bitcoin','比特幣'],['Real estate','房地產'],['Property investment','房地產投資'],['Investment property','置產投資'],['Property','不動產'],['Portfolio management','投資組合管理'],['Risk management','風險管理'],['Business owner','企業主'],['Entrepreneurship','創業'],['Finance','金融財務'],['Banking','銀行業'],['Savings','儲蓄理財'],['Insurance','保險'],['Retirement planning','退休規劃'],['Tax planning','稅務規劃'],['Technology','科技'],['Reading','閱讀']]},
+  {n:'30–55 / 彰化南投苗栗 / 中彰投北移置產',sub:'外縣市人口往台中移動+台中第一間房',logic:'彰化/南投/苗栗人口往台中移動明顯，這群人「台中第一間房」預算精打細算，北屯 CP 值是核心吸引力。設定居住地在中彰投各縣市，切角「台中最好的24樓，從彰化/南投搬進來」，地理擴展全新方向。',lm:['彰化火車站','南投市區','苗栗火車站','員林市區'],tags:[['Real estate','房地產'],['Property','不動產'],['Home buying','購屋置產'],['Investment','投資'],['Mortgage','房貸'],['First home','首購自住'],['Relocation','搬遷移居'],['Moving','搬家'],['Quality of life','生活品質'],['Cost of living','生活成本'],['Transportation','交通運輸'],['High-speed rail','台灣高鐵'],['Train','台鐵'],['Family activities','家庭活動'],['Parenting','親子教養'],['Education','教育'],['School choice','學校選擇'],['Community living','社區生活'],['Interior design','室內設計'],['Home improvement','居家裝潢'],['Savings','儲蓄理財'],['Banking','銀行服務'],['Business owner','自營業者'],['Small business','小型企業'],['Entrepreneurship','創業'],['Food','美食'],['Travel','旅遊'],['Lifestyle','生活品味'],['Urban planning','都市計畫'],['Taichung city','台中市']]},
+  {n:'25–38 / 台中市 / 韓流K-pop追星族',sub:'韓劇+K-pop+韓國文化+消費力強',logic:'25–38歲韓流族群消費力強、對生活美感有要求。Netflix韓劇+K-pop+韓國旅遊，切角「你對生活有品味，APT懂你」，文化興趣切入比職業標籤更輕鬆觸及年輕世代，且完全未被任何房地產競品測試。',lm:['洲際棒球場','LALAPORT台中','崇德路商圈','北屯崇德商圈'],tags:[['K-pop','韓國流行音樂'],['Korean drama','韓劇'],['Korean culture','韓國文化'],['Netflix','Netflix'],['South Korea','韓國'],['Korean food','韓式料理'],['Korean beauty','韓國美妝'],['Hallyu','韓流'],['Fashion','流行時尚'],['Beauty','美妝保養'],['Skincare','護膚保養'],['Travel','旅遊'],['Photography','攝影'],['Social media','社群媒體'],['Instagram','Instagram'],['TikTok','抖音TikTok'],['Lifestyle','生活品味'],['Cafe','咖啡廳'],['Real estate','房地產'],['Property','不動產'],['Investment','投資'],['Interior design','室內設計'],['Music','音樂'],['Concert','演唱會'],['Online shopping','網路購物'],['Luxury goods','精品奢侈品'],['Cosmetics','化妝品'],['Community living','社區生活'],['BTS','防彈少年團'],['YouTube','YouTube']]},
+  {n:'28–50 / 台中市 / 二手精品名牌包族',sub:'LV+Chanel+精品收藏+高資產指標',logic:'購買精品包/名錶的族群消費力是最直接的高資產代理指標，對「居住品質升級」共鳴強。「你對每一件東西都有要求，APT的家也值得這樣對待」是情感共鳴最強的切角，消費力與APT單價匹配。',lm:['洲際棒球場','LALAPORT台中','台中大遠百','崇德路商圈'],tags:[['Luxury goods','精品奢侈品'],['Louis Vuitton','路易威登'],['Chanel','香奈兒'],['Gucci','Gucci'],['Hermès','愛馬仕'],['Luxury handbag','精品名牌包'],['Luxury watch','精品名錶'],['Fashion','流行時尚'],['High-end shopping','高級購物'],['Department store','百貨公司'],['Vintage fashion','二手精品'],['Jewelry','珠寶首飾'],['Cosmetics','化妝品'],['Skincare','護膚保養'],['Beauty','美妝'],['Lifestyle','生活品味'],['Travel','旅遊'],['Fine dining','精緻料理'],['Wine','葡萄酒'],['Real estate','房地產'],['Property','不動產'],['Investment','投資'],['Interior design','室內設計'],['Wealth management','財富管理'],['Finance','金融財務'],['Photography','攝影'],['Social media','社群媒體'],['Instagram','Instagram'],['Art collection','藝術收藏'],['Community living','社區生活']]},
+  {n:'28–45 / 台中北屯 / 攝影師視覺設計文青族',sub:'攝影+Adobe+文青創意+24樓視野',logic:'攝影師/設計師對居住美感要求高，APT 24樓視野是強力賣點。「每天起床就是你最美的照片」是切角，創意族群完全未嘗試，此族群消費力比收入看起來更強，對品牌質感極度敏感。',lm:['洲際棒球場','LALAPORT台中','北屯崇德商圈','台中文創園區'],tags:[['Photography','攝影'],['Graphic design','平面設計'],['Adobe Photoshop','Adobe Photoshop'],['Adobe Illustrator','Adobe Illustrator'],['Video editing','影片剪輯'],['Content creation','內容創作'],['YouTube creator','YouTube創作者'],['Instagram','Instagram'],['Lifestyle photography','生活攝影'],['Drone photography','空拍攝影'],['Street photography','街頭攝影'],['Visual art','視覺藝術'],['Art','藝術'],['Design','設計'],['Architecture','建築'],['Interior design','室內設計'],['Travel photography','旅遊攝影'],['Film','電影'],['Music','音樂'],['Reading','閱讀'],['Real estate','房地產'],['Property','不動產'],['Investment','投資'],['Cafe','咖啡廳'],['Lifestyle','生活品味'],['Fashion','流行時尚'],['Technology','科技'],['Freelancing','自由接案'],['Digital marketing','數位行銷'],['Community living','社區生活']]},
+  {n:'30–55 / 台中市 / 線上購物電商重度族',sub:'蝦皮+momo+高頻網購+數位敏感度高',logic:'高頻電商消費族群數位敏感度高、消費力可觀，對品牌內容觸及效果好。「什麼都在家解決，APT就是你的生活中心」訴求，與此族群的生活便利性需求高度共鳴，且是完全未開發的新方向。',lm:['洲際棒球場','LALAPORT台中','北屯愛買','崇德路商圈'],tags:[['Online shopping','網路購物'],['E-commerce','電子商務'],['Shopee','蝦皮購物'],['Shopping','購物'],['Consumer electronics','消費電子'],['Mobile shopping','手機購物'],['Flash sale','限時特賣'],['Fashion','流行時尚'],['Beauty products','美妝產品'],['Home products','居家產品'],['Food delivery','外送平台'],['UberEats','UberEats'],['Subscription service','訂閱服務'],['Streaming service','串流影音'],['Netflix','Netflix'],['Credit card rewards','信用卡回饋'],['Loyalty program','會員點數'],['Real estate','房地產'],['Property','不動產'],['Investment','投資'],['Interior design','室內設計'],['Smart home','智慧居家'],['Home appliances','家電'],['Lifestyle','生活品味'],['Social media','社群媒體'],['Instagram','Instagram'],['TikTok','抖音TikTok'],['Community living','社區生活'],['Finance','金融財務'],['Amazon','亞馬遜']]},
+];
+/* ── aud-card functions ── */
+function showCopyToast(msg){const t=document.getElementById('toast');t.textContent=msg||'已複製';t.style.opacity='1';t.style.transform='translateX(-50%) translateY(0)';setTimeout(()=>{t.style.opacity='0';t.style.transform='translateX(-50%) translateY(20px)'},2200)}
+function copyTxt(txt){navigator.clipboard.writeText(txt).then(()=>showCopyToast('已複製 → 貼至 Claude')).catch(()=>{const ta=document.createElement('textarea');ta.value=txt;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showCopyToast('已複製 → 貼至 Claude')})}
+function buildAudCard(g,idx){const id='aud-'+idx;const rows=g.tags.map((t,i)=>`<tr><td>${i+1}</td><td>${t[0]}</td><td>${t[1]}</td></tr>`).join('');return`<div class="aud-card" id="${id}"><div class="aud-header"><div class="aud-num">${idx+1}</div><div class="aud-title">${g.n}</div><div class="aud-toggle">▼</div></div><div class="aud-body"><div class="aud-lm">📍 <strong>地標：</strong>${g.lm.join(' → ')}</div><div class="aud-logic">${g.logic}</div><table class="tag-tbl"><thead><tr><th>#</th><th>英文</th><th>中文</th></tr></thead><tbody>${rows}</tbody></table><button class="copy-all-btn" onclick="event.stopPropagation();copyTxt(Array.from(this.closest('.aud-card').querySelectorAll('.tag-tbl tbody tr td:nth-child(2)')).map(e=>e.textContent.trim()).join('\\n'))">📋 複製全部標籤 → Claude</button></div></div>`}
+(function(){
+  const mg=document.getElementById('main-aud-grid');
+  if(mg)mg.innerHTML=MAIN_G.map((g,i)=>buildAudCard(g,i)).join('');
+  const ag=document.getElementById('alt-aud-grid');
+  if(ag)ag.innerHTML=ALT_G.map((g,i)=>buildAudCard(g,i+100)).join('');
+  document.querySelectorAll('.aud-card').forEach(card=>{card.addEventListener('click',()=>card.classList.toggle('open'))});
+})();
 function showToast(){const t=document.getElementById('toast');t.style.opacity='1';t.style.transform='translateX(-50%) translateY(0)';setTimeout(()=>{t.style.opacity='0';t.style.transform='translateX(-50%) translateY(20px)'},2200)}
 function copyPrompt(text){navigator.clipboard.writeText(text).then(showToast).catch(()=>{const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast()})}
 document.querySelectorAll('.core-tag').forEach(el=>{el.addEventListener('click',()=>{const tag=el.textContent.replace('↗','').trim();copyPrompt(`針對${PROJECT}，請深入分析「${tag}」這個興趣標籤：\n1. 在本案受眾中代表什麼輪廓？\n2. 搭配哪些標籤組合效果最好？\n3. 素材訴求應該怎麼寫？`)})});
