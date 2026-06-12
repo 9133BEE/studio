@@ -101,12 +101,42 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .insight-list{list-style:none;display:flex;flex-direction:column;gap:7px}
 .insight-list li{font-size:13px;color:#4a5568;padding-left:18px;position:relative;line-height:1.6}
 .insight-list li::before{content:'→';position:absolute;left:0;color:var(--accent-border);font-size:12px;top:1px}
-/* New directions */
-.new-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.new-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:16px 18px;cursor:pointer;transition:border-color .15s,box-shadow .15s;box-shadow:var(--shadow-xs)}
-.new-card:hover{border-color:var(--accent-border);box-shadow:var(--shadow-sm)}
-.new-card-title{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:5px;line-height:1.4}
-.new-card-desc{font-size:12px;color:var(--sub);line-height:1.6}
+/* back-link */
+.back-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--accent);text-decoration:none;margin-bottom:16px;padding:5px 12px;background:var(--accent-light);border-radius:20px;border:1px solid var(--accent-border);transition:all .15s}
+.back-link:hover{background:#dde2f4;color:var(--accent-dark)}
+/* ── aud-card ── */
+.aud-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;align-items:stretch}
+.aud-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:border-color .15s,box-shadow .15s}
+.aud-card:hover{border-color:var(--accent-border);box-shadow:var(--shadow-sm)}
+.aud-header{padding:14px 16px;display:flex;align-items:center;gap:10px;cursor:pointer}
+.aud-header:hover{background:var(--accent-light)}
+.aud-num{width:24px;height:24px;border-radius:50%;background:var(--accent);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.aud-info{flex:1;min-width:0}
+.aud-name{font-size:13px;font-weight:700;color:var(--tx);line-height:1.3}
+.aud-sub{font-size:11px;color:var(--sub2);margin-top:2px}
+.aud-arrow{font-size:12px;color:var(--sub2);transition:transform .2s;flex-shrink:0}
+.aud-card.open .aud-arrow{transform:rotate(90deg)}
+.aud-body{display:none;padding:0 16px 16px;border-top:1px solid var(--bd)}
+.aud-card.open .aud-body{display:block}
+.aud-sl{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--sub2);margin:12px 0 6px}
+.aud-logic{font-size:12px;color:var(--sub);line-height:1.65;background:var(--accent-light);border:1px solid var(--accent-border);border-radius:6px;padding:8px 10px}
+.aud-lm{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px}
+.aud-lm-tag{background:var(--bg);border:1px solid var(--bd);border-radius:12px;padding:2px 9px;font-size:10px;color:var(--sub)}
+.tag-tbl{width:100%;border-collapse:collapse;font-size:11px;margin-top:6px}
+.tag-tbl th{text-align:left;padding:4px 6px;border:1px solid var(--bd);background:var(--accent-light);color:var(--accent-dark);font-weight:600;font-size:10px}
+.tag-tbl td{padding:3px 6px;border:1px solid var(--bd);color:var(--sub)}
+.tag-tbl tr:nth-child(even) td{background:var(--bg)}
+.tag-tbl tbody tr{cursor:pointer;transition:background .1s}
+.tag-tbl tbody tr:hover td{background:var(--accent-light)}
+/* rank-op-grid */
+.rk-grid{display:flex;flex-direction:column;gap:7px}
+.rk-grid .rk-row{margin-bottom:0}
+.rank-op-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:20px;align-items:stretch}
+.rank-op-grid>*:nth-child(1){grid-column:2;grid-row:1;display:flex;flex-direction:column;margin-bottom:0}
+.rank-op-grid>*:nth-child(2){grid-column:1/3;grid-row:2}
+.rank-op-grid>*:nth-child(3){grid-column:1;grid-row:1;display:flex;flex-direction:column;margin-bottom:0}
+.rank-op-grid>*:nth-child(1) .tips,.rank-op-grid>*:nth-child(3) .rk-grid{flex:1}
+@media(max-width:900px){.rank-op-grid{display:block}}
 /* Ranking */
 .rk-row{background:var(--s);border:1px solid var(--bd);border-left:3px solid var(--bd);border-radius:var(--radius);padding:14px 18px 14px 14px;margin-bottom:6px;display:flex;gap:14px;align-items:center;box-shadow:none;transition:border-left-color .15s,box-shadow .15s,transform .15s;cursor:pointer}
 .rk-row:hover{border-left-color:var(--accent);box-shadow:0 2px 12px rgba(0,0,0,.06);transform:translateX(2px)}
@@ -181,7 +211,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   </div>
 </div>
 
-<a class="top-link" href="hub.html"><span>← 返回報告集</span></a>
+<a class="back-link" href="hub.html">← 返回案件總覽</a>
 
 <div class="page-banner main">
   <div class="banner-icon">富</div>
@@ -243,7 +273,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   </div>
 </div>
 
-<!-- ── 五大操作建議 ── -->
+<!-- ── 建議嘗試受眾 ── -->
+<div class="section">
+  <div class="sec-title">建議嘗試受眾（8組）· 更新 2026-06-12</div>
+  <div id="main-aud-grid" class="aud-grid-2"></div>
+</div>
+
+<div class="rank-op-grid">
+
+<!-- child 1 (右欄): 五大操作建議 -->
 <div class="section">
   <div class="sec-title">五大操作建議</div>
   <div class="tips">
@@ -291,7 +329,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   </div>
 </div>
 
-<!-- ── 素材迭代 ── -->
+<!-- child 2 (全寬底部): 素材迭代 -->
 <div class="creative-section">
   <div class="sec-title">素材迭代分析</div>
   <div class="creative-timeline">
@@ -406,48 +444,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   </div>
 </div>
 
-<!-- ── 建議新受眾方向 ── -->
-<div class="section">
-  <div class="sec-title">建議新測試受眾方向</div>
-  <div class="new-grid">
-    <div class="new-card">
-      <div class="new-card-title">30–65 / 嶺東烏日+彰化市 / 企業主管 ↗</div>
-      <div class="new-card-desc">延伸嶺東烏日企業主管（71潛客 CPL $364）成功模式，加入彰化市覆蓋，擴大商業管理人口觸及</div>
-    </div>
-    <div class="new-card">
-      <div class="new-card-title">30–60 / 中科西屯+5 / 行銷/人力管理 ↗</div>
-      <div class="new-card-desc">延伸行銷人力管理（39潛客 CPL $367）成功方向，換地標到台中科學園區周邊商業服務業人口密集區</div>
-    </div>
-    <div class="new-card">
-      <div class="new-card-title">30–55 / 烏日南區+逢甲 / 餐飲業老闆+美食加盟 ↗</div>
-      <div class="new-card-desc">從餐飲零售美業（CPL $424）延伸，細分為「餐飲業老闆+加盟主」，搭配「展店加盟機會」素材直打目標租戶</div>
-    </div>
-    <div class="new-card">
-      <div class="new-card-title">30–60 / 烏日高鐵+5 / 投資置產+商辦 ↗</div>
-      <div class="new-card-desc">以高鐵商圈投資客為受眾，興趣加入「商辦投資+不動產+收租」，素材強調「烏日高鐵旁商辦，等收租型投資」</div>
-    </div>
-    <div class="new-card">
-      <div class="new-card-title">30–55 / 烏日+台中 / 科技製造・設廠需求 ↗</div>
-      <div class="new-card-desc">台中工業區+中科周邊科技製造業有分租辦公需求，訴求「烏日高鐵旁，設廠辦公自用，南北交通最方便」</div>
-    </div>
-    <div class="new-card">
-      <div class="new-card-title">35–65 / 台中市南區 / 商辦投資收益型 ↗</div>
-      <div class="new-card-desc">有資金部位的商辦投資客，以「收租型商辦」為主訴求，加入商業房產+不動產投資+收租收益標籤</div>
-    </div>
-    <div class="new-card">
-      <div class="new-card-title">28–50 / 烏日+高鐵特區 / 電商物流・批發需求 ↗</div>
-      <div class="new-card-desc">電商/物流/批發業者需要倉儲辦公一體空間，烏日高鐵物流優勢明顯，訴求「一樓辦公+倉儲彈性隔間」</div>
-    </div>
-    <div class="new-card">
-      <div class="new-card-title">40–60 / 烏日+大肚 / 傳產老闆・辦公空間 ↗</div>
-      <div class="new-card-desc">烏日大肚在地傳產老闆有獨立辦公室需求，加入製造業+傳統產業+建材五金標籤，訴求「自有空間不再租」</div>
-    </div>
-  </div>
-</div>
-
-<!-- ── 受眾排行 ── -->
+<!-- child 3 (左欄): 受眾排行 -->
 <div class="section">
   <div class="sec-title">成果受眾排行（2025/11–2026/05）</div>
+  <div class="rk-grid">
 
   <div class="rk-row gold">
     <div class="rk-medal">🥇</div>
@@ -559,7 +559,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
     </div>
   </div>
 
-</div>
+  </div><!-- /rk-grid -->
+</div><!-- /排行 -->
+
+</div><!-- /rank-op-grid -->
 
 
 <div class="page-footer">資料期間：2025-11-01 至 2026-05-29 · 富旺商城 台中烏日 · 最後更新 2026-05-29</div>
@@ -572,7 +575,30 @@ const PROJECT = '富旺商城（台中烏日・近嶺東大學高鐵站・商辦
 function showToast(){const t=document.getElementById('toast');t.style.opacity='1';t.style.transform='translateX(-50%) translateY(0)';setTimeout(()=>{t.style.opacity='0';t.style.transform='translateX(-50%) translateY(20px)'},2200)}
 function copyPrompt(text){navigator.clipboard.writeText(text).then(showToast).catch(()=>{const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast()})}
 document.querySelectorAll('.core-tag').forEach(el=>{el.addEventListener('click',()=>{const tag=el.textContent.replace('↗','').trim();copyPrompt(`針對${PROJECT}，請深入分析「${tag}」這個興趣標籤：\n1. 在本案受眾中代表什麼輪廓？\n2. 搭配哪些標籤組合效果最好？\n3. 素材訴求應該怎麼寫？`)})});
-document.querySelectorAll('.new-card').forEach(el=>{el.addEventListener('click',()=>{const title=el.querySelector('.new-card-title').textContent.replace('↗','').trim();const desc=el.querySelector('.new-card-desc').textContent.trim();copyPrompt(`針對${PROJECT}，我想測試新受眾方向：「${title}」\n說明：${desc}\n\n請給我：\n1. META 興趣標籤清單（附中文，約 10–15 個）\n2. 地理設定建議\n3. 適合這組受眾的素材訴求角度`)})});
+const MAIN_G=[
+{n:"嶺東烏日+彰化市 企業主管",sub:"30–65 / 嶺東烏日+彰化市",logic:"延伸嶺東烏日企業主管（71潛客 CPL $364）成功模式，加入彰化市覆蓋擴大商業管理人口觸及。嶺東大學商學院周邊創業型人口密集，是本案最強地標組合，彰化商業人口補足覆蓋缺口。",lm:["嶺東科技大學","烏日高鐵站","彰化市中心","彰化火車站"],tags:[["Business management","企業管理（商業）"],["Executive","高階主管"],["Management","管理"],["Business owner","企業主/老闆"],["Entrepreneurship","創業"],["Investment","投資"],["Real estate","房地產"],["Office space","辦公室空間"],["Commercial property","商業不動產"],["Marketing","行銷"],["Human resources","人力資源"],["Finance","金融財務"],["Company operations","公司營運"],["Franchise","連鎖加盟"],["Retail","零售業"],["Restaurant","餐飲業"],["Business consulting","商業顧問"],["Sales","業務銷售"],["Leadership","領導力"],["Small business","中小企業"],["Business development","業務開發"],["E-commerce","電子商務"],["Logistics","物流"],["Manufacturing","製造業"],["Tax planning","稅務規劃"],["Accounting","會計"],["Wealth management","財富管理"],["Property investment","置産投資"],["Industrial park","工業區"],["High-speed rail","台灣高鐵"]]},
+{n:"中科西屯+5km 行銷/人力管理",sub:"30–60 / 中科西屯+5km",logic:"延伸行銷人力管理（39潛客 CPL $367）成功方向，換地標到台中科學園區周邊，覆蓋商業服務業人口密集區。行銷/人資背景者有辦公需求，且對烏日高鐵交通優勢高度認同。",lm:["台中科學園區","西屯區","中科商業區","烏日高鐵站"],tags:[["Marketing","行銷"],["Digital marketing","數位行銷"],["Social media marketing","社群媒體行銷"],["Human resources","人力資源"],["Recruitment","招募"],["Training and development","教育訓練"],["Management consulting","管理顧問"],["Business consulting","企業顧問"],["Advertising","廣告"],["Public relations","公關"],["Content marketing","內容行銷"],["Brand management","品牌管理"],["Business management","企業管理"],["Office space","辦公室空間"],["Commercial property","商業不動產"],["Property investment","置産投資"],["Investment","投資"],["Entrepreneurship","創業"],["Small business","中小企業"],["Freelancing","自由接案"],["Business development","業務開發"],["E-commerce","電子商務"],["Software","軟體"],["Technology","科技業"],["Science park","科學園區"],["Finance","金融財務"],["Accounting","會計"],["Sales","業務銷售"],["Leadership","領導力"],["High-speed rail","台灣高鐵"]]},
+{n:"烏日南區+逢甲 餐飲業老闆+加盟主",sub:"30–55 / 烏日南區+逢甲",logic:"從餐飲零售美業（CPL $424）延伸，細分為「餐飲業老闆+加盟主」，搭配「展店加盟機會」素材直打目標租戶。逢甲商圈餐飲生態密集，是本案主要租戶來源地標。",lm:["烏日南區","逢甲夜市","烏日高鐵站","嶺東科技大學"],tags:[["Restaurant","餐飲業"],["Food and beverage","食品飲料業"],["Restaurant owner","餐廳老闆"],["Franchise","連鎖加盟"],["Food franchise","餐飲加盟"],["Catering","外燴餐飲"],["Fast food","速食"],["Cafe","咖啡廳"],["Bakery","烘焙業"],["Food delivery","外賣/外送"],["Retail","零售業"],["Beauty industry","美業"],["Hair salon","美髮業"],["Nail salon","美甲業"],["Entrepreneurship","創業"],["Business owner","企業主"],["Small business","中小企業"],["Store management","門店管理"],["Marketing","行銷"],["E-commerce","電子商務"],["Business development","業務開發"],["Investment","投資"],["Office space","辦公室空間"],["Commercial property","商業不動產"],["Property investment","置産投資"],["High-speed rail","台灣高鐵"],["Business consulting","商業顧問"],["Food service","餐飲服務"],["Sales","業務銷售"],["Franchise agreement","加盟合約"]]},
+{n:"烏日高鐵+5km 投資置産+商辦收租",sub:"30–60 / 烏日高鐵+5km",logic:"以高鐵商圈投資客為受眾，加入「商辦投資+不動產+收租」興趣。素材強調「烏日高鐵旁商辦，等收租型投資」，吸引有閒置資金的投資型買家而非使用型買家。",lm:["烏日高鐵站","烏日南區","台中火車站","烏日體育場"],tags:[["Real estate","房地產"],["Property investment","置産投資"],["Commercial property","商業不動產"],["Office space","辦公室空間"],["Rental income","收租收益"],["Real estate investment","房地産投資"],["Investment","投資"],["Wealth management","財富管理"],["Financial planning","財務規劃"],["Stock market","股票市場"],["High-speed rail","台灣高鐵"],["Capital appreciation","增值保值"],["Passive income","被動收入"],["Business owner","企業主"],["Executive","高階主管"],["Property management","物業管理"],["Tax planning","稅務規劃"],["Mortgage","房貸"],["Finance","金融財務"],["Banking","銀行"],["Insurance","保險"],["Retirement planning","退休規劃"],["Commercial real estate","商業地産"],["Land investment","土地投資"],["Savings","儲蓄"],["Manufacturing","製造業"],["Logistics","物流"],["Asset allocation","資産配置"],["Business development","業務開發"],["Entrepreneurship","創業"]]},
+{n:"烏日+台中 科技製造・設廠需求",sub:"30–55 / 烏日+台中工業區",logic:"台中工業區+中科周邊科技製造業有分租辦公需求，訴求「烏日高鐵旁，設廠辦公自用，南北交通最方便」。製造業老闆有獨立辦公+會議室需求，是商城的潛力租戶群。",lm:["台中科學園區","台中工業區","烏日高鐵站","中科商業區"],tags:[["Manufacturing","製造業"],["Technology","科技業"],["Electronics","電子産業"],["Semiconductor","半導體"],["Engineering","工程"],["Industrial park","工業區"],["Science park","科學園區"],["Factory","工廠"],["Office space","辦公室空間"],["Commercial property","商業不動產"],["Property investment","置産投資"],["Logistics","物流"],["Supply chain","供應鏈"],["Business management","企業管理"],["Executive","高階主管"],["Small business","中小企業"],["Business owner","企業主"],["High-speed rail","台灣高鐵"],["Commuting","通勤"],["Investment","投資"],["Wealth management","財富管理"],["Artificial intelligence","人工智慧"],["Automation","自動化"],["Research and development","研究開發"],["Mechanical engineering","機械工程"],["Chemical industry","化工業"],["Finance","金融財務"],["Corporate relocation","公司遷移"],["Business development","業務開發"],["Tax planning","稅務規劃"]]},
+{n:"台中市南區 商辦投資收益型",sub:"35–65 / 台中市南區",logic:"有資金部位的商辦投資客，以「收租型商辦」為主訴求，加入商業房産+不動産投資+收租收益標籤。南區有老字號企業主族群，對商辦投資熟悉度高。",lm:["台中市南區","台中火車站","台中港路商業區","烏日高鐵站"],tags:[["Real estate","房地産"],["Property investment","置産投資"],["Commercial real estate","商業地産"],["Office space","辦公室空間"],["Rental income","收租收益"],["Passive income","被動收入"],["Investment","投資"],["Wealth management","財富管理"],["Financial planning","財務規劃"],["Asset allocation","資産配置"],["Stock market","股票市場"],["Capital appreciation","增值保值"],["Property management","物業管理"],["Tax planning","稅務規劃"],["Mortgage","房貸"],["Banking","銀行"],["Insurance","保險"],["Retirement planning","退休規劃"],["Business owner","企業主"],["Executive","高階主管"],["Finance","金融業"],["Accounting","會計"],["Business consulting","商業顧問"],["Entrepreneurship","創業"],["High-speed rail","台灣高鐵"],["Commercial property","商業不動産"],["Portfolio management","投資組合"],["Land investment","土地投資"],["Business development","業務開發"],["Manufacturing","製造業"]]},
+{n:"烏日+高鐵特區 電商物流・批發需求",sub:"28–50 / 烏日+高鐵特區",logic:"電商/物流/批發業者需要倉儲辦公一體空間，烏日高鐵物流優勢明顯，訴求「一樓辦公+倉儲彈性隔間」。電商重度使用者對地址合法性和收發貨便利性敏感，高鐵物流中心地標精準覆蓋。",lm:["烏日高鐵站","烏日南區","台中港路物流區","台中工業區"],tags:[["E-commerce","電子商務"],["Online shopping","網路購物"],["Dropshipping","代理銷售"],["Logistics","物流"],["Warehouse","倉儲"],["Transportation","運輸業"],["Wholesale","批發"],["Retail","零售業"],["Supply chain","供應鏈"],["Import and export","進出口貿易"],["Fulfillment","訂單履行"],["Last mile delivery","最後一哩配送"],["Business owner","企業主"],["Small business","中小企業"],["Entrepreneurship","創業"],["Office space","辦公室空間"],["Commercial property","商業不動産"],["Property investment","置産投資"],["High-speed rail","台灣高鐵"],["Commuting","通勤"],["Business management","企業管理"],["Marketing","行銷"],["Digital marketing","數位行銷"],["Social media","社群媒體"],["Shopee","蝦皮購物"],["Investment","投資"],["Finance","金融財務"],["Technology","科技業"],["Sales","業務銷售"],["Franchise","連鎖加盟"]]},
+{n:"烏日+大肚 傳產老闆・辦公空間",sub:"40–60 / 烏日+大肚",logic:"烏日大肚在地傳產老闆有獨立辦公室需求，加入製造業+傳統産業+建材五金標籤。訴求「自有空間不再租」，強調資産自有vs長期租金成本對比，吸引已有生意基礎的本地老闆。",lm:["烏日南區","大肚區","烏日高鐵站","台中工業區"],tags:[["Manufacturing","製造業"],["Traditional industry","傳統産業"],["Construction materials","建材業"],["Hardware","五金業"],["Metal industry","金屬工業"],["Plastics","塑膠業"],["Food processing","食品加工業"],["Business owner","企業主"],["Small business","中小企業"],["Entrepreneurship","創業"],["Office space","辦公室空間"],["Commercial property","商業不動産"],["Property investment","置産投資"],["Real estate","房地産"],["Factory","工廠"],["Industrial park","工業區"],["Logistics","物流"],["Supply chain","供應鏈"],["Business management","企業管理"],["Executive","高階主管"],["Investment","投資"],["High-speed rail","台灣高鐵"],["Finance","金融財務"],["Accounting","會計"],["Tax planning","稅務規劃"],["Wealth management","財富管理"],["Business consulting","商業顧問"],["Commercial real estate","商業地産"],["Retail","零售業"],["Business development","業務開發"]]}
+];
+function buildAudCard(g,idx,prefix){
+  const id=prefix+(idx+1);
+  const rows=g.tags.map((t,i)=>`<tr><td>${i+1}</td><td>${t[0]}</td><td>${t[1]}</td></tr>`).join('');
+  const lmTags=g.lm.map(l=>`<span class="aud-lm-tag">${l}</span>`).join('');
+  return`<div class="aud-card" id="${id}"><div class="aud-header" onclick="toggleAud2('${id}')"><div class="aud-num">${idx+1}</div><div class="aud-info"><div class="aud-name">${g.n}</div><div class="aud-sub">${g.sub}</div></div><div class="aud-arrow">▶</div></div><div class="aud-body"><div class="aud-sl">評估邏輯</div><div class="aud-logic">${g.logic}</div><div class="aud-sl">地標定位</div><div class="aud-lm">${lmTags}</div><div class="aud-sl">興趣標籤（點擊列複製英文）</div><table class="tag-tbl"><thead><tr><th>#</th><th>English</th><th>中文</th></tr></thead><tbody>${rows}</tbody></table></div></div>`;
+}
+function toggleAud2(id){document.getElementById(id).classList.toggle('open')}
+(function(){
+  const mg=document.getElementById('main-aud-grid');
+  if(mg)mg.innerHTML=MAIN_G.map((g,i)=>buildAudCard(g,i,'fw')).join('');
+  document.querySelectorAll('.tag-tbl tbody tr').forEach(tr=>{
+    tr.addEventListener('click',e=>{e.stopPropagation();const cells=tr.querySelectorAll('td');if(cells.length>=3)copyPrompt(cells[1].textContent.trim())});
+  });
+})();
 document.querySelectorAll('.tip').forEach(el=>{el.addEventListener('click',()=>{const title=el.querySelector('.tip-title').textContent.trim();const desc=el.querySelector('.tip-desc').textContent.trim();copyPrompt(`針對${PROJECT}，關於這項操作建議：\n「${title}」\n背景：${desc}\n\n請幫我制定具體執行方案，包含受眾設定細節和素材方向。`)})});
 document.querySelectorAll('.creative-card,.phase-row').forEach(el=>{el.style.cursor='pointer';el.addEventListener('click',()=>{const name=el.querySelector('.creative-name,.phase-title');const desc=el.querySelector('.creative-stats,.phase-desc');if(!name)return;copyPrompt(`針對${PROJECT}，關於素材「${name.textContent.trim()}」：\n${desc?desc.textContent.trim():''}\n\n請分析：1.成效好/差原因？ 2.如何延伸下一支？ 3.最適合搭配的受眾設定？`)})});
 document.querySelectorAll('.rk-row').forEach(el=>{el.addEventListener('click',()=>{const name=el.querySelector('.rk-name');if(name)copyPrompt(`針對${PROJECT}，請分析受眾「${name.textContent.trim()}」，給我深度策略建議。`)})});
