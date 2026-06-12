@@ -1,4 +1,88 @@
-﻿<!DOCTYPE html>
+﻿const MAIN_G=[
+  {n:'35–60 / 台中市政府+5km / 軍公教穩薪換屋',sub:'公務員軍警教師·完全未測·穩定薪資換屋最佳族群',
+   logic:'完全未測。軍公教是台灣最穩定的受薪族群，月薪4-8萬加退休金保障，對「2030完工前進場、退休後保值」的置產邏輯接受度最高。南區公務機關密集（市府辦事處、衛生局、警察局），是在地購屋首選。重新包裝廣告的關鍵：從「首購優惠」切換到「穩定收入最適合預售屋」，與軍公教保守置產心態完全吻合。廣告圖像建議穩重、信任感。',
+   lm:['台中市政府','台中地方法院','南區公所','大慶派出所'],
+   tags:[['Government employee','公務員'],['Civil service','公職人員'],['Military','軍職人員'],['Police','警察'],['Public sector','公部門'],['Teacher','教師'],['Pension','退休金'],['Retirement planning','退休規劃'],['Stability','穩定生活'],['Job security','工作保障'],['Civil servant exam','國家考試'],['Public administration','行政管理'],['Education system','教育體系'],['School teacher','國小教師'],['Banking','銀行理財'],['Investment','投資理財'],['Financial planning','財務規劃'],['Real estate','不動產'],['Property investment','置產投資'],['Home buying','購屋'],['Mortgage','房屋貸款'],['Family','家庭'],['Children','子女親子'],['School district','學區'],['Taichung','台中'],['Work-life balance','工作生活平衡'],['Saving','儲蓄存款'],['Life insurance','壽險保險'],['National Chung Hsing University','中興大學'],['Home upgrade','換屋升級']]},
+  {n:'28–50 / 南投縣+大慶站+2km / 南投通勤台中首購族',sub:'南投每日台鐵通勤族·走出車站就是自己的家',
+   logic:'南投人口向台中南移是中台灣最顯著的人口流動，大慶火車站是南投人每天通勤的入口。對這群人，「在大慶站步行5分鐘能到的家」比「台中市中心」更有地理認同感。從「每天搭台鐵進城」到「走出車站就是自己的家」，縮短通勤=置產唯一動機，從未被任何房地產廣告精準鎖定的方向。完工前預售是他們最願意計畫的購屋時機。',
+   lm:['大慶火車站','南投火車站','南投縣政府','南區'],
+   tags:[['Commuting','通勤'],['Train commuter','台鐵通勤'],['Taiwan Railways','台灣鐵路'],['Local train','區間車'],['Nantou','南投'],['Relocation','搬遷移居'],['Moving to city','移居台中'],['First home','首購'],['Home buying','購屋'],['Real estate','不動產'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Investment','投資理財'],['Family','家庭'],['Work-life balance','工作生活平衡'],['Public transportation','大眾運輸'],['Career','職涯工作'],['Property investment','置產投資'],['National Chung Hsing University','中興大學'],['Taichung','台中'],['Saving','儲蓄'],['Life insurance','壽險'],['Children','子女'],['School district','學區'],['Community','社區'],['Quality of life','生活品質'],['Interior design','室內設計'],['Smart home','智慧居家'],['Home improvement','居家改善'],['Train station','火車站生活圈']]},
+  {n:'30–55 / 中興大學+2km / 農業科技·食品科學從業者',sub:'農科院+食品廠研究人員·在地工作情感認同最強',
+   logic:'中興大學農學院全台最強，農委會農業科技研究院（農科院）在南屯，周邊食品科技公司密集。研究人員月薪6-12萬、在地工作年限長，對中興大學生活圈有深度情感連結，案場在工作地點1-2km內。完全沒有房地產廣告針對這個職業圈。重新包裝訴求「走出農科院就是你的家，不用多解釋這個地段」，情感認同型置產，免說服。',
+   lm:['國立中興大學','農業科技研究院','台中農業食品聚落','大慶火車站'],
+   tags:[['Agriculture','農業'],['Food science','食品科學'],['Agribusiness','農業科技'],['Biotechnology','生物科技'],['Food technology','食品技術'],['Agricultural research','農業研究'],['Crop science','農作物科學'],['Animal science','動物科學'],['Food safety','食品安全'],['Food manufacturing','食品製造'],['Sustainable agriculture','永續農業'],['Organic farming','有機農業'],['Laboratory','實驗室'],['Research','研究'],['Academia','學術研究'],['National Chung Hsing University','中興大學'],['Taichung','台中'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Investment','投資理財'],['Financial planning','財務規劃'],['Mortgage','房貸'],['Work-life balance','工作生活平衡'],['Family','家庭'],['Community living','社區生活'],['Quality of life','生活品質'],['Health food','健康飲食'],['Organic food','有機食品'],['Saving','儲蓄']]},
+  {n:'45–65 / 南區+中區+東區 / 空巢期夫妻換屋',sub:'孩子離巢後終於換新家·有老屋資金可置換',
+   logic:'子女上大學或成家後，南區+中區許多45-60歲夫妻居住在30年老公寓，有強烈「孩子都走了，我們換個新的住」動機，且持有老屋可出售資金充足。重新包裝廣告最適合這種情感切換——從「首購」轉向「換屋」，「孩子大了，終於輪到自己了，22層的視野就是你的」。37坪三房有房間改書房/孫子房，是最完美的空巢期戶型。',
+   lm:['南區老社區','中區老公寓圈','東區','大慶火車站'],
+   tags:[['Empty nest','空巢期'],['Children leaving home','子女離家'],['Retirement lifestyle','退休生活'],['Downsizing','換小換新'],['Home renovation','老屋翻新'],['Home upgrade','換屋升格'],['Real estate','不動產'],['Property investment','置產投資'],['Home buying','購屋'],['Moving','搬家'],['New construction','新成屋'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Investment','投資理財'],['Retirement planning','退休規劃'],['Wealth management','財富管理'],['Grandparenting','含飴弄孫'],['Elder care','長者生活'],['Family','家庭'],['Quality of life','生活品質'],['Interior design','室內設計'],['Smart home','智慧居家'],['Cooking','烹飪料理'],['Gardening','園藝'],['Travel','旅遊'],['Health','健康'],['Life insurance','壽險'],['Community living','社區生活'],['Taichung','台中'],['Home improvement','居家裝潢']]},
+  {n:'28–52 / 台中市區 / 法律會計專業事務所族',sub:'律師+會計師+法務·財務意識強·完全未測高轉換族',
+   logic:'台中律師事務所+會計師事務所聚集在市區，從業人員月薪8-20萬，財務規劃意識最強，置產是他們職涯規劃的標準一環。完全未測的職業型受眾，自帶計算能力，對「2030完工前入場的價格邏輯」接受度極高。切角：「算數字比誰都清楚，這個價格這個時間點，值得。」廣告簡潔有力、避免浮誇，這群人討厭渲染。',
+   lm:['台中地方法院','台中市商業核心','南區','大慶站'],
+   tags:[['Lawyer','律師'],['Attorney','法律顧問'],['Legal services','法律服務'],['Law firm','律師事務所'],['Accounting','會計'],['CPA','會計師'],['Tax consultant','稅務顧問'],['Financial auditor','財務審計'],['Corporate law','公司法務'],['Contract','合約管理'],['Consulting','顧問業'],['Business management','企業管理'],['Financial planning','財務規劃'],['Investment','投資理財'],['Wealth management','財富管理'],['Real estate','不動產'],['Property investment','置產投資'],['Home buying','購屋'],['Mortgage','房貸'],['Taichung','台中'],['Career development','職涯發展'],['Professional certification','專業認證'],['Work-life balance','工作生活平衡'],['Quality of life','生活品質'],['Travel','旅遊'],['Fine dining','精緻餐飲'],['Fashion','時尚'],['Interior design','室內設計'],['National Chung Hsing University','中興大學'],['Tax planning','稅務規劃']]},
+  {n:'25–42 / 大里+霧峰 / 大里霧峰升遷台中市首購族',sub:'郊區升城·南區是大里霧峰最近的台中市入口',
+   logic:'大里、霧峰是台中行政區邊緣，25-40歲年輕世代有強烈往台中市核心升格需求，南區是距大里霧峰最近的台中市住宅核心（大慶站直達）。「終於從大里搬進台中，大慶站走5分鐘就到家」，在地認同感+升格動機雙重驅動，且這群人從未被南區案件精準定向過。重新包裝廣告的關鍵市場補遺方向。',
+   lm:['大里區','霧峰區','南區','大慶火車站'],
+   tags:[['Relocation','搬遷移居'],['Moving','搬家'],['Upgrading home','升級換屋'],['Urban living','城市生活'],['First home','首購'],['Home buying','購屋'],['Real estate','不動產'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Investment','投資理財'],['Property investment','置產投資'],['Career','職涯工作'],['Young professional','年輕上班族'],['Family','家庭'],['Children','子女'],['School district','學區'],['National Chung Hsing University','中興大學'],['Taichung','台中'],['Community','社區'],['Quality of life','生活品質'],['Commuting','通勤'],['Train','台鐵'],['Public transportation','大眾運輸'],['Fitness','健身運動'],['Coffee','咖啡'],['Cooking','料理烹飪'],['Home decor','居家布置'],['Interior design','室內設計'],['Saving','儲蓄'],['Life insurance','壽險']]},
+  {n:'35–55 / 台中南區+大里 / 加盟連鎖創業主',sub:'超商早餐手搖飲加盟主·現金流穩定·從未被房地產廣告打到',
+   logic:'超商、早餐店、手搖飲、加盟連鎖主在台中大量存在，有穩定現金流，且廣告從未精準打到他們。現金事業主對置產有強烈安全感需求（資金保值），對「南區新大樓資產升值」邏輯接受度高。從來沒有房地產廣告專門對加盟主說話，是完全空白的商業主受眾。切角：「事業做起來了，現在是資產配置的時候了。」',
+   lm:['南區商圈','大里商業街','中區商業區','大慶火車站'],
+   tags:[['Franchise','加盟連鎖'],['Small business owner','小型企業主'],['Retail business','零售商業'],['Convenience store','便利商店'],['Food and beverage','餐飲'],['Entrepreneurship','創業'],['Self-employed','自營事業'],['Business owner','企業主'],['Cash flow','現金流'],['Asset management','資產管理'],['Investment','投資理財'],['Financial planning','財務規劃'],['Property investment','置產投資'],['Real estate','不動產'],['Home buying','購屋'],['Mortgage','房貸'],['Tax planning','稅務規劃'],['Wealth management','財富管理'],['Business networking','商業社交'],['Chamber of commerce','商業公會'],['Taichung','台中'],['Family','家庭'],['Community','社區'],['Quality of life','生活品質'],['Interior design','室內設計'],['Saving','儲蓄'],['Life insurance','壽險'],['Banking','銀行理財'],['Smart home','智慧居家'],['Home upgrade','換屋升級']]},
+  {n:'32–50 / 大里工業區+台中工業區 / 科技廠技術班長主管',sub:'電子機械廠技術主管·月薪6-9萬·從未被精準鎖定',
+   logic:'大里工業區+台中工業區電子/機械廠班長、技術主管，月薪6-9萬，在南區或大里工作多年，家庭穩定有換屋能力。完全未被任何房地產廣告精準鎖定的藍領管理階層。他們對「2030完工有計畫性的提前購買」有實際興趣。切角：「在這裡工作10年了，是時候在這裡住一間好的了，走路距離。」',
+   lm:['大里工業區','台中工業區','南區','大慶火車站'],
+   tags:[['Manufacturing','製造業'],['Industrial','工業'],['Factory supervisor','廠長領班'],['Production manager','生產管理'],['Electronics manufacturing','電子製造'],['Machinery','機械工業'],['Quality control','品質管理'],['Engineering','工程師'],['Technical skills','技術專業'],['Skilled trade','技術職人'],['Labor','勞工族群'],['Work experience','工作資歷'],['Career advancement','職涯晉升'],['Financial planning','財務規劃'],['Investment','投資理財'],['Property investment','置產投資'],['Real estate','不動產'],['Home buying','購屋'],['Mortgage','房貸'],['Saving','儲蓄'],['Family','家庭'],['Children','子女'],['School district','學區'],['Taichung','台中'],['Community','社區'],['Interior design','室內設計'],['Home upgrade','換屋升格'],['Moving','搬家'],['Life insurance','壽險'],['Work-life balance','工作生活平衡']]},
+  {n:'30–50 / 台中全市 / 中興大學校友情感型',sub:'5萬名留台中校友·母校旁的家是情感型置產最強觸媒',
+   logic:'中興大學20-30萬名校友中，留在台中工作超過5萬人。對「中興大學旁的家」有超出一般人的情感認同，不需說服地段，只需喚起記憶。重新包裝廣告最適合情感觸發型切角：「走回當年的校園，那棟蓋好的就是你的家」。已賣一段時間的建案最適合用校友情感重新觸及未轉換潛客，與所有舊廣告方向完全不同。',
+   lm:['國立中興大學','大慶火車站','南區','興大附農'],
+   tags:[['National Chung Hsing University','中興大學'],['University alumni','大學校友'],['College memories','大學回憶'],['Taichung','台中'],['Higher education','高等教育'],['Agriculture','農學院'],['Veterinary medicine','獸醫學'],['Engineering','工程學院'],['Law','法律學院'],['Management','管理學院'],['Graduate school','研究所'],['Research','研究'],['Academic','學術'],['Homecoming','返鄉'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Investment','投資理財'],['Financial planning','財務規劃'],['Mortgage','房貸'],['Work-life balance','工作生活平衡'],['Family','家庭'],['Career development','職涯發展'],['Community','社區'],['Quality of life','生活品質'],['Interior design','室內設計'],['Saving','儲蓄'],['Banking','銀行理財'],['Travel','旅遊'],['Food science','食品科學']]},
+  {n:'32–52 / 南區+西區+南屯 / 女性主管×精品保養品牌',sub:'LA MER/SK-II/資生堂興趣標籤·比高資產女性更精準的觸及方式',
+   logic:'以精品保養品牌興趣標籤（LA MER、SK-II、資生堂、雅詩蘭黛）精準觸及高端購買力女性，比「高資產女性置產族」更具體可測。廣告角度從投資邏輯轉為「妳值得更好的生活環境」，情感說服比數字說服更有效。台中女性主管消費力強，且精品保養族群與置產族群高度重疊，主粉專用於擴大觸及面。',
+   lm:['南區','西區精誠商圈','南屯區','台中大遠百'],
+   tags:[['SK-II','SK-II'],['La Mer','海洋拉娜'],['Shiseido','資生堂'],['Estée Lauder','雅詩蘭黛'],['Clinique','倩碧'],['Lancôme','蘭蔻'],['Sisley','希思黎'],['Clarins','嬌韻詩'],['La Prairie','萊珀妮'],['Luxury skincare','高端保養品'],['Anti-aging','抗老美容'],['Spa','水療SPA'],['Wellness','健康養生'],['Beauty','美容保養'],['Cosmetics','化妝品'],['Professional women','職業女性'],['Career women','女性職場'],['Executive','主管職'],['Leadership','領導力'],['Work-life balance','工作生活平衡'],['Real estate','不動產'],['Property investment','置產投資'],['Home buying','購屋'],['Interior design','室內設計'],['Investment','投資理財'],['Financial planning','財務規劃'],['Quality of life','生活品質'],['Travel','旅遊'],['Fine dining','精緻餐飲'],['Taichung','台中']]}
+];
+
+const ALT_G=[
+  {n:'35–58 / 台中市政府+4km / 軍公教房貸優惠型',sub:'公務員優惠房貸利率·1510名單廣告最直接轉換觸媒',
+   logic:'軍公教享有優惠房貸利率（比一般市場低0.5-1%），這是台灣獨有的置產優勢。1510名單廣告最適合這群「有購屋能力但需要觸發」的族群。切角：「你的職業身份讓你房貸利率比別人低，2030完工前辦就對了」，利率優勢是最直接的轉換動機。比主粉專更窄的地理圈，名單型直接問詢效率最高。',
+   lm:['台中市政府','南區公所','大慶派出所','台中地方法院'],
+   tags:[['Government employee','公務員'],['Teacher','教師'],['Military','軍職'],['Civil servant','公務人員'],['Public sector pension','退休俸'],['Preferential mortgage','優惠房貸'],['Housing loan','住宅貸款'],['Real estate','不動產'],['Property investment','置產投資'],['Home buying','購屋'],['Financial planning','財務規劃'],['Investment','投資理財'],['Mortgage','房貸'],['Retirement planning','退休規劃'],['Job security','工作保障'],['Saving','儲蓄'],['Education','教育'],['School district','學區'],['Family','家庭'],['Children','子女'],['Community','社區'],['Quality of life','生活品質'],['National Chung Hsing University','中興大學'],['Taichung','台中'],['Banking','銀行理財'],['Life insurance','壽險'],['Work-life balance','工作生活平衡'],['Smart home','智慧居家'],['Interior design','室內設計'],['Home upgrade','換屋升格']]},
+  {n:'28–48 / 台中大遠百+廣三SOGO+3km / 百貨商圈女性消費族',sub:'換地標精準版·西區北屯高消費力女性·與國圖館圈完全不重疊',
+   logic:'1510高資產女性組（國圖館+6km）已驗證22潛客CPL $270，現切換地標定向為「台中百貨商圈+3km」，觸及西區+北屯消費力強女性，與原有圈完全不重疊。百貨商圈周邊女性消費力由實際購物行為佐證，是最有效的置產轉換觸媒。1510名單廣告配合換地標可快速驗證新地理區效益。',
+   lm:['台中大遠百','廣三SOGO','勤美誠品','台中中友百貨'],
+   tags:[['Department store','百貨公司'],['Luxury goods','精品奢侈品'],['Fashion','時尚'],['Louis Vuitton','路易威登LV'],['Chanel','香奈兒'],['Premium skincare','高端保養品'],['Beauty','美容保養'],['Cosmetics','化妝品'],['Spa','水療SPA'],['Fine dining','精緻餐飲'],['Travel','旅遊'],['Lifestyle','生活風格'],['Interior design','室內設計'],['Real estate','不動產'],['Property investment','置產投資'],['Home buying','購屋'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Investment','投資理財'],['Wealth management','財富管理'],['Quality of life','生活品質'],['Community living','社區生活'],['Professional women','職業女性'],['Executive','主管職'],['Career','職涯'],['Taichung','台中'],['Social media','社群媒體'],['Photography','攝影'],['La Mer','海洋拉娜'],['SK-II','SK-II']]},
+  {n:'40–62 / 南區+中區 / 在地老屋資產置換型',sub:'老公寓+停車位資產可換玥和·直接置換邏輯·名單廣告最精準',
+   logic:'南區有大量持有老公寓+停車位的在地資產族，他們的老屋可以換玥和的新屋。1510名單廣告最適合真正在考慮交易的人。切角：「你的老公寓每年折舊，玥和22樓，先換先享受，出售老屋+房貸可以搞定的」，強調資產置換的財務邏輯比一般換屋廣告更直接有力。重新包裝建案的最佳名單廣告角度。',
+   lm:['南區老社區','中區老公寓圈','東區','大慶火車站'],
+   tags:[['Home renovation','老屋翻新'],['Urban renewal','都市更新'],['Old apartment','老舊公寓'],['Real estate','不動產'],['Property investment','置產投資'],['Investment','投資理財'],['Financial planning','財務規劃'],['Mortgage','房貸'],['Wealth management','財富管理'],['Banking','銀行理財'],['Tax planning','稅務規劃'],['Asset management','資產管理'],['Home buying','購屋'],['Selling home','出售房屋'],['Moving','搬家'],['Interior design','室內設計'],['New construction','新成屋'],['Architecture','建築'],['Smart home','智慧居家'],['Home improvement','居家裝潢'],['Family','家庭'],['Community living','社區生活'],['Quality of life','生活品質'],['Retirement planning','退休規劃'],['Taichung','台中'],['Life insurance','壽險'],['Saving','儲蓄'],['Local community','在地社區'],['Cooking','料理'],['Garden','園藝']]},
+  {n:'28–40 / 中興大學+3km / 租屋轉買屋·生活圈已定的準首購族',sub:'住在興大圈3年了·最後一步·名單廣告最短決策路徑',
+   logic:'中興大學周邊有大量租屋人口（年輕上班族），其中有首購能力但仍在「租不如買」猶豫中。1510名單廣告精準觸及這群「生活圈已定、只差一步決定」的準買家。地標鎖定中興大學+3km，生活圈認同感是最強的轉換驅動力。切角：「你在興大圈住了幾年了，租的不如買的，出來問一下。」決策路徑最短、CPL最有機會低。',
+   lm:['國立中興大學','大慶火車站','南區','興大附農'],
+   tags:[['Renting vs buying','租屋購屋比較'],['First home','首購'],['Home buying','購屋'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Real estate','不動產'],['Investment','投資理財'],['Property investment','置產投資'],['National Chung Hsing University','中興大學'],['Taichung','台中'],['Young professional','年輕上班族'],['Career','職涯工作'],['First job','初入職場'],['Saving','儲蓄'],['Banking','銀行理財'],['Life insurance','壽險'],['Work-life balance','工作生活平衡'],['Family','家庭'],['Community','社區'],['Interior design','室內設計'],['Quality of life','生活品質'],['Home decor','居家布置'],['Smart home','智慧居家'],['Furniture','家具'],['Commuting','通勤'],['Train','台鐵'],['Coffee','咖啡'],['Fitness','健身'],['Reading','閱讀'],['Lifestyle','精緻生活']]},
+  {n:'30–52 / 台中法院+3km / 律師會計師·財務精算型名單族',sub:'1510版：財務意識最強的專業人士·計算後才下單',
+   logic:'主粉專已設計同族群，1510更精準切入「有購屋計畫、正在評估」的法律/會計人士。名單廣告強調財務邏輯，「你的客戶都在你這裡規劃資產，你自己的家置產呢？2030完工，現在進場的條件你算一下」，以職業自省觸發，高轉換率名單型受眾。他們需要的是數字佐證，不是情感說服。',
+   lm:['台中地方法院','台中市商業核心','南區','大慶站'],
+   tags:[['Lawyer','律師'],['Attorney','法律顧問'],['Legal services','法律服務'],['Accounting','會計'],['CPA','會計師'],['Tax consultant','稅務顧問'],['Financial advisor','理財顧問'],['Corporate law','公司法務'],['Business consulting','商業顧問'],['Investment','投資理財'],['Financial planning','財務規劃'],['Property investment','置產投資'],['Real estate','不動產'],['Home buying','購屋'],['Mortgage','房貸'],['Wealth management','財富管理'],['Asset management','資產管理'],['Tax planning','稅務規劃'],['Professional development','職業進修'],['Career','職涯'],['Work-life balance','工作生活平衡'],['Quality of life','生活品質'],['Fine dining','精緻餐飲'],['Travel','旅遊'],['Community','社區'],['Interior design','室內設計'],['Taichung','台中'],['Family','家庭'],['Life insurance','壽險'],['Banking','銀行理財']]},
+  {n:'30–45 / 台中高鐵烏日+5km / 返台中定居高鐵通勤族精準版',sub:'從整個台北縮窄到烏日圈·距決策最近的準回流族',
+   logic:'既有北漂歸鄉組地理太廣（台北+新竹整市），1510精準版改鎖台中高鐵烏日站+5km，觸及「已在烏日/南屯居住考慮定居」的族群。這群人離決策最近：已在台中活動、家人在台中、只差一套房。切角升級：「台中站到大慶站兩站，2030完工你回到台中的家，名單留下來我們算給你看。」',
+   lm:['台中高鐵烏日站','大慶火車站','南屯區','南區'],
+   tags:[['High speed rail','高速鐵路'],['Train','台鐵通勤'],['Commuting','通勤'],['Remote work','遠距工作'],['Work from home','居家辦公'],['Technology','科技業'],['Engineering','工程師'],['Finance','金融業'],['Career','職涯發展'],['First home','首購'],['Real estate','不動產'],['Home buying','購屋'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Investment','投資理財'],['Property investment','置產投資'],['Saving','儲蓄'],['National Chung Hsing University','中興大學'],['Taichung','台中'],['Family','家庭'],['Community','社區'],['Quality of life','生活品質'],['Interior design','室內設計'],['Travel','旅遊'],['Coffee','咖啡'],['Fitness','健身'],['Banking','銀行理財'],['Life insurance','壽險'],['Home decor','居家布置'],['Smart home','智慧居家']]},
+  {n:'28–45 / 南區私立學校+3km / 私立小學幼兒園家長',sub:'南區學區直接定向·教育投資高=置產能力已驗證',
+   logic:'送孩子上私立小學/幼兒園的家長，教育投資意識高代表家庭財力充足，且對「學校附近的家」置產邏輯最直接。主粉專雙語教育家長方向有效，1510版本鎖定南區+中區私立學校周邊2km，是學區購屋最精準的名單廣告版本。切角：「每天送孩子上學，回頭看那棟22樓，想過住在這嗎？」',
+   lm:['南區私立小學','中區私立幼兒園','興大附農','大慶火車站'],
+   tags:[['Private school','私立學校'],['Elementary school','小學'],['Kindergarten','幼兒園'],['Child education','兒童教育'],['Parenting','親子教養'],['School district','學區'],['Learning','學習教育'],['English learning','英語學習'],['Bilingual education','雙語教育'],['Family','家庭'],['Children','子女親子'],['Baby','嬰幼兒'],['Home buying','購屋'],['First home','首購'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Investment','投資理財'],['Property investment','置產投資'],['Real estate','不動產'],['School proximity','近學校'],['Quality of life','生活品質'],['Community','社區'],['Interior design','室內設計'],['Home decor','居家布置'],['Furniture','家具'],['Life insurance','壽險'],['Saving','儲蓄'],['Taichung','台中'],['National Chung Hsing University','中興大學'],['Health food','健康飲食']]},
+  {n:'35–58 / 西區精誠路+南屯醫美圈 / 名醫醫美院長族',sub:'月入百萬·最高資產族·1510名單一句話就轉換',
+   logic:'醫美診所院長/主治醫師是台中消費力最頂尖的族群，月入百萬以上，從未被房地產廣告單獨精準鎖定。名單廣告最適合這群「有錢沒時間做決定」的高資產族，切角要快速直接：「南區最後幾套三房，22層景觀，完工前進場。留下電話，今天約你看。」不需要多解釋，他們只需要確認值得。',
+   lm:['西區精誠路醫美街','南屯醫美診所圈','台中大遠百','逢甲商圈'],
+   tags:[['Medical aesthetics','醫美'],['Cosmetic surgery','整形外科'],['Dermatology','皮膚科'],['Clinic owner','診所院長'],['Physician','醫師'],['Doctor','醫生'],['Private practice','自費診所'],['Plastic surgery','整形美容'],['Laser treatment','雷射療程'],['High income','高所得'],['Luxury lifestyle','頂級生活'],['Property investment','置產投資'],['Real estate investment','不動產投資'],['Wealth management','財富管理'],['Financial planning','財務規劃'],['Investment','投資理財'],['Real estate','不動產'],['Home buying','購屋'],['Mortgage','房貸'],['Fine dining','精緻餐飲'],['Travel','旅遊'],['Luxury goods','精品消費'],['Interior design','室內設計'],['Quality of life','生活品質'],['Community','頂級社區'],['Spa','水療SPA'],['Wellness','健康養生'],['Taichung','台中'],['Banking','銀行理財'],['Tax planning','稅務規劃']]},
+  {n:'32–52 / 南區+東區補教圈 / 補習班教育機構主理人',sub:'補教業老闆非老師·現金流穩定·主動置產意識',
+   logic:'已有補教業老師版本（主粉），但補習班主理人/老闆是完全不同輪廓——機構有資產、現金流穩定、決策自主快。南區+東區補教圈密集，名單廣告精準觸及。切角：「你的學生每年換批新的，你的事業卻年年穩，是時候把資金放到資產上了。」1510直接問詢，比主粉專更快轉換。',
+   lm:['南區補習班商圈','東區補教街','中興大學','大慶火車站'],
+   tags:[['Education business','教育事業'],['Tutoring center','補習班'],['Cram school','補教業'],['Learning center','學習中心'],['Entrepreneurship','創業'],['Small business','小型企業'],['Self-employment','自營事業'],['Business owner','企業主'],['Education management','教育管理'],['Teaching','教學'],['Curriculum','課程設計'],['Children education','兒童教育'],['Financial planning','財務規劃'],['Investment','投資理財'],['Property investment','置產投資'],['Real estate','不動產'],['Home buying','購屋'],['Mortgage','房貸'],['Wealth management','財富管理'],['Tax planning','稅務規劃'],['Asset management','資產管理'],['Business networking','商業社交'],['Banking','銀行理財'],['Life insurance','壽險'],['Family','家庭'],['Quality of life','生活品質'],['Interior design','室內設計'],['Community','社區'],['Taichung','台中'],['National Chung Hsing University','中興大學']]},
+  {n:'30–52 / 南區+中區特色餐廳圈 / 台中餐飲創業主·主廚',sub:'台中餐飲業最活躍·現金流穩·從未被房地產打到',
+   logic:'台中餐飲業全台最活躍，特色餐廳/咖啡廳主理人有穩定現金流但置產意識被低估。他們對「社區環境和鄰居素質」敏感度高，且財務狀況持續好轉。「事業成功了，現在是資產配置的時候了」是最自然的延伸。完全未被房地產廣告鎖定的餐飲主理人，1510名單廣告一句話進場邏輯清楚。',
+   lm:['南區餐飲街','中區特色餐廳圈','大慶火車站周邊','西區精誠咖啡街'],
+   tags:[['Restaurant owner','餐廳老闆'],['Food and beverage','餐飲業'],['Chef','主廚'],['Cafe owner','咖啡廳主理人'],['Culinary arts','廚藝料理'],['Food business','食品事業'],['Entrepreneurship','創業'],['Self-employment','自營事業'],['Small business','小型企業'],['Coffee','咖啡'],['Fine dining','精緻餐飲'],['Gastronomy','美食饗宴'],['Food photography','美食攝影'],['Instagram','Instagram'],['Social media','社群媒體'],['Lifestyle','生活風格'],['Real estate','不動產'],['Property investment','置產投資'],['Home buying','購屋'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Investment','投資理財'],['Wealth management','財富管理'],['Quality of life','生活品質'],['Interior design','室內設計'],['Community','社區'],['Taichung','台中'],['Travel','旅遊'],['Healthy food','健康飲食'],['Business networking','商業社交']]}
+];<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
@@ -315,7 +399,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 
 <!-- 主粉專 建議嘗試受眾（8組） -->
 <div class="section">
-  <div class="sec-title">主粉專｜建議嘗試受眾（8組）· 更新 2026-06-05</div>
+  <div class="sec-title">主粉專｜建議嘗試受眾（10組）· 更新 2026-06-12</div>
   <div id="main-aud-grid" class="aud-grid-2"></div>
 </div>
 
@@ -606,7 +690,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 
 <!-- 1510 建議嘗試受眾（8組） -->
 <div class="section">
-  <div class="sec-title alt-bar">1510｜建議嘗試受眾（8組）· 更新 2026-06-05</div>
+  <div class="sec-title alt-bar">1510｜建議嘗試受眾（10組）· 更新 2026-06-12</div>
   <div id="alt-aud-grid" class="aud-grid-2"></div>
 </div>
 
