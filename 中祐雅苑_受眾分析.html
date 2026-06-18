@@ -32,14 +32,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .stat{text-align:right}
 .stat-n{font-size:24px;font-weight:800;color:var(--accent);line-height:1;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
 .stat-l{font-size:10px;color:var(--sub2);margin-top:3px;font-weight:600;letter-spacing:.3px;text-transform:uppercase}
-.top-link{font-size:12px;color:var(--accent);margin-bottom:24px;display:inline-block;text-decoration:none;font-weight:500}
-.top-link span{border-bottom:1px solid var(--accent-border)}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--accent);text-decoration:none;margin-bottom:16px;padding:5px 12px;background:var(--accent-light);border-radius:20px;border:1px solid var(--accent-border);transition:all .15s}
+.back-link:hover{filter:brightness(.95);color:var(--accent-dark)}
 .sec-title{font-size:12px;font-weight:700;color:var(--sub);margin-bottom:14px;display:flex;align-items:center;gap:10px;letter-spacing:.4px;text-transform:uppercase}
 .sec-title::before{content:'';display:inline-block;width:3px;height:14px;background:var(--accent);border-radius:2px;flex-shrink:0}
 .sec-title::after{content:'';flex:1;height:1px;background:var(--bd)}
 .section{margin-bottom:28px}
 .creative-section{margin-bottom:32px}
-.note-bar{background:var(--accent-light);border:1px solid var(--accent-border);border-radius:10px;padding:10px 16px;font-size:12px;color:#2a4a2e;margin-bottom:20px;line-height:1.6}
 /* Profiles */
 .profiles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .profile-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow-xs);transition:box-shadow .2s,transform .2s}
@@ -89,12 +88,38 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .insight-list{list-style:none;display:flex;flex-direction:column;gap:7px}
 .insight-list li{font-size:13px;color:#4a5568;padding-left:18px;position:relative;line-height:1.6}
 .insight-list li::before{content:'→';position:absolute;left:0;color:var(--accent-border);font-size:12px;top:1px}
-/* New directions */
-.new-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.new-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:16px 18px;cursor:pointer;transition:border-color .15s,box-shadow .15s;box-shadow:var(--shadow-xs)}
-.new-card:hover{border-color:var(--accent-border);box-shadow:var(--shadow-sm)}
-.new-card-title{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:5px;line-height:1.4}
-.new-card-desc{font-size:12px;color:var(--sub);line-height:1.6}
+/* ── aud-card 展開系統 ── */
+.aud-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;align-items:start}
+@media(max-width:760px){.aud-grid-2{grid-template-columns:1fr}}
+.aud-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);box-shadow:var(--shadow-xs);overflow:hidden}
+.aud-header{display:flex;align-items:center;gap:12px;padding:14px 16px;cursor:pointer;user-select:none;transition:background .15s}
+.aud-header:hover{background:#f0f7f1}
+.aud-num{width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.aud-info{flex:1;min-width:0}
+.aud-name{font-size:13px;font-weight:700;color:var(--tx);line-height:1.35}
+.aud-sub{font-size:11px;color:var(--sub);margin-top:2px;line-height:1.4}
+.aud-arrow{font-size:11px;color:var(--sub2);transition:transform .2s;flex-shrink:0}
+.aud-card.open .aud-arrow{transform:rotate(90deg)}
+.aud-body{display:none;padding:0 16px 16px;border-top:1px solid var(--bd)}
+.aud-card.open .aud-body{display:block}
+.aud-sl{font-size:10px;font-weight:700;color:var(--sub2);letter-spacing:.5px;text-transform:uppercase;margin:12px 0 6px}
+.aud-logic{font-size:12px;color:var(--sub);line-height:1.7;background:#f4f7f4;border-left:3px solid var(--accent);padding:10px 12px;border-radius:0 6px 6px 0}
+.aud-lm{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:4px}
+.aud-lm-tag{font-size:11px;font-weight:600;color:#3a5a3e;background:#e4f0e6;padding:3px 10px;border-radius:10px;border:1px solid #b0d4b8}
+.tag-tbl{width:100%;border-collapse:collapse;font-size:12px;margin-top:4px}
+.tag-tbl thead tr{background:#f0f4f0}
+.tag-tbl th{padding:5px 8px;text-align:left;font-size:10px;font-weight:700;color:var(--sub2);border-bottom:1px solid var(--bd)}
+.tag-tbl tbody tr{cursor:pointer;transition:background .12s;border-bottom:1px solid #f0f0f0}
+.tag-tbl tbody tr:hover{background:#e8f3e8}
+.tag-tbl tbody tr.flash{background:#c8e8c8}
+.tag-tbl td{padding:5px 8px;color:var(--tx)}
+.tag-tbl td:first-child{color:var(--sub2);font-size:10px;width:24px}
+.copy-all-row{display:flex;justify-content:flex-end;margin-top:8px}
+.copy-all-btn{font-size:11px;font-weight:600;color:#3a5a3e;background:#e4f0e6;border:1px solid #b0d4b8;border-radius:8px;padding:5px 14px;cursor:pointer;transition:all .15s}
+.copy-all-btn:hover{background:#c8e4cc}
+.copy-all-btn.done{background:#d0ecd8;color:#2a6a3a;border-color:#a8d8b8}
+#copy-toast{position:fixed;bottom:72px;left:50%;transform:translateX(-50%) translateY(8px);background:#162016;color:#80c888;font-size:11px;font-weight:600;padding:7px 16px;border-radius:18px;opacity:0;pointer-events:none;transition:opacity .18s,transform .18s;z-index:300;white-space:nowrap}
+#copy-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 /* Ranking */
 .rk-row{background:var(--s);border:1px solid var(--bd);border-left:3px solid var(--bd);border-radius:var(--radius);padding:14px 18px 14px 14px;margin-bottom:6px;display:flex;gap:14px;align-items:center;box-shadow:none;transition:border-left-color .15s,box-shadow .15s,transform .15s;cursor:pointer}
 .rk-row:hover{border-left-color:var(--accent);box-shadow:0 2px 12px rgba(0,0,0,.06);transform:translateX(2px)}
@@ -159,13 +184,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   </div>
 </div>
 
-<a class="top-link" href="hub.html"><span>← 返回報告集</span></a>
-
-<div class="note-bar">📌 本案廣告目標為「訊息」，主指標為每則訊息成本。CPL = 每則訊息成本（NT$165~242 為有效範圍）。潛客表單另計 20 筆。</div>
+<a class="back-link" href="hub.html">← 返回案件總覽</a>
 
 <div class="tab-bar">
   <button class="tab-btn active" onclick="switchTab('analysis')">成效分析</button>
-  <button class="tab-btn" onclick="switchTab('next')">策略建議</button>
+  <button class="tab-btn" onclick="switchTab('aud')">建議受眾</button>
 </div>
 
 <div id="tab-analysis" class="tab-pane show">
@@ -330,48 +353,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 
 </div><!-- end tab-analysis -->
 
-<div id="tab-next" class="tab-pane">
-<!-- ── 建議新受眾方向 ── -->
+<div id="tab-aud" class="tab-pane">
 <div class="section">
-  <div class="sec-title">建議新測試受眾方向</div>
-  <div class="new-grid">
-    <div class="new-card">
-      <div class="new-card-title">28–55 / 大林新港+5 / 戶外傳統美食（重啟）↗</div>
-      <div class="new-card-desc">直接重啟 CPL NT$165 全案最低組，換地標至大林新港+5km，保留相同標籤，目標 CPL 壓至 NT$150 以下</div>
-    </div>
-    <div class="new-card">
-      <div class="new-card-title">30–55 / 大林新港 / 三和國小學區家長 ↗</div>
-      <div class="new-card-desc">4房格局+三和國小7分鐘，針對有小孩換屋需求的家長，訴求「孩子學區穩了，換一棟讓全家住得下」</div>
-    </div>
-    <div class="new-card">
-      <div class="new-card-title">30–60 / 台3沿線 / 農業主+換屋改善 ↗</div>
-      <div class="new-card-desc">細分農業主標籤（傳統農業/農機具/稻米），訴求「零公設無管理費，農忙後回家不用再繳公寓管理費」</div>
-    </div>
-    <div class="new-card">
-      <div class="new-card-title">28–55 / 大林嘉北 / 國道3大林交流道通勤族 ↗</div>
-      <div class="new-card-desc">鎖定每天走國道3號通勤嘉義市區或斗六的族群，訴求「大林交流道步行可達，不用再繳市區高房租」</div>
-    </div>
-
-    <div class="new-card">
-      <div class="new-card-title">28–52 / 大林新港 / 大林慈濟醫院醫護職員自住置產 ↗</div>
-      <div class="new-card-desc">大林慈濟醫院是嘉義縣最重要的醫療機構，醫護人員收入穩定、置産需求強。「零管理費+前院停車+2027完工」對醫護人員特別有吸引力。建議開「28-52 / 大林新港 / 醫療業/護理師/醫師/醫院職員」，訴求「大林慈濟旁，4房零管理費，前院停車不用搶，2027就能入住」。醫護轉換意向高，這個缺口完全未測試。</div>
-    </div>
-
-    <div class="new-card">
-      <div class="new-card-title">28–55 / 嘉義市區+中埔 / 火車站通勤首購換屋（大林站接嘉義）↗</div>
-      <div class="new-card-desc">大林火車站通嘉義市，嘉義市區上班族可住大林省預算。嘉義市4房要NT$2,000萬+，大林同樣4房約NT$1,200~1,465萬，差距700~800萬。建議開「28-55 / 嘉義市區+中埔 / 上班族首購/通勤換屋/負擔不起嘉義市」，訴求「大林火車站到嘉義市，4房只要嘉義市一半價錢，零管理費還有前院停車」。這個價差論述在嘉義市上班族中說服力極強。</div>
-    </div>
-
-    <div class="new-card">
-      <div class="new-card-title">30–52 / 大林新港 / 零管理費省錢族 × 公寓換透天感低密度 ↗</div>
-      <div class="new-card-desc">中祐雅苑是3層低密度小建案（32戶），前院停車+無管理費，等同透天享受。現住公寓每月約NT$3,000管理費，30年累積NT$108萬。建議開「30-52 / 大林新港嘉北 / 公寓換透天感/不想繳管理費/低密度住宅/獨立前院」，訴求「告別公寓管理費，32戶超低密度，前院停車電動充電，就是住得像透天但比透天新」。這是此案絕無僅有的稀缺定位。</div>
-    </div>
-
-    <div class="new-card">
-      <div class="new-card-title">30–55 / 雲林斗六莿桐 / 雲嘉邊境南向首購換屋 ↗</div>
-      <div class="new-card-desc">大林在嘉雲交界，雲林斗六/莿桐族群往南到大林只需15~20分鐘，但嘉義縣房價比雲林部分地區更親民且生活機能更好（慈濟醫院、公園、圖書館）。建議開「30-55 / 斗六莿桐嘉南 / 雲林往南置產/換屋升格」，訴求「比斗六更有生活感，比嘉義市更省錢，大林4房2027完工，位置剛好都好」。雲嘉邊境這個跨縣市受眾完全從未測試。</div>
-    </div>
-  </div>
+  <div class="sec-title">建議嘗試受眾（8組）· 更新 2026-06-18</div>
+  <div id="main-aud-grid" class="aud-grid-2"></div>
 </div>
 
 <!-- ── 受眾排行 ── -->
@@ -504,7 +489,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 
 </div>
 
-</div><!-- end tab-next -->
+</div><!-- end tab-aud -->
 
 <div class="page-footer">資料期間：2025-10-03 至 2026-05-28 · 中祐雅苑 嘉義大林 · 廣告目標：訊息 · 最後更新 2026-05-28</div>
 
@@ -512,15 +497,56 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 
 <div id="toast" style="position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);background:#2e2c29;color:#fff;font-size:12.5px;padding:10px 20px;border-radius:24px;opacity:0;transition:all .25s;pointer-events:none;z-index:999;white-space:nowrap">📋 已複製 → 貼至 Claude 對話</div>
 <script>
-function switchTab(name){document.querySelectorAll('.tab-btn').forEach((b,i)=>{const names=['analysis','next'];b.classList.toggle('active',names[i]===name)});document.querySelectorAll('.tab-pane').forEach(p=>{p.classList.remove('show')});document.getElementById('tab-'+name).classList.add('show');window.scrollTo({top:0,behavior:'smooth'})}
+function switchTab(name){document.querySelectorAll('.tab-btn').forEach((b,i)=>{const names=['analysis','aud'];b.classList.toggle('active',names[i]===name)});document.querySelectorAll('.tab-pane').forEach(p=>{p.classList.remove('show')});document.getElementById('tab-'+name).classList.add('show');window.scrollTo({top:0,behavior:'smooth'})}
 const PROJECT = '中祐雅苑（嘉義大林・大智三街・4房44~49坪・32戶・零公設・訊息508則・均CPL NT$241）';
 function showToast(){const t=document.getElementById('toast');t.style.opacity='1';t.style.transform='translateX(-50%) translateY(0)';setTimeout(()=>{t.style.opacity='0';t.style.transform='translateX(-50%) translateY(20px)'},2200)}
 function copyPrompt(text){navigator.clipboard.writeText(text).then(showToast).catch(()=>{const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast()})}
 document.querySelectorAll('.core-tag').forEach(el=>{el.addEventListener('click',()=>{const tag=el.textContent.replace('↗','').trim();copyPrompt(`針對${PROJECT}，請深入分析「${tag}」這個興趣標籤：\n1. 在本案受眾中代表什麼輪廓？\n2. 搭配哪些標籤組合效果最好？\n3. 素材訴求應該怎麼寫？`)})});
-document.querySelectorAll('.new-card').forEach(el=>{el.addEventListener('click',()=>{const title=el.querySelector('.new-card-title').textContent.replace('↗','').trim();const desc=el.querySelector('.new-card-desc').textContent.trim();copyPrompt(`針對${PROJECT}，我想測試新受眾方向：「${title}」\n說明：${desc}\n\n請給我：\n1. META 興趣標籤清單（附中文，約 10–15 個）\n2. 地理設定建議\n3. 適合這組受眾的素材訴求角度`)})});
 document.querySelectorAll('.tip').forEach(el=>{el.addEventListener('click',()=>{const title=el.querySelector('.tip-title').textContent.trim();const desc=el.querySelector('.tip-desc').textContent.trim();copyPrompt(`針對${PROJECT}，關於這項操作建議：\n「${title}」\n背景：${desc}\n\n請幫我制定具體執行方案，包含受眾設定細節和素材方向。`)})});
 document.querySelectorAll('.phase-row').forEach(el=>{el.style.cursor='pointer';el.addEventListener('click',()=>{const name=el.querySelector('.phase-title');const desc=el.querySelector('.phase-desc');if(!name)return;copyPrompt(`針對${PROJECT}，關於素材方向「${name.textContent.trim()}」：\n${desc?desc.textContent.trim():''}\n\n請幫我製作具體素材文案和視覺建議。`)})});
 document.querySelectorAll('.rk-row').forEach(el=>{el.addEventListener('click',()=>{const name=el.querySelector('.rk-name');if(name)copyPrompt(`針對${PROJECT}，請分析受眾「${name.textContent.trim()}」，給我深度策略建議。`)})});
+/* ── aud-card 系統 ── */
+const MAIN_G=[
+  {n:'28-55 / 大林新港+5km / 戶外傳統美食（重啟）',sub:'全案歷史最低CPL NT$165·41訊息已驗證·換地標擴大觸及',
+   logic:'28-55/大林嘉北/戶外傳統美食 41訊息CPL NT$165是全案歷史最低CPL，絕對值得重啟優化。換地標到「大林新港+5km」，完整保留戶外活動+傳統美食興趣標籤組合，素材強打「前院可以停車、烤肉佈置、節慶聚會都方便」，對嘉義在地熱愛戶外生活的族群是最直接的生活場景代入。目標CPL壓至NT$150以下，全案預算效益最高。',
+   lm:['大林火車站','大林慈濟醫院','新港奉天宮','大林蔗廍文化園區'],
+   tags:[['Outdoor activities','戶外活動'],['Traditional food','傳統美食'],['Barbecue','燒烤'],['Camping','露營'],['Picnic','野餐'],['Local cuisine','在地美食'],['Street food','夜市小吃'],['Night market','夜市'],['Traditional market','傳統市場'],['Food culture','飲食文化'],['Family gathering','家庭聚會'],['Home cooking','家常料理'],['Local lifestyle','在地生活'],['Community','社區'],['Chiayi','嘉義'],['Real estate','不動產'],['Home buying','購屋'],['First home','首購'],['Home upgrade','換屋升格'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Financial planning','財務規劃'],['Investment','投資理財'],['Family','家庭'],['Children','子女'],['Quality of life','生活品質'],['Parking','停車'],['Rural living','鄉村生活'],['Front yard','前院庭院'],['Moving','搬家遷居']]},
+  {n:'30-55 / 大林新港 / 三和國小學區家長×換屋',sub:'學區換屋缺口未測試·三和國小7分鐘·4房讓孩子長大住得下',
+   logic:'三和國小車程7分，大林國中車程14分，是本案最強但從未開發的訴求缺口。嘉義大林換屋父母最關心「孩子學校搬了要換，4房長大還住得下」，搭配「前院停車，孩子回家更安全」的生活化訴求，轉換動機清晰直接。學區父母族群CPL歷史均在NT$165~242有效範圍內，完全值得優先測試。',
+   lm:['三和國小','大林國中','大林火車站','大林慈濟醫院'],
+   tags:[['Primary school','國小學區'],['Children education','子女教育'],['School district','學區選擇'],['Elementary school','小學'],['Parent','父母'],['Family','家庭'],['Children','子女'],['Work-life balance','工作生活平衡'],['Home buying','購屋'],['Home upgrade','換屋升格'],['First home','首購'],['Real estate','不動產'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Saving','儲蓄'],['Financial planning','財務規劃'],['Local resident','在地居民'],['Community','社區'],['Chiayi','嘉義'],['Dalin','大林'],['Front yard','前院庭院'],['Parking','停車'],['Safety','居家安全'],['Low density housing','低密度住宅'],['Moving','搬家'],['Interior design','室內設計'],['Home improvement','居家改善'],['Life insurance','壽險'],['Banking','銀行理財'],['Quality of life','生活品質']]},
+  {n:'30-60 / 台3沿線+大林 / 農業主×換屋改善',sub:'農工業在地型CPL NT$206主力方向·農業標籤細分精準版',
+   logic:'大林是嘉義縣農業重鎮，台3沿線農業用地密集，農業主族群換屋需求真實強烈。細分農業標籤（傳統農業/農機具/稻米/禽類農場），鎖定農業主收入穩定但長期住舊屋的換屋需求。「零管理費+前院停車，農用車機車都能停，這才是嘉義人的家」是最在地的訴求角度，農業族群月現金流敏感度高，省錢訴求轉換率最佳。',
+   lm:['大林農會','台3省道大林段','大林蔗廍文化園區','大林火車站'],
+   tags:[['Farming','農業種植'],['Agriculture','農業'],['Rice farming','稻米農業'],['Poultry farming','禽類農場'],['Livestock','畜牧業'],['Organic farming','有機農業'],['Farm owner','農場主'],['Rural','農村鄉村'],['Traditional industry','傳統農業'],['Food production','食品生產'],['Agricultural equipment','農機農具'],['Local lifestyle','在地生活'],['Chiayi','嘉義'],['Dalin','大林'],['Home buying','購屋'],['Home upgrade','換屋升格'],['First home','首購'],['Real estate','不動產'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Family','家庭'],['Low maintenance','低維護費'],['No management fee','無管理費'],['Parking','停車'],['Front yard','前院'],['Community','社區'],['Moving','搬家'],['Quality of life','生活品質']]},
+  {n:'28-55 / 嘉義大林+大崎頂 / 國道3交流道通勤族×首購換屋',sub:'大林交流道步行可達·嘉義市通勤族省預算首購缺口完全未測試',
+   logic:'大林系統交流道是國道3嘉義出口，每天往返嘉義市上班的通勤族可以住大林省預算。嘉義市4房要NT$2,000萬+，大林同等4房約NT$1,200~1,465萬，省700~800萬。「大林交流道到嘉義市25分，通勤方便，4房只要嘉義市一半價錢」對通勤族說服力強，且此跨城市通勤受眾完全從未被本案鎖定。',
+   lm:['大林系統交流道','大林火車站','大崎頂','大林慈濟醫院'],
+   tags:[['Commuting','通勤上下班'],['Freeway','高速公路'],['Car commuter','開車通勤'],['National highway','省道國道'],['Office worker','上班族'],['Working professional','在職人員'],['First home','首購'],['Home upgrade','換屋升格'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Investment','投資理財'],['Budget home','平價住宅'],['Value home','超值購屋'],['Chiayi','嘉義'],['Dalin','大林'],['Yunlin','雲林'],['Local resident','在地居民'],['Family','家庭'],['Children','子女'],['Quality of life','生活品質'],['Parking','停車'],['Front yard','前院庭院'],['Community','社區'],['Moving','搬家'],['Banking','銀行理財'],['Life insurance','壽險']]},
+  {n:'28-52 / 大林新港 / 大林慈濟醫護職員×自住置產',sub:'醫護月收穩定核貸順暢·慈濟醫院在地通勤需求真實·完全未測試',
+   logic:'大林慈濟醫院是嘉義縣最重要的醫療機構，醫護人員收入穩定，薪資級距NT$5~20萬，是銀行最偏好核貸的職業族群。醫護在大林工作通勤需求明確，「零管理費+前院停車+2027完工，大林慈濟2分鐘，這是醫護人員最實用的置產選擇」，轉換意向高，且此受眾方向完全從未被測試，是高潛力藍海缺口。',
+   lm:['大林慈濟醫院','大林火車站','三和國小','大林國中'],
+   tags:[['Nurse','護理師'],['Doctor','醫師'],['Medical doctor','執業醫師'],['Physician','住院醫師'],['Pharmacist','藥師'],['Healthcare worker','醫療從業者'],['Hospital staff','醫院職員'],['Nursing','護理工作'],['Medical education','醫學教育'],['Healthcare','醫療保健'],['Clinical care','臨床照護'],['Medical license','醫師執照'],['Health professional','醫療專業人員'],['Chiayi','嘉義'],['Real estate','不動產'],['Home buying','購屋'],['First home','自住置產'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Financial planning','財務規劃'],['Investment','投資理財'],['Saving','儲蓄'],['Wealth management','財富管理'],['Retirement planning','退休規劃'],['Quality of life','生活品質'],['Community','社區'],['Parking','停車'],['Front yard','前院庭院'],['Moving','搬家'],['Work-life balance','工作生活平衡']]},
+  {n:'28-55 / 嘉義市區+中埔 / 火車站通勤換屋×嘉義市價差論述',sub:'大林到嘉義市25分·4房只要嘉義市一半價錢·跨城市換屋藍海',
+   logic:'嘉義市4房要NT$2,000萬+，大林同等4房約NT$1,200~1,465萬，差距700~800萬。大林火車站到嘉義市25分車程，對嘉義市上班族可以用「住大林省700萬，火車上班一樣方便」的強力價差論述。嘉義市核心居住族群完全從未被本案受眾鎖定，是高潛力藍海，跨城市首購換屋缺口極大。',
+   lm:['嘉義火車站','中埔鄉公所','大林火車站','大林系統交流道'],
+   tags:[['Commuting','通勤上下班'],['Train commuter','火車通勤'],['City worker','城市上班族'],['Office worker','上班族'],['First home','首購'],['Home upgrade','換屋升格'],['Budget home','平價住宅'],['Value comparison','比較房價'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Investment','投資理財'],['Chiayi City','嘉義市'],['Dalin','大林'],['Rural lifestyle','鄉居生活'],['Community','社區'],['Family','家庭'],['Children','子女'],['School district','學區'],['Moving','搬家遷居'],['Quality of life','生活品質'],['Low maintenance','低管理費'],['Front yard','前院庭院'],['Parking','停車'],['Banking','銀行理財'],['Life insurance','壽險'],['Interior design','室內設計']]},
+  {n:'30-52 / 大林新港嘉北 / 零管理費省錢族×公寓換透天感低密度',sub:'32戶超低密度稀缺定位·月省NT$3000管理費·公寓族換屋動機最強',
+   logic:'中祐雅苑是3層32戶低密度建案，前院停車+零公設+無管理費，等同透天享受但比透天新。現住公寓每月管理費NT$3,000，30年累積NT$108萬。「告別公寓管理費，32戶超低密度，前院停車電動充電，就是住得像透天但比透天新」，對現住公寓族群說服力極強，且此定位在嘉義大林市場完全獨一無二，無競品替代。',
+   lm:['大林火車站','大林農會','新港奉天宮','大林慈濟醫院'],
+   tags:[['No management fee','無管理費'],['Low cost','低持有成本'],['Saving','節省開銷'],['Budget living','省錢生活'],['Low maintenance','低維護費'],['Low density housing','低密度住宅'],['Townhouse','透天感住宅'],['Small community','小型社區'],['Privacy','居家隱私'],['Front yard','前院庭院'],['Parking','停車'],['EV charging','電動充電'],['Apartment upgrade','公寓換透天感'],['Home upgrade','換屋升格'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Financial planning','財務規劃'],['Chiayi','嘉義'],['Dalin','大林'],['Community','社區'],['Family','家庭'],['Children','子女'],['Quality of life','生活品質'],['Moving','搬家'],['Investment','投資理財'],['Banking','銀行理財'],['Local resident','在地居民'],['Interior design','室內設計']]},
+  {n:'30-55 / 雲林斗六莿桐 / 雲嘉邊境南向首購換屋',sub:'比斗六更有生活感·比嘉義市更省錢·跨縣市受眾完全未測試',
+   logic:'大林在嘉雲交界，斗六/莿桐族群往南到大林只需15~20分鐘，嘉義縣生活機能比雲林好（慈濟醫院、公園、圖書館）但房價更親民。「比斗六更有生活感，比嘉義市更省錢，大林4房2027完工，位置剛好都好」，雲嘉邊境跨縣市受眾完全從未測試，嘉義縣醫療資源優勢對雲林族群說服力強，是高潛力藍海方向。',
+   lm:['斗六市公所','莿桐鄉','大林火車站','大林慈濟醫院'],
+   tags:[['Yunlin','雲林'],['Chiayi','嘉義'],['Douliou','斗六'],['Cross county','跨縣市置產'],['Rural area','鄉鎮'],['Value home','超值購屋'],['First home','首購'],['Home upgrade','換屋升格'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Investment','投資理財'],['Budget home','平價住宅'],['Commuting','通勤'],['Local lifestyle','在地生活'],['Healthcare','醫療保健'],['Community facilities','生活機能'],['Family','家庭'],['Children','子女'],['Quality of life','生活品質'],['Community','社區'],['Moving','搬家'],['Front yard','前院庭院'],['Parking','停車'],['Low maintenance','低維護費'],['Banking','銀行理財'],['Interior design','室內設計']]}
+];
+let audToastT;
+function showCopyToast(msg){let t=document.getElementById('copy-toast');if(!t){t=document.createElement('div');t.id='copy-toast';document.body.appendChild(t);}t.textContent=msg;t.classList.add('show');clearTimeout(audToastT);audToastT=setTimeout(()=>t.classList.remove('show'),1400);}
+function copyTxt(txt){return navigator.clipboard?navigator.clipboard.writeText(txt):Promise.reject();}
+function initAudCard(card){if(card.dataset.cb)return;card.dataset.cb='1';card.querySelectorAll('.tag-tbl tbody tr').forEach(row=>{const en=row.cells[1]?.textContent.trim();if(!en)return;row.addEventListener('click',()=>{copyTxt(en).then(()=>{row.classList.add('flash');setTimeout(()=>row.classList.remove('flash'),600);showCopyToast('已複製：'+en);});});});card.querySelectorAll('.tag-tbl').forEach(tbl=>{const wrap=document.createElement('div');wrap.className='copy-all-row';const btn=document.createElement('button');btn.className='copy-all-btn';btn.innerHTML='⎘ 複製全部30個標籤';btn.addEventListener('click',e=>{e.stopPropagation();const tags=Array.from(tbl.querySelectorAll('tbody tr')).map(r=>r.cells[1]?.textContent.trim()).filter(Boolean).join('\n');copyTxt(tags).then(()=>{btn.classList.add('done');btn.textContent='✓ 已複製30個';showCopyToast('已複製全部30個標籤');setTimeout(()=>{btn.classList.remove('done');btn.innerHTML='⎘ 複製全部30個標籤';},2000);});});wrap.appendChild(btn);tbl.after(wrap);});}
+function toggleAud(id){const c=document.getElementById(id);c.classList.toggle('open');if(c.classList.contains('open'))initAudCard(c);}
+function buildAudCard(g,idx){const id='m'+(idx+1);const rows=g.tags.map((t,i)=>`<tr><td>${i+1}</td><td>${t[0]}</td><td>${t[1]}</td></tr>`).join('');const lmTags=g.lm.map(l=>`<span class="aud-lm-tag">${l}</span>`).join('');return `<div class="aud-card" id="${id}"><div class="aud-header" onclick="toggleAud('${id}')"><div class="aud-num">${idx+1}</div><div class="aud-info"><div class="aud-name">${g.n}</div><div class="aud-sub">${g.sub}</div></div><div class="aud-arrow">▶</div></div><div class="aud-body"><div class="aud-sl">評估邏輯</div><div class="aud-logic">${g.logic}</div><div class="aud-sl">地標定位</div><div class="aud-lm">${lmTags}</div><div class="aud-sl">興趣標籤（點擊列複製單個）</div><table class="tag-tbl"><thead><tr><th>#</th><th>English</th><th>中文</th></tr></thead><tbody>${rows}</tbody></table></div></div>`;}
+(function(){const mg=document.getElementById('main-aud-grid');if(mg)mg.innerHTML=MAIN_G.map((g,i)=>buildAudCard(g,i)).join('');})();
 </script>
 <button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到頂部">↑</button>
 <script>window.addEventListener('scroll',()=>document.getElementById('btt').classList.toggle('show',window.scrollY>300))</script>
