@@ -250,17 +250,16 @@ renderAudGrid('main-aud-grid',MAIN_G,'ac');
 
 function copyMainTags(e,i){
   e.stopPropagation();
-  const txt=MAIN_G[i].tags.map(t=>t[0]).join('\n');
-  navigator.clipboard.writeText(txt).then(()=>{
-    const b=e.target;b.textContent='✓ 已複製';b.classList.add('done');
-    setTimeout(()=>{b.textContent='複製全部標籤';b.classList.remove('done')},2000);
-  }).catch(()=>{
-    const ta=document.createElement('textarea');ta.value=txt;
-    ta.style.cssText='position:fixed;top:-9999px';document.body.appendChild(ta);
-    ta.select();document.execCommand('copy');document.body.removeChild(ta);
-    const b=e.target;b.textContent='✓ 已複製';b.classList.add('done');
-    setTimeout(()=>{b.textContent='複製全部標籤';b.classList.remove('done')},2000);
-  });
+  var b=e.target;while(b&&b.tagName!='BUTTON')b=b.parentElement;if(!b)b=e.target;
+  var txt=MAIN_G[i].tags.map(function(t){return t[0]}).join('\n');
+  b.textContent='✓ 已複製';b.classList.add('done');
+  setTimeout(function(){b.textContent='複製全部標籤';b.classList.remove('done')},2000);
+  try{
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt);}
+    else{throw'no api';}
+  }catch(err){
+    try{var ta=document.createElement('textarea');ta.value=txt;ta.style.cssText='position:fixed;top:-9999px';document.body.appendChild(ta);ta.focus();ta.select();document.execCommand('copy');document.body.removeChild(ta);}catch(e2){}
+  }
 }
 function toggleAudG(prefix,i){document.getElementById(prefix+i).classList.toggle('open')}
 
