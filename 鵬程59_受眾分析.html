@@ -241,27 +241,27 @@ function renderAudGrid(gridId,data,prefix){
   <div class="aud-lm">${lmH}</div>
   <div class="aud-sl" style="margin-top:12px">興趣標籤（30個）</div>
   <table class="tag-tbl"><thead><tr><th>#</th><th>英文</th><th>中文</th></tr></thead><tbody>${tagH}</tbody></table>
-  <div class="copy-all-row"><button class="copy-all-btn" onclick="copyMainTags(event,${i})">複製全部標籤</button></div>
 </div></div>`;
   });
   el.innerHTML=h;
 }
 renderAudGrid('main-aud-grid',MAIN_G,'ac');
 
-function copyMainTags(e,i){
-  e.stopPropagation();
-  var b=e.target;while(b&&b.tagName!='BUTTON')b=b.parentElement;if(!b)b=e.target;
-  var txt=MAIN_G[i].tags.map(function(t){return t[0]}).join('\n');
-  b.textContent='✓ 已複製';b.classList.add('done');
-  setTimeout(function(){b.textContent='複製全部標籤';b.classList.remove('done')},2000);
-  try{
-    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt);}
-    else{throw'no api';}
-  }catch(err){
-    try{var ta=document.createElement('textarea');ta.value=txt;ta.style.cssText='position:fixed;top:-9999px';document.body.appendChild(ta);ta.focus();ta.select();document.execCommand('copy');document.body.removeChild(ta);}catch(e2){}
-  }
+function copyTxt(txt){return navigator.clipboard?navigator.clipboard.writeText(txt):Promise.reject();}
+function initAudCard(card){
+  if(card.dataset.cb)return;card.dataset.cb='1';
+  card.querySelectorAll('.tag-tbl').forEach(tbl=>{
+    const wrap=document.createElement('div');wrap.className='copy-all-row';
+    const btn=document.createElement('button');btn.className='copy-all-btn';btn.innerHTML='⎘ 複製全部30個標籤';
+    btn.addEventListener('click',e=>{
+      e.stopPropagation();
+      const tags=Array.from(tbl.querySelectorAll('tbody tr')).map(r=>r.cells[1]?.textContent.trim()).filter(Boolean).join('\n');
+      copyTxt(tags).then(()=>{btn.classList.add('done');btn.textContent='✓ 已複製30個';setTimeout(()=>{btn.classList.remove('done');btn.innerHTML='⎘ 複製全部30個標籤';},2000);});
+    });
+    wrap.appendChild(btn);tbl.after(wrap);
+  });
 }
-function toggleAudG(prefix,i){document.getElementById(prefix+i).classList.toggle('open')}
+function toggleAudG(prefix,i){const c=document.getElementById(prefix+i);c.classList.toggle('open');if(c.classList.contains('open'))initAudCard(c);}
 
 window.addEventListener('scroll',()=>{document.getElementById('btt').classList.toggle('show',window.scrollY>300)});
 
