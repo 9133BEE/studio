@@ -241,13 +241,14 @@ function renderAudGrid(gridId,data,prefix){
   <div class="aud-lm">${lmH}</div>
   <div class="aud-sl" style="margin-top:12px">興趣標籤（30個）</div>
   <table class="tag-tbl"><thead><tr><th>#</th><th>英文</th><th>中文</th></tr></thead><tbody>${tagH}</tbody></table>
-  <div class="copy-all-row"><button class="copy-all-btn" onclick="copyTagsG(event,'${prefix}',${i},${JSON.stringify(data.map(g=>g.tags))})">複製全部標籤</button></div>
+  <div class="copy-all-row"><button class="copy-all-btn" onclick="copyMainTags(event,${i})">複製全部標籤</button></div>
 </div></div>`;
   });
   el.innerHTML=h;
 }
 renderAudGrid('main-aud-grid',MAIN_G,'ac');
 
+function copyMainTags(e,i){copyTagsG(e,'ac',i,MAIN_G.map(g=>g.tags))}
 function toggleAudG(prefix,i){document.getElementById(prefix+i).classList.toggle('open')}
 function copyTagsG(e,prefix,i,allTags){
   e.stopPropagation();
