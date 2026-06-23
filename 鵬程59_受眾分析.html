@@ -80,6 +80,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .tag-tbl tbody tr:hover{background:var(--accent-light)}
 .tag-tbl td{padding:5px 8px;color:var(--tx)}
 .tag-tbl td:first-child{color:var(--sub2);font-size:10px;width:24px}
+.tag-tbl tbody tr.flash{background:#c8e6d0!important}
 .copy-all-row{display:flex;justify-content:flex-end;margin-top:8px}
 .copy-all-btn{font-size:11px;font-weight:600;color:var(--accent-dark);background:var(--accent-light);border:1px solid var(--accent-border);border-radius:8px;padding:5px 14px;cursor:pointer;transition:all .15s}
 .copy-all-btn:hover{background:#d0e4f0}
@@ -250,6 +251,12 @@ renderAudGrid('main-aud-grid',MAIN_G,'ac');
 function copyTxt(txt){return navigator.clipboard?navigator.clipboard.writeText(txt):Promise.reject();}
 function initAudCard(card){
   if(card.dataset.cb)return;card.dataset.cb='1';
+  card.querySelectorAll('.tag-tbl tbody tr').forEach(row=>{
+    const en=row.cells[1]?.textContent.trim();if(!en)return;
+    row.addEventListener('click',()=>{
+      copyTxt(en).then(()=>{row.classList.add('flash');setTimeout(()=>row.classList.remove('flash'),600);showToast();});
+    });
+  });
   card.querySelectorAll('.tag-tbl').forEach(tbl=>{
     const wrap=document.createElement('div');wrap.className='copy-all-row';
     const btn=document.createElement('button');btn.className='copy-all-btn';btn.innerHTML='⎘ 複製全部30個標籤';
