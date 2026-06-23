@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>鵬程59｜受眾分析報告</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --accent:#3a6a8a;--accent-dark:#2a4f6a;--accent-light:#e8f0f5;--accent-border:#8ab0c8;
+  --bg:#f2f3f1;--s:#ffffff;--bd:#e4e5e2;--tx:#2e2c29;--sub:#7d7870;--sub2:#a8a199;
+  --good:#1e6e3f;--goodl:#e6f4ea;--warn:#c05c00;
+  --radius:12px;--shadow-xs:0 1px 3px rgba(0,0,0,.05);--shadow-sm:0 2px 8px rgba(0,0,0,.07);--shadow-card:0 2px 10px rgba(0,0,0,.06),0 1px 3px rgba(0,0,0,.04);
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft JhengHei','Segoe UI',sans-serif;background:var(--bg);color:var(--tx);font-size:14px;line-height:1.6;min-height:100vh}
+.page-header{background:linear-gradient(180deg,#0d1e2a 0%,#091521 100%);padding:0 40px;height:56px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.04),0 4px 20px rgba(0,0,0,.35);border-bottom:1px solid rgba(255,255,255,.06)}
+.ph-logo{width:30px;height:30px;background:linear-gradient(135deg,#6a9ab8,var(--accent-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;flex-shrink:0}
+.ph-title{font-size:14px;font-weight:700;color:#e8f0f5;letter-spacing:-.2px}
+.ph-sub{font-size:11px;color:#4a6a80;margin-left:2px}
+.ph-nav{margin-left:auto;display:flex;gap:8px;align-items:center}
+.ph-nav a{font-size:12px;color:#8ab0c8;text-decoration:none;padding:5px 13px;border-radius:6px;border:1px solid rgba(58,106,138,.25);background:rgba(58,106,138,.12);font-weight:500}
+.ph-nav a:hover{background:rgba(58,106,138,.22);color:#b8d0e0}
+#btt{position:fixed;right:24px;bottom:28px;width:38px;height:38px;border-radius:50%;background:rgba(10,20,30,.75);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.85);font-size:15px;cursor:pointer;opacity:0;transform:translateY(8px);transition:opacity .2s,transform .2s;pointer-events:none;z-index:150;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.3);font-family:inherit}
+#btt.show{opacity:1;transform:translateY(0);pointer-events:auto}
+.wrap{max-width:1200px;margin:0 auto;padding:32px 40px 48px}
+.case-header{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:20px 24px;margin-bottom:10px;display:flex;align-items:center;gap:18px;box-shadow:var(--shadow-card)}
+.case-logo{width:44px;height:44px;background:linear-gradient(135deg,#6a9ab8,var(--accent-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;flex-shrink:0}
+.case-info h2{font-size:17px;font-weight:700;color:var(--tx);letter-spacing:-.3px}
+.case-info p{font-size:12px;color:var(--sub);margin-top:3px;line-height:1.5}
+.case-stats{margin-left:auto;display:flex;gap:28px;flex-shrink:0}
+.stat{text-align:right}
+.stat-n{font-size:24px;font-weight:800;color:var(--accent);line-height:1;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.stat-l{font-size:10px;color:var(--sub2);margin-top:3px;font-weight:600;letter-spacing:.3px;text-transform:uppercase}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--accent);text-decoration:none;margin-bottom:20px;padding:5px 12px;background:var(--accent-light);border-radius:20px;border:1px solid var(--accent-border)}
+.sec-title{font-size:12px;font-weight:700;color:var(--sub);margin-bottom:14px;display:flex;align-items:center;gap:10px;letter-spacing:.4px;text-transform:uppercase}
+.sec-title::before{content:'';display:inline-block;width:3px;height:14px;background:var(--accent);border-radius:2px;flex-shrink:0}
+.sec-title::after{content:'';flex:1;height:1px;background:var(--bd)}
+.section{margin-bottom:28px}
+.note-bar{background:var(--accent-light);border:1px solid var(--accent-border);border-radius:10px;padding:10px 16px;font-size:12px;color:#2a4060;margin-bottom:20px;line-height:1.6}
+.profiles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.profile-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow-xs);transition:box-shadow .2s,transform .2s}
+.profile-card:hover{box-shadow:var(--shadow-sm);transform:translateY(-2px)}
+.profile-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:17px;margin-bottom:12px}
+.pi-blue{background:var(--accent-light)}.pi-teal{background:#e0eff2}.pi-green{background:#d8ead2}
+.profile-name{font-size:15px;font-weight:700;color:var(--tx);margin-bottom:4px}
+.profile-meta{font-size:12px;color:var(--sub);margin-bottom:10px}
+.profile-tags{font-size:12px;color:#4a5568;margin-bottom:10px;line-height:1.6}
+.profile-behavior{font-size:12px;color:var(--sub);line-height:1.55;margin-bottom:12px}
+.profile-badge{display:inline-block;font-size:11px;font-weight:700;padding:4px 11px;border-radius:20px;margin-top:2px}
+.badge-blue{background:var(--accent-light);color:#2a4060;border:1px solid var(--accent-border)}
+.badge-teal{background:#e0eff2;color:#2f6672;border:1px solid #87b5be}
+.badge-green{background:#d8ead2;color:#2f5c3f;border:1px solid #96c4a8}
+.tags-row{display:flex;flex-wrap:wrap;gap:8px}
+.core-tag{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;background:var(--s);border:1.5px solid var(--bd);border-radius:20px;font-size:13px;font-weight:600;color:var(--tx);cursor:pointer;transition:all .15s}
+.core-tag:hover{border-color:var(--accent-border);background:var(--accent-light);color:#2a4060}
+.core-tag .arr{font-size:11px;color:var(--accent-border)}
+.page-footer{text-align:center;font-size:11px;color:var(--sub2);margin-top:12px;padding-bottom:8px}
+/* ── 受眾卡片 ── */
+.aud-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;align-items:start}
+@media(max-width:760px){.aud-grid-2{grid-template-columns:1fr}}
+.aud-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);box-shadow:var(--shadow-xs);overflow:hidden}
+.aud-header{display:flex;align-items:center;gap:12px;padding:14px 16px;cursor:pointer;user-select:none;transition:background .15s}
+.aud-header:hover{background:#f0f4f8}
+.aud-num{width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.aud-info{flex:1;min-width:0}
+.aud-name{font-size:13px;font-weight:700;color:var(--tx);line-height:1.35}
+.aud-sub{font-size:11px;color:var(--sub);margin-top:2px;line-height:1.4}
+.aud-arrow{font-size:11px;color:var(--sub2);transition:transform .2s;flex-shrink:0}
+.aud-card.open .aud-arrow{transform:rotate(90deg)}
+.aud-body{display:none;padding:0 16px 16px;border-top:1px solid var(--bd)}
+.aud-card.open .aud-body{display:block}
+.aud-sl{font-size:10px;font-weight:700;color:var(--sub2);letter-spacing:.5px;text-transform:uppercase;margin:12px 0 6px}
+.aud-logic{font-size:12px;color:var(--sub);line-height:1.7;background:var(--accent-light);border-left:3px solid var(--accent);padding:10px 12px;border-radius:0 6px 6px 0}
+.aud-lm{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:4px}
+.aud-lm-tag{font-size:11px;font-weight:600;color:#2a4060;background:var(--accent-light);padding:3px 10px;border-radius:10px;border:1px solid var(--accent-border)}
+.tag-tbl{width:100%;border-collapse:collapse;font-size:12px;margin-top:4px}
+.tag-tbl thead tr{background:#eef3f7}
+.tag-tbl th{padding:5px 8px;text-align:left;font-size:10px;font-weight:700;color:var(--sub2);border-bottom:1px solid var(--bd)}
+.tag-tbl tbody tr{cursor:pointer;transition:background .12s;border-bottom:1px solid #edf0f2}
+.tag-tbl tbody tr:hover{background:var(--accent-light)}
+.tag-tbl td{padding:5px 8px;color:var(--tx)}
+.tag-tbl td:first-child{color:var(--sub2);font-size:10px;width:24px}
+.copy-all-row{display:flex;justify-content:flex-end;margin-top:8px}
+.copy-all-btn{font-size:11px;font-weight:600;color:var(--accent-dark);background:var(--accent-light);border:1px solid var(--accent-border);border-radius:8px;padding:5px 14px;cursor:pointer;transition:all .15s}
+.copy-all-btn:hover{background:#d0e4f0}
+.copy-all-btn.done{background:#d0ecd8;color:#2a6a3a;border-color:#a8d8b8}
+#copy-toast{position:fixed;bottom:72px;left:50%;transform:translateX(-50%) translateY(8px);background:#0d1e2a;color:#e8f0f5;font-size:11px;font-weight:600;padding:7px 16px;border-radius:18px;opacity:0;pointer-events:none;transition:opacity .18s,transform .18s;z-index:300;white-space:nowrap}
+#copy-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="ph-logo">程</div>
+  <span class="ph-title">鵬程59｜受眾分析</span>
+  <span class="ph-sub">· 台中烏日 · 製造業重工業受眾 · 總價約1000萬</span>
+  <nav class="ph-nav"><a href="index.html">標籤資料庫</a><a href="hub.html">← 返回總覽</a></nav>
+</header>
+
+<div id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+<div id="copy-toast">✓ 已複製到剪貼簿</div>
+
+<div class="wrap">
+
+<a class="back-link" href="hub.html">← 返回案件總覽</a>
+
+<div class="case-header">
+  <div class="case-logo">程</div>
+  <div class="case-info">
+    <h2>鵬程59｜台中烏日</h2>
+    <p>台中烏日區・製造業重工業首購換屋・總價約1000萬・目標受眾：烏日南屯製造業從業者・廣告目標：潛在客戶</p>
+  </div>
+  <div class="case-stats">
+    <div class="stat"><div class="stat-n">10組</div><div class="stat-l">規劃受眾</div></div>
+    <div class="stat"><div class="stat-n">300</div><div class="stat-l">興趣標籤</div></div>
+    <div class="stat"><div class="stat-n">2</div><div class="stat-l">核心地區</div></div>
+  </div>
+</div>
+
+<div class="note-bar">📌 本案目標族群為台中烏日、南屯製造業/重工業從業者，總價約1000萬，以首購或小坪數換屋為主。10組受眾依職業別精準區隔，避免重疊。</div>
+
+<!-- 三大受眾輪廓 -->
+<div class="section">
+  <div class="sec-title">三大核心受眾輪廓</div>
+  <div class="profiles">
+    <div class="profile-card">
+      <div class="profile-icon pi-blue">🏭</div>
+      <div class="profile-name">重工業技術工・首購主力</div>
+      <div class="profile-meta">年齡 28–50｜烏日南屯工業區</div>
+      <div class="profile-tags">職業：大車司機・焊接工・板金師傅・叉車手</div>
+      <div class="profile-behavior">月薪5-8萬、雙薪家庭8-12萬，工作在烏日南屯工業帶，「下班3分鐘到家」是最直接訴求。1000萬總價對這群人來說是「努力幾年就買得到」，首購動力強。</div>
+      <span class="profile-badge badge-blue">首購主力 · 購屋動力最強</span>
+    </div>
+    <div class="profile-card">
+      <div class="profile-icon pi-teal">⚙️</div>
+      <div class="profile-name">精密製造・中階管理換屋族</div>
+      <div class="profile-meta">年齡 30–55｜南屯精機廊道</div>
+      <div class="profile-tags">職業：生管・品管・CNC工程師・模具師傅</div>
+      <div class="profile-behavior">月薪6-10萬，在南屯精機廊道有10年以上資歷，對品質與地段有明確要求。換屋升格需求真實，「烏日生活機能完整+通勤近」是說服邏輯。</div>
+      <span class="profile-badge badge-teal">換屋升格 · 高決策力族群</span>
+    </div>
+    <div class="profile-card">
+      <div class="profile-icon pi-green">🔧</div>
+      <div class="profile-name">製造業自營・小廠老闆置產</div>
+      <div class="profile-meta">年齡 30–55｜烏日南屯工業圈</div>
+      <div class="profile-tags">職業：小工廠主・傳產自營・OEM接單老闆</div>
+      <div class="profile-behavior">年收200-500萬，平時忙於接單，置產是最信任的存錢方式。「廠子開了20年，是時候買自己的家」是核心訴求。在地根深，地緣認同感強。</div>
+      <span class="profile-badge badge-green">置產投資 · 在地根深高信任</span>
+    </div>
+  </div>
+</div>
+
+<!-- 核心標籤 -->
+<div class="section">
+  <div class="sec-title">跨受眾必保留的核心標籤</div>
+  <div class="tags-row">
+    <span class="core-tag">製造業（職業）<span class="arr">↗</span></span>
+    <span class="core-tag">重工業（職業）<span class="arr">↗</span></span>
+    <span class="core-tag">烏日區（地段）<span class="arr">↗</span></span>
+    <span class="core-tag">南屯區（地段）<span class="arr">↗</span></span>
+    <span class="core-tag">工廠通勤（行為）<span class="arr">↗</span></span>
+    <span class="core-tag">首購（動機）<span class="arr">↗</span></span>
+    <span class="core-tag">穩定收入（財力）<span class="arr">↗</span></span>
+    <span class="core-tag">房貸（行為）<span class="arr">↗</span></span>
+  </div>
+</div>
+
+<!-- 受眾清單 MAIN_G -->
+<div class="section">
+  <div class="sec-title">主粉專受眾清單（10組）· 建立 2026-06-23</div>
+  <div id="main-aud-grid" class="aud-grid-2"></div>
+</div>
+
+<div class="page-footer">鵬程59 受眾分析報告 · 更新 2026-06-23 · 9133 廣告操作團隊</div>
+</div>
+
+<script>
+const PROJECT='鵬程59';
+const MAIN_G=[
+  {n:'28-50 / 烏日南屯 / 重機械・大聯結車司機',sub:'全新測試・重工業核心從業者・首購動力最強',
+   logic:'聯結車司機/重機械操作員是烏日南屯製造重工業最核心的從業者，月薪6-8萬，工時長但收入穩定。鵬程59總價約1000萬、月繳約2.5萬，對這群人來說「再努力3-5年就上得了車」，購屋動力極強。切角訴求：「師傅也買得起的家」。',
+   lm:['烏日工業區通勤圈','大肚山工業帶','南屯工業區','高鐵烏日站'],
+   tags:[['Heavy truck','重型卡車'],['Semi-trailer truck','聯結車'],['Truck driver','大車司機'],['Freight transportation','貨運運輸'],['Commercial vehicle','商用車輛'],['Diesel engine','柴油引擎'],['Road freight','公路貨運'],['Cargo logistics','貨物物流'],['Fleet management','車隊管理'],['Trucking industry','貨運業'],['Heavy machinery','重機械'],['Industrial vehicle','工業車輛'],['Oversize cargo','大型貨物'],['Logistics center','物流中心'],['Long haul driving','長途行車'],['Load capacity','載重量'],['Warehouse','倉庫管理'],['Supply chain','供應鏈'],['Manufacturing','製造業'],['Heavy industry','重工業'],['Real estate','不動產'],['Home buying','購屋'],['First home','首購族'],['Wuri District','烏日區'],['Nantun District','南屯區'],['Taichung','台中'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Apartment','公寓大樓'],['Stable income','穩定收入']]},
+  {n:'28-50 / 烏日南屯 / 工廠技師・班長・線長',sub:'全新測試・製造現場技術職・在地生根首購',
+   logic:'工廠技師/班長/線長是製造業現場最穩定的族群，薪資約月4.5-6萬，有年資加給+輪班津貼。對烏日南屯工廠聚落周邊有高度地緣認同，買「回家不用換線的房」是核心訴求。建議文案：「下班3分鐘到家，師傅的私有地盤」。',
+   lm:['烏日工業區','南屯精機廊道','台中工業區','大肚山工業帶'],
+   tags:[['Manufacturing technician','製造業技師'],['Factory worker','工廠員工'],['Assembly line','生產線'],['Production management','生產管理'],['Quality control','品質管制'],['Factory supervisor','工廠班長'],['Shift work','輪班工作'],['Industrial safety','工業安全'],['Machine operation','機器操作'],['Production quota','生產配額'],['Night shift','夜班工作'],['Workshop','車間作業'],['Manufacturing efficiency','製造效率'],['Labor union','工會'],['Overtime work','加班費'],['Piece rate','計件薪資'],['Work schedule','排班制度'],['Factory automation','工廠自動化'],['Manufacturing','製造業'],['Heavy industry','重工業'],['Real estate','不動產'],['Home buying','購屋'],['First home','首購族'],['Wuri District','烏日區'],['Nantun District','南屯區'],['Taichung','台中'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Apartment','公寓大樓'],['Stable income','穩定收入']]},
+  {n:'30-55 / 烏日南屯 / 模具・金屬加工・板金',sub:'全新測試・精密製造技師・南屯精機換屋主力',
+   logic:'南屯精機廊道、大肚山工業帶聚集大量模具/金屬加工/板金工廠，從業者技術門檻高、薪資5-8萬，是台中傳統製造業的核心支柱。這群人在地根深、換屋需求真實，「附近工廠3分鐘，不用租屋」對他們說服力極強。切角：「做了20年模具，換一間自己的房」。',
+   lm:['南屯精機廊道','台中精密機械廊道','烏日工業區','大肚山工業帶'],
+   tags:[['Mold making','模具製造'],['Metal processing','金屬加工'],['Sheet metal','板金加工'],['CNC machining','CNC加工'],['Precision manufacturing','精密製造'],['Metal cutting','金屬切割'],['Die casting','壓鑄'],['Stamping','沖壓加工'],['Welding','焊接技術'],['Grinding','研磨加工'],['Lathe operation','車床操作'],['Metal fabrication','金屬製造'],['Tool and die','刀模具'],['Heat treatment','熱處理'],['Surface treatment','表面處理'],['Industrial machinery','工業機械'],['Precision parts','精密零件'],['Machine shop','機械廠'],['Manufacturing','製造業'],['Heavy industry','重工業'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Wuri District','烏日區'],['Nantun District','南屯區'],['Taichung','台中'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Apartment','公寓大樓'],['Home upgrade','換屋升格']]},
+  {n:'28-50 / 烏日南屯 / 汽機車零件・車輛製造',sub:'全新測試・汽車供應鏈在地置產・停車需求強',
+   logic:'台中烏日南屯是台灣重要的汽機車零件製造聚落，從業者薪資穩定5-7萬。汽車相關製造業員工對「停車方便」最敏感，鵬程59公設含停車位是直接訴求。切角：「你整天跟車打交道，自己的家有沒有位子停？」',
+   lm:['烏日汽車零件聚落','南屯工業區','台中工業區','大肚山工業帶'],
+   tags:[['Automotive parts','汽車零件'],['Car manufacturing','汽車製造'],['Motorcycle','機車'],['Auto parts factory','零件工廠'],['Vehicle assembly','車輛組裝'],['Engine parts','引擎零件'],['Suspension system','懸吊系統'],['Brake system','煞車系統'],['Auto repair','汽車維修'],['Car modification','改裝車'],['OEM manufacturing','OEM製造'],['Vehicle inspection','車輛檢驗'],['Car insurance','汽車保險'],['Parking','停車位'],['Gasoline','加油族'],['Supply chain','供應鏈'],['Automotive industry','汽機車產業'],['Aftermarket parts','副廠零件'],['Manufacturing','製造業'],['Heavy industry','重工業'],['Real estate','不動產'],['Home buying','購屋'],['First home','首購族'],['Wuri District','烏日區'],['Nantun District','南屯區'],['Taichung','台中'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Apartment','公寓大樓'],['Stable income','穩定收入']]},
+  {n:'28-55 / 烏日南屯 / 物流・倉儲・叉車操作',sub:'全新測試・工業區倉儲族・最近距離置產需求',
+   logic:'烏日工業區周邊聚集大量物流倉儲設施，叉車手/倉管薪資約4-5萬，雙薪可到8-10萬。這群人工作地點固定在烏日工業圈，「住在工廠旁」是最直接的需求。切角：「早上7點上班，6點56下樓就到」，訴求通勤便利。',
+   lm:['烏日工業區物流圈','南屯工業區','高鐵烏日站物流帶','大肚山工業帶'],
+   tags:[['Forklift','叉車操作'],['Warehouse management','倉儲管理'],['Logistics','物流'],['Inventory management','庫存管理'],['Storage','倉庫儲存'],['Packing','打包包裝'],['Distribution center','配送中心'],['Supply chain','供應鏈'],['Loading dock','貨物裝卸'],['Freight','貨運'],['Last mile delivery','最後一哩配送'],['Order fulfillment','訂單出貨'],['Palletizing','棧板作業'],['Third party logistics','第三方物流'],['Shipping','出口運輸'],['Barcode scanning','條碼掃描'],['Cold chain','冷鏈物流'],['ERP system','ERP系統'],['Manufacturing','製造業'],['Heavy industry','重工業'],['Real estate','不動產'],['Home buying','購屋'],['First home','首購族'],['Wuri District','烏日區'],['Nantun District','南屯區'],['Taichung','台中'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Apartment','公寓大樓'],['Stable income','穩定收入']]},
+  {n:'28-50 / 烏日南屯 / 電焊・氬焊・結構工程',sub:'全新測試・焊接技術工首購・生活機能優先',
+   logic:'電焊/氬焊技師是台中工業區高需求職種，技術成熟後月薪可到6-8萬。從業者通常工時長、無太多休閒，對「回家方便、生活機能近」的需求超過景觀。鵬程59烏日生活機能完整，是這群人「下班就想到家」的最佳解。',
+   lm:['烏日工業區','南屯工業區','大肚山工業帶','台中工業區'],
+   tags:[['Welding','電焊技術'],['TIG welding','氬焊'],['MIG welding','半自動焊接'],['Structural welding','結構焊接'],['Pipe welding','管道焊接'],['Metalwork','金屬工藝'],['Steel fabrication','鋼構製造'],['Arc welding','電弧焊'],['Welding certification','焊接執照'],['Ironwork','鐵工'],['Steel structure','鋼結構'],['Mechanical fitting','配管工程'],['Crane operation','吊車操作'],['Rigging','索具作業'],['Safety equipment','安全設備'],['Protective gear','防護裝備'],['Construction','建築工程'],['Industrial maintenance','工業設備保養'],['Manufacturing','製造業'],['Heavy industry','重工業'],['Real estate','不動產'],['Home buying','購屋'],['First home','首購族'],['Wuri District','烏日區'],['Nantun District','南屯區'],['Taichung','台中'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Apartment','公寓大樓'],['Stable income','穩定收入']]},
+  {n:'25-40 / 烏日南屯 / 製造業雙薪首購小家庭',sub:'全新測試・雙薪首購・購屋決心最快族群',
+   logic:'烏日南屯工業區夫妻皆任職製造業，合計月薪8-12萬，是1000萬自備款累積最快的族群。孩子剛出生或還未出生，「想從租屋族升格為屋主」的心理最強烈。切角：「雙薪10萬，一起買下第一個家」，配合年輕夫妻購屋情境素材效果最佳。',
+   lm:['烏日工業區','南屯工業區','高鐵烏日站','烏日高鐵特區'],
+   tags:[['Dual income','雙薪家庭'],['Young couple','年輕夫妻'],['First home','首購族'],['Marriage','結婚成家'],['New family','新婚小家庭'],['Baby','嬰兒育兒'],['Childcare','幼兒照護'],['Young parents','年輕父母'],['Budgeting','預算規劃'],['Saving money','存錢理財'],['Renting','租屋族'],['Moving out','搬出娘家'],['Home loan','申請房貸'],['Down payment','存頭期款'],['Factory job','工廠工作'],['Stable career','穩定職業'],['Work commute','上下班通勤'],['Cost of living','生活成本'],['Manufacturing','製造業'],['Heavy industry','重工業'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Wuri District','烏日區'],['Nantun District','南屯區'],['Taichung','台中'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Apartment','公寓大樓'],['Home upgrade','換屋升格']]},
+  {n:'30-55 / 烏日南屯 / 工廠主管・生管・品管・工程師',sub:'全新測試・製造業管理職・換屋決策力強',
+   logic:'生產主管/品管工程師/製程工程師月薪6-10萬，在烏日南屯工業帶有10年以上資歷。這群人有明確的「換屋升格」需求，從租屋→買屋或從小坪數→大一點。對建案品質要求較高，切角訴求「工程人看細節，鵬程59細節讓你放心」。',
+   lm:['烏日工業區','南屯精機廊道','台中工業區','大肚山工業帶'],
+   tags:[['Production manager','生產主管'],['Quality assurance','品質保證'],['Process engineer','製程工程師'],['Manufacturing engineer','製造工程師'],['Industrial engineering','工業工程'],['Six Sigma','六標準差'],['ISO certification','ISO認證'],['Lean production','精實生產'],['Continuous improvement','持續改善'],['Operations management','營運管理'],['Project management','專案管理'],['Team leadership','團隊領導'],['KPI management','KPI管理'],['ERP software','ERP系統'],['Supply chain management','供應鏈管理'],['Cost reduction','降低成本'],['Automation','自動化'],['Smart factory','智慧工廠'],['Manufacturing','製造業'],['Heavy industry','重工業'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Wuri District','烏日區'],['Nantun District','南屯區'],['Taichung','台中'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Apartment','公寓大樓'],['Home upgrade','換屋升格']]},
+  {n:'30-55 / 烏日南屯 / CNC・自動化・工具機產業',sub:'全新測試・高薪精密製造族・地緣認同強',
+   logic:'CNC操作員/自動化工程師/工具機廠員工是台中製造業薪資最高的藍白領族群，月薪7-12萬。南屯精機廊道是全球密度最高的工具機聚落，從業者對「在地生根」認同感極強。訴求「台灣工具機的心臟在台中，你的家也該在這裡」。',
+   lm:['南屯精機廊道','台中精密機械廊道','烏日工業區','大肚山工業帶'],
+   tags:[['CNC machining','CNC加工'],['CNC programming','CNC程式設計'],['Robotics','機器人'],['Industrial automation','工業自動化'],['PLC programming','PLC程式'],['Machine tool','工具機'],['Servo motor','伺服馬達'],['Industrial robot','工業機器人'],['Vision system','視覺系統'],['Motion control','運動控制'],['Precision engineering','精密工程'],['Machining center','加工中心機'],['CAD CAM','CAD/CAM設計'],['Grinding machine','研磨機'],['Smart manufacturing','智慧製造'],['Industry 4.0','工業4.0'],['IIoT','工業物聯網'],['Mechanical design','機械設計'],['Manufacturing','製造業'],['Heavy industry','重工業'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Wuri District','烏日區'],['Nantun District','南屯區'],['Taichung','台中'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Apartment','公寓大樓'],['Home upgrade','換屋升格']]},
+  {n:'30-55 / 烏日南屯 / 傳產製造自營・小廠老闆',sub:'全新測試・製造業小老闆・置產是最信任的存錢方式',
+   logic:'烏日南屯有大量「小老闆」——自家工廠3-5人規模，年收入200-500萬，平時忙於接單不擅長投資理財，置產是最信任的「存錢方式」。切角：「廠子開了20年，是時候買自己的家了」，強調在地連結與安心感。',
+   lm:['烏日工業區','南屯工業區','大肚山工業帶','高鐵烏日站'],
+   tags:[['Small factory owner','小廠老闆'],['Traditional industry','傳統產業'],['Manufacturing SME','製造業中小企業'],['Business owner','自營業主'],['Workshop','工作室'],['Factory management','工廠管理'],['Order management','接單管理'],['Business accounting','商業記帳'],['Tax planning','稅務規劃'],['Cash flow','現金流管理'],['Business networking','商業社交'],['Procurement','採購管理'],['Supplier relationship','廠商關係'],['Export','外銷出口'],['OEM production','OEM代工'],['Metal workshop','金屬工廠'],['Equipment investment','設備投資'],['Hire workers','招募員工'],['Manufacturing','製造業'],['Heavy industry','重工業'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Wuri District','烏日區'],['Nantun District','南屯區'],['Taichung','台中'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Apartment','公寓大樓'],['Home upgrade','換屋升格']]},
+];
+
+function renderAudGrid(gridId,data,prefix){
+  const el=document.getElementById(gridId);
+  if(!el)return;
+  let h='';
+  data.forEach((g,i)=>{
+    const lmH=g.lm.map(l=>`<span class="aud-lm-tag">${l}</span>`).join('');
+    const tagH=g.tags.map((t,j)=>`<tr><td>${j+1}</td><td>${t[0]}</td><td>${t[1]}</td></tr>`).join('');
+    const numCls=g.active?'aud-num active-num':'aud-num';
+    const activeBadge=g.active?` <span class="rk-tag t-active" style="font-size:10px;margin-left:4px">進行中</span>`:'';
+    h+=`<div class="aud-card" id="${prefix}${i}">
+<div class="aud-header" onclick="toggleAudG('${prefix}',${i})">
+  <div class="${numCls}">${i+1}</div>
+  <div class="aud-info"><div class="aud-name">${g.n}${activeBadge}</div><div class="aud-sub">${g.sub}</div></div>
+  <div class="aud-arrow">▶</div>
+</div>
+<div class="aud-body">
+  <div class="aud-sl">投放邏輯</div>
+  <div class="aud-logic">${g.logic}</div>
+  <div class="aud-sl" style="margin-top:12px">地標定位</div>
+  <div class="aud-lm">${lmH}</div>
+  <div class="aud-sl" style="margin-top:12px">興趣標籤（30個）</div>
+  <table class="tag-tbl"><thead><tr><th>#</th><th>英文</th><th>中文</th></tr></thead><tbody>${tagH}</tbody></table>
+  <div class="copy-all-row"><button class="copy-all-btn" onclick="copyTagsG(event,'${prefix}',${i},${JSON.stringify(data.map(g=>g.tags))})">複製全部標籤</button></div>
+</div></div>`;
+  });
+  el.innerHTML=h;
+}
+renderAudGrid('main-aud-grid',MAIN_G,'ac');
+
+function toggleAudG(prefix,i){document.getElementById(prefix+i).classList.toggle('open')}
+function copyTagsG(e,prefix,i,allTags){
+  e.stopPropagation();
+  const txt=allTags[i].map(t=>t[0]).join('\n');
+  navigator.clipboard.writeText(txt).then(()=>{
+    const b=e.target;b.textContent='✓ 已複製';b.classList.add('done');
+    setTimeout(()=>{b.textContent='複製全部標籤';b.classList.remove('done')},2000);
+  });
+}
+
+window.addEventListener('scroll',()=>{document.getElementById('btt').classList.toggle('show',window.scrollY>300)});
+
+function showToast(){const t=document.getElementById('copy-toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200)}
+function copyPrompt(text){navigator.clipboard.writeText(text).then(showToast).catch(()=>{const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast()})}
+
+document.querySelectorAll('.core-tag').forEach(el=>{el.addEventListener('click',()=>{const tag=el.textContent.replace('↗','').trim();copyPrompt(`針對${PROJECT}，請深入分析「${tag}」這個興趣標籤：\n1.在本案受眾中代表什麼輪廓？\n2.搭配哪些標籤組合效果最好？\n3.素材訴求應該怎麼寫？`)})});
+</script>
+</body>
+</html>
