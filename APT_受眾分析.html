@@ -903,14 +903,10 @@ const ALT2_G=[
    tags:[['International trade','國際貿易'],['Export business','出口事業'],['Import export','進出口'],['Global business','全球商務'],['Trade fair','商展'],['Exhibition','展覽'],['Business networking','商業社群'],['B2B','企業間交易'],['International business','國際商務'],['Business English','商務英文'],['Business travel','商務旅行'],['Professional networking','專業社群'],['Industry association','產業協會'],['Chamber of commerce','商業公會'],['Supply chain','供應鏈'],['Logistics','物流'],['Freight','貨運'],['Customs clearance','清關'],['Trade finance','貿易金融'],['Market expansion','市場拓展'],['Cross-border e-commerce','跨境電商'],['International marketing','國際行銷'],['Business development','業務開發'],['Sales management','業務管理'],['Global supply chain','全球供應鏈'],['ERP system','ERP系統'],['Quality management','品質管理'],['ISO certification','ISO認證'],['Foreign language','外語能力'],['Multinational corporation','跨國企業']]}
 ];
 
-/* ── 初始化 ALT2_G ── */
-(function(){
+/* ── 初始化 ALT2_G（listeners 由原始 IIFE 統一掛載）── */
+const _ag2Init=(function(){
   const ag2=document.getElementById('alt-aud-grid-2');
-  if(ag2){
-    ag2.innerHTML=ALT2_G.map((g,i)=>buildAudCard(g,i+200)).join('');
-    ag2.querySelectorAll('.aud-header').forEach(hdr=>{hdr.addEventListener('click',()=>hdr.closest('.aud-card').classList.toggle('open'))});
-    ag2.querySelectorAll('.tag-tbl tbody tr').forEach(tr=>{tr.addEventListener('click',e=>{e.stopPropagation();const cells=tr.querySelectorAll('td');if(cells.length>=3)copyTxt(cells[1].textContent.trim())})});
-  }
+  if(ag2)ag2.innerHTML=ALT2_G.map((g,i)=>buildAudCard(g,i+200)).join('');
 })();
 
 /* ── aud-card functions ── */
