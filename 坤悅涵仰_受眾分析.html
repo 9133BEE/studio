@@ -211,7 +211,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   <div class="case-stats">
     <div class="stat"><div class="stat-n">17</div><div class="stat-l">累積潛客</div></div>
     <div class="stat"><div class="stat-n">5</div><div class="stat-l">訊息對話</div></div>
-    <div class="stat"><div class="stat-n">35</div><div class="stat-l">受眾組數</div></div>
+    <div class="stat"><div class="stat-n">55</div><div class="stat-l">受眾組數</div></div>
   </div>
 </div>
 
@@ -230,8 +230,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 
 <!-- ── Tab切換 ── -->
 <div class="tab-bar">
-  <button class="tab-btn active" onclick="switchTab('main')">主粉專（21組 · $16,784）</button>
-  <button class="tab-btn" onclick="switchTab('1510')">1510（14組 · $12,685）</button>
+  <button class="tab-btn active" onclick="switchTab('main')">主粉專（31組 · $16,784）</button>
+  <button class="tab-btn" onclick="switchTab('1510')">1510（24組 · $12,685）</button>
 </div>
 
 <!-- ════════════════════════════════════════
@@ -476,6 +476,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
       </div>
     </div>
 
+  </div>
+
+  <!-- 新推受眾 第二批 2026-06-24 -->
+  <div class="section">
+    <div class="sec-title">新推受眾（10組）· 更新 2026-06-24</div>
+    <div id="main-aud-grid-2" class="aud-grid-2"></div>
   </div>
 
 </div><!-- end tab-main -->
@@ -742,6 +748,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
     </ul>
   </div>
 
+  <!-- 新推受眾 第二批 2026-06-24 -->
+  <div class="section">
+    <div class="sec-title">新推受眾（10組）· 更新 2026-06-24</div>
+    <div id="1510-aud-grid-2" class="aud-grid-2"></div>
+  </div>
+
 </div><!-- end tab-1510 -->
 
 <div id="tab-insight" class="tab-pane" style="display:none">
@@ -962,7 +974,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 
 </div><!-- end tab-insight -->
 
-<div class="page-footer">坤悅涵仰 受眾分析報告 · 最後更新 2026-06-10</div>
+<div class="page-footer">坤悅涵仰 受眾分析報告 · 最後更新 2026-06-24</div>
 </div><!-- end wrap -->
 
 <button id="btt" onclick="scrollTo({top:0,behavior:'smooth'})">↑</button>
@@ -1139,6 +1151,101 @@ const NEW_1510_G=[
   if(ng)ng.innerHTML=NEW_MAIN_G.map((g,i)=>buildAudCard(g,i,'nm',false)).join('');
   const ng2=document.getElementById('new-1510-aud-grid');
   if(ng2)ng2.innerHTML=NEW_1510_G.map((g,i)=>buildAudCard(g,i,'n15',true)).join('');
+})();
+
+/* ── 主粉專新推10組 2026-06-24 ── */
+const NEW_MAIN2_G=[
+  {n:'28-45 / 東區太平 / 新婚×婚後首購×三房置產',sub:'新婚是人生最強置產觸媒·三房讓兩人有彼此空間也有嬰兒房準備',
+   logic:'剛結婚或計畫婚後置產的族群，三房是「新婚首購+未來嬰兒房」的最直接解決方案。婚後從租屋到三房的轉換動機極強，時間感迫切，坤悅涵仰2028完工對準婚後1-2年進場卡位節點。太平國小步行3分鐘是這族群看進未來的學區誘因，說服邏輯完整。完全未被鎖定的婚育族群。',
+   lm:['東區婚紗街','太平市中心','澄清醫院太平分院','74快速道路'],
+   tags:[['Wedding','婚禮'],['Marriage','結婚'],['Honeymoon','蜜月旅行'],['Newlywed','新婚夫妻'],['Engagement','訂婚求婚'],['Wedding planning','婚禮籌備'],['Anniversary','結婚紀念'],['Family planning','家庭規劃'],['New family','新家庭'],['Baby shower','迎嬰派對'],['Pregnancy','懷孕育兒'],['Bridal shower','婚前派對'],['Interior design','室內設計'],['Home ownership','購屋置產'],['First home','首購自住'],['Moving','搬家入住'],['Apartment','公寓住宅'],['New construction homes','新建案'],['Real estate','房地產'],['Mortgage','房屋貸款'],['Financial planning','財務規劃'],['Investment','投資理財'],['Taichung','台中'],['Family','家庭'],['Children','子女'],['Quality of life','生活品質'],['School district','學區'],['Saving','儲蓄'],['Home upgrade','換屋升格'],['Community','社區']]},
+  {n:'30-50 / 太平大里 / 公校家長×才藝補習×學區換屋',sub:'孩子已在太平就學·學區是直接換屋動機·說服成本最低',
+   logic:'孩子已在太平公立小學就讀，或正在比較學區的家長族群。才藝補習、課後活動是這族群的日常消費，說明孩子教育優先。太平國小步行3分鐘直接命中購屋決策核心——「學校就在旁邊，三房讓孩子有自己的書房」。比韓系旅遊族更直接、比純學區廣告更精準的換屋動機族群。',
+   lm:['太平國小周邊','太平大里補習街','宜昌國小2km','大里區'],
+   tags:[['Elementary school','國小學區'],['After-school program','課後輔導'],["Children's activities",'兒童才藝活動'],['Music lessons','音樂課'],['Art class','繪畫藝術課'],['Swimming lessons','游泳課'],['Tutoring','補習課業'],['Dance lessons','舞蹈課'],['Martial arts','武術才藝'],['Sports for kids','兒童體育'],['School district','學區'],['Public school','公立學校'],['Education','教育'],['Child development','兒童發展'],['Parenting','親子教養'],['Family','家庭'],['Children','子女'],['Learning','學習'],['Parent communities','家長社群'],['School selection','選校規劃'],['Taichung','台中'],['Real estate','房地產'],['Home buying','購屋'],['Mortgage','房屋貸款'],['Property investment','置產投資'],['Quality of life','生活品質'],['Interior design','室內設計'],['Financial planning','財務規劃'],['Moving','搬家'],['Home upgrade','換屋升格']]},
+  {n:'35-55 / 南屯西屯 / 市區住小坪數→換太平三房',sub:'市區預算買不到三房·往外換更大·CP值覺醒族·說服邏輯明確',
+   logic:'住台中南屯、西屯，目前住20-30坪小宅或老公寓，想換三房但市區太貴。太平三房37-41坪絕對CP值優勢：「南屯同預算頂多25坪，太平可以住41坪三房」。不需說服太平是好地方，只需說服「多10坪值得多5分鐘車程」，說服門檻極低。從未被坤悅涵仰在市區定向觸及過的外圍換屋族。',
+   lm:['台中南屯區','台中西屯區','74快速道路太平出口','台中市區'],
+   tags:[['Home upgrade','居住升格'],['Relocation','搬家遷居'],['Moving to suburbs','遷往郊區'],['Property comparison','房屋比較'],['Value for money','物超所值'],['Three-bedroom apartment','三房格局'],['Family size home','家庭坪數'],['New construction homes','新建案'],['Suburb living','郊區生活'],['Commuting','通勤生活'],['Transportation','交通便利'],['Real estate','房地產'],['Home buying','購屋'],['Mortgage','房屋貸款'],['Property investment','置產投資'],['Financial planning','財務規劃'],['Investment','投資理財'],['Quality of life','生活品質'],['Interior design','室內設計'],['Condominium','電梯大廈'],['Community living','社區生活'],['Family','家庭'],['Children','子女'],['School district','學區'],['Taichung','台中'],['Budget planning','預算規劃'],['Down payment','頭期款'],['Smart home','智慧家居'],['Saving','儲蓄'],['New development area','新興區域']]},
+  {n:'35-55 / 霧峰大里 / 在地生活升格×太平換新大樓',sub:'同生活圈換屋·地點零障礙·霧峰大里在地人往太平換新',
+   logic:'霧峰、大里在地居民對太平生活圈熟悉（同屬台中外圍，互相生活交疊），沒有「太平很遠」的心理障礙，換屋升格動機是「住新的、住大的、住高的」。坤悅涵仰18層新大樓是這族群現有老社區/透天厝對比下的大升格，說服力強。同生活圈卻完全未被針對的鄰近市場。',
+   lm:['霧峰區中心','大里區公所','太平市中心','74快速道路'],
+   tags:[['Local community','在地社區'],['Neighborhood','鄰里生活'],['Home renovation','老屋翻新'],['Home upgrade','居住升格'],['Moving','搬家'],['New construction homes','新建案'],['High-rise apartment','高樓住宅'],['Condominium','電梯大廈'],['Architecture','建築設計'],['Building quality','建材工法'],['Interior design','室內設計'],['Property management','物業管理'],['Real estate','房地產'],['Home buying','購屋'],['Mortgage','房屋貸款'],['Property investment','置產投資'],['Financial planning','財務規劃'],['Investment','投資理財'],['Quality of life','生活品質'],['Community living','社區生活'],['Family','家庭'],['Children','子女'],['School district','學區'],['Taichung','台中'],['Residential community','住宅社區'],['Elevator','電梯設備'],['Parking','停車設施'],['Smart home','智慧家居'],['Saving','儲蓄'],['Work-life balance','工作生活平衡']]},
+  {n:'28-42 / 東區太平大里 / 孕婦×準父母×三房嬰兒房需求',sub:'即將生育是最迫切換屋觸媒·嬰兒房需求×學區前置規劃',
+   logic:'懷孕中或計畫生育的28-42歲夫妻，對「三房+嬰兒房」需求最具體迫切。現住1-2房的夫妻，生育後空間不夠住，換三房是直接解決方案。坤悅涵仰2028完工剛好對準「現在懷孕/剛生產，孩子3歲時新家交屋」的時間節點。太平國小學區是這族群購屋的前置考量，說服層次豐富。',
+   lm:['澄清醫院太平分院婦產科','東區婦產科診所','太平國小','太平市中心'],
+   tags:[['Pregnancy','懷孕'],['Motherhood','媽媽族群'],['Baby','嬰幼兒'],['Newborn','新生兒'],['Parenting','親子教養'],['Childcare','育兒照護'],['Baby products','嬰兒用品'],['Child development','兒童發展'],['Early childhood education','幼兒教育'],['Nursery design','嬰兒房佈置'],['Breastfeeding','哺乳哺育'],['Family planning','家庭規劃'],['New family','新家庭'],['Pediatrics','兒科醫療'],['Maternal health','媽媽健康'],['Real estate','房地產'],['Home buying','購屋'],['Mortgage','房屋貸款'],['Property investment','置產投資'],['Three-bedroom apartment','三房格局'],['Interior design','室內設計'],['School district','學區'],['Family','家庭'],['Children','子女'],['Quality of life','生活品質'],['Financial planning','財務規劃'],['Taichung','台中'],['Moving','搬家'],['Saving','儲蓄'],['Home upgrade','換屋升格']]},
+  {n:'28-48 / 東區太平 / 電商網拍×斜槓副業×有錢換屋族',sub:'副業收入積累到換屋時機·數位創業族對投資保值邏輯最敏感',
+   logic:'電商網拍、數位斜槓族群，副業收入穩定、自我財務管理能力強，對「資產投資保值」邏輯最快接受。這族群30歲左右開始考慮置產，把副業收入轉化為頭期款是財務規劃核心。坤悅涵仰預售屋進場邏輯（2028完工前卡位）與他們「早進場早保值」的投資思維完全一致。從未被任何太平案針對的新世代族群。',
+   lm:['台中東區網拍聚集圈','太平市中心','74快速道路','澄清醫院周邊'],
+   tags:[['E-commerce','電商網購'],['Online selling','網路銷售'],['Dropshipping','代購代發'],['Side hustle','斜槓副業'],['Freelancing','自由接案'],['Digital marketing','數位行銷'],['Social media marketing','社群行銷'],['Content creation','內容創作'],['Online business','線上事業'],['Entrepreneurship','創業'],['Passive income','被動收入'],['Investment','投資理財'],['Financial planning','財務規劃'],['Wealth management','財富管理'],['Asset management','資產管理'],['Real estate','房地產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['First home','首購'],['Taichung','台中'],['Home upgrade','換屋升格'],['Family','家庭'],['Quality of life','生活品質'],['Interior design','室內設計'],['Saving','儲蓄'],['Work from home','居家辦公'],['Personal finance','個人理財'],['Financial independence','財務自由'],['Smart home','智慧家居']]},
+  {n:'33-55 / 太平大里東區 / 傳產二代接班×家族置產里程碑',sub:'傳產二代接班→換屋是人生里程碑·家族財產傳承意識強',
+   logic:'太平大里傳統產業第二代，已接班或正在接班父輩事業，換三房是接班後「人生里程碑」的標誌性動作：「工廠交給我了，家也要換一間好的。」這族群家族財產傳承意識強，對太平在地生活圈有深度認同，且有家族財務基礎（非薪資族，現金流靈活），換屋決策門檻低。坤悅涵仰完全未針對的隱性高潛力族群。',
+   lm:['太平大里工業區','大里傳產圈','太平市中心','74快速道路'],
+   tags:[['Family business','家族企業'],['Business succession','企業傳承接班'],['Traditional industry','傳統產業'],['Manufacturing','製造業'],['Second generation','二代接班'],['Business owner','企業主'],['Asset management','資產管理'],['Wealth management','財富管理'],['Property investment','置產投資'],['Cash flow','現金流管理'],['Tax planning','稅務規劃'],['Real estate','房地產'],['Home buying','購屋'],['Mortgage','房屋貸款'],['Investment','投資理財'],['Financial planning','財務規劃'],['Business networking','商業社交'],['Entrepreneurship','創業'],['Taichung','台中'],['Family','家庭'],['Children','子女'],['School district','學區'],['Quality of life','生活品質'],['Interior design','室內設計'],['Community','社區'],['Banking','銀行理財'],['Life insurance','壽險'],['Retirement planning','退休規劃'],['Saving','儲蓄'],['Home upgrade','換屋升格']]},
+  {n:'50-65 / 太平大里 / 退休前最後換屋×太平好住',sub:'孩子已長大·最後一次換屋·退休前把家住好是最直接動機',
+   logic:'50-65歲，孩子成年獨立，夫妻想在退休前把住所升格。這是「最後一次換屋」的心理錨點，不是投資考量，是居住品質的最後衝刺。坤悅涵仰18層高樓新大樓、澄清醫院鄰近（醫療便利）、家樂福全聯（生活機能完善）直接命中退休前置三大考量：住得好、看病方便、生活便利。三房讓孩子回家有房間。完全未被鎖定的熟齡客群。',
+   lm:['太平大里成熟社區','澄清醫院太平分院','家樂福太平店','74快速道路'],
+   tags:[['Retirement planning','退休規劃'],['Retirement lifestyle','退休生活'],['Senior living','樂齡生活'],['Active aging','活躍老化'],['Health and wellness','健康養生'],['Travel','旅遊休閒'],['Pension','退休金'],['Investment','投資理財'],['Wealth management','財富管理'],['Financial independence','財務自由'],['Long-term care','長期照護'],['Healthcare','醫療保健'],['Senior activities','樂齡活動'],['Walking','健走散步'],['Gardening','園藝種植'],['Real estate','房地產'],['Property investment','置產投資'],['Home buying','購屋'],['Mortgage','房屋貸款'],['High-rise apartment','高樓住宅'],['Community living','社區生活'],['Smart home','智慧家居'],['Security system','居家保全'],['Local community','在地社區'],['Family','家庭'],['Quality of life','生活品質'],['Interior design','室內設計'],['Taichung','台中'],['Saving','儲蓄'],['Home upgrade','換屋升格']]},
+  {n:'28-50 / 東區太平 / 智慧家居×3C科技×新屋換屋族',sub:'智慧家居是新屋最強吸引點·3C族群對新建案設備規格最敏感',
+   logic:'3C科技消費族群，對新屋「智慧家居/科技規格」最敏感，換屋決策觸媒是「住新的才有最新設備」。坤悅涵仰2028完工新建案（最新建材工法、智慧管理系統）對這族群是直接購買理由，舊公寓永遠無法升級，只有買新屋才能一步到位。台中東區最密集的族群之一，從未被坤悅涵仰針對。',
+   lm:['台中東區3C賣場','太平市中心','74快速道路','北屯區'],
+   tags:[['Smart home','智慧家居'],['Home automation','家居自動化'],['Internet of Things','物聯網IoT'],['Smart speaker','智慧音箱'],['Home security','智慧保全'],['Smart lighting','智慧燈光'],['Smart appliances','智慧家電'],['Technology','科技'],['Consumer electronics','消費電子'],['Gadgets','科技小物'],['Mobile phones','手機'],['Gaming','遊戲電競'],['Streaming','串流媒體'],['Digital lifestyle','數位生活'],['Innovation','創新科技'],['Real estate','房地產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['New construction homes','新建案'],['Interior design','室內設計'],['Quality of life','生活品質'],['Financial planning','財務規劃'],['Investment','投資理財'],['Family','家庭'],['First home','首購'],['Taichung','台中'],['Saving','儲蓄'],['Home upgrade','換屋升格'],['Work from home','居家辦公']]},
+  {n:'32-55 / 太平東區大里 / 自行車×登山戶外族×太平好環境換屋',sub:'戶外運動族對環境品質最敏感·太平自然環境是地段最強差異化',
+   logic:'自行車、登山、戶外運動族群，選住所時「環境品質/自然環境」是首要考量。太平有山有綠地、空氣品質相對市區好，這族群住太平的地段優勢是「台中市區住不到的環境品質」。37-41坪三房也提供足夠的裝備收納空間。是坤悅涵仰未鎖定的精準戶外族群，地段差異化說服邏輯完全不同於換屋財務派。',
+   lm:['太平東區山腳','大坑登山步道方向','太平自行車道','74快速道路'],
+   tags:[['Cycling','自行車騎行'],['Mountain biking','山地越野車'],['Hiking','登山健行'],['Trail running','越野跑'],['Outdoor recreation','戶外運動'],['Camping','露營'],['Rock climbing','攀岩'],['Kayaking','獨木舟'],['Nature','自然環境'],['Environment','生態環境'],['Green lifestyle','綠色生活'],['Fitness','健身運動'],['Active lifestyle','健康生活方式'],['Adventure','冒險旅遊'],['Sports equipment','運動裝備'],['Real estate','房地產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Quality of life','生活品質'],['Interior design','室內設計'],['Financial planning','財務規劃'],['Investment','投資理財'],['Taichung','台中'],['Family','家庭'],['Children','子女'],['School district','學區'],['Community','社區'],['Saving','儲蓄'],['Home upgrade','換屋升格']]}
+];
+
+/* ── 1510新推10組 2026-06-24 ── */
+const NEW_1510_2_G=[
+  {n:'35-58 / 東區太平大里 / 中小企業主×貿易商×置產',sub:'貿易商/中小企業主現金流穩·置產是財務規劃標配·完全未針對',
+   logic:'台中東區、太平大里的中小企業主與貿易商，做進出口貿易、批發代理或中小製造業，月營收穩定、置產是財務管理標準配置。不同於傳產二代接班，這族群是「自己創業/接外貿訂單」的當代中小企業主，對置產保值邏輯理解最深，且不需要說服太多就有行動力。1510帳號財金路線的自然延伸。',
+   lm:['台中東區貿易圈','大里工業區','太平市中心','74快速道路出口'],
+   tags:[['Import and export','進出口貿易'],['International trade','國際貿易'],['Wholesale','批發代理'],['Distribution','配銷通路'],['Business owner','企業主'],['Manufacturing','製造業'],['Supply chain','供應鏈'],['Logistics','物流'],['B2B','企業間交易'],['Entrepreneurship','創業'],['Cash flow','現金流'],['Asset management','資產管理'],['Wealth management','財富管理'],['Property investment','置產投資'],['Real estate','房地產'],['Home buying','購屋'],['Mortgage','房屋貸款'],['Investment','投資理財'],['Financial planning','財務規劃'],['Tax planning','稅務規劃'],['Family','家庭'],['Children','子女'],['School district','學區'],['Quality of life','生活品質'],['Interior design','室內設計'],['Community','社區'],['Banking','銀行理財'],['Taichung','台中'],['Retirement planning','退休規劃'],['Home upgrade','換屋升格']]},
+  {n:'33-60 / 台中市 / 房市投資客×第二套置產換屋',sub:'已有一間房·換或買第二套·1510財金路線精準命中投資邏輯',
+   logic:'已持有一間房產、正在評估換屋或購買第二套的台中投資型買家。這族群對預售屋進場邏輯最熟悉，會主動計算投資報酬、比較地段增值潛力。坤悅涵仰太平預售屋的訴求對他們是「早進場、2028交屋增值」的財務配置邏輯，不需說服地段，只需說服投資timing。1510帳號財金定調，此組是最精準延伸。',
+   lm:['台中市北區','台中市南區','台中東區','太平市中心'],
+   tags:[['Real estate investment','不動產投資'],['Property investment','置產投資'],['Investment property','投資物件'],['Rental income','租金收益'],['Passive income','被動收入'],['Capital gain','資本增值'],['Real estate portfolio','不動產投資組合'],['Property management','物業管理'],['Mortgage','房屋貸款'],['Real estate market','房市趨勢'],['Asset allocation','資產配置'],['Wealth management','財富管理'],['Financial planning','財務規劃'],['Tax planning','稅務規劃'],['Retirement planning','退休規劃'],['Investment return','投資報酬'],['New construction','新建案預售'],['Condominium','集合住宅'],['Presale property','預售屋'],['Taichung','台中'],['Financial independence','財務自由'],['Stock market','股票投資'],['Dividend investing','股息投資'],['Asset management','資產管理'],['Banking','銀行理財'],['Life insurance','壽險'],['Home buying','購屋'],['Family','家庭'],['Community','社區'],['Home upgrade','換屋升格']]},
+  {n:'28-45 / 東區大里 / 台中在地IT工程師×首購換屋',sub:'非主管IT員工·月薪5-10萬·太平三房是換屋天花板·74通勤可接受',
+   logic:'過去「74沿線科技主管」0轉換，問題是主管偏好西屯北屯市區。改換大里軟體園區、台中東區的一般IT工程師/系統工程師，月薪5-10萬，太平三房37-41坪是這族群換屋的合理天花板，74快速道路是他們通勤的實際選擇。完全不同邏輯、不同地理、不同說服點，是1510未測試的新方向。',
+   lm:['大里軟體園區','台中東區IT聚落','74快速道路','太平市中心'],
+   tags:[['Software development','軟體開發'],['Programming','程式設計'],['Web development','網頁開發'],['Application development','應用程式開發'],['Computer science','電腦科學'],['IT professional','IT從業人員'],['System administration','系統管理'],['Network engineer','網路工程師'],['Database management','資料庫管理'],['DevOps','系統運維'],['Cloud computing','雲端運算'],['Coding','程式碼撰寫'],['Tech industry','科技產業'],['JavaScript','JavaScript程式'],['Python','Python程式'],['Real estate','房地產'],['Home buying','購屋'],['First home','首購'],['Mortgage','房屋貸款'],['Property investment','置產投資'],['Financial planning','財務規劃'],['Investment','投資理財'],['Quality of life','生活品質'],['Interior design','室內設計'],['Family','家庭'],['Community','社區'],['Taichung','台中'],['Saving','儲蓄'],['Work from home','居家辦公'],['Smart home','智慧家居']]},
+  {n:'33-58 / 北區南區台中 / 會計師×律師×財稅菁英換屋',sub:'財稅顧問CPL624延伸·會計師律師是財稅菁英同族群延伸·說服邏輯一致',
+   logic:'財稅顧問菁英CPL624（3潛客）驗證財稅族群有效，延伸到「會計師/律師/法律顧問」同屬財務菁英但不同執業背景的族群。律師事務所、會計師事務所集中在台中北區南區，收入穩定且高，對置產時機、財務規劃有自主判斷力。1510帳號財金定調與此組特質完全吻合，比擴大財稅顧問組覆蓋更多職業面向。',
+   lm:['台中北區法院律師事務所圈','台中南區會計師事務所','太平市中心','74快速道路'],
+   tags:[['Accounting','會計'],['Certified Public Accountant','會計師CPA'],['Tax accounting','稅務會計'],['Auditing','審計查核'],['Financial reporting','財務報表'],['Law','法律'],['Legal practice','法律執業'],['Corporate law','公司法'],['Tax law','稅法'],['Contract law','合約法'],['Compliance','法令遵循'],['Legal advice','法律諮詢'],['Financial services','金融服務'],['Professional services','專業服務'],['Consulting','顧問諮詢'],['Real estate','房地產'],['Property investment','置產投資'],['Home buying','購屋'],['Mortgage','房屋貸款'],['Financial planning','財務規劃'],['Investment','投資理財'],['Wealth management','財富管理'],['Asset management','資產管理'],['Retirement planning','退休規劃'],['Family','家庭'],['Children','子女'],['School district','學區'],['Quality of life','生活品質'],['Taichung','台中'],['Home upgrade','換屋升格']]},
+  {n:'30-55 / 74沿線大里 / 開車通勤族×停車需求×換三房',sub:'有車族換屋最在意停車·74是太平核心賣點·從實際生活需求切入',
+   logic:'有車族（含多車家庭）換屋動機之一是「三房配停車位」，太平74快速道路通勤是這族群的現實選擇。從停車需求切入：「三房兩衛，還有地下停車位，開74進台中15分鐘」——這是台中開車族換屋的最實際對話。和之前「74沿線科技主管」失敗組完全不同，這組針對有車的一般通勤家庭，而非高薪主管，說服邏輯轉向實際生活需求。',
+   lm:['74快速道路沿線','大里區','太平市中心','台中東區交流道'],
+   tags:[['Driving','開車族'],['Car enthusiast','汽車愛好者'],['Road trips','自駕旅行'],['SUV','SUV休旅車'],['Car maintenance','汽車保養'],['Parking','停車需求'],['Highway','快速道路'],['Commuting','通勤生活'],['Traffic','交通資訊'],['Auto insurance','汽車保險'],['Car loans','汽車貸款'],['Fuel efficiency','油耗省油'],['Car accessories','汽車配件'],['Electric vehicles','電動車'],['Transportation','交通'],['Real estate','房地產'],['Home buying','購屋'],['Mortgage','房屋貸款'],['Property investment','置產投資'],['Financial planning','財務規劃'],['Investment','投資理財'],['Family','家庭'],['Children','子女'],['Quality of life','生活品質'],['Community','社區'],['Interior design','室內設計'],['Taichung','台中'],['Saving','儲蓄'],['Home upgrade','換屋升格'],['Work-life balance','工作生活平衡']]},
+  {n:'45-65 / 太平大里東區 / 保健養生×準退休×太平環境換屋',sub:'準退休族最在意醫療+環境·澄清醫院+太平空氣是太平核心優勢',
+   logic:'45-65歲保健養生族群，開始認真考慮退休居住選擇。澄清醫院太平分院是醫療便利保證，太平相對市區的空氣品質和自然環境是養生首選。1510帳號財金路線這組轉向「養生投資」：「退休前換一間好的，好環境+好醫療，這才是最有價值的置產」。與1510財稅顧問菁英組互補：前者財務型置產，後者養生型置產。',
+   lm:['澄清醫院太平分院','太平大里保健通路圈','74快速道路','太平市中心'],
+   tags:[['Health and wellness','健康養生'],['Nutrition','營養保健'],['Supplements','保健食品'],['Vitamins','維生素'],['Traditional Chinese medicine','中醫養生'],['Herbal medicine','草藥配方'],['Yoga','瑜珈'],['Meditation','冥想正念'],['Mindfulness','正念生活'],['Health food','健康食品'],['Organic products','有機產品'],['Senior fitness','樂齡健身'],['Active lifestyle','活躍生活'],['Walking','健走'],['Hiking','登山健行'],['Real estate','房地產'],['Property investment','置產投資'],['Home buying','購屋'],['Retirement planning','退休規劃'],['Mortgage','房屋貸款'],['Financial planning','財務規劃'],['Investment','投資理財'],['Quality of life','生活品質'],['Community','社區'],['Local community','在地社區'],['Interior design','室內設計'],['Smart home','智慧家居'],['Family','家庭'],['Taichung','台中'],['Home upgrade','換屋升格']]},
+  {n:'28-48 / 東區太平大里 / 二胎三胎×三房剛需×學區急迫族',sub:'二胎三胎生育後三房是剛性需求·急迫感最強·說服成本最低',
+   logic:'已生第二胎或第三胎，現住1-2房根本不夠住，三房是剛性需求（不是想換，是必須換）。急迫感最強的族群，不需說服「為什麼要換三房」，只需說服「為什麼是坤悅涵仰」。太平國小步行3分鐘是學區直接誘因，三個孩子各有房間（37-41坪三房）完全符合空間需求。1510切入家庭財務角度：「三胎家庭，頭期款分配+房貸規劃，2028完工剛好孩子上學」。',
+   lm:['太平國小','東區婦產科密集圈','大里區','澄清醫院太平分院'],
+   tags:[['Second child','二胎計畫'],['Third child','三胎計畫'],['Multiple children','多子女家庭'],['Large family','大家庭'],['Family planning','家庭計畫'],["Children's education",'子女教育'],['Parenting','親子教養'],['Siblings','兄弟姊妹'],['Childcare','育兒'],['Baby products','育兒用品'],['Child development','兒童發展'],['School district','學區'],['Elementary school','國小教育'],['After-school program','課後活動'],['Family size home','家庭坪數需求'],['Real estate','房地產'],['Home buying','購屋'],['Mortgage','房屋貸款'],['Property investment','置產投資'],['Financial planning','財務規劃'],['Investment','投資理財'],['Three-bedroom apartment','三房格局'],['Interior design','室內設計'],['Quality of life','生活品質'],['Community','社區'],['Family','家庭'],['Taichung','台中'],['Moving','搬家'],['Saving','儲蓄'],['Home upgrade','換屋升格']]},
+  {n:'30-55 / 東區太平北屯 / 醫美診所業主×健康消費×置產菁英',sub:'醫美業主月收高且不穩定·置產保值是標配財務思維·完全未針對',
+   logic:'台中東區、北屯醫美診所業主/醫美諮詢師，月收入高但浮動（業績型），對「置產保值」財務邏輯高度認可——不穩定收入更需要穩定資產。醫美族群追求生活品質，對坤悅涵仰新大樓的居住品質有直接共鳴。1510帳號財金定調與醫美業主財務邏輯完全一致，且多為自雇者，置產動機與財稅顧問組高度相似，是同族群的不同切面。',
+   lm:['台中東區醫美診所圈','北屯區','太平市中心','74快速道路'],
+   tags:[['Medical aesthetics','醫學美容'],['Cosmetic surgery','整形外科'],['Skin care','皮膚保養'],['Beauty clinic','美容診所'],['Aesthetic medicine','美學醫療'],['Laser treatment','雷射治療'],['Anti-aging','抗老保養'],['Botox','肉毒桿菌'],['Dermatology','皮膚科'],['Health and beauty','健康美麗'],['Wellness spa','水療SPA'],['Premium beauty','精品美容'],['Self-care','自我保養'],['Beauty services','美容服務'],['Cosmetics','化妝品彩妝'],['Real estate','房地產'],['Property investment','置產投資'],['Home buying','購屋'],['Mortgage','房屋貸款'],['Financial planning','財務規劃'],['Investment','投資理財'],['Wealth management','財富管理'],['Asset management','資產管理'],['Quality of life','生活品質'],['Interior design','室內設計'],['Family','家庭'],['Community','社區'],['Smart home','智慧家居'],['Taichung','台中'],['Home upgrade','換屋升格']]},
+  {n:'28-50 / 東區太平大里 / 電動車×新能源族×未來生活換屋',sub:'電動車族群擁抱未來生活·充電樁+新大樓是換屋科技附加值',
+   logic:'電動車持有者或關注新能源的族群，是「擁抱未來生活方式」的早期採用者，對換住新建案（最新設備、智慧管理）接受度最高。坤悅涵仰2028完工新大樓對電動車族群的吸引點：新建案有充電設備規劃、新建材環保節能、地下停車場適配電動車——這是舊公寓完全無法提供的生活升格。從未被任何太平建案針對的未來族群。',
+   lm:['台中東區特斯拉超充站','大里區','太平市中心','74快速道路'],
+   tags:[['Electric vehicles','電動車'],['Tesla','特斯拉'],['EV charging','電動車充電'],['Sustainable living','永續生活'],['Green energy','綠色能源'],['Solar power','太陽能'],['Renewable energy','再生能源'],['Carbon footprint','碳足跡'],['Environmental awareness','環保意識'],['Eco-friendly','環保友善'],['Smart home','智慧家居'],['Home automation','家居自動化'],['IoT','物聯網'],['Energy efficiency','節能效率'],['Technology','科技'],['Real estate','房地產'],['Home buying','購屋'],['First home','首購'],['Mortgage','房屋貸款'],['Property investment','置產投資'],['Financial planning','財務規劃'],['Investment','投資理財'],['Quality of life','生活品質'],['Interior design','室內設計'],['Family','家庭'],['Community','社區'],['Taichung','台中'],['Saving','儲蓄'],['Work from home','居家辦公'],['Home upgrade','換屋升格']]},
+  {n:'35-60 / 東區太平大里 / 理財型媽媽×家庭資產管理×換屋決策主導',sub:'媽媽是家庭換屋決策關鍵人·理財型媽媽對CP值最敏感·雙重決策者',
+   logic:'35-60歲理財意識強的媽媽族群，在家庭換屋決策中有高度主導權（「老公說換就換，但到底買哪裡是我決定的」）。這族群同時兼顧「學區/孩子環境」和「投資保值/家庭財務」兩個考量，是雙重決策者。1510帳號財金路線對理財型媽媽特別共鳴：「三房CP值最高，太平國小步行3分鐘，澄清醫院鄰近——最好的家庭投資」。坤悅涵仰從未單獨鎖定決策型媽媽受眾。',
+   lm:['太平國小','澄清醫院太平分院','家樂福太平','東區太平大里'],
+   tags:[['Motherhood','媽媽族群'],['Parenting','親子教養'],['Family finance','家庭理財'],['Personal finance','個人財務管理'],['Saving','儲蓄'],['Investment','投資理財'],['Financial planning','財務規劃'],['Wealth management','財富管理'],['Budget management','預算管理'],['Asset management','資產配置'],['Insurance','保險規劃'],['School district','學區'],['Child education','子女教育'],['Family','家庭'],['Children','子女'],['Health','健康生活'],['Grocery shopping','日常採購'],['Cooking','料理烹飪'],['Home improvement','居家改善'],['Interior design','室內設計'],['Real estate','房地產'],['Home buying','購屋'],['Mortgage','房屋貸款'],['Property investment','置產投資'],['New construction homes','新建案'],['Community','社區'],['Quality of life','生活品質'],['Taichung','台中'],['Moving','搬家'],['Home upgrade','換屋升格']]}
+];
+
+(function(){
+  const mg3=document.getElementById('main-aud-grid-2');
+  if(mg3)mg3.innerHTML=NEW_MAIN2_G.map((g,i)=>buildAudCard(g,i,'m2',false)).join('');
+  const mg4=document.getElementById('1510-aud-grid-2');
+  if(mg4)mg4.innerHTML=NEW_1510_2_G.map((g,i)=>buildAudCard(g,i,'l2',true)).join('');
 })();
 
 function switchTab(name){
