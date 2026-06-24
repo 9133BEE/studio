@@ -293,6 +293,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   <div id="main-aud-grid" class="aud-grid-2"></div>
 </div>
 
+<div class="section">
+  <div class="sec-title">自住受眾（10組）· 更新 2026-06-24</div>
+  <div id="resi-aud-grid" class="aud-grid-2"></div>
+</div>
+
+<div class="section">
+  <div class="sec-title">商辦受眾（10組）· 更新 2026-06-24</div>
+  <div id="soho-aud-grid" class="aud-grid-2"></div>
+</div>
+
 <div class="rank-op-grid">
 <div class="section">
   <div class="sec-title">成果前 5 名受眾（2026/02–2026/06/01）</div>
@@ -565,6 +575,91 @@ const MAIN_G=[
    lm:['台中中科','西屯區','逢甲','北屯'],
    tags:[['Technology industry','科技業'],['Engineer','工程師'],['Semiconductor','半導體'],['Electronics','電子業'],['Manufacturing technology','科技製造'],['R&D','研發'],['Tech manager','科技主管'],['Factory engineer','廠工工程師'],['Home upgrade','換屋升格'],['Real estate','不動產'],['Property investment','置產投資'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Investment','投資理財'],['Family','家庭'],['Children','子女'],['School district','學區'],['Quality of life','生活品質'],['Interior design','室內設計'],['Community','社區'],['Taichung','台中'],['Banking','銀行理財'],['Life insurance','壽險'],['Saving','儲蓄'],['Work-life balance','工作生活平衡'],['Wealth management','財富管理'],['Home buying','購屋'],['Smart home','智慧居家'],['Moving','搬家'],['Career advancement','職涯晉升']]}
 ];
+const RESI_G=[
+  {n:'28-52 / 台中榮總+3km / 護理師×醫療人員換屋',sub:'醫療職業穩定薪換屋完全未測·中山醫台中榮總北區最密集',
+   logic:'台中北區是醫療機構密集帶（台中榮總、中山醫大附醫），護理師與醫療行政人員月薪4-8萬，工作穩定且換屋時機多在職涯3-8年。湖濱城離主要醫院步行/機車10分鐘內，「下班走路回家，跟同事合購同棟」的場景真實存在。醫療職業+換屋是高CP值的全新切角，與現有組完全不重疊。',
+   lm:['台中榮總','中山醫大附醫','北區','水湳LALAPORT'],
+   tags:[['Nursing','護理師'],['Healthcare','醫療從業者'],['Hospital','醫院'],['Medical professional','醫療專業人員'],['Registered nurse','護理人員'],['Health worker','衛生工作者'],['Medical administration','醫療行政'],['Paramedic','急救人員'],['Home buying','購屋'],['Home upgrade','換屋升格'],['First home','首購'],['Real estate','不動產'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Property investment','置產投資'],['Investment','投資理財'],['Saving','儲蓄'],['Family','家庭'],['Interior design','室內設計'],['Community','社區'],['Quality of life','生活品質'],['Work-life balance','工作生活平衡'],['Taichung','台中'],['Banking','銀行理財'],['Life insurance','壽險'],['Smart home','智慧居家'],['School district','學區'],['Moving','搬家'],['Wellness','健康養生'],['Local community','在地生活']]},
+  {n:'28-52 / 北區+4km / 國中小老師×補教業換屋',sub:'軍公教穩定薪首購換屋·補教一條街台中北區',
+   logic:'台中北區是補教密集區，國中小老師及補教業者月薪4-8萬，工作穩定、銀行貸款核批率高，換屋/首購意願因職涯穩定而提前。「教書第十年了，是時候買自己的房」是這群人的心理時機。湖濱城距台中市核心補教區域10分鐘內，且售價適合中所得的穩定族群，全新職業切角。',
+   lm:['北區','台中市立文心國中','中教大附小','水湳'],
+   tags:[['Teacher','教師'],['Education','教育業'],['School teacher','學校老師'],['Tutoring','補習班'],['Cram school','補習教育'],['Private tutor','家教'],['Educational institution','教育機構'],['Elementary school','國小'],['Middle school','國中'],['Home buying','購屋'],['First home','首購'],['Home upgrade','換屋升格'],['Mortgage','房貸'],['Real estate','不動產'],['Financial planning','財務規劃'],['Property investment','置產投資'],['Saving','儲蓄'],['Investment','投資理財'],['Family','家庭'],['Children','子女'],['School district','學區'],['Quality of life','生活品質'],['Community','社區'],['Taichung','台中'],['Banking','銀行理財'],['Life insurance','壽險'],['Work-life balance','工作生活平衡'],['Interior design','室內設計'],['Moving','搬家'],['Local community','在地生活']]},
+  {n:'30-55 / 台中市區+5km / 公務員×軍公教升格換屋',sub:'軍公教換屋完全未測·台中市政府公務員天然換屋族群',
+   logic:'台中市政府及各區公所、警察局、消防局集中在台中市區，公務員月薪4-10萬且工作終身保障，銀行對軍公教核貸最為寬鬆，是最容易通過貸款的首購/換屋族群。「當公務員第八年了，薪水穩定、該換房了」是最典型的購屋時機。湖濱城在台中北區，距市政單位10-15分鐘，是天然的通勤置產圈。',
+   lm:['台中市政府','北區','東區','台中火車站'],
+   tags:[['Civil servant','公務員'],['Government employee','政府雇員'],['Public sector','公家機關'],['Military','軍人'],['Police','警察'],['Firefighter','消防員'],['Government worker','公職人員'],['Public administration','行政人員'],['Home buying','購屋'],['Home upgrade','換屋升格'],['First home','首購'],['Real estate','不動產'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Property investment','置產投資'],['Investment','投資理財'],['Saving','儲蓄'],['Family','家庭'],['Children','子女'],['School district','學區'],['Quality of life','生活品質'],['Community','社區'],['Taichung','台中'],['Banking','銀行理財'],['Life insurance','壽險'],['Retirement planning','退休規劃'],['Interior design','室內設計'],['Moving','搬家'],['Work-life balance','工作生活平衡'],['Local community','在地生活']]},
+  {n:'30-50 / 北屯水湳+4km / 親子家庭×學區×換屋升格',sub:'學區+親子換屋完全未測·台中北屯水湳學區是換屋強動機',
+   logic:'水湳/北屯周邊有多所口碑公立學校，親子家庭換屋選擇學區是最大動機之一。30-50歲已育兒的雙薪夫妻，當孩子進入小學/國中就學年齡，對學區換屋需求急劇升高。湖濱城在水湳LALAPORT旁，生活機能完整，「孩子讀書的地方、我們住的地方，都在這一帶」是購屋決策的核心句。',
+   lm:['水湳LALAPORT','北屯區','北區','台中市立學校'],
+   tags:[['Parenting','親子育兒'],['School district','學區'],['Children','子女'],['Family','家庭'],['Elementary school','國小'],['Middle school','國中'],['Child education','孩童教育'],['Children activities','兒童活動'],['Home buying','購屋'],['Home upgrade','換屋升格'],['Real estate','不動產'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Property investment','置產投資'],['Saving','儲蓄'],['Investment','投資理財'],['Interior design','室內設計'],['Smart home','智慧居家'],['Community','社區'],['Quality of life','生活品質'],['Taichung','台中'],['Banking','銀行理財'],['Life insurance','壽險'],['Moving','搬家'],['Work-life balance','工作生活平衡'],['Local community','在地生活'],['Playground','親子設施'],['Childcare','托育'],['Family finance','家庭財務'],['New construction','新成屋']]},
+  {n:'25-40 / 大台中+5km / 二代接班×婚後首購×成家置產',sub:'年輕接班首購完全未測·成家婚後置產強動機',
+   logic:'台中有大量傳產家族企業二代，25-40歲成婚或準備成婚後，置產首購動機最強。「爸媽的事業我來接，我的家我自己買」是這群人的核心心態。家族傳業+成婚首購的雙重觸發，對總價接受度高，且父母輩常作為頭期款支持者。湖濱城做為新家的起點，符合二代接班族的生活水準期待。',
+   lm:['台中市區','北區','東區','大里工業區'],
+   tags:[['Family business','家族企業'],['Business succession','事業接班'],['Entrepreneurship','創業'],['Young professional','年輕專業人士'],['Wedding','婚禮'],['Marriage','結婚'],['First home','首購'],['Home buying','購屋'],['New home','新婚住宅'],['Real estate','不動產'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Property investment','置產投資'],['Saving','儲蓄'],['Investment','投資理財'],['Interior design','室內設計'],['Home decor','居家布置'],['Smart home','智慧居家'],['Community','社區'],['Quality of life','生活品質'],['Taichung','台中'],['Banking','銀行理財'],['Life insurance','壽險'],['Moving','搬家'],['Local community','在地生活'],['New construction','新成屋'],['Home improvement','居家改善'],['Engagement','訂婚'],['Family planning','成家規劃'],['Career','職涯']]},
+  {n:'28-48 / 水湳逢甲+4km / 美食達人×台中在地族換屋',sub:'台中在地美食生活族換屋·逢甲水湳生活圈完全未測',
+   logic:'台中在地生活族（美食打卡/夜市/日系咖啡館常客）對台中城市認同感極強，從未考慮離開台中，換屋完全在台中本地進行。逢甲/水湳/東區三大美食生活圈，這群人早已生活在湖濱城周邊，「換個好房繼續住這裡」是最自然的下一步。生活品質驅動型買家，對社區環境、機能要求高。',
+   lm:['逢甲商圈','水湳LALAPORT','東區精誠路','北區一中商圈'],
+   tags:[['Foodie','美食達人'],['Local dining','在地美食'],['Night market','夜市'],['Specialty coffee','精品咖啡'],['Japanese cuisine','日式料理'],['Cafe','咖啡廳'],['Restaurant','餐廳'],['Food photography','食物攝影'],['Instagram food','IG打卡美食'],['Home buying','購屋'],['Home upgrade','換屋升格'],['Real estate','不動產'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Property investment','置產投資'],['Saving','儲蓄'],['Investment','投資理財'],['Interior design','室內設計'],['Quality of life','生活品質'],['Community','社區'],['Taichung','台中'],['Local community','在地生活'],['Banking','銀行理財'],['Life insurance','壽險'],['Moving','搬家'],['Lifestyle','生活方式'],['Work-life balance','工作生活平衡'],['Smart home','智慧居家'],['Shopping','購物消費'],['Entertainment','休閒娛樂']]},
+  {n:'28-50 / 清泉崗+5km / 空服員×航空業×旅遊族換屋',sub:'航空業換屋完全未測·清泉崗機場北屯15分鐘',
+   logic:'台中清泉崗機場是台灣第三大機場，空服員/地勤/航空相關職業者居住在台中北屯/北區/西屯者眾多，月薪6-15萬，常年旅遊的生活型態讓他們對居住品質要求高。「出差回台中，有個好的家是最好的放鬆」，這群人換屋動機來自「家就是品質代表」的心態。完全全新的職業切角，湖濱城是最接近機場的高品質住宅選項。',
+   lm:['清泉崗機場','北屯區','北區','水湳'],
+   tags:[['Aviation','航空業'],['Flight attendant','空服員'],['Airline','航空公司'],['Airport','機場'],['Travel','旅遊'],['Frequent traveler','常旅客'],['Pilot','飛行員'],['Ground staff','地勤人員'],['Hospitality','接待服務'],['Home buying','購屋'],['Home upgrade','換屋升格'],['Real estate','不動產'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Property investment','置產投資'],['Saving','儲蓄'],['Investment','投資理財'],['Interior design','室內設計'],['Quality of life','生活品質'],['Community','社區'],['Taichung','台中'],['Banking','銀行理財'],['Life insurance','壽險'],['Lifestyle','生活方式'],['Luxury','精品消費'],['Moving','搬家'],['Work-life balance','工作生活平衡'],['Smart home','智慧居家'],['Local community','在地生活'],['Home decor','居家布置']]},
+  {n:'30-55 / 中山醫大+5km / 牙醫師×眼科醫師×開業醫換屋',sub:'開業醫換屋完全未測·高所得醫師群換屋潛力極大',
+   logic:'台中北區/東區是牙科/眼科診所密集區，開業醫師年收入200-500萬，是最高所得的換屋族群之一，但從未被針對鎖定。「診所開在北區，家搬到湖濱城，診所離家10分鐘」，是開業醫師最合理的置產邏輯。高所得+生活品質驅動+置產保值三重需求同時存在，是高潛力全新方向。',
+   lm:['中山醫大附醫','北區','東區診所街','水湳'],
+   tags:[['Dentist','牙醫師'],['Ophthalmologist','眼科醫師'],['Physician','醫師'],['Private clinic','私人診所'],['Medical practice','開業醫'],['Doctor','醫生'],['Dermatologist','皮膚科醫師'],['Specialist doctor','專科醫師'],['Home upgrade','換屋升格'],['Real estate','不動產'],['Property investment','置產投資'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Investment','投資理財'],['Wealth management','財富管理'],['Asset management','資產管理'],['Saving','儲蓄'],['Tax planning','稅務規劃'],['Home buying','購屋'],['Interior design','室內設計'],['Smart home','智慧居家'],['Quality of life','生活品質'],['Community','社區'],['Taichung','台中'],['Banking','銀行理財'],['Life insurance','壽險'],['Moving','搬家'],['Luxury','精品消費'],['Work-life balance','工作生活平衡'],['Local community','在地生活']]},
+  {n:'32-55 / 東區北區+4km / 醫藥業務×醫療器材換屋',sub:'醫藥業務換屋完全未測·高收入外勤業務換屋強動機',
+   logic:'台中有大量醫藥業務/醫療器材業務員，跑診所醫院為主要工作，月薪6-15萬且常有獎金，屬於高收入業務族群。東區北區是醫療院所密集帶，醫藥業務在此圈工作多年後，「在這個圈子跑了十年，換個家繼續跑」是換屋的觸發點。搭配業務族群典型的職涯換屋時機（升主管、業績突破），是全新且精準的切角。',
+   lm:['東區','北區','台中榮總周邊','水湳'],
+   tags:[['Pharmaceutical sales','醫藥業務'],['Medical device','醫療器材'],['Healthcare sales','醫療銷售'],['Medical representative','醫藥代表'],['Life science','生命科學'],['Medical supplies','醫療耗材'],['Sales','業務'],['Field sales','外勤業務'],['Home upgrade','換屋升格'],['Real estate','不動產'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Property investment','置產投資'],['Saving','儲蓄'],['Investment','投資理財'],['Family','家庭'],['Children','子女'],['School district','學區'],['Quality of life','生活品質'],['Community','社區'],['Taichung','台中'],['Banking','銀行理財'],['Life insurance','壽險'],['Moving','搬家'],['Work-life balance','工作生活平衡'],['Interior design','室內設計'],['Smart home','智慧居家'],['Career advancement','職涯晉升'],['Home buying','購屋'],['Local community','在地生活']]},
+  {n:'30-50 / 北區東區+4km / 美容師×美甲師×美睫師換屋',sub:'美業技術師換屋完全未測·北區東區美容業集中',
+   logic:'台中北區/東區美容沙龍/指甲店/睫毛店密集，技術師月薪4-10萬且多為自僱，工作穩定後換屋是成熟期必然。「幫客人打理了10年，是時候把自己的家也打理好了」，美業技術師對生活品質/美感的需求是轉化購屋動機的核心。完全未測試的職業切角，不與任何現有組重疊，且族群在META上容易標記。',
+   lm:['北區','東區','台中市美容商圈','水湳'],
+   tags:[['Beauty','美容美甲'],['Nail art','美甲師'],['Eyelash extension','美睫師'],['Hair salon','美髮沙龍'],['Cosmetology','美容師'],['Makeup artist','彩妝師'],['Skin care','皮膚保養'],['Aesthetic','美感生活'],['Home buying','購屋'],['Home upgrade','換屋升格'],['Real estate','不動產'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Property investment','置產投資'],['Saving','儲蓄'],['Investment','投資理財'],['Interior design','室內設計'],['Home decor','居家布置'],['Quality of life','生活品質'],['Community','社區'],['Taichung','台中'],['Banking','銀行理財'],['Life insurance','壽險'],['Moving','搬家'],['Work-life balance','工作生活平衡'],['Self-employed','自僱'],['Freelancer','自由接案'],['Local community','在地生活'],['Fashion','時尚'],['Lifestyle','生活風格']]}
+];
+
+const SOHO_G=[
+  {n:'30-55 / 東區北區+4km / 心理師×諮商師×身心靈工作室',sub:'身心靈辦公工作室完全未測·需要私密獨立空間的專業服務',
+   logic:'心理師/諮商師/身心靈療癒工作者需要高隱私的獨立辦公工作室，不適合共享空間。東區北區有大量心理諮商機構，但多租用傳統公寓，若能自購商辦，對專業形象和資產保值有雙重意義。「跟你說悄悄話的空間，不能在大家都聽到的地方」，私密性是商辦自用最大訴求點，全新切角。',
+   lm:['東區','北區','中山醫大','水湳'],
+   tags:[['Psychology','心理諮商師'],['Counselor','輔導諮商'],['Therapist','治療師'],['Mental health','心理健康'],['Life coach','生命教練'],['Mindfulness','正念冥想'],['Spiritual wellness','身心靈'],['Hypnotherapy','催眠治療'],['Office space','辦公室自用'],['Commercial real estate','商業不動產'],['Real estate','不動產'],['Property investment','置產投資'],['SOHO','個人工作室'],['Small office','小型辦公室'],['Self-employed','自僱'],['Freelancer','自由接案'],['Taichung','台中'],['Investment','投資理財'],['Financial planning','財務規劃'],['Asset management','資產管理'],['Tax planning','稅務規劃'],['Business networking','商業社交'],['Professional development','專業發展'],['Mortgage','房貸'],['Wealth management','財富管理'],['Quality of life','生活品質'],['Workspace','工作空間'],['Interior design','室內設計'],['Home buying','購屋'],['Banking','銀行理財']]},
+  {n:'28-52 / 北區東區+4km / 才藝補習×語言課×教學工作室',sub:'教學工作室商辦需求完全未測·補教業獨立辦公室強需求',
+   logic:'才藝補習/音樂教室/語言課/舞蹈班的老師在台中大量存在，多以租賃商辦為主，但自購商辦可長期降低成本且資產保值。北區是台中補教密集區，這群人對辦公空間的需求穩定且長期。「補習班開10年了，是時候買一間不用再繳房租」，從租賃到自購是這群人升格的標準路徑。全新職業×商辦切角。',
+   lm:['北區','東區','台中補教一條街','水湳'],
+   tags:[['Tutoring','補習教育'],['Music education','音樂教育'],['Art class','才藝班'],['Language school','語言補習'],['Dance studio','舞蹈教室'],['Buxiban','補習班'],['Private tutor','家教'],['Kids education','兒童教育'],['Office space','辦公室自用'],['Commercial real estate','商業不動產'],['Real estate','不動產'],['Property investment','置產投資'],['SOHO','個人工作室'],['Small office','小型辦公室'],['Self-employed','自僱'],['Entrepreneurship','創業'],['Taichung','台中'],['Investment','投資理財'],['Financial planning','財務規劃'],['Asset management','資產管理'],['Tax planning','稅務規劃'],['Small business','小型事業'],['Business networking','商業社交'],['Mortgage','房貸'],['Wealth management','財富管理'],['Quality of life','生活品質'],['Workspace','工作空間'],['Banking','銀行理財'],['Professional development','專業發展'],['Community','社區']]},
+  {n:'35-58 / 台中市區+4km / 醫美診所×牙科×開業醫分院',sub:'開業醫商辦擴點完全未測·醫美牙科分院需求極強',
+   logic:'台中醫美診所/牙科診所擴張速度快，開業醫師在已有第一間診所後，考慮在水湳/北屯等新興商圈開設分院。湖濱城商辦的高樓層形象符合醫美診所對「高端形象」的要求，且周邊住宅密度高，附近居民是天然潛在患者。「第一間診所生意很好，是時候在水湳開第二間了」，分院擴點的商辦需求是純商業動機，高決策速度。',
+   lm:['水湳LALAPORT','台中市區','北屯','北區'],
+   tags:[['Medical aesthetics','醫美診所'],['Dentist','牙科診所'],['Clinic expansion','診所擴點'],['Plastic surgery','整形外科'],['Aesthetic medicine','美容醫學'],['Laser treatment','雷射美容'],['Cosmetic dentistry','美容牙科'],['Private clinic','私人診所'],['Office space','辦公室醫療空間'],['Commercial real estate','商業不動產'],['Real estate','不動產'],['Property investment','置產投資'],['Small business owner','診所業主'],['Entrepreneurship','開業'],['Self-employed','自僱'],['Taichung','台中'],['Investment','投資理財'],['Financial planning','財務規劃'],['Wealth management','財富管理'],['Asset management','資產管理'],['Tax planning','稅務規劃'],['Business networking','商業社交'],['Mortgage','房貸'],['Banking','銀行理財'],['Quality of life','生活品質'],['Professional development','專業發展'],['Luxury','精品服務'],['Client service','客戶服務'],['Workspace','工作空間'],['Community','社區']]},
+  {n:'28-48 / 台中市區+5km / 婚禮攝影師×婚禮企劃×創意工作室',sub:'婚攝婚企工作室商辦完全未測·台中婚攝市場龐大',
+   logic:'台中是台灣婚攝重鎮，婚禮攝影師/婚禮企劃公司眾多，多以租賃公寓型辦公室為主。婚攝/婚企工作室需要空間擺放設備、接待新人，且品牌形象對選址要求高。「帶新人來看場地，在高樓辦公室的質感就能讓新人安心下訂」，湖濱城商辦的地段形象直接轉化成業務信任感。',
+   lm:['台中市區','北區','水湳LALAPORT','東區'],
+   tags:[['Wedding photography','婚禮攝影'],['Wedding planner','婚禮企劃'],['Event planning','活動企劃'],['Photography','攝影'],['Creative studio','創意工作室'],['Videography','婚禮錄影'],['Bridal','婚紗'],['Wedding industry','婚禮產業'],['Office space','辦公室自用'],['Commercial real estate','商業不動產'],['Real estate','不動產'],['Property investment','置產投資'],['SOHO','個人工作室'],['Small business','小型企業'],['Self-employed','自僱'],['Entrepreneurship','創業'],['Taichung','台中'],['Investment','投資理財'],['Financial planning','財務規劃'],['Asset management','資產管理'],['Tax planning','稅務規劃'],['Business networking','商業社交'],['Mortgage','房貸'],['Wealth management','財富管理'],['Professional development','專業發展'],['Brand building','品牌建立'],['Social media','社群媒體'],['Instagram','Instagram'],['Workspace','工作空間'],['Banking','銀行理財']]},
+  {n:'30-52 / 台中市區+5km / 廣告行銷代理×品牌設計×創意公司',sub:'廣告代理商辦完全未測·台中廣告行銷業蓬勃',
+   logic:'台中廣告行銷代理商/品牌設計公司大量存在，多以租賃為主，但業主在達到一定規模後，自購商辦成為降低成本+資產保值的最佳選擇。「幫客戶打廣告打了8年，是時候把錢打在自己的資產上」，廣告業主的置產心態非常成熟，且這群人本身就懂行銷，對說服性廣告反應強。',
+   lm:['台中市區','北區','東區','水湳'],
+   tags:[['Advertising','廣告業'],['Marketing','行銷'],['Brand design','品牌設計'],['Digital marketing','數位行銷'],['Creative agency','創意代理'],['Graphic design','平面設計'],['Social media marketing','社群行銷'],['Content marketing','內容行銷'],['Office space','辦公室自用'],['Commercial real estate','商業不動產'],['Real estate','不動產'],['Property investment','置產投資'],['Small business owner','代理商業主'],['Entrepreneurship','創業'],['Self-employed','自僱'],['Taichung','台中'],['Investment','投資理財'],['Financial planning','財務規劃'],['Wealth management','財富管理'],['Asset management','資產管理'],['Tax planning','稅務規劃'],['Business networking','商業社交'],['Mortgage','房貸'],['Banking','銀行理財'],['Quality of life','生活品質'],['Professional development','專業發展'],['Brand building','品牌建立'],['Work-life balance','工作生活平衡'],['Workspace','工作空間'],['Community','社區']]},
+  {n:'40-62 / 台中市區+5km / 財富傳承×稅務顧問×家族辦公室',sub:'家族辦公室商辦完全未測·高資產族群辦公室質感需求',
+   logic:'台中有大量家族企業主/高資產人士需要私人辦公空間處理財富傳承/稅務規劃/投資組合，這類「家族辦公室」需求在台灣逐漸興起。湖濱城商辦的高樓層視野和形象符合這群人對「私密、尊貴、高效」的辦公空間想像。「家族資產在這裡管，財富傳承在這裡規劃，這間辦公室就是我留給子女最好的門面」。',
+   lm:['台中市區','北區','科博館','水湳'],
+   tags:[['Wealth management','財富管理'],['Family office','家族辦公室'],['Estate planning','財富傳承'],['Tax planning','稅務規劃'],['Financial advisor','財務顧問'],['Asset management','資產管理'],['Investment','投資理財'],['Trust','信託'],['Corporate law','公司法務'],['Succession planning','接班規劃'],['Office space','辦公室自用'],['Commercial real estate','商業不動產'],['Real estate','不動產'],['Property investment','置產投資'],['Business owner','企業主'],['Taichung','台中'],['Banking','銀行理財'],['Financial planning','財務規劃'],['Retirement planning','退休規劃'],['Dividend','股息'],['Stock market','股票投資'],['Mutual fund','基金投資'],['Business networking','商業社交'],['Professional development','專業發展'],['Mortgage','房貸'],['Luxury','精品消費'],['Quality of life','生活品質'],['Community','社區'],['Workspace','工作空間'],['Life insurance','壽險']]},
+  {n:'30-55 / 台中市區+5km / 直銷業主×保健品×展示辦公室',sub:'直銷業主辦公室完全未測·直銷業主有展示場地需求',
+   logic:'台中直銷/傳直銷業主眾多，部分領導業主月收入超過20萬，需要辦公室作為商品展示、下線教育、業績會議的場地。自購商辦對直銷業主是「展示自己成功」的方式之一，「我有自己的辦公室，我是成功的直銷主管」直接轉化成業主的形象驅動購買動機。完全未測試的職業群，META有直銷相關標籤可精準鎖定。',
+   lm:['台中市區','北區','東區','水湳LALAPORT'],
+   tags:[['Direct sales','直銷業務'],['Network marketing','多層次傳銷'],['Health supplement','保健食品'],['Wellness products','健康商品'],['Beauty products','美容產品'],['MLM','直銷主管'],['Sales','業務銷售'],['Entrepreneurship','創業'],['Office space','辦公室自用'],['Commercial real estate','商業不動產'],['Real estate','不動產'],['Property investment','置產投資'],['Small business owner','業主'],['Self-employed','自僱'],['Taichung','台中'],['Investment','投資理財'],['Financial planning','財務規劃'],['Wealth management','財富管理'],['Asset management','資產管理'],['Tax planning','稅務規劃'],['Business networking','商業社交'],['Mortgage','房貸'],['Banking','銀行理財'],['Income growth','收入成長'],['Quality of life','生活品質'],['Community','社區'],['Workspace','工作空間'],['Professional development','專業發展'],['Luxury','精品消費'],['Work-life balance','工作生活平衡']]},
+  {n:'25-45 / 台中市區+5km / 影音製作×Podcast×後製工作室',sub:'影音後製工作室完全未測·台中影音產業蓬勃發展',
+   logic:'台中影音製作公司/podcast工作室/婚攝後製公司大量成長，這群人需要安靜、可隔音的辦公工作室，且設備多（電腦、錄音設備），空間需求固定。湖濱城商辦的隔音性和高樓層安靜環境，對影音製作業者是天然優勢。「在27樓的工作室剪片，視野好還不會被馬路聲影響」，環境品質直接轉化成購買動機。',
+   lm:['台中市區','北區','東區','水湳'],
+   tags:[['Video production','影片製作'],['Podcast','播客'],['Audio production','音頻製作'],['Post-production','後製剪輯'],['YouTube','YouTube'],['Content creator','內容創作者'],['Filmmaker','影像工作者'],['Recording studio','錄音工作室'],['Office space','辦公室自用'],['Commercial real estate','商業不動產'],['Real estate','不動產'],['Property investment','置產投資'],['SOHO','個人工作室'],['Creative professional','創意工作者'],['Self-employed','自僱'],['Freelancer','自由接案'],['Taichung','台中'],['Investment','投資理財'],['Financial planning','財務規劃'],['Asset management','資產管理'],['Tax planning','稅務規劃'],['Business networking','商業社交'],['Mortgage','房貸'],['Banking','銀行理財'],['Workspace','工作空間'],['Entrepreneurship','創業'],['Small business','小型企業'],['Income growth','收入成長'],['Work-life balance','工作生活平衡'],['Community','社區']]},
+  {n:'30-55 / 台中市區+5km / 留學代辦×移民顧問×國際教育',sub:'留學移民辦公室完全未測·台中留學移民市場穩定',
+   logic:'台中留學代辦/移民顧問公司大量存在（主要集中在台中市區北區），月收入穩定，服務客單價高，需要正式辦公空間建立信任感。「要把孩子送出國留學，辦公室看起來要夠專業」，客戶對代辦機構的辦公室形象要求高，自購商辦直接提升品牌信任。湖濱城的高樓商辦是這群人辦公室升格的理想選擇。',
+   lm:['台中市區','北區','逢甲大學周邊','水湳'],
+   tags:[['Study abroad','留學代辦'],['Immigration','移民顧問'],['International education','國際教育'],['Visa consulting','簽證諮詢'],['Education consulting','教育諮詢'],['Language school','語言學校'],['International','國際'],['Overseas','海外'],['Office space','辦公室自用'],['Commercial real estate','商業不動產'],['Real estate','不動產'],['Property investment','置產投資'],['Small business owner','顧問業主'],['Entrepreneurship','創業'],['Self-employed','自僱'],['Taichung','台中'],['Investment','投資理財'],['Financial planning','財務規劃'],['Asset management','資產管理'],['Tax planning','稅務規劃'],['Business networking','商業社交'],['Mortgage','房貸'],['Wealth management','財富管理'],['Banking','銀行理財'],['Quality of life','生活品質'],['Community','社區'],['Professional development','專業發展'],['Workspace','工作空間'],['Brand building','品牌建立'],['International travel','國際旅行']]},
+  {n:'35-58 / 北區東區+4km / 自營財務顧問×基金銷售×投顧工作室',sub:'財務顧問獨立工作室完全未測·投顧人員需要私密辦公空間',
+   logic:'台中有大量獨立財務顧問/基金銷售員/投資顧問人員，獨立執業後需要自己的工作室而非共享辦公桌。與客戶討論資產配置、退休規劃、保險組合，需要高隱私的獨立空間。「幫客戶規劃了他的3千萬退休金，我自己的辦公室也要像樣點」，辦公空間的形象是財務顧問業務的核心信任要素。',
+   lm:['北區','東區','台中市金融街','水湳'],
+   tags:[['Financial advisor','財務顧問'],['Investment advisor','投資顧問'],['Securities broker','自營券商'],['Mutual fund sales','基金銷售'],['Wealth management','財富管理'],['Insurance advisor','保險顧問'],['Financial planning','財務規劃'],['Investment','投資理財'],['Office space','辦公室自用'],['Commercial real estate','商業不動產'],['Real estate','不動產'],['Property investment','置產投資'],['SOHO','個人工作室'],['Small office','小型辦公室'],['Self-employed','自僱'],['Taichung','台中'],['Asset management','資產管理'],['Tax planning','稅務規劃'],['Retirement planning','退休規劃'],['Business networking','商業社交'],['Mortgage','房貸'],['Banking','銀行理財'],['Quality of life','生活品質'],['Community','社區'],['Workspace','工作空間'],['Professional development','專業發展'],['Brand building','品牌建立'],['Luxury','精品消費'],['Income growth','收入成長'],['Home buying','購屋']]}
+];
 
 let audToastT;
 function showCopyToast(msg){
@@ -601,8 +696,8 @@ function toggleAud(id){
   if(c.classList.contains('open'))initAudCard(c);
 }
 
-function buildAudCard(g,idx){
-  const id='m'+(idx+1);
+function buildAudCard(g,idx,prefix='m'){
+  const id=prefix+(idx+1);
   const rows=g.tags.map((t,i)=>`<tr><td>${i+1}</td><td>${t[0]}</td><td>${t[1]}</td></tr>`).join('');
   const lmTags=g.lm.map(l=>`<span class="aud-lm-tag">${l}</span>`).join('');
   return `<div class="aud-card" id="${id}">
@@ -624,7 +719,11 @@ function buildAudCard(g,idx){
 
 (function(){
   const mg=document.getElementById('main-aud-grid');
-  if(mg)mg.innerHTML=MAIN_G.map((g,i)=>buildAudCard(g,i)).join('');
+  if(mg)mg.innerHTML=MAIN_G.map((g,i)=>buildAudCard(g,i,'m')).join('');
+  const rg=document.getElementById('resi-aud-grid');
+  if(rg)rg.innerHTML=RESI_G.map((g,i)=>buildAudCard(g,i,'r')).join('');
+  const sg=document.getElementById('soho-aud-grid');
+  if(sg)sg.innerHTML=SOHO_G.map((g,i)=>buildAudCard(g,i,'s')).join('');
 })();
 document.querySelectorAll('.pack-tbl tr').forEach(tr=>{const cells=tr.querySelectorAll('td');if(cells.length<2)return;tr.classList.add('data-row');tr.addEventListener('click',()=>{const eng=cells[1].textContent.trim();navigator.clipboard.writeText(eng).then(()=>showToast('📋 已複製：'+eng)).catch(()=>{const ta=document.createElement('textarea');ta.value=eng;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast('📋 已複製：'+eng)})})});
 document.querySelectorAll('.tip').forEach(el=>{el.style.cursor='pointer';el.addEventListener('click',()=>{const title=el.querySelector('.tip-title').textContent.trim();const desc=el.querySelector('.tip-desc').textContent.trim();copyPrompt(`針對${PROJECT}，關於這項操作建議：\n「${title}」\n背景：${desc}\n\n請幫我制定具體的執行方案，包含受眾設定細節和素材方向。`)})});
