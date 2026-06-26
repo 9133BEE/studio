@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>喜全築白｜受眾分析報告</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --accent:#4a7a9a;--accent-dark:#2e5c7a;--accent-light:#eaf3f8;--accent-border:#8ab9d0;
+  --bg:#f2f4f5;--s:#ffffff;--bd:#e4e7e9;--tx:#2a2e32;--sub:#74808a;--sub2:#a4acb4;
+  --good:#1e6e3f;--goodl:#e6f4ea;--warn:#c05c00;
+  --radius:12px;--shadow-xs:0 1px 3px rgba(0,0,0,.05);--shadow-sm:0 2px 8px rgba(0,0,0,.07);--shadow-card:0 2px 10px rgba(0,0,0,.06),0 1px 3px rgba(0,0,0,.04);
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft JhengHei','Segoe UI',sans-serif;background:var(--bg);color:var(--tx);font-size:14px;line-height:1.6;min-height:100vh}
+.page-header{background:linear-gradient(180deg,#0f1e2a 0%,#0a1620 100%);padding:0 40px;height:56px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.04),0 4px 20px rgba(0,0,0,.35);border-bottom:1px solid rgba(255,255,255,.06)}
+.ph-logo{width:30px;height:30px;background:linear-gradient(135deg,#6aaac0,var(--accent-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;flex-shrink:0}
+.ph-title{font-size:14px;font-weight:700;color:#e8f4f8;letter-spacing:-.2px}
+.ph-sub{font-size:11px;color:#4a8aaa;margin-left:2px}
+.ph-nav{margin-left:auto;display:flex;gap:8px;align-items:center}
+.ph-nav a{font-size:12px;color:#7ab4ca;text-decoration:none;padding:5px 13px;border-radius:6px;border:1px solid rgba(74,122,154,.25);background:rgba(74,122,154,.12);font-weight:500}
+.ph-nav a:hover{background:rgba(74,122,154,.22);color:#aadaee}
+#btt{position:fixed;right:24px;bottom:28px;width:38px;height:38px;border-radius:50%;background:rgba(15,25,38,.75);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.85);font-size:15px;cursor:pointer;opacity:0;transform:translateY(8px);transition:opacity .2s,transform .2s;pointer-events:none;z-index:150;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.3);font-family:inherit}
+#btt.show{opacity:1;transform:translateY(0);pointer-events:auto}
+#btt:hover{background:rgba(10,22,38,.9);transform:translateY(-2px)}
+.wrap{max-width:1200px;margin:0 auto;padding:32px 40px 48px}
+.case-header{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:20px 24px;margin-bottom:10px;display:flex;align-items:center;gap:18px;box-shadow:var(--shadow-card)}
+.case-logo{width:44px;height:44px;background:linear-gradient(135deg,#6aaac0,var(--accent-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;flex-shrink:0}
+.case-info h2{font-size:17px;font-weight:700;color:var(--tx);letter-spacing:-.3px}
+.case-info p{font-size:12px;color:var(--sub);margin-top:3px;line-height:1.5}
+.case-stats{margin-left:auto;display:flex;gap:28px;flex-shrink:0}
+.stat{text-align:right}
+.stat-n{font-size:24px;font-weight:800;color:var(--accent);line-height:1;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.stat-l{font-size:10px;color:var(--sub2);margin-top:3px;font-weight:600;letter-spacing:.3px;text-transform:uppercase}
+.top-link{font-size:12px;color:var(--accent);margin-bottom:24px;display:inline-block;text-decoration:none;font-weight:500}
+.top-link span{border-bottom:1px solid var(--accent-border)}
+/* Tab bar */
+.tab-bar{display:flex;gap:6px;margin-bottom:22px;background:var(--s);border:1px solid var(--bd);border-radius:10px;padding:5px;box-shadow:var(--shadow-xs)}
+.tab-btn{flex:1;padding:8px 14px;border-radius:7px;border:none;background:transparent;font-size:13px;font-weight:600;color:var(--sub);cursor:pointer;transition:all .15s;text-align:center}
+.tab-btn.active{background:var(--accent);color:#fff;box-shadow:0 2px 6px rgba(74,122,154,.35)}
+.tab-bar .tab-btn:nth-child(2).active{background:#2e6a8a;color:#fff}
+.tab-btn:hover:not(.active){background:#eaf3f8;color:var(--accent-dark)}
+.tab-pane{display:none}
+.tab-pane.show{display:block}
+/* Section */
+.sec-title{font-size:12px;font-weight:700;color:var(--sub);margin-bottom:14px;display:flex;align-items:center;gap:10px;letter-spacing:.4px;text-transform:uppercase}
+.sec-title::before{content:'';display:inline-block;width:3px;height:14px;background:var(--accent);border-radius:2px;flex-shrink:0}
+.sec-title::after{content:'';flex:1;height:1px;background:var(--bd)}
+.section{margin-bottom:28px}
+.note-bar{background:var(--accent-light);border:1px solid var(--accent-border);border-radius:10px;padding:10px 16px;font-size:12px;color:#2e5c7a;margin-bottom:20px;line-height:1.6}
+/* Stats bar */
+.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:22px}
+.sb-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:14px 16px;box-shadow:var(--shadow-xs);text-align:center}
+.sb-n{font-size:26px;font-weight:900;color:var(--accent);line-height:1;letter-spacing:-1px;font-variant-numeric:tabular-nums}
+.sb-n.warn{color:var(--warn)}
+.sb-l{font-size:10px;color:var(--sub2);font-weight:600;margin-top:4px;text-transform:uppercase;letter-spacing:.3px}
+/* Performance table */
+.perf-table{width:100%;border-collapse:collapse;font-size:12.5px;background:var(--s);border-radius:10px;overflow:hidden;border:1px solid var(--bd);box-shadow:var(--shadow-xs)}
+.perf-table th{background:#f0f4f7;color:var(--sub);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.3px;padding:9px 14px;text-align:left;border-bottom:1px solid var(--bd)}
+.perf-table td{padding:9px 14px;border-bottom:1px solid #f0f2f4;color:var(--tx)}
+.perf-table tr:last-child td{border-bottom:none}
+.perf-table tr:hover td{background:#f8fafc}
+.tag-ok{color:var(--good);font-weight:700}
+.tag-warn{color:var(--warn);font-weight:600}
+.tag-mute{color:var(--sub2)}
+/* Audience cards */
+.aud-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;align-items:start}
+@media(max-width:760px){.aud-grid-2{grid-template-columns:1fr}}
+.aud-card{background:var(--s);border:1px solid var(--bd);border-radius:10px;overflow:hidden;box-shadow:var(--shadow-xs)}
+.aud-header{display:flex;align-items:center;gap:12px;padding:13px 16px;cursor:pointer;user-select:none;transition:background .15s}
+.aud-header:hover{background:#f8fafc}
+.aud-num{width:28px;height:28px;border-radius:8px;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;flex-shrink:0}
+.aud-info{flex:1;min-width:0}
+.aud-name{font-size:13px;font-weight:700;color:var(--tx);line-height:1.3}
+.aud-sub{font-size:11px;color:var(--sub);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.aud-arrow{font-size:10px;color:var(--sub2);transition:transform .2s;flex-shrink:0}
+.aud-card.open .aud-arrow{transform:rotate(90deg)}
+.aud-body{display:none;padding:0 16px 14px;border-top:1px solid #f0f2f4}
+.aud-card.open .aud-body{display:block}
+.aud-sl{font-size:10px;font-weight:700;color:var(--sub2);text-transform:uppercase;letter-spacing:.4px;margin:12px 0 6px}
+.aud-logic{font-size:12px;color:var(--tx);line-height:1.7;background:var(--accent-light);border-radius:8px;padding:10px 13px;border-left:3px solid var(--accent)}
+.aud-lm{display:flex;flex-wrap:wrap;gap:6px}
+.aud-lm-tag{font-size:11px;background:#eaf3f8;color:var(--accent-dark);border:1px solid #c0daea;border-radius:6px;padding:3px 10px;font-weight:600}
+.tag-tbl{width:100%;border-collapse:collapse;font-size:12px;margin-top:4px}
+.tag-tbl th{background:#f0f4f7;color:var(--sub);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.3px;padding:6px 10px;text-align:left}
+.tag-tbl td{padding:5px 10px;border-bottom:1px solid #f2f4f6;color:var(--tx);cursor:pointer}
+.tag-tbl tr:last-child td{border-bottom:none}
+.tag-tbl tr:hover td{background:#f8fafc}
+.tag-tbl td:first-child{width:28px;color:var(--sub2);font-size:11px;font-weight:600}
+.tag-tbl td:nth-child(2){font-weight:500}
+.tag-tbl td:nth-child(3){color:var(--sub);font-size:11.5px}
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="ph-logo">白</div>
+  <div class="ph-title">喜全築白｜受眾分析報告</div>
+  <div class="ph-sub">台中豐原</div>
+  <nav class="ph-nav">
+    <a href="hub.html">← 返回總覽</a>
+  </nav>
+</div>
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<div class="wrap">
+  <div class="case-header">
+    <div class="case-logo">白</div>
+    <div class="case-info">
+      <h2>喜全築白</h2>
+      <p>台中豐原區信義街15巷・廟東生活圈・二房雙套房 20-26坪・7層47戶・2029 Q3 完工・喜全國際</p>
+    </div>
+    <div class="case-stats">
+      <div class="stat"><div class="stat-n">15</div><div class="stat-l">累積潛客</div></div>
+      <div class="stat"><div class="stat-n">808</div><div class="stat-l">均CPL (NT$)</div></div>
+      <div class="stat"><div class="stat-n">15</div><div class="stat-l">已測受眾組</div></div>
+    </div>
+  </div>
+
+  <a class="top-link" href="hub.html"><span>← 返回建案總覽</span></a>
+
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab(0,this)">受眾建議</button>
+    <button class="tab-btn" onclick="switchTab(1,this)">成效紀錄</button>
+  </div>
+
+  <!-- Tab 1: 受眾建議 -->
+  <div class="tab-pane show" id="tab0">
+    <div class="section">
+      <div class="sec-title">主粉專｜建議受眾（20組）· 更新 2026-06-26</div>
+      <div class="note-bar">已根據「親子交通工業 CPL431」「工業教育 CPL411」「年輕興趣 CPL483」等有效方向延伸。避開已測 0 潛客的「機械製造」「換屋戶外退休」方向，新增廟東在地認同、豐原火車站通勤族、醫護、女性首購、后豐鐵馬道等全新切角。</div>
+      <div id="main-aud-grid" class="aud-grid-2"></div>
+    </div>
+  </div>
+
+  <!-- Tab 2: 成效紀錄 -->
+  <div class="tab-pane" id="tab1">
+    <div class="section">
+      <div class="sec-title">廣告成效總覽（2025-11-28 至 2026-06-26）</div>
+      <div class="stats-bar">
+        <div class="sb-card"><div class="sb-n">NT$12,127</div><div class="sb-l">總花費</div></div>
+        <div class="sb-card"><div class="sb-n">15</div><div class="sb-l">累積潛客</div></div>
+        <div class="sb-card"><div class="sb-n warn">808</div><div class="sb-l">均CPL (NT$)</div></div>
+        <div class="sb-card"><div class="sb-n">15</div><div class="sb-l">已測受眾組</div></div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="sec-title">各受眾組實測成效</div>
+      <table class="perf-table">
+        <thead>
+          <tr><th>#</th><th>受眾組</th><th>花費</th><th>潛客</th><th>CPL</th><th>狀態</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>30-65 / 豐原后里清水 / 親子交通工業(1217+興趣)</td><td>NT$2,155</td><td>5</td><td class="tag-ok">NT$431</td><td class="tag-ok">最有效</td></tr>
+          <tr><td>2</td><td>30-65 / 豐原+8K / 工業教育</td><td>NT$822</td><td>2</td><td class="tag-ok">NT$411</td><td class="tag-ok">最低CPL</td></tr>
+          <tr><td>3</td><td>25-55 / 豐原子 / 年輕興趣</td><td>NT$1,448</td><td>3</td><td class="tag-ok">NT$483</td><td class="tag-ok">有效</td></tr>
+          <tr><td>4</td><td>28-55 / 豐原車站+5K / 房地產(1202調)</td><td>NT$1,727</td><td>3</td><td class="tag-ok">NT$576</td><td class="tag-ok">有效</td></tr>
+          <tr><td>5</td><td>28-55 / 豐原車站+5K / 出登山文化</td><td>NT$840</td><td>1</td><td class="tag-warn">NT$840</td><td class="tag-warn">偏高</td></tr>
+          <tr><td>6</td><td>30-60 / 豐原后里 / 投資興趣(1128擴大微調)</td><td>NT$1,004</td><td>1</td><td class="tag-warn">NT$1,004</td><td class="tag-warn">偏高</td></tr>
+          <tr><td>7</td><td>30-65 / 豐原子后里 / 機械產業+製造業</td><td>NT$189</td><td>0</td><td class="tag-mute">—</td><td class="tag-mute">觀察中</td></tr>
+          <tr><td>8</td><td>30-65 / 豐原潭子 / 換屋戶外退休</td><td>NT$621</td><td>0</td><td class="tag-mute">—</td><td class="tag-mute">觀察中</td></tr>
+          <tr><td>9</td><td>30-65 / 豐原潭子北屯 / 房產投資</td><td>NT$423</td><td>0</td><td class="tag-mute">—</td><td class="tag-mute">觀察中</td></tr>
+          <tr><td>10</td><td>30-65 / 豐原子北屯 / 財富財經</td><td>NT$432</td><td>0</td><td class="tag-mute">—</td><td class="tag-mute">觀察中</td></tr>
+          <tr><td>11-15</td><td>其餘 5 組（截圖未完整讀取）</td><td>NT$2,466</td><td>0</td><td class="tag-mute">—</td><td class="tag-mute">觀察中</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="section">
+      <div class="sec-title">策略備註</div>
+      <div class="note-bar">
+        <strong>有效輪廓：</strong>豐原在地×親子×工業背景組合命中首購族（CPL431最佳）；工業+教育組合為全案最低 CPL 411；年輕族群對小坪數二房接受度高（CPL483）。<br>
+        <strong>建議排除：</strong>機械製造業精準標籤已測 0 潛客；換屋戶外退休方向豐原地區未成功；純投資族CPL超過1000，性價比差。<br>
+        <strong>新方向優先：</strong>廟東生活認同（情感連結強）、豐原火車站通勤族（首購動機清楚）、女性首購（雙套房格局是天然訴求）、ETF存股收租（低總價置産邏輯）。
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function switchTab(i,btn){
+  document.querySelectorAll('.tab-pane').forEach((p,j)=>p.classList.toggle('show',j===i));
+  document.querySelectorAll('.tab-btn').forEach((b,j)=>b.classList.toggle('active',j===i));
+}
+window.addEventListener('scroll',()=>{
+  document.getElementById('btt').classList.toggle('show',window.scrollY>400);
+});
+
+const MAIN_G=[
+  {n:'25-45 / 豐原廟東 / 首購年輕族×年輕首購生活',sub:'延伸年輕興趣CPL483·廟東生活圈對年輕族群情感連結最強',
+   logic:'延伸全案有效的「年輕興趣 CPL483」，鎖定廟東商圈生活圈的25-42歲年輕首購族。雙套房20-26坪是年輕人「自住+彈性使用」的完美格局，廟東步行生活圈對在地年輕族群吸引力最強。「先買廟東的第一間，再換大的」是豐原年輕人最自然的置産邏輯，低總價入場門檻低，廣告轉化動機清楚。',
+   lm:['廟東夜市','豐原火車站','豐原高中'],
+   tags:[['First-time home buyer','首購族'],['Young adult','年輕族群'],['Apartment','公寓住宅'],['Real estate','房地產'],['Home ownership','置產購屋'],['Mortgage','房貸'],['Saving','儲蓄'],['Investment','投資理財'],['Financial planning','財務規劃'],['Renting','租房族'],['Moving','搬家'],['Interior design','室內設計'],['Urban lifestyle','都市生活'],['Work-life balance','工作生活平衡'],['Coffee','咖啡飲食'],['Food','美食生活'],['Instagram','IG社群'],['Travel','旅遊'],['Fashion','時尚'],['Online shopping','網路購物'],['Music','音樂'],['Netflix','串流媒體'],['Career','職涯發展'],['Education','教育進修'],['Online learning','線上學習'],['Technology','科技'],['Smartphone','智慧型手機'],['Gaming','電玩'],['Cycling','自行車'],['Home improvement','居家佈置']]},
+  {n:'28-55 / 豐原工業區+5km / 工業工程師×製造業首購',sub:'延伸工業教育CPL411·豐原最大就業族群完全精準',
+   logic:'延伸全案最低CPL 411的「工業教育」方向。豐原工業區傳統製造業工程師是豐原最大就業族群，薪水穩定（月薪4-6萬），多數在豐原生活但租屋。20-26坪小二房是這群人「不用等太久就可以自己住」的首購最佳選項。廟東夜市走路可達，不需改變生活圈，廣告說服成本極低。',
+   lm:['豐原工業區','豐原火車站','廟東夜市'],
+   tags:[['Manufacturing','製造業'],['Industrial','工業'],['Engineering','工程師'],['Factory','工廠'],['Automotive','汽車製造'],['Metal fabrication','金屬加工'],['Mechanical engineering','機械工程'],['Electrical engineering','電氣工程'],['Quality control','品管'],['Supply chain','供應鏈'],['Real estate','房地產'],['Home buying','購屋'],['First-time home buyer','首購族'],['Property investment','置產投資'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Investment','投資理財'],['Practical lifestyle','實用生活'],['Food','美食'],['Local community','在地社區'],['Career','職涯工作'],['Banking','銀行理財'],['Life insurance','壽險'],['Retirement planning','退休規劃'],['Technology','科技'],['Commuting','通勤族'],['Taichung','台中豐原'],['Overtime working','加班族'],['Home improvement','居家佈置']]},
+  {n:'30-58 / 豐原廟東+學區 / 公教職員×廟東明星學區首購',sub:'全案首次針對公教族群·購買力最穩定·核貸率最高',
+   logic:'廟東商圈緊鄰豐原高中（明星學區）、豐原國中，是豐原學區房需求最強地段。公教職員薪資穩定（月薪4-7萬），首購資格佳（銀行核貸率高），且對「廟東步行生活+學區」組合共鳴最強。全案第一次針對公教族群，是完全未覆蓋的置産力最穩定族群，廣告轉化期望值高。',
+   lm:['豐原高中','廟東夜市','豐原國中'],
+   tags:[['Public servant','公務員'],['Teacher','教師'],['Government employee','政府職員'],['Education','教育'],['Civil servant','公教人員'],['Healthcare worker','醫護人員'],['School teacher','學校老師'],['Academic','學術研究'],['Job security','工作保障'],['Retirement planning','退休規劃'],['Financial planning','財務規劃'],['Real estate','房地產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['Saving','儲蓄'],['Investment','投資理財'],['School district','學區'],['Family','家庭'],['Children','子女教育'],['Quality of life','生活品質'],['Interior design','室內設計'],['Community','社區'],['Banking','銀行理財'],['Life insurance','壽險'],['Stability','穩定收入'],['Home ownership','置産'],['Parenting','育兒'],['Moving','搬家'],['Home improvement','居家改善']]},
+  {n:'26-42 / 豐原廟東 / 新婚首購×成家小宅雙套房',sub:'雙套房是新婚首購最佳格局·廟東生活圈是成家最強地段',
+   logic:'20-26坪二房雙套房是新婚首購最匹配格局：小二房、低總價、雙套房可各自使用或作書房/嬰兒房彈性應用，兩間主臥浴室讓新婚夫妻各有私人空間。廟東生活圈的美食、便利、學區對「剛成家」族群天然吸引，「在廟東買第一間」是豐原新婚族最具體的在地置産邏輯。',
+   lm:['廟東夜市','豐原火車站','豐原高中'],
+   tags:[['Wedding','婚禮結婚'],['Marriage','婚姻'],['Newly married','新婚夫妻'],['Honeymoon','蜜月'],['First home','首購'],['Young couple','年輕夫妻'],['Family planning','家庭規劃'],['Baby','嬰兒幼兒'],['Pregnancy','懷孕生育'],['Childcare','育兒'],['Home ownership','置產購屋'],['Real estate','房地產'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Interior design','室內設計'],['Home improvement','居家佈置'],['Moving','搬家'],['Apartment','公寓住宅'],['Investment','投資理財'],['Saving','儲蓄'],['Home decoration','家居裝潢'],['Furniture','家具傢飾'],['Cooking','料理烹飪'],['Life insurance','壽險'],['Banking','銀行理財'],['Quality of life','生活品質'],['Parenting','育兒知識'],['Smart home','智慧家居'],['Community','社區'],['Property investment','置産投資']]},
+  {n:'28-55 / 豐原廟東周邊 / 廟東美食族×在地生活認同',sub:'廟東夜市是豐原最強地標·情感認同是最低摩擦力切入',
+   logic:'廟東夜市是全台知名的豐原最強生活地標，在地美食族對「廟東步行可達」有強烈情感認同。這群人對豐原有高度在地歸屬感，對「住廟東旁邊」的生活想像最具體，廣告素材用「廟東下樓就到」直接命中地段情感。全案第一次以廟東生活圈認同做切入，是全新的地標情感牌，完全未測。',
+   lm:['廟東夜市','豐原老街','廟東燒烤一條街'],
+   tags:[['Street food','街頭小吃'],['Night market','夜市'],['Food','美食飲食'],['Foodie','美食族饕客'],['Local food','在地美食'],['Taiwanese cuisine','台灣料理'],['Barbecue','燒烤料理'],['Dessert','甜點飲品'],['Bubble tea','手搖飲料'],['Restaurant','餐廳飲食'],['Food photography','美食攝影'],['Instagram','IG社群'],['Local community','在地社群'],['Neighborhood community','鄰里生活'],['Taiwan travel','台灣旅遊'],['Cultural tourism','文化旅遊'],['Cooking','料理烹飪'],['Grocery shopping','採買生活'],['Real estate','房地產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Saving','儲蓄'],['First-time home buyer','首購'],['Interior design','室內設計'],['Home improvement','居家佈置'],['Quality of life','生活品質'],['Community','社區'],['Moving','搬家']]},
+  {n:'26-48 / 豐原火車站+3km / 火車通勤族×台中工作首購',sub:'台中工作豐原住·通勤邏輯清楚·首購動機最強',
+   logic:'豐原火車站是台鐵縱貫線要站，每日通勤台中市區工作者眾多。「台中工作、豐原住」邏輯清楚：同樣的錢在豐原買得比台中大，火車25分鐘到台中站。信義街距豐原站步行可達，對通勤族是地理最優解。這群人首購動機最強（沒自己的家才每天通勤），完全未被精準鎖定。',
+   lm:['豐原火車站','廟東夜市','豐原高中'],
+   tags:[['Commuting','通勤族'],['Train','鐵路火車'],['Public transportation','大眾運輸'],['Taichung','台中'],['Work','職場工作'],['Career','職涯發展'],['Office worker','上班族'],['Work-life balance','工作生活平衡'],['Commuter rail','通勤鐵道'],['Business travel','商務出行'],['Real estate','房地產'],['Home buying','購屋'],['First-time home buyer','首購族'],['Property investment','置產投資'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Investment','投資理財'],['Moving','搬家'],['Apartment','公寓住宅'],['Interior design','室內設計'],['Home improvement','居家佈置'],['Neighborhood community','在地社區'],['Quality of life','生活品質'],['Banking','銀行理財'],['Life insurance','壽險'],['Retirement planning','退休規劃'],['Smart home','智慧家居'],['Family','家庭'],['Time management','時間管理']]},
+  {n:'28-55 / 豐原東勢后豐 / 后豐鐵馬道戶外族×登山健走',sub:'延伸登山文化有1潛客·換地標到后豐最精準地標',
+   logic:'延伸有效的「登山文化 CPL840（1潛客）」方向，換地標到「后豐鐵馬道」——豐原最知名的戶外地標，也是豐原人出遊的最強代表地點。對后豐鐵馬道有認同感的人等同對豐原生活圈有高度認同，「住廟東、假日騎后豐」的生活邏輯清晰，是地標情感最精準版本，預期比泛「登山文化」更有效。',
+   lm:['后豐鐵馬道入口','東豐綠廊','大甲溪畔'],
+   tags:[['Cycling','自行車騎車'],['Mountain bike','登山車'],['Road bike','公路車'],['Hiking','登山健行'],['Trail running','越野跑步'],['Outdoor adventure','戶外冒險'],['Trekking','遠足健走'],['Nature','自然環境'],['National park','國家公園'],['Parks & recreation','公園休閒'],['Camping','露營野營'],['Running','跑步運動'],['Physical fitness','體能訓練'],['Fitness','健身運動'],['Health and wellness','健康養生'],['Active lifestyle','健康生活方式'],['Outdoor clothing','戶外裝備'],['Real estate','房地產'],['Home buying','購屋'],['First-time home buyer','首購族'],['Property investment','置產投資'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Investment','投資理財'],['Quality of life','生活品質'],['Interior design','室內設計'],['Community','社區'],['Work-life balance','工作生活平衡'],['Moving','搬家']]},
+  {n:'28-45 / 豐原潭子大雅 / 竹科中科工程師×豐原首購',sub:'中科工程師高薪資·豐原低總價是他們的分散置産首選',
+   logic:'台中科學園區（中科）距豐原開車約20-25分鐘。中科工程師薪資高（月薪8-15萬），首購購買力強但中科周邊房價高，豐原20-26坪小二房是「低總價先買廟東、等增值再換」的分散置産邏輯。廟東生活圈的便利性對科技族群同樣有吸引力，是完全未測試的高消費力切角。',
+   lm:['台中科學園區方向','豐原火車站','潭子交流道'],
+   tags:[['Technology','科技業'],['Software development','軟體開發'],['Engineering','工程師'],['Science park','科學園區'],['Semiconductor','半導體'],['Computer programming','電腦程式'],['IT profession','資訊技術'],['Artificial intelligence','人工智慧'],['High tech','高科技業'],['Startup','創業'],['STEM','理工科技'],['Data science','數據科學'],['Cloud computing','雲端運算'],['Electronics','電子業'],['Automation','自動化'],['Real estate','房地產'],['Home buying','購屋'],['First-time home buyer','首購族'],['Property investment','置產投資'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Investment','投資理財'],['Apartment','公寓住宅'],['Interior design','室內設計'],['Smart home','智慧家居'],['Quality of life','生活品質'],['Banking','銀行理財'],['Career development','職涯發展'],['Work-life balance','工作生活平衡']]},
+  {n:'30-58 / 豐原榮總+廟東 / 醫護人員×豐原安心首購',sub:'豐原榮總是全豐原最大醫院·醫護薪資穩定首購資格佳',
+   logic:'豐原榮民醫院（台中榮總豐原院）是豐原最大醫院，醫護人員薪資穩定（月薪5-12萬）且絕大多數仍在租屋。廟東生活圈距豐原榮總約10分鐘車程，對「下班就想在熟悉地帶生活」的醫護族群是最自然選擇。全案第一次針對豐原在地醫護族群，是購買力強且完全未被競品鎖定的空白族群。',
+   lm:['豐原榮民醫院','廟東夜市','豐原火車站'],
+   tags:[['Healthcare','醫療健康'],['Nurse','護理師'],['Doctor','醫師'],['Medical worker','醫護人員'],['Hospital','醫院'],['Nursing','護理'],['Medical technology','醫療科技'],['Physical therapist','物理治療師'],['Pharmacist','藥師'],['Healthcare administration','醫院管理'],['Mental health','心理健康'],['Medical equipment','醫療器材'],['Dentist','牙醫'],['Clinic','診所'],['Health insurance','健保醫療'],['Real estate','房地產'],['Home buying','購屋'],['First-time home buyer','首購族'],['Property investment','置產投資'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Investment','投資理財'],['Job security','工作保障'],['Retirement planning','退休規劃'],['Quality of life','生活品質'],['Interior design','室內設計'],['Community','社區'],['Banking','銀行理財'],['Life insurance','壽險']]},
+  {n:'30-55 / 豐原廟東后里 / 親子教育×廟東高中學區置産',sub:'延伸親子方向CPL431最有效·廟東學區是信義街最強賣點',
+   logic:'延伸全案最有效「親子交通工業 CPL431」的親子方向，鎖定廟東明星學區特色——豐原高中步行可達是信義街最強地段賣點。有孩子在唸豐原高中或就讀豐原中小學的家長，對「廟東旁邊」的居住動機最強，完全不需要說服地段價值，廣告直接打「豐高步行可到，孩子上學不用接送」即可成立。',
+   lm:['豐原高中','廟東夜市','豐原國中'],
+   tags:[['Parenting','育兒'],['Children','子女'],['Child education','兒童教育'],['School district','學區'],['Elementary school','小學教育'],['High school','高中'],['Family','家庭'],['Child development','兒童發展'],['After-school program','課後輔導'],['Tutoring','補習班'],['Online learning for kids','兒童線上學習'],['Children\'s activities','兒童才藝'],['Family travel','家庭旅遊'],['Home ownership','置產購屋'],['Real estate','房地產'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Property investment','置產投資'],['Home improvement','居家佈置'],['Interior design','室內設計'],['Moving','搬家'],['Apartment','公寓住宅'],['Community','社區'],['Quality of life','生活品質'],['Banking','銀行理財'],['Life insurance','壽險'],['Saving','儲蓄'],['Investment','投資理財'],['Childcare','托育照顧'],['Family planning','家庭規劃']]},
+  {n:'26-45 / 豐原潭子+5km / 雙薪小家庭×租轉買首購',sub:'豐原潭子雙薪最密集·兩人月收繼續租不如買廟東一間',
+   logic:'豐原潭子是年輕雙薪家庭最密集地帶，多數仍在租屋（豐原租金4000-9000元/月）。「兩個人月收入10-18萬，繼續租不如買廟東一間」的置産邏輯清晰。20-26坪小二房是雙薪夫妻不擠也不浪費的起步格局，雙套房讓夫妻各有獨立空間。廣告訴求「租了5年的錢可以拿來付頭期款」最有說服力。',
+   lm:['廟東夜市','豐原火車站','潭子區'],
+   tags:[['Dual income household','雙薪家庭'],['Renting','租房族'],['Young couple','年輕夫妻'],['Work-life balance','工作生活平衡'],['Career','職涯工作'],['Office worker','上班族'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Investment','投資理財'],['First-time home buyer','首購族'],['Real estate','房地產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['Moving','搬家'],['Apartment','公寓住宅'],['Interior design','室內設計'],['Home improvement','居家佈置'],['Family planning','家庭規劃'],['Marriage','結婚成家'],['Quality of life','生活品質'],['Banking','銀行理財'],['Life insurance','壽險'],['Community','社區'],['Commuting','通勤族'],['Smart home','智慧家居'],['Cooking','料理烹飪'],['Food','美食飲食'],['Grocery shopping','採買生活'],['Pet','寵物']]},
+  {n:'28-55 / 豐原后里+8km / ETF存股×低總價廟東收租置産',sub:'改善版投資方向·ETF族對固定現金流比純投資更接受',
+   logic:'改善版投資收租方向，從有效但CPL偏高的「投資興趣 CPL1004」換成「ETF/存股/低總價收租」切角。廟東商圈地段租賃需求穩定（豐高學生、上班族），20-26坪小二房預估月租7000-12000元。ETF存股族對「買房當固定現金流」有高接受度，不追短期增值，重視長期被動收入——和案件「穩定收租廟東宅」定位高度契合。',
+   lm:['廟東夜市','豐原火車站','豐原高中'],
+   tags:[['ETF','ETF存股'],['Stock market','股票投資'],['Investment','投資理財'],['Passive income','被動收入'],['Dividend investing','股息投資'],['Financial independence','財務自由'],['Real estate investment','不動產投資'],['Rental property','出租收益'],['Financial planning','財務規劃'],['Wealth management','財富管理'],['Asset management','資產管理'],['Portfolio management','投資組合'],['Mutual fund','基金投資'],['Saving','儲蓄理財'],['Banking','銀行理財'],['Tax planning','稅務規劃'],['Personal finance','個人理財'],['Retirement planning','退休規劃'],['Property investment','置產投資'],['Real estate','房地產'],['Home buying','購屋'],['Mortgage','房貸'],['Long-term investment','長期投資'],['Cash flow','現金流管理'],['Risk management','風險管理'],['Stock trading','股票交易'],['Financial news','財經資訊'],['Frugality','節儉省錢'],['Business owner','企業主'],['Investment property','投資置産']]},
+  {n:'30-55 / 豐原潭子+5km / 保險業務×理財顧問首購',sub:'這群人每天在講置産邏輯給客戶聽·自己卻還沒買',
+   logic:'豐原潭子一帶保險業務、理財業務人員密集，這群人最懂「提前置産保值」邏輯——他們每天在講這個給客戶聽，自己卻還沒買。月收入中高但不固定，對20-26坪低總價小二房的進場門檻接受度高，「先確保自己有房，業績好了再換大的」是他們的置産動機。全案第一次精準鎖定此族群。',
+   lm:['廟東夜市','豐原火車站','潭子區'],
+   tags:[['Life insurance','壽險保險'],['Insurance agent','保險業務'],['Financial advisor','財務顧問'],['Financial planning','財務規劃'],['Wealth management','財富管理'],['Investment','投資理財'],['Retirement planning','退休規劃'],['Asset management','資產管理'],['Tax planning','稅務規劃'],['Banking','銀行理財'],['Personal finance','個人理財'],['Stock market','股票投資'],['Real estate investment','不動產投資'],['Property investment','置產投資'],['Real estate','房地產'],['Home buying','購屋'],['Mortgage','房貸'],['Saving','儲蓄'],['Business networking','商業社交'],['Professional development','職業發展'],['Family','家庭'],['Career','職涯'],['Quality of life','生活品質'],['Interior design','室內設計'],['Community','社區'],['Self-improvement','自我提升'],['Online learning','線上學習'],['Leadership','領導力'],['Work-life balance','工作生活平衡'],['Home ownership','置産']]},
+  {n:'32-60 / 豐原工業區+后里 / 傳產二代×豐原在地置産',sub:'父輩工廠在豐原·傳產二代的第一間要在豐原',
+   logic:'豐原傳統製造業二代（接班或即將接班），有強烈的「在豐原置産」動機（工廠在豐原、人脈在豐原、未來也在豐原），對外地建案無興趣。父輩已有資產，自己首置動機是「留在豐原但要住品質好的」。20-26坪小二房是「先有個自己的窩，不住家裡」的選項，品牌建商有加分。廟東是他們從小長大的生活圈，情感認同天然。',
+   lm:['豐原工業區','廟東夜市','豐原老街'],
+   tags:[['Family business','家族企業'],['Traditional industry','傳統產業'],['Manufacturing','製造業'],['Small business owner','企業主'],['Business owner','老闆'],['Entrepreneurship','創業'],['Self-employed','自行創業'],['Business succession','接班傳承'],['Real estate','房地產'],['Property investment','置產投資'],['Home buying','購屋'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Asset management','資產管理'],['Wealth management','財富管理'],['Tax planning','稅務規劃'],['Investment','投資理財'],['Saving','儲蓄'],['Local business','在地商業'],['Networking','商業社交'],['Automotive','汽車休旅'],['Travel','旅遊'],['Fine dining','精緻餐飲'],['Interior design','室內設計'],['Quality of life','生活品質'],['Architecture','建築設計'],['Banking','銀行理財'],['Life insurance','壽險'],['Community','鄰里社區'],['Home ownership','置産']]},
+  {n:'24-45 / 豐原廟東 / 女性首購×雙套房獨立生活',sub:'雙套房格局是女性首購天然訴求·廟東安全感是最強地段牌',
+   logic:'全案雙套房規劃是女性首購的天然訴求——一間主臥室、一間彈性使用（工作室/衣帽間/客房），兩個空間各有浴室，女性獨居或2人合住都完全適合。廟東夜市步行可達的生活便利性對女性有強烈的安全感訴求：「一個人生活，廟東最安心」。全案第一次針對女性首購族，是完全空白的受眾方向。',
+   lm:['廟東夜市','豐原火車站','豐原高中'],
+   tags:[['Female empowerment','女性自主'],['Women financial independence','女性財務自主'],['Single woman','獨身女性'],['Independent woman','獨立女性'],['Fashion','時尚穿搭'],['Beauty','美容保養'],['Skincare','護膚'],['Shopping','購物'],['Self-care','自我照護'],['Work-life balance','工作生活平衡'],['Career','職涯工作'],['Professional woman','職業女性'],['Saving','儲蓄'],['Financial planning','財務規劃'],['Investment','投資理財'],['First-time home buyer','首購族'],['Real estate','房地產'],['Home buying','購屋'],['Property investment','置産投資'],['Mortgage','房貸'],['Interior design','室內設計'],['Home decoration','家居佈置'],['Home improvement','居家改善'],['Pet','寵物'],['Cooking','料理'],['Food','美食'],['Travel','旅遊'],['Reading','閱讀'],['Yoga','瑜珈'],['Personal development','自我成長']]},
+  {n:'28-55 / 豐原后里清水延伸 / 工業親子×交通族擴圈版',sub:'直接複製CPL431最有效組·換ID擴圈避免受眾疲勞',
+   logic:'直接複製全案CPL431最有效組「親子交通工業（豐原后里清水）」，換廣告組ID重新啟動，用完全相同的興趣邏輯但觸及新受眾個體，避開原組受眾疲勞問題。豐原后里清水是傳統工業×親子生活圈最密集地帶，第一組驗證這是命中首購族的最有效組合，直接複製是確保CPL最低的做法。',
+   lm:['豐原后里','清水區','豐原工業區'],
+   tags:[['Parenting','育兒'],['Children','子女'],['Child development','兒童發展'],['Family','家庭'],['Children\'s activities','兒童活動'],['School district','學區'],['Elementary school','小學'],['Transportation','大眾交通'],['Commuting','通勤'],['Highway','快速道路'],['Manufacturing','製造業'],['Industrial','工業製造'],['Engineering','工程師'],['Factory','工廠'],['Mechanical engineering','機械工程'],['Real estate','房地產'],['Home buying','購屋'],['First-time home buyer','首購族'],['Property investment','置産投資'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Investment','投資理財'],['Moving','搬家'],['Apartment','公寓住宅'],['Interior design','室內設計'],['Home improvement','居家佈置'],['Quality of life','生活品質'],['Community','社區'],['Work-life balance','工作生活平衡']]},
+  {n:'26-45 / 豐原廟東+潭子 / 精緻消費族×美食打卡廟東生活',sub:'廟東夜市全台知名·美食打卡族對地段有最強情感轉化動機',
+   logic:'廟東夜市是全台知名美食聖地，對喜愛美食打卡、IG分享的年輕精緻消費族群有強烈地標吸引力。這族群25-42歲、有消費力但仍在租屋，「廟東美食走路可達」是比「便宜」更有吸引力的生活訴求。廣告素材搭配廟東生活畫面，「買廟東的家，不只是買房子，是買一種生活方式」，情感轉化動機比房地產廣告更低門檻。',
+   lm:['廟東夜市','廟東燒烤一條街','豐原老街商圈'],
+   tags:[['Food','美食飲食'],['Foodie','美食愛好者'],['Night market','夜市生活'],['Street food','台灣小吃'],['Food photography','美食攝影'],['Instagram','IG'],['Social media','社群媒體'],['Café coffee','咖啡廳'],['Restaurant dining','外食族'],['Bubble tea','手搖飲'],['Travel','旅遊打卡'],['Lifestyle','生活風格'],['Fashion','時尚'],['Beauty','美容'],['Home decor','居家佈置'],['Interior design','室內設計'],['First-time home buyer','首購族'],['Real estate','房地產'],['Home buying','購屋'],['Property investment','置産投資'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Investment','投資理財'],['Moving','搬家'],['Apartment','公寓住宅'],['Quality of life','生活品質'],['Community','社區'],['Young adult','年輕族群'],['Work-life balance','工作生活平衡']]},
+  {n:'24-42 / 豐原潭子+3km / 健身族×積極年輕首購',sub:'健身族在其他案件驗證CPL超低·豐原潭子健身房密集',
+   logic:'健身/重訓族群在台中同類案件拿下CPL217全案最低，首次在喜全築白測試相同方向。豐原潭子健身房密集，這群25-40歲積極年輕人自我要求高、對居住品質要求高，20-26坪雙套房小宅是他們「開始獨立生活、擁有自己空間」的首購入門。「有在買房的人，跟有在健身的人，都是對自己負責的人」——核心邏輯最直接。',
+   lm:['豐原火車站','廟東夜市','潭子區'],
+   tags:[['Gym membership','健身房會員'],['Weightlifting','重訓健美'],['Fitness','健身運動'],['Bodybuilding','健力健美'],['Personal trainer','私人教練'],['CrossFit','高強度訓練'],['Yoga','瑜珈'],['Pilates','皮拉提斯'],['Sports nutrition','運動營養'],['Protein supplement','蛋白質補充'],['Active lifestyle','健康生活方式'],['Running','跑步'],['Cycling','自行車'],['Health and wellness','健康養生'],['Sports apparel','運動服飾'],['First-time home buyer','首購族'],['Real estate','房地產'],['Home buying','購屋'],['Property investment','置産投資'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Investment','投資理財'],['Young adult','年輕族群'],['Career','職涯'],['Apartment','公寓住宅'],['Interior design','室內設計'],['Quality of life','生活品質'],['Smart home','智慧家居'],['Work-life balance','工作生活平衡']]},
+  {n:'26-45 / 豐原廟東+5km / 自媒體斜槓×居家辦公雙套房',sub:'雙套房一間臥室一間書房·廟東低物價是遠端工作族最優解',
+   logic:'後疫情時代居家辦公族大增，自媒體/自由接案/線上創業族群需要「有自己獨立書房/工作室的住所」，20-26坪雙套房的一間臥室一間工作室配置是完美解法。廟東生活圈的美食、便利、豐原物價相對低廉，對「不需要住台中市區但要好生活品質」的遠端工作族是成本最優解。是完全新的切角，全案未測。',
+   lm:['廟東夜市','豐原火車站','廟東商圈'],
+   tags:[['Freelancing','自由接案'],['Self-employment','自行創業'],['Content creator','內容創作者'],['YouTube','YouTuber'],['Podcast','Podcast'],['Instagram','IG社群'],['Social media influencer','網紅'],['Blogging','部落客'],['Photography','攝影'],['Videography','影片拍攝'],['Work from home','居家辦公'],['Remote work','遠端工作'],['Digital marketing','數位行銷'],['Online business','網路事業'],['E-commerce','電子商務'],['Real estate','房地產'],['Home buying','購屋'],['First-time home buyer','首購族'],['Property investment','置產投資'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Investment','投資理財'],['Interior design','室內設計'],['Home improvement','居家佈置'],['Smart home','智慧家居'],['Quality of life','生活品質'],['Technology','科技'],['Entrepreneurship','創業'],['Work-life balance','工作生活平衡']]},
+  {n:'42-65 / 豐原+8km / 退休前縮小×低維護精裝換屋',sub:'在地長輩老宅換新大樓·廟東是最熟悉的家',
+   logic:'豐原在地45-65歲有資產族群，目前住大坪數老宅，對「縮小換精裝、換新大樓、低維護感」有強烈需求。全案雙套房格局對「老後一人使用一間、各有浴室」的退休夫妻非常友善，7層小規模華廈管理費低，是「換新不換大」的最佳選項。廟東是豐原長輩最熟悉的生活圈，「搬到廟東旁邊的新大樓」是他們感受最舒適的換屋選擇，完全無地段障礙。',
+   lm:['廟東夜市','豐原老街','豐原榮民醫院'],
+   tags:[['Retirement planning','退休規劃'],['Retirement','退休生活'],['Senior living','長者居住'],['Downsizing','換小縮屋'],['Financial independence','財務自由'],['Health and wellness','健康養生'],['Active seniors','活躍長者'],['Travel','旅遊'],['Grandchildren','孫子輩'],['Family','家庭'],['Life insurance','壽險'],['Estate planning','遺產規劃'],['Medical insurance','醫療保險'],['Healthcare','醫療健康'],['Senior care','長者照護'],['Real estate','房地產'],['Home buying','購屋'],['Property investment','置産投資'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Moving','搬家'],['Apartment','公寓住宅'],['Interior design','室內設計'],['Home improvement','居家改善'],['Low maintenance','低維護生活'],['Community','社區'],['Elevator building','電梯大廈'],['Quality of life','生活品質'],['Banking','銀行理財'],['Saving','儲蓄']]}
+];
+
+function toggleAud2(id){
+  const c=document.getElementById(id);
+  c.classList.toggle('open');
+}
+
+function buildAudCard(g,idx,prefix,isAlt){
+  const id=prefix+(idx+1);
+  const rows=g.tags.map((t,i)=>`<tr><td>${i+1}</td><td>${t[0]}</td><td>${t[1]}</td></tr>`).join('');
+  const lmTags=g.lm.map(l=>`<span class="aud-lm-tag">${l}</span>`).join('');
+  return `<div class="aud-card" id="${id}">
+    <div class="aud-header${isAlt?' alt-h':''}" onclick="toggleAud2('${id}')">
+      <div class="aud-num">${idx+1}</div>
+      <div class="aud-info"><div class="aud-name">${g.n}</div><div class="aud-sub">${g.sub}</div></div>
+      <div class="aud-arrow">▶</div>
+    </div>
+    <div class="aud-body">
+      <div class="aud-sl">評估邏輯</div>
+      <div class="aud-logic">${g.logic}</div>
+      <div class="aud-sl">地標定位</div>
+      <div class="aud-lm">${lmTags}</div>
+      <div class="aud-sl">興趣標籤（30個）</div>
+      <table class="tag-tbl"><thead><tr><th>#</th><th>English</th><th>中文</th></tr></thead><tbody>${rows}</tbody></table>
+    </div>
+  </div>`;
+}
+
+(function(){
+  const mg=document.getElementById('main-aud-grid');
+  if(mg)mg.innerHTML=MAIN_G.map((g,i)=>buildAudCard(g,i,'m',false)).join('');
+})();
+</script>
+</body>
+</html>
