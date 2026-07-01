@@ -8,6 +8,7 @@
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
   --accent:#3a6a8a;--accent-dark:#2a4f6a;--accent-light:#e8f0f5;--accent-border:#8ab0c8;
+  --alt:#2a7a5a;--alt-dark:#1a5a3a;--alt-light:#e0f2ec;--alt-border:#7ac0a8;
   --bg:#f2f3f1;--s:#ffffff;--bd:#e4e5e2;--tx:#2e2c29;--sub:#7d7870;--sub2:#a8a199;
   --good:#1e6e3f;--goodl:#e6f4ea;--warn:#c05c00;
   --radius:12px;--shadow-xs:0 1px 3px rgba(0,0,0,.05);--shadow-sm:0 2px 8px rgba(0,0,0,.07);--shadow-card:0 2px 10px rgba(0,0,0,.06),0 1px 3px rgba(0,0,0,.04);
@@ -23,7 +24,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 #btt{position:fixed;right:24px;bottom:28px;width:38px;height:38px;border-radius:50%;background:rgba(10,20,30,.75);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.85);font-size:15px;cursor:pointer;opacity:0;transform:translateY(8px);transition:opacity .2s,transform .2s;pointer-events:none;z-index:150;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.3);font-family:inherit}
 #btt.show{opacity:1;transform:translateY(0);pointer-events:auto}
 .wrap{max-width:1200px;margin:0 auto;padding:32px 40px 48px}
-.case-header{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:20px 24px;margin-bottom:10px;display:flex;align-items:center;gap:18px;box-shadow:var(--shadow-card)}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--accent);text-decoration:none;margin-bottom:20px;padding:5px 12px;background:var(--accent-light);border-radius:20px;border:1px solid var(--accent-border)}
+.case-header{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:20px 24px;margin-bottom:14px;display:flex;align-items:center;gap:18px;box-shadow:var(--shadow-card)}
 .case-logo{width:44px;height:44px;background:linear-gradient(135deg,#6a9ab8,var(--accent-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;flex-shrink:0}
 .case-info h2{font-size:17px;font-weight:700;color:var(--tx);letter-spacing:-.3px}
 .case-info p{font-size:12px;color:var(--sub);margin-top:3px;line-height:1.5}
@@ -31,37 +33,62 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .stat{text-align:right}
 .stat-n{font-size:24px;font-weight:800;color:var(--accent);line-height:1;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
 .stat-l{font-size:10px;color:var(--sub2);margin-top:3px;font-weight:600;letter-spacing:.3px;text-transform:uppercase}
-.back-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--accent);text-decoration:none;margin-bottom:20px;padding:5px 12px;background:var(--accent-light);border-radius:20px;border:1px solid var(--accent-border)}
+/* Tab */
+.tab-bar{display:flex;gap:6px;margin-bottom:22px;background:var(--s);border:1px solid var(--bd);border-radius:10px;padding:5px;box-shadow:var(--shadow-xs)}
+.tab-btn{flex:1;padding:8px 14px;border-radius:7px;border:none;background:transparent;font-size:13px;font-weight:600;color:var(--sub);cursor:pointer;transition:all .15s;text-align:center;font-family:inherit}
+.tab-btn.active{background:var(--accent);color:#fff;box-shadow:0 2px 6px rgba(58,106,138,.3)}
+.tab-bar .tab-btn:nth-child(2).active{background:var(--alt);color:#fff;box-shadow:0 2px 6px rgba(42,122,90,.3)}
+.tab-btn:hover:not(.active){background:var(--accent-light);color:var(--accent-dark)}
+.tab-pane{display:none}
+.tab-pane.show{display:block}
+/* Banner */
+.page-banner{border-radius:var(--radius);padding:18px 24px;margin-bottom:22px;display:flex;align-items:center;gap:20px;box-shadow:var(--shadow-card)}
+.page-banner.main-banner{background:linear-gradient(135deg,#2a4f6a,#3a6a8a);color:#fff}
+.page-banner.alt-banner{background:linear-gradient(135deg,#1a5a3a,#2a7a5a);color:#fff}
+.banner-icon{width:40px;height:40px;background:rgba(255,255,255,.12);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;flex-shrink:0;color:#fff}
+.banner-title{font-size:16px;font-weight:800;letter-spacing:-.2px}
+.banner-sub{font-size:12px;opacity:.8;margin-top:2px}
+.banner-stats{margin-left:auto;display:flex;gap:28px;flex-shrink:0}
+.bs{text-align:right}
+.bs-n{font-size:22px;font-weight:800;color:#fff;line-height:1;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.bs-l{font-size:10px;color:rgba(255,255,255,.7);margin-top:3px;font-weight:600;letter-spacing:.3px;text-transform:uppercase}
+/* Section */
 .sec-title{font-size:12px;font-weight:700;color:var(--sub);margin-bottom:14px;display:flex;align-items:center;gap:10px;letter-spacing:.4px;text-transform:uppercase}
 .sec-title::before{content:'';display:inline-block;width:3px;height:14px;background:var(--accent);border-radius:2px;flex-shrink:0}
 .sec-title::after{content:'';flex:1;height:1px;background:var(--bd)}
+.sec-title.alt-bar::before{background:var(--alt)}
 .section{margin-bottom:28px}
-.note-bar{background:var(--accent-light);border:1px solid var(--accent-border);border-radius:10px;padding:10px 16px;font-size:12px;color:#2a4060;margin-bottom:20px;line-height:1.6}
-.profiles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.profile-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow-xs);transition:box-shadow .2s,transform .2s}
-.profile-card:hover{box-shadow:var(--shadow-sm);transform:translateY(-2px)}
-.profile-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:17px;margin-bottom:12px}
-.pi-blue{background:var(--accent-light)}.pi-teal{background:#e0eff2}.pi-green{background:#d8ead2}
-.profile-name{font-size:15px;font-weight:700;color:var(--tx);margin-bottom:4px}
-.profile-meta{font-size:12px;color:var(--sub);margin-bottom:10px}
-.profile-tags{font-size:12px;color:#4a5568;margin-bottom:10px;line-height:1.6}
-.profile-behavior{font-size:12px;color:var(--sub);line-height:1.55;margin-bottom:12px}
-.profile-badge{display:inline-block;font-size:11px;font-weight:700;padding:4px 11px;border-radius:20px;margin-top:2px}
-.badge-blue{background:var(--accent-light);color:#2a4060;border:1px solid var(--accent-border)}
-.badge-teal{background:#e0eff2;color:#2f6672;border:1px solid #87b5be}
-.badge-green{background:#d8ead2;color:#2f5c3f;border:1px solid #96c4a8}
-.tags-row{display:flex;flex-wrap:wrap;gap:8px}
-.core-tag{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;background:var(--s);border:1.5px solid var(--bd);border-radius:20px;font-size:13px;font-weight:600;color:var(--tx);cursor:pointer;transition:all .15s}
-.core-tag:hover{border-color:var(--accent-border);background:var(--accent-light);color:#2a4060}
-.core-tag .arr{font-size:11px;color:var(--accent-border)}
-.page-footer{text-align:center;font-size:11px;color:var(--sub2);margin-top:12px;padding-bottom:8px}
-/* ── 受眾卡片 ── */
+.note-bar{background:var(--accent-light);border:1px solid var(--accent-border);border-radius:10px;padding:10px 16px;font-size:12px;color:#2a4060;margin-bottom:20px;line-height:1.7}
+.note-bar.alt-note{background:var(--alt-light);border-color:var(--alt-border);color:#1a4030}
+/* Ranking */
+.rk-grid{display:flex;flex-direction:column;gap:6px}
+.rk-row{background:var(--s);border:1px solid var(--bd);border-left:3px solid #ddd;border-radius:var(--radius);padding:12px 16px 12px 12px;display:flex;gap:12px;align-items:center;transition:border-left-color .15s,box-shadow .15s}
+.rk-row:hover{box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.rk-row.rk-main:hover{border-left-color:var(--accent)}
+.rk-row.rk-alt:hover{border-left-color:var(--alt)}
+.rk-row.gold{border-left-color:#c8a800}
+.rk-medal{width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.rk-body{flex:1;min-width:0}
+.rk-name{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:3px;line-height:1.3}
+.rk-loc{font-size:11px;color:var(--sub2);line-height:1.4}
+.rk-stats{display:flex;gap:20px;flex-shrink:0;align-items:center}
+.rk-stat-block{text-align:right}
+.rk-result{font-size:22px;font-weight:900;color:var(--tx);line-height:1;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.rk-result-l{font-size:10px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.2px;margin-top:2px}
+.rk-cpl{font-size:16px;font-weight:800;color:var(--warn);line-height:1;font-variant-numeric:tabular-nums}
+.rk-cpl.good{color:var(--good)}
+.rk-cpl-l{font-size:10px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.2px;margin-top:2px}
+.rk-spend{font-size:13px;font-weight:700;color:#6d6560;line-height:1;font-variant-numeric:tabular-nums}
+.rk-spend-l{font-size:10px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.2px;margin-top:2px}
+/* Aud cards */
 .aud-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;align-items:start}
 @media(max-width:760px){.aud-grid-2{grid-template-columns:1fr}}
 .aud-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);box-shadow:var(--shadow-xs);overflow:hidden}
 .aud-header{display:flex;align-items:center;gap:12px;padding:14px 16px;cursor:pointer;user-select:none;transition:background .15s}
 .aud-header:hover{background:#f0f4f8}
+.aud-header.alt-h:hover{background:var(--alt-light)}
 .aud-num{width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.aud-num.alt{background:var(--alt)}
 .aud-info{flex:1;min-width:0}
 .aud-name{font-size:13px;font-weight:700;color:var(--tx);line-height:1.35}
 .aud-sub{font-size:11px;color:var(--sub);margin-top:2px;line-height:1.4}
@@ -71,20 +98,25 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .aud-card.open .aud-body{display:block}
 .aud-sl{font-size:10px;font-weight:700;color:var(--sub2);letter-spacing:.5px;text-transform:uppercase;margin:12px 0 6px}
 .aud-logic{font-size:12px;color:var(--sub);line-height:1.7;background:var(--accent-light);border-left:3px solid var(--accent);padding:10px 12px;border-radius:0 6px 6px 0}
+.aud-logic.alt-logic{background:var(--alt-light);border-left-color:var(--alt)}
 .aud-lm{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:4px}
 .aud-lm-tag{font-size:11px;font-weight:600;color:#2a4060;background:var(--accent-light);padding:3px 10px;border-radius:10px;border:1px solid var(--accent-border)}
+.aud-lm-tag.alt-lm{color:#1a4030;background:var(--alt-light);border-color:var(--alt-border)}
 .tag-tbl{width:100%;border-collapse:collapse;font-size:12px;margin-top:4px}
 .tag-tbl thead tr{background:#eef3f7}
+.tag-tbl.alt-tbl thead tr{background:#e8f5f0}
 .tag-tbl th{padding:5px 8px;text-align:left;font-size:10px;font-weight:700;color:var(--sub2);border-bottom:1px solid var(--bd)}
 .tag-tbl tbody tr{cursor:pointer;transition:background .12s;border-bottom:1px solid #edf0f2}
 .tag-tbl tbody tr:hover{background:var(--accent-light)}
+.tag-tbl.alt-tbl tbody tr:hover{background:var(--alt-light)}
 .tag-tbl td{padding:5px 8px;color:var(--tx)}
 .tag-tbl td:first-child{color:var(--sub2);font-size:10px;width:24px}
 .tag-tbl tbody tr.flash{background:#c8e6d0!important}
 .copy-all-row{display:flex;justify-content:flex-end;margin-top:8px}
 .copy-all-btn{font-size:11px;font-weight:600;color:var(--accent-dark);background:var(--accent-light);border:1px solid var(--accent-border);border-radius:8px;padding:5px 14px;cursor:pointer;transition:all .15s}
-.copy-all-btn:hover{background:#d0e4f0}
+.copy-all-btn.alt-btn{color:var(--alt-dark);background:var(--alt-light);border-color:var(--alt-border)}
 .copy-all-btn.done{background:#d0ecd8;color:#2a6a3a;border-color:#a8d8b8}
+.page-footer{text-align:center;font-size:11px;color:var(--sub2);margin-top:12px;padding-bottom:8px}
 #copy-toast{position:fixed;bottom:72px;left:50%;transform:translateX(-50%) translateY(8px);background:#0d1e2a;color:#e8f0f5;font-size:11px;font-weight:600;padding:7px 16px;border-radius:18px;opacity:0;pointer-events:none;transition:opacity .18s,transform .18s;z-index:300;white-space:nowrap}
 #copy-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 </style>
@@ -102,155 +134,422 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 <div id="copy-toast">✓ 已複製到剪貼簿</div>
 
 <div class="wrap">
-
 <a class="back-link" href="hub.html">← 返回案件總覽</a>
 
 <div class="case-header">
   <div class="case-logo">程</div>
   <div class="case-info">
     <h2>鵬程59｜台中烏日</h2>
-    <p>台中烏日區・製造業重工業首購換屋・總價約1000萬・目標受眾：烏日南屯製造業從業者・廣告目標：潛在客戶</p>
+    <p>台中烏日區・製造業重工業首購換屋・總價約1000萬・雙粉專運作：主粉專 + 1510</p>
   </div>
   <div class="case-stats">
-    <div class="stat"><div class="stat-n">10組</div><div class="stat-l">規劃受眾</div></div>
-    <div class="stat"><div class="stat-n">300</div><div class="stat-l">興趣標籤</div></div>
-    <div class="stat"><div class="stat-n">2</div><div class="stat-l">核心地區</div></div>
+    <div class="stat"><div class="stat-n">20組</div><div class="stat-l">規劃受眾</div></div>
+    <div class="stat"><div class="stat-n">25</div><div class="stat-l">總潛客</div></div>
+    <div class="stat"><div class="stat-n">2</div><div class="stat-l">廣告帳號</div></div>
   </div>
 </div>
 
-<div class="note-bar">📌 本案目標族群為台中烏日、南屯製造業/重工業從業者，總價約1000萬，以首購或小坪數換屋為主。10組受眾依職業別精準區隔，避免重疊。</div>
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="switchTab('main')">主粉專（10組 · 13潛客 · NT$8,965）</button>
+  <button class="tab-btn" onclick="switchTab('1510')">1510（10組 · 12潛客 · NT$5,512）</button>
+</div>
 
-<!-- 三大受眾輪廓 -->
+<!-- ═══════════════ TAB: 主粉專 ═══════════════ -->
+<div id="tab-main" class="tab-pane show">
+
+<div class="page-banner main-banner">
+  <div class="banner-icon">主</div>
+  <div>
+    <div class="banner-title">主粉專｜鵬程59 Facebook</div>
+    <div class="banner-sub">2026/06/18 起 · 7組測試 · 資料截至 2026-07-01</div>
+  </div>
+  <div class="banner-stats">
+    <div class="bs"><div class="bs-n">13</div><div class="bs-l">潛在顧客</div></div>
+    <div class="bs"><div class="bs-n">NT$8,965</div><div class="bs-l">總花費</div></div>
+    <div class="bs"><div class="bs-n">NT$334</div><div class="bs-l">最低CPA</div></div>
+  </div>
+</div>
+
+<div class="note-bar">📌 新受眾方向：以「臺中市烏日區戶政事務所(+4km)＋金馬路一段169號彰化縣(+4km)」雙地標定向，套用 Combo 3 高效標籤組（教育/銀行/政府/製造/小型企業主），精準覆蓋烏日彰化公教、製造、自營族群。</div>
+
+<!-- 主粉專 受眾排行 -->
 <div class="section">
-  <div class="sec-title">三大核心受眾輪廓</div>
-  <div class="profiles">
-    <div class="profile-card">
-      <div class="profile-icon pi-blue">🏭</div>
-      <div class="profile-name">重工業技術工・首購主力</div>
-      <div class="profile-meta">年齡 28–50｜烏日南屯工業區</div>
-      <div class="profile-tags">職業：大車司機・焊接工・板金師傅・叉車手</div>
-      <div class="profile-behavior">月薪5-8萬、雙薪家庭8-12萬，工作在烏日南屯工業帶，「下班3分鐘到家」是最直接訴求。1000萬總價對這群人來說是「努力幾年就買得到」，首購動力強。</div>
-      <span class="profile-badge badge-blue">首購主力 · 購屋動力最強</span>
+  <div class="sec-title">主粉專受眾排行（2026-06-18 至 2026-07-01）</div>
+  <div class="rk-grid">
+    <div class="rk-row rk-main gold">
+      <div class="rk-medal">🥇</div>
+      <div class="rk-body">
+        <div class="rk-name">28-55 / 烏日彰化 / 公務員 / 傳產老闆</div>
+        <div class="rk-loc">觸及 3,921｜曝光 9,755｜CTR 1.40%</div>
+      </div>
+      <div class="rk-stats">
+        <div class="rk-stat-block"><div class="rk-result">5</div><div class="rk-result-l">潛在顧客</div></div>
+        <div class="rk-stat-block"><div class="rk-cpl good">NT$334</div><div class="rk-cpl-l">最低CPA</div></div>
+        <div class="rk-stat-block"><div class="rk-spend">NT$1,671</div><div class="rk-spend-l">花費</div></div>
+      </div>
     </div>
-    <div class="profile-card">
-      <div class="profile-icon pi-teal">⚙️</div>
-      <div class="profile-name">精密製造・中階管理換屋族</div>
-      <div class="profile-meta">年齡 30–55｜南屯精機廊道</div>
-      <div class="profile-tags">職業：生管・品管・CNC工程師・模具師傅</div>
-      <div class="profile-behavior">月薪6-10萬，在南屯精機廊道有10年以上資歷，對品質與地段有明確要求。換屋升格需求真實，「烏日生活機能完整+通勤近」是說服邏輯。</div>
-      <span class="profile-badge badge-teal">換屋升格 · 高決策力族群</span>
+    <div class="rk-row rk-main">
+      <div class="rk-medal">🥈</div>
+      <div class="rk-body">
+        <div class="rk-name">28-55 / 烏日南區 / 自營商 / 醫療業</div>
+        <div class="rk-loc">觸及 5,064｜曝光 15,378｜CTR 2.53%</div>
+      </div>
+      <div class="rk-stats">
+        <div class="rk-stat-block"><div class="rk-result">5</div><div class="rk-result-l">潛在顧客</div></div>
+        <div class="rk-stat-block"><div class="rk-cpl">NT$606</div><div class="rk-cpl-l">CPA</div></div>
+        <div class="rk-stat-block"><div class="rk-spend">NT$3,030</div><div class="rk-spend-l">花費</div></div>
+      </div>
     </div>
-    <div class="profile-card">
-      <div class="profile-icon pi-green">🔧</div>
-      <div class="profile-name">製造業自營・小廠老闆置產</div>
-      <div class="profile-meta">年齡 30–55｜烏日南屯工業圈</div>
-      <div class="profile-tags">職業：小工廠主・傳產自營・OEM接單老闆</div>
-      <div class="profile-behavior">年收200-500萬，平時忙於接單，置產是最信任的存錢方式。「廠子開了20年，是時候買自己的家」是核心訴求。在地根深，地緣認同感強。</div>
-      <span class="profile-badge badge-green">置產投資 · 在地根深高信任</span>
+    <div class="rk-row rk-main">
+      <div class="rk-medal">🥉</div>
+      <div class="rk-body">
+        <div class="rk-name">28-55 / 南屯烏日 / 製造業 / 大車司機</div>
+        <div class="rk-loc">觸及 3,944｜曝光 8,080｜CTR 1.65%</div>
+      </div>
+      <div class="rk-stats">
+        <div class="rk-stat-block"><div class="rk-result">2</div><div class="rk-result-l">潛在顧客</div></div>
+        <div class="rk-stat-block"><div class="rk-cpl">NT$945</div><div class="rk-cpl-l">CPA</div></div>
+        <div class="rk-stat-block"><div class="rk-spend">NT$1,890</div><div class="rk-spend-l">花費</div></div>
+      </div>
+    </div>
+    <div class="rk-row rk-main">
+      <div class="rk-medal"><span style="font-size:11px;font-weight:800;color:var(--sub2)">4</span></div>
+      <div class="rk-body">
+        <div class="rk-name">28-60 / 烏日+5 / 房產 / 投資</div>
+        <div class="rk-loc">觸及 1,813｜曝光 2,828｜CTR 2.40%</div>
+      </div>
+      <div class="rk-stats">
+        <div class="rk-stat-block"><div class="rk-result">1</div><div class="rk-result-l">潛在顧客</div></div>
+        <div class="rk-stat-block"><div class="rk-cpl">NT$729</div><div class="rk-cpl-l">CPA</div></div>
+        <div class="rk-stat-block"><div class="rk-spend">NT$729</div><div class="rk-spend-l">花費</div></div>
+      </div>
+    </div>
+    <div class="rk-row rk-main">
+      <div class="rk-medal"><span style="font-size:11px;font-weight:800;color:var(--sub2)">5</span></div>
+      <div class="rk-body">
+        <div class="rk-name">28-55 / 烏日彰化 / 新婚成家</div>
+        <div class="rk-loc">觸及 1,732｜曝光 2,893｜CTR 2.00%</div>
+      </div>
+      <div class="rk-stats">
+        <div class="rk-stat-block"><div class="rk-result">0</div><div class="rk-result-l">潛在顧客</div></div>
+        <div class="rk-stat-block"><div class="rk-cpl" style="color:var(--sub)">—</div><div class="rk-cpl-l">CPA</div></div>
+        <div class="rk-stat-block"><div class="rk-spend">NT$580</div><div class="rk-spend-l">花費</div></div>
+      </div>
+    </div>
+    <div class="rk-row rk-main">
+      <div class="rk-medal"><span style="font-size:11px;font-weight:800;color:var(--sub2)">6</span></div>
+      <div class="rk-body">
+        <div class="rk-name">28-55 / 烏日南區 / 房地產 / 父母</div>
+        <div class="rk-loc">觸及 2,679｜曝光 4,287｜1訊息 · CTR 2.01%</div>
+      </div>
+      <div class="rk-stats">
+        <div class="rk-stat-block"><div class="rk-result">0</div><div class="rk-result-l">潛在顧客</div></div>
+        <div class="rk-stat-block"><div class="rk-cpl" style="color:var(--sub)">—</div><div class="rk-cpl-l">CPA</div></div>
+        <div class="rk-stat-block"><div class="rk-spend">NT$552</div><div class="rk-spend-l">花費</div></div>
+      </div>
+    </div>
+    <div class="rk-row rk-main">
+      <div class="rk-medal"><span style="font-size:11px;font-weight:800;color:var(--sub2)">7</span></div>
+      <div class="rk-body">
+        <div class="rk-name">28-55 / 烏日彰化 / 房產 / 古典興趣</div>
+        <div class="rk-loc">觸及 2,401｜曝光 3,432｜CTR 1.78%</div>
+      </div>
+      <div class="rk-stats">
+        <div class="rk-stat-block"><div class="rk-result">0</div><div class="rk-result-l">潛在顧客</div></div>
+        <div class="rk-stat-block"><div class="rk-cpl" style="color:var(--sub)">—</div><div class="rk-cpl-l">CPA</div></div>
+        <div class="rk-stat-block"><div class="rk-spend">NT$513</div><div class="rk-spend-l">花費</div></div>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- 核心標籤 -->
+<!-- 主粉專 新建議受眾 10組 -->
 <div class="section">
-  <div class="sec-title">跨受眾必保留的核心標籤</div>
-  <div class="tags-row">
-    <span class="core-tag">製造業（職業）<span class="arr">↗</span></span>
-    <span class="core-tag">重工業（職業）<span class="arr">↗</span></span>
-    <span class="core-tag">烏日區（地段）<span class="arr">↗</span></span>
-    <span class="core-tag">南屯區（地段）<span class="arr">↗</span></span>
-    <span class="core-tag">工廠通勤（行為）<span class="arr">↗</span></span>
-    <span class="core-tag">首購（動機）<span class="arr">↗</span></span>
-    <span class="core-tag">穩定收入（財力）<span class="arr">↗</span></span>
-    <span class="core-tag">房貸（行為）<span class="arr">↗</span></span>
-  </div>
-</div>
-
-<!-- 受眾清單 MAIN_G -->
-<div class="section">
-  <div class="sec-title">主粉專受眾清單（10組）· 建立 2026-06-23</div>
+  <div class="sec-title">主粉專新建議受眾（10組）· 建立 2026-07-01</div>
   <div id="main-aud-grid" class="aud-grid-2"></div>
 </div>
 
-<div class="page-footer">鵬程59 受眾分析報告 · 更新 2026-06-23 · 9133 廣告操作團隊</div>
+</div><!-- end tab-main -->
+
+<!-- ═══════════════ TAB: 1510 ═══════════════ -->
+<div id="tab-1510" class="tab-pane">
+
+<div class="page-banner alt-banner">
+  <div class="banner-icon">1510</div>
+  <div>
+    <div class="banner-title">1510粉專｜鵬程59 1510 FB</div>
+    <div class="banner-sub">2026/06/25 起 · 7組測試 · 資料截至 2026-07-01</div>
+  </div>
+  <div class="banner-stats">
+    <div class="bs"><div class="bs-n">12</div><div class="bs-l">潛在顧客</div></div>
+    <div class="bs"><div class="bs-n">NT$5,512</div><div class="bs-l">總花費</div></div>
+    <div class="bs"><div class="bs-n">NT$220</div><div class="bs-l">最低CPA</div></div>
+  </div>
+</div>
+
+<div class="note-bar alt-note">📌 新受眾方向：Combo 1「新烏日車站(+5km)＋股票/投資/房地產/不動產/管理」 · Combo 2「新市政公園(+5km)＋股票市場/投資者/半導體/創新科技/SpaceX/新興技術/納斯達克100」。西屯+5/科技投資組 CPA NT$220 驗證科技投資方向有效。</div>
+
+<!-- 1510 受眾排行 -->
+<div class="section">
+  <div class="sec-title alt-bar">1510 受眾排行（2026-06-25 至 2026-07-01）</div>
+  <div class="rk-grid">
+    <div class="rk-row rk-alt" style="border-left-color:#c8a800">
+      <div class="rk-medal">⚡</div>
+      <div class="rk-body">
+        <div class="rk-name">28-60 / 西屯+5 / 科技投資</div>
+        <div class="rk-loc">觸及 2,118｜曝光 2,965｜CTR 2.06% · 進行中</div>
+      </div>
+      <div class="rk-stats">
+        <div class="rk-stat-block"><div class="rk-result">3</div><div class="rk-result-l">潛在顧客</div></div>
+        <div class="rk-stat-block"><div class="rk-cpl good">NT$220</div><div class="rk-cpl-l">全案最低</div></div>
+        <div class="rk-stat-block"><div class="rk-spend">NT$660</div><div class="rk-spend-l">花費</div></div>
+      </div>
+    </div>
+    <div class="rk-row rk-alt gold">
+      <div class="rk-medal">🥇</div>
+      <div class="rk-body">
+        <div class="rk-name">28-55 / 烏日+5 / 投資 / 置產客</div>
+        <div class="rk-loc">觸及 3,840｜曝光 7,857｜CTR 2.44% · 進行中</div>
+      </div>
+      <div class="rk-stats">
+        <div class="rk-stat-block"><div class="rk-result">6</div><div class="rk-result-l">潛在顧客</div></div>
+        <div class="rk-stat-block"><div class="rk-cpl good">NT$281</div><div class="rk-cpl-l">CPA</div></div>
+        <div class="rk-stat-block"><div class="rk-spend">NT$1,688</div><div class="rk-spend-l">花費</div></div>
+      </div>
+    </div>
+    <div class="rk-row rk-alt">
+      <div class="rk-medal">🥈</div>
+      <div class="rk-body">
+        <div class="rk-name">28-60 / 文心精科 / 首購 / 理財</div>
+        <div class="rk-loc">觸及 1,599｜曝光 2,246｜CTR 1.56% · 進行中</div>
+      </div>
+      <div class="rk-stats">
+        <div class="rk-stat-block"><div class="rk-result">1</div><div class="rk-result-l">潛在顧客</div></div>
+        <div class="rk-stat-block"><div class="rk-cpl">NT$609</div><div class="rk-cpl-l">CPA</div></div>
+        <div class="rk-stat-block"><div class="rk-spend">NT$609</div><div class="rk-spend-l">花費</div></div>
+      </div>
+    </div>
+    <div class="rk-row rk-alt">
+      <div class="rk-medal">🥉</div>
+      <div class="rk-body">
+        <div class="rk-name">28-55 / 烏日+5 / 零售 / 批發 / 自營商</div>
+        <div class="rk-loc">觸及 1,545｜曝光 2,319｜CTR 1.98%</div>
+      </div>
+      <div class="rk-stats">
+        <div class="rk-stat-block"><div class="rk-result">1</div><div class="rk-result-l">潛在顧客</div></div>
+        <div class="rk-stat-block"><div class="rk-cpl">NT$673</div><div class="rk-cpl-l">CPA</div></div>
+        <div class="rk-stat-block"><div class="rk-spend">NT$673</div><div class="rk-spend-l">花費</div></div>
+      </div>
+    </div>
+    <div class="rk-row rk-alt">
+      <div class="rk-medal"><span style="font-size:11px;font-weight:800;color:var(--sub2)">5</span></div>
+      <div class="rk-body">
+        <div class="rk-name">28-55 / 烏日+5 / 業務性質</div>
+        <div class="rk-loc">觸及 1,808｜曝光 2,993｜CTR 2.67%</div>
+      </div>
+      <div class="rk-stats">
+        <div class="rk-stat-block"><div class="rk-result">1</div><div class="rk-result-l">潛在顧客</div></div>
+        <div class="rk-stat-block"><div class="rk-cpl">NT$897</div><div class="rk-cpl-l">CPA</div></div>
+        <div class="rk-stat-block"><div class="rk-spend">NT$897</div><div class="rk-spend-l">花費</div></div>
+      </div>
+    </div>
+    <div class="rk-row rk-alt">
+      <div class="rk-medal"><span style="font-size:11px;font-weight:800;color:var(--sub2)">6</span></div>
+      <div class="rk-body">
+        <div class="rk-name">28-55 / 烏日南區 / 年輕人興趣</div>
+        <div class="rk-loc">觸及 1,349｜曝光 1,883｜CTR 2.39%</div>
+      </div>
+      <div class="rk-stats">
+        <div class="rk-stat-block"><div class="rk-result">0</div><div class="rk-result-l">潛在顧客</div></div>
+        <div class="rk-stat-block"><div class="rk-cpl" style="color:var(--sub)">—</div><div class="rk-cpl-l">CPA</div></div>
+        <div class="rk-stat-block"><div class="rk-spend">NT$450</div><div class="rk-spend-l">花費</div></div>
+      </div>
+    </div>
+    <div class="rk-row rk-alt">
+      <div class="rk-medal"><span style="font-size:11px;font-weight:800;color:var(--sub2)">7</span></div>
+      <div class="rk-body">
+        <div class="rk-name">28-55 / 烏日南區 / 小家庭 / 上班族</div>
+        <div class="rk-loc">觸及 1,121｜曝光 1,813｜CTR 2.54%</div>
+      </div>
+      <div class="rk-stats">
+        <div class="rk-stat-block"><div class="rk-result">0</div><div class="rk-result-l">潛在顧客</div></div>
+        <div class="rk-stat-block"><div class="rk-cpl" style="color:var(--sub)">—</div><div class="rk-cpl-l">CPA</div></div>
+        <div class="rk-stat-block"><div class="rk-spend">NT$535</div><div class="rk-spend-l">花費</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 1510 新建議受眾 10組 -->
+<div class="section">
+  <div class="sec-title alt-bar">1510 新建議受眾（10組）· 建立 2026-07-01</div>
+  <div id="alt-aud-grid" class="aud-grid-2"></div>
+</div>
+
+</div><!-- end tab-1510 -->
+
+<div class="page-footer">鵬程59 受眾分析報告 · 更新 2026-07-01 · 9133 廣告操作團隊</div>
 </div>
 
 <script>
 const PROJECT='鵬程59';
+
+function switchTab(name){
+  document.querySelectorAll('.tab-btn').forEach((b,i)=>{
+    const names=['main','1510'];
+    b.classList.toggle('active',names[i]===name);
+  });
+  document.querySelectorAll('.tab-pane').forEach(p=>p.classList.remove('show'));
+  document.getElementById('tab-'+name).classList.add('show');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ── 主粉專 10組（Combo 3：戶政+彰化 地標 × 教育/銀行/政府/製造標籤）──
 const MAIN_G=[
-  {n:'28-50 / 烏日南屯 / 重機械・大聯結車司機',sub:'全新測試・重工業核心從業者・首購動力最強',
-   logic:'聯結車司機/重機械操作員是烏日南屯製造重工業最核心的從業者，月薪6-8萬，工時長但收入穩定。鵬程59總價約1000萬、月繳約2.5萬，對這群人來說「再努力3-5年就上得了車」，購屋動力極強。切角訴求：「師傅也買得起的家」。',
-   lm:['烏日工業區通勤圈','大肚山工業帶','南屯工業區','高鐵烏日站'],
-   tags:[['Heavy truck','重型卡車'],['Semi-trailer truck','聯結車'],['Truck driver','大車司機'],['Freight transportation','貨運運輸'],['Commercial vehicle','商用車輛'],['Diesel engine','柴油引擎'],['Road freight','公路貨運'],['Cargo logistics','貨物物流'],['Fleet management','車隊管理'],['Trucking industry','貨運業'],['Heavy machinery','重機械'],['Industrial vehicle','工業車輛'],['Oversize cargo','大型貨物'],['Logistics center','物流中心'],['Long haul driving','長途行車'],['Load capacity','載重量'],['Warehouse','倉庫管理'],['Supply chain','供應鏈'],['Manufacturing','製造業'],['Heavy industry','重工業'],['Real estate','不動產'],['Home buying','購屋'],['First home','首購族'],['Wuri District','烏日區'],['Nantun District','南屯區'],['Taichung','台中'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Apartment','公寓大樓'],['Stable income','穩定收入']]},
-  {n:'28-50 / 烏日南屯 / 工廠技師・班長・線長',sub:'全新測試・製造現場技術職・在地生根首購',
-   logic:'工廠技師/班長/線長是製造業現場最穩定的族群，薪資約月4.5-6萬，有年資加給+輪班津貼。對烏日南屯工廠聚落周邊有高度地緣認同，買「回家不用換線的房」是核心訴求。建議文案：「下班3分鐘到家，師傅的私有地盤」。',
-   lm:['烏日工業區','南屯精機廊道','台中工業區','大肚山工業帶'],
-   tags:[['Manufacturing technician','製造業技師'],['Factory worker','工廠員工'],['Assembly line','生產線'],['Production management','生產管理'],['Quality control','品質管制'],['Factory supervisor','工廠班長'],['Shift work','輪班工作'],['Industrial safety','工業安全'],['Machine operation','機器操作'],['Production quota','生產配額'],['Night shift','夜班工作'],['Workshop','車間作業'],['Manufacturing efficiency','製造效率'],['Labor union','工會'],['Overtime work','加班費'],['Piece rate','計件薪資'],['Work schedule','排班制度'],['Factory automation','工廠自動化'],['Manufacturing','製造業'],['Heavy industry','重工業'],['Real estate','不動產'],['Home buying','購屋'],['First home','首購族'],['Wuri District','烏日區'],['Nantun District','南屯區'],['Taichung','台中'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Apartment','公寓大樓'],['Stable income','穩定收入']]},
-  {n:'30-55 / 烏日南屯 / 模具・金屬加工・板金',sub:'全新測試・精密製造技師・南屯精機換屋主力',
-   logic:'南屯精機廊道、大肚山工業帶聚集大量模具/金屬加工/板金工廠，從業者技術門檻高、薪資5-8萬，是台中傳統製造業的核心支柱。這群人在地根深、換屋需求真實，「附近工廠3分鐘，不用租屋」對他們說服力極強。切角：「做了20年模具，換一間自己的房」。',
-   lm:['南屯精機廊道','台中精密機械廊道','烏日工業區','大肚山工業帶'],
-   tags:[['Mold making','模具製造'],['Metal processing','金屬加工'],['Sheet metal','板金加工'],['CNC machining','CNC加工'],['Precision manufacturing','精密製造'],['Metal cutting','金屬切割'],['Die casting','壓鑄'],['Stamping','沖壓加工'],['Welding','焊接技術'],['Grinding','研磨加工'],['Lathe operation','車床操作'],['Metal fabrication','金屬製造'],['Tool and die','刀模具'],['Heat treatment','熱處理'],['Surface treatment','表面處理'],['Industrial machinery','工業機械'],['Precision parts','精密零件'],['Machine shop','機械廠'],['Manufacturing','製造業'],['Heavy industry','重工業'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Wuri District','烏日區'],['Nantun District','南屯區'],['Taichung','台中'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Apartment','公寓大樓'],['Home upgrade','換屋升格']]},
-  {n:'28-50 / 烏日南屯 / 汽機車零件・車輛製造',sub:'全新測試・汽車供應鏈在地置產・停車需求強',
-   logic:'台中烏日南屯是台灣重要的汽機車零件製造聚落，從業者薪資穩定5-7萬。汽車相關製造業員工對「停車方便」最敏感，鵬程59公設含停車位是直接訴求。切角：「你整天跟車打交道，自己的家有沒有位子停？」',
-   lm:['烏日汽車零件聚落','南屯工業區','台中工業區','大肚山工業帶'],
-   tags:[['Automotive parts','汽車零件'],['Car manufacturing','汽車製造'],['Motorcycle','機車'],['Auto parts factory','零件工廠'],['Vehicle assembly','車輛組裝'],['Engine parts','引擎零件'],['Suspension system','懸吊系統'],['Brake system','煞車系統'],['Auto repair','汽車維修'],['Car modification','改裝車'],['OEM manufacturing','OEM製造'],['Vehicle inspection','車輛檢驗'],['Car insurance','汽車保險'],['Parking','停車位'],['Gasoline','加油族'],['Supply chain','供應鏈'],['Automotive industry','汽機車產業'],['Aftermarket parts','副廠零件'],['Manufacturing','製造業'],['Heavy industry','重工業'],['Real estate','不動產'],['Home buying','購屋'],['First home','首購族'],['Wuri District','烏日區'],['Nantun District','南屯區'],['Taichung','台中'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Apartment','公寓大樓'],['Stable income','穩定收入']]},
-  {n:'28-55 / 烏日南屯 / 物流・倉儲・叉車操作',sub:'全新測試・工業區倉儲族・最近距離置產需求',
-   logic:'烏日工業區周邊聚集大量物流倉儲設施，叉車手/倉管薪資約4-5萬，雙薪可到8-10萬。這群人工作地點固定在烏日工業圈，「住在工廠旁」是最直接的需求。切角：「早上7點上班，6點56下樓就到」，訴求通勤便利。',
-   lm:['烏日工業區物流圈','南屯工業區','高鐵烏日站物流帶','大肚山工業帶'],
-   tags:[['Forklift','叉車操作'],['Warehouse management','倉儲管理'],['Logistics','物流'],['Inventory management','庫存管理'],['Storage','倉庫儲存'],['Packing','打包包裝'],['Distribution center','配送中心'],['Supply chain','供應鏈'],['Loading dock','貨物裝卸'],['Freight','貨運'],['Last mile delivery','最後一哩配送'],['Order fulfillment','訂單出貨'],['Palletizing','棧板作業'],['Third party logistics','第三方物流'],['Shipping','出口運輸'],['Barcode scanning','條碼掃描'],['Cold chain','冷鏈物流'],['ERP system','ERP系統'],['Manufacturing','製造業'],['Heavy industry','重工業'],['Real estate','不動產'],['Home buying','購屋'],['First home','首購族'],['Wuri District','烏日區'],['Nantun District','南屯區'],['Taichung','台中'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Apartment','公寓大樓'],['Stable income','穩定收入']]},
-  {n:'28-50 / 烏日南屯 / 電焊・氬焊・結構工程',sub:'全新測試・焊接技術工首購・生活機能優先',
-   logic:'電焊/氬焊技師是台中工業區高需求職種，技術成熟後月薪可到6-8萬。從業者通常工時長、無太多休閒，對「回家方便、生活機能近」的需求超過景觀。鵬程59烏日生活機能完整，是這群人「下班就想到家」的最佳解。',
-   lm:['烏日工業區','南屯工業區','大肚山工業帶','台中工業區'],
-   tags:[['Welding','電焊技術'],['TIG welding','氬焊'],['MIG welding','半自動焊接'],['Structural welding','結構焊接'],['Pipe welding','管道焊接'],['Metalwork','金屬工藝'],['Steel fabrication','鋼構製造'],['Arc welding','電弧焊'],['Welding certification','焊接執照'],['Ironwork','鐵工'],['Steel structure','鋼結構'],['Mechanical fitting','配管工程'],['Crane operation','吊車操作'],['Rigging','索具作業'],['Safety equipment','安全設備'],['Protective gear','防護裝備'],['Construction','建築工程'],['Industrial maintenance','工業設備保養'],['Manufacturing','製造業'],['Heavy industry','重工業'],['Real estate','不動產'],['Home buying','購屋'],['First home','首購族'],['Wuri District','烏日區'],['Nantun District','南屯區'],['Taichung','台中'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Apartment','公寓大樓'],['Stable income','穩定收入']]},
-  {n:'25-40 / 烏日南屯 / 製造業雙薪首購小家庭',sub:'全新測試・雙薪首購・購屋決心最快族群',
-   logic:'烏日南屯工業區夫妻皆任職製造業，合計月薪8-12萬，是1000萬自備款累積最快的族群。孩子剛出生或還未出生，「想從租屋族升格為屋主」的心理最強烈。切角：「雙薪10萬，一起買下第一個家」，配合年輕夫妻購屋情境素材效果最佳。',
-   lm:['烏日工業區','南屯工業區','高鐵烏日站','烏日高鐵特區'],
-   tags:[['Dual income','雙薪家庭'],['Young couple','年輕夫妻'],['First home','首購族'],['Marriage','結婚成家'],['New family','新婚小家庭'],['Baby','嬰兒育兒'],['Childcare','幼兒照護'],['Young parents','年輕父母'],['Budgeting','預算規劃'],['Saving money','存錢理財'],['Renting','租屋族'],['Moving out','搬出娘家'],['Home loan','申請房貸'],['Down payment','存頭期款'],['Factory job','工廠工作'],['Stable career','穩定職業'],['Work commute','上下班通勤'],['Cost of living','生活成本'],['Manufacturing','製造業'],['Heavy industry','重工業'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Wuri District','烏日區'],['Nantun District','南屯區'],['Taichung','台中'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Apartment','公寓大樓'],['Home upgrade','換屋升格']]},
-  {n:'30-55 / 烏日南屯 / 工廠主管・生管・品管・工程師',sub:'全新測試・製造業管理職・換屋決策力強',
-   logic:'生產主管/品管工程師/製程工程師月薪6-10萬，在烏日南屯工業帶有10年以上資歷。這群人有明確的「換屋升格」需求，從租屋→買屋或從小坪數→大一點。對建案品質要求較高，切角訴求「工程人看細節，鵬程59細節讓你放心」。',
-   lm:['烏日工業區','南屯精機廊道','台中工業區','大肚山工業帶'],
-   tags:[['Production manager','生產主管'],['Quality assurance','品質保證'],['Process engineer','製程工程師'],['Manufacturing engineer','製造工程師'],['Industrial engineering','工業工程'],['Six Sigma','六標準差'],['ISO certification','ISO認證'],['Lean production','精實生產'],['Continuous improvement','持續改善'],['Operations management','營運管理'],['Project management','專案管理'],['Team leadership','團隊領導'],['KPI management','KPI管理'],['ERP software','ERP系統'],['Supply chain management','供應鏈管理'],['Cost reduction','降低成本'],['Automation','自動化'],['Smart factory','智慧工廠'],['Manufacturing','製造業'],['Heavy industry','重工業'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Wuri District','烏日區'],['Nantun District','南屯區'],['Taichung','台中'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Apartment','公寓大樓'],['Home upgrade','換屋升格']]},
-  {n:'30-55 / 烏日南屯 / CNC・自動化・工具機產業',sub:'全新測試・高薪精密製造族・地緣認同強',
-   logic:'CNC操作員/自動化工程師/工具機廠員工是台中製造業薪資最高的藍白領族群，月薪7-12萬。南屯精機廊道是全球密度最高的工具機聚落，從業者對「在地生根」認同感極強。訴求「台灣工具機的心臟在台中，你的家也該在這裡」。',
-   lm:['南屯精機廊道','台中精密機械廊道','烏日工業區','大肚山工業帶'],
-   tags:[['CNC machining','CNC加工'],['CNC programming','CNC程式設計'],['Robotics','機器人'],['Industrial automation','工業自動化'],['PLC programming','PLC程式'],['Machine tool','工具機'],['Servo motor','伺服馬達'],['Industrial robot','工業機器人'],['Vision system','視覺系統'],['Motion control','運動控制'],['Precision engineering','精密工程'],['Machining center','加工中心機'],['CAD CAM','CAD/CAM設計'],['Grinding machine','研磨機'],['Smart manufacturing','智慧製造'],['Industry 4.0','工業4.0'],['IIoT','工業物聯網'],['Mechanical design','機械設計'],['Manufacturing','製造業'],['Heavy industry','重工業'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Wuri District','烏日區'],['Nantun District','南屯區'],['Taichung','台中'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Apartment','公寓大樓'],['Home upgrade','換屋升格']]},
-  {n:'30-55 / 烏日南屯 / 傳產製造自營・小廠老闆',sub:'全新測試・製造業小老闆・置產是最信任的存錢方式',
-   logic:'烏日南屯有大量「小老闆」——自家工廠3-5人規模，年收入200-500萬，平時忙於接單不擅長投資理財，置產是最信任的「存錢方式」。切角：「廠子開了20年，是時候買自己的家了」，強調在地連結與安心感。',
-   lm:['烏日工業區','南屯工業區','大肚山工業帶','高鐵烏日站'],
-   tags:[['Small factory owner','小廠老闆'],['Traditional industry','傳統產業'],['Manufacturing SME','製造業中小企業'],['Business owner','自營業主'],['Workshop','工作室'],['Factory management','工廠管理'],['Order management','接單管理'],['Business accounting','商業記帳'],['Tax planning','稅務規劃'],['Cash flow','現金流管理'],['Business networking','商業社交'],['Procurement','採購管理'],['Supplier relationship','廠商關係'],['Export','外銷出口'],['OEM production','OEM代工'],['Metal workshop','金屬工廠'],['Equipment investment','設備投資'],['Hire workers','招募員工'],['Manufacturing','製造業'],['Heavy industry','重工業'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Wuri District','烏日區'],['Nantun District','南屯區'],['Taichung','台中'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Apartment','公寓大樓'],['Home upgrade','換屋升格']]},
+  {n:'28-55 / 烏日彰化 / 公務員 / 行政 / 地方治理',sub:'Combo 3 完整標籤・政府機關+行政服務+製造+小型企業主',
+   logic:'以「戶政+4km × 彰化+4km」精準覆蓋烏日彰化公務員/行政人員，套用 Combo 3 完整標籤組。政府機關/行政服務/政府員工(全球)/社區議題精準命中公務體系族群，搭配銀行業/金融服務展現財務能力，股票/投資/房地產/新家直接觸發置產意圖。月薪穩定4-7萬，1000萬總價在公教優惠房貸下完全可控。',
+   lm:['臺中市烏日區戶政事務所(+4km)','金馬路一段169號彰化縣(+4km)','烏日區公所','彰化縣政府'],
+   tags:[['Government','政府機關概念和作法'],['Administrative services','行政服務'],['Government employees (Global)','政府員工（全球）'],['Community issues','社區議題（法律與政府）'],['Management','管理（商業與財務）'],['Banking','銀行業（金融）'],['Financial services','金融服務（商業與財務）'],['Stocks','股票（投資）'],['Investment','投資（商業與財務）'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['New home','新家'],['Manufacturing','製造'],['Industrial engineering','工業工程（工程）'],['Metal fabrication','金屬加工（建築業）'],['Machinery','機器'],['Hardware store','五金行（零售業者）'],['Small business owners','小型企業主'],['Educational technology','教育技術學（教育）'],['Teacher education','師範教育（職業訓練）'],['MOOC','大規模開放在線課堂'],['Protective service','保護服務'],['Mortgage','房貸'],['Home buying','購屋'],['First home','首購族'],['Taichung','台中'],['Wuri District','烏日區'],['Changhua','彰化'],['Stable income','穩定收入'],['Apartment','公寓大樓']]},
+
+  {n:'28-55 / 烏日彰化 / 教師 / 師範 / 教育行政',sub:'Combo 3・教育技術學+師範教育+MOOC+政府員工',
+   logic:'教師/師範教育/教育行政人員是烏日彰化公教族群最穩定的購屋族。套用 Combo 3 教育類標籤（教育技術學、師範教育、MOOC）＋政府員工(全球)＋社區議題，精準命中教育體系從業者。月薪4-6萬+退休金保障，對1000萬總價可負擔，「學區優先+通勤近」是核心購屋動機。',
+   lm:['臺中市烏日區戶政事務所(+4km)','金馬路一段169號彰化縣(+4km)','烏日國中','彰化縣教育處'],
+   tags:[['Educational technology','教育技術學（教育）'],['Teacher education','師範教育（職業訓練）'],['MOOC','大規模開放在線課堂'],['Government employees (Global)','政府員工（全球）'],['Community issues','社區議題（法律與政府）'],['Administrative services','行政服務'],['Government','政府機關概念和作法'],['Management','管理（商業與財務）'],['Banking','銀行業（金融）'],['Financial services','金融服務（商業與財務）'],['Stocks','股票（投資）'],['Investment','投資（商業與財務）'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['New home','新家'],['Manufacturing','製造'],['Protective service','保護服務'],['Small business owners','小型企業主'],['Hardware store','五金行（零售業者）'],['Industrial engineering','工業工程（工程）'],['Metal fabrication','金屬加工（建築業）'],['Machinery','機器'],['Mortgage','房貸'],['Home buying','購屋'],['School district','學區'],['Taichung','台中'],['Wuri District','烏日區'],['Changhua','彰化'],['Stable income','穩定收入'],['Apartment','公寓大樓']]},
+
+  {n:'30-55 / 烏日彰化 / 製造業 / 工業工程 / 五金加工',sub:'Combo 3・工業工程+金屬加工+機器+小型企業主行為',
+   logic:'製造業/工業工程/金屬加工/五金業者是 Combo 3 最強勁的工業標籤群，搭配小型企業主行為標籤精準定向小廠老闆。烏日彰化製造業密度高，這群人在地根深、換屋需求真實。「廠子在彰化，家搬到烏日」是通勤優化加上資產升格的雙重訴求。',
+   lm:['臺中市烏日區戶政事務所(+4km)','金馬路一段169號彰化縣(+4km)','彰化工業區','烏日工業區'],
+   tags:[['Industrial engineering','工業工程（工程）'],['Metal fabrication','金屬加工（建築業）'],['Machinery','機器'],['Manufacturing','製造'],['Hardware store','五金行（零售業者）'],['Small business owners','小型企業主'],['Management','管理（商業與財務）'],['Investment','投資（商業與財務）'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['New home','新家'],['Stocks','股票（投資）'],['Banking','銀行業（金融）'],['Financial services','金融服務（商業與財務）'],['Government','政府機關概念和作法'],['Community issues','社區議題（法律與政府）'],['Government employees (Global)','政府員工（全球）'],['Protective service','保護服務'],['Educational technology','教育技術學（教育）'],['Administrative services','行政服務'],['Teacher education','師範教育（職業訓練）'],['MOOC','大規模開放在線課堂'],['Mortgage','房貸'],['Home buying','購屋'],['First home','首購族'],['Taichung','台中'],['Wuri District','烏日區'],['Changhua','彰化'],['Stable income','穩定收入'],['Property investment','置產投資']]},
+
+  {n:'28-55 / 烏日彰化 / 銀行 / 金融服務業',sub:'Combo 3・銀行業+金融服務+股票+投資+管理',
+   logic:'銀行業/金融服務從業者最懂資產配置卻最容易拖延置產。Combo 3 的銀行業/金融服務/股票/投資標籤精準命中金融業族群，搭配政府機關/管理層標籤覆蓋金融機構管理職。月收8-20萬，「你幫客戶規劃了幾十年，今天輪到你了」是最有效的購屋觸發訴求。',
+   lm:['臺中市烏日區戶政事務所(+4km)','金馬路一段169號彰化縣(+4km)','彰化銀行','台中金融業聚落'],
+   tags:[['Banking','銀行業（金融）'],['Financial services','金融服務（商業與財務）'],['Stocks','股票（投資）'],['Investment','投資（商業與財務）'],['Management','管理（商業與財務）'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['New home','新家'],['Government','政府機關概念和作法'],['Community issues','社區議題（法律與政府）'],['Government employees (Global)','政府員工（全球）'],['Administrative services','行政服務'],['Small business owners','小型企業主'],['Industrial engineering','工業工程（工程）'],['Metal fabrication','金屬加工（建築業）'],['Machinery','機器'],['Manufacturing','製造'],['Hardware store','五金行（零售業者）'],['Educational technology','教育技術學（教育）'],['Teacher education','師範教育（職業訓練）'],['MOOC','大規模開放在線課堂'],['Protective service','保護服務'],['Mortgage','房貸'],['Home buying','購屋'],['Asset allocation','資產配置'],['Taichung','台中'],['Wuri District','烏日區'],['Changhua','彰化'],['Stable income','穩定收入'],['High income','高收入族群']]},
+
+  {n:'28-55 / 烏日彰化 / 警察 / 消防 / 保護服務',sub:'Combo 3・保護服務+政府員工+政府機關+社區議題',
+   logic:'警察/消防/保護服務人員是 Combo 3 中「保護服務」＋「政府員工(全球)」的精準命中族群。輪班制工作對「回家快」的需求最強，烏日鄰近烏日分局/彰化消防隊，通勤3分鐘是最強訴求。月薪4-6萬＋加班費，公教優惠房貸使1000萬完全可負擔。',
+   lm:['臺中市烏日區戶政事務所(+4km)','金馬路一段169號彰化縣(+4km)','烏日分局','彰化縣消防局'],
+   tags:[['Protective service','保護服務'],['Government employees (Global)','政府員工（全球）'],['Government','政府機關概念和作法'],['Administrative services','行政服務'],['Community issues','社區議題（法律與政府）'],['Management','管理（商業與財務）'],['Banking','銀行業（金融）'],['Financial services','金融服務（商業與財務）'],['Stocks','股票（投資）'],['Investment','投資（商業與財務）'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['New home','新家'],['Manufacturing','製造'],['Industrial engineering','工業工程（工程）'],['Small business owners','小型企業主'],['Educational technology','教育技術學（教育）'],['Teacher education','師範教育（職業訓練）'],['Hardware store','五金行（零售業者）'],['Metal fabrication','金屬加工（建築業）'],['Machinery','機器'],['MOOC','大規模開放在線課堂'],['Mortgage','房貸'],['Home buying','購屋'],['First home','首購族'],['Taichung','台中'],['Wuri District','烏日區'],['Changhua','彰化'],['Stable income','穩定收入'],['Apartment','公寓大樓']]},
+
+  {n:'30-55 / 烏日彰化 / 五金 / 建材 / 工業供應商',sub:'Combo 3・五金行+金屬加工+機器+小型企業主',
+   logic:'五金行/金屬加工/機器/工業供應商族群是 Combo 3 工業標籤群的核心，彰化五金商圈是全台密度最高的五金批發聚落。年收200-500萬但置產習慣差，「你幫工廠供料20年，自己的家在哪？」是最能觸動購屋決策的情感訴求。',
+   lm:['臺中市烏日區戶政事務所(+4km)','金馬路一段169號彰化縣(+4km)','彰化五金商圈','烏日建材行聚落'],
+   tags:[['Hardware store','五金行（零售業者）'],['Metal fabrication','金屬加工（建築業）'],['Machinery','機器'],['Industrial engineering','工業工程（工程）'],['Manufacturing','製造'],['Small business owners','小型企業主'],['Management','管理（商業與財務）'],['Investment','投資（商業與財務）'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['New home','新家'],['Stocks','股票（投資）'],['Banking','銀行業（金融）'],['Financial services','金融服務（商業與財務）'],['Government','政府機關概念和作法'],['Community issues','社區議題（法律與政府）'],['Government employees (Global)','政府員工（全球）'],['Protective service','保護服務'],['Administrative services','行政服務'],['Educational technology','教育技術學（教育）'],['Teacher education','師範教育（職業訓練）'],['MOOC','大規模開放在線課堂'],['Mortgage','房貸'],['Home buying','購屋'],['Property investment','置產投資'],['Taichung','台中'],['Wuri District','烏日區'],['Changhua','彰化'],['Cash flow','現金流管理'],['Stable income','穩定收入']]},
+
+  {n:'28-55 / 烏日彰化 / 社區意識 / 在地父母 / 學區考量',sub:'Combo 3・社區議題+教育技術學+新家+政府機關',
+   logic:'「社區議題」＋「教育技術學」＋「新家」是 Combo 3 中最強的在地家庭購屋信號組合。這群重視社區/教育的父母正在考慮從彰化搬到烏日，讓孩子進入更好學區。「烏日國小學區+高鐵+社區配套完整」是這群人最在乎的三大購屋條件。',
+   lm:['臺中市烏日區戶政事務所(+4km)','金馬路一段169號彰化縣(+4km)','烏日國小','烏日社區發展協會'],
+   tags:[['Community issues','社區議題（法律與政府）'],['Educational technology','教育技術學（教育）'],['New home','新家'],['Teacher education','師範教育（職業訓練）'],['MOOC','大規模開放在線課堂'],['Government','政府機關概念和作法'],['Administrative services','行政服務'],['Government employees (Global)','政府員工（全球）'],['Management','管理（商業與財務）'],['Banking','銀行業（金融）'],['Financial services','金融服務（商業與財務）'],['Investment','投資（商業與財務）'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Stocks','股票（投資）'],['Small business owners','小型企業主'],['Industrial engineering','工業工程（工程）'],['Manufacturing','製造'],['Metal fabrication','金屬加工（建築業）'],['Hardware store','五金行（零售業者）'],['Machinery','機器'],['Protective service','保護服務'],['Mortgage','房貸'],['Home buying','購屋'],['School district','學區'],['Taichung','台中'],['Wuri District','烏日區'],['Changhua','彰化'],['Family home','家庭住宅'],['Dual income','雙薪家庭']]},
+
+  {n:'30-55 / 烏日彰化 / 中小企業主 / 小型自營商',sub:'Combo 3・小型企業主行為+管理+金融服務+投資',
+   logic:'「小型企業主」行為標籤是 Combo 3 最精準的自營族定向工具，搭配管理/金融服務/投資標籤精準命中有資金但未置產的自營商老闆。月收10-30萬，置產是最信任的資產保值方式。訴求：「你打理了一個公司，也打理好自己的家了嗎？」',
+   lm:['臺中市烏日區戶政事務所(+4km)','金馬路一段169號彰化縣(+4km)','烏日商業圈','彰化商業中心'],
+   tags:[['Small business owners','小型企業主'],['Management','管理（商業與財務）'],['Financial services','金融服務（商業與財務）'],['Banking','銀行業（金融）'],['Investment','投資（商業與財務）'],['Stocks','股票（投資）'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['New home','新家'],['Government','政府機關概念和作法'],['Community issues','社區議題（法律與政府）'],['Administrative services','行政服務'],['Government employees (Global)','政府員工（全球）'],['Industrial engineering','工業工程（工程）'],['Manufacturing','製造'],['Metal fabrication','金屬加工（建築業）'],['Hardware store','五金行（零售業者）'],['Machinery','機器'],['Educational technology','教育技術學（教育）'],['Teacher education','師範教育（職業訓練）'],['MOOC','大規模開放在線課堂'],['Protective service','保護服務'],['Mortgage','房貸'],['Home buying','購屋'],['Property investment','置產投資'],['Taichung','台中'],['Wuri District','烏日區'],['Changhua','彰化'],['Cash flow','現金流管理'],['Asset allocation','資產配置']]},
+
+  {n:'28-55 / 烏日彰化 / 首購意圖 / 理財規劃族',sub:'Combo 3・房地產+不動產+新家+投資+股票置產信號',
+   logic:'「房地產＋不動產＋新家＋投資＋股票」是 Combo 3 中最直接的置產信號組合。搭配銀行業/金融服務/管理標籤覆蓋有財務規劃習慣的首購族，精準觸達正在研究如何買第一間房的族群。訴求：「每個月存下來的錢，終於有地方放了」。',
+   lm:['臺中市烏日區戶政事務所(+4km)','金馬路一段169號彰化縣(+4km)','烏日重劃區','彰化市區'],
+   tags:[['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['New home','新家'],['Investment','投資（商業與財務）'],['Stocks','股票（投資）'],['Banking','銀行業（金融）'],['Financial services','金融服務（商業與財務）'],['Management','管理（商業與財務）'],['Government','政府機關概念和作法'],['Community issues','社區議題（法律與政府）'],['Administrative services','行政服務'],['Government employees (Global)','政府員工（全球）'],['Small business owners','小型企業主'],['Industrial engineering','工業工程（工程）'],['Manufacturing','製造'],['Metal fabrication','金屬加工（建築業）'],['Hardware store','五金行（零售業者）'],['Machinery','機器'],['Educational technology','教育技術學（教育）'],['Teacher education','師範教育（職業訓練）'],['MOOC','大規模開放在線課堂'],['Protective service','保護服務'],['Mortgage','房貸'],['Home buying','購屋'],['First home','首購族'],['Down payment saving','存頭期款'],['Taichung','台中'],['Wuri District','烏日區'],['Changhua','彰化'],['Dual income','雙薪家庭']]},
+
+  {n:'28-60 / 烏日彰化 / 行政服務 / 製造業管理職',sub:'Combo 3・行政服務+製造+工業工程+管理+政府員工跨界混合',
+   logic:'「行政服務＋製造＋工業工程＋管理＋政府員工(全球)」是 Combo 3 跨界標籤最強的混合受眾組合，同時覆蓋政府行政職與製造業管理職。這兩個族群在烏日彰化均有高購屋需求，月薪5-10萬，對1000萬總價接受度高。',
+   lm:['臺中市烏日區戶政事務所(+4km)','金馬路一段169號彰化縣(+4km)','彰化縣政府','台中市政府'],
+   tags:[['Administrative services','行政服務'],['Manufacturing','製造'],['Industrial engineering','工業工程（工程）'],['Management','管理（商業與財務）'],['Government employees (Global)','政府員工（全球）'],['Government','政府機關概念和作法'],['Community issues','社區議題（法律與政府）'],['Banking','銀行業（金融）'],['Financial services','金融服務（商業與財務）'],['Stocks','股票（投資）'],['Investment','投資（商業與財務）'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['New home','新家'],['Metal fabrication','金屬加工（建築業）'],['Machinery','機器'],['Hardware store','五金行（零售業者）'],['Small business owners','小型企業主'],['Educational technology','教育技術學（教育）'],['Teacher education','師範教育（職業訓練）'],['MOOC','大規模開放在線課堂'],['Protective service','保護服務'],['Mortgage','房貸'],['Home buying','購屋'],['Property investment','置產投資'],['Taichung','台中'],['Wuri District','烏日區'],['Changhua','彰化'],['Stable income','穩定收入'],['Home upgrade','換屋升格']]},
 ];
 
-function renderAudGrid(gridId,data,prefix){
+// ── 1510 10組（Combo 1：新烏日站+5 × Combo 2：新市政公園+5）──
+const G_1510=[
+  {n:'28-60 / 新烏日站+5 / 投資置產 / 股票房地產',sub:'Combo 1 完整標籤・股票+投資+房地產+不動產+管理',
+   logic:'直接套用 Combo 1 完整標籤組（股票/投資/房地產/不動產/管理），以「新烏日車站＋5km」覆蓋烏日周邊投資置產主力族群。這是 1510「投資/置產客」CPA NT$281 的標籤化強化延伸，精確投資理財興趣標籤進一步命中主動置產者。',
+   lm:['新烏日車站(+5km)','烏日高鐵站','烏日重劃區','台中火車站'],
+   tags:[['Stocks','股票（投資）'],['Investment','投資（商業與財務）'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Management','管理（商業與財務）'],['Stock market','股票市場（投資）'],['Investor','投資者（投資）'],['Financial services','金融服務（商業與財務）'],['Banking','銀行業（金融）'],['Asset allocation','資產配置'],['Wealth management','財富管理'],['Passive income','被動收入'],['Capital gain','資本增值'],['Dividend investing','存股投資'],['Real estate investment','房地產投資'],['Rental income','租金收入'],['Multiple properties','多屋置產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Wuri District','烏日區'],['Taichung','台中'],['HSR station','高鐵烏日站'],['New home','新家'],['Home upgrade','換屋升格'],['Stable income','穩定收入'],['High income','高收入族群'],['Tax planning','稅務規劃'],['Long-term investment','長期投資']]},
+
+  {n:'28-60 / 新市政公園+5 / 科技投資 / 半導體 / 納斯達克',sub:'Combo 2 完整標籤・科技投資CPA NT$220 驗證方向強化',
+   logic:'直接套用 Combo 2 完整標籤組（股票市場/投資者/半導體/創新科技/SpaceX/新興技術/NASDAQ100），以「新市政公園＋5km」覆蓋科技業/IT業高收入族群。這是 1510「西屯+5/科技投資」CPA NT$220 突破口的地標精準延伸，命中台中市政公園周邊科技白領密集帶。',
+   lm:['新市政公園(+5km)','台中市政府廣場','南屯科技廊道','台中中科'],
+   tags:[['Stock market','股票市場（投資）'],['Investor','投資者（投資）'],['Semiconductor','半導體'],['Innovative technology','創新科技'],['SpaceX','太空探索科技公司'],['Emerging technologies','新興技術（科學）'],['NASDAQ-100','納斯達克100指數'],['Stocks','股票（投資）'],['Investment','投資（商業與財務）'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Management','管理（商業與財務）'],['Technology','科技業'],['Software engineer','軟體工程師'],['AI machine learning','人工智慧'],['Cloud computing','雲端運算'],['Financial planning','財務規劃'],['Asset allocation','資產配置'],['Wealth management','財富管理'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['First home','首購族'],['New home','新家'],['Wuri District','烏日區'],['Taichung','台中'],['HSR station','高鐵烏日站'],['Stable income','穩定收入'],['High income','高收入族群'],['Home upgrade','換屋升格']]},
+
+  {n:'28-60 / 新烏日站+5 / 多屋換屋 / 置產老手',sub:'Combo 1・房地產+不動產+投資・以換屋/多屋置產為切角',
+   logic:'Combo 1 的房地產＋不動產＋投資＋管理組合，針對已有不動產的換屋/置產老手。這群人熟悉房市邏輯，主動尋找增值機會。烏日高鐵特區的「交通樞紐＋重劃區開發」是最有說服力的投資邏輯。訴求：「你的第N間，選烏日高鐵旁」。',
+   lm:['新烏日車站(+5km)','烏日高鐵特區','烏日重劃區','台中七期重劃區'],
+   tags:[['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Investment','投資（商業與財務）'],['Management','管理（商業與財務）'],['Stocks','股票（投資）'],['Real estate investment','房地產投資'],['Multiple properties','多屋置產'],['Rental income','租金收入'],['Capital gain','資本增值'],['Property management','物業管理'],['Urban development','都市開發'],['Asset allocation','資產配置'],['Wealth management','財富管理'],['Passive income','被動收入'],['Tax planning','稅務規劃'],['Long-term investment','長期投資'],['Stock market','股票市場（投資）'],['Investor','投資者（投資）'],['Financial services','金融服務（商業與財務）'],['Banking','銀行業（金融）'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家'],['Home upgrade','換屋升格'],['Wuri District','烏日區'],['Taichung','台中'],['HSR station','高鐵烏日站'],['High income','高收入族群'],['Second home','第二間房']]},
+
+  {n:'28-60 / 新市政公園+5 / 半導體 / IT工程師 / 首購',sub:'Combo 2・半導體+創新科技+新興技術・IT首購高薪族',
+   logic:'Combo 2 的半導體/創新科技/新興技術標籤，聚焦台中市政府周邊IT/半導體業首購工程師。月薪8-20萬，「烏日比台中市區省200-400萬，高鐵10分鐘台北」是最強CP值說服邏輯。文心精科/市政公園是台中工程師最密集的職場聚落。',
+   lm:['新市政公園(+5km)','台中市政府特區','南屯精機廊道','逢甲大學周邊'],
+   tags:[['Semiconductor','半導體'],['Innovative technology','創新科技'],['Emerging technologies','新興技術（科學）'],['SpaceX','太空探索科技公司'],['NASDAQ-100','納斯達克100指數'],['Stock market','股票市場（投資）'],['Investor','投資者（投資）'],['Stocks','股票（投資）'],['Investment','投資（商業與財務）'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Management','管理（商業與財務）'],['Software engineer','軟體工程師'],['AI machine learning','人工智慧'],['Cloud computing','雲端運算'],['Electronic engineer','電子工程師'],['Financial planning','財務規劃'],['Asset allocation','資產配置'],['Home buying','購屋'],['First home','首購族'],['New home','新家'],['Mortgage','房貸'],['Down payment saving','存頭期款'],['Wuri District','烏日區'],['Taichung','台中'],['HSR station','高鐵烏日站'],['Stable income','穩定收入'],['High income','高收入族群'],['Home upgrade','換屋升格'],['Property investment','置產投資']]},
+
+  {n:'28-60 / 新烏日站+5 / 財務理財 / 資產配置族',sub:'Combo 1・股票+投資+管理・理財習慣強的置產轉換族',
+   logic:'Combo 1 的股票＋投資＋管理標籤，聚焦有財務管理習慣、正在優化資產配置的理財族。這群人看過太多投資方式，最終「實體不動產」是最可信任的配置。「高鐵特區的地段增值 > 定存利率」是對這群人最有說服力的數字訴求。',
+   lm:['新烏日車站(+5km)','烏日高鐵站','台中金融業聚落','南屯金融圈'],
+   tags:[['Stocks','股票（投資）'],['Investment','投資（商業與財務）'],['Management','管理（商業與財務）'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Stock market','股票市場（投資）'],['Investor','投資者（投資）'],['Asset allocation','資產配置'],['Wealth management','財富管理'],['Financial services','金融服務（商業與財務）'],['Banking','銀行業（金融）'],['Passive income','被動收入'],['Dividend investing','存股投資'],['Capital gain','資本增值'],['Rental income','租金收入'],['Tax planning','稅務規劃'],['Retirement planning','退休規劃'],['Long-term investment','長期投資'],['Financial planning','財務規劃'],['ETF investment','ETF投資'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家'],['Home upgrade','換屋升格'],['Wuri District','烏日區'],['Taichung','台中'],['HSR station','高鐵烏日站'],['High income','高收入族群'],['Second home','第二間房']]},
+
+  {n:'28-60 / 新市政公園+5 / 科技創業 / 新創投資人',sub:'Combo 2・SpaceX+創新科技+新興技術+NASDAQ・科技投資思維',
+   logic:'Combo 2 的SpaceX/創新科技/新興技術/NASDAQ100標籤，精準命中科技創業者/新創投資人。這群人嚮往顛覆式創新，對「高CP值的資產配置」有高度敏感。烏日高鐵的「低價入市＋增值潛力」對科技思維的投資者最有吸引力。訴求：「台中最具潛力的高鐵特區，數據說話」。',
+   lm:['新市政公園(+5km)','台中創業孵化器','文心南路商業圈','台中軟體園區'],
+   tags:[['SpaceX','太空探索科技公司'],['Innovative technology','創新科技'],['Emerging technologies','新興技術（科學）'],['NASDAQ-100','納斯達克100指數'],['Stock market','股票市場（投資）'],['Investor','投資者（投資）'],['Semiconductor','半導體'],['Stocks','股票（投資）'],['Investment','投資（商業與財務）'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Management','管理（商業與財務）'],['Startup','新創公司'],['Venture capital','創投'],['Technology','科技業'],['AI machine learning','人工智慧'],['Asset allocation','資產配置'],['Wealth management','財富管理'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家'],['Capital gain','資本增值'],['Wuri District','烏日區'],['Taichung','台中'],['HSR station','高鐵烏日站'],['High income','高收入族群'],['Long-term investment','長期投資'],['Financial planning','財務規劃'],['Home upgrade','換屋升格']]},
+
+  {n:'28-60 / 新烏日站+5 / 換屋升格 / 資產置換型',sub:'Combo 1・房地產+不動產+管理+投資・換屋而非首購',
+   logic:'Combo 1 的房地產＋不動產＋管理＋投資標籤，以「換屋」而非首購為切角，針對從台中市區或透天換到高品質電梯大樓的族群。已有資產但想升格居住品質，烏日1000萬可換到北部3000萬等級的生活空間。訴求：「同樣的錢，在烏日換一個更好的家」。',
+   lm:['新烏日車站(+5km)','烏日重劃區','南屯換屋聚落','台中市區'],
+   tags:[['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Management','管理（商業與財務）'],['Investment','投資（商業與財務）'],['Stocks','股票（投資）'],['Home upgrade','換屋升格'],['Multiple properties','多屋置產'],['Capital gain','資本增值'],['Rental income','租金收入'],['Asset allocation','資產配置'],['Real estate investment','房地產投資'],['Wealth management','財富管理'],['Stock market','股票市場（投資）'],['Investor','投資者（投資）'],['Financial services','金融服務（商業與財務）'],['Banking','銀行業（金融）'],['Property management','物業管理'],['Urban development','都市開發'],['Long-term investment','長期投資'],['Tax planning','稅務規劃'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家'],['Second home','第二間房'],['Wuri District','烏日區'],['Taichung','台中'],['HSR station','高鐵烏日站'],['High income','高收入族群'],['Life quality','生活品質升級']]},
+
+  {n:'28-60 / 新市政公園+5 / 金融科技 / 高收入白領首購',sub:'Combo 2・股票市場+投資者+半導體+NASDAQ・金融白領首購',
+   logic:'Combo 2 的股票市場＋投資者＋半導體＋NASDAQ100，聚焦金融科技/高薪白領族群首購。台中市政府特區是高薪白領密度最高區域，「市政公園周邊白領薪資，完全支撐烏日1000萬房貸」——月薪8-15萬，月繳約2.5萬，負擔比僅30%。',
+   lm:['新市政公園(+5km)','台中市政府特區','文心南路金融圈','南屯精機廊道'],
+   tags:[['Stock market','股票市場（投資）'],['Investor','投資者（投資）'],['Semiconductor','半導體'],['NASDAQ-100','納斯達克100指數'],['Innovative technology','創新科技'],['Emerging technologies','新興技術（科學）'],['SpaceX','太空探索科技公司'],['Stocks','股票（投資）'],['Investment','投資（商業與財務）'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Management','管理（商業與財務）'],['Financial services','金融服務（商業與財務）'],['Banking','銀行業（金融）'],['Asset allocation','資產配置'],['Wealth management','財富管理'],['Financial planning','財務規劃'],['Down payment saving','存頭期款'],['Home buying','購屋'],['First home','首購族'],['New home','新家'],['Mortgage','房貸'],['Stable income','穩定收入'],['High income','高收入族群'],['Dual income','雙薪家庭'],['Wuri District','烏日區'],['Taichung','台中'],['HSR station','高鐵烏日站'],['Property investment','置產投資'],['Life quality','生活品質升級']]},
+
+  {n:'28-60 / 新烏日站+5 / 自營商 / 傳產老闆 / 投資型',sub:'Combo 1・投資+管理+房地產+不動產・傳產置產切角',
+   logic:'Combo 1 的投資＋管理＋房地產標籤，搭配烏日站＋5km定點，命中傳統產業老闆/自營商型投資客。這群人對股票/投資/管理有興趣，但置產才是最信任的資產方式。「不動產＋管理＋投資」三標籤組合完美描述這群人的財務思維框架。',
+   lm:['新烏日車站(+5km)','烏日工業區','烏日商業圈','彰化傳產工業帶'],
+   tags:[['Investment','投資（商業與財務）'],['Management','管理（商業與財務）'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Stocks','股票（投資）'],['Real estate investment','房地產投資'],['Asset allocation','資產配置'],['Financial services','金融服務（商業與財務）'],['Banking','銀行業（金融）'],['Wealth management','財富管理'],['Passive income','被動收入'],['Rental income','租金收入'],['Capital gain','資本增值'],['Tax planning','稅務規劃'],['Small business owners','小型企業主'],['Manufacturing','製造'],['Industrial engineering','工業工程（工程）'],['Hardware store','五金行（零售業者）'],['Metal fabrication','金屬加工（建築業）'],['Machinery','機器'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家'],['Home upgrade','換屋升格'],['Wuri District','烏日區'],['Taichung','台中'],['HSR station','高鐵烏日站'],['High income','高收入族群'],['Long-term investment','長期投資']]},
+
+  {n:'28-60 / 新市政公園+5 / 科技業主管 / 退休置產規劃',sub:'Combo 2・創新科技+新興技術+SpaceX・資深科技族退休置產',
+   logic:'Combo 2 的創新科技＋新興技術＋SpaceX＋NASDAQ100標籤，針對35-60歲科技業資深工程師/主管，開始考慮退休前最後一次置產。「你用數據選股，用同樣方式選房，烏日勝出」——以科技思維量化烏日高鐵特區的置產價值。',
+   lm:['新市政公園(+5km)','台中市政府廣場','文心南路科技廊道','南屯共享辦公室'],
+   tags:[['Innovative technology','創新科技'],['Emerging technologies','新興技術（科學）'],['SpaceX','太空探索科技公司'],['NASDAQ-100','納斯達克100指數'],['Stock market','股票市場（投資）'],['Investor','投資者（投資）'],['Semiconductor','半導體'],['Stocks','股票（投資）'],['Investment','投資（商業與財務）'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Management','管理（商業與財務）'],['Retirement planning','退休規劃'],['Wealth management','財富管理'],['Asset allocation','資產配置'],['Passive income','被動收入'],['Long-term investment','長期投資'],['Capital gain','資本增值'],['Tax planning','稅務規劃'],['Financial planning','財務規劃'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家'],['Second home','第二間房'],['Wuri District','烏日區'],['Taichung','台中'],['HSR station','高鐵烏日站'],['High income','高收入族群'],['Home upgrade','換屋升格']]},
+];
+
+function renderAudGrid(gridId, data, prefix, isAlt){
   const el=document.getElementById(gridId);
   if(!el)return;
   let h='';
   data.forEach((g,i)=>{
-    const lmH=g.lm.map(l=>`<span class="aud-lm-tag">${l}</span>`).join('');
+    const lmH=g.lm.map(l=>`<span class="aud-lm-tag${isAlt?' alt-lm':''}">${l}</span>`).join('');
     const tagH=g.tags.map((t,j)=>`<tr><td>${j+1}</td><td>${t[0]}</td><td>${t[1]}</td></tr>`).join('');
-    const numCls=g.active?'aud-num active-num':'aud-num';
-    const activeBadge=g.active?` <span class="rk-tag t-active" style="font-size:10px;margin-left:4px">進行中</span>`:'';
+    const numCls=isAlt?'aud-num alt':'aud-num';
+    const hoverCls=isAlt?'alt-h':'';
+    const logicCls=isAlt?'aud-logic alt-logic':'aud-logic';
+    const tblCls=isAlt?'tag-tbl alt-tbl':'tag-tbl';
+    const btnCls=isAlt?'copy-all-btn alt-btn':'copy-all-btn';
     h+=`<div class="aud-card" id="${prefix}${i}">
-<div class="aud-header" onclick="toggleAudG('${prefix}',${i})">
+<div class="aud-header ${hoverCls}" onclick="toggleAudG('${prefix}',${i})">
   <div class="${numCls}">${i+1}</div>
-  <div class="aud-info"><div class="aud-name">${g.n}${activeBadge}</div><div class="aud-sub">${g.sub}</div></div>
+  <div class="aud-info"><div class="aud-name">${g.n}</div><div class="aud-sub">${g.sub}</div></div>
   <div class="aud-arrow">▶</div>
 </div>
 <div class="aud-body">
   <div class="aud-sl">投放邏輯</div>
-  <div class="aud-logic">${g.logic}</div>
+  <div class="${logicCls}">${g.logic}</div>
   <div class="aud-sl" style="margin-top:12px">地標定位</div>
   <div class="aud-lm">${lmH}</div>
   <div class="aud-sl" style="margin-top:12px">興趣標籤（30個）</div>
-  <table class="tag-tbl"><thead><tr><th>#</th><th>英文</th><th>中文</th></tr></thead><tbody>${tagH}</tbody></table>
+  <table class="${tblCls}"><thead><tr><th>#</th><th>英文</th><th>中文</th></tr></thead><tbody>${tagH}</tbody></table>
 </div></div>`;
   });
   el.innerHTML=h;
 }
-renderAudGrid('main-aud-grid',MAIN_G,'ac');
+
+renderAudGrid('main-aud-grid', MAIN_G, 'ac', false);
+renderAudGrid('alt-aud-grid',  G_1510,  'bc', true);
 
 function copyTxt(txt){return navigator.clipboard?navigator.clipboard.writeText(txt):Promise.reject();}
+function showToast(){const t=document.getElementById('copy-toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200)}
+function copyPrompt(text){navigator.clipboard.writeText(text).then(showToast).catch(()=>{const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast()})}
+
 function initAudCard(card){
   if(card.dataset.cb)return;card.dataset.cb='1';
+  const isAlt=card.querySelector('.aud-num.alt')!==null;
   card.querySelectorAll('.tag-tbl tbody tr').forEach(row=>{
     const en=row.cells[1]?.textContent.trim();if(!en)return;
     row.addEventListener('click',()=>{
@@ -259,7 +558,9 @@ function initAudCard(card){
   });
   card.querySelectorAll('.tag-tbl').forEach(tbl=>{
     const wrap=document.createElement('div');wrap.className='copy-all-row';
-    const btn=document.createElement('button');btn.className='copy-all-btn';btn.innerHTML='⎘ 複製全部30個標籤';
+    const btn=document.createElement('button');
+    btn.className=isAlt?'copy-all-btn alt-btn':'copy-all-btn';
+    btn.innerHTML='⎘ 複製全部30個標籤';
     btn.addEventListener('click',e=>{
       e.stopPropagation();
       const tags=Array.from(tbl.querySelectorAll('tbody tr')).map(r=>r.cells[1]?.textContent.trim()).filter(Boolean).join('\n');
@@ -269,13 +570,7 @@ function initAudCard(card){
   });
 }
 function toggleAudG(prefix,i){const c=document.getElementById(prefix+i);c.classList.toggle('open');if(c.classList.contains('open'))initAudCard(c);}
-
 window.addEventListener('scroll',()=>{document.getElementById('btt').classList.toggle('show',window.scrollY>300)});
-
-function showToast(){const t=document.getElementById('copy-toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200)}
-function copyPrompt(text){navigator.clipboard.writeText(text).then(showToast).catch(()=>{const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast()})}
-
-document.querySelectorAll('.core-tag').forEach(el=>{el.addEventListener('click',()=>{const tag=el.textContent.replace('↗','').trim();copyPrompt(`針對${PROJECT}，請深入分析「${tag}」這個興趣標籤：\n1.在本案受眾中代表什麼輪廓？\n2.搭配哪些標籤組合效果最好？\n3.素材訴求應該怎麼寫？`)})});
 </script>
 </body>
 </html>
