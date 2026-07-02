@@ -198,7 +198,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   <div class="case-stats">
     <div class="stat"><div class="stat-n">145</div><div class="stat-l">累積訊息</div></div>
     <div class="stat"><div class="stat-n">28</div><div class="stat-l">潛客表單</div></div>
-    <div class="stat"><div class="stat-n">52+</div><div class="stat-l">受眾組數</div></div>
+    <div class="stat"><div class="stat-n">72+</div><div class="stat-l">受眾組數</div></div>
   </div>
 </div>
 
@@ -433,6 +433,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   <div id="main-aud-grid" class="aud-grid-2"></div>
 </div>
 
+<!-- ── 20組新受眾 2026-07-02 ── -->
+<div class="section">
+  <div class="sec-title">新建議受眾（20組）· 更新 2026-07-02</div>
+  <div id="new-aud-grid" class="aud-grid-2"></div>
+</div>
+
 <!-- ── 受眾排行 ── -->
 <div class="section">
   <div class="sec-title">成果受眾排行（2025/10–2026/05）· 訊息數排序</div>
@@ -605,7 +611,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 
 </div><!-- end tab-next -->
 
-<div class="page-footer">資料期間：2025-10-17 至 2026-06-09 · 華偉知見 台中沙鹿 · 廣告目標：訊息 · 最後更新 2026-06-09</div>
+<div class="page-footer">資料期間：2025-10-17 至 2026-06-09 · 華偉知見 台中沙鹿 · 廣告目標：訊息 · 最後更新 2026-07-02</div>
 
 </div>
 
@@ -674,8 +680,9 @@ function initAudCard(card){
   });
 }
 function toggleAud(id){const c=document.getElementById(id);c.classList.toggle('open');if(c.classList.contains('open'))initAudCard(c);}
-function buildAudCard(g,idx){
-  const id='m'+(idx+1);
+function buildAudCard(g,idx,pfx){
+  pfx=pfx||'m';
+  const id=pfx+(idx+1);
   const rows=g.tags.map((t,i)=>`<tr><td>${i+1}</td><td>${t[0]}</td><td>${t[1]}</td></tr>`).join('');
   const lmTags=g.lm.map(l=>`<span class="aud-lm-tag">${l}</span>`).join('');
   return `<div class="aud-card" id="${id}">
@@ -694,6 +701,90 @@ function buildAudCard(g,idx){
     </div>
   </div>`;}
 (function(){const mg=document.getElementById('main-aud-grid');if(mg)mg.innerHTML=MAIN_G.map((g,i)=>buildAudCard(g,i)).join('');})();
+
+const NEW_G=[
+  {n:'28-50 / 台灣大道沙鹿+5km / 精裝修品質換屋族',sub:'客製精裝修Sunwave/INAX/Kwikset是同價位稀有賣點·切入品質住宅換屋角度',
+   logic:'華偉知見最大特色是「架高雙併、客製精裝修」配搭Sunwave陶瓷/INAX衛浴/Kwikset智能鎖等豪宅建材，在沙鹿同價位中稀有。針對28-50歲已住舊公寓、想升格到精裝修新成屋的換屋族。Messenger廣告讓他們問「這個磁磚是什麼品牌、有哪些選材選項」，提高互動品質。台灣大道沙鹿段+5km涵蓋本案核心商圈。素材切角：「不是普通新成屋，是台灣大道旁精裝修二房，Sunwave磁磚、INAX衛浴、Kwikset智能鎖，26坪樣樣精品。」',
+   lm:['台灣大道沙鹿段','沙鹿區公所','沙鹿老街','光田醫院'],
+   tags:[['Interior design','室內設計'],['Home renovation','居家裝潢'],['Home improvement','家居改善'],['Kitchen design','廚房設計'],['Bathroom renovation','衛浴裝修'],['Luxury home','精品住宅'],['Custom home','客製住宅'],['Modern interior design','現代室內設計'],['Minimalist home','極簡居家'],['Tile','磁磚建材'],['Building materials','建材'],['Smart home','智能家居'],['Walk-in closet','更衣室'],['Balcony garden','陽台花園'],['Lighting design','燈光設計'],['Furniture','家具'],['Real estate','不動產'],['Home buying','購屋'],['Mortgage','房貸'],['New construction','新成屋'],['Property value','房產增值'],['Home upgrade','換屋升格'],['Investment','投資理財'],['Financial planning','財務規劃'],['Quality lifestyle','品質生活'],['Home decor','居家布置'],['Home staging','家居美化'],['Open-plan living','開放格局'],['Natural lighting','採光設計'],['Taichung','台中']]},
+  {n:'28-45 / 梧棲台中港+6km / 台中港生活圈精品置產族',sub:'梧棲台中港是未開發地標·港邊生活圈精品置產新角度',
+   logic:'台中港梧棲是台中未來重要發展軸線，距沙鹿5-10分鐘車程，但全案尚未以台中港為地標做過受眾定向，是明顯盲點。梧棲+台中港+6km涵蓋梧棲清水沙鹿全域，台中港週邊成長中的生活商圈對有港邊生活品味的28-45歲族群有吸引力。精品二房置產是此族群的合理需求。素材切角：「台中港邊精品生活，沙鹿26坪精裝修二房，近港、近捷運、近光田，Messenger問我。」',
+   lm:['台中港','梧棲漁港','梧棲區公所','清水市區'],
+   tags:[['Real estate investing','房地產投資'],['Property investment','置產投資'],['Investment','投資理財'],['Financial planning','財務規劃'],['Wealth management','財富管理'],['Passive income','被動收入'],['Fishing','釣魚'],['Seafood','海鮮美食'],['Coastal living','海岸生活'],['Water sports','水上活動'],['Travel','旅遊'],['Food tour','美食旅遊'],['Local food','在地美食'],['Home buying','購屋'],['First home','首購'],['Mortgage','房貸'],['New construction','新成屋'],['Apartment','公寓住宅'],['Taichung','台中'],['Mass Rapid Transit','捷運'],['Property value','房產增值'],['Urban development','都市發展'],['Lifestyle','生活風格'],['Quality lifestyle','品質生活'],['Home decor','居家布置'],['Coffee','咖啡'],['Young professional','年輕專業人士'],['Night market','夜市文化'],['Interior design','室內設計'],['Saving','儲蓄']]},
+  {n:'30-50 / 沙鹿清水+6km / 雙薪家庭精品首購換屋族',sub:'雙薪夫妻合計月薪12-20萬是1088萬最佳購買力·家庭決策模式配合Messenger',
+   logic:'1088萬精品宅對雙薪家庭是可負擔的理想首購格局（月薪合計12萬/月還款約4萬）。雙面陽台+2個大衣帽收納+工作陽台+2衛浴是雙薪夫妻生活品質的具體呈現。Messenger廣告讓夫妻可以一起看、一起問，符合家庭決策模式。沙鹿清水+6km涵蓋本案通勤生活圈。素材切角：「2衛浴早上不爭、工作陽台曬衣不滴水、2個更衣室各自放——雙薪夫妻的26坪首選。」',
+   lm:['沙鹿火車站','光田醫院','梧棲漁港','清水市場'],
+   tags:[['Marriage','婚姻'],['Couple','夫妻戀人'],['Family planning','家庭規劃'],['Family','家庭'],['First home','首購'],['Home buying','購屋'],['Real estate','不動產'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Investment','投資理財'],['Dual income household','雙薪家庭'],['Career','職涯發展'],['Work-life balance','工作生活平衡'],['Interior design','室內設計'],['Home decor','居家布置'],['Furniture','家具'],['Kitchen appliances','廚房家電'],['Home improvement','居家改善'],['Cooking','烹飪'],['Home upgrade','換屋升格'],['New construction','新成屋'],['Apartment','公寓住宅'],['Property value','房產增值'],['Saving','儲蓄'],['Life insurance','壽險'],['Health food','健康飲食'],['Fitness','健身'],['Travel','旅遊'],['Quality lifestyle','品質生活'],['Taichung','台中']]},
+  {n:'28-45 / 台灣大道×中山路+4km / 新婚夫妻精品新家族',sub:'2房2衛雙陽台是新婚第一個家的完美格局·Messenger適合新婚族偷偷問',
+   logic:'「架高雙併、雙面陽台、2個大衣帽收納、大尺度主臥」剛好是新婚夫妻心目中的完美家。2衛是新婚族最痛點解決方案——早上趕上班再也不爭。Messenger廣告讓新婚族更容易主動詢問，素材切角可以是「這是你們第一個家嗎？」。台灣大道×中山路+4km直指本案門牌地段。',
+   lm:['台灣大道×中山路','沙鹿老街','沙鹿火車站','清水市區'],
+   tags:[['Wedding','婚禮'],['Marriage','婚姻'],['Engagement','訂婚'],['Honeymoon','蜜月旅行'],['Couple','夫妻戀人'],['New home','新家'],['First home','首購'],['Home buying','購屋'],['Real estate','不動產'],['Mortgage','房貸'],['Interior design','室內設計'],['Home decor','居家布置'],['Furniture','家具'],['Kitchen appliances','廚房家電'],['Bedroom design','主臥設計'],['Bathroom design','衛浴設計'],['Balcony','陽台'],['Closet','更衣收納'],['Smart home','智能家居'],['Home improvement','居家改善'],['Financial planning','財務規劃'],['Investment','投資理財'],['Saving','儲蓄'],['Life insurance','壽險'],['Family planning','家庭規劃'],['Health food','健康飲食'],['Fitness','健身'],['Travel','旅遊'],['Photography','攝影'],['Quality lifestyle','品質生活']]},
+  {n:'30-50 / 竹林國小沙鹿+5km / 學區親子換屋族',sub:'竹林國小+光田步行圈是父母購屋最強動機·親子換屋角度尚未鎖定',
+   logic:'竹林國小+光田醫院步行圈是本案最強雙亮點，對30-50歲有學齡子女的父母是直接購屋動機。有子女的家庭最在乎學區和安全感，竹林商圈步行可達竹林國小，光田醫院在旁讓父母安心。2衛+工作陽台也符合有小孩家庭的生活需求。素材切角：「竹林國小走路5分鐘，光田旁邊，2房2衛精裝修，給孩子一個好的成長環境。」',
+   lm:['竹林國小','光田醫院','鹿寮國中','沙鹿老街'],
+   tags:[['Parenting','親子教養'],['Children','子女'],['Family','家庭'],['School','學校'],['Education','教育'],['School district','學區'],['Elementary school','國小'],['Kindergarten','幼稚園'],['Children health','兒童健康'],['Children activities','兒童活動'],['Family outing','親子出遊'],['Home buying','購屋'],['Real estate','不動產'],['Mortgage','房貸'],['Home upgrade','換屋升格'],['Property value','房產增值'],['Saving','儲蓄'],['Investment','投資理財'],['Financial planning','財務規劃'],['Life insurance','壽險'],['Health','健康'],['Health food','健康飲食'],['Park','公園'],['Playground','兒童遊樂場'],['Hospital','醫院'],['Safety','安全環境'],['Cooking','烹飪'],['Local community','在地社區'],['Quality lifestyle','品質生活'],['Taichung','台中']]},
+  {n:'30-50 / 台中科學園區+8km / 中科工程師精品換屋族',sub:'中科管理層有能力負擔1088萬·切換屋升格角度不同於前次首購組',
+   logic:'中科工程師、科技業主管月薪10-20萬，有充裕預算升格到1088萬精品宅，且對精裝修品質有鑑別力。INAX/Sunwave/Kwikset這些品牌對他們是品質背書，不是陌生名詞。上一輪科技工業組驗證有效（CPL$274），此組換成「換屋升格」切角針對已有舊宅的中高階主管，地標同時覆蓋大肚山科技廊道。素材切角：「住中科附近的你，會看得出精品跟普通的差別。26坪精裝修精品宅，換屋就換這種的。」',
+   lm:['台中科學園區','台中工業區','大肚山','沙鹿火車站'],
+   tags:[['Technology','科技業'],['Semiconductor','半導體'],['Electronics','電子業'],['Software','軟體業'],['Engineering','工程師'],['Research and development','研發設計'],['Science park','科學園區'],['High-tech industry','高科技產業'],['Artificial intelligence','人工智慧'],['Precision manufacturing','精密機械'],['Home upgrade','換屋升格'],['Luxury home','精品豪宅'],['Interior design','室內設計'],['Smart home','智能家居'],['Home buying','購屋'],['Real estate','不動產'],['Mortgage','房貸'],['Property investment','置產投資'],['Investment','投資理財'],['Stock market','股票市場'],['ETF','ETF基金'],['Financial planning','財務規劃'],['Wealth management','財富管理'],['Career','職涯發展'],['Work-life balance','工作生活平衡'],['Fitness','健身'],['Running','路跑'],['Travel','旅遊'],['Taichung','台中'],['Quality lifestyle','品質生活']]},
+  {n:'35-55 / 沙鹿梧棲+6km / 金融保險業精品置產族',sub:'金融業有置產概念且收入穩定·1%房地產$402驗證投資置產族有效',
+   logic:'金融/保險從業者對「不動產置產」概念最熟悉，且有穩定高收入，是精品宅的主要目標客群。他們習慣用「房產是資產配置的一部分」思維看待購屋，1088萬在沙鹿的精品低總價定位對他們很有吸引力。過去1%房地產組CPL$402驗證投資置產族有效，此組聚焦金融從業者角度。Messenger讓他們直問「貸款比例、投報率概算」，這族群對數字最直接。',
+   lm:['沙鹿火車站','梧棲漁港','光田醫院','清水交流道'],
+   tags:[['Banking','銀行業'],['Finance','金融業'],['Insurance','保險業'],['Investment','投資理財'],['Financial planning','財務規劃'],['Wealth management','財富管理'],['Stock market','股票市場'],['ETF','ETF基金'],['Real estate investing','房地產投資'],['Property investment','置產投資'],['Passive income','被動收入'],['Asset management','資產管理'],['Tax planning','稅務規劃'],['Capital gain','資本利得'],['Home buying','購屋'],['Real estate','不動產'],['Mortgage','房貸'],['Luxury home','精品豪宅'],['Property value','房產增值'],['New construction','新成屋'],['Retirement planning','退休規劃'],['Financial independence','財務自由'],['Life insurance','壽險'],['Business networking','商業人脈'],['Golf','高爾夫'],['Fine dining','精緻餐飲'],['Travel','旅遊'],['Luxury car','名車豪車'],['Taichung','台中'],['Quality lifestyle','品質生活']]},
+  {n:'35-60 / 清水市區+8km / 清水在地居民換屋沙鹿精品',sub:'清水鄰近沙鹿但尚未鎖定清水換屋族·不離生活圈換到精品是核心訴求',
+   logic:'清水區與沙鹿相鄰，車程5分鐘，但全案受眾幾乎沒有專門針對清水居民換屋的組合，是明顯缺口。清水在地居民熟悉沙鹿生活圈，且清水舊公寓老舊，換到沙鹿精品新成屋是「不離開生活圈、改善居住品質」的理想選擇。「乘載鄉里情」素材驗證在地認同感有效，此組延伸覆蓋清水在地換屋族。',
+   lm:['清水市區','清水夜市','清水高中','清水海風廣場'],
+   tags:[['Home upgrade','換屋升格'],['Home improvement','家居改善'],['Moving','搬家'],['New construction','新成屋'],['Interior design','室內設計'],['Home decor','居家布置'],['Renovation','裝修翻新'],['Real estate','不動產'],['Home buying','購屋'],['Mortgage','房貸'],['Property value','房產增值'],['Investment','投資理財'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Life insurance','壽險'],['Local community','在地社區'],['Neighborhood','社區鄰里'],['Traditional market','傳統市場'],['Cooking','烹飪'],['Gardening','園藝'],['Walking','健走散步'],['Park','公園'],['Family','家庭'],['Health','健康'],['Health food','健康飲食'],['Banking','銀行理財'],['Taichung','台中'],['Mass Rapid Transit','捷運'],['Commuting','通勤'],['Quality lifestyle','品質生活']]},
+  {n:'30-50 / 豐原潭子+8km / 豐原通勤精品首購族',sub:'豐原山線通勤族未曾定向·豐原↔沙鹿通勤路線成熟且豐原房價已漲',
+   logic:'豐原/潭子的上班族有些在沙鹿附近工作（中科/光田），通勤沙鹿路線成熟。豐原房價近幾年已漲，沙鹿1088萬精品宅相較豐原市區未必更貴，但精裝修品質更高。針對30-50歲豐原通勤族群，用「下班回沙鹿精品宅」概念吸引他們，是全案尚未開過的地理方向。台鐵沿線搭配訊息廣告轉換效率高。',
+   lm:['豐原火車站','豐原醫院','潭子加工區','大里中科交流道'],
+   tags:[['Manufacturing','製造業'],['Engineering','工程師'],['Industrial area','工業區'],['Commuting','通勤'],['Train travel','火車鐵路'],['Mass Rapid Transit','捷運'],['Public transportation','大眾運輸'],['First home','首購'],['Home buying','購屋'],['Real estate','不動產'],['Mortgage','房貸'],['Property value','房產增值'],['Investment','投資理財'],['Financial planning','財務規劃'],['New construction','新成屋'],['Interior design','室內設計'],['Quality lifestyle','品質生活'],['Home improvement','居家改善'],['Saving','儲蓄'],['Family planning','家庭規劃'],['Marriage','婚姻'],['Family','家庭'],['Taichung','台中'],['Career','職涯發展'],['Young professional','年輕專業人士'],['Work-life balance','工作生活平衡'],['Coffee','咖啡'],['Fitness','健身'],['Running','路跑'],['Health','健康']]},
+  {n:'28-50 / 沙鹿梧棲+6km / 智能家居科技精品族',sub:'Kwikset智能鎖+EVERPOLL淨水器是科技賣點·智能家居受眾尚未挖掘',
+   logic:'華偉知見配備Kwikset智能門鎖+EVERPOLL淨水器，是具體智能家居亮點，對28-50歲科技接受度高的族群是直接賣點。這族群習慣從科技配備評估住宅品質，Messenger可以讓他們問「有沒有更多智能設備、有哪些科技配備選項」。和科技業職業組不同，此組鎖定「科技愛好者生活風格」而非職業，覆蓋更廣的科技迷族群。',
+   lm:['沙鹿火車站','台灣大道×中山路','光田醫院','梧棲漁港'],
+   tags:[['Smart home','智能家居'],['Smart lock','智能門鎖'],['Home automation','家居自動化'],['Internet of Things','物聯網IoT'],['Smart appliances','智能家電'],['Water purifier','淨水器'],['Air purifier','空氣清淨機'],['Technology','科技'],['Consumer electronics','消費電子'],['Gadgets','3C科技產品'],['Home security','居家安全'],['Security camera','監視攝影'],['Mobile app','手機APP'],['Digital lifestyle','數位生活'],['Home buying','購屋'],['Real estate','不動產'],['New construction','新成屋'],['Interior design','室內設計'],['Luxury home','精品住宅'],['Mortgage','房貸'],['First home','首購'],['Investment','投資理財'],['Financial planning','財務規劃'],['Quality lifestyle','品質生活'],['Fitness tracker','健身追蹤'],['Gaming','電玩遊戲'],['Streaming','線上串流'],['Photography','攝影'],['Taichung','台中'],['Young professional','年輕專業人士']]},
+  {n:'35-60 / 大甲清水+8km / 傳產二代精品換屋族',sub:'大甲傳產家庭第二代有資金且更重視生活品質·不同於業主首置切角',
+   logic:'大甲/清水/沙鹿傳產家庭的第二代（35-60歲），繼承家業後有較充裕資金，比父輩更重視生活品質。這族群不同於父輩的「拼事業不計居住品質」，更在乎「精品建材、採光通風、客製裝修」。1088萬精品宅對他們是「有能力了，換個像樣的住所」的合理選擇。此組與前次的傳產業主置產組不同，切角是第二代換屋品質升格。',
+   lm:['大甲老街','大甲火車站','清水市區','沙鹿老街'],
+   tags:[['Family business','家族企業'],['Business owner','企業主'],['Manufacturing','製造業'],['Machinery','機械設備'],['Supply chain','供應鏈'],['Entrepreneurship','創業'],['Small business','中小企業'],['Business networking','商業人脈'],['Home upgrade','換屋升格'],['Luxury home','精品住宅'],['Interior design','室內設計'],['Home improvement','居家改善'],['Real estate','不動產'],['Property investment','置產投資'],['Investment','投資理財'],['Wealth management','財富管理'],['Tax planning','稅務規劃'],['Stock market','股票市場'],['Golf','高爾夫'],['Fine dining','精緻餐飲'],['Luxury car','名車豪車'],['Travel','旅遊'],['Work-life balance','工作生活平衡'],['Quality lifestyle','品質生活'],['Home buying','購屋'],['Mortgage','房貸'],['New construction','新成屋'],['Taichung','台中'],['Financial planning','財務規劃'],['Retirement planning','退休規劃']]},
+  {n:'40-60 / 沙鹿梧棲+6km / 準退休精品最後換屋族',sub:'45-60歲準退休最後換屋心態·精裝修是給自己和另一半的高品質養老空間',
+   logic:'45-60歲準退休族群是「最後一次換屋」心態，精品精裝修的意義是「給自己和另一半一個高品質的養老空間」。雙面陽台+大尺度主臥+廊道寬敞對準退休族是生活品質的直接呈現。1088萬對有積蓄的準退休族群是可接受的，且不需要擔心未來增值（自住優先）。Messenger讓他們安心問「交屋時間、管理費多少、附近生活機能如何」。',
+   lm:['沙鹿老街','光田醫院','清水高中','梧棲漁港'],
+   tags:[['Retirement planning','退休規劃'],['Retirement','退休生活'],['Senior living','熟齡生活'],['Financial independence','財務自由'],['Pension','退休金'],['Life insurance','壽險'],['Health insurance','健保醫療'],['Wealth management','財富管理'],['Investment','投資理財'],['Financial planning','財務規劃'],['Home upgrade','換屋升格'],['Luxury home','精品住宅'],['Interior design','室內設計'],['Quality lifestyle','品質生活'],['Health','健康'],['Walking','健走散步'],['Gardening','園藝'],['Cooking','烹飪'],['Travel','旅遊'],['Nature','大自然'],['Yoga','瑜珈'],['Fitness','健身'],['Home buying','購屋'],['Real estate','不動產'],['Mortgage','房貸'],['New construction','新成屋'],['Property value','房產增值'],['Local community','在地社區'],['Banking','銀行理財'],['Taichung','台中']]},
+  {n:'30-50 / 台中北屯西屯+8km / 台中市區移居沙鹿精品族',sub:'台中市區同規格精品宅可能貴300-500萬·移居沙鹿1088萬是理性選擇',
+   logic:'台中北屯/西屯同規格精品二房可能要1400-1800萬，移居沙鹿1088萬可以住到精裝修新成屋且有捷運藍線增值題材。台中市區族群對「離開市區省300-500萬、換更好的房子」有興趣，但需要「不離台中生活圈」的保證——沙鹿+台灣大道+捷運藍線可以提供。此組是全案從未開過的台中市區地標組。素材切角：「台中市區買不下的格局，沙鹿1088萬就有精裝修精品宅。」',
+   lm:['西屯區公所','北屯區公所','台灣大道七段','台中科技大學'],
+   tags:[['Taichung','台中'],['Urban living','都市生活'],['Mass Rapid Transit','捷運'],['Public transportation','大眾運輸'],['Commuting','通勤'],['Home upgrade','換屋升格'],['Real estate','不動產'],['Home buying','購屋'],['Mortgage','房貸'],['Property value','房產增值'],['Investment','投資理財'],['Financial planning','財務規劃'],['Luxury home','精品住宅'],['Interior design','室內設計'],['Smart home','智能家居'],['New construction','新成屋'],['First home','首購'],['Career','職涯發展'],['Young professional','年輕專業人士'],['Work-life balance','工作生活平衡'],['Technology','科技業'],['Office worker','上班族'],['Family','家庭'],['Marriage','婚姻'],['Saving','儲蓄'],['Life insurance','壽險'],['Coffee','咖啡'],['Fitness','健身'],['Travel','旅遊'],['Quality lifestyle','品質生活']]},
+  {n:'28-50 / 沙鹿梧棲+6km / 企業主精品自住族',sub:'企業主決策最快·INAX/Sunwave品牌名稱對企業主是品質認知最強族群',
+   logic:'企業主（中小企業老闆）通常對精品品牌最敏感，Sunwave/INAX/Kwikset這些品牌名稱對他們是品質背書。同時企業主決策快、不需要太多說服，Messenger廣告讓他們直問「哪個建材廠商、總價多少、什麼時候交屋」，轉換效率高。沙鹿梧棲在地或附近的中小企業主是核心目標，精品宅是彰顯品味的自住選擇。',
+   lm:['沙鹿老街','台灣大道沙鹿段','梧棲商業區','光田醫院'],
+   tags:[['Business owner','企業主'],['Entrepreneurship','創業精神'],['Self-employment','自營商'],['Small business','中小企業'],['CEO','企業執行長'],['Company director','公司負責人'],['Business management','企業管理'],['Business networking','商業人脈'],['Investment','投資理財'],['Wealth management','財富管理'],['Tax planning','稅務規劃'],['Financial planning','財務規劃'],['Luxury home','精品豪宅'],['Home upgrade','換屋升格'],['Interior design','室內設計'],['Premium appliances','頂級家電'],['Smart home','智能家居'],['Real estate','不動產'],['Property investment','置產投資'],['Home buying','購屋'],['Golf','高爾夫'],['Fine dining','精緻餐飲'],['Luxury car','名車豪車'],['Travel','旅遊'],['Business travel','商務旅行'],['Fitness','健身'],['Work-life balance','工作生活平衡'],['Quality lifestyle','品質生活'],['Taichung','台中'],['New construction','新成屋']]},
+  {n:'28-45 / 沙鹿清水+6km / 單身高薪族精品首購',sub:'大尺度主臥+2個更衣室是單身族精品宅核心吸引點·單身受眾尚未開過',
+   logic:'28-45歲男女單身族群，有固定中高收入，想擁有屬於自己的精品空間。「大尺度主臥」+「2個大衣帽收納」+「架高雙併精裝修」對單身族是高吸引力——有足夠的更衣收納空間、自己的精品小天地、工作陽台曬衣不尷尬。1088萬對年收150-250萬的單身族是可負擔的首購入場。Messenger讓他們偷偷問不尷尬。',
+   lm:['沙鹿火車站','光田醫院','台灣大道商圈','沙鹿老街'],
+   tags:[['Single living','單身生活'],['Personal space','個人空間'],['Lifestyle','生活風格'],['Fashion','時尚'],['Fitness','健身'],['Gym','健身房'],['Sports','運動'],['Running','路跑'],['Car enthusiast','汽車愛好者'],['Gaming','電玩遊戲'],['Technology','科技'],['Coffee','咖啡'],['Fine dining','精緻餐飲'],['Travel','旅遊'],['Photography','攝影'],['Home buying','購屋'],['First home','首購'],['Real estate','不動產'],['Mortgage','房貸'],['Investment','投資理財'],['Financial planning','財務規劃'],['Interior design','室內設計'],['Home decor','居家布置'],['Smart home','智能家居'],['Quality lifestyle','品質生活'],['Taichung','台中'],['Young professional','年輕專業人士'],['Career','職涯發展'],['Saving','儲蓄'],['Work-life balance','工作生活平衡']]},
+  {n:'35-55 / 大台中+沙鹿+8km / 精品小宅投資出租族',sub:'26坪精裝修是最佳出租格局·精裝修出租議價力高於同價位素裝',
+   logic:'26坪精裝修二房在沙鹿是投資客出租的黃金格局（小而精，好出租）。沙鹿正在捷運藍線動工前的低點，精裝修新成屋出租給中科工程師或光田醫護，月租金2-3萬是合理預估。針對35-55歲有置產出租需求的族群，Messenger廣告讓他們直問「可以出租嗎、預估租金多少、附近有哪些承租族群」。大台中+沙鹿+8km涵蓋有置產資金但想選擇沙鹿低總價的投資者。',
+   lm:['台中科學園區','光田醫院','沙鹿火車站','台中港'],
+   tags:[['Real estate investing','房地產投資'],['Rental property','出租置產'],['Passive income','被動收入'],['Property investment','置產投資'],['Investment','投資理財'],['Wealth management','財富管理'],['Financial planning','財務規劃'],['Stock market','股票市場'],['ETF','ETF基金'],['Asset management','資產管理'],['Tax planning','稅務規劃'],['Capital gain','資本利得'],['Mortgage','房貸'],['Home buying','購屋'],['Real estate','不動產'],['Property value','房產增值'],['New construction','新成屋'],['Mass Rapid Transit','捷運'],['Urban development','都市發展'],['Financial independence','財務自由'],['Retirement planning','退休規劃'],['Saving','儲蓄'],['Banking','銀行理財'],['Insurance','保險'],['Life insurance','壽險'],['Business networking','商業人脈'],['Golf','高爾夫'],['Travel','旅遊'],['Taichung','台中'],['Quality lifestyle','品質生活']]},
+  {n:'40-60 / 光田+大甲+8km / 醫療主管精品換屋族',sub:'資深醫護主管有換屋能力·光田步行圈對醫護是最直接地標賣點',
+   logic:'光田醫院+大台中不同醫療機構的資深主管/醫師（主治醫師、護理長、科主任等）收入高，多已有舊宅，想換到精品宅提升生活品質。INAX衛浴/Sunwave磁磚等品牌對醫療人員是可辨識的品質指標。光田步行圈是直接賣點，「下班走路回家」對忙碌醫護是最大福利。此組不同於首購醫護組，切角改為換屋升格、重視生活品質。',
+   lm:['光田綜合醫院','大甲光田','沙鹿火車站','梧棲台中港'],
+   tags:[['Healthcare','醫療'],['Medicine','醫學'],['Hospital management','醫院管理'],['Nursing management','護理管理'],['Medical specialist','醫療專科'],['Dentistry','牙醫'],['Physical therapy','物理治療'],['Health insurance','健保'],['Health','健康'],['Wellness','健康養生'],['Fitness','健身'],['Yoga','瑜珈'],['Home upgrade','換屋升格'],['Luxury home','精品住宅'],['Interior design','室內設計'],['Smart home','智能家居'],['Water purifier','淨水器'],['Air purifier','空氣清淨機'],['Home buying','購屋'],['Real estate','不動產'],['Mortgage','房貸'],['Investment','投資理財'],['Financial planning','財務規劃'],['Retirement planning','退休規劃'],['Life insurance','壽險'],['Wealth management','財富管理'],['Travel','旅遊'],['Fine dining','精緻餐飲'],['Quality lifestyle','品質生活'],['Taichung','台中']]},
+  {n:'28-50 / 沙鹿梧棲+6km / 高端生活品質追求族',sub:'從生活風格切入而非職業·精品旅遊+美食+居家美學族群對精裝修共鳴最強',
+   logic:'不從職業分類，而從「生活品質追求」角度切入，覆蓋各職業但共同特點是重視高品質生活、不接受低品質住宅。喜歡精品旅遊、高端美食、居家美學的人，對精裝修建材認同感最強。1088萬對這族群是「花的值」的消費決策，而非只看價格比較。Messenger讓他們問「你們的精裝修是什麼標準、有沒有樣品屋可以看」。',
+   lm:['沙鹿老街','台灣大道×中山路','梧棲漁港','光田醫院'],
+   tags:[['Luxury travel','精品旅遊'],['Fine dining','精緻餐飲'],['Wine','葡萄酒'],['Gourmet food','美食文化'],['Specialty coffee','精品咖啡'],['Hotel','精品飯店'],['Interior design','室內設計'],['Home decor','居家布置'],['Furniture','家具'],['Luxury lifestyle','奢華生活'],['Fashion','時尚'],['High-end fashion','高端時尚'],['Cosmetics','美妝保養'],['Fitness','健身'],['Yoga','瑜珈'],['Art','藝術'],['Photography','攝影'],['Music','音樂'],['Home buying','購屋'],['Real estate','不動產'],['Luxury home','精品住宅'],['Home upgrade','換屋升格'],['Investment','投資理財'],['Financial planning','財務規劃'],['Quality lifestyle','品質生活'],['Smart home','智能家居'],['Taichung','台中'],['New construction','新成屋'],['Running','路跑'],['Health food','健康飲食']]},
+  {n:'30-50 / 沙鹿清水+8km / 建設建材業行家換屋族',sub:'INAX/Sunwave/KCA品牌名稱對建設業是最強品質背書·行家族群信任轉換快',
+   logic:'建設/建材/室內設計從業者最懂得分辨建材品質優劣，Sunwave陶瓷磁磚/INAX衛浴/KCA廚具/AICA板材這些品牌對他們是具體品質背書。這族群購屋時最看重「真材實料」而非廣告話術，Messenger讓他們直問「施工工法、建材規格、有沒有SN認證、哪個廠商供料」。建設業行家是精品宅天然的高信任族群，口碑傳播效益也強。',
+   lm:['沙鹿火車站','光田醫院','清水區公所','台灣大道商圈'],
+   tags:[['Architecture','建築設計'],['Interior design','室內設計'],['Construction','建設業'],['Building contractor','建商承包商'],['Real estate developer','房地產開發商'],['Structural engineering','結構工程'],['Civil engineering','土木工程'],['Building materials','建材'],['Flooring','地板建材'],['Tile','磁磚'],['Bathroom fixtures','衛浴設備'],['Kitchen cabinet','系統廚具'],['Home renovation','居家裝潢'],['Renovation','裝修翻新'],['Construction management','工程管理'],['Home improvement','居家改善'],['Smart home','智能家居'],['Lighting design','燈光設計'],['Home buying','購屋'],['Real estate','不動產'],['Property investment','置產投資'],['Investment','投資理財'],['Financial planning','財務規劃'],['Home upgrade','換屋升格'],['Luxury home','精品住宅'],['New construction','新成屋'],['Property value','房產增值'],['Work-life balance','工作生活平衡'],['Taichung','台中'],['Quality lifestyle','品質生活']]},
+  {n:'35-60 / 沙鹿梧棲+6km / 三面採光雙陽台空間享受族',sub:'連棟三面採光+雙面陽台是同價位極稀有·住過無採光公寓的人最有共鳴',
+   logic:'「連棟三面採光、雙面陽台」在同總價段是極稀有的空間優勢，針對對採光、通風、空間感有強烈需求的族群——可能住過無採光台中公寓後，最渴望「見得到太陽的家」。Messenger讓他們問「幾面採光、幾樓、坐向如何、陽台大小多少」。此組從「空間感受」而非職業或投資切入，覆蓋不同背景但共同有採光渴望的族群。素材切角：「連棟三面採光，雙面陽台，廊道寬敞——這才叫會住的人。」',
+   lm:['沙鹿老街','台灣大道沙鹿段','光田醫院','梧棲台中港'],
+   tags:[['Natural lighting','自然採光'],['Natural ventilation','自然通風'],['Balcony','陽台'],['Open space','開闊空間'],['Home design','住宅設計'],['Interior architecture','室內建築'],['Interior design','室內設計'],['Minimalist home','極簡居家'],['Open-plan living','開放格局'],['Living room design','客廳設計'],['Master bedroom','主臥寢室'],['Walk-in closet','更衣室'],['Gardening','園藝'],['Balcony garden','陽台花園'],['Nature','大自然'],['Outdoor lifestyle','戶外生活'],['Sunlight','陽光採光'],['Home buying','購屋'],['Real estate','不動產'],['Mortgage','房貸'],['Home upgrade','換屋升格'],['New construction','新成屋'],['Property value','房產增值'],['Investment','投資理財'],['Financial planning','財務規劃'],['Quality lifestyle','品質生活'],['Health','健康'],['Wellness','健康養生'],['Taichung','台中'],['Home improvement','居家改善']]}
+];
+(function(){const ng=document.getElementById('new-aud-grid');if(ng)ng.innerHTML=NEW_G.map((g,i)=>buildAudCard(g,i,'n')).join('');})();
 
 const PROJECT = '華偉知見（台中沙鹿・中山路永安巷・純二房26坪・訊息145則・潛客28表單）';
 function showToast(){const t=document.getElementById('toast');t.style.opacity='1';t.style.transform='translateX(-50%) translateY(0)';setTimeout(()=>{t.style.opacity='0';t.style.transform='translateX(-50%) translateY(20px)'},2200)}
