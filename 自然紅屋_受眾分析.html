@@ -160,6 +160,35 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 /* 2-col layout */
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
 @media(max-width:860px){.two-col{grid-template-columns:1fr}.stat-grid{grid-template-columns:repeat(2,1fr)}.product-grid{grid-template-columns:repeat(2,1fr)}.pain-grid{grid-template-columns:1fr}}
+/* Audience cards */
+.aud-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;align-items:start}
+@media(max-width:760px){.aud-grid-2{grid-template-columns:1fr}}
+.aud-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);box-shadow:var(--shadow-xs);overflow:hidden}
+.aud-header{display:flex;align-items:center;gap:12px;padding:14px 16px;cursor:pointer;user-select:none;transition:background .15s}
+.aud-header:hover{background:var(--accent-light)}
+.aud-num{width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.aud-info{flex:1;min-width:0}
+.aud-name{font-size:13px;font-weight:700;color:var(--tx);line-height:1.35}
+.aud-sub{font-size:11px;color:var(--sub);margin-top:2px;line-height:1.4}
+.aud-arrow{font-size:11px;color:var(--sub2);transition:transform .2s;flex-shrink:0}
+.aud-card.open .aud-arrow{transform:rotate(90deg)}
+.aud-body{display:none;padding:0 16px 16px;border-top:1px solid var(--bd)}
+.aud-card.open .aud-body{display:block}
+.aud-sl{font-size:10px;font-weight:700;color:var(--sub2);letter-spacing:.5px;text-transform:uppercase;margin:12px 0 6px}
+.aud-logic{font-size:12px;color:var(--sub);line-height:1.7;background:var(--accent-light);border-left:3px solid var(--accent);padding:10px 12px;border-radius:0 6px 6px 0}
+.aud-lm{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:4px}
+.aud-lm-tag{font-size:11px;font-weight:600;color:#2a4a2a;background:var(--accent-light);padding:3px 10px;border-radius:10px;border:1px solid var(--accent-border)}
+.tag-tbl{width:100%;border-collapse:collapse;font-size:12px;margin-top:4px}
+.tag-tbl thead tr{background:#eef5ee}
+.tag-tbl th{padding:5px 8px;text-align:left;font-size:10px;font-weight:700;color:var(--sub2);border-bottom:1px solid var(--bd)}
+.tag-tbl tbody tr{cursor:pointer;transition:background .12s;border-bottom:1px solid #ecf0ec}
+.tag-tbl tbody tr:hover{background:var(--accent-light)}
+.tag-tbl td{padding:5px 8px;color:var(--tx)}
+.tag-tbl td:first-child{color:var(--sub2);font-size:10px;width:24px}
+.tag-tbl tbody tr.flash{background:#c0e8c0!important}
+.copy-all-row{display:flex;justify-content:flex-end;margin-top:8px}
+.copy-all-btn{font-size:11px;font-weight:600;color:var(--accent-dark);background:var(--accent-light);border:1px solid var(--accent-border);border-radius:8px;padding:5px 14px;cursor:pointer;transition:all .15s}
+.copy-all-btn.done{background:#d0ecd0;color:#2a6a2a;border-color:#90c890}
 </style>
 </head>
 <body>
@@ -185,13 +214,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   </div>
   <div class="case-stats">
     <div class="stat"><div class="stat-n">409</div><div class="stat-l">總潛客</div></div>
-    <div class="stat"><div class="stat-n">33組</div><div class="stat-l">測試受眾</div></div>
+    <div class="stat"><div class="stat-n">53組</div><div class="stat-l">規劃受眾</div></div>
     <div class="stat"><div class="stat-n">NT$102</div><div class="stat-l">最低CPA</div></div>
   </div>
 </div>
 
 <div class="tab-bar">
-  <button class="tab-btn active" onclick="switchTab('aud')">受眾成效（33組 · 409潛客 · 起自 2025-12-19）</button>
+  <button class="tab-btn active" onclick="switchTab('aud')">受眾成效（53組 · 409潛客 · 起自 2025-12-19）</button>
   <button class="tab-btn" onclick="switchTab('visit')">來客分析（747通話 · 149預約 · 37追蹤客）</button>
 </div>
 
@@ -521,6 +550,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   </div>
 </div>
 
+<!-- 20組新建議受眾 -->
+<div class="section">
+  <div class="sec-title">新建議受眾（20組）· 建立 2026-07-02</div>
+  <div class="note-bar">📌 策略依據：退休度假（CPA NT$102-112 最佳）× 露營大自然 × 企業主戶外，擴展至北台灣移居、南高屏農村、東台灣生態、桃竹苗土地族群。每組 30 個興趣標籤可點擊複製。</div>
+  <div id="new-aud-grid" class="aud-grid-2"></div>
+</div>
+
 </div><!-- end tab-aud -->
 
 <!-- ═══════════ TAB 2：來客分析 ═══════════ -->
@@ -748,7 +784,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 
 </div><!-- end tab-visit -->
 
-<div class="page-footer">自然紅屋 受眾分析報告 · 更新 2026-07-02 · 9133 廣告操作團隊</div>
+<div class="page-footer">自然紅屋 受眾分析報告 · 更新 2026-07-03 · 9133 廣告操作團隊</div>
 </div>
 
 <script>
@@ -761,6 +797,157 @@ function switchTab(name){
   window.scrollTo({top:0,behavior:'smooth'});
 }
 window.addEventListener('scroll',()=>{document.getElementById('btt').classList.toggle('show',window.scrollY>300)});
+
+// ── 20組新建議受眾 ──
+const NEW_G=[
+  {n:'35-65 / 石岡后里+10 / 退休移居 / 慢活木屋',sub:'本地認知強化・石岡水壩+后里馬場地標・退休慢活全標籤組',
+   logic:'以「石岡水壩+10km」、「后里馬場+8km」精準涵蓋最靠近工廠的潛在客群。這群人可能已路過石岡、看過木屋，卻從未進一步了解。退休+慢活+大自然標籤組合，喚醒對「在地慢居」的嚮往。距體驗園區最近，購屋決策最快。',
+   lm:['石岡水壩(+10km)','后里馬場(+8km)','東豐自行車道(+5km)','石岡客家文化館(+3km)'],
+   tags:[['Retirement','退休'],['Retirement planning','退休規劃'],['Slow life','慢活'],['Nature','自然'],['Gardening','園藝'],['Camping','露營'],['Organic farming','有機農業'],['Sustainable living','永續生活'],['Real estate','房地產'],['Property','不動產'],['Agriculture','農業'],['Land','土地'],['Farmhouse','農莊生活'],['Country living','鄉村生活'],['Hiking','健行'],['Small business owners','小型企業主'],['Health','健康'],['Organic food','有機食品'],['Photography','攝影'],['Birdwatching','賞鳥'],['Investment','投資'],['Vacation home','度假小屋'],['Tourism','旅遊業'],['Glamping','豪華露營'],['Senior','樂齡族'],['Baby boomer','嬰兒潮世代'],['DIY','自己動手做'],['Interior design','室內設計'],['Green energy','綠能'],['Eco-friendly','環境友善']]},
+
+  {n:'35-65 / 桃竹苗 / 退休養生 / 大自然木屋',sub:'最佳CPA NT$102延伸・退休養生+露營+有機複合標籤',
+   logic:'桃竹苗是全場 CPA NT$102 最低的勝利地標，本組在相同地區以「退休養生」為核心加強訴求。新竹/苗栗人對田園生活的渴望尤強，轉職後移居比例高。標籤組強化退休規劃、健康養生、有機食品，觸發「退休後去台中住木屋」的主動搜尋意圖。',
+   lm:['新竹動物園(+5km)','苗栗市區(+5km)','頭份科技工業區(+8km)','竹南科學園區(+5km)'],
+   tags:[['Retirement','退休'],['Retirement planning','退休規劃'],['Senior','樂齡族'],['Baby boomer','嬰兒潮世代'],['Slow life','慢活'],['Nature','自然'],['Camping','露營'],['Glamping','豪華露營'],['Hiking','健行'],['Country living','鄉村生活'],['Gardening','園藝'],['Organic farming','有機農業'],['Organic food','有機食品'],['Health','健康'],['Yoga','瑜珈'],['Meditation','冥想'],['Real estate','房地產'],['Property','不動產'],['Land','土地'],['Agriculture','農業'],['Farmhouse','農莊生活'],['Vacation home','度假小屋'],['Tourism','旅遊業'],['DIY','自己動手做'],['Green energy','綠能'],['Eco-friendly','環境友善'],['Investment','投資'],['Small business owners','小型企業主'],['Photography','攝影'],['Birdwatching','賞鳥']]},
+
+  {n:'35-65 / 北台灣 / 退休移居中台灣 / 逃離都市',sub:'台北/新北/基隆退休移居族・都市疏離+大自然渴望複合',
+   logic:'北台灣退休族面臨「住不起台北卻不想住太遠」的兩難。台中石岡提供答案——距高鐵40分鐘、空氣品質佳、地價僅台北1/5。這群人已有置產能力，正在搜尋「退休移居地點」。以城市地標定向（台北信義、內湖科技）鎖定有移居念頭的都會退休族。',
+   lm:['台北101(+5km)','信義計畫區(+5km)','大安森林公園(+3km)','內湖科技園區(+5km)'],
+   tags:[['Retirement','退休'],['Retirement planning','退休規劃'],['Slow life','慢活'],['Country living','鄉村生活'],['Nature','自然'],['Real estate','房地產'],['Property','不動產'],['Investment','投資'],['Vacation home','度假小屋'],['Farmhouse','農莊生活'],['Sustainable living','永續生活'],['Eco-friendly','環境友善'],['Camping','露營'],['Glamping','豪華露營'],['Gardening','園藝'],['Health','健康'],['Yoga','瑜珈'],['Organic food','有機食品'],['Organic farming','有機農業'],['Baby boomer','嬰兒潮世代'],['Senior','樂齡族'],['Hiking','健行'],['Birdwatching','賞鳥'],['Small business owners','小型企業主'],['Tourism','旅遊業'],['Photography','攝影'],['Green energy','綠能'],['Interior design','室內設計'],['DIY','自己動手做'],['Land','土地']]},
+
+  {n:'35-65 / 中彰投 / 露營資深玩家 / 豪華露營升格',sub:'露營興趣勝利組延伸・Glamping+戶外家具+生態重磅標籤',
+   logic:'「露營興趣」組已創下 111 潛客 CPA NT$113 佳績，本組以「豪華露營升格」為新切角——資深露營客已厭倦搭帳篷，正在找永久的「自己的山林小屋」。日月潭、清境、武陵定向，覆蓋有習慣前往中台灣山區露營的核心受眾，比泛中部定向更精準。',
+   lm:['日月潭(+10km)','清境農場(+15km)','武陵農場(+12km)','大雪山(+15km)'],
+   tags:[['Camping','露營'],['Glamping','豪華露營'],['Outdoor furniture','戶外家具'],['Hiking','健行'],['Trekking','登山健行'],['Nature','自然'],['Birdwatching','賞鳥'],['Photography','攝影'],['National park','國家公園'],['Wildlife','野生動物'],['Real estate','房地產'],['Property','不動產'],['Farmhouse','農莊生活'],['Country living','鄉村生活'],['Land','土地'],['Agriculture','農業'],['Organic farming','有機農業'],['Organic food','有機食品'],['Sustainable living','永續生活'],['Eco-friendly','環境友善'],['Small business owners','小型企業主'],['Vacation home','度假小屋'],['Tourism','旅遊業'],['Retirement','退休'],['Slow life','慢活'],['Health','健康'],['DIY','自己動手做'],['Interior design','室內設計'],['Woodworking','木工'],['Gardening','園藝']]},
+
+  {n:'35-65 / 南高屏 / 退休田園 / 農村定居木屋',sub:'南高屏 active 組延伸・農村+有機+田園複合標籤強化',
+   logic:'南高屏組目前 active 且已有 15 潛客（CPA NT$371），本組以「田園定居」為新主題強化。高雄/台南人對「農村生活」有強烈嚮往，特別是已退休或即將退休的嬰兒潮世代。美濃客家、旗山老街周邊定向，觸達有農業背景或農村情懷的核心受眾。',
+   lm:['美濃客家聚落(+5km)','旗山老街(+5km)','台南善化(+5km)','高雄田寮(+5km)'],
+   tags:[['Retirement','退休'],['Slow life','慢活'],['Country living','鄉村生活'],['Farmhouse','農莊生活'],['Agriculture','農業'],['Organic farming','有機農業'],['Organic food','有機食品'],['Gardening','園藝'],['Nature','自然'],['Camping','露營'],['Glamping','豪華露營'],['Health','健康'],['Yoga','瑜珈'],['Meditation','冥想'],['Real estate','房地產'],['Property','不動產'],['Land','土地'],['Investment','投資'],['Sustainable living','永續生活'],['Eco-friendly','環境友善'],['Vacation home','度假小屋'],['Tourism','旅遊業'],['Small business owners','小型企業主'],['Senior','樂齡族'],['Baby boomer','嬰兒潮世代'],['Birdwatching','賞鳥'],['Photography','攝影'],['Hiking','健行'],['DIY','自己動手做'],['Green energy','綠能']]},
+
+  {n:'40-65 / 中彰投 / 高爾夫 / 企業主莊園退休',sub:'企業主訊息組佳績延伸・高爾夫+鄉村俱樂部+豪華慢活',
+   logic:'企業主戶外訊息組創下 47 對話 CPA NT$142 佳績，本組轉換為名單目標並強化「莊園等級」定位。有高爾夫習慣的中彰投企業主，是最有能力購置合掌屋或多院型木屋的族群。大台中高爾夫球場、七期重劃區定向，精準命中高消費力退休規劃者。',
+   lm:['大台中高爾夫球場(+10km)','台中七期重劃區(+5km)','大坑風景區(+5km)','台中軟體園區(+5km)'],
+   tags:[['Golf','高爾夫'],['Country club','鄉村俱樂部'],['Retirement','退休'],['Senior','樂齡族'],['Baby boomer','嬰兒潮世代'],['Health','健康'],['Nature','自然'],['Real estate','房地產'],['Property','不動產'],['Investment','投資'],['Small business owners','小型企業主'],['Vacation home','度假小屋'],['Country living','鄉村生活'],['Glamping','豪華露營'],['Camping','露營'],['Hiking','健行'],['Organic food','有機食品'],['Slow life','慢活'],['Gardening','園藝'],['Farmhouse','農莊生活'],['Photography','攝影'],['Birdwatching','賞鳥'],['Land','土地'],['Agriculture','農業'],['Eco-friendly','環境友善'],['Sustainable living','永續生活'],['DIY','自己動手做'],['Interior design','室內設計'],['Green energy','綠能'],['Organic farming','有機農業']]},
+
+  {n:'35-65 / 宜蘭花蓮 / 移居大自然 / 退休東台灣',sub:'東台灣大自然愛好者・太魯閣+羅東地標・移居中台灣意圖',
+   logic:'宜蘭花蓮人對大自然的親近感是全台最強的，且已習慣「通往台中的高速公路」。這群人在台9線、北宜公路上看慣了森林和溪流，「買一塊地蓋木屋」是他們心中長期的夢想。太魯閣/羅東地標定向，觸達有登山、生態、移居意願的核心受眾。',
+   lm:['羅東夜市(+5km)','宜蘭市區(+5km)','太魯閣(+10km)','花蓮市區(+5km)'],
+   tags:[['Nature','自然'],['Retirement','退休'],['Slow life','慢活'],['Country living','鄉村生活'],['Farmhouse','農莊生活'],['Real estate','房地產'],['Property','不動產'],['Land','土地'],['Agriculture','農業'],['Organic farming','有機農業'],['Camping','露營'],['Glamping','豪華露營'],['Hiking','健行'],['Trekking','登山健行'],['Birdwatching','賞鳥'],['Photography','攝影'],['National park','國家公園'],['Wildlife','野生動物'],['Health','健康'],['Organic food','有機食品'],['Gardening','園藝'],['Eco-friendly','環境友善'],['Sustainable living','永續生活'],['Green energy','綠能'],['Baby boomer','嬰兒潮世代'],['Senior','樂齡族'],['Vacation home','度假小屋'],['Tourism','旅遊業'],['Small business owners','小型企業主'],['DIY','自己動手做']]},
+
+  {n:'35-60 / 全台 / 民宿業主 / 露營區木屋商業用途',sub:'休閒業者客群・民宿+露營區+小型企業主行為標籤',
+   logic:'電訪追蹤中有 4 組休閒業者（含露營區、民宿、農場），均為 B 級以上。「合掌屋或單院作為商業展示屋」是這群人的核心需求。全台鎖定民宿業主/露營區經營者行為標籤，搭配小型企業主定向，覆蓋有意升級住宿體驗的業者。',
+   lm:['台北松山機場(+5km)','台中市政府廣場(+5km)','高雄展覽館(+5km)','花蓮縣政府(+5km)'],
+   tags:[['Bed and breakfast','民宿'],['Tourism','旅遊業'],['Small business owners','小型企業主'],['Camping','露營'],['Glamping','豪華露營'],['Country living','鄉村生活'],['Farmhouse','農莊生活'],['Real estate','房地產'],['Property','不動產'],['Investment','投資'],['Agriculture','農業'],['Land','土地'],['Vacation home','度假小屋'],['Interior design','室內設計'],['Hiking','健行'],['Nature','自然'],['Eco-friendly','環境友善'],['Sustainable living','永續生活'],['Organic food','有機食品'],['Photography','攝影'],['Birdwatching','賞鳥'],['Woodworking','木工'],['DIY','自己動手做'],['Health','健康'],['Country club','鄉村俱樂部'],['Wellness','健康生活'],['Green energy','綠能'],['Gardening','園藝'],['Organic farming','有機農業'],['Retirement','退休']]},
+
+  {n:'35-65 / 大台中山線 / 登山健行 / 生態旅遊族',sub:'大坑+大雪山+谷關地標・登山健行+生態+自然攝影重標籤',
+   logic:'大坑步道是台中登山客最密集的據點，大雪山、谷關則是重度戶外愛好者常去的地方。這群人對「山林生活」的接受度最高，從「每周登山」到「想在山邊住一間木屋」的距離最短。以大自然體驗標籤為核心，觸發「擁有自己的山林小屋」的置產衝動。',
+   lm:['大坑風景區(+3km)','大雪山森林遊樂區(+10km)','谷關溫泉(+5km)','東勢林場(+5km)'],
+   tags:[['Hiking','健行'],['Trekking','登山健行'],['Camping','露營'],['Nature','自然'],['National park','國家公園'],['Wildlife','野生動物'],['Birdwatching','賞鳥'],['Photography','攝影'],['Eco-friendly','環境友善'],['Tourism','旅遊業'],['Real estate','房地產'],['Property','不動產'],['Land','土地'],['Farmhouse','農莊生活'],['Country living','鄉村生活'],['Agriculture','農業'],['Organic farming','有機農業'],['Sustainable living','永續生活'],['Gardening','園藝'],['Health','健康'],['Retirement','退休'],['Slow life','慢活'],['Small business owners','小型企業主'],['Investment','投資'],['Vacation home','度假小屋'],['Yoga','瑜珈'],['Meditation','冥想'],['Green energy','綠能'],['Woodworking','木工'],['Glamping','豪華露營']]},
+
+  {n:'40-65 / 豐原后里+10 / 傳產老闆 / 農村鄉居莊園',sub:'豐原后里本地企業主・小型企業主+傳產+農村鄉居',
+   logic:'豐原/后里是台中傳產製造業密集區，很多老闆在這裡打拼了20年，卻從未在自己的城市享受過田園生活。「在工廠10分鐘車程外有一間木屋」是最具說服力的訴求。豐原慈濟、后里農場周邊定向，命中在地有資產但從未考慮木屋的傳產老闆。',
+   lm:['豐原市區(+5km)','后里馬場(+5km)','潭雅神綠園道(+3km)','鐵砧山(+5km)'],
+   tags:[['Small business owners','小型企業主'],['Retirement','退休'],['Country living','鄉村生活'],['Farmhouse','農莊生活'],['Nature','自然'],['Real estate','房地產'],['Property','不動產'],['Investment','投資'],['Land','土地'],['Agriculture','農業'],['Camping','露營'],['Glamping','豪華露營'],['Golf','高爾夫'],['Health','健康'],['Slow life','慢活'],['Gardening','園藝'],['Organic food','有機食品'],['Senior','樂齡族'],['Baby boomer','嬰兒潮世代'],['Organic farming','有機農業'],['Sustainable living','永續生活'],['Eco-friendly','環境友善'],['Photography','攝影'],['Birdwatching','賞鳥'],['Hiking','健行'],['Interior design','室內設計'],['DIY','自己動手做'],['Tourism','旅遊業'],['Vacation home','度假小屋'],['Green energy','綠能']]},
+
+  {n:'35-65 / 桃竹苗 / 孝親長輩 / 退休禮物木屋',sub:'子女為父母購屋・長輩休閒+養生+園藝+慢活',
+   logic:'桃竹苗已是全場 CPA 最低地區，本組針對「替父母/長輩規劃退休居所」的子女族群。科技業、金融業子女薪資高，有能力為即將退休的父母置辦一間度假木屋。「給爸媽一個山林慢活空間」是最強的情感購買觸發點。',
+   lm:['新竹市區(+5km)','竹北高鐵站(+5km)','苗栗市(+5km)','頭份(+5km)'],
+   tags:[['Senior','樂齡族'],['Retirement','退休'],['Baby boomer','嬰兒潮世代'],['Health','健康'],['Nature','自然'],['Country living','鄉村生活'],['Farmhouse','農莊生活'],['Gardening','園藝'],['Organic food','有機食品'],['Slow life','慢活'],['Camping','露營'],['Glamping','豪華露營'],['Yoga','瑜珈'],['Meditation','冥想'],['Real estate','房地產'],['Property','不動產'],['Investment','投資'],['Land','土地'],['Agriculture','農業'],['Organic farming','有機農業'],['Sustainable living','永續生活'],['Eco-friendly','環境友善'],['DIY','自己動手做'],['Interior design','室內設計'],['Birdwatching','賞鳥'],['Photography','攝影'],['Tourism','旅遊業'],['Vacation home','度假小屋'],['Golf','高爾夫'],['Green energy','綠能']]},
+
+  {n:'35-65 / 台南市區 / 移居台中 / 退休養生大自然',sub:'台南都市退休族・移居台中山區+自然療癒複合標籤',
+   logic:'台南市區退休族對「移居」的接受度高於其他城市，特別是已住膩台南平原的嬰兒潮世代。台中石岡提供山、水、空氣、相對低廉的土地價格。以台南市區地標定向，觸達正在評估「退休搬到哪裡」的核心族群。',
+   lm:['台南市區(+5km)','台南火車站(+3km)','台南歸仁(+5km)','安平港(+5km)'],
+   tags:[['Retirement','退休'],['Slow life','慢活'],['Country living','鄉村生活'],['Nature','自然'],['Camping','露營'],['Glamping','豪華露營'],['Organic food','有機食品'],['Organic farming','有機農業'],['Health','健康'],['Yoga','瑜珈'],['Meditation','冥想'],['Real estate','房地產'],['Property','不動產'],['Land','土地'],['Farmhouse','農莊生活'],['Agriculture','農業'],['Sustainable living','永續生活'],['Eco-friendly','環境友善'],['Gardening','園藝'],['Investment','投資'],['Baby boomer','嬰兒潮世代'],['Senior','樂齡族'],['Birdwatching','賞鳥'],['Photography','攝影'],['Hiking','健行'],['DIY','自己動手做'],['Interior design','室內設計'],['Tourism','旅遊業'],['Vacation home','度假小屋'],['Green energy','綠能']]},
+
+  {n:'40-65 / 中彰投 / 有地族 / 農地木屋實際規劃',sub:'已有土地・農地+建地+組合屋規劃+施工諮詢複合',
+   logic:'電訪資料顯示「有地客」轉換率遠高於無地客（50% vs 7%）。本組直接鎖定已有農地/建地的中彰投族群。石岡水壩/東豐車道周邊本就是農地密集區，在地有地主最容易被轉換成真實客戶。訴求：「你的地已等你很久了，一天就能幫你完工」。',
+   lm:['石岡水壩(+10km)','東豐自行車道(+5km)','大甲溪河岸(+10km)','清水地標建築(+8km)'],
+   tags:[['Agriculture','農業'],['Land','土地'],['Real estate','房地產'],['Property','不動產'],['Farmhouse','農莊生活'],['Organic farming','有機農業'],['Sustainable living','永續生活'],['Eco-friendly','環境友善'],['Country living','鄉村生活'],['Gardening','園藝'],['Nature','自然'],['Camping','露營'],['Glamping','豪華露營'],['Small business owners','小型企業主'],['Investment','投資'],['DIY','自己動手做'],['Woodworking','木工'],['Interior design','室內設計'],['Green energy','綠能'],['Retirement','退休'],['Slow life','慢活'],['Health','健康'],['Organic food','有機食品'],['Hiking','健行'],['Photography','攝影'],['Birdwatching','賞鳥'],['Tourism','旅遊業'],['Vacation home','度假小屋'],['Yoga','瑜珈'],['Baby boomer','嬰兒潮世代']]},
+
+  {n:'35-65 / 新竹科技人 / 提早退休 / 木屋投資FIRE',sub:'竹科/南科工程師・投資+提早退休+自然生活複合',
+   logic:'新竹竹科是台灣高薪族密度最高的地區，30-45歲工程師已開始規劃FIRE（提早財務自由）。「用一筆錢買塊農地蓋木屋，既是資產又是退休後的家」是對他們最具吸引力的置產邏輯。竹北高鐵、竹科園區地標精準命中高薪白領族群。',
+   lm:['新竹科學工業園區(+5km)','竹北高鐵站(+5km)','竹北市區(+3km)','新竹市區(+5km)'],
+   tags:[['Retirement planning','退休規劃'],['Investment','投資'],['Real estate','房地產'],['Property','不動產'],['Land','土地'],['Retirement','退休'],['Slow life','慢活'],['Nature','自然'],['Camping','露營'],['Glamping','豪華露營'],['Health','健康'],['Organic food','有機食品'],['Gardening','園藝'],['Eco-friendly','環境友善'],['Sustainable living','永續生活'],['Organic farming','有機農業'],['Country living','鄉村生活'],['Farmhouse','農莊生活'],['Photography','攝影'],['Birdwatching','賞鳥'],['Hiking','健行'],['Yoga','瑜珈'],['Meditation','冥想'],['Small business owners','小型企業主'],['Tourism','旅遊業'],['Vacation home','度假小屋'],['DIY','自己動手做'],['Interior design','室內設計'],['Green energy','綠能'],['Baby boomer','嬰兒潮世代']]},
+
+  {n:'35-65 / 南台灣 / 古典園藝 / 農莊鑑賞族',sub:'台南高雄山區古董/園藝佳績延伸・花藝+農莊美學+生態',
+   logic:'台南高雄山區/古董/園藝組已創 5 潛客 CPA NT$456，本組以「農莊美學鑑賞」為主題擴展。這群人重視空間品味、喜愛花藝、喜歡在自然環境中欣賞手工建築的美感。旗山美濃客家聚落、南投日月潭周邊定向，觸達有土地審美品味的高端退休準買家。',
+   lm:['美濃客家文物館(+5km)','旗山老街(+5km)','南投日月潭(+10km)','高雄田寮月世界(+5km)'],
+   tags:[['Gardening','園藝'],['Nature','自然'],['Photography','攝影'],['Country living','鄉村生活'],['Farmhouse','農莊生活'],['Organic farming','有機農業'],['Agriculture','農業'],['Land','土地'],['Real estate','房地產'],['Property','不動產'],['Investment','投資'],['Retirement','退休'],['Slow life','慢活'],['Health','健康'],['Organic food','有機食品'],['Camping','露營'],['Glamping','豪華露營'],['Birdwatching','賞鳥'],['Wildlife','野生動物'],['National park','國家公園'],['Eco-friendly','環境友善'],['Sustainable living','永續生活'],['Hiking','健行'],['Trekking','登山健行'],['Yoga','瑜珈'],['Meditation','冥想'],['Senior','樂齡族'],['Baby boomer','嬰兒潮世代'],['Tourism','旅遊業'],['DIY','自己動手做']]},
+
+  {n:'35-65 / 中彰投 / 生態環保 / 綠生活先鋒',sub:'生態環保+綠能+永續生活核心標籤・石岡大甲溪生態地標',
+   logic:'自然紅屋的「強鋼構+柔木質」與「一小屋+一小田」完美契合生態環保族群的價值觀。這群人不一定有購屋預算，但對「可移動、低碳足跡的居住型態」最有興趣。大甲溪生態保護區、雪霸國家公園周邊定向，鎖定真實的環保生活實踐者。',
+   lm:['大甲溪生態保護(+8km)','雪霸國家公園(+15km)','石岡水壩(+8km)','東豐鐵馬道(+5km)'],
+   tags:[['Eco-friendly','環境友善'],['Sustainable living','永續生活'],['Green energy','綠能'],['Organic farming','有機農業'],['Organic food','有機食品'],['Nature','自然'],['National park','國家公園'],['Wildlife','野生動物'],['Birdwatching','賞鳥'],['Gardening','園藝'],['Camping','露營'],['Glamping','豪華露營'],['Hiking','健行'],['Trekking','登山健行'],['Photography','攝影'],['Yoga','瑜珈'],['Meditation','冥想'],['Health','健康'],['DIY','自己動手做'],['Woodworking','木工'],['Interior design','室內設計'],['Retirement','退休'],['Slow life','慢活'],['Country living','鄉村生活'],['Farmhouse','農莊生活'],['Agriculture','農業'],['Land','土地'],['Real estate','房地產'],['Property','不動產'],['Small business owners','小型企業主']]},
+
+  {n:'40-65 / 桃竹苗 / 農地主 / 丙建地木屋規劃',sub:'苗栗農地主・農地+丙建+組合屋規劃・有地轉換率高',
+   logic:'苗栗是台灣農地交易最活躍的縣市之一，丙建地持有者眾多。這群人持有土地卻不知道該怎麼「活化」，木屋是最輕鬆、最快速的活化方式（一天完工+不申請建照）。苗栗縣政府、三義、通霄周邊定向，命中苗栗有地但未規劃的土地主。',
+   lm:['苗栗縣政府(+5km)','三義木雕博物館(+5km)','通霄精鹽(+5km)','苑裡市區(+5km)'],
+   tags:[['Agriculture','農業'],['Land','土地'],['Farmhouse','農莊生活'],['Organic farming','有機農業'],['Country living','鄉村生活'],['Nature','自然'],['Real estate','房地產'],['Property','不動產'],['Investment','投資'],['Small business owners','小型企業主'],['Eco-friendly','環境友善'],['Sustainable living','永續生活'],['Green energy','綠能'],['Gardening','園藝'],['Organic food','有機食品'],['Camping','露營'],['Glamping','豪華露營'],['Retirement','退休'],['Slow life','慢活'],['Health','健康'],['DIY','自己動手做'],['Woodworking','木工'],['Interior design','室內設計'],['Photography','攝影'],['Birdwatching','賞鳥'],['Hiking','健行'],['Vacation home','度假小屋'],['Tourism','旅遊業'],['Baby boomer','嬰兒潮世代'],['Senior','樂齡族']]},
+
+  {n:'35-65 / 全台 / 瑜珈養生 / 自然冥想慢活族',sub:'瑜珈+冥想+有機食物+大自然複合・全台健康生活先行者',
+   logic:'瑜珈/冥想族群對「貼近自然的居住空間」有天然親和力。「在木屋的院子裡做晨間瑜珈、種有機蔬菜、喝自家泡的茶」是他們最具共鳴的生活畫面。廣泛全台定向，捕捉有機生活、養生消費的主動型健康族群。',
+   lm:['台北仁愛路(+5km)','台中水湳(+5km)','高雄左營(+5km)','台南文化中心(+5km)'],
+   tags:[['Yoga','瑜珈'],['Meditation','冥想'],['Health','健康'],['Wellness','健康生活'],['Nature','自然'],['Organic food','有機食品'],['Organic farming','有機農業'],['Sustainable living','永續生活'],['Eco-friendly','環境友善'],['Slow life','慢活'],['Country living','鄉村生活'],['Farmhouse','農莊生活'],['Gardening','園藝'],['Hiking','健行'],['Camping','露營'],['Glamping','豪華露營'],['Retirement','退休'],['Retirement planning','退休規劃'],['Real estate','房地產'],['Property','不動產'],['Land','土地'],['Photography','攝影'],['Birdwatching','賞鳥'],['Tourism','旅遊業'],['Vacation home','度假小屋'],['DIY','自己動手做'],['Green energy','綠能'],['Interior design','室內設計'],['Baby boomer','嬰兒潮世代'],['Senior','樂齡族']]},
+
+  {n:'35-65 / 南高屏 / 農場主 / 私廚慢食田園生活',sub:'南台灣農業背景族群・有機+烹飪+田園+農場複合',
+   logic:'高雄/屏東有大量農業從業者與農場主，他們對木屋的美學接受度高，且土地取得相對容易。「建一間木屋在自己的農場裡」——既是住家升格，也是農場附加價值。旗山/美濃/屏東農業聚落定向，命中有農地、有意願活化的南台灣農業族群。',
+   lm:['屏東市區(+5km)','高雄美濃(+8km)','台南善化農業區(+5km)','旗山糖廠(+5km)'],
+   tags:[['Organic food','有機食品'],['Organic farming','有機農業'],['Gardening','園藝'],['Cooking','烹飪'],['Agriculture','農業'],['Country living','鄉村生活'],['Farmhouse','農莊生活'],['Land','土地'],['Nature','自然'],['Eco-friendly','環境友善'],['Sustainable living','永續生活'],['Retirement','退休'],['Slow life','慢活'],['Health','健康'],['Real estate','房地產'],['Property','不動產'],['Investment','投資'],['Camping','露營'],['Glamping','豪華露營'],['Photography','攝影'],['Birdwatching','賞鳥'],['Hiking','健行'],['Yoga','瑜珈'],['Meditation','冥想'],['Small business owners','小型企業主'],['Senior','樂齡族'],['Baby boomer','嬰兒潮世代'],['Tourism','旅遊業'],['Green energy','綠能'],['DIY','自己動手做']]},
+
+  {n:'40-65 / 全台 / 木工DIY / 居家手作大自然美學',sub:'木工+手作+室內設計+自然材質・木屋美學天然受眾',
+   logic:'自然紅屋的木屋美學對木工DIY族群有天然吸引力——他們欣賞木材的紋理、手工的溫度、自然材質的質感。這群人看到木屋照片會主動停留，是最容易被「建築美學」打動的族群。全台廣泛定向，以木工/手作/室內設計為核心吸引有手作品味的潛在客。',
+   lm:['台北松山文創(+3km)','台中審計新村(+3km)','台南文創聚落(+3km)','高雄駁二(+3km)'],
+   tags:[['DIY','自己動手做'],['Woodworking','木工'],['Handicraft','手工藝'],['Interior design','室內設計'],['Home improvement','居家改善'],['Nature','自然'],['Country living','鄉村生活'],['Camping','露營'],['Glamping','豪華露營'],['Photography','攝影'],['Gardening','園藝'],['Eco-friendly','環境友善'],['Sustainable living','永續生活'],['Organic food','有機食品'],['Real estate','房地產'],['Property','不動產'],['Land','土地'],['Farmhouse','農莊生活'],['Agriculture','農業'],['Organic farming','有機農業'],['Retirement','退休'],['Slow life','慢活'],['Health','健康'],['Investment','投資'],['Small business owners','小型企業主'],['Tourism','旅遊業'],['Yoga','瑜珈'],['Meditation','冥想'],['Baby boomer','嬰兒潮世代'],['Green energy','綠能']]},
+];
+
+function renderNewAud(){
+  const el=document.getElementById('new-aud-grid');
+  if(!el)return;
+  let h='';
+  NEW_G.forEach((g,i)=>{
+    const lmH=g.lm.map(l=>`<span class="aud-lm-tag">${l}</span>`).join('');
+    const tagH=g.tags.map((t,j)=>`<tr><td>${j+1}</td><td>${t[0]}</td><td>${t[1]}</td></tr>`).join('');
+    h+=`<div class="aud-card" id="ng${i}">
+<div class="aud-header" onclick="toggleNG(${i})">
+  <div class="aud-num">${i+1}</div>
+  <div class="aud-info"><div class="aud-name">${g.n}</div><div class="aud-sub">${g.sub}</div></div>
+  <div class="aud-arrow">▶</div>
+</div>
+<div class="aud-body">
+  <div class="aud-sl">投放邏輯</div>
+  <div class="aud-logic">${g.logic}</div>
+  <div class="aud-sl" style="margin-top:12px">地標定位</div>
+  <div class="aud-lm">${lmH}</div>
+  <div class="aud-sl" style="margin-top:12px">興趣標籤（30個）</div>
+  <table class="tag-tbl"><thead><tr><th>#</th><th>英文</th><th>中文</th></tr></thead><tbody>${tagH}</tbody></table>
+</div></div>`;
+  });
+  el.innerHTML=h;
+  // bind copy events
+  el.querySelectorAll('.tag-tbl tbody tr').forEach(row=>{
+    const en=row.cells[1]?.textContent.trim();
+    if(!en)return;
+    row.addEventListener('click',()=>{
+      navigator.clipboard.writeText(en).then(()=>{row.classList.add('flash');setTimeout(()=>row.classList.remove('flash'),600);showToast();});
+    });
+  });
+  el.querySelectorAll('.aud-card').forEach(card=>{
+    const tbl=card.querySelector('.tag-tbl');
+    if(!tbl)return;
+    const wrap=document.createElement('div');wrap.className='copy-all-row';
+    const btn=document.createElement('button');btn.className='copy-all-btn';btn.innerHTML='⎘ 複製全部30個標籤';
+    btn.addEventListener('click',e=>{
+      e.stopPropagation();
+      const tags=Array.from(tbl.querySelectorAll('tbody tr')).map(r=>r.cells[1]?.textContent.trim()).filter(Boolean).join('\n');
+      navigator.clipboard.writeText(tags).then(()=>{btn.classList.add('done');btn.textContent='✓ 已複製30個';setTimeout(()=>{btn.classList.remove('done');btn.innerHTML='⎘ 複製全部30個標籤';},2000);});
+    });
+    wrap.appendChild(btn);tbl.after(wrap);
+  });
+}
+function toggleNG(i){const c=document.getElementById('ng'+i);c.classList.toggle('open');}
+function showToast(){const t=document.getElementById('copy-toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000);}
+renderNewAud();
 </script>
 </body>
 </html>
