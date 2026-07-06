@@ -143,15 +143,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
     <p>台中烏日區・製造業重工業首購換屋・總價約1000萬・雙粉專運作：主粉專 + 1510</p>
   </div>
   <div class="case-stats">
-    <div class="stat"><div class="stat-n">20組</div><div class="stat-l">規劃受眾</div></div>
+    <div class="stat"><div class="stat-n">40組</div><div class="stat-l">規劃受眾</div></div>
     <div class="stat"><div class="stat-n">25</div><div class="stat-l">總潛客</div></div>
     <div class="stat"><div class="stat-n">2</div><div class="stat-l">廣告帳號</div></div>
   </div>
 </div>
 
 <div class="tab-bar">
-  <button class="tab-btn active" onclick="switchTab('main')">主粉專（10組 · 13潛客 · NT$8,965）</button>
-  <button class="tab-btn" onclick="switchTab('1510')">1510（10組 · 12潛客 · NT$5,512）</button>
+  <button class="tab-btn active" onclick="switchTab('main')">主粉專（30組 · 13潛客 · NT$8,965）</button>
+  <button class="tab-btn" onclick="switchTab('1510')">1510（30組 · 12潛客 · NT$5,512）</button>
 </div>
 
 <!-- ═══════════════ TAB: 主粉專 ═══════════════ -->
@@ -267,6 +267,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 <div class="section">
   <div class="sec-title">主粉專新建議受眾（10組）· 建立 2026-07-01</div>
   <div id="main-aud-grid" class="aud-grid-2"></div>
+</div>
+
+<!-- 主粉專 新受眾 20組 2026-07-06 -->
+<div class="section">
+  <div class="sec-title">主粉專新受眾（20組）· 富宇玥和結構 · 建立 2026-07-06</div>
+  <div id="main-aud-grid-2" class="aud-grid-2"></div>
 </div>
 
 </div><!-- end tab-main -->
@@ -386,9 +392,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   <div id="alt-aud-grid" class="aud-grid-2"></div>
 </div>
 
+<!-- 1510 新受眾 20組 2026-07-06 -->
+<div class="section">
+  <div class="sec-title alt-bar">1510 新受眾（20組）· 富宇玥和結構 · 建立 2026-07-06</div>
+  <div id="alt-aud-grid-2" class="aud-grid-2"></div>
+</div>
+
 </div><!-- end tab-1510 -->
 
-<div class="page-footer">鵬程59 受眾分析報告 · 更新 2026-07-01 · 9133 廣告操作團隊</div>
+<div class="page-footer">鵬程59 受眾分析報告 · 更新 2026-07-06 · 9133 廣告操作團隊</div>
 </div>
 
 <script>
@@ -542,6 +554,176 @@ function renderAudGrid(gridId, data, prefix, isAlt){
 
 renderAudGrid('main-aud-grid', MAIN_G, 'ac', false);
 renderAudGrid('alt-aud-grid',  G_1510,  'bc', true);
+
+// ── 主粉專 20組新受眾（富宇玥和結構）2026-07-06 ──
+const MAIN_G2=[
+  {n:'28-52 / 烏日彰化 / 電機×電子×自動化工程師',sub:'中部製造業電機技術人才·月薪穩定·精裝1000萬剛好',
+   logic:'台中彰化是台灣製造業電機/電子/自動化工程師密度最高的地區，月薪6-12萬，購屋能力強但往往拖延置產。「工廠自動化了，你的家什麼時候升級？」是最能觸動這群人的訴求。說法：「你讓機器自動化，該讓自己的生活也升一個等級了」。',
+   lm:['烏日高鐵站(+4km)','彰化工業區','大里工業區','彰化縣政府'],
+   tags:[['Electrical engineering','電機工程'],['Electronics','電子學'],['Automation','自動化技術'],['Industrial automation','工業自動化'],['PLC programming','PLC程式設計'],['Robotics','機器人技術'],['Circuit design','電路設計'],['Embedded systems','嵌入式系統'],['Semiconductor','半導體'],['5G technology','5G技術'],['Internet of Things','物聯網（IoT）'],['Smart factory','智慧工廠'],['Quality control','品質管制'],['Manufacturing','製造業'],['Engineering','工程學'],['Technology','科技'],['Innovation','創新'],['Coffee','咖啡'],['Fitness','健身'],['Travel','旅遊'],['Online gaming','線上遊戲'],['Reading','閱讀'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家'],['Wuri District','烏日區台中'],['Changhua','彰化工業城鄉']]},
+  {n:'28-50 / 烏日彰化 / 醫護×彰化秀傳×彰基',sub:'彰化醫院醫護族群·月薪穩定·烏日通勤快',
+   logic:'彰化基督教醫院、秀傳醫院是彰化最大醫療機構，醫護人員月薪4-20萬，通勤需求強。烏日到彰化醫院15分鐘，「下班快速回家」對輪班族是最強訴求。說法：「每天救人的你，給自己一個快速回家的地方」。',
+   lm:['烏日高鐵站(+4km)','彰化基督教醫院','彰化秀傳醫院','新烏日車站'],
+   tags:[['Medicine','醫學'],['Healthcare','醫療保健'],['Hospital','醫院'],['Nursing','護理學'],['Dentistry','牙科'],['Pharmacy','藥學'],['Medical research','醫學研究'],['Public health','公共衛生'],['Pediatrics','小兒科'],['Surgery','外科'],['Emergency medicine','急診醫學'],['Health','健康'],['Wellness','身心健康'],['Mental health','心理健康'],['Fitness','健身'],['Nutrition','營養學'],['Running','跑步'],['Coffee','咖啡'],['Travel','旅遊'],['Reading','閱讀'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家'],['Wuri District','烏日區台中'],['Changhua','彰化'],['HSR station','高鐵烏日站'],['Stable income','穩定收入公教族群']]},
+  {n:'28-48 / 烏日高鐵 / 高鐵通勤×雙城族×台北族',sub:'高鐵通勤族·住烏日省600萬·台北族最強說法',
+   logic:'每天搭高鐵通勤台北的雙城生活族，在烏日置產比台北省600萬以上，高鐵站步行10分鐘是無可替代的時間資產。這群人薪資往往是台北水準（月薪8-25萬），1000萬對他們不算難。說法：「你在台北工作，選在烏日住，省下的600萬就是你的高鐵月費回本金」。',
+   lm:['烏日高鐵站(+2km)','新烏日車站','台中火車站','彰化火車站'],
+   tags:[['High-speed rail','高速鐵路'],['Commuting','通勤族'],['Public transportation','大眾運輸'],['Train travel','火車旅行'],['Urban living','城市生活'],['Work commute','上下班通勤'],['Remote work','遠端工作'],['Business travel','商務出差'],['Travel','旅遊'],['Time management','時間管理'],['Productivity','生產力'],['Coffee','咖啡'],['Technology','科技'],['Finance','財務'],['Investment','投資（商業與財務）'],['Personal finance','個人理財'],['Saving','儲蓄'],['Reading','閱讀'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家'],['Wuri District','烏日區台中'],['HSR station','高鐵烏日站'],['Stable income','穩定高收入'],['Apartment','高鐵宅公寓'],['Quality of life','生活品質升級'],['Dual city','雙城生活']]},
+  {n:'30-52 / 烏日彰化 / 汽車維修×板金×車廠技師',sub:'彰化烏日汽車業密集·技師族月收穩定·在地根深',
+   logic:'彰化/台中是中部最大汽車維修聚落之一，車廠師傅/板金技師月收4-8萬，在地根深但習慣租屋。「修了20年的車，是時候修一下自己住的地方」直球說法對這群人效果最強。說法：「你修別人的車，是時候為自己打造一個停車有位的家了」。',
+   lm:['烏日高鐵站(+4km)','彰化汽車廠聚落','烏日工業區','彰化縣政府'],
+   tags:[['Automobile','汽車'],['Car repair','汽車維修'],['Auto mechanics','汽車機械'],['Car modification','汽車改裝'],['Car accessories','汽車配件'],['Motorcycle','機車'],['Toyota','Toyota豐田'],['Mazda','Mazda馬自達'],['Electric vehicle','電動車'],['Car insurance','汽車保險'],['Driving','駕車'],['Road trip','公路旅行'],['Dashcam','行車紀錄器'],['Parking','停車'],['Fuel efficiency','油耗效率'],['Fitness','健身'],['Coffee','咖啡'],['Sports','運動'],['Travel','旅遊'],['Online gaming','線上遊戲'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家'],['Wuri District','烏日區台中'],['Changhua','彰化'],['HSR station','高鐵烏日站'],['Stable income','穩定工匠收入']]},
+  {n:'30-55 / 烏日彰化 / 食品加工×農產×彰化食品業',sub:'彰化食品農產業密集·在地老闆×員工均有需求',
+   logic:'彰化是台灣食品加工/農產品加工密度最高的地區之一（員林、田中等食品廠聚集）。食品業老闆/中高階主管年收高但習慣在地低消費，「事業在彰化，家升格在烏日」是最自然的置產邏輯。說法：「你的產品在全台超市上架，是時候讓你的家也上一個等級」。',
+   lm:['烏日高鐵站(+4km)','彰化食品加工區','員林農產批發市場','彰化縣政府'],
+   tags:[['Food industry','食品業'],['Food processing','食品加工'],['Agriculture','農業'],['Food safety','食品安全'],['Organic food','有機食品'],['Nutrition','營養學'],['Cooking','烹飪'],['Restaurant','餐飲業'],['Retail','零售業'],['Supply chain management','供應鏈管理'],['Manufacturing','製造業'],['Small business owners','小型企業主'],['Management','管理（商業與財務）'],['Investment','投資（商業與財務）'],['Stocks','股票（投資）'],['Financial services','金融服務（商業與財務）'],['Banking','銀行業（金融）'],['Coffee','咖啡'],['Travel','旅遊'],['Family','家庭'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家'],['Wuri District','烏日區台中'],['Changhua','彰化'],['HSR station','高鐵烏日站'],['Local business','在地商業']]},
+  {n:'30-55 / 烏日彰化 / 鋼鐵×螺絲螺帽×精密加工族',sub:'彰化螺絲之鄉·老闆員工收入都不低·在地置産剛好',
+   logic:'彰化永靖/田中/彰化市是全球螺絲螺帽主要產地，精密加工廠老闆年收高、工廠員工月薪4-7萬，烏日是這群人從工廠通勤台中的最佳落腳點。說法：「你的螺絲出口全球，是時候讓自己住一個全台灣都看得到的地方」。',
+   lm:['烏日高鐵站(+4km)','彰化精密加工聚落','彰化螺絲廠區','員林工業區'],
+   tags:[['Fastener','螺絲螺帽扣件'],['Steel','鋼鐵製造'],['Precision manufacturing','精密製造'],['Metal fabrication','金屬加工（建築業）'],['CNC machining','CNC加工'],['Industrial engineering','工業工程（工程）'],['Machinery','機器'],['Export trade','出口貿易'],['Small business owners','小型企業主'],['Hardware store','五金行（零售業者）'],['Quality control','品質管制'],['Manufacturing','製造'],['Supply chain management','供應鏈管理'],['Investment','投資（商業與財務）'],['Stocks','股票（投資）'],['Banking','銀行業（金融）'],['Financial services','金融服務（商業與財務）'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家'],['Management','管理（商業與財務）'],['Coffee','咖啡'],['Travel','旅遊'],['Wuri District','烏日區台中'],['Changhua','彰化'],['HSR station','高鐵烏日站'],['Stable income','穩定製造業收入']]},
+  {n:'30-55 / 烏日彰化 / 物流×倉儲×貨運司機族',sub:'烏日物流樞紐·大車司機族·換屋快速通道',
+   logic:'烏日是台中南側物流樞紐，貨運司機/倉儲主管月收4-8萬，在地根深且對高鐵附近的通勤便利性有強烈需求。「每天開幾十公里的卡車，但家的距離就要零妥協」是這群人最真實的購屋心聲。說法：「你開車跑遍台灣，回家只要10分鐘」。',
+   lm:['烏日高鐵站(+4km)','烏日物流倉儲區','台中工業區','彰化物流中心'],
+   tags:[['Logistics','物流'],['Warehousing','倉儲管理'],['Truck driving','貨運卡車'],['Transportation','交通運輸'],['Supply chain','供應鏈'],['Freight','貨運'],['Delivery','外送配送'],['Fleet management','車隊管理'],['Automobile','汽車'],['Driving','駕車'],['Car maintenance','汽車保養'],['Road trip','公路旅行'],['Manufacturing','製造業'],['Retail','零售業'],['Investment','投資（商業與財務）'],['Stocks','股票（投資）'],['Banking','銀行業（金融）'],['Coffee','咖啡'],['Sports','運動'],['Travel','旅遊'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家'],['Wuri District','烏日區台中'],['Changhua','彰化'],['HSR station','高鐵烏日站'],['Stable income','穩定運輸業收入']]},
+  {n:'28-52 / 烏日彰化 / 保險業務×理財顧問×業務主管',sub:'業績好時月收20萬+·置産意識最強·本身就在談投資',
+   logic:'保險/理財業務主管在彰化烏日有大量分布，業績好時月收15-30萬，且日常工作就在幫客戶規劃置產，對買房時機和資產配置的敏感度最高。說法：「你幫客戶規劃了幾十年置產，今天輪到你了」。',
+   lm:['烏日高鐵站(+4km)','彰化銀行總行','台中金融業聚落','新烏日車站'],
+   tags:[['Insurance','保險業'],['Life insurance','壽險'],['Financial advisor','理財顧問'],['Wealth management','財富管理'],['Financial planning','財務規劃'],['Investment','投資（商業與財務）'],['Stocks','股票（投資）'],['Mutual funds','共同基金'],['Retirement planning','退休規劃'],['Tax planning','稅務規劃'],['Asset management','資産管理'],['Business development','業務開發'],['Sales','業務銷售'],['Leadership','領導力'],['Banking','銀行業（金融）'],['Financial services','金融服務（商業與財務）'],['Personal finance','個人理財'],['Coffee','咖啡'],['Fitness','健身'],['Travel','旅遊'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家'],['Wuri District','烏日區台中'],['Changhua','彰化'],['HSR station','高鐵烏日站'],['High income','業績高收入族群']]},
+  {n:'28-50 / 烏日彰化 / 補習班×幼教老師×安親班族',sub:'基層教育從業者月薪穩定·學區置産動機最強',
+   logic:'補習班老師/幼稚園老師/安親班業者是烏日彰化最在意「學區+通勤便利」的置產族群，對教育環境有強烈認同感，首購動機強且決策理性。說法：「教了別人的孩子十幾年，現在輪到你為自己的孩子選學區」。',
+   lm:['烏日高鐵站(+4km)','烏日國中','彰化縣教育處','新烏日車站'],
+   tags:[['Early childhood education','幼兒教育'],['Child education','兒童教育'],['Teaching','教學'],['Tutoring','補習'],['Educational technology','教育技術學（教育）'],['Teacher education','師範教育（職業訓練）'],['Parenting','育兒親子'],['Family','家庭'],['School district','學區'],['Books','書籍閱讀'],['Reading','閱讀'],['Learning','學習'],['MOOC','大規模開放在線課堂'],['Child development','兒童發展'],['Music education','音樂教育'],['Investment','投資（商業與財務）'],['Banking','銀行業（金融）'],['Financial services','金融服務（商業與財務）'],['Saving','儲蓄'],['Coffee','咖啡'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家'],['Wuri District','烏日區台中'],['Changhua','彰化'],['HSR station','高鐵烏日站'],['Stable income','穩定教育從業收入']]},
+  {n:'26-40 / 烏日彰化 / 新婚首購×雙薪×成家置産族',sub:'新婚夫妻首購動機最強·1000萬雙薪完全可控',
+   logic:'新婚/即將結婚的烏日彰化雙薪夫妻，首購成家動機最強、決策週期最短。雙薪月收合計8-14萬，1000萬房貸月繳約2.5萬，負擔比完全可控。說法：「成家的第一步，就從烏日高鐵旁的鵬程59開始，比婚戒更值得的禮物」。',
+   lm:['烏日高鐵站(+4km)','新烏日車站','烏日國小','彰化縣政府'],
+   tags:[['Wedding','婚禮'],['Marriage','結婚婚姻'],['New couple','新婚夫妻'],['Engagement','訂婚'],['Honeymoon','蜜月旅行'],['Family planning','家庭規劃'],['Baby','嬰兒育兒'],['Home buying','購屋'],['First-time buyer','首購族'],['Interior design','室內設計'],['Home decor','居家裝飾'],['Furniture','家具'],['IKEA','IKEA家居'],['Moving','搬家'],['Dual income','雙薪家庭'],['Financial planning','財務規劃'],['Mortgage','房貸'],['Saving','儲蓄'],['Parenting','育兒'],['Community living','社區生活'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Property investment','置產投資'],['New home','新家'],['Wuri District','烏日區台中'],['Changhua','彰化'],['HSR station','高鐵烏日站'],['School district','學區'],['Kitchen design','廚房設計'],['Quality of life','生活品質']]},
+  {n:'26-45 / 烏日彰化 / 電商×蝦皮賣家×在地創業族',sub:'電商業主事業有成·置産動機爆發·烏日倉儲完美',
+   logic:'彰化/烏日電商創業族群，使用蝦皮/LINE購物的中小型電商業主，月收10-30萬，烏日物流集散地讓發貨配送極為便利。事業有成時置産動機強。說法：「事業做到這裡，蝦皮出貨在烏日，那家就在高鐵旁邊」。',
+   lm:['烏日高鐵站(+4km)','彰化物流中心','烏日倉儲區','台中電商聚落'],
+   tags:[['E-commerce','電子商務'],['Online shopping','網路購物'],['Shopee','蝦皮購物'],['Brand management','品牌管理'],['Entrepreneurship','創業精神'],['Business owner','企業主'],['Digital marketing','數位行銷'],['Social media marketing','社群媒體行銷'],['Product photography','商品攝影'],['Logistics','物流'],['Online business','線上事業'],['Self-employment','自雇創業'],['Freelancing','自由接案'],['Investment','投資（商業與財務）'],['Wealth management','財富管理'],['Financial planning','財務規劃'],['Stocks','股票（投資）'],['Banking','銀行業（金融）'],['Coffee','咖啡'],['Travel','旅遊'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家'],['Wuri District','烏日區台中'],['Changhua','彰化'],['HSR station','高鐵烏日站'],['Quality of life','生活品質']]},
+  {n:'35-58 / 烏日台中 / 台商回流×外派歸國×製造主管',sub:'台商回流急需置産·習慣高生活水準·1000萬台中最值',
+   logic:'台商回流/外派歸國人士有急迫置産需求，習慣海外生活水準，對居住品質要求高。台中烏日相比北部便宜600萬以上，「回台就住台中最划算」是這群人的理性選擇。說法：「在外面繞了這麼多年，烏日高鐵特區就是你回台最好的落點」。',
+   lm:['烏日高鐵站(+2km)','台中國際機場','彰化工業區','台中科學園區'],
+   tags:[['International business','國際商務'],['Cross-border trade','跨境貿易'],['Overseas Chinese','海外華人'],['Returnee','歸國人士'],['Expatriate','外派人員'],['Manufacturing','製造業'],['Business travel','商務出差'],['Frequent flyer','常飛旅客'],['Global business','全球商業'],['Language learning','語言學習'],['Investment','投資（商業與財務）'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Wealth management','財富管理'],['Asset management','資産管理'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家'],['Fine dining','精緻餐飲'],['Travel','旅遊'],['Wuri District','烏日區台中'],['Taichung','台中'],['HSR station','高鐵烏日站'],['Financial planning','財務規劃'],['Quality of life','生活品質'],['Home upgrade','換屋升格'],['Luxury goods','奢侈品'],['Premium brands','精品品牌'],['International school','國際學校']]},
+  {n:'48-65 / 烏日彰化 / 50+換屋×退休規劃×最後置産族',sub:'資金充裕最後一次換屋·退休前完成資産配置',
+   logic:'48-65歲有資金的換屋族，以「退休前完成資產配置」為主動機，資金充裕且決策理性。烏日高鐵特區的「交通便利+醫療資源+電梯大樓」是這族群最在意的三點。說法：「退休前最後一次換屋，選一個讓子女放心的地方」。',
+   lm:['烏日高鐵站(+4km)','彰化基督教醫院','彰化秀傳醫院','新烏日車站'],
+   tags:[['Retirement','退休'],['Retirement planning','退休規劃'],['Senior living','長者居住'],['Financial independence','財務獨立'],['Wealth management','財富管理'],['Asset management','資産管理'],['Property investment','置産投資'],['Real estate investment','房地産投資'],['Rental income','收租收益'],['Passive income','被動收入'],['Investment','投資'],['Stocks','股票'],['Mutual funds','共同基金'],['Tax planning','稅務規劃'],['Estate planning','遺産規劃'],['Pension','退休金'],['Life insurance','壽險'],['Health','健康'],['Wellness','健康養生'],['Travel','旅遊'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['Mortgage','房貸'],['New home','新家'],['Wuri District','烏日區台中'],['Changhua','彰化'],['HSR station','高鐵烏日站'],['Community','社區環境'],['Home upgrade','換屋升格']]},
+  {n:'28-50 / 烏日台中 / IT系統整合×MIS×企業資訊族',sub:'中部企業IT人才首購·月薪穩定·1000萬標準首選',
+   logic:'台中/彰化企業MIS/IT系統整合人員，月薪4-10萬，首購動機強，習慣理性分析置產。烏日高鐵附近交通便利，對科技背景的IT人員有「數字最清楚」的吸引力。說法：「你維護公司的系統，現在為自己的家建立最穩固的系統」。',
+   lm:['烏日高鐵站(+4km)','台中軟體園區','大里軟體科學園區','彰化縣政府'],
+   tags:[['Information technology','資訊科技'],['System integration','系統整合'],['Software development','軟體開發'],['Network administration','網路管理'],['Cybersecurity','網路安全'],['Cloud computing','雲端運算'],['Database management','資料庫管理'],['Project management','專案管理'],['Technology','科技'],['Computer science','電腦科學'],['Artificial intelligence','人工智慧'],['Data analytics','資料分析'],['Business intelligence','商業智慧'],['Digital transformation','數位轉型'],['Personal finance','個人理財'],['Investment','投資（商業與財務）'],['Stocks','股票（投資）'],['Coffee','咖啡'],['Gaming','電玩遊戲'],['Fitness','健身'],['Travel','旅遊'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家'],['Wuri District','烏日區台中'],['HSR station','高鐵烏日站'],['ERP system','企業資源規劃']]},
+  {n:'28-52 / 烏日彰化 / 會計×財務×會計師事務所族',sub:'財務背景最懂置産CP值·事務所員工月薪穩定',
+   logic:'會計師/財務主管/事務所員工對置產的CP值計算最精準，月薪4-10萬，核貸條件優。說法：「最會算帳的人，烏日1000萬是最清楚的那道算式」。',
+   lm:['烏日高鐵站(+4km)','彰化縣政府','彰化稅務局','台中市稅務局'],
+   tags:[['Accounting','會計學'],['Financial accounting','財務會計'],['Tax preparation','報稅'],['Audit','審計'],['Management accounting','管理會計'],['Finance','財務'],['Financial analysis','財務分析'],['Budget management','預算管理'],['Corporate finance','企業財務'],['Investment','投資（商業與財務）'],['Stocks','股票（投資）'],['Personal finance','個人理財'],['Tax planning','稅務規劃'],['Financial planning','財務規劃'],['Banking','銀行業（金融）'],['Wealth management','財富管理'],['Business','商業'],['MBA','工商管理碩士'],['Reading','閱讀'],['Coffee','咖啡'],['Travel','旅遊'],['Fitness','健身'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家'],['Wuri District','烏日區台中'],['Changhua','彰化']]},
+  {n:'30-55 / 烏日彰化 / 自行車×自行車零件×彰化製造族',sub:'彰化自行車之鄉·廠主員工均有首購換屋需求',
+   logic:'彰化是台灣自行車零件最大產地（巨大/捷安特等廠），廠主和中高階員工年收高，在地根深，在彰化工廠工作、置產烏日通勤是最優路徑。說法：「你的自行車賣到全世界，自己的家就落在台中最好的高鐵旁邊」。',
+   lm:['烏日高鐵站(+4km)','彰化自行車廠聚落','大里工業區','員林工業區'],
+   tags:[['Bicycle','自行車'],['Cycling','騎行'],['Mountain biking','登山自行車'],['Road cycling','公路自行車'],['Cycling gear','自行車配件'],['Sports','運動'],['Fitness','健身'],['Outdoor activities','戶外活動'],['Manufacturing','製造業'],['Industrial engineering','工業工程（工程）'],['Metal fabrication','金屬加工（建築業）'],['Export trade','出口貿易'],['Small business owners','小型企業主'],['Supply chain management','供應鏈管理'],['Investment','投資（商業與財務）'],['Stocks','股票（投資）'],['Banking','銀行業（金融）'],['Financial planning','財務規劃'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家'],['Wuri District','烏日區台中'],['Changhua','彰化'],['HSR station','高鐵烏日站'],['Quality of life','生活品質'],['Management','管理（商業與財務）'],['Home upgrade','換屋升格']]},
+  {n:'28-48 / 烏日彰化 / 健身重訓×路跑×積極生活族',sub:'高自律族群=高執行力置産·健身族CPL低效益高',
+   logic:'重訓/路跑/健身房族群高收入且生活積極，此族群自律高、有計劃性，同樣特質展現在購屋決策上。烏日附近有烏日運動中心，生活機能完整。說法：「你管理身體就像管理資產，烏日1000萬是你財務計劃裡最值得的一組動作」。',
+   lm:['烏日高鐵站(+4km)','烏日運動中心','彰化運動公園','台中好巿多'],
+   tags:[['Gym','健身房'],['Fitness','健身'],['Weightlifting','重量訓練'],['Bodybuilding','健美'],['Running','跑步'],['Marathon','馬拉松'],['CrossFit','綜合體能訓練'],['Sports nutrition','運動營養'],['Protein supplement','蛋白質補充品'],['Health','健康'],['Wellness','身心健康'],['Nutrition','營養學'],['Yoga','瑜珈'],['Cycling','騎行'],['Swimming','游泳'],['Triathlon','鐵人三項'],['Athletic wear','運動服裝'],['Personal trainer','私人教練'],['Lifestyle','生活方式'],['Coffee','咖啡'],['Travel','旅遊'],['Investment','投資（商業與財務）'],['Personal finance','個人理財'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家'],['Wuri District','烏日區台中']]},
+  {n:'28-52 / 烏日彰化 / 餐飲×夜市攤商×在地飲食族',sub:'彰化夜市密集·餐飲業老闆×員工在地置産需求強',
+   logic:'彰化是台灣夜市飲食文化最密集地區之一（員林夜市、彰化肉圓等），餐飲業老闆/師傅月收高且現金流充裕，有置産需求但習慣在地低消費。說法：「你讓彰化的味道全台灣都知道，是時候讓家也升一格了」。',
+   lm:['烏日高鐵站(+4km)','彰化員林夜市','彰化縣政府','烏日商業圈'],
+   tags:[['Restaurant','餐飲業'],['Food and beverage','食物與飲品'],['Street food','街頭小吃'],['Night market','夜市'],['Food delivery','外送服務'],['Cooking','烹飪'],['Baking','烘焙'],['Coffee','咖啡'],['Brunch','早午餐'],['Food photography','美食攝影'],['Small business owners','小型企業主'],['Entrepreneurship','創業'],['Local business','在地商業'],['Management','管理（商業與財務）'],['Investment','投資（商業與財務）'],['Banking','銀行業（金融）'],['Financial services','金融服務（商業與財務）'],['Stocks','股票（投資）'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家'],['Wuri District','烏日區台中'],['Changhua','彰化'],['HSR station','高鐵烏日站'],['Family','家庭'],['Quality of life','生活品質'],['Stable income','穩定商業收入']]},
+  {n:'30-52 / 烏日彰化 / 採購主管×供應鏈×工廠採購族',sub:'製造業採購主管月薪穩定·出差多更需要好的家',
+   logic:'製造業採購主管/供應鏈管理人員月薪6-15萬，出差頻繁，對「回家要快」的需求最強。烏日高鐵站是他們每週出差台北的起點，「家就在高鐵旁邊」對這群人是最直接的利益訴求。說法：「每週台北出差，高鐵門口的家就是你最好的回家方式」。',
+   lm:['烏日高鐵站(+2km)','彰化工業區','大里工業區','新烏日車站'],
+   tags:[['Supply chain management','供應鏈管理'],['Procurement','採購'],['Logistics','物流'],['Manufacturing','製造業'],['Quality control','品質管制'],['Industrial engineering','工業工程（工程）'],['Business travel','商務出差'],['Management','管理（商業與財務）'],['Business','商業'],['Negotiation','談判協商'],['Leadership','領導力'],['Project management','專案管理'],['Business development','業務開發'],['Investment','投資（商業與財務）'],['Stocks','股票（投資）'],['Banking','銀行業（金融）'],['Financial planning','財務規劃'],['Coffee','咖啡'],['Travel','旅遊'],['Fitness','健身'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家'],['Wuri District','烏日區台中'],['Changhua','彰化'],['HSR station','高鐵烏日站'],['Home upgrade','換屋升格']]},
+  {n:'30-52 / 烏日彰化 / 家庭升格×學區需求×親子教育族',sub:'子女就學搬烏日·學區說法最強·成家升格動機明確',
+   logic:'有孩子或準備生育的彰化家長，以「孩子進更好的台中學區」為換屋動機，「烏日高鐵附近=台中市學區+通勤彰化便利」是最清楚的兩全說法。說法：「讓孩子在台中讀書，你在彰化上班，高鐵中間不用選邊」。',
+   lm:['烏日高鐵站(+4km)','烏日國小','烏日國中','彰化縣教育處'],
+   tags:[['Parenting','育兒親子'],['Child education','兒童教育'],['Family','家庭'],['School district','學區選擇'],['Early childhood education','幼兒教育'],['Baby products','嬰兒用品'],['Baby food','嬰兒副食品'],['Toy','兒童玩具'],['Family activities','家庭活動'],['Reading','閱讀'],['Books','書籍'],['Education','教育'],['Family vacation','家庭旅遊'],['Health insurance','健康保險'],['Life insurance','壽險'],['Community issues','社區議題（法律與政府）'],['New home','新家'],['Interior design','室內設計'],['Dual income','雙薪家庭'],['Saving','儲蓄'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['Wuri District','烏日區台中'],['Changhua','彰化'],['HSR station','高鐵烏日站'],['Quality of life','生活品質'],['Home upgrade','換屋升格']]},
+];
+renderAudGrid('main-aud-grid-2', MAIN_G2, 'mc', false);
+
+// ── 1510 20組新受眾（富宇玥和結構）2026-07-06 ──
+const G_1510_2=[
+  {n:'28-52 / 新烏日站+5 / ETF×存股×財務自由族',sub:'存股族理性CP值型·1000萬剛好是他們的計算結果',
+   logic:'ETF存股族群善於計算資產配置，對「1000萬精裝宅」的CP值有強烈動機，廣告「高鐵特區×品質住宅×長期增值」直接命中理性計算型思維。說法：「你懂複利，烏日高鐵這個標的，值得你放進資產組合」。',
+   lm:['新烏日車站(+5km)','烏日高鐵站','台中金融業聚落','彰化銀行總行'],
+   tags:[['Exchange-traded fund','指數股票型基金'],['Passive income','被動收入'],['Financial planning','財務規劃'],['Investment','投資（商業與財務）'],['Asset management','資産管理'],['Portfolio management','投資組合管理'],['Personal finance','個人理財'],['Financial independence','財務自由'],['Compound interest','複利'],['Dividend','股息分配'],['Saving','儲蓄'],['Index fund','指數基金'],['Stock market','股票市場（投資）'],['Technical analysis','技術分析'],['Wealth management','財富管理'],['FIRE movement','財務獨立退休運動'],['Budget','預算管理'],['Real estate investing','不動產投資'],['Coffee','咖啡'],['Podcast','播客'],['Reading','閱讀'],['Travel','旅遊'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家'],['Wuri District','烏日區台中'],['HSR station','高鐵烏日站']]},
+  {n:'28-48 / 烏日彰化 / 電機工程×中科×首購工程師族',sub:'中科電機技術人才首購·月薪高·1000萬剛好',
+   logic:'中科/大里軟體科學園區的電機工程師月薪8-18萬，首購意圖強，1510廣告「1000萬首購台中高鐵特區」直接命中這群人的置產邏輯。說法：「做電機的你最懂效率，烏日高鐵到台北40分鐘就是你的時間效益」。',
+   lm:['烏日高鐵站(+4km)','大里軟體科學園區','台中科學園區','新烏日車站'],
+   tags:[['Electrical engineering','電機工程'],['Semiconductor','半導體'],['Electronics','電子學'],['Automation','自動化技術'],['Embedded systems','嵌入式系統'],['Circuit design','電路設計'],['Robotics','機器人技術'],['Internet of Things','物聯網（IoT）'],['5G technology','5G技術'],['Manufacturing','製造業'],['Engineering','工程學'],['Technology','科技'],['Innovation','創新'],['MacBook Pro','MacBook Pro'],['Personal finance','個人理財'],['Investment','投資（商業與財務）'],['Stock market','股票市場（投資）'],['Coffee','咖啡'],['Fitness','健身'],['Travel','旅遊'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['First-time buyer','首購族'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家'],['Wuri District','烏日區台中'],['Changhua','彰化'],['HSR station','高鐵烏日站']]},
+  {n:'28-52 / 新市政公園+5 / 保險業務×理財顧問×置産時機族',sub:'業績好時月收20萬+·置産意識最強·廣告效率高',
+   logic:'保險業務主管/理財顧問是1510最高轉換率潛力族群之一，日常工作就在討論置産，對「時機對了就簽」有最高速決策能力。說法：「你懂置産時機，現在就是最好的時機」。',
+   lm:['新市政公園(+5km)','台中金融業聚落','彰化銀行台中分行','文心南路金融圈'],
+   tags:[['Insurance','保險業'],['Life insurance','壽險'],['Financial advisor','理財顧問'],['Wealth management','財富管理'],['Financial planning','財務規劃'],['Investment','投資（商業與財務）'],['Stocks','股票（投資）'],['Retirement planning','退休規劃'],['Tax planning','稅務規劃'],['Asset management','資産管理'],['Business development','業務開發'],['Sales','業務銷售'],['Leadership','領導力'],['Banking','銀行業（金融）'],['Financial services','金融服務（商業與財務）'],['Real estate investment','房地産投資'],['Multiple properties','多屋置産'],['Passive income','被動收入'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家'],['Capital gain','資本增值'],['Wuri District','烏日區台中'],['Taichung','台中'],['HSR station','高鐵烏日站'],['High income','高收入業務族群'],['Financial independence','財務自由'],['Long-term investment','長期投資'],['Home upgrade','換屋升格']]},
+  {n:'28-52 / 新烏日站+5 / 彰化升格×搬台中×通勤優化族',sub:'彰化人搬烏日=升格說法最自然·1510直接問詢',
+   logic:'彰化居民對台中升格有強烈意願，烏日是最近的台中進入點，通勤彰化工作地只需15分鐘，「彰化到烏日20分鐘，住台中享台中，回彰化工作不費力」是最強購屋說服邏輯。說法：「彰化搬烏日，不是搬家，是升格」。',
+   lm:['新烏日車站(+5km)','烏日高鐵站','彰化縣政府(+5km)','彰化火車站'],
+   tags:[['Commuting','通勤族'],['Public transportation','大眾運輸'],['Train travel','火車旅行'],['Urban living','城市生活'],['Suburban living','郊區生活'],['Relocation','搬遷'],['Moving','搬家'],['Neighborhood upgrade','社區升格'],['Home improvement','居家改善'],['New home','新家'],['Better living','更好的生活'],['Lifestyle upgrade','生活升格'],['Family upgrade','家庭升格'],['School district','學區'],['Community issues','社區議題（法律與政府）'],['Investment','投資（商業與財務）'],['Banking','銀行業（金融）'],['Financial services','金融服務（商業與財務）'],['Stocks','股票（投資）'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['Wuri District','烏日區台中'],['Changhua','彰化'],['HSR station','高鐵烏日站'],['Stable income','穩定收入'],['Quality of life','生活品質升格'],['Dual income','雙薪家庭']]},
+  {n:'28-52 / 烏日彰化 / 醫師×彰基×彰化秀傳×醫院置産族',sub:'彰化醫師族群月收高·1510問詢效率最好',
+   logic:'彰化基督教醫院/秀傳醫院醫師月薪15-60萬，核貸條件最佳，且生活忙碌對時間效率需求高。烏日到彰化醫院15分鐘，「下班10分鐘回家」是最強生活說法。說法：「救人的事你最專業，買對的家就讓我們來」。',
+   lm:['烏日高鐵站(+4km)','彰化基督教醫院','彰化秀傳醫院','新烏日車站'],
+   tags:[['Medicine','醫學'],['Healthcare','醫療保健'],['Hospital','醫院'],['Surgery','外科'],['Internal medicine','內科'],['Dentistry','牙科'],['Pediatrics','小兒科'],['Pharmacy','藥學'],['Nursing','護理學'],['Medical research','醫學研究'],['Health','健康'],['Wellness','身心健康'],['Fitness','健身'],['Nutrition','營養學'],['Travel','旅遊'],['Investment','投資（商業與財務）'],['Wealth management','財富管理'],['Financial planning','財務規劃'],['Real estate investment','房地産投資'],['Asset allocation','資産配置'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家'],['Wuri District','烏日區台中'],['Changhua','彰化'],['HSR station','高鐵烏日站'],['High income','醫師高收入族群']]},
+  {n:'26-40 / 新烏日站+5 / 雙薪首購×新婚×成家置産族',sub:'1510問詢直接帶入成家說法·雙薪月收8-14萬完全可控',
+   logic:'新婚/即將結婚的雙薪首購族是1510最高意願轉換族群，「你們現在的月收，烏日1000萬，月繳2.5萬，你的雙薪負擔比30%」直接用數字說服。說法：「雙薪月收10萬，1000萬烏日宅，月繳2.5萬，這是最好的成家算式」。',
+   lm:['新烏日車站(+5km)','烏日高鐵站','烏日國小','烏日重劃區'],
+   tags:[['Wedding','婚禮'],['Marriage','結婚婚姻'],['New couple','新婚夫妻'],['Engagement','訂婚'],['Family planning','家庭規劃'],['First-time buyer','首購族'],['Dual income','雙薪家庭'],['Saving','儲蓄'],['Mortgage','房貸'],['Down payment saving','存頭期款'],['Home buying','購屋'],['Interior design','室內設計'],['Furniture','家具'],['IKEA','IKEA家居'],['Moving','搬家'],['Baby','嬰兒育兒'],['Parenting','育兒親子'],['School district','學區'],['Community living','社區生活'],['Investment','投資（商業與財務）'],['Financial planning','財務規劃'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Property investment','置產投資'],['New home','新家'],['Wuri District','烏日區台中'],['Changhua','彰化'],['HSR station','高鐵烏日站'],['Quality of life','生活品質'],['Home upgrade','換屋升格']]},
+  {n:'26-45 / 新市政公園+5 / AI工程師×軟體開發×首購族',sub:'AI高薪工程師首購·數字說法最直接',
+   logic:'台中AI/軟體工程師月薪8-25萬，首購意圖強，「烏日vs台北」的CP值差異最能命中這群人的理性計算。新市政公園+5覆蓋台中科技白領密集帶。說法：「你處理的是最前端的技術，烏日高鐵特區1000萬，是你投資報酬率最高的一行程式碼」。',
+   lm:['新市政公園(+5km)','大里軟體科學園區','台中軟體園區','烏日高鐵站'],
+   tags:[['Artificial intelligence','人工智慧'],['Machine learning','機器學習'],['Software development','軟體開發'],['Python','Python程式語言'],['Data science','資料科學'],['Cloud computing','雲端運算'],['GitHub','GitHub'],['DevOps','開發維運'],['Open-source software','開源軟體'],['Deep learning','深度學習'],['Technology','科技'],['Innovation','創新'],['Startup company','新創企業'],['MacBook Pro','MacBook Pro'],['Personal finance','個人理財'],['Investment','投資（商業與財務）'],['Stock market','股票市場（投資）'],['Coffee','咖啡'],['Fitness','健身'],['Travel','旅遊'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['First-time buyer','首購族'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家'],['Wuri District','烏日區台中'],['HSR station','高鐵烏日站'],['High income','高薪技術職族群']]},
+  {n:'28-48 / 新烏日站+5 / 健身重訓×積極自律×首購族',sub:'健身族CPL低·高自律=高執行力置産',
+   logic:'健身/重訓族群高收入且生活積極，CPL低、轉換效率高。這族群決策快，「你每天都在升級自己，現在換成家了」是最有效的購屋說服邏輯。說法：「你鍛鍊的不只是肌肉，更是對品質生活的要求，烏日給你對的選擇」。',
+   lm:['新烏日車站(+5km)','烏日運動中心','烏日高鐵站','台中好巿多'],
+   tags:[['Gym','健身房'],['Fitness','健身'],['Weightlifting','重量訓練'],['Bodybuilding','健美'],['CrossFit','綜合體能訓練'],['Running','跑步'],['Marathon','馬拉松'],['Sports nutrition','運動營養'],['Protein supplement','蛋白質補充品'],['Health','健康'],['Wellness','身心健康'],['Yoga','瑜珈'],['Cycling','騎行'],['Swimming','游泳'],['Triathlon','鐵人三項'],['Personal trainer','私人教練'],['Athletic wear','運動服裝'],['Lifestyle','生活方式'],['Coffee','咖啡'],['Travel','旅遊'],['Investment','投資（商業與財務）'],['Personal finance','個人理財'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['First-time buyer','首購族'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家'],['Wuri District','烏日區台中']]},
+  {n:'30-55 / 烏日彰化 / 精密加工×螺絲五金×彰化製造族',sub:'彰化螺絲之鄉廠主員工·1510問詢精準',
+   logic:'彰化螺絲/精密加工廠主和中高階員工，年收高且在地根深，烏日置產是最自然的升格路徑。1510問詢廣告直接觸發「家要升格」思維。說法：「你的螺絲出口全球，家卻還沒出彰化，烏日高鐵就是你升格的第一步」。',
+   lm:['烏日高鐵站(+4km)','彰化精密加工聚落','員林工業區','新烏日車站'],
+   tags:[['Fastener','螺絲螺帽扣件'],['Steel','鋼鐵製造'],['Precision manufacturing','精密製造'],['Metal fabrication','金屬加工（建築業）'],['CNC machining','CNC加工'],['Industrial engineering','工業工程（工程）'],['Machinery','機器'],['Export trade','出口貿易'],['Small business owners','小型企業主'],['Hardware store','五金行（零售業者）'],['Quality control','品質管制'],['Manufacturing','製造'],['Supply chain management','供應鏈管理'],['Management','管理（商業與財務）'],['Investment','投資（商業與財務）'],['Stocks','股票（投資）'],['Banking','銀行業（金融）'],['Financial services','金融服務（商業與財務）'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家'],['Wuri District','烏日區台中'],['Changhua','彰化'],['HSR station','高鐵烏日站'],['Cash flow','現金流管理'],['Asset allocation','資産配置'],['Home upgrade','換屋升格']]},
+  {n:'28-50 / 新市政公園+5 / 電動車×機械工程×技術職族',sub:'科技產業×新型技術職·高薪首購·現代宅調性匹配',
+   logic:'電動車/機械工程/技術職族群在台中科技廊道高密度，月薪8-20萬，對現代科技感住宅有強烈認同。說法：「你選電動車是對的，選烏日高鐵旁的家也是」。',
+   lm:['新市政公園(+5km)','台中精機廊道','大里軟體科學園區','烏日高鐵站'],
+   tags:[['Electric vehicle','電動車'],['Tesla','特斯拉'],['Mechanical engineering','機械工程'],['Automobile','汽車'],['Automation','自動化技術'],['Industrial design','工業設計'],['Engineering','工程學'],['Manufacturing','製造業'],['Robotics','機器人技術'],['Technology','科技'],['Innovation','創新'],['Science','科學'],['Smart car','智慧汽車'],['Autonomous vehicle','自動駕駛車輛'],['Sustainability','永續環保'],['Green energy','綠色能源'],['Personal finance','個人理財'],['Investment','投資（商業與財務）'],['Stock market','股票市場（投資）'],['Coffee','咖啡'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['First-time buyer','首購族'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家'],['Wuri District','烏日區台中'],['HSR station','高鐵烏日站'],['High income','高薪技術職族群']]},
+  {n:'28-52 / 新烏日站+5 / 物流倉儲×貨運司機×長途運輸族',sub:'烏日物流樞紐·回家10分鐘說法最強',
+   logic:'烏日是中台灣物流樞紐，貨運司機/倉儲主管月收4-8萬，對「快速回家」的需求最強。1510問詢廣告「烏日高鐵旁首購，下班不用繞路」是最直接的利益說法。說法：「開卡車跑遍台灣，回家只要10分鐘，烏日高鐵旁就是答案」。',
+   lm:['新烏日車站(+5km)','烏日物流倉儲區','台中工業區','烏日高鐵站'],
+   tags:[['Logistics','物流'],['Warehousing','倉儲管理'],['Truck driving','貨運卡車'],['Transportation','交通運輸'],['Freight','貨運'],['Delivery','外送配送'],['Fleet management','車隊管理'],['Supply chain','供應鏈'],['Automobile','汽車'],['Car maintenance','汽車保養'],['Driving','駕車'],['Manufacturing','製造業'],['Small business owners','小型企業主'],['Investment','投資（商業與財務）'],['Stocks','股票（投資）'],['Banking','銀行業（金融）'],['Coffee','咖啡'],['Sports','運動'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['First-time buyer','首購族'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家'],['Wuri District','烏日區台中'],['Changhua','彰化'],['HSR station','高鐵烏日站'],['Stable income','穩定收入'],['Home upgrade','換屋升格']]},
+  {n:'30-55 / 烏日彰化 / 食品農產×彰化加工×在地業族',sub:'彰化食品業老闆員工·在地升格說法最強',
+   logic:'彰化食品加工/農產品業者年收高，烏日置產是最自然的升格路徑。1510問詢廣告「首購1000萬彰化→烏日台中」針對這族群的階段性升格需求。說法：「你的產品在全台超市上架，你的家也應該升到台中高鐵特區了」。',
+   lm:['烏日高鐵站(+4km)','彰化農產批發市場','員林工業區','新烏日車站'],
+   tags:[['Food industry','食品業'],['Food processing','食品加工'],['Agriculture','農業'],['Organic food','有機食品'],['Food safety','食品安全'],['Cooking','烹飪'],['Restaurant','餐飲業'],['Retail','零售業'],['Small business owners','小型企業主'],['Entrepreneurship','創業精神'],['Management','管理（商業與財務）'],['Supply chain management','供應鏈管理'],['Manufacturing','製造業'],['Investment','投資（商業與財務）'],['Banking','銀行業（金融）'],['Financial services','金融服務（商業與財務）'],['Stocks','股票（投資）'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家'],['Wuri District','烏日區台中'],['Changhua','彰化'],['HSR station','高鐵烏日站'],['Quality of life','生活品質'],['Home upgrade','換屋升格'],['Local business','在地商業'],['Asset allocation','資産配置']]},
+  {n:'35-58 / 新市政公園+5 / 台商回流×製造主管×歸國置産族',sub:'台商回流急需置産·烏日1000萬是最划算的選擇',
+   logic:'台商回流/外派歸國人士有急迫置産需求，對烏日高鐵特區「低價入市+台北高鐵40分鐘」的CP值有最高共鳴。說法：「在外面闖了10年，現在落腳烏日高鐵特區，就是你最聰明的資產佈局」。',
+   lm:['新市政公園(+5km)','烏日高鐵站','台中科學園區','台中國際機場'],
+   tags:[['International business','國際商務'],['Cross-border trade','跨境貿易'],['Overseas Chinese','海外華人'],['Returnee','歸國人士'],['Expatriate','外派人員'],['Manufacturing','製造業'],['Business travel','商務出差'],['Frequent flyer','常飛旅客'],['Global business','全球商業'],['Language learning','語言學習'],['Investment','投資（商業與財務）'],['Wealth management','財富管理'],['Asset management','資産管理'],['Real estate investment','房地産投資'],['Capital gain','資本增值'],['Tax planning','稅務規劃'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家'],['Wuri District','烏日區台中'],['Taichung','台中'],['HSR station','高鐵烏日站'],['High income','高收入族群'],['Home upgrade','換屋升格'],['Financial planning','財務規劃'],['Quality of life','生活品質'],['International school','國際學校']]},
+  {n:'48-65 / 新烏日站+5 / 50+退休×換屋×熟齡置産族',sub:'資金充裕退休前最後換屋·說法強·轉換率高',
+   logic:'48-65歲有資金的換屋族，「退休前完成資産配置」是最強動機。新烏日站+5精準定位烏日彰化熟齡族群，對電梯大樓+高鐵近+醫療近的組合需求最強。說法：「退休前，把家換到高鐵旁邊，子女回來看你也方便，你去台北也方便」。',
+   lm:['新烏日車站(+5km)','烏日高鐵站','彰化基督教醫院','彰化秀傳醫院'],
+   tags:[['Retirement','退休'],['Retirement planning','退休規劃'],['Senior living','長者居住'],['Financial independence','財務獨立'],['Wealth management','財富管理'],['Asset management','資産管理'],['Passive income','被動收入'],['Real estate investment','房地産投資'],['Rental income','收租收益'],['Investment','投資'],['Stocks','股票'],['Tax planning','稅務規劃'],['Estate planning','遺産規劃'],['Life insurance','壽險'],['Health','健康'],['Travel','旅遊'],['Community','社區環境'],['Family','家庭'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家'],['Wuri District','烏日區台中'],['Changhua','彰化'],['HSR station','高鐵烏日站'],['Second home','第二間房'],['Home upgrade','換屋升格'],['Quality of life','品質生活升格']]},
+  {n:'28-50 / 烏日彰化 / 自行車產業×彰化×首購換屋族',sub:'彰化自行車廠員工主管·在地升格說法最強',
+   logic:'彰化自行車產業廠主和中高階主管年收高，烏日置產是最自然的升格路徑。說法：「你的單車賣遍全球，你自己的家已經騎到台中高鐵特區了嗎？」',
+   lm:['烏日高鐵站(+4km)','彰化自行車廠聚落','員林工業區','新烏日車站'],
+   tags:[['Bicycle','自行車'],['Cycling','騎行'],['Mountain biking','登山自行車'],['Road cycling','公路自行車'],['Cycling gear','自行車配件'],['Sports','運動'],['Fitness','健身'],['Outdoor activities','戶外活動'],['Manufacturing','製造業'],['Export trade','出口貿易'],['Small business owners','小型企業主'],['Metal fabrication','金屬加工（建築業）'],['Supply chain management','供應鏈管理'],['Investment','投資（商業與財務）'],['Stocks','股票（投資）'],['Banking','銀行業（金融）'],['Financial planning','財務規劃'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['First-time buyer','首購族'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家'],['Wuri District','烏日區台中'],['Changhua','彰化'],['HSR station','高鐵烏日站'],['Quality of life','生活品質'],['Management','管理（商業與財務）'],['Home upgrade','換屋升格']]},
+  {n:'26-45 / 新烏日站+5 / 幼教老師×補習班×教育首購族',sub:'基層教育從業者月薪穩定·1510問詢轉換效率高',
+   logic:'幼教老師/補習班師資/安親班業者首購動機強，月薪3-6萬，1000萬在公教優惠房貸下月繳2.5萬可負擔。說法：「教了別人的孩子，現在輪到你選自己孩子的學區了」。',
+   lm:['新烏日車站(+5km)','烏日國小','烏日國中','烏日高鐵站'],
+   tags:[['Early childhood education','幼兒教育'],['Child education','兒童教育'],['Teaching','教學'],['Tutoring','補習'],['Educational technology','教育技術學（教育）'],['Teacher education','師範教育（職業訓練）'],['MOOC','大規模開放在線課堂'],['Learning','學習'],['Books','書籍閱讀'],['School district','學區'],['Parenting','育兒親子'],['Family','家庭'],['Child development','兒童發展'],['Investment','投資（商業與財務）'],['Banking','銀行業（金融）'],['Financial services','金融服務（商業與財務）'],['Saving','儲蓄'],['Government employees (Global)','政府員工（全球）'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['First-time buyer','首購族'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家'],['Wuri District','烏日區台中'],['Changhua','彰化'],['HSR station','高鐵烏日站'],['Stable income','穩定教育從業收入'],['Quality of life','生活品質']]},
+  {n:'26-45 / 新市政公園+5 / 電商平台×在地商家×創業族',sub:'電商業主事業有成置産動機爆發·1510直接問詢',
+   logic:'台中/彰化電商創業族群事業有成時置産動機強，「事業做到這裡，家也要配上了」是直球說法。新市政公園+5覆蓋台中電商聚落。說法：「你的月流水過百萬了，1000萬的家對你已經不是問題了」。',
+   lm:['新市政公園(+5km)','台中電商聚落','大里工業區','烏日高鐵站'],
+   tags:[['E-commerce','電子商務'],['Online shopping','網路購物'],['Shopee','蝦皮購物'],['Brand management','品牌管理'],['Entrepreneurship','創業精神'],['Business owner','企業主'],['Digital marketing','數位行銷'],['Social media marketing','社群媒體行銷'],['Freelancing','自由接案'],['Self-employment','自雇創業'],['Online business','線上事業'],['Investment','投資（商業與財務）'],['Wealth management','財富管理'],['Small business owners','小型企業主'],['Stocks','股票（投資）'],['Banking','銀行業（金融）'],['Financial planning','財務規劃'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家'],['Capital gain','資本增值'],['Wuri District','烏日區台中'],['Taichung','台中'],['HSR station','高鐵烏日站'],['High income','高收入創業族群'],['Home upgrade','換屋升格'],['Quality of life','生活品質']]},
+  {n:'28-48 / 新烏日站+5 / 路跑×馬拉松×高鐵生活圈族',sub:'高自律族群·1510效率高·烏日運動中心旁',
+   logic:'路跑/馬拉松族群高自律、高收入，決策執行力強，CPL歷史表現優異。新烏日站+5精準定位烏日生活圈積極型首購族。說法：「你有在跑馬拉松，代表你對自己的人生是有計劃的，烏日首購就是你下一個里程碑」。',
+   lm:['新烏日車站(+5km)','烏日高鐵站','烏日運動中心','台中好巿多'],
+   tags:[['Marathon','馬拉松'],['Running','跑步'],['Trail running','越野跑'],['Half marathon','半程馬拉松'],['Triathlon','鐵人三項'],['Cycling','騎行'],['Swimming','游泳'],['Fitness','健身'],['CrossFit','綜合體能訓練'],['Sports nutrition','運動營養'],['Protein supplement','蛋白質補充品'],['Gym','健身房'],['Yoga','瑜珈'],['Health','健康'],['Wellness','身心健康'],['Running shoes','跑鞋'],['Garmin','Garmin運動錶'],['Outdoor activities','戶外活動'],['Personal trainer','私人教練'],['Coffee','咖啡'],['Investment','投資（商業與財務）'],['Personal finance','個人理財'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['First-time buyer','首購族'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家'],['Wuri District','烏日區台中']]},
+  {n:'32-56 / 烏日彰化 / 傳統製造×升格換屋×品質升級族',sub:'彰化傳統製造業老闆·換屋升格說法最自然',
+   logic:'彰化傳統製造業老闆/廠長，事業穩定資金充裕，「透天換電梯大樓」的升格需求強。烏日是彰化到台中的最近入口，「彰化的廠，烏日的家，高鐵去台北」三角生活圈是最強說法。說法：「廠子做到這個規模，你值得一個配得上你的家」。',
+   lm:['烏日高鐵站(+4km)','彰化工業區','員林工業區','新烏日車站'],
+   tags:[['Manufacturing','製造業'],['Industrial engineering','工業工程（工程）'],['Metal fabrication','金屬加工（建築業）'],['Machinery','機器'],['Hardware store','五金行（零售業者）'],['Small business owners','小型企業主'],['Management','管理（商業與財務）'],['Investment','投資（商業與財務）'],['Stocks','股票（投資）'],['Financial services','金融服務（商業與財務）'],['Banking','銀行業（金融）'],['Real estate investment','房地産投資'],['Multiple properties','多屋置産'],['Asset allocation','資産配置'],['Wealth management','財富管理'],['Tax planning','稅務規劃'],['Passive income','被動收入'],['Rental income','收租收益'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家'],['Wuri District','烏日區台中'],['Changhua','彰化'],['HSR station','高鐵烏日站'],['Home upgrade','換屋升格'],['Second home','第二間房'],['Quality of life','生活品質升格']]},
+  {n:'30-52 / 新市政公園+5 / 採購主管×供應鏈×製造管理族',sub:'出差多回家需求強·高鐵門口說法最直接',
+   logic:'製造業採購主管/供應鏈管理人員出差頻繁，對「高鐵旁回家快」的需求極強，1510問詢廣告直接打「你每週台北出差，高鐵門口的家」是最強利益說法。說法：「每週台北出差3天，高鐵旁的家讓你每次都回得快、睡得好」。',
+   lm:['新市政公園(+5km)','烏日高鐵站','大里工業區','彰化工業區'],
+   tags:[['Supply chain management','供應鏈管理'],['Procurement','採購'],['Logistics','物流'],['Manufacturing','製造業'],['Project management','專案管理'],['Industrial engineering','工業工程（工程）'],['Quality control','品質管制'],['Business travel','商務出差'],['Management','管理（商業與財務）'],['Leadership','領導力'],['Business development','業務開發'],['High-speed rail','高速鐵路'],['Commuting','通勤族'],['Investment','投資（商業與財務）'],['Stocks','股票（投資）'],['Banking','銀行業（金融）'],['Financial planning','財務規劃'],['Coffee','咖啡'],['Travel','旅遊'],['Fitness','健身'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家'],['Home upgrade','換屋升格'],['Wuri District','烏日區台中'],['Taichung','台中'],['HSR station','高鐵烏日站']]},
+];
+renderAudGrid('alt-aud-grid-2', G_1510_2, 'dc', true);
 
 function copyTxt(txt){return navigator.clipboard?navigator.clipboard.writeText(txt):Promise.reject();}
 function showToast(){const t=document.getElementById('copy-toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200)}
