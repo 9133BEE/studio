@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>富宇時代之丘｜受眾分析報告</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --accent:#2a6a7a;--accent-dark:#1a4a5a;--accent-light:#eaf4f6;--accent-border:#6ab0be;
+  --bg:#f2f4f3;--s:#ffffff;--bd:#e2e6e8;--tx:#2c2e32;--sub:#7a7e84;--sub2:#a4a8ae;
+  --good:#1e3a6e;--goodl:#e6eaf4;--warn:#4a6a8a;
+  --radius:12px;--shadow-xs:0 1px 3px rgba(0,0,0,.05);--shadow-sm:0 2px 8px rgba(0,0,0,.07);--shadow-card:0 2px 10px rgba(0,0,0,.06),0 1px 3px rgba(0,0,0,.04);
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft JhengHei','Segoe UI',sans-serif;background:var(--bg);color:var(--tx);font-size:14px;line-height:1.6;min-height:100vh}
+.page-header{background:linear-gradient(180deg,#080e18 0%,#050b10 100%);padding:0 40px;height:56px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.04),0 4px 20px rgba(0,0,0,.35);border-bottom:1px solid rgba(255,255,255,.06)}
+.ph-logo{width:30px;height:30px;background:linear-gradient(135deg,#4a9aaa,var(--accent-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;flex-shrink:0}
+.ph-title{font-size:14px;font-weight:700;color:#e8edf5;letter-spacing:-.2px}
+.ph-sub{font-size:11px;color:#1a2a30;margin-left:2px}
+.ph-nav{margin-left:auto;display:flex;gap:8px;align-items:center}
+.ph-nav a{font-size:12px;color:#6ab0be;text-decoration:none;padding:5px 13px;border-radius:6px;border:1px solid rgba(42,106,122,.25);background:rgba(42,106,122,.12);font-weight:500}
+.ph-nav a:hover{background:rgba(42,106,122,.22);color:#9ad0de}
+#btt{position:fixed;right:24px;bottom:28px;width:38px;height:38px;border-radius:50%;background:rgba(8,14,24,.75);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.85);font-size:15px;cursor:pointer;opacity:0;transform:translateY(8px);transition:opacity .2s,transform .2s;pointer-events:none;z-index:150;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.3);font-family:inherit}
+#btt.show{opacity:1;transform:translateY(0);pointer-events:auto}
+#btt:hover{background:rgba(20,40,55,.9);transform:translateY(-2px)}
+.wrap{max-width:1440px;margin:0 auto;padding:32px 48px 48px}
+.case-header{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:20px 24px;margin-bottom:10px;display:flex;align-items:center;gap:18px;box-shadow:var(--shadow-card)}
+.case-logo{width:44px;height:44px;background:linear-gradient(135deg,#4a9aaa,var(--accent-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;flex-shrink:0}
+.case-info h2{font-size:17px;font-weight:700;color:var(--tx);letter-spacing:-.3px}
+.case-info p{font-size:12px;color:var(--sub);margin-top:3px;line-height:1.5}
+.case-stats{margin-left:auto;display:flex;gap:28px;flex-shrink:0}
+.stat{text-align:right}
+.stat-n{font-size:24px;font-weight:800;color:var(--accent);line-height:1;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.stat-l{font-size:10px;color:var(--sub2);margin-top:3px;font-weight:600;letter-spacing:.3px;text-transform:uppercase}
+.top-link{font-size:12px;color:var(--accent);margin-bottom:24px;display:inline-block;text-decoration:none;font-weight:500}
+.top-link span{border-bottom:1px solid var(--accent-border)}
+.sec-title{font-size:12px;font-weight:700;color:var(--sub);margin-bottom:14px;display:flex;align-items:center;gap:10px;letter-spacing:.4px;text-transform:uppercase}
+.sec-title::before{content:'';display:inline-block;width:3px;height:14px;background:var(--accent);border-radius:2px;flex-shrink:0}
+.sec-title::after{content:'';flex:1;height:1px;background:var(--bd)}
+.section{margin-bottom:28px}
+.profiles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.profile-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow-xs);transition:box-shadow .2s,transform .2s}
+.profile-card:hover{box-shadow:var(--shadow-sm);transform:translateY(-2px)}
+.profile-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:17px;margin-bottom:12px}
+.profile-icon.teal{background:var(--accent-light)}
+.profile-icon.blue{background:#eaecf6}
+.profile-icon.sea{background:#e2f2f4}
+.profile-name{font-size:15px;font-weight:700;color:var(--tx);margin-bottom:4px}
+.profile-meta{font-size:12px;color:var(--sub);margin-bottom:10px}
+.profile-tags{font-size:12px;color:#4a5568;margin-bottom:10px;line-height:1.6}
+.profile-behavior{font-size:12px;color:var(--sub);line-height:1.55;margin-bottom:12px}
+.profile-badge{display:inline-block;font-size:11px;font-weight:700;padding:4px 11px;border-radius:20px;margin-top:2px}
+.badge-teal{background:var(--accent-light);color:#1a4a5a;border:1px solid var(--accent-border)}
+.badge-blue{background:#eaecf6;color:#2a3a6a;border:1px solid #8a9ac8}
+.badge-sea{background:#e2f2f4;color:#1a4a5a;border:1px solid #6ab0be}
+.tags-row{display:flex;flex-wrap:wrap;gap:8px}
+.core-tag{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;background:var(--s);border:1.5px solid var(--bd);border-radius:20px;font-size:13px;font-weight:600;color:var(--tx);cursor:pointer;transition:all .15s}
+.core-tag:hover{border-color:var(--accent-border);background:var(--accent-light);color:#1a4a5a}
+.core-tag .arr{font-size:11px;color:var(--accent-border)}
+.tips{display:flex;flex-direction:column;gap:10px}
+.tip{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:16px 18px;display:flex;gap:16px;align-items:flex-start;cursor:pointer;transition:border-color .15s,box-shadow .15s;box-shadow:var(--shadow-xs)}
+.tip:hover{border-color:var(--accent-border);box-shadow:var(--shadow-sm)}
+.tip-num{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;flex-shrink:0;color:#fff}
+.c1{background:var(--accent)}.c2{background:#3a7a8a}.c3{background:#4a7a6a}.c4{background:#5a6a8a}.c5{background:#3a5a7a}
+.tip-body{flex:1}
+.tip-title{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:5px;line-height:1.4}
+.tip-desc{font-size:12px;color:var(--sub);line-height:1.65}
+.insight-box{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow-xs)}
+.insight-title{font-size:14px;font-weight:700;color:var(--tx);margin-bottom:14px}
+.insight-highlight{background:var(--accent-light);border-left:3px solid var(--accent);padding:12px 16px;border-radius:0 8px 8px 0;margin-bottom:16px;font-size:13px;color:#0a1a2a;font-weight:600;line-height:1.65}
+.insight-sub{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:10px;margin-top:14px}
+.insight-list{list-style:none;display:flex;flex-direction:column;gap:7px}
+.insight-list li{font-size:13px;color:#4a5568;padding-left:18px;position:relative;line-height:1.6}
+.insight-list li::before{content:'→';position:absolute;left:0;color:var(--accent-border);font-size:12px;top:1px}
+.rk-row{background:var(--s);border:1px solid var(--bd);border-left:3px solid var(--bd);border-radius:var(--radius);padding:14px 18px 14px 14px;margin-bottom:6px;display:flex;gap:14px;align-items:center;box-shadow:none;transition:border-left-color .15s,box-shadow .15s,transform .15s;cursor:pointer}
+.rk-row:hover{border-left-color:var(--accent);box-shadow:0 2px 12px rgba(0,0,0,.06);transform:translateX(2px)}
+.rk-row.gold{border-left-color:#4a9aaa;background:linear-gradient(90deg,#eaf4f6 0%,#fff 70%)}
+.rk-row.silver{border-left-color:#7aaab4;background:linear-gradient(90deg,#f0f6f8 0%,#fff 70%)}
+.rk-row.bronze{border-left-color:#5a8a9a;background:linear-gradient(90deg,#eaf2f4 0%,#fff 70%)}
+.rk-medal{width:26px;height:26px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.rk-rank{width:32px;height:32px;border-radius:50%;background:var(--accent-light);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:var(--accent);flex-shrink:0}
+.rk-body{flex:1;min-width:0}
+.rk-name{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:4px;line-height:1.35}
+.rk-loc{font-size:11px;color:var(--sub2);line-height:1.4;margin-bottom:7px}
+.rk-tags{display:flex;flex-wrap:wrap;gap:4px}
+.rk-tag{font-size:10px;font-weight:600;padding:2px 8px;border-radius:8px;line-height:1.5}
+.t-ind{background:#e2f2f4;color:#1a4a5a;border:1px solid #6ab0be}
+.t-loc{background:var(--accent-light);color:var(--accent-dark);border:1px solid var(--accent-border)}
+.t-prop{background:#eaecf6;color:#2a3a6a;border:1px solid #8a9ac8}
+.t-biz{background:#e8f4ee;color:#1a4a2a;border:1px solid #7ac4a0}
+.t-gov{background:#f4eae2;color:#5a3a1a;border:1px solid #c4a07a}
+.rk-stats{display:flex;gap:24px;flex-shrink:0;align-items:center}
+.rk-stat-block{text-align:right}
+.rk-result{font-size:28px;font-weight:900;color:var(--tx);line-height:1;letter-spacing:-1px;font-variant-numeric:tabular-nums}
+.rk-result-l{font-size:10px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.2px;margin-top:2px}
+.rk-cpl{font-size:18px;font-weight:800;color:var(--warn);line-height:1;font-variant-numeric:tabular-nums}
+.rk-cpl.good-cpl{color:var(--good)}
+.rk-cpl-l{font-size:10px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.2px;margin-top:2px}
+.rk-spend{font-size:13px;font-weight:700;color:#6d6560;line-height:1;font-variant-numeric:tabular-nums}
+.rk-spend-l{font-size:10px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.2px;margin-top:2px}
+.page-footer{text-align:center;font-size:11px;color:var(--sub2);margin-top:12px;padding-bottom:8px}
+.page-banner{border-radius:var(--radius);padding:18px 24px;margin-bottom:22px;display:flex;align-items:center;gap:20px;box-shadow:var(--shadow-card)}
+.page-banner.main{background:linear-gradient(135deg,#1a4a5a,#2a6a7a);color:#fff}
+.banner-icon{width:40px;height:40px;background:rgba(255,255,255,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;flex-shrink:0}
+.banner-title{font-size:16px;font-weight:800;letter-spacing:-.2px}
+.banner-sub{font-size:12px;opacity:.8;margin-top:2px}
+.banner-stats{margin-left:auto;display:flex;gap:28px;flex-shrink:0}
+.bs{text-align:right}
+.bs-n{font-size:22px;font-weight:800;color:#fff;line-height:1;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.bs-l{font-size:10px;color:rgba(255,255,255,.7);margin-top:3px;font-weight:600;letter-spacing:.3px;text-transform:uppercase}
+.rank-op-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start;margin-bottom:28px}
+@media(max-width:900px){.rank-op-grid{display:block}}
+.rk-grid{display:flex;flex-direction:column;gap:7px}
+.rk-grid .rk-row{margin-bottom:0}
+.aud-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;align-items:stretch}
+@media(max-width:760px){.aud-grid-2{grid-template-columns:1fr}}
+.aud-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);box-shadow:var(--shadow-xs);overflow:hidden;display:flex;flex-direction:column}
+.aud-header{display:flex;align-items:center;gap:12px;padding:13px 16px;cursor:pointer;transition:background .15s;user-select:none}
+.aud-header:hover{background:var(--accent-light)}
+.aud-arrow{font-size:12px;color:var(--sub2);transition:transform .2s;flex-shrink:0}
+.aud-card.open .aud-arrow{transform:rotate(90deg)}
+.aud-body{display:none;padding:0 16px 16px;border-top:1px solid var(--bd)}
+.aud-card.open .aud-body{display:block}
+.aud-name{font-size:14px;font-weight:700;color:var(--tx);line-height:1.4}
+.aud-num{width:24px;height:24px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0}
+.aud-info{flex:1;min-width:0}
+.aud-sub{font-size:11px;color:var(--sub2);margin-top:2px}
+.aud-sl{font-size:10px;font-weight:700;color:var(--sub2);text-transform:uppercase;letter-spacing:.4px;margin:12px 0 6px}
+.aud-logic{font-size:12px;color:var(--tx);line-height:1.65;background:var(--accent-light);border:1px solid var(--accent-border);border-radius:8px;padding:9px 12px}
+.aud-lm{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px}
+.aud-lm-tag{background:var(--bg);border:1px solid var(--bd);border-radius:12px;padding:2px 9px;font-size:10px;color:var(--sub)}
+.tag-tbl{width:100%;border-collapse:collapse;font-size:11px;margin-top:6px}
+.tag-tbl th{padding:3px 8px;text-align:left;font-weight:600;border:1px solid var(--bd);background:var(--accent-light);color:var(--accent-dark)}
+.tag-tbl td{padding:2px 8px;border:1px solid var(--bd);color:var(--sub)}
+.tag-tbl tr:nth-child(even) td{background:var(--bg)}
+.tag-tbl tbody tr{cursor:pointer;transition:background .1s}
+.tag-tbl tbody tr:hover{background:var(--accent-light)}
+.obj-pill{display:inline-block;font-size:10px;font-weight:700;padding:2px 9px;border-radius:10px;margin-left:8px;vertical-align:middle}
+.obj-msg{background:#eaf4f6;color:#1a4a5a;border:1px solid #6ab0be}
+.obj-lead{background:#eaecf6;color:#2a3a6a;border:1px solid #8a9ac8}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="ph-logo">丘</div>
+  <span class="ph-title">富宇時代之丘｜受眾分析</span>
+  <span class="ph-sub">· 台中沙鹿 · 單粉專 · 開案前受眾規劃</span>
+  <nav class="ph-nav"><a href="index.html">標籤資料庫</a><a href="hub.html">← 返回總覽</a></nav>
+</header>
+
+<div class="wrap">
+
+<div class="case-header">
+  <div class="case-logo">丘</div>
+  <div class="case-info">
+    <h2>富宇時代之丘｜台中沙鹿</h2>
+    <p>福德路186巷（鹿寮東段379地號）· 大樓111戶 · 二房22~28坪 / 三房32~33坪 · 1198萬起（不含車位，車位200萬/119個平面）· 廣告目標：訊息＋名單</p>
+  </div>
+  <div class="case-stats">
+    <div class="stat"><div class="stat-n">20</div><div class="stat-l">訊息型受眾</div></div>
+    <div class="stat"><div class="stat-n">20</div><div class="stat-l">名單型受眾</div></div>
+    <div class="stat"><div class="stat-n">46.1萬</div><div class="stat-l">近1年均價/坪</div></div>
+  </div>
+</div>
+
+<a class="top-link" href="hub.html"><span>← 返回報告集</span></a>
+
+<div class="page-banner main">
+  <div class="banner-icon">丘</div>
+  <div>
+    <div class="banner-title">主粉專｜富宇時代之丘 FB（開案前受眾規劃）</div>
+    <div class="banner-sub">尚未正式上線 · 40組受眾方案（訊息20＋名單20）· 依沙鹿0709＋清水訊息0709海線區域數據設計</div>
+  </div>
+  <div class="banner-stats">
+    <div class="bs"><div class="bs-n">108+153</div><div class="bs-l">區域參考有效組數</div></div>
+    <div class="bs"><div class="bs-n">NT$78</div><div class="bs-l">區域最低CPL（訊息）</div></div>
+    <div class="bs"><div class="bs-n">NT$91</div><div class="bs-l">區域最低CPL（名單）</div></div>
+  </div>
+</div>
+
+<!-- 三大核心受眾輪廓 -->
+<div class="section">
+  <div class="sec-title">三大核心受眾輪廓</div>
+  <div class="profiles">
+
+    <div class="profile-card">
+      <div class="profile-icon teal">🏥</div>
+      <div class="profile-name">醫護＋科技雙引擎型</div>
+      <div class="profile-meta">年齡 25–65｜童綜合醫院・中科・沙鹿圈</div>
+      <div class="profile-tags">興趣：醫療護理、軟體工程、半導體、輪班工作、投資理財</div>
+      <div class="profile-behavior">行為：沙鹿海線區域數據中訊息與名單型都驗證有效的雙引擎族群，收入穩定、決策快，訊息型CPL可壓到$78-95，名單型也有量體</div>
+      <span class="profile-badge badge-teal">醫療人員78訊息CPL NT$78 · 工程師68訊息CPL NT$89 · 區域最強雙引擎</span>
+    </div>
+
+    <div class="profile-card">
+      <div class="profile-icon sea">🏭</div>
+      <div class="profile-name">在地自雇／傳產經營型</div>
+      <div class="profile-meta">年齡 30–65｜沙鹿在地・工業區周邊</div>
+      <div class="profile-tags">興趣：服務業小吃、Uber自雇、傳產倉儲、業務銷售、企業經營</div>
+      <div class="profile-behavior">行為：收入來自營業額而非死薪水，資產配置意識強，對「自己當老闆該有穩定的家」訴求特別有感，訊息與名單兩種目標都有實測依據</div>
+      <span class="profile-badge badge-sea">服務業Uber 53訊息CPL NT$97 · 餐廳業務29潛客CPL NT$91全區最低</span>
+    </div>
+
+    <div class="profile-card">
+      <div class="profile-icon blue">🏠</div>
+      <div class="profile-name">學區換屋／三代同堂型</div>
+      <div class="profile-meta">年齡 28–65｜鹿峰國小・成功嶺周邊</div>
+      <div class="profile-tags">興趣：學區、親子教育、軍公教、三代同堂、大坪數需求</div>
+      <div class="profile-behavior">行為：對應富宇時代之丘三房32-33坪產品線，決策動機是「孩子的學區」與「多代同住空間」，量體不算最大但轉換動機明確</div>
+      <span class="profile-badge badge-blue">軍公教三代同堂25訊息CPL NT$230 · 沙鹿國小+5K房地產37潛客CPL NT$279</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- 核心標籤 -->
+<div class="section">
+  <div class="sec-title">跨受眾必保留的核心標籤</div>
+  <div class="tags-row">
+    <span class="core-tag">不動產（房地產）<span class="arr">↗</span></span>
+    <span class="core-tag">購屋<span class="arr">↗</span></span>
+    <span class="core-tag">房屋貸款<span class="arr">↗</span></span>
+    <span class="core-tag">財務規劃（商業與財務）<span class="arr">↗</span></span>
+    <span class="core-tag">已婚（感情狀態）<span class="arr">↗</span></span>
+    <span class="core-tag">家庭（社會）<span class="arr">↗</span></span>
+    <span class="core-tag">工作穩定<span class="arr">↗</span></span>
+    <span class="core-tag">生活品質<span class="arr">↗</span></span>
+  </div>
+</div>
+
+<!-- 訊息型受眾方向 -->
+<div class="section">
+  <div class="sec-title">建議訊息型受眾方向（20組）</div>
+  <div id="msg-aud-grid" class="aud-grid-2"></div>
+</div>
+
+<!-- 名單型受眾方向 -->
+<div class="section">
+  <div class="sec-title">建議名單型受眾方向（20組）</div>
+  <div id="lead-aud-grid" class="aud-grid-2"></div>
+</div>
+
+<!-- 排行 + 操作建議（左右兩欄） -->
+<div class="rank-op-grid">
+
+<div class="section">
+  <div class="sec-title">沙鹿海線區域數據 Top 8 方向（開案前市場驗證基準）</div>
+  <div class="rk-grid">
+
+  <div class="rk-row gold">
+    <div class="rk-medal">🥇</div>
+    <div class="rk-body">
+      <div class="rk-name">28-60 / 沙鹿西屯 / 醫療人員<span class="obj-pill obj-msg">訊息</span></div>
+      <div class="rk-loc">台中沙鹿・西屯 · 區域訊息型全場最低CPL</div>
+      <div class="rk-tags"><span class="rk-tag t-ind">醫療</span><span class="rk-tag t-ind">護理</span><span class="rk-tag t-loc">沙鹿</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">78</div><div class="rk-result-l">訊息對話</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">NT$78</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">NT$6,097</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row silver">
+    <div class="rk-medal">🥈</div>
+    <div class="rk-body">
+      <div class="rk-name">35-65 / 東海沙鹿 / 餐廳中小企業業務<span class="obj-pill obj-lead">名單</span></div>
+      <div class="rk-loc">台中東海・沙鹿 · 區域名單型全場最低CPL</div>
+      <div class="rk-tags"><span class="rk-tag t-biz">餐飲</span><span class="rk-tag t-biz">業務</span><span class="rk-tag t-loc">沙鹿</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">29</div><div class="rk-result-l">潛在顧客</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">NT$91</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">NT$2,628</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row bronze">
+    <div class="rk-medal">🥉</div>
+    <div class="rk-body">
+      <div class="rk-name">30-65 / 沙鹿東海大甲 / 不鎖興趣廣投款<span class="obj-pill obj-msg">訊息</span></div>
+      <div class="rk-loc">台中沙鹿・東海・大甲 · 廣投優於窄興趣的驗證案例</div>
+      <div class="rk-tags"><span class="rk-tag t-prop">廣投</span><span class="rk-tag t-loc">沙鹿</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">15</div><div class="rk-result-l">訊息對話</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">NT$85</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">NT$1,278</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row">
+    <div class="rk-rank">4</div>
+    <div class="rk-body">
+      <div class="rk-name">30-60 / 中科沙鹿 / 工程師軟體開發<span class="obj-pill obj-msg">訊息</span></div>
+      <div class="rk-loc">中科・沙鹿 · 量與成本兼具</div>
+      <div class="rk-tags"><span class="rk-tag t-ind">工程師</span><span class="rk-tag t-loc">中科</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">68</div><div class="rk-result-l">訊息對話</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">NT$89</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">NT$6,077</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row">
+    <div class="rk-rank">5</div>
+    <div class="rk-body">
+      <div class="rk-name">30-65 / 沙鹿・中科 / 護理人員投資組<span class="obj-pill obj-msg">訊息</span></div>
+      <div class="rk-loc">沙鹿・中科 · 4組累計，醫護+理財雙軸</div>
+      <div class="rk-tags"><span class="rk-tag t-ind">護理</span><span class="rk-tag t-biz">投資</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">56</div><div class="rk-result-l">訊息對話</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">NT$95</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">NT$5,341</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row">
+    <div class="rk-rank">6</div>
+    <div class="rk-body">
+      <div class="rk-name">28-65 / 台中市區＋沙鹿 / 直銷電商業務<span class="obj-pill obj-lead">名單</span></div>
+      <div class="rk-loc">台中市區・沙鹿 · 業績型收入族群</div>
+      <div class="rk-tags"><span class="rk-tag t-biz">電商</span><span class="rk-tag t-biz">直銷</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">33</div><div class="rk-result-l">潛在顧客</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl">NT$127</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">NT$4,200</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row">
+    <div class="rk-rank">7</div>
+    <div class="rk-body">
+      <div class="rk-name">25-55 / 龍井西屯沙鹿 / 第一波廣投款<span class="obj-pill obj-msg">訊息</span></div>
+      <div class="rk-loc">龍井・西屯・沙鹿 · 7組累計，全區域最大訊息量體</div>
+      <div class="rk-tags"><span class="rk-tag t-prop">廣投</span><span class="rk-tag t-loc">跨區</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">114</div><div class="rk-result-l">訊息對話</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl">NT$104</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">NT$11,875</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row">
+    <div class="rk-rank">8</div>
+    <div class="rk-body">
+      <div class="rk-name">35-65 / 東海沙鹿 / 護理人員興趣<span class="obj-pill obj-lead">名單</span></div>
+      <div class="rk-loc">東海・沙鹿 · 3組累計，名單型最大量體</div>
+      <div class="rk-tags"><span class="rk-tag t-ind">護理</span><span class="rk-tag t-loc">東海</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">66</div><div class="rk-result-l">潛在顧客</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl">NT$147</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">NT$9,703</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  </div><!-- /rk-grid -->
+</div>
+
+<!-- 操作建議 -->
+<div class="section">
+  <div class="sec-title">五大操作建議</div>
+  <div class="tips">
+
+    <div class="tip">
+      <div class="tip-num c1">1</div>
+      <div class="tip-body">
+        <div class="tip-title">開案初期先用廣投款衝訊息量，比窄興趣定向更有效率</div>
+        <div class="tip-desc">「沙鹿東海大甲不鎖興趣」CPL NT$85、「龍井西屯沙鹿第一波」7組累計114訊息 CPL NT$104，都證明寬地理＋寬年齡的廣投款比窄興趣定向觸及量更大、成本更低。建議富宇時代之丘上線第一週先用2-3組廣投款打底，快速累積訊息池，再用對話內容篩出真實意圖買家。</div>
+      </div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-num c2">2</div>
+      <div class="tip-body">
+        <div class="tip-title">醫護＋工程師是沙鹿雙引擎，訊息與名單都要各開一組主力</div>
+        <div class="tip-desc">醫療人員（訊息CPL NT$78）、護理人員投資組（訊息CPL NT$95、名單CPL NT$147）、中科工程師（訊息CPL NT$89）在區域數據中反覆驗證有效，且訊息與名單兩種廣告目標都適用。建議這兩大職業族群優先開跑，且訊息/名單各自獨立設組，不要合併測試。</div>
+      </div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-num c3">3</div>
+      <div class="tip-body">
+        <div class="tip-title">依坪數區分受眾：二房22-28坪對接首購/單身族，三房32-33坪對接換屋/三代同堂</div>
+        <div class="tip-desc">「東城貳五粉專互動180天沙鹿兩房」CPL NT$169 證明針對特定坪數做受眾與再行銷分眾是有效打法；「軍公教三代同堂」CPL NT$230、「沙鹿國小+5K房地產」CPL NT$279 則對應三房大坪數換屋需求。建議素材與受眾設定明確標示坪數對象，避免二房/三房受眾混打。</div>
+      </div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-num c4">4</div>
+      <div class="tip-body">
+        <div class="tip-title">學區＋親子教育是尚未打滿的機會，建議搭配鹿峰國小素材加碼測試</div>
+        <div class="tip-desc">「沙鹿國小+5K／房地產」37組潛客 CPL NT$279、「沙鹿東海大甲／家庭教育首購」CPL NT$168，都證明學區訴求對名單與訊息兩種目標都有效。富宇時代之丘鄰近鹿峰國小，建議加碼一組「鹿峰國小學區＋1198萬起首購」的獨立測試，素材直接放學區地圖與通學路線。</div>
+      </div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-num c5">5</div>
+      <div class="tip-body">
+        <div class="tip-title">停止方向：1%相似受眾疊加窄職業標籤、純再行銷、單一風格化標籤獨立成組全部失效</div>
+        <div class="tip-desc">區域數據中「1%相似受眾＋五金/食品加工/親子日常」花費NT$3,000+ 零轉換；「海線再行銷」CPL NT$1,877 全場最高；「質感生活」「科技護理」「日本日式」等風格化標籤單獨測試CPL NT$984-1,654。開案時應避免：1%相似受眾疊加過窄職業、無分層的純再行銷、風格化標籤單獨成組（應作為主軸包的補充標籤，不要獨立測試）。</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</div><!-- /rank-op-grid -->
+
+<!-- 關鍵洞見 -->
+<div class="section">
+  <div class="sec-title">關鍵洞見分析</div>
+  <div class="insight-box">
+    <div class="insight-title">富宇時代之丘・沙鹿海線市場核心洞見（開案前）</div>
+    <div class="insight-highlight">
+      沙鹿海線市場的訊息型廣告呈現「廣投款優於窄興趣」的特性——CPL最低的幾組都是寬地理/寬年齡/不鎖興趣的組合（NT$78-104），反而窄職業標籤要疊加到「醫護／工程師」這種確實存在大量從業人口的方向才有效。名單型則以業務/銷售型職業（餐飲業務、電商直銷）效率最高。開案初期建議廣投+雙引擎職業組並行，避免一開始就窄化到風格化標籤。
+    </div>
+    <div class="insight-sub">有效規律</div>
+    <ul class="insight-list">
+      <li>訊息型廣投款（不鎖興趣/寬地理寬年齡）CPL NT$78-104，是全區域效率最高的方向，優於任何窄興趣定向</li>
+      <li>醫護（護理/醫檢/藥師）與科技工程師（軟體/半導體）是沙鹿雙引擎族群，訊息與名單型都有實測依據</li>
+      <li>業務/銷售型職業（餐飲中小企業業務、電商直銷）在名單型廣告效率最高，CPL NT$91-127</li>
+      <li>自雇服務業／Uber司機／小吃業者訊息型CPL NT$97，是收入穩定但少被開發的族群</li>
+      <li>學區＋親子教育（鹿峰國小5K範圍）訊息與名單型都驗證有效，適合對接三房產品線</li>
+    </ul>
+    <div class="insight-sub">失效規律（開案應避免）</div>
+    <ul class="insight-list">
+      <li>1%相似受眾疊加過窄職業標籤（五金、食品加工）：花費NT$3,000+完全零轉換</li>
+      <li>純海線再行銷（無明確受眾分層）：CPL NT$1,877 全場最高，再行銷需搭配情境化素材而非只憑名單</li>
+      <li>風格化標籤獨立成組（質感生活、科技護理、日本日式）：CPL NT$984-1,654，這類標籤適合作為主軸包的補充興趣，不建議單獨測試</li>
+      <li>過度窄化單一職業（純工程師興趣、藍領銀行保險）：CPL NT$1,000+，覆蓋率不足導致成本攀升</li>
+    </ul>
+  </div>
+</div>
+
+<div class="page-footer">資料依據：沙鹿受眾0709.csv（442組）＋ 清水訊息受眾0709.csv（158組）海線區域參考數據 · 富宇時代之丘 台中沙鹿福德路186巷 · 建檔日期 2026-07-09</div>
+
+</div><!-- /wrap -->
+
+<div id="toast" style="position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);background:#1a2a30;color:#fff;font-size:12.5px;padding:10px 20px;border-radius:24px;opacity:0;transition:all .25s;pointer-events:none;z-index:999;white-space:nowrap">📋 已複製 → 貼至 Claude 對話</div>
+
+<script>
+const PROJECT = '富宇時代之丘（台中沙鹿・福德路186巷・大樓111戶・二房22-28坪/三房32-33坪・1198萬起・40組受眾・開案前規劃）';
+const MSG_G=[
+  {n:'28-60 / 沙鹿西屯 / 醫療人員',sub:'區域驗證全場最低量CPL·78訊息NT$78｜童綜合醫院周邊醫護族群',
+   logic:'沙鹿海線區域數據顯示「沙鹿西屯／醫療人員」以78則訊息、CPL NT$78 拿下全區域訊息型最低成本，證明童綜合醫院周邊的護理師、醫檢師、藥師等醫療從業人員是沙鹿置產的高效買盤——工作地點固定、排班規律、收入穩定但購屋時間有限，訊息互動型廣告能快速篩出真正有意圖的對象。此組鎖定童綜合醫院＋沙鹿西屯圈，訴求「上班救人，下班該住進更好的家」，主打二房22坪起適合單身/頂客醫護人員入手。',
+   lm:['童綜合醫院','沙鹿區公所','福德路','光華時尚廣場'],
+   tags:[['Nursing','護理'],['Hospital','醫院'],['Healthcare','醫療照護'],['Medical technician','醫檢師'],['Pharmacist','藥師'],['Shift work','輪班工作'],['Overtime work','加班'],['Job stability','工作穩定'],['Real estate (property)','不動產（房地產）'],['First home','首購成家'],['Home buying','購屋'],['Home upgrade','換屋升格'],['Mortgage','房屋貸款'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Investment','投資理財'],['Married','已婚'],['Single','單身'],['Family','家庭'],['Health food','健康飲食'],['Fitness','健身運動'],['Yoga','瑜珈'],['Coffee','咖啡'],['Convenience store','便利商店'],['Online shopping','網路購物'],['Streaming service','串流影音'],['Home appliances','家電'],['Furniture','家具'],['Quality of life','生活品質'],['Community living','社區生活']]},
+  {n:'30-65 / 沙鹿東海大甲 / 不鎖興趣廣投款（衝私訊留言）',sub:'區域驗證·15訊息CPL NT$85｜寬受眾廣投優於窄興趣定向',
+   logic:'區域數據「沙鹿東海大甲／不鎖興趣」廣投款以CPL NT$85證明訊息型廣告不一定要窄興趣定向，寬地理＋寬年齡＋基礎房產標籤反而觸及量大、成本低。此組作為富宇時代之丘的起跑主力款，先衝訊息量再從對話中篩客，適合搭配福德路186巷開案初期快速累積名單基礎。',
+   lm:['沙鹿區公所','沙鹿交流道','光華時尚廣場','家樂福沙鹿店'],
+   tags:[['Real estate (property)','不動產（房地產）'],['Home buying','購屋'],['Home upgrade','換屋升格'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Married','已婚'],['Family','家庭'],['Parents with children','有孩子的父母'],['Local community','在地社區'],['Local food','在地美食'],['Convenience store','便利商店'],['Online shopping','網路購物'],['Mobile payment','行動支付'],['Streaming service','串流影音'],['Mobile games','手機遊戲'],['Television','電視節目'],['News','新聞資訊'],['Home appliances','家電'],['Furniture','家具'],['Home improvement','居家裝潢'],['Cooking','料理'],['Health food','健康飲食'],['Bank','銀行金融'],['Insurance','保險'],['Temple','廟宇信仰'],['Quality of life','生活品質'],['Community living','社區生活'],['Taichung','台中沙鹿']]},
+  {n:'30-60 / 中科沙鹿 / 工程師軟體開發',sub:'區域驗證·68訊息CPL NT$89｜科技新貴通勤沙鹿置產族',
+   logic:'區域數據「中科沙鹿／工程師軟體開發」以68則訊息、CPL NT$89 是量與成本兼具的強勢方向，代表在中科上班、選擇沙鹿作為居住地的工程師族群規模不小——薪資高於平均、決策理性、重視通勤時間與居住品質。此組疊加軟體工程師職業興趣與科技生活習慣，訴求「中科寫程式，沙鹿住好宅，通勤20分鐘剛剛好」，二房/三房皆可對應單身工程師到成家工程師的不同階段。',
+   lm:['中科園區','沙鹿交流道','弘光科技大學','福德路'],
+   tags:[['Software engineering','軟體工程'],['Programming','程式設計'],['Technology','科技業'],['Semiconductor industry','半導體產業'],['Engineering','工程業'],['Startup company','新創公司'],['Remote work','遠端工作'],['Career development','職涯發展'],['Real estate (property)','不動產（房地產）'],['First home','首購成家'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Financial planning','財務規劃'],['Investment','投資理財'],['Stock market','股票市場'],['Saving','儲蓄'],['Married','已婚'],['Single','單身'],['Gaming','電玩遊戲'],['Consumer electronics','消費性電子'],['Smart home','智慧居家'],['Coffee','咖啡'],['Streaming service','串流影音'],['Fitness','健身運動'],['Automobile','汽車'],['Home appliances','家電'],['Interior design','室內設計'],['Quality of life','生活品質'],['Commuting','通勤']]},
+  {n:'30-65 / 沙鹿+10k / 在地服務業小吃業者・Uber司機',sub:'區域驗證·53訊息CPL NT$97｜自雇彈性收入服務業族群',
+   logic:'區域數據「沙鹿+10k／在地服務業小吃Uber司機」以53則訊息、CPL NT$97 驗證沙鹿在地自雇服務業者是穩定買盤——開小吃店、經營小生意、跑車接單的族群，收入來自營業額而非死薪水，資產配置意識強。此組疊加服務業經營與彈性工作興趣，訴求「自己當老闆，時間彈性，該給自己一個穩定的家」，適合搭配低首付/彈性貸款方案素材。',
+   lm:['沙鹿老街','沙鹿區公所','家樂福沙鹿店','光華時尚廣場'],
+   tags:[['Small business owners','小型企業主'],['Restaurant','餐飲業'],['Food service','餐飲服務'],['Ride-hailing','叫車服務'],['Self-employment','自雇工作'],['Gig economy','零工經濟'],['Flexible work','彈性工作'],['Entrepreneurship','創業'],['Real estate (property)','不動產（房地產）'],['First home','首購成家'],['Home buying','購屋'],['Mortgage','房屋貸款'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Investment','投資理財'],['Married','已婚'],['Family','家庭'],['Automobile','汽車'],['Motorcycle','機車'],['GPS navigation','導航'],['Mobile payment','行動支付'],['Local food','在地美食'],['Night market','夜市小吃'],['Convenience store','便利商店'],['Beer','啤酒'],['Barbecue','燒烤'],['Bank','銀行金融'],['Home appliances','家電'],['Quality of life','生活品質'],['Local community','在地社區']]},
+  {n:'30-65 / 沙鹿・中科 / 護理人員投資組',sub:'區域驗證·56訊息CPL NT$95（4組累計）｜醫護+投資雙重穩定收入族群',
+   logic:'區域數據「沙鹿中科／護理人員投資」累計4組測試、56則訊息、CPL NT$95，是護理人員族群中進一步疊加「有投資理財習慣」標籤後的精進版，代表這群人不只穩定領薪，也開始配置股票/基金。此組結合醫護職業與理財投資雙軸興趣，訴求「顧好病人，也該顧好自己的資產配置，先從一間房開始」。',
+   lm:['童綜合醫院','中科園區','沙鹿交流道','福德路'],
+   tags:[['Nursing','護理'],['Hospital','醫院'],['Healthcare','醫療照護'],['Medical technician','醫檢師'],['Shift work','輪班工作'],['Investment','投資理財'],['Stock market','股票市場'],['ETF','ETF投資'],['Financial planning','財務規劃'],['Personal finance','個人理財'],['Saving','儲蓄'],['Real estate (property)','不動產（房地產）'],['Property investment','置產投資'],['Home buying','購屋'],['Home upgrade','換屋升格'],['Mortgage','房屋貸款'],['Married','已婚'],['Single','單身'],['Family','家庭'],['Health food','健康飲食'],['Fitness','健身運動'],['Yoga','瑜珈'],['Skincare','保養美容'],['Coffee','咖啡'],['Online shopping','網路購物'],['Streaming service','串流影音'],['Home appliances','家電'],['Furniture','家具'],['Quality of life','生活品質'],['Bank','銀行金融']]},
+  {n:'25-55 / 龍井西屯沙鹿 / 第一波廣投款',sub:'區域驗證·114訊息CPL NT$104（7組累計）｜全區域最大量訊息來源',
+   logic:'區域數據「龍井西屯沙鹿」第一波廣投款以7組累計114則訊息、CPL NT$104，是整個海線區域訊息型廣告中量體最大的方向，代表寬年齡（25-55）＋寬地理（龍井西屯沙鹿）的組合能撐起最大觸及基礎。此組作為富宇時代之丘開案初期的走量主力，用於快速建立訊息池，之後再用內容篩選出真實買房意圖的對象。',
+   lm:['沙鹿交流道','沙鹿火車站','光華時尚廣場','家樂福沙鹿店'],
+   tags:[['Real estate (property)','不動產（房地產）'],['Home buying','購屋'],['Home upgrade','換屋升格'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Married','已婚'],['Single','單身'],['Family','家庭'],['Office worker','上班族'],['Commuting','通勤'],['Career development','職涯發展'],['Online shopping','網路購物'],['Mobile payment','行動支付'],['Food delivery','外送服務'],['Coffee','咖啡'],['Convenience store','便利商店'],['Streaming service','串流影音'],['Mobile games','手機遊戲'],['Social media','社群媒體'],['Fitness','健身運動'],['Home appliances','家電'],['Furniture','家具'],['Interior design','室內設計'],['Local food','在地美食'],['Quality of life','生活品質'],['Community living','社區生活'],['Bank','銀行金融'],['Taichung','台中沙鹿']]},
+  {n:'30-65+ / 沙鹿龍井彰化 / 工商教育類',sub:'區域驗證·34訊息CPL NT$125（2組累計）｜工商教育背景熟齡置產族',
+   logic:'區域數據「沙鹿龍井彰化／工商教育類」累計2組、34則訊息、CPL NT$125，代表跨海線到彰化通勤的工商業與教育從業人員也是有效買盤，這群人年齡跨度較大（30-65+），共通點是重視子女教育與資產穩健增值。此組疊加工商管理與教育背景興趣，訴求「事業穩了，該給家人一個更好的學區與居住品質」。',
+   lm:['鹿峰國小','沙鹿區公所','弘光科技大學','光華時尚廣場'],
+   tags:[['Business','商業'],['Business management','企業管理'],['Education','教育'],['Teacher','教師'],['Vocational training','職業訓練'],['Small business owners','小型企業主'],['Real estate (property)','不動產（房地產）'],['Home upgrade','換屋升格'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Investment','投資理財'],['Retirement planning','退休規劃'],['Married','已婚'],['Family','家庭'],['Parents with children','有孩子的父母'],['School district','學區'],['Child education','兒童教育'],['Reading','閱讀'],['Books','書籍'],['Health food','健康飲食'],['Tea','茶飲文化'],['Home appliances','家電'],['Furniture','家具'],['Interior design','室內設計'],['Quality of life','生活品質'],['Community living','社區生活'],['Local community','在地社區']]},
+  {n:'30-65 / 沙鹿東海 / 工程師半導體科技',sub:'區域驗證·29訊息CPL NT$148（2組累計）｜半導體產業鏈從業人員',
+   logic:'區域數據「沙鹿東海／工程師半導體科技」累計2組、29則訊息、CPL NT$148，鎖定的是半導體產業鏈（設備、材料、封測）工程師與技術人員，與純軟體工程師不同，這群人多為輪班制、收入含加班費與分紅，購屋急迫性因「終於有存款」而提高。此組疊加半導體產業與輪班生活興趣，訴求「熬過的班，該換一間好房子」。',
+   lm:['中科園區','沙鹿交流道','東海大學','福德路'],
+   tags:[['Semiconductor industry','半導體產業'],['Engineering','工程業'],['Manufacturing','製造業'],['Shift work','輪班工作'],['Overtime work','加班'],['Technology','科技業'],['Quality control','品質管理'],['Automation','自動化'],['Real estate (property)','不動產（房地產）'],['First home','首購成家'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Financial planning','財務規劃'],['Investment','投資理財'],['Stock market','股票市場'],['Saving','儲蓄'],['Married','已婚'],['Single','單身'],['Automobile','汽車'],['Consumer electronics','消費性電子'],['Gaming','電玩遊戲'],['Coffee','咖啡'],['Streaming service','串流影音'],['Fitness','健身運動'],['Home appliances','家電'],['Smart home','智慧居家'],['Quality of life','生活品質'],['Sleep quality','睡眠品質'],['Commuting','通勤']]},
+  {n:'33-65 / 龍井沙鹿東海大肚成功嶺 / 軍公教三代同堂',sub:'區域驗證·25訊息CPL NT$230｜三代同堂大坪數置產家庭',
+   logic:'區域數據「龍井沙鹿東海大肚成功嶺／軍公教三代同堂」25則訊息、CPL NT$230，鎖定的是軍公教背景、多代同住需求的家庭——成功嶺周邊有軍職眷屬，加上公教族群普遍重視家庭聚居。此組疊加軍公教穩定收入與三代同堂生活型態，訴求「爸媽、夫妻、孩子都要住得下，三房剛剛好」，直接對應富宇時代之丘三房32-33坪產品線。',
+   lm:['成功嶺','鹿峰國小','沙鹿區公所','福德路'],
+   tags:[['Public servant','公務員'],['Military','軍人'],['Teacher','教師'],['Civil service','公職'],['Job stability','工作穩定'],['Retirement pension','退休年金'],['Multi-generational household','三代同堂'],['Family','家庭'],['Grandparenting','含飴弄孫'],['Real estate (property)','不動產（房地產）'],['Home upgrade','換屋升格'],['Home buying','購屋'],['Large family home','大坪數住宅'],['Mortgage','房屋貸款'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Married','已婚'],['Parents with children','有孩子的父母'],['School district','學區'],['Health','健康養生'],['Traditional Chinese medicine','中醫養生'],['Temple','廟宇信仰'],['Traditional culture','傳統文化'],['Cooking','料理'],['Tea','茶飲文化'],['Home appliances','家電'],['Furniture','家具'],['Community living','社區生活'],['Quality of life','生活品質'],['Local community','在地社區']]},
+  {n:'30-65 / 沙鹿 / 文青類',sub:'區域驗證·30訊息CPL NT$273（2組累計）｜風格化生活受眾，補足客群光譜',
+   logic:'區域數據「沙鹿／文青類」累計2組、30則訊息、CPL NT$273，代表沙鹿也有一群重視居家美感、生活風格而非純機能訴求的族群。此組區隔於工程師/醫護等職業導向包，疊加文青生活興趣，訴求「不只是買房，是選一種生活方式」，適合搭配設計感強的素材與情境圖。',
+   lm:['沙鹿老街','光華時尚廣場','靜宜大學','福德路'],
+   tags:[['Interior design','室內設計'],['Minimalism','極簡生活'],['Home decor','居家佈置'],['Coffee','咖啡'],['Independent coffee shop','獨立咖啡店'],['Photography','攝影'],['Design','設計'],['Art','藝術'],['Reading','閱讀'],['Indie music','獨立音樂'],['Travel','旅遊'],['Plants','植栽'],['Pets','寵物'],['Handmade crafts','手作工藝'],['Baking','烘焙'],['Real estate (property)','不動產（房地產）'],['First home','首購成家'],['Home buying','購屋'],['Mortgage','房屋貸款'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Married','已婚'],['Single','單身'],['Online shopping','網路購物'],['Weekend getaway','週末小旅行'],['Bicycle','自行車'],['Streaming service','串流影音'],['Quality of life','生活品味'],['Furniture','家具'],['Community living','社區生活']]},
+  {n:'33-65 / 中科・沙鹿 / 在地醫護人員',sub:'區域驗證·10訊息CPL NT$273（2組累計）｜熟齡醫護，升等換屋為主',
+   logic:'區域數據「中科沙鹿／在地醫護人員」熟齡版累計2組、10則訊息、CPL NT$273，與前面較年輕醫護組不同，此組鎖定33-65歲、資歷較深的醫護人員，多已成家有孩子，訴求重點從「首購」轉為「換屋升等」，強調三房戶型與居住品質。',
+   lm:['童綜合醫院','中科園區','鹿峰國小','福德路'],
+   tags:[['Nursing','護理'],['Hospital','醫院'],['Healthcare','醫療照護'],['Medical technician','醫檢師'],['Shift work','輪班工作'],['Job stability','工作穩定'],['Real estate (property)','不動產（房地產）'],['Home upgrade','換屋升格'],['Home buying','購屋'],['Mortgage','房屋貸款'],['Financial planning','財務規劃'],['Investment','投資理財'],['Saving','儲蓄'],['Retirement planning','退休規劃'],['Married','已婚'],['Family','家庭'],['Parents with children','有孩子的父母'],['School district','學區'],['Health food','健康飲食'],['Traditional Chinese medicine','中醫養生'],['Fitness walking','健走運動'],['Tea','茶飲文化'],['Cooking','料理'],['Home appliances','家電'],['Furniture','家具'],['Interior design','室內設計'],['Community living','社區生活'],['Quality of life','生活品質'],['Local community','在地社區'],['Bank','銀行金融']]},
+  {n:'（K）30-65 / 沙鹿東海大甲 / 高知識分子家庭投資客',sub:'區域驗證·17訊息CPL NT$215｜高學歷理性置產家庭',
+   logic:'區域數據「沙鹿東海大甲／高知識分子家庭投資客」17則訊息、CPL NT$215，鎖定的是高學歷、理性決策的置產型家庭，會做功課、比較行情、重視建案的長期增值潛力而非短期優惠。此組疊加高學歷生活興趣與投資理財標籤，訴求「用理性判斷，沙鹿是這波海線最被低估的區域」，搭配591實價登錄近1年均價46.1萬/坪的數據作為理性訴求素材。',
+   lm:['東海大學','靜宜大學','沙鹿區公所','福德路'],
+   tags:[['Higher education','高等教育'],['Graduate school','研究所'],['Reading','閱讀'],['Books','書籍'],['Investment','投資理財'],['Stock market','股票市場'],['Real estate investment','不動產投資'],['Financial planning','財務規劃'],['Personal finance','個人理財'],['Property value','房屋增值'],['Real estate (property)','不動產（房地產）'],['Property investment','置產投資'],['Home upgrade','換屋升格'],['Home buying','購屋'],['Mortgage','房屋貸款'],['Saving','儲蓄'],['Married','已婚'],['Family','家庭'],['Parents with children','有孩子的父母'],['School district','學區'],['News','新聞資訊'],['Economics','經濟學'],['Coffee','咖啡'],['Fine dining','精緻餐飲'],['Travel','旅遊'],['Home appliances','家電'],['Interior design','室內設計'],['Quality of life','生活品質'],['Community living','社區生活'],['Bank','銀行金融']]},
+  {n:'30-65 / 沙鹿東海大甲 / 家庭教育首購',sub:'區域驗證·11訊息CPL NT$168｜首購+子女教育雙重動機家庭',
+   logic:'區域數據「沙鹿東海大甲／家庭教育首購」11則訊息、CPL NT$168，代表首購且已有或計畫生育子女的家庭是效率不錯的方向，這群人購屋決策核心是「學區」與「總價可負擔」。此組鎖定鹿峰國小學區，疊加親子教育與首購興趣，訴求「1198萬起，孩子的第一個學區，也是你的第一個家」。',
+   lm:['鹿峰國小','沙鹿區公所','光華時尚廣場','家樂福沙鹿店'],
+   tags:[['Parenting','親子教養'],['Child education','兒童教育'],['Primary school','小學'],['School district','學區'],['Baby products','嬰幼兒用品'],['Toy','玩具'],['Family activities','家庭活動'],['Child safety','兒童安全'],['Real estate (property)','不動產（房地產）'],['First home','首購成家'],['Home buying','購屋'],['Mortgage','房屋貸款'],['Home loan calculator','房貸試算'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Married','已婚'],['Newlywed','新婚'],['Family','家庭'],['Interior design','室內設計'],['Furniture','家具'],['Home appliances','家電'],['Health food','健康飲食'],['Cooking','料理'],['Online shopping','網路購物'],['Convenience store','便利商店'],['Streaming service','串流影音'],['Quality of life','生活品質'],['Community living','社區生活'],['Local community','在地社區'],['Bank','銀行金融']]},
+  {n:'30-55 / 沙鹿梧棲在地 / 成家輪廓',sub:'區域驗證·4訊息CPL NT$167｜精簡在地成家基礎款',
+   logic:'區域數據「沙鹿梧棲在地／成家輪廓」CPL NT$167，是一個精簡但有效的基礎成家款，鎖定沙鹿梧棲在地居民中準備成家或已成家的族群。此組作為訊息池的補強方向，疊加基礎成家與在地生活興趣，可與其他職業導向組交叉測試找出重疊受眾。',
+   lm:['沙鹿區公所','沙鹿老街','光華時尚廣場','福德路'],
+   tags:[['Newlywed','新婚'],['Married','已婚'],['Family','家庭'],['Family planning','家庭計畫'],['Real estate (property)','不動產（房地產）'],['First home','首購成家'],['Home buying','購屋'],['Mortgage','房屋貸款'],['Home loan calculator','房貸試算'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Personal finance','個人理財'],['Local community','在地社區'],['Local food','在地美食'],['Convenience store','便利商店'],['Online shopping','網路購物'],['Mobile payment','行動支付'],['Streaming service','串流影音'],['Mobile games','手機遊戲'],['Cooking','料理'],['Meal prep','備餐'],['Health food','健康飲食'],['Home appliances','家電'],['Furniture','家具'],['Interior design','室內設計'],['Home improvement','居家裝潢'],['Quality of life','生活品質'],['Community living','社區生活'],['Bank','銀行金融'],['Insurance','保險']]},
+  {n:'東城貳五模式 / 粉專互動180天 / 沙鹿兩房',sub:'區域驗證·52訊息CPL NT$169（3組累計）｜直接對標二房戶型的再行銷模式',
+   logic:'區域數據「東城貳五／粉專互動180天沙鹿兩房」累計3組、52則訊息、CPL NT$169，這是一個以「180天粉專互動再行銷」為基礎、直接鎖定二房需求的模式，證明針對特定坪數/戶型做互動再行銷是有效打法。此模式完全對應富宇時代之丘二房22-28坪產品線，建議開案後即建立粉專互動名單，180天內針對二房需求族群做再行銷訊息催化。',
+   lm:['福德路','沙鹿區公所','光華時尚廣場','家樂福沙鹿店'],
+   tags:[['Real estate (property)','不動產（房地產）'],['First home','首購成家'],['Home buying','購屋'],['Small apartment','小坪數住宅'],['Mortgage','房屋貸款'],['Home loan calculator','房貸試算'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Personal finance','個人理財'],['Married','已婚'],['Single','單身'],['Newlywed','新婚'],['Family','家庭'],['Retargeting audience','再行銷受眾'],['Page engagement','粉專互動'],['Online shopping','網路購物'],['Mobile payment','行動支付'],['Streaming service','串流影音'],['Coffee','咖啡'],['Convenience store','便利商店'],['Interior design','室內設計'],['Minimalism','極簡生活'],['Home appliances','家電'],['Furniture','家具'],['Home improvement','居家裝潢'],['Smart home','智慧居家'],['Quality of life','生活品質'],['Community living','社區生活'],['Local community','在地社區'],['Bank','銀行金融']]},
+  {n:'沙鹿清水神岡 / 傳產製造倉儲航運',sub:'區域驗證·4訊息CPL NT$249｜跨區域傳產倉儲物流業主與幹部',
+   logic:'區域數據「沙鹿清水神岡／傳產製造倉儲航運」CPL NT$249，代表海線橫跨沙鹿清水神岡的倉儲物流業主與中高階幹部，收入來自業務量、資產配置意識強。此組疊加倉儲物流產業興趣與商業經營標籤，鎖定範圍延伸至沙鹿工業區周邊，訴求「貨要準時到，家也該升級」。',
+   lm:['沙鹿交流道','台中港','沙鹿工業區','福德路'],
+   tags:[['Warehousing','倉儲'],['Logistics','物流'],['Freight transport','貨運'],['Shipping','航運'],['Supply chain management','供應鏈管理'],['Business owner','企業主'],['Small business owners','小型企業主'],['Entrepreneurship','創業'],['Manufacturing','製造業'],['Real estate (property)','不動產（房地產）'],['Property investment','置產投資'],['Home buying','購屋'],['Home upgrade','換屋升格'],['Mortgage','房屋貸款'],['Financial planning','財務規劃'],['Investment','投資理財'],['Saving','儲蓄'],['Married','已婚'],['Family','家庭'],['Truck driving','貨車駕駛'],['Automobile','汽車'],['Business networking','商業社交'],['Local food','在地美食'],['Beer','啤酒'],['Barbecue','燒烤'],['Golf','高爾夫'],['Home appliances','家電'],['Quality of life','生活品質'],['Community living','社區生活'],['Bank','銀行金融']]},
+  {n:'28-55 / 沙鹿清水 / 公教職員',sub:'區域驗證·23訊息CPL NT$268｜教育與公職體系穩定薪資族',
+   logic:'區域數據「沙鹿清水／公教職員」23則訊息、CPL NT$268，鎖定的是教師、幼教老師、一般公務員這個穩定薪資族群，決策相對理性保守但一旦決定會很堅定，重視學區與居住安全。此組疊加公教職業與穩定生活興趣，訴求「教育別人的孩子，該給自己的家一個好環境」。',
+   lm:['鹿峰國小','沙鹿區公所','弘光科技大學','福德路'],
+   tags:[['Teacher','教師'],['Education','教育'],['Public servant','公務員'],['Civil service','公職'],['School administration','學校行政'],['Job stability','工作穩定'],['Retirement pension','退休年金'],['Work-life balance','工作生活平衡'],['Real estate (property)','不動產（房地產）'],['Home buying','購屋'],['Home upgrade','換屋升格'],['School district','學區'],['Mortgage','房屋貸款'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Investment','投資理財'],['Married','已婚'],['Family','家庭'],['Parents with children','有孩子的父母'],['Reading','閱讀'],['Books','書籍'],['Health food','健康飲食'],['Yoga','瑜珈'],['Home appliances','家電'],['Furniture','家具'],['Interior design','室內設計'],['Community living','社區生活'],['Quality of life','生活品質'],['Local community','在地社區'],['Bank','銀行金融']]},
+  {n:'33-65 / 中科・沙鹿 / 喜歡日本風格生活',sub:'區域驗證·13訊息CPL NT$192｜日系生活風格熟齡置產族',
+   logic:'區域數據「中科沙鹿／喜歡日本」13則訊息、CPL NT$192，是一個看似小眾卻穩定的方向，代表偏好日系生活美學（無印良品、日式料理、日本旅遊）的熟齡族群購買力不錯。此組疊加日系生活風格興趣，訴求素材可走「日系極簡宅」風格，搭配時代之丘的建材質感訴求，區隔於一般傳產/工程師組別的視覺調性。',
+   lm:['光華時尚廣場','家樂福沙鹿店','沙鹿老街','福德路'],
+   tags:[['Japanese culture','日本文化'],['Japanese cuisine','日本料理'],['Japan travel','日本旅遊'],['Muji','無印良品'],['Minimalism','極簡生活'],['Interior design','室內設計'],['Home decor','居家佈置'],['Anime','動漫'],['Reading','閱讀'],['Tea','茶飲文化'],['Real estate (property)','不動產（房地產）'],['Home upgrade','換屋升格'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Investment','投資理財'],['Married','已婚'],['Family','家庭'],['Travel','旅遊'],['Photography','攝影'],['Coffee','咖啡'],['Skincare','保養美容'],['Home appliances','家電'],['Furniture','家具'],['Smart home','智慧居家'],['Quality of life','生活品味'],['Community living','社區生活'],['Bank','銀行金融']]},
+  {n:'沙鹿東海大雅 / 成家家電優惠',sub:'區域驗證·21訊息CPL NT$207（2組累計）｜家電優惠導向的成家實用族',
+   logic:'區域數據「沙鹿東海大雅／成家家電優惠」累計2組、21則訊息、CPL NT$207，代表對「入厝家電優惠」「成家補助」這類實用優惠訊息敏感的族群轉換效率不錯，這群人務實、重視性價比、對促銷型素材反應積極。此組疊加家電優惠與成家實用興趣，訴求「1198萬起還送家電優惠，成家一次到位」。',
+   lm:['家樂福沙鹿店','光華時尚廣場','鹿峰國小','福德路'],
+   tags:[['Home appliances','家電'],['Discount shopping','折扣購物'],['Coupon','優惠券折扣'],['Furniture','家具'],['Home decor','居家佈置'],['Home improvement','居家裝潢'],['Real estate (property)','不動產（房地產）'],['First home','首購成家'],['Home buying','購屋'],['Newlywed','新婚'],['Family planning','家庭計畫'],['Mortgage','房屋貸款'],['Home loan calculator','房貸試算'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Personal finance','個人理財'],['Married','已婚'],['Family','家庭'],['Baby products','嬰幼兒用品'],['Cooking','料理'],['Meal prep','備餐'],['Online shopping','網路購物'],['Mobile payment','行動支付'],['Convenience store','便利商店'],['Streaming service','串流影音'],['Smart home','智慧居家'],['Quality of life','生活品質'],['Community living','社區生活'],['Local community','在地社區'],['Bank','銀行金融']]},
+  {n:'33-65 / 中科・沙鹿 / 生活品質導向',sub:'區域驗證·14訊息CPL NT$214｜重視居住品質勝過通勤距離的族群',
+   logic:'區域數據「中科沙鹿／生活品質」14則訊息、CPL NT$214，鎖定的是願意犧牲一點通勤距離換取更好居住品質與社區環境的族群，這群人多半已有一定資產基礎，訴求重點不是價格而是「值不值得」。此組疊加生活品質與休閒興趣，訴求「用一點通勤時間，換一個更安靜、更舒適的家」。',
+   lm:['中科園區','沙鹿浮圳公園','光華時尚廣場','福德路'],
+   tags:[['Quality of life','生活品質'],['Wellness','身心健康'],['Fitness','健身運動'],['Yoga','瑜珈'],['Outdoor activities','戶外活動'],['Hiking','登山健行'],['Gardening','園藝種植'],['Pets','寵物'],['Real estate (property)','不動產（房地產）'],['Home upgrade','換屋升格'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Investment','投資理財'],['Married','已婚'],['Family','家庭'],['Coffee','咖啡'],['Fine dining','精緻餐飲'],['Travel','旅遊'],['Photography','攝影'],['Home appliances','家電'],['Smart home','智慧居家'],['Interior design','室內設計'],['Furniture','家具'],['Sleep quality','睡眠品質'],['Community living','社區生活'],['Bank','銀行金融'],['Commuting','通勤']]}
+];
+const LEAD_G=[
+  {n:'35-65 / 東海沙鹿 / 餐廳中小企業業務',sub:'區域驗證全場最低CPL·29潛客CPL NT$91｜餐飲業與業務職強力方向',
+   logic:'區域數據「東海沙鹿／餐廳中小企業業務」以29組潛客、CPL NT$91 拿下潛客型全區域最低成本，鎖定的是餐飲業經營者與中小企業業務人員——收入含業績獎金、決策快、對「投資自住兩相宜」的訴求特別有感。此組疊加餐飲經營與業務銷售興趣，訴求「談成一筆生意的效率，也該用在買房決定上」，作為富宇時代之丘名單型廣告的主力起跑款。',
+   lm:['沙鹿老街','東海大學','光華時尚廣場','福德路'],
+   tags:[['Restaurant','餐飲業'],['Food service','餐飲服務'],['Small business owners','小型企業主'],['Sales','業務銷售'],['Business','商業'],['Business networking','商業社交'],['Entrepreneurship','創業'],['Real estate (property)','不動產（房地產）'],['Property investment','置產投資'],['Home buying','購屋'],['Home upgrade','換屋升格'],['Mortgage','房屋貸款'],['Financial planning','財務規劃'],['Investment','投資理財'],['Saving','儲蓄'],['Married','已婚'],['Family','家庭'],['Automobile','汽車'],['Local food','在地美食'],['Night market','夜市小吃'],['Beer','啤酒'],['Barbecue','燒烤'],['Golf','高爾夫'],['Business suit','西裝'],['Mobile payment','行動支付'],['Home appliances','家電'],['Furniture','家具'],['Quality of life','生活品質'],['Community living','社區生活'],['Bank','銀行金融']]},
+  {n:'28-65 / 台中市區＋沙鹿 / 直銷電商業務',sub:'區域驗證·33潛客CPL NT$127｜業績型收入族群，換屋動機強',
+   logic:'區域數據「台中市區沙鹿／直銷電商業務」33組潛客、CPL NT$127，鎖定電商經營者與直銷業務人員，這群人收入波動大但上限高，一旦業績穩定會積極置產保值。此組疊加電商經營與業務興趣，訴求「線上生意做起來了，該給自己一個實體的家」。',
+   lm:['沙鹿區公所','台中火車站','光華時尚廣場','福德路'],
+   tags:[['E-commerce','電子商務'],['Online business','網路創業'],['Direct selling','直銷'],['Sales','業務銷售'],['Entrepreneurship','創業'],['Business owner','企業主'],['Social media marketing','社群行銷'],['Business networking','商業社交'],['Real estate (property)','不動產（房地產）'],['Property investment','置產投資'],['Home buying','購屋'],['Home upgrade','換屋升格'],['Mortgage','房屋貸款'],['Financial planning','財務規劃'],['Investment','投資理財'],['Saving','儲蓄'],['Married','已婚'],['Family','家庭'],['Online shopping','網路購物'],['Mobile payment','行動支付'],['Luxury automobiles','豪華汽車'],['Fine dining','精緻餐飲'],['Travel','旅遊'],['Smartphone','智慧型手機'],['Home appliances','家電'],['Interior design','室內設計'],['Quality of life','生活品質'],['Community living','社區生活'],['Bank','銀行金融'],['Insurance','保險']]},
+  {n:'【1510】28-60 / 龍井西屯沙鹿 / 投資興趣',sub:'區域驗證·26潛客CPL NT$128｜1510格式驗證，投資理財核心受眾',
+   logic:'區域數據「1510龍井西屯沙鹿／投資興趣」26組潛客、CPL NT$128，是1510格式（廣泛地理+核心興趣）驗證有效的方向，鎖定對股票、基金、房地產投資有主動興趣的族群。此組疊加投資理財核心標籤與置產興趣，訴求「把買房當作一筆好的投資決策」，適合搭配理性投資角度的素材（增值曲線、租金報酬率）。',
+   lm:['沙鹿交流道','沙鹿區公所','光華時尚廣場','福德路'],
+   tags:[['Investment','投資理財'],['Stock market','股票市場'],['ETF','ETF投資'],['Real estate investment','不動產投資'],['Property investment','置產投資'],['Financial planning','財務規劃'],['Personal finance','個人理財'],['Property value','房屋增值'],['Real estate (property)','不動產（房地產）'],['Home buying','購屋'],['Home upgrade','換屋升格'],['Mortgage','房屋貸款'],['Saving','儲蓄'],['Bank','銀行金融'],['Insurance','保險'],['Married','已婚'],['Family','家庭'],['News','新聞資訊'],['Economics','經濟學'],['Business','商業'],['Coffee','咖啡'],['Travel','旅遊'],['Fine dining','精緻餐飲'],['Smartphone','智慧型手機'],['Home appliances','家電'],['Interior design','室內設計'],['Furniture','家具'],['Quality of life','生活品質'],['Community living','社區生活'],['Taichung','台中沙鹿']]},
+  {n:'【1510】30-60 / 龍井沙鹿 / 傳產在地公務員小學老師',sub:'區域驗證·26潛客CPL NT$128｜傳產與公教混合在地圈',
+   logic:'區域數據「1510龍井沙鹿／傳產在地公務員小學老師」26組潛客、CPL NT$128，是傳產從業者與公教人員的混合1510受眾包，代表這兩類在地穩定收入族群可以合併觸及，效率不輸個別測試。此組疊加傳產與公教雙軸興趣，訴求「不管是顧工廠還是教書，穩定的收入該配一個穩定的家」。',
+   lm:['鹿峰國小','沙鹿工業區','沙鹿區公所','福德路'],
+   tags:[['Manufacturing','製造業'],['Factory','工廠'],['Small business owners','小型企業主'],['Teacher','教師'],['Public servant','公務員'],['Education','教育'],['Job stability','工作穩定'],['Real estate (property)','不動產（房地產）'],['Home buying','購屋'],['Home upgrade','換屋升格'],['School district','學區'],['Mortgage','房屋貸款'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Investment','投資理財'],['Married','已婚'],['Family','家庭'],['Parents with children','有孩子的父母'],['Temple','廟宇信仰'],['Traditional culture','傳統文化'],['Local food','在地美食'],['Beer','啤酒'],['Barbecue','燒烤'],['Reading','閱讀'],['Home appliances','家電'],['Furniture','家具'],['Quality of life','生活品質'],['Community living','社區生活'],['Local community','在地社區'],['Bank','銀行金融']]},
+  {n:'35-65 / 東海沙鹿 / 護理人員興趣',sub:'區域驗證·66潛客CPL NT$147（3組累計）｜潛客型最大量護理族群',
+   logic:'區域數據「東海沙鹿／護理人員興趣」累計3組、66組潛客、CPL NT$147，是潛客型廣告中量體最大的方向之一，證明護理人員不只在訊息型有效，名單型同樣是強勢客群。此組鎖定範圍延伸至東海大學周邊，疊加醫護職業興趣，訴求「排班辛苦，該給自己一個安穩的家」。',
+   lm:['童綜合醫院','東海大學','沙鹿交流道','福德路'],
+   tags:[['Nursing','護理'],['Hospital','醫院'],['Healthcare','醫療照護'],['Medical technician','醫檢師'],['Shift work','輪班工作'],['Overtime work','加班'],['Job stability','工作穩定'],['Real estate (property)','不動產（房地產）'],['First home','首購成家'],['Home buying','購屋'],['Home upgrade','換屋升格'],['Mortgage','房屋貸款'],['Financial planning','財務規劃'],['Investment','投資理財'],['Saving','儲蓄'],['Married','已婚'],['Single','單身'],['Family','家庭'],['Health food','健康飲食'],['Fitness','健身運動'],['Yoga','瑜珈'],['Skincare','保養美容'],['Coffee','咖啡'],['Online shopping','網路購物'],['Streaming service','串流影音'],['Home appliances','家電'],['Furniture','家具'],['Sleep quality','睡眠品質'],['Quality of life','生活品質'],['Bank','銀行金融']]},
+  {n:'35-65 / 東海沙鹿 / 科技業相關',sub:'區域驗證·11潛客CPL NT$149｜科技業泛職能名單補強款',
+   logic:'區域數據「東海沙鹿／科技業相關」11組潛客、CPL NT$149，是比起純工程師更泛職能的科技業標籤組合（含業務、行政、PM等科技公司職員），作為名單型科技業族群的補強方向，觸及工程師以外的科技公司員工。此組疊加泛科技業生活興趣，訴求「在科技業上班，該住進科技感的家」。',
+   lm:['中科園區','沙鹿交流道','光華時尚廣場','福德路'],
+   tags:[['Technology','科技業'],['Startup company','新創公司'],['Project management','專案管理'],['Office worker','上班族'],['Career development','職涯發展'],['Consumer electronics','消費性電子'],['Smart home','智慧居家'],['Real estate (property)','不動產（房地產）'],['First home','首購成家'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Financial planning','財務規劃'],['Investment','投資理財'],['Stock market','股票市場'],['Saving','儲蓄'],['Married','已婚'],['Single','單身'],['Gaming','電玩遊戲'],['Streaming service','串流影音'],['Coffee','咖啡'],['Automobile','汽車'],['Fitness','健身運動'],['Home appliances','家電'],['Interior design','室內設計'],['Furniture','家具'],['Quality of life','生活品質'],['Community living','社區生活'],['Commuting','通勤'],['Bank','銀行金融']]},
+  {n:'28-65 / 台中市區＋沙鹿梧棲 / 百貨業',sub:'區域驗證·21潛客CPL NT$152｜百貨零售業從業人員',
+   logic:'區域數據「台中市區沙鹿梧棲／百貨業」21組潛客、CPL NT$152，鎖定百貨公司、零售通路的從業人員，這群人熟悉消費趨勢、對商場級生活機能有高度要求，光華時尚廣場、家樂福等生活機能是有力賣點。此組疊加零售百貨業興趣，訴求「懂零售的你，最清楚地段跟機能的價值」。',
+   lm:['光華時尚廣場','家樂福沙鹿店','沙鹿老街','福德路'],
+   tags:[['Retail','零售業'],['Department store','百貨業'],['Fashion','時尚'],['Sales','業務銷售'],['Customer service','客戶服務'],['Merchandising','商品陳列'],['Real estate (property)','不動產（房地產）'],['First home','首購成家'],['Home buying','購屋'],['Home upgrade','換屋升格'],['Mortgage','房屋貸款'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Investment','投資理財'],['Married','已婚'],['Single','單身'],['Family','家庭'],['Fashion shopping','時尚購物'],['Online shopping','網路購物'],['Discount shopping','折扣購物'],['Beauty','美妝'],['Skincare','保養美容'],['Coffee','咖啡'],['Fine dining','精緻餐飲'],['Home appliances','家電'],['Interior design','室內設計'],['Furniture','家具'],['Quality of life','生活品質'],['Community living','社區生活'],['Bank','銀行金融']]},
+  {n:'30-65 / 沙鹿 / 保全消防業務類',sub:'區域驗證·36潛客CPL NT$182-195（2版本累計）｜輪班服勤，社區安全敏感度高',
+   logic:'區域數據「沙鹿／保全消防業務類」兩個版本累計36組潛客、CPL NT$182-195，鎖定保全業、消防設備業務人員，這群人本職就對「社區安全管理」高度敏感，對富宇時代之丘的社區管理與門禁規劃特別有共鳴。此組疊加保全消防職業興趣，訴求「顧別人的安全，也該給自己一個管理完善的家」。',
+   lm:['沙鹿區公所','沙鹿交流道','光華時尚廣場','福德路'],
+   tags:[['Security services','保全業'],['Firefighting','消防'],['Sales','業務銷售'],['Shift work','輪班工作'],['Job stability','工作穩定'],['Community safety','社區安全'],['Real estate (property)','不動產（房地產）'],['First home','首購成家'],['Home buying','購屋'],['Mortgage','房屋貸款'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Investment','投資理財'],['Married','已婚'],['Family','家庭'],['Automobile','汽車'],['Motorcycle','機車'],['Security system','保全系統'],['Smart home','智慧居家'],['Convenience store','便利商店'],['Local food','在地美食'],['Beer','啤酒'],['Barbecue','燒烤'],['Mobile games','手機遊戲'],['Streaming service','串流影音'],['Home appliances','家電'],['Furniture','家具'],['Quality of life','生活品質'],['Community living','社區生活'],['Bank','銀行金融']]},
+  {n:'【1510】28-60 / 龍井沙鹿 / 在地創業家庭',sub:'區域驗證·5潛客CPL NT$188｜1510格式，在地創業家庭精準款',
+   logic:'區域數據「1510龍井沙鹿／在地創業家庭」CPL NT$188，鎖定的是在地自行創業、已成家的族群，這類家庭決策時通常夫妻一起看房，對「事業/家庭平衡」的生活型態訴求有感。此組疊加創業與家庭興趣，訴求「創業顧事業，也不能忘了顧家人」。',
+   lm:['沙鹿老街','沙鹿區公所','光華時尚廣場','福德路'],
+   tags:[['Entrepreneurship','創業'],['Small business owners','小型企業主'],['Business owner','企業主'],['Family business','家族企業'],['Business','商業'],['Real estate (property)','不動產（房地產）'],['Property investment','置產投資'],['Home buying','購屋'],['Home upgrade','換屋升格'],['Mortgage','房屋貸款'],['Financial planning','財務規劃'],['Investment','投資理財'],['Saving','儲蓄'],['Married','已婚'],['Family','家庭'],['Parents with children','有孩子的父母'],['Work-life balance','工作生活平衡'],['Automobile','汽車'],['Local food','在地美食'],['Night market','夜市小吃'],['Temple','廟宇信仰'],['Traditional culture','傳統文化'],['Beer','啤酒'],['Barbecue','燒烤'],['Home appliances','家電'],['Furniture','家具'],['Quality of life','生活品質'],['Community living','社區生活'],['Local community','在地社區'],['Bank','銀行金融']]},
+  {n:'30-60 / 沙鹿龍井伸港 / 上班族家具設計',sub:'區域驗證·20潛客CPL NT$197｜家具設計興趣，換屋裝潢意圖明確',
+   logic:'區域數據「沙鹿龍井伸港／上班族家具設計」20組潛客、CPL NT$197，鎖定對居家設計、家具佈置有主動興趣的上班族，這群人通常已經在規劃「未來的家」長什麼樣子，購屋意圖比一般受眾更明確。此組疊加家具設計與居家佈置興趣，訴求「先想好家的樣子，時代之丘幫你實現」，搭配全室裝潢或客變服務素材。',
+   lm:['光華時尚廣場','家樂福沙鹿店','沙鹿區公所','福德路'],
+   tags:[['Interior design','室內設計'],['Furniture','家具'],['Home decor','居家佈置'],['Home improvement','居家裝潢'],['Furniture shopping','家具採購'],['Office worker','上班族'],['Real estate (property)','不動產（房地產）'],['First home','首購成家'],['Home buying','購屋'],['Home upgrade','換屋升格'],['Mortgage','房屋貸款'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Married','已婚'],['Single','單身'],['Family','家庭'],['Online shopping','網路購物'],['Minimalism','極簡生活'],['Smart home','智慧居家'],['Home appliances','家電'],['DIY','自己動手做'],['Photography','攝影'],['Design','設計'],['Coffee','咖啡'],['Streaming service','串流影音'],['Quality of life','生活品味'],['Community living','社區生活'],['Bank','銀行金融'],['Insurance','保險'],['Commuting','通勤']]},
+  {n:'【1510】30-60 / 龍井沙鹿 / 科技業老師混合',sub:'區域驗證·4潛客CPL NT$197｜科技+教育跨界1510組合',
+   logic:'區域數據「1510龍井沙鹿／科技業老師」CPL NT$197，是科技業與教育業的跨界1510受眾包，代表這兩類穩定高收入族群可合併觸及。此組疊加科技與教育雙軸興趣，適合作為量體補強，與純科技業組、純公教組交叉比對找出重疊高效受眾。',
+   lm:['中科園區','鹿峰國小','弘光科技大學','福德路'],
+   tags:[['Technology','科技業'],['Software engineering','軟體工程'],['Teacher','教師'],['Education','教育'],['Career development','職涯發展'],['Job stability','工作穩定'],['Real estate (property)','不動產（房地產）'],['First home','首購成家'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Financial planning','財務規劃'],['Investment','投資理財'],['Stock market','股票市場'],['Saving','儲蓄'],['Married','已婚'],['Family','家庭'],['School district','學區'],['Reading','閱讀'],['Coffee','咖啡'],['Gaming','電玩遊戲'],['Streaming service','串流影音'],['Fitness','健身運動'],['Home appliances','家電'],['Smart home','智慧居家'],['Interior design','室內設計'],['Quality of life','生活品質'],['Community living','社區生活'],['Bank','銀行金融'],['Commuting','通勤']]},
+  {n:'30-60 / 沙鹿西屯 / 自營商',sub:'區域驗證·7潛客CPL NT$215（2組累計）｜獨立經營者置產保值需求',
+   logic:'區域數據「沙鹿西屯／自營商」累計2組、7組潛客、CPL NT$215，鎖定獨立經營小生意的自營商，資產配置意識強、決策自主性高。此組疊加自營商經營興趣，訴求「生意是自己的，家的決定也該自己做主」。',
+   lm:['沙鹿區公所','沙鹿老街','光華時尚廣場','福德路'],
+   tags:[['Small business owners','小型企業主'],['Entrepreneurship','創業'],['Business owner','企業主'],['Business','商業'],['Retail','零售業'],['Family business','家族企業'],['Real estate (property)','不動產（房地產）'],['Property investment','置產投資'],['Home buying','購屋'],['Home upgrade','換屋升格'],['Mortgage','房屋貸款'],['Financial planning','財務規劃'],['Investment','投資理財'],['Saving','儲蓄'],['Married','已婚'],['Family','家庭'],['Automobile','汽車'],['Local food','在地美食'],['Night market','夜市小吃'],['Temple','廟宇信仰'],['Beer','啤酒'],['Barbecue','燒烤'],['Golf','高爾夫'],['Bank','銀行金融'],['Insurance','保險'],['Home appliances','家電'],['Furniture','家具'],['Quality of life','生活品質'],['Community living','社區生活'],['Local community','在地社區']]},
+  {n:'30-65 / 沙鹿清水 / 科技＋生活興趣',sub:'區域驗證·19潛客CPL NT$218｜科技興趣+生活品質複合標籤',
+   logic:'區域數據「科技+生活／沙鹿清水」19組潛客、CPL NT$218，是科技產業興趣與生活品質標籤的複合款，觸及範圍比純科技業組更廣，涵蓋對科技保持關注但不一定在科技業工作的族群。此組適合作為科技業核心組的外圍補強，擴大整體觸及面。',
+   lm:['中科園區','光華時尚廣場','沙鹿交流道','福德路'],
+   tags:[['Technology','科技業'],['Consumer electronics','消費性電子'],['Smart home','智慧居家'],['Gadgets','科技產品'],['Quality of life','生活品質'],['Wellness','身心健康'],['Fitness','健身運動'],['Real estate (property)','不動產（房地產）'],['Home upgrade','換屋升格'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Financial planning','財務規劃'],['Investment','投資理財'],['Saving','儲蓄'],['Married','已婚'],['Family','家庭'],['Coffee','咖啡'],['Streaming service','串流影音'],['Gaming','電玩遊戲'],['Travel','旅遊'],['Photography','攝影'],['Automobile','汽車'],['Home appliances','家電'],['Interior design','室內設計'],['Furniture','家具'],['Community living','社區生活'],['Bank','銀行金融'],['Commuting','通勤'],['Sleep quality','睡眠品質']]},
+  {n:'35-65 / 東海沙鹿 / 沙鹿在地客',sub:'區域驗證·4潛客CPL NT$234｜純在地居民精準款',
+   logic:'區域數據「東海沙鹿／沙鹿在地客」CPL NT$234，是不特別鎖定職業、純粹以「沙鹿在地居住」為核心的精準款，適合搭配再行銷或用於驗證地理範圍的基礎效度。此組疊加在地生活興趣，訴求「住在沙鹿這麼久，該換一間更好的」。',
+   lm:['沙鹿區公所','沙鹿老街','福德路','光華時尚廣場'],
+   tags:[['Local community','在地社區'],['Local food','在地美食'],['Night market','夜市小吃'],['Temple','廟宇信仰'],['Traditional culture','傳統文化'],['Real estate (property)','不動產（房地產）'],['Home upgrade','換屋升格'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Married','已婚'],['Family','家庭'],['Parents with children','有孩子的父母'],['Moving','搬家'],['Cooking','料理'],['Tea','茶飲文化'],['Convenience store','便利商店'],['Online shopping','網路購物'],['Streaming service','串流影音'],['Television','電視節目'],['Home appliances','家電'],['Furniture','家具'],['Home improvement','居家裝潢'],['Community living','社區生活'],['Quality of life','生活品質'],['Bank','銀行金融'],['Insurance','保險'],['School district','學區']]},
+  {n:'28-60 / 西屯清水沙鹿中科 / 房地產直接興趣',sub:'區域驗證·3潛客CPL NT$237｜房地產高意圖直接定向',
+   logic:'區域數據「西屯清水沙鹿中科／房地產興趣」CPL NT$237，直接鎖定對不動產、591、房仲平台有主動興趣的高意圖使用者，雖然量不大但精準度高。此組疊加房地產直接興趣標籤，適合搭配再行銷同時開啟，作為高投產比補強款。',
+   lm:['沙鹿區公所','中科園區','光華時尚廣場','福德路'],
+   tags:[['Real estate (property)','不動產（房地產）'],['Real estate listing','房地產搜尋'],['Real estate agent','房仲'],['Home buying','購屋'],['Home upgrade','換屋升格'],['Property investment','置產投資'],['New construction','新成屋'],['Pre-construction sale','預售屋'],['Mortgage','房屋貸款'],['Home loan calculator','房貸試算'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Investment','投資理財'],['Married','已婚'],['Family','家庭'],['Parents with children','有孩子的父母'],['Moving','搬家'],['Interior design','室內設計'],['Home improvement','居家裝潢'],['Furniture','家具'],['Home appliances','家電'],['Property value','房屋增值'],['Bank','銀行金融'],['Insurance','保險'],['Smart home','智慧居家'],['Local community','在地社區'],['Community living','社區生活'],['Quality of life','生活品質'],['Taichung','台中沙鹿'],['School district','學區']]},
+  {n:'30-55 / 沙鹿梧棲中科 / 科技業生活興趣',sub:'區域驗證·74潛客CPL NT$255（4組累計）｜潛客型量體最大科技族群',
+   logic:'區域數據「沙鹿梧棲中科／科技業生活興趣」累計4組、74組潛客、CPL NT$255，是名單型廣告中量體最大的科技業方向，證明科技業族群在名單型也能貢獻大量有效名單，只是CPL略高於訊息型。此組疊加科技業生活興趣，適合大預算走量，搭配訊息型科技業組交叉比對受眾重疊度。',
+   lm:['中科園區','梧棲漁港','沙鹿交流道','福德路'],
+   tags:[['Technology','科技業'],['Software engineering','軟體工程'],['Engineering','工程業'],['Career development','職涯發展'],['Consumer electronics','消費性電子'],['Gaming','電玩遊戲'],['Real estate (property)','不動產（房地產）'],['First home','首購成家'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Financial planning','財務規劃'],['Investment','投資理財'],['Stock market','股票市場'],['Saving','儲蓄'],['Married','已婚'],['Single','單身'],['Family','家庭'],['Coffee','咖啡'],['Streaming service','串流影音'],['Fitness','健身運動'],['Automobile','汽車'],['Travel','旅遊'],['Home appliances','家電'],['Smart home','智慧居家'],['Interior design','室內設計'],['Quality of life','生活品質'],['Community living','社區生活'],['Bank','銀行金融'],['Commuting','通勤']]},
+  {n:'30-55 / 沙鹿梧棲在地 / 年輕人興趣',sub:'區域驗證·8潛客CPL NT$257（2組累計）｜年輕首購族補強款',
+   logic:'區域數據「沙鹿梧棲在地／年輕人興趣」累計2組、8組潛客、CPL NT$257，鎖定較年輕的在地首購族群，雖然CPL略高但補足了年齡光譜較年輕的一端。此組疊加年輕生活興趣，訴求「還年輕，更該趁早上車，1198萬起的二房是最好的起點」。',
+   lm:['沙鹿老街','光華時尚廣場','沙鹿火車站','福德路'],
+   tags:[['Young adult','年輕族群'],['First home','首購成家'],['Home buying','購屋'],['Real estate (property)','不動產（房地產）'],['Mortgage','房屋貸款'],['Home loan calculator','房貸試算'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Personal finance','個人理財'],['Single','單身'],['Newlywed','新婚'],['Married','已婚'],['Office worker','上班族'],['Social media','社群媒體'],['Smartphone','智慧型手機'],['Online shopping','網路購物'],['Mobile payment','行動支付'],['Streaming service','串流影音'],['Mobile games','手機遊戲'],['Coffee','咖啡'],['Convenience store','便利商店'],['Food delivery','外送服務'],['Fitness','健身運動'],['Travel','旅遊'],['Home appliances','家電'],['Minimalism','極簡生活'],['Furniture','家具'],['Quality of life','生活品味'],['Bank','銀行金融'],['Commuting','通勤']]},
+  {n:'30-65 / 沙鹿在地 / 醫療＋運動興趣',sub:'區域驗證·12潛客CPL NT$259（2組累計）｜健康意識族群，重視社區運動機能',
+   logic:'區域數據「沙鹿在地／醫療+運動」累計2組、12組潛客、CPL NT$259，鎖定重視健康、規律運動的族群，這群人對社區周邊運動機能（公園、健身房）與居住空間品質要求較高。此組疊加健康運動興趣，訴求「規律運動的你，該住進一個有品質的社區」。',
+   lm:['沙鹿浮圳公園','童綜合醫院','光華時尚廣場','福德路'],
+   tags:[['Fitness','健身運動'],['Yoga','瑜珈'],['Running','跑步'],['Gym','健身房'],['Health','健康養生'],['Healthcare','醫療照護'],['Health food','健康飲食'],['Wellness','身心健康'],['Real estate (property)','不動產（房地產）'],['Home upgrade','換屋升格'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Investment','投資理財'],['Married','已婚'],['Family','家庭'],['Outdoor activities','戶外活動'],['Cycling','自行車'],['Sleep quality','睡眠品質'],['Coffee','咖啡'],['Streaming service','串流影音'],['Home appliances','家電'],['Smart home','智慧居家'],['Interior design','室內設計'],['Community living','社區生活'],['Quality of life','生活品質'],['Bank','銀行金融'],['Local community','在地社區']]},
+  {n:'【1510】30-60 / 龍井沙鹿大肚 / 中高階收入家庭',sub:'區域驗證·1潛客CPL NT$267｜1510格式，高單價換屋族精準款',
+   logic:'區域數據「1510龍井沙鹿大肚／中高階收入家庭」CPL NT$267，雖然單筆數據量小，但代表中高階收入的換屋家庭方向具參考價值，鎖定已有一定資產、正在考慮換屋升等的家庭。此組疊加高收入家庭生活興趣，訴求「值得更好生活品質的，不只是別人家」，適合搭配三房戶型與高規格建材素材。',
+   lm:['福德路','沙鹿區公所','光華時尚廣場','鹿峰國小'],
+   tags:[['High income household','高收入家庭'],['Home upgrade','換屋升格'],['Property investment','置產投資'],['Real estate (property)','不動產（房地產）'],['Luxury automobiles','豪華汽車'],['Fine dining','精緻餐飲'],['Golf','高爾夫'],['Travel','旅遊'],['Investment','投資理財'],['Stock market','股票市場'],['Financial planning','財務規劃'],['Wealth management','財富管理'],['Home buying','購屋'],['Mortgage','房屋貸款'],['Saving','儲蓄'],['Married','已婚'],['Family','家庭'],['Parents with children','有孩子的父母'],['School district','學區'],['Interior design','室內設計'],['Smart home','智慧居家'],['Furniture','家具'],['Home appliances','家電'],['Wine','葡萄酒'],['Business','商業'],['Business networking','商業社交'],['Quality of life','生活品質'],['Community living','社區生活'],['Bank','銀行金融'],['Insurance','保險']]},
+  {n:'30-55 / 沙鹿國小＋5K / 房地產學區導向',sub:'區域驗證·37潛客CPL NT$279｜學區房產雙訴求，量體大',
+   logic:'區域數據「沙鹿國小+5K／房地產」37組潛客、CPL NT$279，是學區地理定向＋房地產興趣的組合，量體不小，證明學區訴求對名單型廣告轉換效率有實質幫助。此組鎖定鹿峰國小5公里範圍，疊加學區與房地產興趣，直接訴求「鹿峰國小學區，時代之丘就在家門口」。',
+   lm:['鹿峰國小','沙鹿區公所','光華時尚廣場','福德路'],
+   tags:[['School district','學區'],['Primary school','小學'],['Parenting','親子教養'],['Child education','兒童教育'],['Real estate (property)','不動產（房地產）'],['Home buying','購屋'],['Home upgrade','換屋升格'],['Property investment','置產投資'],['New construction','新成屋'],['Mortgage','房屋貸款'],['Home loan calculator','房貸試算'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Married','已婚'],['Family','家庭'],['Parents with children','有孩子的父母'],['Baby products','嬰幼兒用品'],['Toy','玩具'],['Family activities','家庭活動'],['Moving','搬家'],['Interior design','室內設計'],['Furniture','家具'],['Home appliances','家電'],['Health food','健康飲食'],['Cooking','料理'],['Community living','社區生活'],['Quality of life','生活品質'],['Local community','在地社區'],['Bank','銀行金融'],['Insurance','保險']]}
+];
+function buildAudCard(g,idx,prefix){
+  const id=prefix+(idx+1);
+  const rows=g.tags.map((t,i)=>`<tr><td>${i+1}</td><td>${t[0]}</td><td>${t[1]}</td></tr>`).join('');
+  const lmTags=g.lm.map(l=>`<span class="aud-lm-tag">${l}</span>`).join('');
+  return `<div class="aud-card" id="${id}">
+    <div class="aud-header" onclick="toggleAud('${id}')">
+      <div class="aud-num">${idx+1}</div>
+      <div class="aud-info"><div class="aud-name">${g.n}</div><div class="aud-sub">${g.sub}</div></div>
+      <div class="aud-arrow">▶</div>
+    </div>
+    <div class="aud-body">
+      <div class="aud-sl">評估邏輯</div>
+      <div class="aud-logic">${g.logic}</div>
+      <div class="aud-sl">地標定位</div>
+      <div class="aud-lm">${lmTags}</div>
+      <div class="aud-sl">興趣標籤（點擊列複製單個）</div>
+      <table class="tag-tbl"><thead><tr><th>#</th><th>English</th><th>中文</th></tr></thead><tbody>${rows}</tbody></table>
+    </div>
+  </div>`;
+}
+function toggleAud(id){document.getElementById(id).classList.toggle('open')}
+(function(){
+  const mg=document.getElementById('msg-aud-grid');
+  if(mg)mg.innerHTML=MSG_G.map((g,i)=>buildAudCard(g,i,'m')).join('');
+  const lg=document.getElementById('lead-aud-grid');
+  if(lg)lg.innerHTML=LEAD_G.map((g,i)=>buildAudCard(g,i,'l')).join('');
+  document.querySelectorAll('.tag-tbl tbody tr').forEach(tr=>{
+    tr.addEventListener('click',()=>{
+      const cells=tr.querySelectorAll('td');
+      if(cells.length>=3)copyText(cells[1].textContent.trim());
+    });
+  });
+})();
+function showToast(){const t=document.getElementById('toast');t.style.opacity='1';t.style.transform='translateX(-50%) translateY(0)';setTimeout(()=>{t.style.opacity='0';t.style.transform='translateX(-50%) translateY(20px)'},2200)}
+function copyText(text){navigator.clipboard.writeText(text).then(showToast).catch(()=>{const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast()})}
+document.querySelectorAll('.core-tag').forEach(el=>{el.addEventListener('click',()=>{const tag=el.textContent.replace('↗','').trim();copyText(`針對${PROJECT}，請深入分析「${tag}」這個興趣標籤：\n1. 在本案受眾中代表什麼輪廓？\n2. 搭配哪些標籤組合效果最好？\n3. 素材訴求應該怎麼寫？`)})});
+document.querySelectorAll('.tip').forEach(el=>{el.addEventListener('click',()=>{const title=el.querySelector('.tip-title').textContent.trim();const desc=el.querySelector('.tip-desc').textContent.trim();copyText(`針對${PROJECT}，關於這項操作建議：\n「${title}」\n背景：${desc}\n\n請幫我制定具體執行方案，包含受眾設定細節和素材方向。`)})});
+document.querySelectorAll('.rk-row').forEach(el=>{el.addEventListener('click',()=>{const name=el.querySelector('.rk-name');if(name)copyText(`針對${PROJECT}，請分析受眾「${name.textContent.trim()}」，給我深度策略建議。`)})});
+window.addEventListener('scroll',()=>document.getElementById('btt').classList.toggle('show',window.scrollY>300));
+</script>
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到頂部">↑</button>
+</body>
+</html>
