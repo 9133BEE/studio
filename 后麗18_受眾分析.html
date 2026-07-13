@@ -577,6 +577,12 @@ window.addEventListener('scroll',()=>{document.getElementById('btt').classList.t
 function showToast(){const t=document.getElementById('copy-toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200)}
 function copyPrompt(text){navigator.clipboard.writeText(text).then(showToast).catch(()=>{const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast()})}
 
+document.querySelectorAll('.tag-tbl tbody tr').forEach(tr=>{
+  tr.addEventListener('click',()=>{
+    const cells=tr.querySelectorAll('td');
+    if(cells.length>=3)copyPrompt(cells[1].textContent.trim());
+  });
+});
 document.querySelectorAll('.core-tag').forEach(el=>{el.addEventListener('click',()=>{const tag=el.textContent.replace('↗','').trim();copyPrompt(`針對${PROJECT}，請深入分析「${tag}」這個興趣標籤：\n1.在本案受眾中代表什麼輪廓？\n2.搭配哪些標籤組合效果最好？\n3.素材訴求應該怎麼寫？`)})});
 document.querySelectorAll('.tip').forEach(el=>{el.addEventListener('click',()=>{const title=el.querySelector('.tip-title').textContent.trim();const desc=el.querySelector('.tip-desc').textContent.trim();copyPrompt(`針對${PROJECT}，關於這項操作建議：\n「${title}」\n背景：${desc}\n\n請幫我制定具體執行方案，包含受眾設定細節和素材方向。`)})});
 document.querySelectorAll('.new-card').forEach(el=>{el.addEventListener('click',()=>{const title=el.querySelector('.new-card-title').textContent.replace('↗','').trim();const desc=el.querySelector('.new-card-desc').textContent.trim();copyPrompt(`針對${PROJECT}，我想測試新受眾方向：「${title}」\n說明：${desc}\n\n請給我：\n1.META 興趣標籤清單（附中文，約10-15個）\n2.地理設定建議\n3.適合這組的素材訴求角度`)})});
