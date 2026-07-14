@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>LUCE VIVA｜受眾分析報告</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --accent:#8a5a3a;--accent-dark:#6a4228;--accent-light:#f5ece3;--accent-border:#d0ac8c;
+  --bg:#f2f3f1;--s:#ffffff;--bd:#e4e5e2;--tx:#2e2c29;--sub:#7d7870;--sub2:#a8a199;
+  --good:#1e6e3f;--goodl:#e6f4ea;--warn:#c05c00;
+  --radius:12px;--shadow-xs:0 1px 3px rgba(0,0,0,.05);--shadow-sm:0 2px 8px rgba(0,0,0,.07);--shadow-card:0 2px 10px rgba(0,0,0,.06),0 1px 3px rgba(0,0,0,.04);
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft JhengHei','Segoe UI',sans-serif;background:var(--bg);color:var(--tx);font-size:14px;line-height:1.6;min-height:100vh}
+.page-header{background:linear-gradient(180deg,#1e140d 0%,#140d08 100%);padding:0 40px;height:56px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.04),0 4px 20px rgba(0,0,0,.35);border-bottom:1px solid rgba(255,255,255,.06)}
+.ph-logo{width:30px;height:30px;background:linear-gradient(135deg,#c08858,var(--accent-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;flex-shrink:0}
+.ph-title{font-size:14px;font-weight:700;color:#f5ece3;letter-spacing:-.2px}
+.ph-sub{font-size:11px;color:#7a6050;margin-left:2px}
+.ph-nav{margin-left:auto;display:flex;gap:8px;align-items:center}
+.ph-nav a{font-size:12px;color:#d0ac8c;text-decoration:none;padding:5px 13px;border-radius:6px;border:1px solid rgba(138,90,58,.25);background:rgba(138,90,58,.12);font-weight:500}
+.ph-nav a:hover{background:rgba(138,90,58,.22);color:#e8d0b8}
+#btt{position:fixed;right:24px;bottom:28px;width:38px;height:38px;border-radius:50%;background:rgba(20,13,8,.75);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.85);font-size:15px;cursor:pointer;opacity:0;transform:translateY(8px);transition:opacity .2s,transform .2s;pointer-events:none;z-index:150;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.3);font-family:inherit}
+#btt.show{opacity:1;transform:translateY(0);pointer-events:auto}
+.wrap{max-width:1200px;margin:0 auto;padding:32px 40px 48px}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--accent);text-decoration:none;margin-bottom:20px;padding:5px 12px;background:var(--accent-light);border-radius:20px;border:1px solid var(--accent-border)}
+.case-header{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:20px 24px;margin-bottom:14px;display:flex;align-items:center;gap:18px;box-shadow:var(--shadow-card)}
+.case-logo{width:44px;height:44px;background:linear-gradient(135deg,#c08858,var(--accent-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;flex-shrink:0}
+.case-info h2{font-size:17px;font-weight:700;color:var(--tx);letter-spacing:-.3px}
+.case-info p{font-size:12px;color:var(--sub);margin-top:3px;line-height:1.5}
+.case-stats{margin-left:auto;display:flex;gap:28px;flex-shrink:0}
+.stat{text-align:right}
+.stat-n{font-size:24px;font-weight:800;color:var(--accent);line-height:1;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.stat-l{font-size:10px;color:var(--sub2);margin-top:3px;font-weight:600;letter-spacing:.3px;text-transform:uppercase}
+.page-banner{border-radius:var(--radius);padding:18px 24px;margin-bottom:22px;display:flex;align-items:center;gap:20px;box-shadow:var(--shadow-card);background:linear-gradient(135deg,#6a4228,#8a5a3a);color:#fff}
+.banner-icon{width:40px;height:40px;background:rgba(255,255,255,.12);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;flex-shrink:0;color:#fff}
+.banner-title{font-size:16px;font-weight:800;letter-spacing:-.2px}
+.banner-sub{font-size:12px;opacity:.8;margin-top:2px}
+.banner-stats{margin-left:auto;display:flex;gap:28px;flex-shrink:0}
+.bs{text-align:right}
+.bs-n{font-size:22px;font-weight:800;color:#fff;line-height:1;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.bs-l{font-size:10px;color:rgba(255,255,255,.7);margin-top:3px;font-weight:600;letter-spacing:.3px;text-transform:uppercase}
+.sec-title{font-size:12px;font-weight:700;color:var(--sub);margin-bottom:14px;display:flex;align-items:center;gap:10px;letter-spacing:.4px;text-transform:uppercase}
+.sec-title::before{content:'';display:inline-block;width:3px;height:14px;background:var(--accent);border-radius:2px;flex-shrink:0}
+.sec-title::after{content:'';flex:1;height:1px;background:var(--bd)}
+.section{margin-bottom:28px}
+.note-bar{background:var(--accent-light);border:1px solid var(--accent-border);border-radius:10px;padding:10px 16px;font-size:12px;color:#4a3020;margin-bottom:20px;line-height:1.7}
+.rk-grid{display:flex;flex-direction:column;gap:6px}
+.rk-row{background:var(--s);border:1px solid var(--bd);border-left:3px solid #ddd;border-radius:var(--radius);padding:12px 16px 12px 12px;display:flex;gap:12px;align-items:center;transition:border-left-color .15s,box-shadow .15s}
+.rk-row:hover{box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.rk-row:hover{border-left-color:var(--accent)}
+.rk-row.gold{border-left-color:#c8a800}
+.rk-row.faded{opacity:.6}
+.rk-medal{width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.rk-body{flex:1;min-width:0}
+.rk-name{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:3px;line-height:1.3}
+.rk-loc{font-size:11px;color:var(--sub2);line-height:1.4}
+.rk-stats{display:flex;gap:20px;flex-shrink:0;align-items:center}
+.rk-stat-block{text-align:right}
+.rk-result{font-size:22px;font-weight:900;color:var(--tx);line-height:1;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.rk-result-l{font-size:10px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.2px;margin-top:2px}
+.rk-cpl{font-size:16px;font-weight:800;color:var(--warn);line-height:1;font-variant-numeric:tabular-nums}
+.rk-cpl.good{color:var(--good)}
+.rk-cpl-l{font-size:10px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.2px;margin-top:2px}
+.rk-spend{font-size:13px;font-weight:700;color:#6d6560;line-height:1;font-variant-numeric:tabular-nums}
+.rk-spend-l{font-size:10px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.2px;margin-top:2px}
+.aud-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;align-items:start}
+@media(max-width:760px){.aud-grid-2{grid-template-columns:1fr}}
+.aud-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);box-shadow:var(--shadow-xs);overflow:hidden}
+.aud-header{display:flex;align-items:center;gap:12px;padding:14px 16px;cursor:pointer;user-select:none;transition:background .15s}
+.aud-header:hover{background:#f7f1ea}
+.aud-num{width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.aud-info{flex:1;min-width:0}
+.aud-name{font-size:13px;font-weight:700;color:var(--tx);line-height:1.35}
+.aud-sub{font-size:11px;color:var(--sub);margin-top:2px;line-height:1.4}
+.aud-arrow{font-size:11px;color:var(--sub2);transition:transform .2s;flex-shrink:0}
+.aud-card.open .aud-arrow{transform:rotate(90deg)}
+.aud-body{display:none;padding:0 16px 16px;border-top:1px solid var(--bd)}
+.aud-card.open .aud-body{display:block}
+.aud-sl{font-size:10px;font-weight:700;color:var(--sub2);letter-spacing:.5px;text-transform:uppercase;margin:12px 0 6px}
+.aud-logic{font-size:12px;color:var(--sub);line-height:1.7;background:var(--accent-light);border-left:3px solid var(--accent);padding:10px 12px;border-radius:0 6px 6px 0}
+.aud-lm{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:4px}
+.aud-lm-tag{font-size:11px;font-weight:600;color:#4a3020;background:var(--accent-light);padding:3px 10px;border-radius:10px;border:1px solid var(--accent-border)}
+.tag-tbl{width:100%;border-collapse:collapse;font-size:12px;margin-top:4px}
+.tag-tbl thead tr{background:#f3ece4}
+.tag-tbl th{padding:5px 8px;text-align:left;font-size:10px;font-weight:700;color:var(--sub2);border-bottom:1px solid var(--bd)}
+.tag-tbl tbody tr{cursor:pointer;transition:background .12s;border-bottom:1px solid #edf0f2}
+.tag-tbl tbody tr:hover{background:var(--accent-light)}
+.tag-tbl td{padding:5px 8px;color:var(--tx)}
+.tag-tbl td:first-child{color:var(--sub2);font-size:10px;width:24px}
+.tag-tbl tbody tr.flash{background:#e8d8c8!important}
+.copy-all-row{display:flex;justify-content:flex-end;margin-top:8px}
+.copy-all-btn{font-size:11px;font-weight:600;color:var(--accent-dark);background:var(--accent-light);border:1px solid var(--accent-border);border-radius:8px;padding:5px 14px;cursor:pointer;transition:all .15s}
+.copy-all-btn.done{background:#d0ecd8;color:#2a6a3a;border-color:#a8d8b8}
+.page-footer{text-align:center;font-size:11px;color:var(--sub2);margin-top:12px;padding-bottom:8px}
+#copy-toast{position:fixed;bottom:72px;left:50%;transform:translateX(-50%) translateY(8px);background:#1e140d;color:#f5ece3;font-size:11px;font-weight:600;padding:7px 16px;border-radius:18px;opacity:0;pointer-events:none;transition:opacity .18s,transform .18s;z-index:300;white-space:nowrap}
+#copy-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="ph-logo">昌</div>
+  <span class="ph-title">LUCE VIVA｜受眾分析</span>
+  <span class="ph-sub">· 新竹市北區 · 首購換屋三房宅 · 總價約1,400-1,800萬</span>
+  <nav class="ph-nav"><a href="index.html">標籤資料庫</a><a href="hub.html">← 返回總覽</a></nav>
+</header>
+
+<div id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+<div id="copy-toast">✓ 已複製到剪貼簿</div>
+
+<div class="wrap">
+<a class="back-link" href="hub.html">← 返回案件總覽</a>
+
+<div class="case-header">
+  <div class="case-logo">昌</div>
+  <div class="case-info">
+    <h2>LUCE VIVA｜新竹市北區</h2>
+    <p>昌澂建設・成功路192巷・大樓61戶・三房38-43坪・單價37-41萬/坪（591實登均價38萬/坪）・單粉專運作</p>
+  </div>
+  <div class="case-stats">
+    <div class="stat"><div class="stat-n">20組</div><div class="stat-l">新建議受眾</div></div>
+    <div class="stat"><div class="stat-n">75</div><div class="stat-l">已測總潛客</div></div>
+    <div class="stat"><div class="stat-n">1</div><div class="stat-l">廣告帳號</div></div>
+  </div>
+</div>
+
+<div class="page-banner">
+  <div class="banner-icon">名單</div>
+  <div>
+    <div class="banner-title">LUCE VIVA｜名單開發</div>
+    <div class="banner-sub">2025/12/29 起 · 24組已測 · 資料截至 2026-07-14</div>
+  </div>
+  <div class="banner-stats">
+    <div class="bs"><div class="bs-n">75</div><div class="bs-l">潛在顧客</div></div>
+    <div class="bs"><div class="bs-n">NT$42,905</div><div class="bs-l">總花費</div></div>
+    <div class="bs"><div class="bs-n">NT$230</div><div class="bs-l">主力組CPA</div></div>
+  </div>
+</div>
+
+<div class="note-bar">📌 分析發現：全案唯一大量出單組「30-64/基地+6K/小家庭+房地產」單組貢獻16潛客、CPA NT$230，觸及量（9,004人）也是全案最大，證明「家庭+房地產」寬受眾組合遠勝任何單一產業窄眾。反觀「貿易口譯」「司法警政」「農業漁產」「食品工業研發」「藝術設計業」「行政公務員」等窄產業別測試，多數0-1組潛客、CPA普遍破700，甚至掛零。新竹科學園區工程師族群若「純工程師」單一標籤（如「年輕工程師」CPA965）成效差，但加了汽車興趣後（「工程師汽車」）出到9組潛客，顯示科技從業者需疊加消費/家庭訊號才有效，不能只用職業標籤單打。本輪20組新受眾均依此邏輯設計：以家庭/理財/房產核心意圖為主軸，科技業族群一律疊加家庭/消費訊號，不重複已測過的窄產業主題。</div>
+
+<div class="section">
+  <div class="sec-title">已測受眾排行（2025-12-29 至 2026-07-14）</div>
+  <div class="rk-grid">
+    <div class="rk-row gold">
+      <div class="rk-medal">🥇</div>
+      <div class="rk-body">
+        <div class="rk-name">30-64 / 基地+6K / 小家庭+房地產（0108擴大興趣）</div>
+        <div class="rk-loc">觸及 9,004｜曝光 22,016｜CTR 5.45%</div>
+      </div>
+      <div class="rk-stats">
+        <div class="rk-stat-block"><div class="rk-result">16</div><div class="rk-result-l">潛在顧客</div></div>
+        <div class="rk-stat-block"><div class="rk-cpl good">NT$230</div><div class="rk-cpl-l">全案最優量級</div></div>
+        <div class="rk-stat-block"><div class="rk-spend">NT$3,682</div><div class="rk-spend-l">花費</div></div>
+      </div>
+    </div>
+    <div class="rk-row">
+      <div class="rk-medal">🥈</div>
+      <div class="rk-body">
+        <div class="rk-name">30-60 / 基地+6K / 軍公教（0109擴大）</div>
+        <div class="rk-loc">觸及 12,469｜曝光 28,375｜CTR 3.68%</div>
+      </div>
+      <div class="rk-stats">
+        <div class="rk-stat-block"><div class="rk-result">11</div><div class="rk-result-l">潛在顧客</div></div>
+        <div class="rk-stat-block"><div class="rk-cpl">NT$668</div><div class="rk-cpl-l">CPA</div></div>
+        <div class="rk-stat-block"><div class="rk-spend">NT$7,344</div><div class="rk-spend-l">花費</div></div>
+      </div>
+    </div>
+    <div class="rk-row">
+      <div class="rk-medal">🥉</div>
+      <div class="rk-body">
+        <div class="rk-name">28-50 / 東區竹北 / 工程師汽車（0127+興趣）</div>
+        <div class="rk-loc">觸及 10,908｜曝光 20,884｜CTR 2.95%・已停止</div>
+      </div>
+      <div class="rk-stats">
+        <div class="rk-stat-block"><div class="rk-result">9</div><div class="rk-result-l">潛在顧客</div></div>
+        <div class="rk-stat-block"><div class="rk-cpl">NT$585</div><div class="rk-cpl-l">CPA</div></div>
+        <div class="rk-stat-block"><div class="rk-spend">NT$5,262</div><div class="rk-spend-l">花費</div></div>
+      </div>
+    </div>
+    <div class="rk-row">
+      <div class="rk-medal"><span style="font-size:11px;font-weight:800;color:var(--sub2)">4</span></div>
+      <div class="rk-body">
+        <div class="rk-name">30-50 / 北區 / 業務性質</div>
+        <div class="rk-loc">觸及 2,476｜曝光 3,314｜CTR 2.29%・已停止</div>
+      </div>
+      <div class="rk-stats">
+        <div class="rk-stat-block"><div class="rk-result">4</div><div class="rk-result-l">潛在顧客</div></div>
+        <div class="rk-stat-block"><div class="rk-cpl good">NT$179</div><div class="rk-cpl-l">全案最低CPA</div></div>
+        <div class="rk-stat-block"><div class="rk-spend">NT$715</div><div class="rk-spend-l">花費</div></div>
+      </div>
+    </div>
+    <div class="rk-row">
+      <div class="rk-medal"><span style="font-size:11px;font-weight:800;color:var(--sub2)">5</span></div>
+      <div class="rk-body">
+        <div class="rk-name">30-60 / 基地+6K / 投資理財房產（0109擴大）</div>
+        <div class="rk-loc">觸及 3,409｜曝光 5,631｜CTR 4.78%</div>
+      </div>
+      <div class="rk-stats">
+        <div class="rk-stat-block"><div class="rk-result">4</div><div class="rk-result-l">潛在顧客</div></div>
+        <div class="rk-stat-block"><div class="rk-cpl good">NT$325</div><div class="rk-cpl-l">CPA</div></div>
+        <div class="rk-stat-block"><div class="rk-spend">NT$1,298</div><div class="rk-spend-l">花費</div></div>
+      </div>
+    </div>
+    <div class="rk-row">
+      <div class="rk-medal"><span style="font-size:11px;font-weight:800;color:var(--sub2)">6</span></div>
+      <div class="rk-body">
+        <div class="rk-name">28-50 / 北區竹北 / 司法警政（0127+地點興趣）</div>
+        <div class="rk-loc">觸及 6,097｜曝光 12,256｜CTR 2.72%・已停止</div>
+      </div>
+      <div class="rk-stats">
+        <div class="rk-stat-block"><div class="rk-result">5</div><div class="rk-result-l">潛在顧客</div></div>
+        <div class="rk-stat-block"><div class="rk-cpl">NT$477</div><div class="rk-cpl-l">CPA</div></div>
+        <div class="rk-stat-block"><div class="rk-spend">NT$2,384</div><div class="rk-spend-l">花費</div></div>
+      </div>
+    </div>
+    <div class="rk-row faded">
+      <div class="rk-medal"><span style="font-size:11px;font-weight:800;color:var(--sub2)">7</span></div>
+      <div class="rk-body">
+        <div class="rk-name">28-50 / 北區 / 金融會計</div>
+        <div class="rk-loc">觸及 6,202｜曝光 9,455｜CTR 3.00%</div>
+      </div>
+      <div class="rk-stats">
+        <div class="rk-stat-block"><div class="rk-result">4</div><div class="rk-result-l">潛在顧客</div></div>
+        <div class="rk-stat-block"><div class="rk-cpl">NT$554</div><div class="rk-cpl-l">CPA</div></div>
+        <div class="rk-stat-block"><div class="rk-spend">NT$2,217</div><div class="rk-spend-l">花費</div></div>
+      </div>
+    </div>
+    <div class="rk-row faded">
+      <div class="rk-medal"><span style="font-size:11px;font-weight:800;color:var(--sub2)">8</span></div>
+      <div class="rk-body">
+        <div class="rk-name">28-60 / 基地+6K / 純房產</div>
+        <div class="rk-loc">觸及 3,674｜曝光 5,119｜CTR 4.43%</div>
+      </div>
+      <div class="rk-stats">
+        <div class="rk-stat-block"><div class="rk-result">3</div><div class="rk-result-l">潛在顧客</div></div>
+        <div class="rk-stat-block"><div class="rk-cpl">NT$440</div><div class="rk-cpl-l">CPA</div></div>
+        <div class="rk-stat-block"><div class="rk-spend">NT$1,320</div><div class="rk-spend-l">花費</div></div>
+      </div>
+    </div>
+    <div class="rk-row faded">
+      <div class="rk-medal"><span style="font-size:11px;font-weight:800;color:var(--sub2)">9</span></div>
+      <div class="rk-body">
+        <div class="rk-name">28-55 / 東區 / 年輕工程師（無家庭/消費疊加）</div>
+        <div class="rk-loc">觸及 2,976｜曝光 4,665｜CTR 4.78%</div>
+      </div>
+      <div class="rk-stats">
+        <div class="rk-stat-block"><div class="rk-result">1</div><div class="rk-result-l">潛在顧客</div></div>
+        <div class="rk-stat-block"><div class="rk-cpl">NT$965</div><div class="rk-cpl-l">CPA</div></div>
+        <div class="rk-stat-block"><div class="rk-spend">NT$965</div><div class="rk-spend-l">花費</div></div>
+      </div>
+    </div>
+    <div class="rk-row faded">
+      <div class="rk-medal"><span style="font-size:11px;font-weight:800;color:var(--sub2)">10</span></div>
+      <div class="rk-body">
+        <div class="rk-name">30-55 / 東區 / 食品工業研發（窄產業別）</div>
+        <div class="rk-loc">觸及 5,315｜曝光 9,505｜CTR 2.59%・已停止</div>
+      </div>
+      <div class="rk-stats">
+        <div class="rk-stat-block"><div class="rk-result">4</div><div class="rk-result-l">潛在顧客</div></div>
+        <div class="rk-stat-block"><div class="rk-cpl">NT$534</div><div class="rk-cpl-l">CPA</div></div>
+        <div class="rk-stat-block"><div class="rk-spend">NT$2,135</div><div class="rk-spend-l">花費</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="sec-title">新建議受眾（20組）· 建立 2026-07-14</div>
+  <div id="aud-grid" class="aud-grid-2"></div>
+</div>
+
+<div class="page-footer">LUCE VIVA 受眾分析報告 · 建立 2026-07-14 · 9133 廣告操作團隊</div>
+</div>
+
+<script>
+const G=[
+  {n:'30-55 / 基地+6km / 科技新貴雙薪家庭換屋族',sub:'延伸全案最優「小家庭+房地產」組・疊加科技業雙薪訊號',
+   logic:'複製全案唯一驗證16潛客・CPA230的「小家庭+房地產」核心邏輯，疊加科技業雙薪家庭訊號。新竹科技業月薪普遍雙薪合計15-25萬，38-43坪三房剛好對應有小孩家庭需求，是本案最大公約數受眾。',
+   lm:['成功路基地(+6km)','新竹科學園區(+6km)','巨城SOGO百貨(+3km)','新竹火車站(+3km)'],
+   tags:[['Parenting','育兒親子'],['Family','家庭'],['Dual income','雙薪家庭'],['School district','學區'],['Real estate portals','房屋廣告和入口網站（網站）'],['Personal finance','個人理財（銀行業）'],['Semiconductor','半導體'],['Technology','科技'],['Family activities','家庭活動'],['Baby products','嬰兒用品'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家']]},
+  {n:'28-50 / 基地+6km / 首購理財置產族',sub:'延伸「投資理財房產」驗證組(CPA325)・精簡聚焦財務意圖',
+   logic:'複製「投資理財房產」驗證有效的財務核心標籤，精簡去除稀釋標籤，聚焦股票/投資/房地產/理財規劃的高意圖首購族，鎖定新竹雙薪未購屋家庭。',
+   lm:['成功路基地(+6km)','新竹市政府(+2km)','巨城SOGO百貨(+3km)','新竹火車站(+3km)'],
+   tags:[['Stocks','股票（投資）'],['Investment','投資（商業與財務）'],['Personal finance','個人理財（銀行業）'],['Financial planning','財務規劃'],['Banking','銀行業（金融）'],['Mutual funds','共同基金'],['First home','首購族'],['Mortgage calculator','房貸計算機'],['Saving','儲蓄'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家']]},
+  {n:'30-60 / 基地+6km / 軍公教換屋升格族',sub:'延伸「軍公教」驗證組(11潛客)・加入換屋升格訴求',
+   logic:'「軍公教」組已驗證11潛客大量出單，本組維持核心公教標籤但加入換屋升格與優惠房貸訴求，鎖定已有自宅、想從老屋換到新竹市區三房電梯大樓的軍公教家庭。',
+   lm:['成功路基地(+6km)','新竹市政府(+3km)','新竹縣政府(+8km)','新竹火車站(+3km)'],
+   tags:[['Government','政府機關概念和作法'],['Government employees (Global)','政府員工（全球）'],['Administrative services','行政服務'],['Education','教育'],['Teacher education','師範教育（職業訓練）'],['Mortgage','房貸'],['Stable income','穩定收入'],['Retirement planning','退休規劃'],['Home upgrade','換屋升格'],['Elevator apartment','電梯大樓'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['Property investment','置產投資'],['New home','新家']]},
+  {n:'28-55 / 竹科+5 / 半導體工程師成家族',sub:'修正「年輕工程師」失敗經驗・疊加成家/家庭訊號非純職業標籤',
+   logic:'原「年輕工程師」純職業標籤測試CPA965、成效差；「工程師汽車」加了消費興趣後出到9組潛客。本組進一步疊加成家/新婚/家庭訊號（而非汽車），驗證科技從業者是否需要「家庭意圖」而非「消費意圖」才能提升轉換。',
+   lm:['新竹科學園區(+5km)','國立清華大學(+4km)','國立陽明交通大學(+5km)','成功路基地(+8km)'],
+   tags:[['Semiconductor','半導體'],['Electrical engineering','電機工程（工程）'],['Engineering','工程學'],['Marriage','結婚婚姻'],['Family planning','家庭規劃'],['New couple','新婚夫妻'],['Personal finance','個人理財（銀行業）'],['Stocks','股票（投資）'],['High income','高收入族群'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家']]},
+  {n:'30-58 / 北區+5 / 醫療專業人員置產族',sub:'全新未測職業別・新竹馬偕醫護高薪穩定族群',
+   logic:'新竹馬偕紀念醫院醫護/醫師是全案尚未測試過的高薪穩定職業族群，月薪5-25萬且輪班需求對「離醫院近的新家」有強烈訴求。',
+   lm:['新竹馬偕紀念醫院(+5km)','成功路基地(+3km)','巨城SOGO百貨(+3km)','新竹市政府(+3km)'],
+   tags:[['Medicine','醫學'],['Healthcare','醫療保健'],['Hospital','醫院'],['Nursing','護理學'],['Shift work','輪班工作'],['Personal finance','個人理財（銀行業）'],['Wealth management','財富管理'],['Family','家庭'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家']]},
+  {n:'28-50 / 竹科+5 / 電子業研發高薪首購族',sub:'區隔於失敗的「純竹科」組・疊加首購/儲蓄具體財務行為',
+   logic:'原「竹科/房地產」純地緣+房產標籤組0出單。本組改用「研發工程師+具體首購財務行為（存頭期款/房貸試算）」交叉，驗證是否需要更明確的購屋行動意圖標籤才能轉換竹科高薪族。',
+   lm:['新竹科學園區(+5km)','國立陽明交通大學(+5km)','工業技術研究院(+6km)','成功路基地(+8km)'],
+   tags:[['Electronics','電子學'],['Research and development','研究與開發'],['Engineering','工程學'],['Down payment saving','存頭期款'],['Mortgage calculator','房貸計算機'],['First home','首購族'],['Personal finance','個人理財（銀行業）'],['High income','高收入族群'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家']]},
+  {n:'30-60 / 北區東區 / 銀行金融從業置產族',sub:'延伸「銀行證券成家」驗證方向(CPA617)・擴大財務職業範圍',
+   logic:'「銀行證券成家」組雖僅1潛客但CPA617尚可，本組擴大到整體金融從業（銀行、保險、證券、會計）並保留成家訴求，測試財務背景族群的置產轉換力。',
+   lm:['成功路基地(+5km)','新竹市政府(+3km)','巨城SOGO百貨(+3km)','新竹火車站(+3km)'],
+   tags:[['Banking','銀行業（金融）'],['Financial services','金融服務（商業與財務）'],['Accounting','會計學'],['Insurance','保險業'],['Wealth management','財富管理'],['Stocks','股票（投資）'],['Investment','投資（商業與財務）'],['Financial planning','財務規劃'],['Family','家庭'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家']]},
+  {n:'28-55 / 竹北+5 / 專案經理PM置產族',sub:'全新未測職業別・竹北科技業PM管理職高薪族群',
+   logic:'竹北鄰近竹科通勤圈，專案經理/產品經理等管理職層級薪資高於一般工程師且決策果斷，是全案尚未測試過的職業切角。',
+   lm:['竹北高鐵站(+5km)','新竹科學園區(+6km)','成功路基地(+8km)','國立陽明交通大學(+5km)'],
+   tags:[['Project management','專案管理'],['Product management','產品管理'],['Leadership','領導力'],['Management','管理（商業與財務）'],['Business development','業務開發'],['Personal finance','個人理財（銀行業）'],['Investment','投資（商業與財務）'],['High income','高收入族群'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家']]},
+  {n:'30-58 / 基地+6km / 三代同堂大坪數換屋族',sub:'對應38-43坪三房產品規劃・鎖定多代同住換屋動機',
+   logic:'產品規劃為38-43坪三房，坪數與房間數適合三代同堂或多子女家庭換屋，是產品面向最直接對應的族群，過去24組測試中未曾單獨鎖定此家庭結構。',
+   lm:['成功路基地(+6km)','新竹護城河公園(+3km)','巨城SOGO百貨(+3km)','新竹市政府(+3km)'],
+   tags:[['Family','家庭'],['Multigenerational household','三代同堂'],['Grandparenting','含飴弄孫'],['Parenting','育兒親子'],['Elderly care','長者照護'],['School district','學區'],['Family budget','家庭預算'],['Home upgrade','換屋升格'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家']]},
+  {n:'28-50 / 北區+5 / 科技新創業者置產族',sub:'全新未測職業別・竹科周邊新創/新事業經營者',
+   logic:'新竹科學園區周邊近年新創聚落成長，新創業者/自雇工作者資金彈性大、決策快，是尚未測試過的族群角度，區隔於既有「商業自營商」的傳產基調。',
+   lm:['新竹科學園區(+5km)','成功路基地(+6km)','國立陽明交通大學(+5km)','巨城SOGO百貨(+3km)'],
+   tags:[['Entrepreneurship','創業精神'],['Startup','新創公司'],['Self-employment','自雇創業'],['Innovative technology','創新科技'],['Venture capital','創業投資'],['Investment','投資（商業與財務）'],['Personal finance','個人理財（銀行業）'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家']]},
+  {n:'30-55 / 東區竹北+5 / 雙寶家庭學區換屋族',sub:'延伸「教育生活相關」方向・聚焦具體雙子女學區換屋',
+   logic:'「教育生活相關」組出過3潛客，本組聚焦更明確的雙子女/多子女家庭學區換屋動機，搭配新竹市優質學區訴求，鎖定確定要換屋而非首購觀望的家庭。',
+   lm:['成功路基地(+5km)','國立清華大學(+4km)','新竹市政府(+3km)','巨城SOGO百貨(+3km)'],
+   tags:[['Parenting','育兒親子'],['Child education','兒童教育'],['School district','學區'],['Family activities','家庭活動'],['Extracurricular activities','課外活動'],['Family','家庭'],['Family budget','家庭預算'],['Home upgrade','換屋升格'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家']]},
+  {n:'28-50 / 基地+6km / 科技業儲蓄理財族',sub:'聚焦具體儲蓄/財務規劃行為・非純職業或純理財興趣',
+   logic:'交叉「科技業收入水準」與「具體儲蓄/財務規劃行為標籤」，測試是否比純竹科職業標籤或純理財興趣標籤更能命中準備購屋的儲蓄型科技族群。',
+   lm:['成功路基地(+6km)','新竹科學園區(+6km)','巨城SOGO百貨(+3km)','新竹火車站(+3km)'],
+   tags:[['Saving','儲蓄'],['Financial planning','財務規劃'],['Personal finance','個人理財（銀行業）'],['Budgeting','預算管理'],['Technology','科技'],['Stocks','股票（投資）'],['ETF','指數股票型基金'],['Down payment saving','存頭期款'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家']]},
+  {n:'30-60 / 北區+5 / 研究機構工研院員工置產族',sub:'全新未測職業別・工研院研究人員穩定高薪族群',
+   logic:'工業技術研究院是新竹在地大型研究機構，員工薪資穩定且多為碩博士高學歷背景，過去24組測試從未單獨鎖定此機構員工族群。',
+   lm:['工業技術研究院(+5km)','新竹科學園區(+5km)','成功路基地(+6km)','國立清華大學(+4km)'],
+   tags:[['Research and development','研究與開發'],['Scientific research','科學研究'],['Engineering','工程學'],['Higher education','高等教育'],['Personal finance','個人理財（銀行業）'],['Stable income','穩定收入'],['Investment','投資（商業與財務）'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家']]},
+  {n:'28-55 / 竹科+5 / 外商半導體主管置產族',sub:'全新未測職業別・外商半導體公司管理職高薪族群',
+   logic:'新竹科學園區聚集大量外商半導體設備/材料公司，管理職層級薪資與福利優於本土公司，決策果斷，是尚未測試過的高端切角。',
+   lm:['新竹科學園區(+5km)','國立陽明交通大學(+5km)','成功路基地(+8km)','巨城SOGO百貨(+6km)'],
+   tags:[['Semiconductor','半導體'],['Management','管理（商業與財務）'],['Leadership','領導力'],['International business','國際商務'],['Business travel','商務出差'],['Wealth management','財富管理'],['Investment','投資（商業與財務）'],['High income','高收入族群'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家']]},
+  {n:'30-58 / 東區+5 / 醫美牙醫診所從業置產族',sub:'全新未測職業別・新竹東區醫美牙醫診所密集區從業者',
+   logic:'新竹東區診所密集，醫美/牙醫從業人員（醫師與診所行政）收入穩定，是尚未測試過的醫療周邊職業族群，區隔於馬偕大醫院醫護組。',
+   lm:['成功路基地(+5km)','新竹馬偕紀念醫院(+5km)','巨城SOGO百貨(+3km)','新竹市政府(+3km)'],
+   tags:[['Dentistry','牙科'],['Aesthetic medicine','醫學美容'],['Healthcare','醫療保健'],['Medicine','醫學'],['Self-employment','自雇創業'],['Personal finance','個人理財（銀行業）'],['Wealth management','財富管理'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家']]},
+  {n:'28-50 / 北區竹北+5 / 遠距科技工作者換屋族',sub:'全新未測職業別・遠距/國際科技公司員工居家空間需求',
+   logic:'遠距工作科技從業者（含跨國公司台灣遠距職位）對居家空間品質要求更高，需要獨立工作空間，與38-43坪三房產品的第三房規劃直接對應。',
+   lm:['成功路基地(+6km)','竹北高鐵站(+8km)','新竹科學園區(+6km)','巨城SOGO百貨(+3km)'],
+   tags:[['Remote work','遠端工作'],['Home office','居家辦公室'],['Technology','科技'],['Software development','軟體開發'],['Work-life balance','工作生活平衡'],['Personal finance','個人理財（銀行業）'],['Interior design','室內設計'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家']]},
+  {n:'30-60 / 基地+6km / 科技退休族資產配置置產族',sub:'全新未測族群・科技業退休/半退休資深族群置產',
+   logic:'新竹科技業發展30年，第一批科技從業者已屆退休或半退休年齡，多有股票/資產配置習慣，換屋動機為「退休後住得更舒適」，是尚未測試過的年齡層切角。',
+   lm:['成功路基地(+6km)','新竹護城河公園(+3km)','巨城SOGO百貨(+3km)','新竹馬偕紀念醫院(+5km)'],
+   tags:[['Retirement','退休'],['Retirement planning','退休規劃'],['Wealth management','財富管理'],['Asset management','資産管理'],['Stocks','股票（投資）'],['Passive income','被動收入'],['Health','健康'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家']]},
+  {n:'28-50 / 竹科+5 / 雙工程師夫妻首購族',sub:'全新未測族群・夫妻雙方皆科技業之最高可支配所得組合',
+   logic:'夫妻雙方皆為竹科工程師是新竹在地可支配所得最高的家庭類型之一，決策快、財力足，過去測試多僅鎖定單一工程師個人，未曾針對「雙科技從業夫妻」交叉設計。',
+   lm:['新竹科學園區(+5km)','國立清華大學(+4km)','國立陽明交通大學(+5km)','成功路基地(+8km)'],
+   tags:[['Engineering','工程學'],['Semiconductor','半導體'],['Dual income','雙薪家庭'],['Marriage','結婚婚姻'],['High income','高收入族群'],['Wealth management','財富管理'],['Investment','投資（商業與財務）'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家']]},
+  {n:'30-55 / 北區+5 / 補教業主置產族',sub:'全新未測職業別・新竹北區補習班業主現金流穩定族群',
+   logic:'新竹北區學區補習班密集，補教業主現金收入穩定且對教育環境有天然認同感，過去24組測試從未觸及此在地自營職業。',
+   lm:['成功路基地(+5km)','新竹市政府(+3km)','巨城SOGO百貨(+3km)','新竹火車站(+3km)'],
+   tags:[['Tutoring','補習'],['Child education','兒童教育'],['Educational technology','教育技術學（教育）'],['Small business owners','小型企業主'],['Self-employment','自雇創業'],['Cash flow','現金流管理'],['School district','學區'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家']]},
+  {n:'28-58 / 基地+6km / 頂客科技新貴換屋族',sub:'全新未測族群・雙薪無子女高可支配所得換屋族',
+   logic:'頂客族科技從業夫妻無子女負擔，可支配所得最高，換屋決策不受學區綁定，重視空間設計與生活品質，是尚未測試過的族群類型。',
+   lm:['成功路基地(+6km)','巨城SOGO百貨(+3km)','新竹護城河公園(+3km)','新竹火車站(+3km)'],
+   tags:[['Dual income','雙薪家庭'],['Quality of life','生活品質'],['Interior design','室內設計'],['Fine dining','精緻餐飲'],['Travel','旅遊'],['Wealth management','財富管理'],['Investment','投資（商業與財務）'],['High income','高可支配所得族群'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['New home','新家']]},
+];
+function renderAudGrid(gridId, data, prefix){
+  const el=document.getElementById(gridId);
+  if(!el)return;
+  let h='';
+  data.forEach((g,i)=>{
+    const lmH=g.lm.map(l=>`<span class="aud-lm-tag">${l}</span>`).join('');
+    const tagH=g.tags.map((t,j)=>`<tr><td>${j+1}</td><td>${t[0]}</td><td>${t[1]}</td></tr>`).join('');
+    h+=`<div class="aud-card" id="${prefix}${i}">
+<div class="aud-header" onclick="toggleAudG('${prefix}',${i})">
+  <div class="aud-num">${i+1}</div>
+  <div class="aud-info"><div class="aud-name">${g.n}</div><div class="aud-sub">${g.sub}</div></div>
+  <div class="aud-arrow">▶</div>
+</div>
+<div class="aud-body">
+  <div class="aud-sl">投放邏輯</div>
+  <div class="aud-logic">${g.logic}</div>
+  <div class="aud-sl" style="margin-top:12px">地標定位</div>
+  <div class="aud-lm">${lmH}</div>
+  <div class="aud-sl" style="margin-top:12px">興趣標籤（${g.tags.length}個）</div>
+  <table class="tag-tbl"><thead><tr><th>#</th><th>英文</th><th>中文</th></tr></thead><tbody>${tagH}</tbody></table>
+</div></div>`;
+  });
+  el.innerHTML=h;
+}
+
+function copyTxt(txt){return navigator.clipboard?navigator.clipboard.writeText(txt):Promise.reject();}
+function showToast(){const t=document.getElementById('copy-toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200)}
+
+function initAudCard(card){
+  if(card.dataset.cb)return;card.dataset.cb='1';
+  card.querySelectorAll('.tag-tbl tbody tr').forEach(row=>{
+    const en=row.cells[1]?.textContent.trim();if(!en)return;
+    row.addEventListener('click',()=>{
+      copyTxt(en).then(()=>{row.classList.add('flash');setTimeout(()=>row.classList.remove('flash'),600);showToast();});
+    });
+  });
+  card.querySelectorAll('.tag-tbl').forEach(tbl=>{
+    const wrap=document.createElement('div');wrap.className='copy-all-row';
+    const btn=document.createElement('button');
+    btn.className='copy-all-btn';
+    btn.innerHTML='⎘ 複製全部標籤';
+    btn.addEventListener('click',e=>{
+      e.stopPropagation();
+      const tags=Array.from(tbl.querySelectorAll('tbody tr')).map(r=>r.cells[1]?.textContent.trim()).filter(Boolean).join('\n');
+      copyTxt(tags).then(()=>{btn.classList.add('done');btn.textContent='✓ 已複製';setTimeout(()=>{btn.classList.remove('done');btn.innerHTML='⎘ 複製全部標籤';},2000);});
+    });
+    wrap.appendChild(btn);tbl.after(wrap);
+  });
+}
+function toggleAudG(prefix,i){const c=document.getElementById(prefix+i);c.classList.toggle('open');if(c.classList.contains('open'))initAudCard(c);}
+window.addEventListener('scroll',()=>{document.getElementById('btt').classList.toggle('show',window.scrollY>300)});
+renderAudGrid('aud-grid', G, 'ac');
+</script>
+</body>
+</html>
