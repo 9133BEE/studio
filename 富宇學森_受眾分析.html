@@ -83,6 +83,28 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .tag-tbl td:first-child{width:28px;color:var(--sub2);font-size:11px;font-weight:600}
 .tag-tbl td:nth-child(2){font-weight:500}
 .tag-tbl td:nth-child(3){color:var(--sub);font-size:11.5px}
+/* ── Profiles ── */
+.profiles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:900px){.profiles{grid-template-columns:1fr}}
+.profile-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow-xs);transition:box-shadow .2s,transform .2s}
+.profile-card:hover{box-shadow:var(--shadow-sm);transform:translateY(-2px)}
+.profile-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:17px;margin-bottom:12px}
+.profile-icon.amber{background:#fdf0dc}
+.profile-icon.purple{background:#ede8f4}
+.profile-icon.teal{background:#e0eff2}
+.profile-name{font-size:15px;font-weight:700;color:var(--tx);margin-bottom:4px}
+.profile-meta{font-size:12px;color:var(--sub);margin-bottom:10px}
+.profile-tags{font-size:12px;color:#4a5568;margin-bottom:10px;line-height:1.6}
+.profile-behavior{font-size:12px;color:var(--sub);line-height:1.55;margin-bottom:12px}
+.profile-badge{display:inline-block;font-size:11px;font-weight:700;padding:4px 11px;border-radius:20px;margin-top:2px}
+.badge-amber{background:#fdf0dc;color:#7a5c20;border:1px solid #d4b06a}
+.badge-purple{background:#ede8f4;color:#5a3a7a;border:1px solid #b89fcc}
+.badge-teal{background:#e0eff2;color:#2f6672;border:1px solid #87b5be}
+/* ── Core tags ── */
+.tags-row{display:flex;flex-wrap:wrap;gap:8px}
+.core-tag{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;background:var(--s);border:1.5px solid var(--bd);border-radius:20px;font-size:13px;font-weight:600;color:var(--tx);cursor:pointer;transition:all .15s}
+.core-tag:hover{border-color:var(--accent-border);background:var(--accent-light);color:var(--accent-dark)}
+.core-tag .arr{font-size:11px;color:var(--accent-border)}
 </style>
 </head>
 <body>
@@ -120,6 +142,49 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 
   <!-- Tab 1: 受眾建議 -->
   <div class="tab-pane show" id="tab0">
+    <div class="section">
+      <div class="sec-title">三大核心受眾輪廓</div>
+      <div class="profiles">
+        <div class="profile-card">
+          <div class="profile-icon amber">🎓</div>
+          <div class="profile-name">學區換屋型</div>
+          <div class="profile-meta">年齡 28–55｜東區竹北關埔</div>
+          <div class="profile-tags">興趣：學區房、親子教育、教師、護理師、公職穩定收入</div>
+          <div class="profile-behavior">行為：關埔重劃區鄰近建功高中/關新國小，換屋動機以學區保值與安穩居住為主，銀行核貸條件佳，是全案轉換率最高的族群</div>
+          <span class="profile-badge badge-amber">CPL NT$862-932 · 3潛客 · 全案最有效族群</span>
+        </div>
+        <div class="profile-card">
+          <div class="profile-icon purple">🏛️</div>
+          <div class="profile-name">品味換屋型</div>
+          <div class="profile-meta">年齡 32–55｜北區東區</div>
+          <div class="profile-tags">興趣：生活美感、建築設計、居家品質、換屋</div>
+          <div class="profile-behavior">行為：對建案立面設計、公設規劃與建材選用敏感，會主動比較不同建案的設計質感，決策理性但轉換穩定</div>
+          <span class="profile-badge badge-purple">CPL NT$897 · 2潛客 · 次高效族群</span>
+        </div>
+        <div class="profile-card">
+          <div class="profile-icon teal">💹</div>
+          <div class="profile-name">竹科理財型</div>
+          <div class="profile-meta">年齡 30–58｜東區北區竹北</div>
+          <div class="profile-tags">興趣：科技股投資、金融保險、資產配置、置產理財</div>
+          <div class="profile-behavior">行為：竹科周邊高收入理財活躍族群，對資產配置與置產保值訴求敏感，業務/投資背景購買力強</div>
+          <span class="profile-badge badge-teal">CPL NT$1,122-1,159 · 2潛客</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section core-tags-row">
+      <div class="sec-title">跨受眾必保留的核心標籤</div>
+      <div class="tags-row">
+        <span class="core-tag">學區房（房地產）<span class="arr">↗</span></span>
+        <span class="core-tag">投資理財（商業與財務）<span class="arr">↗</span></span>
+        <span class="core-tag">科技業（產業）<span class="arr">↗</span></span>
+        <span class="core-tag">置產（房地產）<span class="arr">↗</span></span>
+        <span class="core-tag">金融保險（商業）<span class="arr">↗</span></span>
+        <span class="core-tag">建築設計（生活風格）<span class="arr">↗</span></span>
+        <span class="core-tag">教師護理師（職業）<span class="arr">↗</span></span>
+      </div>
+    </div>
+
     <div class="section">
       <div class="sec-title">主粉專｜建議受眾（20組）· 更新 2026-07-23</div>
       <div class="note-bar">已根據「親子教育學區換屋 CPL862」「生活美感品質換屋族 CPL897」「教師護理師換屋 CPL932」「金融保險業務 CPL1122」「科技股置產投資者 CPL1159」等有效方向深化職類區隔（半導體製程/IC設計/開業醫師/律師會計師/私人銀行/竹科創業者等），並新增ETF存股、健身自律、遠端接案、退休換屋等全案未測的全新切角。已排除「昌禾天雋名單再行銷」「純新竹法律相關/通勤高鐵外商/私人銀行主管」等剛上線觀察中組合的重複包裝。</div>
