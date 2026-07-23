@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>富華創新之序｜受眾分析報告</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --accent:#607d96;--accent-dark:#4d6a82;--accent-light:#eaf0f6;--accent-border:#a8bed0;
+  --alt:#2a7a6a;--alt-dark:#1a5a4a;--alt-light:#e0f2ee;--alt-border:#7ac0b0;
+  --bg:#f2f3f1;--s:#ffffff;--bd:#e4e5e2;--tx:#2e2c29;--sub:#7d7870;--sub2:#a8a199;
+  --good:#1e6e3f;--goodl:#e6f4ea;--warn:#c05c00;
+  --radius:12px;--shadow-xs:0 1px 3px rgba(0,0,0,.05);--shadow-sm:0 2px 8px rgba(0,0,0,.07);--shadow-card:0 2px 10px rgba(0,0,0,.06),0 1px 3px rgba(0,0,0,.04);
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft JhengHei','Segoe UI',sans-serif;background:var(--bg);color:var(--tx);font-size:14px;line-height:1.6;min-height:100vh}
+.page-header{background:linear-gradient(180deg,#0d1824 0%,#091218 100%);padding:0 40px;height:56px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.04),0 4px 20px rgba(0,0,0,.35);border-bottom:1px solid rgba(255,255,255,.06)}
+.ph-logo{width:30px;height:30px;background:linear-gradient(135deg,#7a9ab5,var(--accent-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;flex-shrink:0}
+.ph-title{font-size:14px;font-weight:700;color:#e8eff5;letter-spacing:-.2px}
+.ph-sub{font-size:11px;color:#506070;margin-left:2px}
+.ph-nav{margin-left:auto;display:flex;gap:8px;align-items:center}
+.ph-nav a{font-size:12px;color:#8aaac0;text-decoration:none;padding:5px 13px;border-radius:6px;border:1px solid rgba(96,125,150,.25);background:rgba(96,125,150,.12);transition:all .15s;font-weight:500}
+.ph-nav a:hover{background:rgba(96,125,150,.22);color:#b8d0e4}
+#btt{position:fixed;right:24px;bottom:28px;width:38px;height:38px;border-radius:50%;background:rgba(10,18,28,.75);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.85);font-size:15px;cursor:pointer;opacity:0;transform:translateY(8px);transition:opacity .2s,transform .2s;pointer-events:none;z-index:150;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.3);font-family:inherit}
+#btt.show{opacity:1;transform:translateY(0);pointer-events:auto}
+#btt:hover{background:rgba(20,35,55,.9);transform:translateY(-2px)}
+.wrap{max-width:1440px;margin:0 auto;padding:32px 48px 48px}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--accent);text-decoration:none;margin-bottom:20px;padding:5px 12px;background:var(--accent-light);border-radius:20px;border:1px solid var(--accent-border)}
+.case-header{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:20px 24px;margin-bottom:20px;display:flex;align-items:center;gap:18px;box-shadow:var(--shadow-card)}
+.case-logo{width:44px;height:44px;background:linear-gradient(135deg,var(--accent),var(--accent-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;flex-shrink:0}
+.case-info h2{font-size:17px;font-weight:700;color:var(--tx);letter-spacing:-.3px}
+.case-info p{font-size:12px;color:var(--sub);margin-top:3px;line-height:1.5}
+.case-stats{margin-left:auto;display:flex;gap:28px;flex-shrink:0}
+.stat{text-align:right}
+.stat-n{font-size:24px;font-weight:800;color:var(--accent);line-height:1;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.stat-l{font-size:10px;color:var(--sub2);margin-top:3px;font-weight:600;letter-spacing:.3px;text-transform:uppercase}
+.page-banner{border-radius:var(--radius);padding:18px 24px;margin-bottom:22px;display:flex;align-items:center;gap:20px;box-shadow:var(--shadow-card)}
+.page-banner.main{background:linear-gradient(135deg,#5a3a6a,#7a5a8a);color:#fff}
+.page-banner.alt{background:linear-gradient(135deg,#1a5a4a,#2a7a6a);color:#fff}
+.banner-icon{width:40px;height:40px;background:rgba(255,255,255,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;flex-shrink:0}
+.banner-title{font-size:16px;font-weight:800;letter-spacing:-.2px}
+.banner-sub{font-size:12px;opacity:.8;margin-top:2px}
+.banner-stats{margin-left:auto;display:flex;gap:28px;flex-shrink:0}
+.bs{text-align:right}
+.bs-n{font-size:22px;font-weight:800;color:#fff;line-height:1;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.bs-l{font-size:10px;color:rgba(255,255,255,.7);margin-top:3px;font-weight:600;letter-spacing:.3px;text-transform:uppercase}
+.sec-title{font-size:12px;font-weight:700;color:var(--sub);margin-bottom:14px;display:flex;align-items:center;gap:10px;letter-spacing:.4px;text-transform:uppercase}
+.sec-title::before{content:'';display:inline-block;width:3px;height:14px;background:var(--accent);border-radius:2px;flex-shrink:0}
+.sec-title::after{content:'';flex:1;height:1px;background:var(--bd)}
+.sec-title.alt-bar::before{background:var(--alt)}
+.section{margin-bottom:28px}
+.note-bar{background:var(--accent-light);border:1px solid var(--accent-border);border-radius:10px;padding:10px 16px;font-size:12px;color:#2a4060;margin-bottom:20px;line-height:1.7}
+.note-bar.alt-note{background:var(--alt-light);border-color:var(--alt-border);color:#1a4030}
+.profiles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.profile-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow-xs);transition:box-shadow .2s,transform .2s}
+.profile-card:hover{box-shadow:var(--shadow-sm);transform:translateY(-2px)}
+.profile-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:17px;margin-bottom:12px;background:var(--bg)}
+.profile-name{font-size:15px;font-weight:700;color:var(--tx);margin-bottom:4px}
+.profile-meta{font-size:12px;color:var(--sub);margin-bottom:10px}
+.profile-tags{font-size:12px;color:#4a5568;margin-bottom:10px;line-height:1.6}
+.profile-behavior{font-size:12px;color:var(--sub);line-height:1.55;margin-bottom:12px}
+.profile-badge{display:inline-block;font-size:11px;font-weight:700;padding:4px 11px;border-radius:20px;margin-top:2px;background:var(--bg);color:var(--sub);border:1px solid var(--bd)}
+.tags-row{display:flex;flex-wrap:wrap;gap:8px}
+.core-tag{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;background:var(--s);border:1.5px solid var(--bd);border-radius:20px;font-size:13px;font-weight:600;color:var(--tx)}
+.core-tag.alt-tag{border-color:var(--alt-border)}
+.rk-grid{display:flex;flex-direction:column;gap:6px}
+.rk-row{background:var(--s);border:1px solid var(--bd);border-left:3px solid #ddd;border-radius:var(--radius);padding:12px 16px 12px 12px;display:flex;gap:12px;align-items:center}
+.rk-row.rk-main{border-left-color:#ddd}
+.rk-row.gold{border-left-color:#c8a800}
+.rk-medal{width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.rk-body{flex:1;min-width:0}
+.rk-name{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:3px;line-height:1.3}
+.rk-loc{font-size:11px;color:var(--sub2);line-height:1.4}
+.rk-stats{display:flex;gap:20px;flex-shrink:0;align-items:center}
+.rk-stat-block{text-align:right}
+.rk-result{font-size:22px;font-weight:900;color:var(--tx);line-height:1;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.rk-result-l{font-size:10px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.2px;margin-top:2px}
+.rk-cpl{font-size:16px;font-weight:800;color:var(--warn);line-height:1;font-variant-numeric:tabular-nums}
+.rk-cpl.good{color:var(--good)}
+.rk-cpl-l{font-size:10px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.2px;margin-top:2px}
+.rk-spend{font-size:13px;font-weight:700;color:#6d6560;line-height:1;font-variant-numeric:tabular-nums}
+.rk-spend-l{font-size:10px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.2px;margin-top:2px}
+.aud-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;align-items:start}
+@media(max-width:760px){.aud-grid-2{grid-template-columns:1fr}.profiles{grid-template-columns:1fr}}
+.aud-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);box-shadow:var(--shadow-xs);overflow:hidden}
+.aud-header{display:flex;align-items:center;gap:12px;padding:13px 16px;cursor:pointer;transition:background .15s;user-select:none}
+.aud-header:hover{background:var(--accent-light)}
+.aud-header.alt-h:hover{background:var(--alt-light)}
+.aud-num{width:24px;height:24px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0}
+.aud-num.alt{background:var(--alt)}
+.aud-info{flex:1;min-width:0}
+.aud-name{font-size:14px;font-weight:700;color:var(--tx);line-height:1.3}
+.aud-sub{font-size:11px;color:var(--sub2);margin-top:2px}
+.aud-arrow{font-size:12px;color:var(--sub2);transition:transform .2s;flex-shrink:0}
+.aud-card.open .aud-arrow{transform:rotate(90deg)}
+.aud-body{display:none;padding:0 16px 16px;border-top:1px solid var(--bd)}
+.aud-card.open .aud-body{display:block}
+.aud-sl{font-size:10px;font-weight:700;color:var(--sub2);text-transform:uppercase;letter-spacing:.4px;margin:12px 0 6px}
+.aud-logic{font-size:12px;color:var(--tx);line-height:1.65;background:var(--accent-light);border:1px solid var(--accent-border);border-radius:8px;padding:9px 12px}
+.aud-logic.alt-l{background:var(--alt-light);border-color:var(--alt-border)}
+.aud-lm{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px}
+.aud-lm-tag{background:var(--bg);border:1px solid var(--bd);border-radius:12px;padding:2px 9px;font-size:10px;color:var(--sub)}
+.tag-tbl{width:100%;border-collapse:collapse;font-size:12px;margin-top:4px}
+.tag-tbl thead tr{background:#eef3f7}
+.tag-tbl.alt-tbl thead tr{background:#e8f5f0}
+.tag-tbl th{padding:5px 8px;text-align:left;font-size:10px;font-weight:700;color:var(--sub2);border-bottom:1px solid var(--bd)}
+.tag-tbl tbody tr{cursor:pointer;transition:background .1s;border-bottom:1px solid #edf0f2}
+.tag-tbl tbody tr:hover{background:var(--accent-light)}
+.tag-tbl.alt-tbl tbody tr:hover{background:var(--alt-light)}
+.tag-tbl td{padding:5px 8px;color:var(--tx)}
+.tag-tbl td:first-child{color:var(--sub2);font-size:10px;width:24px}
+.tag-tbl tbody tr.flash{background:#c8f0d4!important}
+.copy-all-row{display:flex;justify-content:flex-end;margin-top:6px}
+.copy-all-btn{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:600;color:var(--accent-dark);background:var(--accent-light);border:1px solid var(--accent-border);border-radius:6px;padding:4px 10px;cursor:pointer;transition:background .15s}
+.copy-all-btn.alt-btn{color:var(--alt-dark);background:var(--alt-light);border-color:var(--alt-border)}
+.copy-all-btn.done{background:#c8f0d4;color:#1a5a34}
+#copy-toast{position:fixed;bottom:72px;left:50%;transform:translateX(-50%) translateY(8px);background:#0d1e2a;color:#e8f0f5;font-size:11px;font-weight:600;padding:7px 16px;border-radius:18px;opacity:0;pointer-events:none;transition:opacity .18s,transform .18s;z-index:300;white-space:nowrap}
+#copy-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.page-footer{text-align:center;font-size:11px;color:var(--sub2);margin-top:12px;padding-bottom:8px}
+.tab-bar{display:flex;gap:6px;margin-bottom:22px;background:var(--s);border:1px solid var(--bd);border-radius:10px;padding:5px;box-shadow:var(--shadow-xs)}
+.tab-btn{flex:1;padding:8px 14px;border-radius:7px;border:none;background:transparent;font-size:13px;font-weight:600;color:var(--sub);cursor:pointer;transition:all .15s;text-align:center;font-family:inherit}
+.tab-btn.active{background:#7a5a8a;color:#fff;box-shadow:0 2px 6px rgba(122,90,138,.3)}
+.tab-bar .tab-btn:nth-child(2).active{background:#2a7a6a;color:#fff;box-shadow:0 2px 6px rgba(42,122,106,.3)}
+.tab-btn:hover:not(.active){background:#f0edf5;color:#5a3a6a}
+.tab-pane{display:none}
+.tab-pane.show{display:block}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="ph-logo">序</div>
+  <span class="ph-title">富華創新之序｜受眾分析報告</span>
+  <span class="ph-sub">· 台中北屯 · 水湳經貿園區 · 總價3,500-4,000萬 · 雙粉專</span>
+  <nav class="ph-nav"><a href="index.html">標籤資料庫</a><a href="hub.html">← 返回總覽</a></nav>
+</header>
+
+<div id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+<div id="copy-toast">✓ 已複製到剪貼簿</div>
+
+<div class="wrap">
+<a class="back-link" href="hub.html">← 返回案件總覽</a>
+
+<div class="case-header">
+  <div class="case-logo">序</div>
+  <div class="case-info">
+    <h2>富華創新之序｜台中北屯</h2>
+    <p>敦化路二段×經貿東路口・水湳經貿園區單元八・總太營造・三房47.6-52坪・單價68-70萬/坪・總價3,500-4,000萬・雙粉專運作：主粉專 + 1510</p>
+  </div>
+  <div class="case-stats">
+    <div class="stat"><div class="stat-n">75</div><div class="stat-l">總潛客</div></div>
+    <div class="stat"><div class="stat-n">40組</div><div class="stat-l">已測受眾</div></div>
+    <div class="stat"><div class="stat-n">40組</div><div class="stat-l">新建議受眾</div></div>
+  </div>
+</div>
+
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="switchTab('main')">主粉專（27組已測 · 72潛客 · NT$47,600）</button>
+  <button class="tab-btn" onclick="switchTab('1510')">1510（8組已測 · 2潛客 · NT$6,726）</button>
+</div>
+
+<!-- ═══════════════ TAB: 主粉專 ═══════════════ -->
+<div id="tab-main" class="tab-pane show">
+
+<div class="page-banner main">
+  <div class="banner-icon">主</div>
+  <div>
+    <div class="banner-title">主粉專｜富華創新之序 FB</div>
+    <div class="banner-sub">2026/06/12 起 · 資料截至 2026-07-23</div>
+  </div>
+  <div class="banner-stats">
+    <div class="bs"><div class="bs-n">72</div><div class="bs-l">潛在顧客</div></div>
+    <div class="bs"><div class="bs-n">NT$47,600</div><div class="bs-l">總花費</div></div>
+    <div class="bs"><div class="bs-n">NT$215</div><div class="bs-l">最強組CPA</div></div>
+  </div>
+</div>
+
+<div class="note-bar">📌 2026-07-23建檔：本案是總太營造在水湳經貿園區單元八的高端預售案，總價3,500-4,000萬、單價68-70萬/坪，屬台中北屯高端定位（高於區域均價20.1%），三房47.6-52坪為主力，非首購產品。已測27組中「科技新貴/投資理財」單組貢獻35潛客・CPA僅NT$215，遙遙領先其他組（次高僅9潛客），核心邏輯是西屯中科科技業高薪族群+投資理財興趣交叉。次強方向為傳產興趣、醫生理財、自營商育兒、北屯再行銷（CPA 585-666）。本輪20組新受眾以此驗證邏輯為核心，延伸不同科技/專業菁英職務切角，並加入高端生活風格族群（高爾夫、名錶古董車、紅酒收藏）對應68-70萬/坪產品調性，已排除首購/學區等不符本案定位的方向。</div>
+
+<div class="section">
+  <div class="sec-title">三大核心受眾輪廓</div>
+  <div class="profiles">
+    <div class="profile-card">
+      <div class="profile-icon">💻</div>
+      <div class="profile-name">科技新貴投資型</div>
+      <div class="profile-meta">年齡 35-64｜西屯中科通勤圈</div>
+      <div class="profile-tags">興趣：科技業、投資理財、股票市場、資產配置</div>
+      <div class="profile-behavior">行為：全案壓倒性最強受眾，35潛客・CPA215，遠低於其他組。西屯中科高薪科技業族群+投資理財興趣交叉是本案核心公式。</div>
+      <span class="profile-badge">科技新貴/投資理財 35潛客・CPA NT$215</span>
+    </div>
+    <div class="profile-card">
+      <div class="profile-icon">🩺</div>
+      <div class="profile-name">醫療專業菁英型</div>
+      <div class="profile-meta">年齡 30-64｜西屯中科北屯</div>
+      <div class="profile-tags">興趣：醫學、理財興趣、財富管理、資產配置</div>
+      <div class="profile-behavior">高薪醫師/醫療專業人士，決策理性，對68-70萬/坪產品接受度高，是延伸測試潛力最大的族群。</div>
+      <span class="profile-badge">醫生/理財興趣 4潛客・CPA NT$666</span>
+    </div>
+    <div class="profile-card">
+      <div class="profile-icon">🏢</div>
+      <div class="profile-name">自營商高收職業型</div>
+      <div class="profile-meta">年齡 28-60｜北屯74線水湳逢甲</div>
+      <div class="profile-tags">興趣：自營商、置產、投資、傳產興趣</div>
+      <div class="profile-behavior">在地自營商/企業主，現金流穩定、決策務實，傳產興趣組已驗證9潛客有效。</div>
+      <span class="profile-badge">傳產興趣 9潛客・置產客自營商高收 2潛客</span>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="sec-title">跨受眾必保留的核心標籤</div>
+  <div class="tags-row">
+    <span class="core-tag">科技（科技）</span>
+    <span class="core-tag">投資（商業與財務）</span>
+    <span class="core-tag">股票（投資）</span>
+    <span class="core-tag">不動產（房地產）</span>
+    <span class="core-tag">新家</span>
+    <span class="core-tag">高收入族群</span>
+  </div>
+</div>
+
+<div class="section">
+  <div class="sec-title">主粉專已測受眾排行（2026-06-12 至 2026-07-23）</div>
+  <div class="rk-grid">
+    <div class="rk-row rk-main gold">
+      <div class="rk-medal">🥇</div>
+      <div class="rk-body">
+        <div class="rk-name">35-64 / 西屯中科 / 科技新貴 / 投資理財（排除IG）</div>
+        <div class="rk-loc">花費NT$7,541｜CTR 4.64%・遙遙領先全案</div>
+      </div>
+      <div class="rk-stats">
+        <div class="rk-stat-block"><div class="rk-result">35</div><div class="rk-result-l">潛在顧客</div></div>
+        <div class="rk-stat-block"><div class="rk-cpl good">NT$215</div><div class="rk-cpl-l">CPA</div></div>
+        <div class="rk-stat-block"><div class="rk-spend">NT$7,541</div><div class="rk-spend-l">花費</div></div>
+      </div>
+    </div>
+    <div class="rk-row rk-main">
+      <div class="rk-medal">🥈</div>
+      <div class="rk-body">
+        <div class="rk-name">30-60 / 74沿線 / 傳產興趣（排除IG）</div>
+        <div class="rk-loc">花費NT$4,275｜CTR 3.31%</div>
+      </div>
+      <div class="rk-stats">
+        <div class="rk-stat-block"><div class="rk-result">9</div><div class="rk-result-l">潛在顧客</div></div>
+        <div class="rk-stat-block"><div class="rk-cpl">NT$475</div><div class="rk-cpl-l">CPA</div></div>
+        <div class="rk-stat-block"><div class="rk-spend">NT$4,275</div><div class="rk-spend-l">花費</div></div>
+      </div>
+    </div>
+    <div class="rk-row rk-main">
+      <div class="rk-medal">🥉</div>
+      <div class="rk-body">
+        <div class="rk-name">35-64 / 西屯中科 / 醫生 / 理財興趣（排除IG）</div>
+        <div class="rk-loc">花費NT$2,663｜CTR 3.05%</div>
+      </div>
+      <div class="rk-stats">
+        <div class="rk-stat-block"><div class="rk-result">4</div><div class="rk-result-l">潛在顧客</div></div>
+        <div class="rk-stat-block"><div class="rk-cpl">NT$666</div><div class="rk-cpl-l">CPA</div></div>
+        <div class="rk-stat-block"><div class="rk-spend">NT$2,663</div><div class="rk-spend-l">花費</div></div>
+      </div>
+    </div>
+    <div class="rk-row rk-main">
+      <div class="rk-medal"><span style="font-size:11px;font-weight:800;color:var(--sub2)">4</span></div>
+      <div class="rk-body">
+        <div class="rk-name">(預)30-60 / 北台中 / 自營商 / 育兒</div>
+        <div class="rk-loc">花費NT$2,338｜CTR 2.04%</div>
+      </div>
+      <div class="rk-stats">
+        <div class="rk-stat-block"><div class="rk-result">4</div><div class="rk-result-l">潛在顧客</div></div>
+        <div class="rk-stat-block"><div class="rk-cpl">NT$585</div><div class="rk-cpl-l">CPA</div></div>
+        <div class="rk-stat-block"><div class="rk-spend">NT$2,338</div><div class="rk-spend-l">花費</div></div>
+      </div>
+    </div>
+    <div class="rk-row rk-main">
+      <div class="rk-medal"><span style="font-size:11px;font-weight:800;color:var(--sub2)">5</span></div>
+      <div class="rk-body">
+        <div class="rk-name">30-64 / 北屯粉專再行銷（0708放大區域）</div>
+        <div class="rk-loc">花費NT$2,643｜CTR 2.60%</div>
+      </div>
+      <div class="rk-stats">
+        <div class="rk-stat-block"><div class="rk-result">4</div><div class="rk-result-l">潛在顧客</div></div>
+        <div class="rk-stat-block"><div class="rk-cpl">NT$661</div><div class="rk-cpl-l">CPA</div></div>
+        <div class="rk-stat-block"><div class="rk-spend">NT$2,643</div><div class="rk-spend-l">花費</div></div>
+      </div>
+    </div>
+    <div class="rk-row rk-main">
+      <div class="rk-medal"><span style="font-size:11px;font-weight:800;color:var(--sub2)">6</span></div>
+      <div class="rk-body">
+        <div class="rk-name">30-64 / 水湳洲際 / 證券股票興趣</div>
+        <div class="rk-loc">花費NT$1,993｜CTR 1.98%・測試窗口已關</div>
+      </div>
+      <div class="rk-stats">
+        <div class="rk-stat-block"><div class="rk-result">3</div><div class="rk-result-l">潛在顧客</div></div>
+        <div class="rk-stat-block"><div class="rk-cpl">NT$664</div><div class="rk-cpl-l">CPA</div></div>
+        <div class="rk-stat-block"><div class="rk-spend">NT$1,993</div><div class="rk-spend-l">花費</div></div>
+      </div>
+    </div>
+    <div class="rk-row rk-main">
+      <div class="rk-medal"><span style="font-size:11px;font-weight:800;color:var(--sub2)">7</span></div>
+      <div class="rk-body">
+        <div class="rk-name">28-55 / 中科逢甲 / 置產客 / 自營商 / 高收職業</div>
+        <div class="rk-loc">花費NT$1,772｜CTR 1.57%</div>
+      </div>
+      <div class="rk-stats">
+        <div class="rk-stat-block"><div class="rk-result">2</div><div class="rk-result-l">潛在顧客</div></div>
+        <div class="rk-stat-block"><div class="rk-cpl">NT$886</div><div class="rk-cpl-l">CPA</div></div>
+        <div class="rk-stat-block"><div class="rk-spend">NT$1,772</div><div class="rk-spend-l">花費</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="sec-title">主粉專新建議受眾（20組）· 建立 2026-07-23</div>
+  <div id="main-aud-grid" class="aud-grid-2"></div>
+</div>
+
+</div><!-- end tab-main -->
+
+<!-- ═══════════════ TAB: 1510 ═══════════════ -->
+<div id="tab-1510" class="tab-pane">
+
+<div class="page-banner alt">
+  <div class="banner-icon">1510</div>
+  <div>
+    <div class="banner-title">1510粉專｜富華創新之序 FB（新帳號）</div>
+    <div class="banner-sub">2026/07/15 起 · 資料截至 2026-07-23</div>
+  </div>
+  <div class="banner-stats">
+    <div class="bs"><div class="bs-n">2</div><div class="bs-l">潛在顧客</div></div>
+    <div class="bs"><div class="bs-n">NT$6,726</div><div class="bs-l">總花費</div></div>
+    <div class="bs"><div class="bs-n">8組</div><div class="bs-l">已測</div></div>
+  </div>
+</div>
+
+<div class="note-bar alt-note">📌 2026-07-23建檔：1510是本案新開帳號，僅上線約1週，8組全數才剛起步，累計2潛客、花費NT$6,726，數據量太少無法判斷好壞。唯二出單的「證券股票興趣」與「科技新貴/投資置產」均延續主粉專驗證有效的財經分析交叉邏輯，方向一致。本輪20組延續主粉專的核心公式，但改走高端生活風格/消費類別（旅遊、健身、精品、藝文、收藏）做寬受眾曝光互補，與主粉專20組職業菁英角度區隔，避免兩個帳號互搶同一批受眾。</div>
+
+<div class="section">
+  <div class="sec-title alt-bar">1510已測受眾（2026-07-15 至 2026-07-23）</div>
+  <div class="rk-grid">
+    <div class="rk-row">
+      <div class="rk-medal">🥇</div>
+      <div class="rk-body">
+        <div class="rk-name">30-64 / 水湳北屯洲際 / 證券股票興趣（0720調）</div>
+        <div class="rk-loc">花費NT$1,211｜CTR 2.94%</div>
+      </div>
+      <div class="rk-stats">
+        <div class="rk-stat-block"><div class="rk-result">1</div><div class="rk-result-l">潛在顧客</div></div>
+        <div class="rk-stat-block"><div class="rk-cpl">NT$1,211</div><div class="rk-cpl-l">CPA</div></div>
+        <div class="rk-stat-block"><div class="rk-spend">NT$1,211</div><div class="rk-spend-l">花費</div></div>
+      </div>
+    </div>
+    <div class="rk-row">
+      <div class="rk-medal">🥈</div>
+      <div class="rk-body">
+        <div class="rk-name">35-64 / 水湳逢甲 / 科技新貴 / 投資置產</div>
+        <div class="rk-loc">花費NT$1,271｜CTR 3.56%・not_delivering</div>
+      </div>
+      <div class="rk-stats">
+        <div class="rk-stat-block"><div class="rk-result">1</div><div class="rk-result-l">潛在顧客</div></div>
+        <div class="rk-stat-block"><div class="rk-cpl">NT$1,271</div><div class="rk-cpl-l">CPA</div></div>
+        <div class="rk-stat-block"><div class="rk-spend">NT$1,271</div><div class="rk-spend-l">花費</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="sec-title alt-bar">1510新建議受眾（20組）· 建立 2026-07-23</div>
+  <div id="alt-aud-grid" class="aud-grid-2"></div>
+</div>
+
+</div><!-- end tab-1510 -->
+
+<div class="page-footer">富華創新之序 受眾分析報告 · 建立 2026-07-23 · 9133 廣告操作團隊</div>
+</div>
+
+<script>
+const PROJECT='富華創新之序';
+
+function switchTab(name){
+  document.querySelectorAll('.tab-btn').forEach((b,i)=>{
+    const names=['main','1510'];
+    b.classList.toggle('active',names[i]===name);
+  });
+  document.querySelectorAll('.tab-pane').forEach(p=>p.classList.remove('show'));
+  document.getElementById('tab-'+name).classList.add('show');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ── 主粉專 新受眾 20組（延伸實測最強「科技新貴/投資理財」組35潛客·CPA215邏輯，2026-07-23）──
+const MAIN_G=[
+  {n:'28-55 / 水湳經貿園區+3km / 半導體設備研發工程師×投資理財置產族',sub:'直接複製全案最強驗證組(35潛客·CPA215)·聚焦半導體細分職務',
+   logic:'複製全案最強驗證組「科技新貴/投資理財」(35潛客·CPA215)的核心邏輯，聚焦半導體設備研發工程師這個西屯中科通勤圈最密集的高薪職務，月薪10-25萬且股票分紅制度成熟，對68-70萬/坪產品接受度高。',
+   lm:['水湳經貿園區(+3km)','台中國家歌劇院(+5km)','中央公園(+3km)','敦化路基地'],
+   tags:[['Semiconductor','半導體'],['Research and development','研究與開發'],['Engineering','工程學'],['Stock market','股票市場（投資）'],['Investment','投資（商業與財務）'],['Personal finance','個人理財（銀行業）'],['Stocks','股票（投資）'],['Wealth management','財富管理'],['Banking','銀行業（金融）'],['Financial services','金融服務（商業與財務）'],['Asset allocation','資產配置'],['Property','不動產（房地產）'],['New home','新家'],['High income','高收入族群'],['Stable income','穩定收入']]},
+  {n:'28-55 / 水湳經貿園區+3km / 生技製藥研發人員×投資理財置產族',sub:'延伸科技新貴驗證邏輯·測試生技產業是否同樣有效',
+   logic:'生技製藥研發人員與科技新貴同屬高薪理性決策族群，複製驗證有效的投資理財標籤交叉邏輯，延伸至生技產業，測試是否同樣有效。',
+   lm:['水湳經貿園區(+3km)','中央公園(+3km)','台中國家歌劇院(+5km)','敦化路基地'],
+   tags:[['Biotechnology','生物技術'],['Pharmaceutical industry','製藥業'],['Research and development','研究與開發'],['Investment','投資（商業與財務）'],['Stocks','股票（投資）'],['Personal finance','個人理財（銀行業）'],['Wealth management','財富管理'],['Financial services','金融服務（商業與財務）'],['Property','不動產（房地產）'],['New home','新家'],['High income','高收入族群']]},
+  {n:'28-52 / 水湳經貿園區+3km / 金融科技FinTech從業×投資置產族',sub:'科技+金融雙背景·驗證邏輯最直接延伸',
+   logic:'FinTech從業者同時具備科技與金融雙重背景，是「科技新貴+投資理財」邏輯的最直接延伸族群，對數位資產與傳統不動產配置都有明確認知。',
+   lm:['水湳經貿園區(+3km)','台中金融業聚落','中央公園(+3km)','敦化路基地'],
+   tags:[['Financial technology','金融科技'],['Stock market','股票市場（投資）'],['Investment','投資（商業與財務）'],['Personal finance','個人理財（銀行業）'],['Banking','銀行業（金融）'],['Financial services','金融服務（商業與財務）'],['Asset allocation','資產配置'],['Property','不動產（房地產）'],['New home','新家'],['High income','高收入族群']]},
+  {n:'26-50 / 水湳經貿園區+3km / AI人工智慧工程師×資產配置置產族',sub:'近年薪資成長最快科技職務·延伸驗證邏輯',
+   logic:'AI工程師是近年薪資成長最快的科技職務，決策快、財力足，延伸驗證組的科技+理財邏輯，測試AI細分職務的轉換效率。',
+   lm:['水湳經貿園區(+3km)','中央公園(+3km)','台中軟體園區','敦化路基地'],
+   tags:[['Artificial intelligence','人工智慧（計算）'],['Machine learning','機器學習'],['Software engineering','軟體工程'],['Investment','投資（商業與財務）'],['Stocks','股票（投資）'],['Personal finance','個人理財（銀行業）'],['Wealth management','財富管理'],['Property','不動產（房地產）'],['New home','新家'],['High income','高收入族群']]},
+  {n:'35-58 / 水湳經貿園區+3km / 科技業高階主管×財富傳承置產族',sub:'延伸驗證組往上一層職級·財力更雄厚',
+   logic:'科技業高階主管（處長/協理層級以上）決策權大、財力雄厚，比一般工程師更早進入資產傳承規劃階段，是驗證組往上一層職級的延伸測試。',
+   lm:['水湳經貿園區(+3km)','中央公園(+3km)','台中國家歌劇院(+5km)','敦化路基地'],
+   tags:[['Management','管理（商業與財務）'],['Leadership','領導力'],['Wealth management','財富管理'],['Asset allocation','資產配置'],['Investment','投資（商業與財務）'],['Estate planning','資產傳承規劃'],['Banking','銀行業（金融）'],['Property','不動產（房地產）'],['New home','新家'],['High income','高收入族群']]},
+  {n:'28-48 / 水湳經貿園區+3km / 新創股權激勵科技人才×投資置產族',sub:'選擇權變現大筆現金部位·驗證邏輯財力最集中切角',
+   logic:'新創/上市科技公司員工持股/選擇權到期變現後常有大筆現金部位待配置，是「科技新貴+投資理財」邏輯中財力最集中爆發的族群切角。',
+   lm:['水湳經貿園區(+3km)','台中軟體園區','中央公園(+3km)','敦化路基地'],
+   tags:[['Startup','新創公司'],['Stock options','股票選擇權'],['Employee stock ownership','員工持股'],['Stock market','股票市場（投資）'],['Investment','投資（商業與財務）'],['Personal finance','個人理財（銀行業）'],['Wealth management','財富管理'],['Property','不動產（房地產）'],['New home','新家'],['High income','高收入族群']]},
+  {n:'30-55 / 水湳經貿園區+3km / 醫美整形外科醫師置產族',sub:'延伸「醫生理財興趣」驗證組(4潛客·CPA666)·聚焦現金流最強科別',
+   logic:'延伸「醫生/理財興趣」驗證組（4潛客·CPA666），聚焦醫美/整形外科醫師這個現金流最強的醫療細分科別，決策快且對高端住宅接受度高。',
+   lm:['水湳經貿園區(+3km)','中央公園(+3km)','台中醫美診所聚落','敦化路基地'],
+   tags:[['Medicine','醫學'],['Aesthetic medicine','醫學美容'],['Healthcare industry','醫療保健產業'],['Wealth management','財富管理'],['Investment','投資（商業與財務）'],['Personal finance','個人理財（銀行業）'],['Property','不動產（房地產）'],['New home','新家'],['High income','高收入族群']]},
+  {n:'32-58 / 水湳經貿園區+3km / 律師事務所合夥人×資產管理置產族',sub:'全新未測高端專業菁英·契約資產配置邏輯理性',
+   logic:'律師事務所合夥人收入結構穩定且對契約/資產配置邏輯理性，是尚未測試過的高端專業菁英族群。',
+   lm:['水湳經貿園區(+3km)','台中地方法院周邊','中央公園(+3km)','敦化路基地'],
+   tags:[['Law','法律（法律和法律服務）'],['Law firm','律師事務所'],['Legal services','法律服務'],['Wealth management','財富管理'],['Asset management','資產管理'],['Investment','投資（商業與財務）'],['Property','不動產（房地產）'],['New home','新家'],['High income','高收入族群']]},
+  {n:'32-58 / 水湳經貿園區+3km / 會計師事務所合夥人置產族',sub:'全新未測·最懂資產配置卻常延後自己置產',
+   logic:'會計師事務所合夥人最懂資產配置與稅務規劃邏輯，卻常年忙碌延後自己的置產決策，是尚未測試過的專業菁英職業。',
+   lm:['水湳經貿園區(+3km)','台中會計師事務所聚落','中央公園(+3km)','敦化路基地'],
+   tags:[['Accounting','會計'],['Tax planning','稅務規劃'],['Financial planning','財務規劃'],['Wealth management','財富管理'],['Investment','投資（商業與財務）'],['Property','不動產（房地產）'],['New home','新家'],['High income','高收入族群']]},
+  {n:'30-52 / 水湳經貿園區+3km / 企業接班二代×資產傳承置產族',sub:'全新未測·財力已足獨立置產動機明確',
+   logic:'企業接班二代已進入公司管理層、財力已足，置產動機明確為獨立於父母之外的自己的家，是尚未測試過的財富傳承族群。',
+   lm:['水湳經貿園區(+3km)','中央公園(+3km)','台中工商聚落','敦化路基地'],
+   tags:[['Family business','家族企業'],['Business succession','企業傳承'],['Management','管理（商業與財務）'],['Entrepreneurship','創業'],['Wealth management','財富管理'],['Investment','投資（商業與財務）'],['Property','不動產（房地產）'],['New home','新家'],['High income','高收入族群']]},
+  {n:'32-58 / 水湳經貿園區+3km / 建築師×室內設計事務所主持人置產族',sub:'全新未測·對空間品質建材工法要求高的識貨買家',
+   logic:'建築師/室內設計事務所主持人對空間品質與建材工法要求高，本身即是「識貨買家」，是尚未測試過的專業菁英族群。',
+   lm:['水湳經貿園區(+3km)','中央公園(+3km)','台中建築師公會','敦化路基地'],
+   tags:[['Architecture','建築學'],['Interior design','室內設計'],['Design','設計'],['Small business owners','小型企業主'],['Wealth management','財富管理'],['Investment','投資（商業與財務）'],['Property','不動產（房地產）'],['New home','新家'],['High income','高收入族群']]},
+  {n:'30-58 / 水湳經貿園區+3km / 精品進口代理商置產族',sub:'延伸「置產客自營商高收職業」驗證組(2潛客·CPA886)·聚焦精品進口',
+   logic:'延伸「置產客/自營商/高收職業」驗證組（2潛客·CPA886），聚焦精品/名牌進口代理商這個現金流最強的自營商細分，消費品味與置產判斷高度一致。',
+   lm:['水湳經貿園區(+3km)','中央公園(+3km)','台中精品商圈','敦化路基地'],
+   tags:[['Luxury goods','精品（零售）'],['Import and export','進出口貿易'],['Small business owners','小型企業主'],['Entrepreneurship','創業'],['Wealth management','財富管理'],['Investment','投資（商業與財務）'],['Property','不動產（房地產）'],['New home','新家'],['High income','高收入族群']]},
+  {n:'32-60 / 水湳經貿園區+3km / 私人診所開業醫置產族',sub:'延伸醫療組另一切角·區隔受薪醫護',
+   logic:'自行開業診所醫師（家醫科/牙醫/中醫）現金流穩定且決策不受醫院輪班綁定，是延伸醫療組的另一切角，區隔於受薪醫護。',
+   lm:['水湳經貿園區(+3km)','中央公園(+3km)','北屯診所聚落','敦化路基地'],
+   tags:[['Medicine','醫學'],['Clinic management','診所管理'],['Healthcare industry','醫療保健產業'],['Small business owners','小型企業主'],['Wealth management','財富管理'],['Investment','投資（商業與財務）'],['Property','不動產（房地產）'],['New home','新家'],['High income','高收入族群']]},
+  {n:'35-60 / 台中高爾夫球場 / 高爾夫球場會員×商務社交置產族',sub:'全新未測高端消費族群·財務決策理性',
+   logic:'高爾夫球會員多為企業主與高階主管，具備明確商務社交圈與資產配置習慣，決策快、財務評估理性，適合68-70萬/坪產品調性。',
+   lm:['台中高爾夫球場','水湳經貿園區(+3km)','中央公園(+3km)','敦化路基地'],
+   tags:[['Golf','高爾夫'],['Country club','鄉村俱樂部'],['Business networking','商業社交'],['Luxury goods','精品（零售）'],['Wealth management','財富管理'],['Investment','投資（商業與財務）'],['Property','不動產（房地產）'],['New home','新家'],['High income','高收入族群']]},
+  {n:'35-62 / 水湳經貿園區+3km / 名錶古董車收藏嗜好族置產族',sub:'全新未測收藏嗜好·置産是收藏品延伸邏輯',
+   logic:'收藏名錶與古董車的族群普遍具備高消費力與資產配置意識，已習慣為興趣投入大筆資金，置產對他們而言是收藏品的延伸邏輯，適合高單價產品。',
+   lm:['水湳經貿園區(+3km)','台中精品錶行商圈','中央公園(+3km)','敦化路基地'],
+   tags:[['Luxury goods','精品（零售）'],['Watch collecting','名錶收藏'],['Classic cars','古董車'],['Collecting','收藏嗜好'],['Wealth management','財富管理'],['Asset allocation','資產配置'],['Investment','投資（商業與財務）'],['Property','不動產（房地產）'],['New home','新家'],['High income','高收入族群']]},
+  {n:'32-60 / 水湳經貿園區+3km / 紅酒威士忌品飲鑑賞置產族',sub:'延伸「企業家精品紅酒收藏」驗證組(1潛客·CPA1045)',
+   logic:'延伸「企業家/精品/紅酒收藏」驗證組（1潛客·CPA1045），聚焦紅酒/威士忌品飲鑑賞族群，重視居家酒窖與招待空間，是本案68-70萬/坪產品最直接對應的生活風格族群。',
+   lm:['水湳經貿園區(+3km)','台中威士忌酒吧聚落','中央公園(+3km)','敦化路基地'],
+   tags:[['Wine','葡萄酒'],['Whisky','威士忌'],['Fine dining','精緻餐飲'],['Lifestyle','生活風格'],['Collecting','收藏嗜好'],['Wealth management','財富管理'],['Investment','投資（商業與財務）'],['Property','不動產（房地產）'],['New home','新家'],['High income','高收入族群']]},
+  {n:'32-60 / 水湳經貿園區+3km / 私廚精緻餐飲消費族置產族',sub:'全新未測生活風格·重視隱私與居家宴客空間',
+   logic:'私廚/會員制餐廳常客重視隱私與空間質感，消費力高且對居家宴客空間有明確需求，是尚未測試過的生活風格族群。',
+   lm:['水湳經貿園區(+3km)','中央公園(+3km)','台中精緻餐飲聚落','敦化路基地'],
+   tags:[['Fine dining','精緻餐飲'],['Gourmet food','美食佳餚'],['Private club','私人俱樂部'],['Lifestyle','生活風格'],['Wealth management','財富管理'],['Investment','投資（商業與財務）'],['Property','不動產（房地產）'],['New home','新家'],['High income','高收入族群']]},
+  {n:'35-62 / 水湳經貿園區+3km / 藝術收藏拍賣會員置產族',sub:'全新未測高端族群·收藏邏輯與置産邏輯高度一致',
+   logic:'藝術收藏/拍賣會員族群消費理性但金額龐大，重視居家展示空間與作品保值性，置產邏輯與收藏邏輯高度一致，是尚未測試過的高端族群。',
+   lm:['水湳經貿園區(+3km)','中央公園(+3km)','台中國家歌劇院(+5km)','敦化路基地'],
+   tags:[['Art collecting','藝術收藏'],['Fine art','藝術品'],['Auction','拍賣'],['Museum','博物館'],['Wealth management','財富管理'],['Asset allocation','資產配置'],['Investment','投資（商業與財務）'],['Property','不動產（房地產）'],['New home','新家'],['High income','高收入族群']]},
+  {n:'38-62 / 水湳經貿園區+3km / 商務常客×國際飛行常客置產族',sub:'全新未測頂端切角·財力金字塔頂端族群',
+   logic:'國際商務常客/私人飛行常客是全案財力金字塔頂端族群，決策果斷、對稀缺地段與規格產品接受度最高，是尚未測試過的頂端切角。',
+   lm:['水湳經貿園區(+3km)','台中國際機場','中央公園(+3km)','敦化路基地'],
+   tags:[['Business travel','商務出差'],['International frequent flyer','國際飛行常客（行為）'],['Luxury goods','精品（零售）'],['Wealth management','財富管理'],['Investment','投資（商業與財務）'],['Property','不動產（房地產）'],['New home','新家'],['High income','高收入族群']]},
+  {n:'28-55 / 水湳經貿園區+2km / 在地科技總部通勤族置產族',sub:'全新未測·園區地緣認同最強族群',
+   logic:'水湳經貿園區本身正吸引科技業總部與新創進駐，在地上班的科技從業者對「園區旁的家」有最直接地緣認同與通勤誘因，是全案地緣意義最強的族群。',
+   lm:['水湳經貿園區(+2km)','中央公園(+2km)','敦化路基地','新平公園'],
+   tags:[['Technology','科技'],['Commuter','通勤者（行為）'],['Investment','投資（商業與財務）'],['Personal finance','個人理財（銀行業）'],['Stocks','股票（投資）'],['Property','不動產（房地產）'],['New home','新家'],['Stable income','穩定收入'],['High income','高收入族群']]},
+];
+
+// ── 1510新帳號 20組（高端生活風格/消費類別，與主粉專職業菁英角度區隔，2026-07-23）──
+const G_1510=[
+  {n:'35-62 / 水湳經貿園區+3km / 高端日本歐美深度旅遊常客族',sub:'寬受眾高端生活風格·與主粉專職業角度區隔',
+   logic:'高端深度旅遊常客消費力強、決策自主，重視旅行品質與住宿規格，是與主粉專職業菁英角度互補的高端生活風格族群。',
+   lm:['水湳經貿園區(+3km)','中央公園(+3km)','台中國家歌劇院(+5km)','敦化路基地'],
+   tags:[['Travel','旅遊'],['International travel','國際旅遊'],['Luxury travel','奢華旅遊'],['Hotel','飯店'],['Lifestyle','生活風格'],['Investment','投資（商業與財務）'],['Property','不動產（房地產）'],['New home','新家'],['High income','高收入族群']]},
+  {n:'30-55 / 水湳經貿園區+3km / 頂級一對一健身教練會員族',sub:'寬受眾高端生活風格·高自律高消費力',
+   logic:'頂級一對一健身教練會員重視自我投資且消費力高，高自律特質與置產決策力呈正相關，是尚未測試過的生活風格族群。',
+   lm:['水湳經貿園區(+3km)','中央公園(+3km)','台中健身俱樂部聚落','敦化路基地'],
+   tags:[['Personal trainer','私人教練'],['Fitness','健身'],['Health','健康'],['Wellness','健康養生'],['Lifestyle','生活風格'],['Investment','投資（商業與財務）'],['Property','不動產（房地產）'],['New home','新家'],['High income','高收入族群']]},
+  {n:'32-60 / 水湳經貿園區+3km / 遊艇帆船水上休閒會員族',sub:'寬受眾高端消費族群·全新未測',
+   logic:'遊艇/帆船會員是財力金字塔頂端族群的休閒選擇，決策果斷且對稀缺產品接受度高。',
+   lm:['水湳經貿園區(+3km)','台中港遊艇碼頭','中央公園(+3km)','敦化路基地'],
+   tags:[['Sailing','帆船運動'],['Water sports','水上運動'],['Luxury goods','精品（零售）'],['Lifestyle','生活風格'],['Wealth management','財富管理'],['Investment','投資（商業與財務）'],['Property','不動產（房地產）'],['New home','新家'],['High income','高收入族群']]},
+  {n:'32-60 / 水湳經貿園區+3km / 米其林餐廳評鑑常客族',sub:'寬受眾高端消費族群·美食鑑賞消費力指標',
+   logic:'米其林餐廳評鑑常客消費頻率高、對品質敏感，餐飲消費力是整體資產水準的可靠指標。',
+   lm:['水湳經貿園區(+3km)','中央公園(+3km)','台中精緻餐飲聚落','敦化路基地'],
+   tags:[['Fine dining','精緻餐飲'],['Gourmet food','美食佳餚'],['Restaurant','餐廳'],['Lifestyle','生活風格'],['Investment','投資（商業與財務）'],['Property','不動產（房地產）'],['New home','新家'],['High income','高收入族群']]},
+  {n:'28-58 / 水湳經貿園區+3km / 高端珠寶精品消費族',sub:'寬受眾高端消費族群·女性資產力核心',
+   logic:'高端珠寶精品消費是女性受眾中消費力最強的類別之一，購買決策自主性高，與置產決策力高度相關。',
+   lm:['水湳經貿園區(+3km)','中央公園(+3km)','台中精品商圈','敦化路基地'],
+   tags:[['Luxury goods','精品（零售）'],['Jewelry','珠寶'],['Fashion','時尚'],['Lifestyle','生活風格'],['Investment','投資（商業與財務）'],['Property','不動產（房地產）'],['New home','新家'],['High income','高收入族群']]},
+  {n:'35-62 / 水湳經貿園區+3km / 私人管家秘書禮賓服務消費族',sub:'寬受眾高端消費族群·全新未測',
+   logic:'私人管家/秘書禮賓服務使用者是明確的高資產族群指標，重視生活品質與時間管理效率。',
+   lm:['水湳經貿園區(+3km)','中央公園(+3km)','台中商務會館聚落','敦化路基地'],
+   tags:[['Concierge service','禮賓服務'],['Lifestyle','生活風格'],['Wealth management','財富管理'],['Investment','投資（商業與財務）'],['Property','不動產（房地產）'],['New home','新家'],['High income','高收入族群']]},
+  {n:'32-52 / 水湳經貿園區+3km / 雙語國際學校家長換屋族',sub:'寬受眾高資產家庭·換屋非首購角度',
+   logic:'雙語/國際學校學費高昂，家長多為高資產族群，換屋動機明確為「配合子女教育規劃的資產升級」，非首購邏輯。',
+   lm:['水湳經貿園區(+3km)','中央公園(+3km)','台中雙語學校聚落','敦化路基地'],
+   tags:[['International education','國際教育'],['Bilingual education','雙語教育'],['Education','教育'],['Wealth management','財富管理'],['Investment','投資（商業與財務）'],['Property','不動產（房地產）'],['New home','新家'],['High income','高收入族群']]},
+  {n:'35-62 / 水湳經貿園區+3km / 頂級健檢抗老醫學消費族',sub:'寬受眾高端消費族群·健康投資力指標',
+   logic:'頂級健檢/抗老醫學消費族群願意為健康長期投資大筆金額，消費理性且重視生活品質，是明確的高資產族群指標。',
+   lm:['水湳經貿園區(+3km)','中央公園(+3km)','台中健檢中心聚落','敦化路基地'],
+   tags:[['Health','健康'],['Wellness','健康養生'],['Anti-aging','抗衰老'],['Healthcare','醫療保健'],['Lifestyle','生活風格'],['Investment','投資（商業與財務）'],['Property','不動產（房地產）'],['New home','新家'],['High income','高收入族群']]},
+  {n:'30-60 / 水湳經貿園區+3km / 古典音樂藝文表演會員族',sub:'寬受眾高端消費族群·台中國家歌劇院會員',
+   logic:'古典音樂會/藝文表演會員重視文化生活品質，消費理性但金額不低，鄰近台中國家歌劇院有明確地緣連結。',
+   lm:['台中國家歌劇院(+5km)','水湳經貿園區(+3km)','中央公園(+3km)','敦化路基地'],
+   tags:[['Classical music','古典音樂'],['Performing arts','表演藝術'],['Theater','劇院'],['Lifestyle','生活風格'],['Investment','投資（商業與財務）'],['Property','不動產（房地產）'],['New home','新家'],['High income','高收入族群']]},
+  {n:'28-55 / 水湳經貿園區+3km / 滑雪國外渡假常客族',sub:'寬受眾高端消費族群·全新未測',
+   logic:'滑雪渡假需要長假期與高消費力，常客多為企業主/高階主管，決策果斷且對稀缺產品接受度高。',
+   lm:['水湳經貿園區(+3km)','中央公園(+3km)','台中國家歌劇院(+5km)','敦化路基地'],
+   tags:[['Skiing','滑雪'],['Travel','旅遊'],['Vacation','渡假'],['Lifestyle','生活風格'],['Investment','投資（商業與財務）'],['Property','不動產（房地產）'],['New home','新家'],['High income','高收入族群']]},
+  {n:'25-50 / 水湳經貿園區+3km / 性能改裝車俱樂部族',sub:'寬受眾高消費嗜好·裝備投資力強',
+   logic:'性能改裝車俱樂部成員願意為興趣投入大筆裝備資金，消費力強且重視個人品味展現。',
+   lm:['水湳經貿園區(+3km)','中央公園(+3km)','台中賽車場','敦化路基地'],
+   tags:[['Automobile','汽車'],['Car modification','改裝車'],['Motorsport','賽車運動'],['Lifestyle','生活風格'],['Investment','投資（商業與財務）'],['Property','不動產（房地產）'],['New home','新家'],['High income','高收入族群']]},
+  {n:'30-58 / 水湳經貿園區+3km / 天使投資人×新創股權投資族',sub:'延伸科技投資邏輯·聚焦投資方而非受薪方',
+   logic:'延伸科技/投資核心邏輯，聚焦天使投資人/新創股權投資者這個「投資方」角色，區隔於主粉專聚焦的「受薪科技人才」角度。',
+   lm:['水湳經貿園區(+3km)','台中軟體園區','中央公園(+3km)','敦化路基地'],
+   tags:[['Angel investor','天使投資人'],['Venture capital','創業投資'],['Startup','新創公司'],['Investment','投資（商業與財務）'],['Wealth management','財富管理'],['Property','不動產（房地產）'],['New home','新家'],['High income','高收入族群']]},
+  {n:'28-55 / 水湳經貿園區+3km / 精品咖啡莊園鑑賞族',sub:'寬受眾生活風格·消費理性重視生活儀式感',
+   logic:'精品咖啡莊園鑑賞族群消費理性且重視生活儀式感，願意為興趣投入資金鑽研細節，是重視居家生活風格的族群。',
+   lm:['水湳經貿園區(+3km)','中央公園(+3km)','台中精品咖啡館聚落','敦化路基地'],
+   tags:[['Coffee','咖啡'],['Specialty coffee','精品咖啡'],['Lifestyle','生活風格'],['Investment','投資（商業與財務）'],['Property','不動產（房地產）'],['New home','新家'],['High income','高收入族群']]},
+  {n:'35-62 / 水湳經貿園區+3km / 普洱茶收藏鑑賞族',sub:'寬受眾生活風格·收藏兼具保值意識',
+   logic:'普洱茶收藏族群兼具生活品味與保值意識，消費金額不低且重視收藏空間規劃。',
+   lm:['水湳經貿園區(+3km)','中央公園(+3km)','台中茶行聚落','敦化路基地'],
+   tags:[['Tea','茶'],['Collecting','收藏嗜好'],['Traditional culture','傳統文化'],['Lifestyle','生活風格'],['Investment','投資（商業與財務）'],['Property','不動產（房地產）'],['New home','新家'],['High income','高收入族群']]},
+  {n:'28-55 / 水湳經貿園區+3km / 高端寵物精品消費族',sub:'寬受眾生活風格·消費力延伸指標',
+   logic:'高端寵物精品消費族群願意為毛孩投入大筆金額，是整體生活品質與消費力的延伸指標。',
+   lm:['水湳經貿園區(+3km)','中央公園(+3km)','台中寵物精品店聚落','敦化路基地'],
+   tags:[['Pet','寵物'],['Pet products','寵物用品'],['Lifestyle','生活風格'],['Investment','投資（商業與財務）'],['Property','不動產（房地產）'],['New home','新家'],['High income','高收入族群']]},
+  {n:'32-60 / 水湳經貿園區+3km / 侍酒師品酒會員族',sub:'延伸紅酒收藏驗證方向·聚焦品鑑社群角度',
+   logic:'延伸紅酒收藏驗證方向，聚焦侍酒師專業品酒會員社群，重視居家品飲空間，消費社群化程度高。',
+   lm:['水湳經貿園區(+3km)','台中威士忌酒吧聚落','中央公園(+3km)','敦化路基地'],
+   tags:[['Wine','葡萄酒'],['Sommelier','侍酒師'],['Fine dining','精緻餐飲'],['Lifestyle','生活風格'],['Investment','投資（商業與財務）'],['Property','不動產（房地產）'],['New home','新家'],['High income','高收入族群']]},
+  {n:'35-62 / 水湳經貿園區+3km / 私人會所俱樂部會籍消費族',sub:'寬受眾高端消費族群·社交圈財力指標',
+   logic:'私人會所俱樂部會籍消費是明確的財力與社交圈指標，會員多為企業主與專業菁英。',
+   lm:['水湳經貿園區(+3km)','台中商務會館聚落','中央公園(+3km)','敦化路基地'],
+   tags:[['Private club','私人俱樂部'],['Business networking','商業社交'],['Lifestyle','生活風格'],['Wealth management','財富管理'],['Investment','投資（商業與財務）'],['Property','不動產（房地產）'],['New home','新家'],['High income','高收入族群']]},
+  {n:'30-58 / 水湳經貿園區+3km / 頂級家具家飾軟裝消費族',sub:'寬受眾生活風格·換屋裝修意圖最直接',
+   logic:'頂級家具家飾軟裝消費族群對居家品質要求高，換屋/新居裝修意圖直接，是與置產動機最貼近的消費類別。',
+   lm:['水湳經貿園區(+3km)','中央公園(+3km)','台中家具家飾商圈','敦化路基地'],
+   tags:[['Furniture','家具'],['Interior design','室內設計'],['Home decor','居家裝飾'],['Lifestyle','生活風格'],['Investment','投資（商業與財務）'],['Property','不動產（房地產）'],['New home','新家'],['High income','高收入族群']]},
+  {n:'35-62 / 水湳經貿園區+3km / 書畫古董藝術鑑賞族',sub:'寬受眾高端收藏族群·全新未測',
+   logic:'書畫古董藝術鑑賞族群重視居家展示空間，收藏邏輯與置產保值邏輯高度一致，消費金額龐大。',
+   lm:['水湳經貿園區(+3km)','中央公園(+3km)','台中國家歌劇院(+5km)','敦化路基地'],
+   tags:[['Art collecting','藝術收藏'],['Antique','古董'],['Fine art','藝術品'],['Lifestyle','生活風格'],['Investment','投資（商業與財務）'],['Property','不動產（房地產）'],['New home','新家'],['High income','高收入族群']]},
+  {n:'30-64 / 水湳北屯洲際+3km / 證券期貨投資社團延伸組',sub:'直接複製1510唯一驗證組·擴大預算與地緣半徑',
+   logic:'「證券股票興趣」是1510目前唯一出單組合，直接複製此核心邏輯並擴大到證券期貨投資社團會員，延伸地緣半徑加大觸及。',
+   lm:['水湳經貿園區(+3km)','中央公園(+3km)','台中證券商聚落','敦化路基地'],
+   tags:[['Stock market','股票市場（投資）'],['Futures','期貨'],['Investment','投資（商業與財務）'],['Personal finance','個人理財（銀行業）'],['Financial services','金融服務（商業與財務）'],['Wealth management','財富管理'],['Property','不動產（房地產）'],['New home','新家'],['High income','高收入族群']]},
+];
+
+function renderAudGrid(gridId, data, prefix, isAlt){
+  const el=document.getElementById(gridId);
+  if(!el)return;
+  let h='';
+  data.forEach((g,i)=>{
+    const lmH=g.lm.map(l=>`<span class="aud-lm-tag">${l}</span>`).join('');
+    const tagH=g.tags.map((t,j)=>`<tr><td>${j+1}</td><td>${t[0]}</td><td>${t[1]}</td></tr>`).join('');
+    const numCls=isAlt?'aud-num alt':'aud-num';
+    const hoverCls=isAlt?'alt-h':'';
+    const logicCls=isAlt?'aud-logic alt-l':'aud-logic';
+    const tblCls=isAlt?'tag-tbl alt-tbl':'tag-tbl';
+    const btnCls=isAlt?'copy-all-btn alt-btn':'copy-all-btn';
+    h+=`<div class="aud-card" id="${prefix}${i}">
+<div class="aud-header ${hoverCls}" onclick="toggleAudG('${prefix}',${i})">
+  <div class="${numCls}">${i+1}</div>
+  <div class="aud-info"><div class="aud-name">${g.n}</div><div class="aud-sub">${g.sub}</div></div>
+  <div class="aud-arrow">▶</div>
+</div>
+<div class="aud-body">
+  <div class="aud-sl">評估邏輯</div>
+  <div class="${logicCls}">${g.logic}</div>
+  <div class="aud-sl" style="margin-top:12px">地標定位</div>
+  <div class="aud-lm">${lmH}</div>
+  <div class="aud-sl" style="margin-top:12px">興趣標籤（${g.tags.length}個）</div>
+  <table class="${tblCls}"><thead><tr><th>#</th><th>英文</th><th>中文</th></tr></thead><tbody>${tagH}</tbody></table>
+</div></div>`;
+  });
+  el.innerHTML=h;
+}
+
+renderAudGrid('main-aud-grid', MAIN_G, 'ac', false);
+renderAudGrid('alt-aud-grid', G_1510, 'bc', true);
+
+function copyTxt(txt){return navigator.clipboard?navigator.clipboard.writeText(txt):Promise.reject();}
+function showToast(){const t=document.getElementById('copy-toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200)}
+
+function initAudCard(card){
+  if(card.dataset.cb)return;card.dataset.cb='1';
+  const isAlt=card.querySelector('.aud-num.alt')!==null;
+  card.querySelectorAll('.tag-tbl tbody tr').forEach(row=>{
+    const en=row.cells[1]?.textContent.trim();if(!en)return;
+    row.addEventListener('click',()=>{
+      copyTxt(en).then(()=>{row.classList.add('flash');setTimeout(()=>row.classList.remove('flash'),600);showToast();});
+    });
+  });
+  card.querySelectorAll('.tag-tbl').forEach(tbl=>{
+    const wrap=document.createElement('div');wrap.className='copy-all-row';
+    const btn=document.createElement('button');
+    btn.className=isAlt?'copy-all-btn alt-btn':'copy-all-btn';
+    btn.innerHTML='⎘ 複製全部標籤';
+    btn.addEventListener('click',e=>{
+      e.stopPropagation();
+      const tags=Array.from(tbl.querySelectorAll('tbody tr')).map(r=>r.cells[1]?.textContent.trim()).filter(Boolean).join('\n');
+      copyTxt(tags).then(()=>{btn.classList.add('done');btn.textContent='✓ 已複製';setTimeout(()=>{btn.classList.remove('done');btn.innerHTML='⎘ 複製全部標籤';},2000);});
+    });
+    wrap.appendChild(btn);tbl.after(wrap);
+  });
+}
+function toggleAudG(prefix,i){const c=document.getElementById(prefix+i);c.classList.toggle('open');if(c.classList.contains('open'))initAudCard(c);}
+window.addEventListener('scroll',()=>{document.getElementById('btt').classList.toggle('show',window.scrollY>300)});
+</script>
+</body>
+</html>
