@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>富宇學森｜受眾分析報告</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --accent:#4a7a9a;--accent-dark:#2e5c7a;--accent-light:#eaf3f8;--accent-border:#8ab9d0;
+  --bg:#f2f4f5;--s:#ffffff;--bd:#e4e7e9;--tx:#2a2e32;--sub:#74808a;--sub2:#a4acb4;
+  --good:#1e6e3f;--goodl:#e6f4ea;--warn:#c05c00;
+  --radius:12px;--shadow-xs:0 1px 3px rgba(0,0,0,.05);--shadow-sm:0 2px 8px rgba(0,0,0,.07);--shadow-card:0 2px 10px rgba(0,0,0,.06),0 1px 3px rgba(0,0,0,.04);
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft JhengHei','Segoe UI',sans-serif;background:var(--bg);color:var(--tx);font-size:14px;line-height:1.6;min-height:100vh}
+.page-header{background:linear-gradient(180deg,#0f1e2a 0%,#0a1620 100%);padding:0 40px;height:56px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.04),0 4px 20px rgba(0,0,0,.35);border-bottom:1px solid rgba(255,255,255,.06)}
+.ph-logo{width:30px;height:30px;background:linear-gradient(135deg,#6aaac0,var(--accent-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;flex-shrink:0}
+.ph-title{font-size:14px;font-weight:700;color:#e8f4f8;letter-spacing:-.2px}
+.ph-sub{font-size:11px;color:#4a8aaa;margin-left:2px}
+.ph-nav{margin-left:auto;display:flex;gap:8px;align-items:center}
+.ph-nav a{font-size:12px;color:#7ab4ca;text-decoration:none;padding:5px 13px;border-radius:6px;border:1px solid rgba(74,122,154,.25);background:rgba(74,122,154,.12);font-weight:500}
+.ph-nav a:hover{background:rgba(74,122,154,.22);color:#aadaee}
+#btt{position:fixed;right:24px;bottom:28px;width:38px;height:38px;border-radius:50%;background:rgba(15,25,38,.75);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.85);font-size:15px;cursor:pointer;opacity:0;transform:translateY(8px);transition:opacity .2s,transform .2s;pointer-events:none;z-index:150;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.3);font-family:inherit}
+#btt.show{opacity:1;transform:translateY(0);pointer-events:auto}
+#btt:hover{background:rgba(10,22,38,.9);transform:translateY(-2px)}
+.wrap{max-width:1200px;margin:0 auto;padding:32px 40px 48px}
+.case-header{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:20px 24px;margin-bottom:10px;display:flex;align-items:center;gap:18px;box-shadow:var(--shadow-card)}
+.case-logo{width:44px;height:44px;background:linear-gradient(135deg,#6aaac0,var(--accent-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;flex-shrink:0}
+.case-info h2{font-size:17px;font-weight:700;color:var(--tx);letter-spacing:-.3px}
+.case-info p{font-size:12px;color:var(--sub);margin-top:3px;line-height:1.5}
+.case-stats{margin-left:auto;display:flex;gap:28px;flex-shrink:0}
+.stat{text-align:right}
+.stat-n{font-size:24px;font-weight:800;color:var(--accent);line-height:1;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.stat-l{font-size:10px;color:var(--sub2);margin-top:3px;font-weight:600;letter-spacing:.3px;text-transform:uppercase}
+.top-link{font-size:12px;color:var(--accent);margin-bottom:24px;display:inline-block;text-decoration:none;font-weight:500}
+.top-link span{border-bottom:1px solid var(--accent-border)}
+.tab-bar{display:flex;gap:6px;margin-bottom:22px;background:var(--s);border:1px solid var(--bd);border-radius:10px;padding:5px;box-shadow:var(--shadow-xs)}
+.tab-btn{flex:1;padding:8px 14px;border-radius:7px;border:none;background:transparent;font-size:13px;font-weight:600;color:var(--sub);cursor:pointer;transition:all .15s;text-align:center}
+.tab-btn.active{background:var(--accent);color:#fff;box-shadow:0 2px 6px rgba(74,122,154,.35)}
+.tab-btn:hover:not(.active){background:#eaf3f8;color:var(--accent-dark)}
+.tab-pane{display:none}
+.tab-pane.show{display:block}
+.sec-title{font-size:12px;font-weight:700;color:var(--sub);margin-bottom:14px;display:flex;align-items:center;gap:10px;letter-spacing:.4px;text-transform:uppercase}
+.sec-title::before{content:'';display:inline-block;width:3px;height:14px;background:var(--accent);border-radius:2px;flex-shrink:0}
+.sec-title::after{content:'';flex:1;height:1px;background:var(--bd)}
+.section{margin-bottom:28px}
+.note-bar{background:var(--accent-light);border:1px solid var(--accent-border);border-radius:10px;padding:10px 16px;font-size:12px;color:#2e5c7a;margin-bottom:20px;line-height:1.6}
+.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:22px}
+.sb-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:14px 16px;box-shadow:var(--shadow-xs);text-align:center}
+.sb-n{font-size:26px;font-weight:900;color:var(--accent);line-height:1;letter-spacing:-1px;font-variant-numeric:tabular-nums}
+.sb-n.warn{color:var(--warn)}
+.sb-l{font-size:10px;color:var(--sub2);font-weight:600;margin-top:4px;text-transform:uppercase;letter-spacing:.3px}
+.perf-table{width:100%;border-collapse:collapse;font-size:12.5px;background:var(--s);border-radius:10px;overflow:hidden;border:1px solid var(--bd);box-shadow:var(--shadow-xs)}
+.perf-table th{background:#f0f4f7;color:var(--sub);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.3px;padding:9px 14px;text-align:left;border-bottom:1px solid var(--bd)}
+.perf-table td{padding:9px 14px;border-bottom:1px solid #f0f2f4;color:var(--tx)}
+.perf-table tr:last-child td{border-bottom:none}
+.perf-table tr:hover td{background:#f8fafc}
+.tag-ok{color:var(--good);font-weight:700}
+.tag-warn{color:var(--warn);font-weight:600}
+.tag-mute{color:var(--sub2)}
+.aud-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;align-items:start}
+@media(max-width:760px){.aud-grid-2{grid-template-columns:1fr}}
+.aud-card{background:var(--s);border:1px solid var(--bd);border-radius:10px;overflow:hidden;box-shadow:var(--shadow-xs)}
+.aud-header{display:flex;align-items:center;gap:12px;padding:13px 16px;cursor:pointer;user-select:none;transition:background .15s}
+.aud-header:hover{background:#f8fafc}
+.aud-num{width:28px;height:28px;border-radius:8px;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;flex-shrink:0}
+.aud-info{flex:1;min-width:0}
+.aud-name{font-size:13px;font-weight:700;color:var(--tx);line-height:1.3}
+.aud-sub{font-size:11px;color:var(--sub);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.aud-arrow{font-size:10px;color:var(--sub2);transition:transform .2s;flex-shrink:0}
+.aud-card.open .aud-arrow{transform:rotate(90deg)}
+.aud-body{display:none;padding:0 16px 14px;border-top:1px solid #f0f2f4}
+.aud-card.open .aud-body{display:block}
+.aud-sl{font-size:10px;font-weight:700;color:var(--sub2);text-transform:uppercase;letter-spacing:.4px;margin:12px 0 6px}
+.aud-logic{font-size:12px;color:var(--tx);line-height:1.7;background:var(--accent-light);border-radius:8px;padding:10px 13px;border-left:3px solid var(--accent)}
+.aud-lm{display:flex;flex-wrap:wrap;gap:6px}
+.aud-lm-tag{font-size:11px;background:#eaf3f8;color:var(--accent-dark);border:1px solid #c0daea;border-radius:6px;padding:3px 10px;font-weight:600}
+.tag-tbl{width:100%;border-collapse:collapse;font-size:12px;margin-top:4px}
+.tag-tbl th{background:#f0f4f7;color:var(--sub);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.3px;padding:6px 10px;text-align:left}
+.tag-tbl td{padding:5px 10px;border-bottom:1px solid #f2f4f6;color:var(--tx);cursor:pointer}
+.tag-tbl tr:last-child td{border-bottom:none}
+.tag-tbl tr:hover td{background:#f8fafc}
+.tag-tbl td:first-child{width:28px;color:var(--sub2);font-size:11px;font-weight:600}
+.tag-tbl td:nth-child(2){font-weight:500}
+.tag-tbl td:nth-child(3){color:var(--sub);font-size:11.5px}
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="ph-logo">森</div>
+  <div class="ph-title">富宇學森｜受眾分析報告</div>
+  <div class="ph-sub">新竹市東區</div>
+  <nav class="ph-nav">
+    <a href="hub.html">← 返回總覽</a>
+  </nav>
+</div>
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<div class="wrap">
+  <div class="case-header">
+    <div class="case-logo">森</div>
+    <div class="case-info">
+      <h2>富宇學森</h2>
+      <p>新竹市東區長春街123-7號旁・關埔重劃區・二房25.2-26.4坪／三房31.3-35.1坪・14層89戶・單價81-87萬/坪・2034年8月完工・富宇建設</p>
+    </div>
+    <div class="case-stats">
+      <div class="stat"><div class="stat-n">7</div><div class="stat-l">累積潛客</div></div>
+      <div class="stat"><div class="stat-n">2468</div><div class="stat-l">均CPL (NT$)</div></div>
+      <div class="stat"><div class="stat-n">19</div><div class="stat-l">已測受眾組</div></div>
+    </div>
+  </div>
+
+  <a class="top-link" href="hub.html"><span>← 返回建案總覽</span></a>
+
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab(0,this)">受眾建議</button>
+    <button class="tab-btn" onclick="switchTab(1,this)">成效紀錄</button>
+  </div>
+
+  <!-- Tab 1: 受眾建議 -->
+  <div class="tab-pane show" id="tab0">
+    <div class="section">
+      <div class="sec-title">主粉專｜建議受眾（20組）· 更新 2026-07-23</div>
+      <div class="note-bar">已根據「親子教育學區換屋 CPL862」「生活美感品質換屋族 CPL897」「教師護理師換屋 CPL932」「金融保險業務 CPL1122」「科技股置產投資者 CPL1159」等有效方向深化職類區隔（半導體製程/IC設計/開業醫師/律師會計師/私人銀行/竹科創業者等），並新增ETF存股、健身自律、遠端接案、退休換屋等全案未測的全新切角。已排除「昌禾天雋名單再行銷」「純新竹法律相關/通勤高鐵外商/私人銀行主管」等剛上線觀察中組合的重複包裝。</div>
+      <div id="main-aud-grid" class="aud-grid-2"></div>
+    </div>
+  </div>
+
+  <!-- Tab 2: 成效紀錄 -->
+  <div class="tab-pane" id="tab1">
+    <div class="section">
+      <div class="sec-title">廣告成效總覽（2026-07-01 至 2026-07-23）</div>
+      <div class="stats-bar">
+        <div class="sb-card"><div class="sb-n">NT$17,279</div><div class="sb-l">總花費</div></div>
+        <div class="sb-card"><div class="sb-n">7</div><div class="sb-l">累積潛客</div></div>
+        <div class="sb-card"><div class="sb-n warn">2468</div><div class="sb-l">均CPL (NT$)</div></div>
+        <div class="sb-card"><div class="sb-n">19</div><div class="sb-l">已測受眾組</div></div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="sec-title">各受眾組實測成效</div>
+      <table class="perf-table">
+        <thead>
+          <tr><th>#</th><th>受眾組</th><th>花費</th><th>潛客</th><th>CPL</th><th>狀態</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>30-55 / 東區竹北 / 親子教育/學區換屋</td><td>NT$862</td><td>1</td><td class="tag-ok">NT$862</td><td class="tag-ok">最有效</td></tr>
+          <tr><td>2</td><td>32-55 / 北區東區 / 生活美感品質換屋族</td><td>NT$1,794</td><td>2</td><td class="tag-ok">NT$897</td><td class="tag-ok">有效</td></tr>
+          <tr><td>3</td><td>30-53 / 東區竹北 / 教師/護理師/換屋</td><td>NT$1,864</td><td>2</td><td class="tag-ok">NT$932</td><td class="tag-ok">有效</td></tr>
+          <tr><td>4</td><td>30-55 / 北區東區竹北 / 金融/保險業務</td><td>NT$1,122</td><td>1</td><td class="tag-ok">NT$1,122</td><td class="tag-ok">有效</td></tr>
+          <tr><td>5</td><td>34-58 / 東區北區竹北 / 科技股置產投資者</td><td>NT$1,159</td><td>1</td><td class="tag-ok">NT$1,159</td><td class="tag-ok">有效</td></tr>
+          <tr><td>6</td><td>32-55 / 東區竹北 / 傳產/中小企業主</td><td>NT$891</td><td>0</td><td class="tag-mute">—</td><td class="tag-mute">觀察中</td></tr>
+          <tr><td>7</td><td>35-55 / 東區北區竹北 / 醫生/法律/置產</td><td>NT$888</td><td>0</td><td class="tag-mute">—</td><td class="tag-mute">觀察中</td></tr>
+          <tr><td>8</td><td>35-55 / 竹東 / 竹科科技主管</td><td>NT$883</td><td>0</td><td class="tag-mute">—</td><td class="tag-mute">觀察中</td></tr>
+          <tr><td>9</td><td>35-58 / 東區竹北 / 律師/會計師</td><td>NT$984</td><td>0</td><td class="tag-mute">—</td><td class="tag-mute">觀察中</td></tr>
+          <tr><td>10</td><td>28-55 / 北區東區竹北 / 雙薪家庭首購</td><td>NT$874</td><td>0</td><td class="tag-mute">—</td><td class="tag-mute">觀察中</td></tr>
+          <tr><td>11</td><td>35-60 / 東區 / 竹科中高階主管換屋</td><td>NT$803</td><td>0</td><td class="tag-mute">—</td><td class="tag-mute">觀察中</td></tr>
+          <tr><td>12</td><td>28-55 / 竹東 / 科技業/投資/工程師</td><td>NT$1,108</td><td>0</td><td class="tag-mute">—</td><td class="tag-mute">觀察中</td></tr>
+          <tr><td>13</td><td>35-55 / 東區竹北 / 開業醫師/學區換屋</td><td>NT$1,423</td><td>0</td><td class="tag-mute">—</td><td class="tag-mute">觀察中</td></tr>
+          <tr><td>14</td><td>32-55 / 基地+3K竹科 / 科技新貴</td><td>NT$530</td><td>0</td><td class="tag-mute">—</td><td class="tag-mute">觀察中</td></tr>
+          <tr><td>15</td><td>30-55 / 基地+3K竹中火車站 / 重視學區父母/親子教育</td><td>NT$519</td><td>0</td><td class="tag-mute">—</td><td class="tag-mute">觀察中</td></tr>
+          <tr><td>16</td><td>30-55 / 北區東區竹北 / 昌禾天雋名單再行銷（0722調整）</td><td>NT$702</td><td>0</td><td class="tag-mute">—</td><td class="tag-mute">再行銷/觀察中</td></tr>
+          <tr><td>17</td><td>30-65 / 純新竹 / 法律相關+高總興趣</td><td>NT$310</td><td>0</td><td class="tag-mute">—</td><td class="tag-mute">剛上線</td></tr>
+          <tr><td>18</td><td>30-65 / 信義區竹北 / 通勤高鐵外商</td><td>NT$272</td><td>0</td><td class="tag-mute">—</td><td class="tag-mute">剛上線</td></tr>
+          <tr><td>19</td><td>35-65 / 純新竹 / 私人銀行金融業資深主管</td><td>NT$291</td><td>0</td><td class="tag-mute">—</td><td class="tag-mute">剛上線</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="section">
+      <div class="sec-title">策略備註</div>
+      <div class="note-bar">
+        <strong>有效輪廓：</strong>親子教育/學區換屋命中率最高（CPL862最佳，鄰近建功高中/關新國小明星學區）；生活美感品質換屋族與教師護理師換屋各2潛客（CPL897/932）；金融保險業務、科技股置產投資者也皆有轉換（CPL1122/1159）。<br>
+        <strong>建案優勢：</strong>關埔重劃區景觀宅、14層電梯大樓89戶規模適中、車位配比1:1.02、對照周邊富宇天雋(81.2萬/坪)、竹慶嶾見(83.8萬/坪)行情站得住腳。<br>
+        <strong>新方向優先：</strong>深化竹科職類區隔（半導體製程/IC設計/私人銀行/竹科創業者）、專業人士深挖（醫師/律師會計師/教師護理師）、全新未測角度（ETF存股、健身自律首購、遠端接案、退休老屋換新）。
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function switchTab(i,btn){
+  document.querySelectorAll('.tab-pane').forEach((p,j)=>p.classList.toggle('show',j===i));
+  document.querySelectorAll('.tab-btn').forEach((b,j)=>b.classList.toggle('active',j===i));
+}
+window.addEventListener('scroll',()=>{
+  document.getElementById('btt').classList.toggle('show',window.scrollY>400);
+});
+
+const MAIN_G=[
+  {n:'28-42 / 竹科基地+4km / 半導體製程工程師×首購新貴',sub:'延伸科技股置產投資者CPL1159·竹科製程工程師分紅高購買力強',
+   logic:'富宇學森距竹科科學園區車程約15分鐘，延伸全案有效的「科技股置產投資者CPL1159」方向，精準鎖定竹科半導體廠務/製程工程師。這群人責任制工時長，年終分紅常達4-8個月，購屋能力強但沒空看屋，需要「開車15分鐘到公司」的效率決策。25-26坪二房是竹科單身/新婚工程師的入門首選格局。',
+   lm:['新竹科學園區大門','陽明交通大學','光復路科技走廊'],
+   tags:[['Semiconductor','半導體'],['Wafer fabrication','晶圓製造'],['Process engineer','製程工程師'],['Chip design','晶片設計'],['Cleanroom technology','無塵室技術'],['Yield engineering','良率工程'],['Equipment engineer','設備工程師'],['Stock options','股票選擇權'],['Employee bonus','員工分紅獎金'],['RSU','限制性股票'],['Shift work','輪班制工作'],['Overtime culture','責任制工時'],['Engineering','工程師'],['R&D','研發'],['Patent','專利技術'],['Technology news','科技新聞'],['Gadgets','3C產品'],['Smartphone','智慧型手機'],['Stock market','股票市場'],['Personal finance','個人理財'],['Saving','儲蓄理財'],['Banking','銀行服務'],['Interior design','室內設計'],['Smart home','智慧家居'],['Coffee','咖啡文化'],['Fitness','健身運動'],['Career development','職涯發展'],['Continuing education','在職進修'],['Cloud computing','雲端運算'],['Automation','自動化技術']]},
+  {n:'26-40 / 竹科基地+5km / IC設計軟體工程師×高薪早鳥首購',sub:'竹科IC設計/軟體人才薪資天花板高·首購決策快',
+   logic:'IC設計與軟體工程師是竹科薪資結構最頂端的族群之一，起薪高、股票分紅重，25歲後半即具備首購能力。這群人重視效率、討厭通勤浪費時間，25-26坪二房「不用等、現在就能買」的決策速度快。全案第一次針對IC設計/軟體職類做精準區隔，非泛科技業標籤。',
+   lm:['新竹科學園區大門','陽明交通大學','巨城購物中心'],
+   tags:[['IC design','IC設計'],['Software engineering','軟體工程'],['Programming','程式設計'],['Algorithm','演算法'],['Artificial intelligence','人工智慧'],['Machine learning','機器學習'],['GitHub','GitHub'],['Open source software','開源軟體'],['Cloud computing','雲端運算'],['Startup culture','新創文化'],['Tech conference','科技研討會'],['Stock options','股票選擇權'],['Employee bonus','員工分紅'],['Career advancement','職涯晉升'],['Continuing education','在職進修'],['Coding bootcamp','程式訓練營'],['Video games','電玩遊戲'],['Board games','桌遊'],['Anime','動漫'],['Coffee','咖啡'],['Craft beer','精釀啤酒'],['Investment','投資理財'],['Personal finance','個人理財'],['Saving','儲蓄'],['Banking','銀行服務'],['Smart home','智慧家居'],['Interior design','室內設計'],['Fitness','健身運動'],['Cycling','自行車'],['Travel','旅遊']]},
+  {n:'34-55 / 東區關埔學區 / 開業醫師主治醫師×診所置產',sub:'延伸醫生法律置產888、開業醫師學區換屋1423·關埔醫療需求密集',
+   logic:'延伸全案已測的「醫生法律置產」與「開業醫師學區換屋」兩組方向，深化鎖定關埔重劃區周邊開業診所醫師與醫院主治醫師。這群人資產穩定、核貸條件最佳，對學區、生活機能、大樓管理品質要求高，31-35坪三房是家庭型醫師換屋/置產的理想格局。',
+   lm:['馬偕紀念醫院新竹分院','建功高中','巨城購物中心'],
+   tags:[['Physician','醫師'],['Private practice','開業診所'],['Medical clinic','診所經營'],['Specialist doctor','專科醫師'],['Medical association','醫學會'],['Continuing medical education','醫學繼續教育'],['Medical conference','醫學研討會'],['Healthcare management','醫療管理'],['Surgery','外科醫學'],['Pharmaceutical','藥品醫療'],['Medical equipment','醫療器材'],['Wealth management','財富管理'],['Private banking','私人銀行'],['Investment','投資理財'],['Asset allocation','資產配置'],['Tax planning','稅務規劃'],['Golf','高爾夫球'],['Fine dining','精緻餐飲'],['Wine tasting','品酒'],['Luxury watch','名錶收藏'],['Travel','旅遊'],['Business class travel','商務艙旅遊'],['School district','學區'],['Private tutoring','家教補習'],['Interior design','室內設計'],['Smart home','智慧家居'],['Banking','銀行服務'],['Saving','儲蓄'],['Quality of life','生活品質'],['Community','社區生活']]},
+  {n:'33-58 / 東區竹北 / 律師會計師稅務顧問×專業人士換屋',sub:'延伸律師會計師CPL984·稅務會計法律三師換屋核貸力最強',
+   logic:'延伸全案「律師/會計師」方向並擴大至稅務顧問，這群專業人士收入穩定、自雇比例高、對資產保值與節稅工具敏感。31-35坪三房對應其換屋需求（現居坪數小或屋齡老），對建案品牌、公設比、車位配比等細節會理性比較，決策周期較長但轉換率穩定。',
+   lm:['新竹地方法院','巨城購物中心','建功高中'],
+   tags:[['Lawyer','律師'],['Attorney','執業律師'],['Accountant','會計師'],['Certified public accountant','會計師事務所'],['Tax advisor','稅務顧問'],['Legal services','法律服務'],['Litigation','訴訟'],['Contract law','契約法'],['Corporate law','公司法'],['Notary','公證'],['Professional association','專業公會'],['Estate planning','遺產規劃'],['Tax planning','稅務規劃'],['Wealth management','財富管理'],['Asset allocation','資產配置'],['Investment','投資理財'],['Banking','銀行服務'],['Personal finance','個人理財'],['Fine dining','精緻餐飲'],['Wine tasting','品酒收藏'],['Business networking','商務社交'],['Golf','高爾夫'],['Reading','閱讀'],['Classical music','古典音樂'],['Interior design','室內設計'],['Smart home','智慧家居'],['Quality of life','生活品質'],['Community','社區生活'],['Continuing education','專業進修'],['Business class travel','商務艙旅遊']]},
+  {n:'28-50 / 東區竹北 / 教師護理師公職人員×學區安穩換屋',sub:'延伸全案CPL932第二有效組·公教醫護核貸率最高族群',
+   logic:'延伸全案第二有效「教師/護理師/換屋CPL932」方向，深化鎖定公教與護理職類。這群人薪資穩定、銀行核貸條件最佳，對「安穩」比「增值」更重視，關埔學區（建功高中、關新國小）對教育從業者天然有吸引力，是全案核貸轉換率最可預期的族群。',
+   lm:['建功高中','關新國小','馬偕紀念醫院新竹分院'],
+   tags:[['Teacher','教師'],['School faculty','學校教職員'],['Nurse','護理師'],['Nursing profession','護理專業'],['Public servant','公務人員'],['Government employee','政府職員'],['Civil service exam','公職考試'],['Education policy','教育政策'],['Classroom management','班級經營'],['Curriculum design','課程設計'],['Continuing education','教師進修'],['Retirement planning','退休規劃'],['Pension','退休金'],['Job security','工作保障'],['Banking','銀行服務'],['Saving','儲蓄理財'],['Personal finance','個人理財'],['Life insurance','壽險保障'],['School district','學區'],['Tutoring','家教'],['Reading','閱讀'],['Book club','讀書會'],['Gardening','園藝'],['Cooking','料理烹飪'],['Interior design','室內設計'],['Home improvement','居家佈置'],['Quality of life','生活品質'],['Community','社區生活'],['Volunteering','志工服務'],['Health and wellness','健康養生']]},
+  {n:'30-55 / 北區東區竹北 / 金融保險資深業務×高績效換屋',sub:'延伸金融保險業務CPL1122·懂置產邏輯卻自己還沒買的一群',
+   logic:'延伸全案有效的「金融/保險業務CPL1122」方向。這群業務每天在跟客戶講資產配置、保單規劃，收入不固定但績效好時購買力強，「先確保自己有房」是他們最切身的動機。竹北北區/東區金融保險從業人員密集，全案持續加碼此方向。',
+   lm:['巨城購物中心','新竹金融商圈','建功高中'],
+   tags:[['Insurance agent','保險業務'],['Life insurance','壽險保險'],['Financial advisor','財務顧問'],['Wealth management','財富管理'],['Asset management','資產管理'],['Investment products','投資型商品'],['Annuity','年金保險'],['Sales performance','業務績效'],['Commission based','佣金制工作'],['Business networking','商業人脈'],['Professional development','職業發展'],['Leadership training','領導力訓練'],['Public speaking','公開演講'],['Client relationship','客戶關係經營'],['Banking','銀行服務'],['Stock market','股票市場'],['Personal finance','個人理財'],['Saving','儲蓄理財'],['Tax planning','稅務規劃'],['Luxury car','豪華轎車'],['Fine dining','精緻餐飲'],['Golf','高爾夫球'],['Business class travel','商務艙旅遊'],['Self-improvement','自我提升'],['Motivational speaking','激勵演講'],['Interior design','室內設計'],['Smart home','智慧家居'],['Quality of life','生活品質'],['Community','社區生活'],['Networking event','社交活動']]},
+  {n:'35-60 / 純新竹 / 私人銀行財富管理顧問×高資產客層',sub:'延伸私人銀行金融業資深主管方向·全案最高資產階層',
+   logic:'延伸本案剛上線的「私人銀行金融業資深主管」測試方向。私人銀行/財富管理顧問服務的是高資產客戶，自己也具備相對應的資產水位與品味要求，對建築設計質感、稀有坪數規劃、管理服務品質敏感度最高。31-35坪三房、14層電梯宅對這群人是「夠格但不誇張」的置產標的。',
+   lm:['巨城購物中心','陽明交通大學','新竹科學園區大門'],
+   tags:[['Private banking','私人銀行'],['Wealth management','財富管理'],['High net worth individual','高資產客戶'],['Asset allocation','資產配置'],['Portfolio management','投資組合管理'],['Family office','家族辦公室'],['Estate planning','遺產規劃'],['Trust services','信託服務'],['Alternative investment','另類投資'],['Hedge fund','避險基金'],['Private equity','私募股權'],['Art collection','藝術收藏'],['Luxury watch','名錶收藏'],['Wine collecting','葡萄酒收藏'],['Yacht','遊艇'],['Business class travel','商務艙旅遊'],['Golf','高爾夫球'],['Fine dining','精緻餐飲'],['Michelin restaurant','米其林餐廳'],['Luxury car','豪華轎車'],['Bespoke tailoring','訂製服裝'],['Banking','銀行服務'],['Investment','投資理財'],['Tax planning','稅務規劃'],['Interior design','室內設計'],['Architecture','建築設計'],['Smart home','智慧家居'],['Quality of life','生活品質'],['Community','高端社群'],['Networking event','商務社交']]},
+  {n:'32-55 / 竹科創業圈 / 新創圈創業者×天使投資人',sub:'竹科新創圈高資產族·全案未測全新切角',
+   logic:'竹科周邊新創圈近年蓬勃，創業者與天使投資人在退場或募資後具備一次性高資產，購屋決策快、重視隱私與空間彈性。這群人對「新大樓、電梯、管理好」比對「地段炫耀感」更在意，31-35坪三房也適合當作創業初期的居家辦公空間延伸。全案第一次鎖定此族群。',
+   lm:['新竹科學園區大門','陽明交通大學','巨城購物中心'],
+   tags:[['Entrepreneurship','創業精神'],['Startup','新創公司'],['Angel investor','天使投資人'],['Venture capital','創業投資'],['Seed funding','種子輪募資'],['Business incubator','企業孵化器'],['Pitch deck','募資簡報'],['Startup accelerator','加速器計畫'],['Business development','業務開發'],['Networking event','創業社交'],['SaaS','軟體服務'],['Tech entrepreneur','科技創業家'],['Innovation','創新'],['Product management','產品管理'],['Stock options','股票選擇權'],['Exit strategy','退場策略'],['Investment','投資理財'],['Personal finance','個人理財'],['Banking','銀行服務'],['Business class travel','商務艙旅遊'],['Coworking space','共享辦公空間'],['Coffee','咖啡文化'],['Craft beer','精釀啤酒'],['Podcast','Podcast'],['Reading','閱讀'],['Interior design','室內設計'],['Smart home','智慧家居'],['Home office','居家辦公室'],['Quality of life','生活品質'],['Work-life balance','工作生活平衡']]},
+  {n:'32-58 / 竹科走廊 / 傳產中小企業主自營商×二代置產',sub:'延伸傳產中小企業主CPL891·竹科周邊傳產老闆二代接班置產',
+   logic:'延伸全案「傳產/中小企業主CPL891」方向，深化至竹科周邊傳統產業老闆與二代接班族群。這群人事業穩定有現金流，但過去重心在工廠不在自住品質，「換一間電梯新大樓給家人住」是他們近年才浮現的置產動機，31-35坪三房符合三代同堂彈性使用需求。',
+   lm:['光復路科技走廊','巨城購物中心','建功高中'],
+   tags:[['Small business owner','中小企業主'],['Family business','家族企業'],['Business owner','企業老闆'],['Self-employed','自營商'],['Manufacturing','製造業'],['Traditional industry','傳統產業'],['Business succession','接班傳承'],['Supply chain','供應鏈管理'],['Trade show','貿易展'],['Wholesale','批發零售'],['Business networking','商業社交'],['Chamber of commerce','工商協會'],['Investment','投資理財'],['Banking','銀行服務'],['Tax planning','稅務規劃'],['Personal finance','個人理財'],['Luxury car','豪華轎車'],['Golf','高爾夫球'],['Fine dining','精緻餐飲'],['Tea culture','茶藝文化'],['Business class travel','商務艙旅遊'],['Automobile','汽車'],['Interior design','室內設計'],['Smart home','智慧家居'],['Home improvement','居家佈置'],['Quality of life','生活品質'],['Community','在地社群'],['Local business','在地商業'],['Networking event','商務社交'],['Economic news','財經新聞']]},
+  {n:'35-58 / 東區 / 竹科中高階主管×效率換屋族',sub:'延伸竹科中高階主管換屋CPL803·時間成本高決策快',
+   logic:'延伸全案「竹科中高階主管換屋CPL803」方向。這群人是竹科各廠處級以上主管，薪資與職位穩定但工時極長，看屋/決策時間有限，需要業務主動整理好資訊、一次到位溝通。31-35坪三房對應其換屋（現居坪數不足或屋齡老）需求，重視管理品質與車位便利性高於單純坪數大小。',
+   lm:['新竹科學園區大門','光復路科技走廊','巨城購物中心'],
+   tags:[['Senior management','資深管理職'],['Department manager','處級主管'],['Executive','高階主管'],['Leadership','領導管理'],['Team management','團隊管理'],['Business strategy','企業策略'],['Performance review','績效考核'],['Executive education','高階管理課程'],['MBA','企管碩士'],['Business travel','商務出差'],['Golf','高爾夫球'],['Fine dining','精緻餐飲'],['Wine tasting','品酒'],['Luxury car','豪華轎車'],['Business class travel','商務艙旅遊'],['Stock options','股票選擇權'],['Investment','投資理財'],['Banking','銀行服務'],['Personal finance','個人理財'],['Tax planning','稅務規劃'],['Time management','時間管理'],['Productivity','生產力工具'],['Executive coaching','高管教練'],['Interior design','室內設計'],['Smart home','智慧家居'],['Quality of life','生活品質'],['Work-life balance','工作生活平衡'],['Community','社區生活'],['Networking event','商務社交'],['Business news','財經商業新聞']]},
+  {n:'26-42 / 竹科走廊 / 雙薪科技夫妻×學區宅首購',sub:'延伸雙薪家庭首購CPL874·兩份竹科薪水共同購屋力強',
+   logic:'延伸全案「雙薪家庭首購CPL874」方向。竹科走廊雙薪科技夫妻兩人合計收入高，共同購屋能力強，多數仍在租屋或住小坪數。25-26坪二房是「兩人剛好、預留未來」的起步格局，對關埔重劃區生活機能與未來學區的雙重考量是決策核心。',
+   lm:['建功高中','關新國小','新竹科學園區大門'],
+   tags:[['Dual income household','雙薪家庭'],['Working couple','雙職涯夫妻'],['Engineering','工程師'],['Software engineering','軟體工程'],['Career development','職涯發展'],['Work-life balance','工作生活平衡'],['Stock options','股票選擇權'],['Employee bonus','員工分紅'],['Saving','儲蓄理財'],['Investment','投資理財'],['Personal finance','個人理財'],['Banking','銀行服務'],['School district','學區'],['Early childhood education','幼兒教育'],['Interior design','室內設計'],['Smart home','智慧家居'],['Home improvement','居家佈置'],['Moving','搬家'],['Apartment living','公寓生活'],['Grocery shopping','採買生活'],['Cooking','料理烹飪'],['Coffee','咖啡'],['Travel','旅遊'],['Fitness','健身運動'],['Yoga','瑜珈'],['Pet','寵物'],['Quality of life','生活品質'],['Community','社區生活'],['Online shopping','網路購物'],['Technology news','科技新聞']]},
+  {n:'30-50 / 建功關新學區 / 明星學區資產保值族',sub:'延伸親子教育學區換屋CPL862·聚焦學區資產保值而非單純親子',
+   logic:'延伸全案最有效「親子教育/學區換屋CPL862」方向，但切角從「陪讀」轉為「資產保值」——這群家長已理解學區房長期抗跌，把「買在建功高中/關新國小學區」當作資產配置的一環，而非單純為了孩子上學方便。訴求應強調保值邏輯而非生活陪伴畫面。',
+   lm:['建功高中','關新國小','巨城購物中心'],
+   tags:[['School district','學區'],['Education investment','教育投資'],['Asset allocation','資產配置'],['Personal finance','個人理財'],['Investment','投資理財'],['Banking','銀行服務'],['Saving','儲蓄理財'],['Tax planning','稅務規劃'],['Economic news','財經新聞'],['Stock market','股票市場'],['Private tutoring','家教補習'],['Bilingual education','雙語教育'],['STEM education','STEM教育'],['After-school program','課後課程'],['Reading','閱讀'],['Book club','讀書會'],['Interior design','室內設計'],['Smart home','智慧家居'],['Home improvement','居家佈置'],['Quality of life','生活品質'],['Community','社區生活'],['Neighborhood safety','居住安全'],['Fine dining','精緻餐飲'],['Travel','家庭旅遊'],['Fitness','健身運動'],['Sports for kids','兒童運動'],['Music lessons','音樂才藝'],['Art class','美術才藝'],['Cooking','料理烹飪'],['Grocery shopping','採買生活']]},
+  {n:'30-55 / 通勤高鐵竹北 / 台北新竹雙城通勤外商族',sub:'延伸通勤高鐵外商CPL272·雙城生活購買力最強一群',
+   logic:'延伸本案剛上線的「通勤高鐵外商」測試方向。這群人在台北外商工作、每日或每週通勤高鐵往返新竹，收入水準對標雙北，但對新竹房價接受度高，「用台北的薪水買新竹的大坪數」邏輯清楚。關埔重劃區距新竹高鐵站車程可控，對通勤族是生活效率的最佳選擇。',
+   lm:['陽明交通大學','光復路科技走廊','巨城購物中心'],
+   tags:[['High speed rail commuter','高鐵通勤族'],['Foreign company','外商企業'],['Multinational corporation','跨國企業'],['Expatriate','外派人員'],['Business travel','商務出差'],['Business class travel','商務艙旅遊'],['Career development','職涯發展'],['MBA','企管碩士'],['English language','英語學習'],['International business','國際商務'],['Stock options','股票選擇權'],['Investment','投資理財'],['Personal finance','個人理財'],['Banking','銀行服務'],['Tax planning','稅務規劃'],['Time management','時間管理'],['Productivity','生產力工具'],['Coffee','咖啡'],['Fine dining','精緻餐飲'],['Wine tasting','品酒'],['Fitness','健身運動'],['Travel','旅遊'],['Interior design','室內設計'],['Smart home','智慧家居'],['Home improvement','居家佈置'],['Quality of life','生活品質'],['Work-life balance','工作生活平衡'],['Community','社區生活'],['Technology news','科技新聞'],['Business news','財經商業新聞']]},
+  {n:'30-55 / 北區東區 / 建築美感鑑賞換屋族',sub:'延伸生活美感品質換屋族CPL897·全案第二有效組深化版',
+   logic:'延伸全案第二有效「生活美感品質換屋族CPL897」方向，更聚焦建築設計與空間美學鑑賞面。這群人對建案立面設計、公設規劃、建材選用有明確偏好，會主動比較不同建案的設計質感，「這棟大樓的設計感」本身就是購買理由之一，而非只看坪效或投報率。',
+   lm:['巨城購物中心','新竹之心','建功高中'],
+   tags:[['Architecture','建築設計'],['Interior design','室內設計'],['Modern design','現代設計'],['Minimalism','極簡風格'],['Furniture design','家具設計'],['Home decor','居家佈置'],['Home renovation','居家翻新'],['Design magazine','設計雜誌'],['Art exhibition','藝術展覽'],['Museum','博物館'],['Photography','攝影'],['Aesthetics','美學鑑賞'],['Lifestyle','生活風格'],['Boutique hotel','精品旅館'],['Fine dining','精緻餐飲'],['Coffee culture','咖啡文化'],['Wine tasting','品酒'],['Travel','旅遊'],['Fashion','時尚'],['Home improvement','居家改善'],['Smart home','智慧家居'],['Quality of life','生活品質'],['Personal finance','個人理財'],['Investment','投資理財'],['Banking','銀行服務'],['Community','社區生活'],['Reading','閱讀'],['Classical music','古典音樂'],['Gardening','園藝景觀'],['Home organization','居家收納']]},
+  {n:'33-60 / 東區竹北 / 藝文精品收藏鑑賞族',sub:'全新未測角度·延伸美學方向再深化至收藏領域',
+   logic:'從「生活美感」進一步深化至藝文與精品收藏領域，鎖定有收藏嗜好（名錶、藝術品、威士忌、骨董等）的資深族群。這群人重視居家展示空間與收藏保存條件，31-35坪三房的彈性格局可規劃展示區/酒櫃區，全案第一次針對收藏鑑賞族做精準測試。',
+   lm:['巨城購物中心','新竹市立美術館','建功高中'],
+   tags:[['Art collecting','藝術收藏'],['Antique','骨董收藏'],['Luxury watch','名錶收藏'],['Whisky','威士忌收藏'],['Wine collecting','葡萄酒收藏'],['Fine art','美術藝術'],['Gallery','畫廊'],['Auction','拍賣會'],['Museum','博物館'],['Cultural heritage','文化資產'],['Numismatics','錢幣收藏'],['Vintage car','古董車'],['Photography','攝影收藏'],['Ceramics','陶瓷收藏'],['Calligraphy','書法'],['Tea culture','茶藝文化'],['Fine dining','精緻餐飲'],['Michelin restaurant','米其林餐廳'],['Travel','旅遊'],['Business class travel','商務艙旅遊'],['Investment','投資理財'],['Asset allocation','資產配置'],['Banking','銀行服務'],['Personal finance','個人理財'],['Interior design','室內設計'],['Home organization','收藏空間規劃'],['Smart home','智慧家居'],['Quality of life','生活品質'],['Reading','閱讀'],['Classical music','古典音樂']]},
+  {n:'26-45 / 竹科走廊 / 健身重訓自律菁英首購',sub:'全案未測全新方向·健身族在同類案件驗證過低CPL',
+   logic:'健身/重訓族群在其他建案曾驗證出全案最低CPL的成效紀錄，全案第一次在富宇學森測試相同方向。竹科走廊健身房密集，這群25-45歲對自己身材與紀律要求高的族群，同樣對居住品質有高標準，「會為自己身材投資的人，也會為自己的家投資」是核心邏輯。',
+   lm:['陽明交通大學','巨城購物中心','光復路科技走廊'],
+   tags:[['Gym membership','健身房會員'],['Weightlifting','重量訓練'],['Bodybuilding','健美健力'],['Personal trainer','私人教練'],['CrossFit','混合健身'],['Powerlifting','力量舉重'],['Sports nutrition','運動營養'],['Protein supplement','蛋白質補充品'],['Running','跑步'],['Marathon','馬拉松'],['Cycling','自行車'],['Triathlon','鐵人三項'],['Yoga','瑜珈'],['Pilates','皮拉提斯'],['Active lifestyle','健康生活方式'],['Health and wellness','健康養生'],['Sports apparel','運動服飾'],['Self-discipline','自律生活'],['Goal setting','目標管理'],['Investment','投資理財'],['Saving','儲蓄理財'],['Personal finance','個人理財'],['Banking','銀行服務'],['Career development','職涯發展'],['Interior design','室內設計'],['Smart home','智慧家居'],['Home gym','居家健身空間'],['Quality of life','生活品質'],['Coffee','咖啡'],['Travel','旅遊']]},
+  {n:'30-55 / 純新竹 / ETF存股被動收入資產配置族',sub:'全新方向·竹科高薪族DIY理財邏輯與置產收租契合',
+   logic:'竹科高薪族群近年ETF/存股風氣興盛，這群人習慣自己做資產配置研究，不透過保險業務或私人銀行，重視「長期持有、被動收入」邏輯。將自住宅視為資產配置的一環，對「新竹房價相對雙北仍有成長空間」有清楚認知，是全案第一次針對DIY理財族做精準測試。',
+   lm:['巨城購物中心','新竹科學園區大門','陽明交通大學'],
+   tags:[['ETF','ETF存股'],['Index fund','指數型基金'],['Stock market','股票市場'],['Dividend investing','股息投資'],['Passive income','被動收入'],['Financial independence','財務自由'],['Personal finance','個人理財'],['Investment','投資理財'],['Saving','儲蓄理財'],['Banking','銀行服務'],['Long-term investment','長期投資'],['Portfolio management','投資組合管理'],['Financial literacy','理財知識'],['Economic news','財經新聞'],['Podcast','財經Podcast'],['Personal finance blog','理財部落格'],['Retirement planning','退休規劃'],['Risk management','風險管理'],['Tax planning','稅務規劃'],['Frugality','節儉理財'],['Coffee','咖啡'],['Reading','閱讀'],['Technology news','科技新聞'],['Interior design','室內設計'],['Smart home','智慧家居'],['Home improvement','居家佈置'],['Quality of life','生活品質'],['Career development','職涯發展'],['Work-life balance','工作生活平衡'],['Community','社區生活']]},
+  {n:'26-45 / 竹科走廊 / 遠端接案數位游牧創業族',sub:'全新方向·居家辦公族需要書房彈性空間',
+   logic:'後疫情居家辦公常態化，自由接案/遠端工作/數位創業族群需要「有獨立書房/工作室」的居住空間。31-35坪三房的第三房可作為工作室或視訊會議空間，這群人不受限於竹科上下班時間，對「安靜、環境好、不用天天進公司」的關埔重劃區生活圈同樣有吸引力，全案未測全新切角。',
+   lm:['巨城購物中心','新竹之心','陽明交通大學'],
+   tags:[['Freelancing','自由接案'],['Remote work','遠端工作'],['Digital nomad','數位游牧'],['Self-employment','自雇工作'],['Content creation','內容創作'],['Online business','網路事業'],['E-commerce','電子商務'],['Digital marketing','數位行銷'],['Personal branding','個人品牌'],['Podcast','Podcast'],['YouTube','YouTube創作'],['Social media','社群媒體'],['Coworking space','共享辦公空間'],['Productivity tools','生產力工具'],['Time management','時間管理'],['Investment','投資理財'],['Personal finance','個人理財'],['Saving','儲蓄理財'],['Banking','銀行服務'],['Coffee','咖啡文化'],['Travel','旅遊'],['Photography','攝影'],['Home office','居家辦公室'],['Interior design','室內設計'],['Smart home','智慧家居'],['Home improvement','居家佈置'],['Quality of life','生活品質'],['Work-life balance','工作生活平衡'],['Technology news','科技新聞'],['Online learning','線上學習']]},
+  {n:'45-65 / 純新竹 / 退休規劃老屋換新電梯宅族',sub:'全新方向·在地資深屋主換電梯新大樓',
+   logic:'新竹在地45-65歲資深屋主，多數住在老公寓或透天，對「換電梯大樓、低維護、離醫院近」有明確需求。全案14層電梯大樓、公設比適中、鄰近馬偕新竹分院，對「換小換新、準備退休生活」的族群是理想選項，全案未測的全新世代切角。',
+   lm:['馬偕紀念醫院新竹分院','巨城購物中心','新竹公園'],
+   tags:[['Retirement planning','退休規劃'],['Retirement lifestyle','退休生活'],['Senior living','樂齡生活'],['Downsizing','換小縮屋'],['Estate planning','遺產規劃'],['Financial independence','財務自由'],['Health and wellness','健康養生'],['Medical insurance','醫療保險'],['Preventive healthcare','預防醫學'],['Grandchildren','含飴弄孫'],['Travel','旅遊'],['Golf','高爾夫球'],['Gardening','園藝'],['Tea culture','茶藝文化'],['Calligraphy','書法'],['Reading','閱讀'],['Classical music','古典音樂'],['Community activities','社區活動'],['Volunteering','志工服務'],['Banking','銀行服務'],['Saving','儲蓄理財'],['Investment','投資理財'],['Personal finance','個人理財'],['Elevator building','電梯大樓'],['Low maintenance living','低維護生活'],['Interior design','室內設計'],['Home improvement','居家改善'],['Quality of life','生活品質'],['Community','社區生活'],['Smart home','智慧家居']]},
+  {n:'30-65 / 純新竹 / 法律相關高總興趣族深化版',sub:'延伸本案剛上線的法律相關+高總興趣方向·加深職類區隔',
+   logic:'延伸本案剛上線測試的「法律相關+高總興趣」方向，加入更明確的高資產職類區隔（企業法務、智慧財產顧問、合夥律師），避免泛用「法律相關」標籤過於寬泛。這群人具備高總價置產能力且重視契約保障細節，對建案的公設點交、產權規劃等細節會仔細審閱，決策理性但一旦認可轉換率高。',
+   lm:['新竹地方法院','巨城購物中心','建功高中'],
+   tags:[['Corporate counsel','企業法務'],['Intellectual property','智慧財產權'],['Partner attorney','合夥律師'],['Legal consulting','法律顧問'],['Contract negotiation','契約談判'],['Compliance','法規遵循'],['Arbitration','仲裁'],['Legal technology','法律科技'],['Professional certification','專業證照'],['Continuing education','專業進修'],['Investment','投資理財'],['Asset allocation','資產配置'],['Tax planning','稅務規劃'],['Banking','銀行服務'],['Personal finance','個人理財'],['Estate planning','遺產規劃'],['Fine dining','精緻餐飲'],['Wine tasting','品酒'],['Golf','高爾夫球'],['Business class travel','商務艙旅遊'],['Luxury watch','名錶收藏'],['Reading','閱讀'],['Classical music','古典音樂'],['Interior design','室內設計'],['Smart home','智慧家居'],['Quality of life','生活品質'],['Community','社區生活'],['Business networking','商務社交'],['Networking event','社交活動'],['Economic news','財經新聞']]}
+];
+
+function toggleAud2(id){
+  const c=document.getElementById(id);
+  c.classList.toggle('open');
+}
+
+function buildAudCard(g,idx,prefix,isAlt){
+  const id=prefix+(idx+1);
+  const rows=g.tags.map((t,i)=>`<tr><td>${i+1}</td><td>${t[0]}</td><td>${t[1]}</td></tr>`).join('');
+  const lmTags=g.lm.map(l=>`<span class="aud-lm-tag">${l}</span>`).join('');
+  return `<div class="aud-card" id="${id}">
+    <div class="aud-header${isAlt?' alt-h':''}" onclick="toggleAud2('${id}')">
+      <div class="aud-num">${idx+1}</div>
+      <div class="aud-info"><div class="aud-name">${g.n}</div><div class="aud-sub">${g.sub}</div></div>
+      <div class="aud-arrow">▶</div>
+    </div>
+    <div class="aud-body">
+      <div class="aud-sl">評估邏輯</div>
+      <div class="aud-logic">${g.logic}</div>
+      <div class="aud-sl">地標定位</div>
+      <div class="aud-lm">${lmTags}</div>
+      <div class="aud-sl">興趣標籤</div>
+      <table class="tag-tbl"><thead><tr><th>#</th><th>English</th><th>中文</th></tr></thead><tbody>${rows}</tbody></table>
+    </div>
+  </div>`;
+}
+
+(function(){
+  const mg=document.getElementById('main-aud-grid');
+  if(mg)mg.innerHTML=MAIN_G.map((g,i)=>buildAudCard(g,i,'m',false)).join('');
+})();
+</script>
+</body>
+</html>
