@@ -105,6 +105,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .core-tag{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;background:var(--s);border:1.5px solid var(--bd);border-radius:20px;font-size:13px;font-weight:600;color:var(--tx);cursor:pointer;transition:all .15s}
 .core-tag:hover{border-color:var(--accent-border);background:var(--accent-light);color:var(--accent-dark)}
 .core-tag .arr{font-size:11px;color:var(--accent-border)}
+.tag-tbl tr.flash td{background:var(--accent-light)}
+.copy-all-row{display:flex;justify-content:flex-end;margin-top:6px}
+.copy-all-btn{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:600;color:var(--accent-dark);background:var(--accent-light);border:1px solid var(--accent-border);border-radius:6px;padding:4px 10px;cursor:pointer;transition:background .15s;font-family:inherit}
+.copy-all-btn.done{background:#c8f0d4;color:#1a5a34}
+#copy-toast{position:fixed;bottom:72px;left:50%;transform:translateX(-50%) translateY(8px);background:#0d1e2a;color:#e8f0f5;font-size:11px;font-weight:600;padding:7px 16px;border-radius:18px;opacity:0;pointer-events:none;transition:opacity .18s,transform .18s;z-index:300;white-space:nowrap}
+#copy-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 </style>
 </head>
 <body>
@@ -118,6 +124,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   </nav>
 </div>
 <button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<div id="copy-toast">✓ 已複製到剪貼簿</div>
 
 <div class="wrap">
   <div class="case-header">
@@ -418,6 +425,30 @@ const MAIN_G=[
 function toggleAud2(id){
   const c=document.getElementById(id);
   c.classList.toggle('open');
+  if(c.classList.contains('open'))initAudCard(c);
+}
+function copyTxt(txt){return navigator.clipboard?navigator.clipboard.writeText(txt):Promise.reject();}
+function showToast(){const t=document.getElementById('copy-toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200)}
+function initAudCard(card){
+  if(card.dataset.cb)return;card.dataset.cb='1';
+  card.querySelectorAll('.tag-tbl tbody tr').forEach(row=>{
+    const en=row.cells[1]?.textContent.trim();if(!en)return;
+    row.addEventListener('click',()=>{
+      copyTxt(en).then(()=>{row.classList.add('flash');setTimeout(()=>row.classList.remove('flash'),600);showToast();});
+    });
+  });
+  card.querySelectorAll('.tag-tbl').forEach(tbl=>{
+    const wrap=document.createElement('div');wrap.className='copy-all-row';
+    const btn=document.createElement('button');
+    btn.className='copy-all-btn';
+    btn.innerHTML='⎘ 複製全部標籤';
+    btn.addEventListener('click',e=>{
+      e.stopPropagation();
+      const tags=Array.from(tbl.querySelectorAll('tbody tr')).map(r=>r.cells[1]?.textContent.trim()).filter(Boolean).join('\n');
+      copyTxt(tags).then(()=>{btn.classList.add('done');btn.textContent='✓ 已複製';setTimeout(()=>{btn.classList.remove('done');btn.innerHTML='⎘ 複製全部標籤';},2000);});
+    });
+    wrap.appendChild(btn);tbl.after(wrap);
+  });
 }
 
 function buildAudCard(g,idx,prefix,isAlt){
