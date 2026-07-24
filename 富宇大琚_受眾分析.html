@@ -37,6 +37,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .sec-title{font-size:12px;font-weight:700;color:var(--sub);margin-bottom:14px;display:flex;align-items:center;gap:10px;letter-spacing:.4px;text-transform:uppercase}
 .sec-title::before{content:'';display:inline-block;width:3px;height:14px;background:var(--accent);border-radius:2px;flex-shrink:0}
 .sec-title::after{content:'';flex:1;height:1px;background:var(--bd)}
+.note-bar{background:var(--accent-light);border:1px solid var(--accent-border);border-radius:10px;padding:10px 16px;font-size:12px;color:var(--accent-dark);margin-bottom:20px;line-height:1.6}
 .section{margin-bottom:28px}
 .profiles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .profile-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow-xs);transition:box-shadow .2s,transform .2s}
@@ -228,7 +229,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 
 <!-- 建議受眾方向 -->
 <div class="section">
-  <div class="sec-title">建議新測試受眾方向</div>
+  <div class="sec-title">建議新測試受眾方向（新增海線30組・更新 2026-07-24）</div>
+  <div class="note-bar">📌 用戶回報一批「大雅神岡中科走廊」方向的受眾（30-55/大雅神岡/上班族在地產業、28-60/台中工業區/工業區職員、28-55/中科/科技投資 等7組）完全零成效，與成效紀錄MD中「擴圈至后里/神岡/豐原/西屯效果差」「年輕人興趣(沙鹿/龍井/東海)完全無轉換」的既有結論一致——清水買盤是海線在地認同型，不是中科科技園區通勤型。以下30組全部收斂在大甲/清水/梧棲/沙鹿/龍井/伸港海線六鄉鎮（伸港為全新未觸及地標，透過台61線與海線通勤圈重疊），完全不觸及神岡/大雅/中科/西屯/南屯/東海/靜宜。已依591最新資料（明星學區、送輕裝修優惠、94戶2棟7/12層、公設比34.5%）補入對應主題。</div>
   <div id="main-aud-grid" class="aud-grid-2"></div>
 </div>
 
@@ -522,7 +524,157 @@ const MAIN_G=[
   {n:'28-55 / 清水+8km / 財經政策關注首購換屋族（新青安2.0敏感群・在地版）',sub:'追蹤央行升降息與青安貸款政策的實質購屋研究者，疊加清水在地生活認同',
    logic:'現行主打「股票高點獲利了結、新青安2.0即將上路」的稿頭，實際上是講給兩種人聽：一種是純粹的股票操作者（跟清水地緣薄弱、轉換動機弱），另一種是真正在追蹤央行政策、青安貸款方案細節的購屋研究者——後者才是四種受眾裡跟清水在地買盤重疊度最高的一種，因為新青安2.0本身就是設計給首購/換屋家庭的政策工具，不是股票大戶的話題。此組刻意排除純股票/科技標籤，改鎖定財經新聞、房貸試算、存頭期款等「主動研究購屋政策」的行為信號，疊加首購/換屋與家庭基礎興趣。同時把財經政策關注跟清水在地生活認同疊在一起——真正會下決心買在清水的人，多半本來就對清水紫雲巖信仰圈、在地美食、夜市小吃這類在地生活有感情連結，不是外地財經族群憑空被政策訴求吸引過來，這樣篩出來的才是「本來就有點考慮清水、剛好被政策新聞推一把」的高意圖族群，而不是純粹路過看戲的股市觀眾。',
    lm:['清水區公所','清水五權路商圈','大楊重劃區','清水紫雲巖'],
-   tags:[['Financial planning','財務規劃（商業與財務）'],['Personal finance','個人理財'],['Banking','銀行業（金融）'],['Financial services','金融服務（商業與財務）'],['Investment','投資（商業與財務）'],['Stocks','股票（投資）'],['Saving','儲蓄'],['Wealth management','財富管理'],['Economics','經濟學'],['News','新聞資訊'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Property investment','置產投資'],['Property value','房屋增值'],['Mortgage','房貸'],['Home loan calculator','房貸試算'],['Down payment saving','存頭期款'],['Home buying','購屋'],['First home','首購族'],['New home','新家'],['Home upgrade','換屋升格'],['Married','已婚（感情狀態）'],['Family','家庭（社會）'],['Parents with children','有孩子的父母'],['Temple','廟宇信仰'],['Traditional culture','傳統文化'],['Local food','在地美食'],['Night market','夜市小吃'],['Folk religion','民間信仰'],['Local community','在地社區']]}
+   tags:[['Financial planning','財務規劃（商業與財務）'],['Personal finance','個人理財'],['Banking','銀行業（金融）'],['Financial services','金融服務（商業與財務）'],['Investment','投資（商業與財務）'],['Stocks','股票（投資）'],['Saving','儲蓄'],['Wealth management','財富管理'],['Economics','經濟學'],['News','新聞資訊'],['Real estate','房地產（產業）'],['Property','不動產（房地產）'],['Property investment','置產投資'],['Property value','房屋增值'],['Mortgage','房貸'],['Home loan calculator','房貸試算'],['Down payment saving','存頭期款'],['Home buying','購屋'],['First home','首購族'],['New home','新家'],['Home upgrade','換屋升格'],['Married','已婚（感情狀態）'],['Family','家庭（社會）'],['Parents with children','有孩子的父母'],['Temple','廟宇信仰'],['Traditional culture','傳統文化'],['Local food','在地美食'],['Night market','夜市小吃'],['Folk religion','民間信仰'],['Local community','在地社區']]},
+
+  {n:'30-55 / 大甲鎮瀾宮圈 / 媽祖信仰陣頭文化族',sub:'大甲全新未觸及地標·廟會/陣頭/宮廟志工圈在地黏著度極高',
+   logic:'大甲鎮瀾宮是全台信仰重鎮，廟會陣頭、志工、隨香客這群人對「大甲在地」的認同感遠高於一般居民，多數已在地生活數十年、人脈紮實。既有受眾組從未真正圍繞信仰文化圈設計，這組直接鎖定廟會/陣頭/志工/隨香行為興趣，訴求「拜了一輩子媽祖，也該在大甲有自己的家」。',
+   lm:['大甲鎮瀾宮','大甲街役場','大甲車站','大甲高中'],
+   tags:[['Temple','廟宇信仰'],['Folk religion','民間信仰'],['Religious festival','宗教慶典'],['Volunteering','志工服務'],['Local community','在地社區'],['Traditional culture','傳統文化'],['Parade','遶境'],['Drum performance','陣頭表演'],['Local food','在地美食'],['Night market','夜市小吃'],['Tea','茶飲文化'],['Motorcycle','機車'],['Automobile','汽車'],['Convenience store','便利商店'],['Local business','在地商業'],['Home buying','購屋'],['First home','首購成家'],['Saving','儲蓄'],['Financial planning','財務規劃'],['Investment','投資理財'],['Bank','銀行金融'],['Insurance','保險'],['Home appliances','家電'],['Furniture','家具'],['Interior design','室內設計'],['Quality of life','生活品質'],['Community living','社區生活'],['Grandparenting','含飴弄孫']]},
+
+  {n:'35-60 / 大甲鎮瀾宮商圈 / 廟口店家攤商自營族',sub:'大甲廟口周邊自營商·收入來自香客人潮·資產配置意識強',
+   logic:'大甲鎮瀾宮周邊糕餅、伴手禮、小吃攤商長期依賴香客與觀光人潮，收入雖非固定薪水但實際現金流穩定，這群在地自營商多半經營十年以上、有一定積蓄卻仍住老家透天。此組鎖定零售/餐飲/自營商行為標籤，訴求「顧了一輩子的店，換一間自己住得舒服的家」。',
+   lm:['大甲鎮瀾宮','大甲芋頭酥老店','大甲第一市場','大甲車站'],
+   tags:[['Small business owners','小型企業主'],['Retail','零售業'],['Restaurant','餐飲業'],['Bakery','烘焙業'],['Family business','家族企業'],['Entrepreneurship','創業'],['Business','商業'],['Local business','在地商業'],['Cash flow','現金流'],['Saving','儲蓄'],['Financial planning','財務規劃'],['Investment','投資理財'],['Home buying','購屋'],['First home','首購成家'],['Bank','銀行金融'],['Local food','在地美食'],['Night market','夜市小吃'],['Temple','廟宇信仰'],['Traditional culture','傳統文化'],['Automobile','汽車'],['Motorcycle','機車'],['Home appliances','家電'],['Furniture','家具'],['Quality of life','生活品質'],['Local community','在地社區'],['Community living','社區生活']]},
+
+  {n:'22-35 / 大甲高中周邊 / 返鄉留鄉青年首購',sub:'大甲高中畢業後留鄉工作青年·全新世代未觸及族群',
+   logic:'大甲高中每年畢業生眾多，部分選擇留在大甲或返鄉工作而非北漂，這群人年紀輕、剛出社會不久，對「在大甲有自己的家」有強烈認同但預算有限，988萬的二房戶型正是他們可負擔的起步選項。此組鎖定年輕上班族與在地認同標籤，訴求「不用去外地打拚，大甲也能買自己的家」。',
+   lm:['大甲高中','大甲車站','大甲鎮瀾宮','大甲街役場'],
+   tags:[['Young adult','年輕族群'],['Office worker','上班族'],['Career development','職涯發展'],['First home','首購成家'],['Home buying','購屋'],['Saving','儲蓄'],['Financial planning','財務規劃'],['Personal finance','個人理財'],['Local community','在地社區'],['Hometown pride','故鄉認同'],['Motorcycle','機車'],['Smartphone','智慧型手機'],['Social media','社群媒體'],['Streaming service','串流影音'],['Mobile games','手機遊戲'],['Convenience store','便利商店'],['Coffee','咖啡'],['Online shopping','網路購物'],['Food delivery','外送服務'],['Fitness','健身運動'],['Weekend getaway','週末小旅行'],['Home appliances','家電'],['Furniture','家具'],['Interior design','室內設計'],['Quality of life','生活品質']]},
+
+  {n:'45-70 / 大甲在地 / 退休公教軍警安養族',sub:'大甲在地退休族·延伸既有教師組但聚焦已退休非在職',
+   logic:'大甲在地有相當比例的退休公教軍警人員，退休金穩定入帳、名下多半仍是老屋，換屋動機是「養老」而非通勤或學區考量，重視大樓管理、無障礙設施與離醫療資源近。此組疊加退休年金與養生興趣，訴求「一輩子領死薪水，退休了該住好一點」。',
+   lm:['大甲鎮瀾宮','大甲街役場','大甲高中','大甲車站'],
+   tags:[['Retirement pension','退休年金'],['Retirement planning','退休規劃'],['Public servant','公務員'],['Health','健康養生'],['Traditional Chinese medicine','中醫養生'],['Walking','健走運動'],['Grandparenting','含飴弄孫'],['Temple','廟宇信仰'],['Tea','茶飲文化'],['Gardening','園藝種植'],['Home buying','購屋'],['Saving','儲蓄'],['Financial planning','財務規劃'],['Bank','銀行金融'],['Insurance','保險'],['Medical care','醫療照護'],['Elevator building','電梯大樓'],['Accessibility','無障礙設施'],['Local food','在地美食'],['Home appliances','家電'],['Furniture','家具'],['Quality of life','生活品質'],['Community living','社區生活'],['Local community','在地社區']]},
+
+  {n:'40-65 / 大甲糖廠周邊 / 傳統糕餅食品業從業者',sub:'大甲糕餅/食品加工業聚落·完全未測利基',
+   logic:'大甲是全台知名糕餅（奶油酥餅）產地，糕餅食品加工業聚落密集，從業人員多在地扎根、薪資穩定。此組鎖定食品加工/烘焙相關職業興趣，區隔於既有製造業組，訴求「做一輩子的餅，也該有自己甜美的家」。',
+   lm:['大甲鎮瀾宮','大甲第一市場','大甲車站','大甲糖廠'],
+   tags:[['Bakery','烘焙業'],['Food processing','食品加工'],['Manufacturing','製造業'],['Factory','工廠'],['Quality control','品質管理'],['Local food','在地美食'],['Traditional culture','傳統文化'],['Small business owners','小型企業主'],['Career development','職涯發展'],['Home buying','購屋'],['First home','首購成家'],['Saving','儲蓄'],['Financial planning','財務規劃'],['Bank','銀行金融'],['Motorcycle','機車'],['Automobile','汽車'],['Convenience store','便利商店'],['Cooking','料理'],['Temple','廟宇信仰'],['Home appliances','家電'],['Furniture','家具'],['Quality of life','生活品質'],['Local community','在地社區']]},
+
+  {n:'28-55 / 梧棲漁港 / 漁業從業者與船員家庭',sub:'梧棲漁港在地漁業族群·全案從未鎖定的職業別',
+   logic:'梧棲漁港是台中重要漁港，漁民、船員、漁獲加工從業人員長期在地生活，工作型態特殊（出海作業、收入依漁獲量）但多數已累積資產，只是從未被地產廣告精準鎖定過。此組鎖定漁業相關職業興趣，疊加海鮮/港口生活標籤，訴求「討海一輩子，該有一間穩穩的家」。',
+   lm:['梧棲漁港','梧棲區公所','梧棲朝元宮','台中港'],
+   tags:[['Fishing industry','漁業'],['Seafood','海鮮'],['Fishing boat','漁船'],['Port','港口'],['Shipping','航運'],['Maritime','海事'],['Local food','在地美食'],['Night market','夜市小吃'],['Temple','廟宇信仰'],['Folk religion','民間信仰'],['Beer','啤酒'],['Barbecue','烤肉'],['Motorcycle','機車'],['Automobile','汽車'],['Home buying','購屋'],['First home','首購成家'],['Saving','儲蓄'],['Financial planning','財務規劃'],['Bank','銀行金融'],['Insurance','保險'],['Home appliances','家電'],['Furniture','家具'],['Quality of life','生活品質'],['Local community','在地社區'],['Community living','社區生活']]},
+
+  {n:'35-60 / 梧棲觀光漁港 / 海鮮餐廳與漁市場自營商',sub:'梧棲觀光漁港周邊餐飲自營商·現金流穩定型頭家',
+   logic:'梧棲漁港觀光化後，周邊海鮮餐廳、漁市場攤商生意穩定，這群自營商假日尤其忙碌，收入來自觀光人潮而非死薪水，是典型「有錢但沒時間看房」的族群，適合訊息型廣告快速溝通。此組鎖定餐飲零售自營商標籤，訴求「顧生意顧了一輩子，換家的事交給我們幫你省時間」。',
+   lm:['梧棲漁港','梧棲區公所','台中港','三井OUTLET'],
+   tags:[['Restaurant','餐飲業'],['Seafood','海鮮'],['Retail','零售業'],['Small business owners','小型企業主'],['Entrepreneurship','創業'],['Business','商業'],['Cash flow','現金流'],['Tourism','觀光'],['Local food','在地美食'],['Family business','家族企業'],['Home buying','購屋'],['Saving','儲蓄'],['Financial planning','財務規劃'],['Investment','投資理財'],['Bank','銀行金融'],['Automobile','汽車'],['Convenience store','便利商店'],['Mobile payment','行動支付'],['Home appliances','家電'],['Furniture','家具'],['Quality of life','生活品質'],['Local community','在地社區']]},
+
+  {n:'25-50 / 台中港倉儲物流 / 基層作業員與碼頭工人',sub:'區隔既有物流行政主管組·鎖定基層現場作業員',
+   logic:'既有「傳產倉儲物流貨運業主」與「進出口貿易行政主管」組鎖定的是老闆與主管層級，台中港基層倉儲作業員、碼頭工人、堆高機操作員這群現場勞動者從未被獨立測試，人數規模遠大於主管層，薪資雖非最高但穩定，是量體最大的潛在買盤。此組疊加現場勞動職業興趣，訴求「顧碼頭顧貨櫃，也該顧好自己的家」。',
+   lm:['台中港','梧棲漁港','清水交流道','龍井交流道'],
+   tags:[['Warehousing','倉儲'],['Logistics','物流'],['Freight transport','貨運'],['Forklift operation','堆高機操作'],['Shift work','輪班工作'],['Overtime work','加班'],['Labor union','工會'],['Safety equipment','工安設備'],['Manufacturing','製造業'],['Motorcycle','機車'],['Automobile','汽車'],['Convenience store','便利商店'],['Local food','在地美食'],['Beer','啤酒'],['Barbecue','燒烤'],['Home buying','購屋'],['First home','首購成家'],['Saving','儲蓄'],['Financial planning','財務規劃'],['Bank','銀行金融'],['Home appliances','家電'],['Furniture','家具'],['Quality of life','生活品質'],['Community living','社區生活']]},
+
+  {n:'30-55 / 沙鹿童綜合醫院 / 醫護人員換屋族',sub:'沙鹿最大醫院周邊·醫護人員薪資穩定核貸條件佳',
+   logic:'沙鹿童綜合醫院是海線最大醫療院所，護理師、醫檢師、行政人員長期在地輪班工作，薪資穩定、核貸條件佳，卻多數住院區附近老公寓。此組鎖定醫護職業興趣，訴求「照顧病人的日子很累，回家至少要住得舒服」，適合搭配輪班/夜班作息素材。',
+   lm:['沙鹿童綜合醫院','沙鹿火車站','沙鹿老街','清水交流道'],
+   tags:[['Nurse','護理師'],['Healthcare worker','醫護人員'],['Medical technician','醫檢師'],['Hospital','醫院'],['Shift work','輪班工作'],['Overtime work','加班'],['Job stability','工作穩定'],['Health','健康養生'],['Sleep quality','睡眠品質'],['Home buying','購屋'],['Saving','儲蓄'],['Financial planning','財務規劃'],['Investment','投資理財'],['Bank','銀行金融'],['Insurance','保險'],['Coffee','咖啡'],['Convenience store','便利商店'],['Food delivery','外送服務'],['Home appliances','家電'],['Furniture','家具'],['Interior design','室內設計'],['Quality of life','生活品質'],['Community living','社區生活']]},
+
+  {n:'35-65 / 沙鹿老街 / 在地店家二代接班族',sub:'沙鹿老街店家二代·區隔既有大甲廟口自營商組',
+   logic:'沙鹿老街是海線最早發展的商圈之一，許多店家已傳承二代，這群二代老闆熟悉在地卻也想要跟父輩不同的居住品質，對「透天老街屋 vs 電梯大樓」有明確比較意識。此組鎖定家族企業/二代接班標籤，訴求「店還是開在老街，家可以換一間新的」。',
+   lm:['沙鹿老街','沙鹿火車站','沙鹿童綜合醫院','清水交流道'],
+   tags:[['Family business','家族企業'],['Business succession','接班傳承'],['Small business owners','小型企業主'],['Retail','零售業'],['Entrepreneurship','創業'],['Local business','在地商業'],['Local community','在地社區'],['Traditional culture','傳統文化'],['Home buying','購屋'],['Saving','儲蓄'],['Financial planning','財務規劃'],['Investment','投資理財'],['Bank','銀行金融'],['Automobile','汽車'],['Local food','在地美食'],['Night market','夜市小吃'],['Home appliances','家電'],['Furniture','家具'],['Interior design','室內設計'],['Quality of life','生活品質'],['Community living','社區生活']]},
+
+  {n:'28-50 / 沙鹿火車站 / 台鐵通勤上班族',sub:'沙鹿火車站通勤族·搭台鐵往返台中市區上班',
+   logic:'沙鹿火車站是海線鐵路重要站點，許多在台中市區上班的人選擇搭台鐵通勤，省去塞車困擾。這群人重視「離車站近」勝過其他條件，多半在台中市區辦公室工作但預算考量選擇沙鹿清水置產。此組疊加通勤鐵路與上班族興趣，訴求「搭火車上班，回家就在車站旁」。',
+   lm:['沙鹿火車站','沙鹿老街','清水交流道','清水車站'],
+   tags:[['Commuting','通勤'],['Public transportation','大眾運輸'],['Rail transport','鐵路運輸'],['Office worker','上班族'],['Career development','職涯發展'],['Work-life balance','工作生活平衡'],['Coffee','咖啡'],['Reading','閱讀'],['Podcast','Podcast'],['Smartphone','智慧型手機'],['Streaming service','串流影音'],['Home buying','購屋'],['First home','首購成家'],['Saving','儲蓄'],['Financial planning','財務規劃'],['Investment','投資理財'],['Bank','銀行金融'],['Home appliances','家電'],['Furniture','家具'],['Interior design','室內設計'],['Quality of life','生活品質']]},
+
+  {n:'25-45 / 沙鹿夜市商圈 / 在地小吃攤商自營族',sub:'沙鹿夜市周邊自營商·現金流型頭家未被開發',
+   logic:'沙鹿夜市商圈周邊小吃攤商密集，這群自營商工時彈性但收入不固定，多數習慣現金交易、對貸款核貸較保守，卻普遍已累積一定積蓄。此組鎖定餐飲零售自營商興趣，訴求「擺攤擺了這麼久，也該買一間自己的家」。',
+   lm:['沙鹿老街','沙鹿火車站','清水五權路商圈','清水第一市場'],
+   tags:[['Small business owners','小型企業主'],['Restaurant','餐飲業'],['Retail','零售業'],['Night market','夜市小吃'],['Local food','在地美食'],['Entrepreneurship','創業'],['Cash flow','現金流'],['Home buying','購屋'],['First home','首購成家'],['Saving','儲蓄'],['Financial planning','財務規劃'],['Bank','銀行金融'],['Motorcycle','機車'],['Automobile','汽車'],['Mobile payment','行動支付'],['Home appliances','家電'],['Furniture','家具'],['Quality of life','生活品質'],['Local community','在地社區'],['Community living','社區生活']]},
+
+  {n:'30-60 / 龍井工業區 / 技術人員首購置產族',sub:'延伸清水沙鹿工廠幹部組·聚焦龍井本地工業區技術人員',
+   logic:'龍井工業區聚集不少中小型製造與機械加工廠，技術人員與品管人員多在地生活，薪資穩定但過去受眾組多聚焦清水沙鹿，龍井本地工業區從業人員從未被獨立測試。此組鎖定工業技術職業興趣，訴求「顧著機台一整天，回家要有自己的地盤」。',
+   lm:['龍井工業區','龍井交流道','台中港特定區','沙鹿老街'],
+   tags:[['Manufacturing','製造業'],['Machinery','機械設備'],['Engineering','工程業'],['Quality control','品質管理'],['Technical training','技術訓練'],['Shift work','輪班工作'],['Overtime work','加班'],['Automation','自動化'],['Home buying','購屋'],['First home','首購成家'],['Saving','儲蓄'],['Financial planning','財務規劃'],['Investment','投資理財'],['Bank','銀行金融'],['Motorcycle','機車'],['Automobile','汽車'],['Convenience store','便利商店'],['Local food','在地美食'],['Beer','啤酒'],['Home appliances','家電'],['Furniture','家具'],['Quality of life','生活品質'],['Community living','社區生活']]},
+
+  {n:'35-65 / 龍井台中港特定區 / 在地置產保值族',sub:'龍井台中港特定區發展題材·資產保值訴求',
+   logic:'台中港特定區近年隨港區發展逐漸受到關注，龍井在地居民對「自己家鄉正在發展」有感，這群人多半持有土地或老屋，對「換一間新大樓保值」的訴求接受度高。此組疊加在地發展認同與資產保值興趣，訴求「龍井正在起飛，你的家也該跟上」。',
+   lm:['龍井交流道','台中港特定區','龍井工業區','沙鹿老街'],
+   tags:[['Local community','在地社區'],['Urban development','都市發展'],['Investment','投資理財'],['Saving','儲蓄'],['Financial planning','財務規劃'],['Bank','銀行金融'],['Economics','經濟學'],['News','新聞資訊'],['Home buying','購屋'],['Automobile','汽車'],['Motorcycle','機車'],['Local food','在地美食'],['Temple','廟宇信仰'],['Home appliances','家電'],['Furniture','家具'],['Interior design','室內設計'],['Quality of life','生活品質'],['Community living','社區生活'],['Grandparenting','含飴弄孫']]},
+
+  {n:'40-65 / 龍井在地 / 務農轉業青農與土地持有者',sub:'龍井務農/轉業族群·手上有地但缺乏電梯大樓居住經驗',
+   logic:'龍井部分區域仍保有農地，這群人或本身務農、或已將農地出租轉為其他收入來源，普遍持有土地資產但住家仍是老舊農宅，對電梯大樓的生活機能與管理服務相對陌生但好奇。此組鎖定農業與在地生活興趣，訴求「田還在，家可以換一間輕鬆一點的」。',
+   lm:['龍井工業區','龍井交流道','沙鹿老街','台中港特定區'],
+   tags:[['Agriculture','農業'],['Farming','務農'],['Local community','在地社區'],['Traditional culture','傳統文化'],['Temple','廟宇信仰'],['Gardening','園藝種植'],['Health','健康養生'],['Home buying','購屋'],['Saving','儲蓄'],['Financial planning','財務規劃'],['Investment','投資理財'],['Bank','銀行金融'],['Motorcycle','機車'],['Automobile','汽車'],['Local food','在地美食'],['Home appliances','家電'],['Furniture','家具'],['Quality of life','生活品質'],['Community living','社區生活'],['Grandparenting','含飴弄孫']]},
+
+  {n:'28-55 / 伸港福安宮 / 在地信仰生活圈家庭',sub:'伸港全新未觸及地標·彰化伸港與海線清水通勤圈重疊',
+   logic:'伸港雖屬彰化縣，但緊鄰台中港與龍井，透過台61線與海線各鄉鎮通勤往來密切，過去富宇大琚受眾組完全未觸及伸港。伸港福安宮是在地信仰中心，居民生活圈與大甲清水高度相似——重視廟宇文化、在地認同強。此組鎖定伸港信仰與在地生活興趣，訴求「伸港到清水不用20分鐘，換家不用離開熟悉的海邊」。',
+   lm:['伸港福安宮','伸港交流道','台61線','龍井交流道'],
+   tags:[['Temple','廟宇信仰'],['Folk religion','民間信仰'],['Local community','在地社區'],['Traditional culture','傳統文化'],['Commuting','通勤'],['Automobile','汽車'],['Motorcycle','機車'],['Home buying','購屋'],['First home','首購成家'],['Saving','儲蓄'],['Financial planning','財務規劃'],['Bank','銀行金融'],['Local food','在地美食'],['Night market','夜市小吃'],['Home appliances','家電'],['Furniture','家具'],['Quality of life','生活品質'],['Community living','社區生活'],['Grandparenting','含飴弄孫']]},
+
+  {n:'25-50 / 伸港彰濱工業區 / 上班族跨區置產族',sub:'彰濱工業區上班·清水置產通勤更省時的置產邏輯',
+   logic:'彰濱工業區是彰化重要工業聚落，許多員工實際上住在台中港/龍井/清水一帶通勤上班。伸港到清水車程短，比起在彰化市區買房，清水的生活機能與交通（國道3號、61快速道路）對這群人更有吸引力。此組鎖定工業區上班族興趣，訴求「上班在彰濱，家買在清水更方便」。',
+   lm:['彰濱工業區','伸港交流道','台61線','清水交流道'],
+   tags:[['Manufacturing','製造業'],['Engineering','工程業'],['Office worker','上班族'],['Commuting','通勤'],['Shift work','輪班工作'],['Career development','職涯發展'],['Home buying','購屋'],['First home','首購成家'],['Saving','儲蓄'],['Financial planning','財務規劃'],['Investment','投資理財'],['Bank','銀行金融'],['Motorcycle','機車'],['Automobile','汽車'],['Convenience store','便利商店'],['Local food','在地美食'],['Home appliances','家電'],['Furniture','家具'],['Interior design','室內設計'],['Quality of life','生活品質']]},
+
+  {n:'30-60 / 伸港台61線 / 海線公路通勤族群',sub:'台61線(西濱快速道路)沿線通勤族·連結大甲清水梧棲龍井伸港',
+   logic:'台61線貫穿整個海線，是大甲、清水、梧棲、龍井、伸港之間最重要的聯外道路，這群人日常開車往返海線各鄉鎮工作生活，對「住在61線交流道附近」有明確生活效率考量。此組以台61線沿線通勤行為為核心，疊加汽車與在地生活興趣，訴求「61線開一開就到家，海線通勤族最懂」。',
+   lm:['伸港交流道','龍井交流道','清水交流道','沙鹿清水交流道'],
+   tags:[['Commuting','通勤'],['Automobile','汽車'],['Highway driving','快速道路'],['GPS navigation','導航'],['Motorcycle','機車'],['Career development','職涯發展'],['Work-life balance','工作生活平衡'],['Home buying','購屋'],['First home','首購成家'],['Saving','儲蓄'],['Financial planning','財務規劃'],['Bank','銀行金融'],['Convenience store','便利商店'],['Coffee','咖啡'],['Local food','在地美食'],['Home appliances','家電'],['Furniture','家具'],['Quality of life','生活品質'],['Local community','在地社區']]},
+
+  {n:'35-65 / 伸港漁塭 / 養殖漁業從業者與土地地主',sub:'伸港養殖漁業聚落·完全未觸及的沿海產業族群',
+   logic:'伸港沿海一帶有不少魚塭養殖業者，這群人手上多半持有魚塭土地，收入來自漁獲季節波動，資產配置意識強但過去從未被地產廣告觸及。此組鎖定養殖漁業與土地資產興趣，訴求「魚塭顧了一輩子，也該換一間安穩的家」。',
+   lm:['伸港福安宮','伸港交流道','台61線','龍井交流道'],
+   tags:[['Aquaculture','養殖漁業'],['Fishing industry','漁業'],['Agriculture','農業'],['Local community','在地社區'],['Traditional culture','傳統文化'],['Temple','廟宇信仰'],['Saving','儲蓄'],['Financial planning','財務規劃'],['Investment','投資理財'],['Bank','銀行金融'],['Home buying','購屋'],['Motorcycle','機車'],['Automobile','汽車'],['Local food','在地美食'],['Home appliances','家電'],['Furniture','家具'],['Quality of life','生活品質'],['Community living','社區生活'],['Grandparenting','含飴弄孫']]},
+
+  {n:'30-55 / 清水國小明星學區 / 學區資產保值換屋族',sub:'591建案頁面明確標示"明星學區"·資產保值角度非單純陪讀',
+   logic:'591建案頁面明確標示富宇大琚坐落「明星學區」（清水國小），這是既有教師/保育人員組未強調的賣點——不是「因為孩子要上學」，而是「學區房抗跌保值」的資產配置邏輯。此組鎖定學區與資產配置興趣，訴求「明星學區的房子，換屋族最懂精算」，適合搭配學區保值數據素材。',
+   lm:['清水國小','清水國中','清水區公所','清水五權路商圈'],
+   tags:[['School district','學區'],['Real estate listing','房地產搜尋'],['Property value','房屋增值'],['Investment','投資理財'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Bank','銀行金融'],['Personal finance','個人理財'],['Education','教育'],['Child education','兒童教育'],['Home buying','購屋'],['New construction','新成屋'],['Pre-construction sale','預售屋'],['Home loan calculator','房貸試算'],['Down payment saving','存頭期款'],['Home improvement','居家裝潢'],['Interior design','室內設計'],['Furniture','家具'],['Home appliances','家電'],['Quality of life','生活品質'],['Local community','在地社區']]},
+
+  {n:'28-50 / 清水五權路商圈 / 免裝潢懶人首購族',sub:'延伸591"送輕裝修"優惠·鎖定怕麻煩不想跑裝潢的首購族',
+   logic:'富宇大琚目前主打「送輕裝修」優惠，這是既有受眾組完全沒有運用的成交誘因。這群首購族最怕的就是「買了房還要花半年跑裝潢」，對「拎包入住」的產品訴求接受度極高。此組疊加居家裝修厭倦與便利生活興趣，訴求「不用等裝潢，交屋就能住」。',
+   lm:['清水五權路商圈','清水區公所','清水車站','清水第一市場'],
+   tags:[['First home','首購成家'],['Home buying','購屋'],['Interior design','室內設計'],['Home renovation','裝潢工程'],['Furniture','家具'],['Home appliances','家電'],['Convenience','便利生活'],['Time management','時間管理'],['Saving','儲蓄'],['Financial planning','財務規劃'],['Bank','銀行金融'],['Online shopping','網路購物'],['Food delivery','外送服務'],['Streaming service','串流影音'],['Mobile payment','行動支付'],['Coffee','咖啡'],['Career development','職涯發展'],['Work-life balance','工作生活平衡'],['Quality of life','生活品質'],['Community living','社區生活']]},
+
+  {n:'25-40 / 海線北漂返鄉青年 / 台中/雙北工作回流置產族',sub:'海線在地青年北漂多年後返鄉置產·全新世代切角',
+   logic:'不少海線青年曾北上或到台中市區工作多年，隨遠端工作興起或成家規劃，選擇回流海線家鄉置產，離父母近、生活成本低、房價也親民。此組鎖定返鄉/回流與遠距工作興趣，訴求「北漂這幾年存的錢，回海線買房CP值更高」。',
+   lm:['清水車站','沙鹿火車站','大甲車站','清水五權路商圈'],
+   tags:[['Remote work','遠端工作'],['Career development','職涯發展'],['Work-life balance','工作生活平衡'],['Hometown pride','故鄉認同'],['Local community','在地社區'],['First home','首購成家'],['Home buying','購屋'],['Saving','儲蓄'],['Financial planning','財務規劃'],['Investment','投資理財'],['Bank','銀行金融'],['Streaming service','串流影音'],['Social media','社群媒體'],['Online shopping','網路購物'],['Coffee','咖啡'],['Motorcycle','機車'],['Automobile','汽車'],['Home appliances','家電'],['Furniture','家具'],['Interior design','室內設計'],['Quality of life','生活品質']]},
+
+  {n:'40-65 / 海線傳產二代 / 家族企業接班置產族',sub:'海線傳產家族企業二代·延伸既有工廠業主組但聚焦接班世代',
+   logic:'海線一帶傳產家族企業眾多，二代接班者多半已掌握公司實權但居住仍與父母同住老家，這群人重視「跟長輩分開住又不能離太遠」的平衡，對海線在地新大樓的接受度高於外地建案。此組鎖定家族企業接班與經營管理興趣，訴求「接手家業了，也該有自己作主的家」。',
+   lm:['清水工業區','大甲工業區','沙鹿工業區','龍井工業區'],
+   tags:[['Family business','家族企業'],['Business succession','接班傳承'],['Manufacturing','製造業'],['Business owner','企業主'],['Business','商業'],['Management','經營管理'],['Business networking','商業社交'],['Saving','儲蓄'],['Financial planning','財務規劃'],['Investment','投資理財'],['Bank','銀行金融'],['Luxury automobiles','豪華汽車'],['Golf','高爾夫'],['Fine dining','精緻餐飲'],['Home buying','購屋'],['Home appliances','家電'],['Furniture','家具'],['Interior design','室內設計'],['Quality of life','生活品質'],['Local community','在地社區']]},
+
+  {n:'50-70 / 海線退休漁工船員 / 退休金穩定安養族',sub:'海線退休漁工/船員/碼頭退休人員·養老訴求',
+   logic:'海線一帶不少退休漁工、船員、碼頭退休人員，年輕時討海或跑船辛苦，退休後普遍領有退休金或勞保年金，重視「安穩養老」勝過投資增值。此組鎖定退休與海洋產業背景興趣，訴求「討海這輩子辛苦了，退休該住舒服一點」。',
+   lm:['梧棲漁港','台中港','清水鰲峰山運動公園','清水紫雲巖'],
+   tags:[['Retirement pension','退休年金'],['Retirement planning','退休規劃'],['Fishing industry','漁業'],['Maritime','海事'],['Health','健康養生'],['Walking','健走運動'],['Temple','廟宇信仰'],['Tea','茶飲文化'],['Grandparenting','含飴弄孫'],['Saving','儲蓄'],['Financial planning','財務規劃'],['Bank','銀行金融'],['Insurance','保險'],['Medical care','醫療照護'],['Local food','在地美食'],['Home appliances','家電'],['Furniture','家具'],['Quality of life','生活品質'],['Community living','社區生活']]},
+
+  {n:'25-45 / 海線機車代步族 / 通勤機車與改裝愛好者',sub:'海線在地機車代步為主·未被開發的交通行為切角',
+   logic:'海線鄉鎮大眾運輸不便，機車是多數居民日常代步工具，甚至有一群人對機車改裝、重機有興趣。這群人年輕、務實，機車就是他們的「行動辦公室」，對「住家附近機車停車方便」有具體需求。此組鎖定機車與代步文化興趣，訴求「機車代步一輩子，家也要好停好進出」。',
+   lm:['清水五權路商圈','沙鹿老街','大甲車站','梧棲區公所'],
+   tags:[['Motorcycle','機車'],['Motorcycle touring','機車旅遊'],['Automotive repair','汽車修護'],['Commuting','通勤'],['Career development','職涯發展'],['First home','首購成家'],['Home buying','購屋'],['Saving','儲蓄'],['Financial planning','財務規劃'],['Bank','銀行金融'],['Convenience store','便利商店'],['Mobile payment','行動支付'],['Online shopping','網路購物'],['Streaming service','串流影音'],['Coffee','咖啡'],['Local food','在地美食'],['Home appliances','家電'],['Furniture','家具'],['Quality of life','生活品質'],['Local community','在地社區']]},
+
+  {n:'35-65 / 海線廟會陣頭 / 傳統技藝傳承族',sub:'延伸大甲媽祖信仰組·擴大至整個海線廟會陣頭文化圈',
+   logic:'海線各鄉鎮廟會文化興盛，不只大甲鎮瀾宮，清水紫雲巖、梧棲朝元宮、龍井福順宮都有各自的廟會陣頭傳統，這群人投入傳統技藝傳承（獅陣、宋江陣、八家將等），在地連結極深。此組擴大廟會信仰標籤至整個海線範圍，訴求「陣頭顧了一輩子，家也該顧好」。',
+   lm:['清水紫雲巖','梧棲朝元宮','大甲鎮瀾宮','龍井福順宮'],
+   tags:[['Temple','廟宇信仰'],['Folk religion','民間信仰'],['Traditional culture','傳統文化'],['Parade','遶境'],['Drum performance','陣頭表演'],['Martial arts','武術'],['Volunteering','志工服務'],['Local community','在地社區'],['Local food','在地美食'],['Night market','夜市小吃'],['Home buying','購屋'],['Saving','儲蓄'],['Financial planning','財務規劃'],['Bank','銀行金融'],['Motorcycle','機車'],['Automobile','汽車'],['Home appliances','家電'],['Furniture','家具'],['Quality of life','生活品質'],['Community living','社區生活']]},
+
+  {n:'30-55 / 海線農會系統 / 農漁會合作社在地職員',sub:'海線農會/漁會系統職員·穩定公職性質未被測試',
+   logic:'海線各鄉鎮的農會、漁會體系雇用不少在地職員，工作性質類似半公職，薪資穩定、福利佳，且長年服務在地農漁民，人脈與信任度高。此組鎖定農會/合作社職業興趣，訴求「服務鄉親一輩子，也該有自己安心的家」。',
+   lm:['清水區公所','梧棲區公所','大甲街役場','龍井工業區'],
+   tags:[['Agriculture','農業'],['Fishing industry','漁業'],['Cooperative','合作社'],['Public servant','公務員'],['Job stability','工作穩定'],['Local community','在地社區'],['Financial services','金融服務'],['Saving','儲蓄'],['Financial planning','財務規劃'],['Bank','銀行金融'],['Insurance','保險'],['Home buying','購屋'],['First home','首購成家'],['Local food','在地美食'],['Temple','廟宇信仰'],['Home appliances','家電'],['Furniture','家具'],['Quality of life','生活品質'],['Community living','社區生活']]},
+
+  {n:'30-55 / 海線長照居家照護 / 照服員與居服督導族',sub:'海線長照從業人員·高齡化海線的新興職業族群未被鎖定',
+   logic:'海線鄉鎮人口老化程度高，長照/居家照護需求大，照服員、居服督導這個職業族群近年快速成長，工作辛苦但薪資穩定成長中，過去從未被此案受眾組觸及。此組鎖定長照相關職業興趣，訴求「照顧別人的家人，自己的家也不能將就」。',
+   lm:['沙鹿童綜合醫院','清水區公所','梧棲區公所','大甲街役場'],
+   tags:[['Caregiving','長期照護'],['Nursing','護理'],['Elderly care','老人照護'],['Healthcare worker','醫護人員'],['Social work','社會工作'],['Job stability','工作穩定'],['Career development','職涯發展'],['Saving','儲蓄'],['Financial planning','財務規劃'],['Bank','銀行金融'],['Insurance','保險'],['Home buying','購屋'],['First home','首購成家'],['Home appliances','家電'],['Furniture','家具'],['Quality of life','生活品質'],['Local community','在地社區'],['Community living','社區生活']]},
+
+  {n:'25-50 / 海線寵物友善 / 在地毛小孩家庭',sub:'延伸戶外露營釣魚組·聚焦寵物飼主未被鎖定的角度',
+   logic:'既有「戶外露營釣魚海線休閒族」組驗證海線居民重視戶外生活，這群人裡有不少是寵物飼主，海邊、堤防、鰲峰山公園都是遛狗熱點。這組獨立鎖定寵物飼主興趣，區隔於純戶外休閒族，訴求「毛小孩也要有院子放電，海線的家最適合」。',
+   lm:['清水鰲峰山運動公園','梧棲漁港','高美濕地','沙鹿老街'],
+   tags:[['Pets','寵物'],['Dog','狗'],['Pet care','寵物照護'],['Veterinary','獸醫'],['Dog training','狗狗訓練'],['Outdoor activities','戶外活動'],['Walking','健走運動'],['Beach','海邊'],['Home buying','購屋'],['First home','首購成家'],['Saving','儲蓄'],['Financial planning','財務規劃'],['Bank','銀行金融'],['Automobile','汽車'],['Motorcycle','機車'],['Home appliances','家電'],['Furniture','家具'],['Interior design','室內設計'],['Quality of life','生活品質'],['Community living','社區生活']]},
+
+  {n:'33-58 / 海線+61線廣投 / 大甲清水梧棲沙鹿龍井伸港全海線廣投',sub:'比照全案最強廣投款邏輯·擴大至完整海線六鄉鎮',
+   logic:'全案表現最好的兩組（33-65+清水16km CPL94、25-40海線通勤小家庭CPL120）都證明「寬地理+基礎興趣」比窄興趣定向更有效率。此組把廣投範圍精確擴大到大甲、清水、梧棲、沙鹿、龍井、伸港完整海線六鄉鎮（不含神岡大雅中科等已證實無效的內陸區域），作為新一輪測試的主力起跑款，先衝觸及量、再用訊息內容篩客。',
+   lm:['清水交流道','沙鹿清水交流道','龍井交流道','伸港交流道'],
+   tags:[['Home buying','購屋'],['First home','首購成家'],['Saving','儲蓄'],['Financial planning','財務規劃'],['Investment','投資理財'],['Bank','銀行金融'],['Insurance','保險'],['Local community','在地社區'],['Local food','在地美食'],['Temple','廟宇信仰'],['Traditional culture','傳統文化'],['Commuting','通勤'],['Automobile','汽車'],['Motorcycle','機車'],['Convenience store','便利商店'],['Home appliances','家電'],['Furniture','家具'],['Interior design','室內設計'],['Home improvement','居家裝潢'],['Quality of life','生活品質'],['Community living','社區生活'],['Grandparenting','含飴弄孫'],['Health','健康養生']]}
 ];
 function buildAudCard(g,idx,prefix){
   const id=prefix+(idx+1);
