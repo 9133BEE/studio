@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>益豐莊園主人｜受眾分析報告</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --accent:#5a4a2e;--accent-dark:#3e3220;--accent-light:#f0ece2;--accent-border:#c8b896;
+  --bg:#f2f3f1;--s:#ffffff;--bd:#e4e5e2;--tx:#2e2c29;--sub:#7d7870;--sub2:#a8a199;
+  --good:#1e6e3f;--goodl:#e6f4ea;--warn:#c05c00;
+  --radius:12px;--shadow-xs:0 1px 3px rgba(0,0,0,.05);--shadow-sm:0 2px 8px rgba(0,0,0,.07);--shadow-card:0 2px 10px rgba(0,0,0,.06),0 1px 3px rgba(0,0,0,.04);
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft JhengHei','Segoe UI',sans-serif;background:var(--bg);color:var(--tx);font-size:14px;line-height:1.6;min-height:100vh}
+.page-header{background:linear-gradient(180deg,#211a10 0%,#16120a 100%);padding:0 40px;height:56px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.04),0 4px 20px rgba(0,0,0,.35);border-bottom:1px solid rgba(255,255,255,.06)}
+.ph-logo{width:30px;height:30px;background:linear-gradient(135deg,#a08858,var(--accent-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;flex-shrink:0}
+.ph-title{font-size:14px;font-weight:700;color:#f0ece2;letter-spacing:-.2px}
+.ph-sub{font-size:11px;color:#8a7a60;margin-left:2px}
+.ph-nav{margin-left:auto;display:flex;gap:8px;align-items:center}
+.ph-nav a{font-size:12px;color:#c8b896;text-decoration:none;padding:5px 13px;border-radius:6px;border:1px solid rgba(90,74,46,.25);background:rgba(90,74,46,.12);font-weight:500}
+.ph-nav a:hover{background:rgba(90,74,46,.22);color:#e0d0a8}
+#btt{position:fixed;right:24px;bottom:28px;width:38px;height:38px;border-radius:50%;background:rgba(22,18,10,.75);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.85);font-size:15px;cursor:pointer;opacity:0;transform:translateY(8px);transition:opacity .2s,transform .2s;pointer-events:none;z-index:150;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.3);font-family:inherit}
+#btt.show{opacity:1;transform:translateY(0);pointer-events:auto}
+.wrap{max-width:1200px;margin:0 auto;padding:32px 40px 48px}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--accent);text-decoration:none;margin-bottom:20px;padding:5px 12px;background:var(--accent-light);border-radius:20px;border:1px solid var(--accent-border)}
+.case-header{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:20px 24px;margin-bottom:14px;display:flex;align-items:center;gap:18px;box-shadow:var(--shadow-card)}
+.case-logo{width:44px;height:44px;background:linear-gradient(135deg,#a08858,var(--accent-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;flex-shrink:0}
+.case-info h2{font-size:17px;font-weight:700;color:var(--tx);letter-spacing:-.3px}
+.case-info p{font-size:12px;color:var(--sub);margin-top:3px;line-height:1.5}
+.case-stats{margin-left:auto;display:flex;gap:28px;flex-shrink:0}
+.stat{text-align:right}
+.stat-n{font-size:24px;font-weight:800;color:var(--accent);line-height:1;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.stat-l{font-size:10px;color:var(--sub2);margin-top:3px;font-weight:600;letter-spacing:.3px;text-transform:uppercase}
+.page-banner{border-radius:var(--radius);padding:18px 24px;margin-bottom:22px;display:flex;align-items:center;gap:20px;box-shadow:var(--shadow-card);background:linear-gradient(135deg,#3e3220,#5a4a2e);color:#fff}
+.banner-icon{width:40px;height:40px;background:rgba(255,255,255,.12);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;flex-shrink:0;color:#fff}
+.banner-title{font-size:16px;font-weight:800;letter-spacing:-.2px}
+.banner-sub{font-size:12px;opacity:.8;margin-top:2px}
+.sec-title{font-size:12px;font-weight:700;color:var(--sub);margin-bottom:14px;display:flex;align-items:center;gap:10px;letter-spacing:.4px;text-transform:uppercase}
+.sec-title::before{content:'';display:inline-block;width:3px;height:14px;background:var(--accent);border-radius:2px;flex-shrink:0}
+.sec-title::after{content:'';flex:1;height:1px;background:var(--bd)}
+.section{margin-bottom:28px}
+.note-bar{background:var(--accent-light);border:1px solid var(--accent-border);border-radius:10px;padding:10px 16px;font-size:12px;color:#3e3220;margin-bottom:20px;line-height:1.7}
+.aud-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;align-items:start}
+@media(max-width:760px){.aud-grid-2{grid-template-columns:1fr}}
+.aud-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);box-shadow:var(--shadow-xs);overflow:hidden}
+.aud-header{display:flex;align-items:center;gap:12px;padding:14px 16px;cursor:pointer;user-select:none;transition:background .15s}
+.aud-header:hover{background:#f7f3ea}
+.aud-num{width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.aud-info{flex:1;min-width:0}
+.aud-name{font-size:13px;font-weight:700;color:var(--tx);line-height:1.35}
+.aud-sub{font-size:11px;color:var(--sub);margin-top:2px;line-height:1.4}
+.aud-arrow{font-size:11px;color:var(--sub2);transition:transform .2s;flex-shrink:0}
+.aud-card.open .aud-arrow{transform:rotate(90deg)}
+.aud-body{display:none;padding:0 16px 16px;border-top:1px solid var(--bd)}
+.aud-card.open .aud-body{display:block}
+.aud-sl{font-size:10px;font-weight:700;color:var(--sub2);letter-spacing:.5px;text-transform:uppercase;margin:12px 0 6px}
+.aud-logic{font-size:12px;color:var(--sub);line-height:1.7;background:var(--accent-light);border-left:3px solid var(--accent);padding:10px 12px;border-radius:0 6px 6px 0}
+.aud-lm{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:4px}
+.aud-lm-tag{font-size:11px;font-weight:600;color:#3e3220;background:var(--accent-light);padding:3px 10px;border-radius:10px;border:1px solid var(--accent-border)}
+.tag-tbl{width:100%;border-collapse:collapse;font-size:12px;margin-top:4px}
+.tag-tbl thead tr{background:#f3ede0}
+.tag-tbl th{padding:5px 8px;text-align:left;font-size:10px;font-weight:700;color:var(--sub2);border-bottom:1px solid var(--bd)}
+.tag-tbl tbody tr{cursor:pointer;transition:background .12s;border-bottom:1px solid #edf0f2}
+.tag-tbl tbody tr:hover{background:var(--accent-light)}
+.tag-tbl td{padding:5px 8px;color:var(--tx)}
+.tag-tbl td:first-child{color:var(--sub2);font-size:10px;width:24px}
+.tag-tbl tbody tr.flash{background:#e0d4b8!important}
+.copy-all-row{display:flex;justify-content:flex-end;margin-top:8px}
+.copy-all-btn{font-size:11px;font-weight:600;color:var(--accent-dark);background:var(--accent-light);border:1px solid var(--accent-border);border-radius:8px;padding:5px 14px;cursor:pointer;transition:all .15s}
+.copy-all-btn.done{background:#d0ecd8;color:#2a6a3a;border-color:#a8d8b8}
+.page-footer{text-align:center;font-size:11px;color:var(--sub2);margin-top:12px;padding-bottom:8px}
+#copy-toast{position:fixed;bottom:72px;left:50%;transform:translateX(-50%) translateY(8px);background:#211a10;color:#f0ece2;font-size:11px;font-weight:600;padding:7px 16px;border-radius:18px;opacity:0;pointer-events:none;transition:opacity .18s,transform .18s;z-index:300;white-space:nowrap}
+#copy-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="ph-logo">益</div>
+  <span class="ph-title">益豐莊園主人｜受眾分析</span>
+  <span class="ph-sub">· 台中市南屯區 · 透天別墅24戶 · 總價5,880萬/戶</span>
+  <nav class="ph-nav"><a href="index.html">標籤資料庫</a><a href="hub.html">← 返回總覽</a></nav>
+</header>
+
+<div id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+<div id="copy-toast">✓ 已複製到剪貼簿</div>
+
+<div class="wrap">
+<a class="back-link" href="hub.html">← 返回案件總覽</a>
+
+<div class="case-header">
+  <div class="case-logo">益</div>
+  <div class="case-info">
+    <h2>益豐莊園主人｜台中南屯</h2>
+    <p>益豐路三段415號・透天別墅4幢24棟24戶・地坪30-35坪/建坪90-99坪・單價55-65萬/坪（總價5,880萬/戶）・新成屋・單粉專運作（僅FB廣告）</p>
+  </div>
+  <div class="case-stats">
+    <div class="stat"><div class="stat-n">20組</div><div class="stat-l">首批建議受眾</div></div>
+    <div class="stat"><div class="stat-n">尚未投放</div><div class="stat-l">實測狀態</div></div>
+    <div class="stat"><div class="stat-n">1</div><div class="stat-l">廣告帳號</div></div>
+  </div>
+</div>
+
+<div class="page-banner">
+  <div class="banner-icon">新案</div>
+  <div>
+    <div class="banner-title">益豐莊園主人｜名單開發</div>
+    <div class="banner-sub">新建案・尚無實測數據・以同集團高總價案家羽醇華驗證邏輯為基礎推導</div>
+  </div>
+</div>
+
+<div class="note-bar">📌 2026-07-28建檔：益豐莊園主人為透天別墅產品，總價5,880萬/戶（單價55-65萬/坪），屬超高總價自地自建等級，買方輪廓需鎖定企業主/高階經理人/自由業高資產者。因尚無實測數據，本批20組參考同集團高總價案「家羽醇華」已驗證有效邏輯（高階運動/投資/出國：倫敦證交所/納斯達克/高爾夫/私人銀行；金融投資：金融市場/被動收入/特斯拉/NVIDIA/黃金；老闆高管：佳士得/Art auction/路易威登/愛馬仕/藝術展覽/勞力士/保時捷/賓士/私人銀行服務或企業家）推導設計，並疊加透天產品特有的「家族傳承/三代同堂/土地資產」邏輯區隔於一般大樓受眾。待實際投放後，將依CPL成效回頭修正本批受眾優先順序。</div>
+
+<div class="section">
+  <div class="sec-title">首批建議受眾（20組）· 建立 2026-07-28</div>
+  <div id="aud-grid" class="aud-grid-2"></div>
+</div>
+
+<div class="page-footer">益豐莊園主人 受眾分析報告 · 建立 2026-07-28 · 9133 廣告操作團隊</div>
+</div>
+
+<script>
+const G=[
+{n:'40-65/益豐路+3km/家族企業主二代接班傳承族',sub:'參考家羽醇華「老闆高管」有效邏輯，聚焦透天最貼合的家族企業傳承需求',logic:'我接的是家族企業，這幾年逐步從父輩手上接下經營權，公司規模跟獲利都穩定成長。透天別墅對我來說不只是住家，也代表家族事業成功的具體象徵，希望能有足夠空間讓三代同堂，也方便宴客接待商務夥伴。',lm:['益豐路基地（+3km）','大魯閣新時代（+5km）','秋紅谷公園（+5km）','台中國家歌劇院（+6km）'],tags:[['Family business','家族企業'],['Succession planning','企業傳承'],['Business owner','企業主'],['Entrepreneur','企業家（商業與財務）'],['High net worth individual','高淨值人士（商業與財務）'],['Private banking','私人銀行服務'],['Golf','高爾夫（體育運動）'],['Villa','別墅（住宿）'],['Residential real estate','住宅房地產（房地產）'],['Real estate','房地產（產業）'],['Wealth management','財富管理'],['Interior design','室內設計'],['Business networking','Business networking'],['New home','新家'],['Quality of life','生活品質']]},
+  {n:'42-65/精誠商圈+4km/上市櫃公司高階經理人CEO族',sub:'延伸家羽醇華「老闆高管」邏輯，聚焦受薪頂端非自營業主',logic:'我在上市櫃公司做到總經理/執行長層級，年薪加股票分紅相當可觀，決策壓力大但回報也對等。這種等級的透天別墅，對我來說是給自己跟家人在職業生涯高峰的一個具體肯定。',lm:['精誠商圈（+4km）','國際街商圈（+4km）','南屯交流道（+3km）','大墩重劃區（+5km）'],tags:[['Senior management','高階管理人員'],['Chief executive officer','執行長'],['Business leader','商業領袖（商業和金融業）'],['Stock options','股票選擇權'],['Investment strategy','投資策略（投資）'],['Porsche','保時捷（汽車）'],['Mercedes-Benz','賓士（汽車）'],['Villa','別墅（住宿）'],['Residential real estate','住宅房地產（房地產）'],['Real estate','房地產（產業）'],['Wealth management','財富管理'],['Interior design','室內設計'],['Business networking','Business networking'],['New home','新家'],['Quality of life','生活品質']]},
+  {n:'35-58/南屯區/醫美牙醫自費診所連鎖創辦人族',sub:'高毛利自費醫療業主，全新方向',logic:'我經營的是醫美/牙醫自費診所連鎖，客戶都是願意花錢投資外表與健康的高端客層，診所生意好、毛利也高。這種經營者視角讓我對居住這件事也重視「門面」跟「保值」，透天別墅是我事業成功的一種具體證明。',lm:['益豐路基地（+3km）','大魯閣新時代（+5km）','秋紅谷公園（+5km）','台中國家歌劇院（+6km）'],tags:[['Medical aesthetics clinic','醫美診所'],['Dental clinic ownership','牙醫診所經營'],['Self-pay medical service','自費醫療服務'],['High income','高收入族群'],['Luxury goods','精品（零售）'],['Villa','別墅（住宿）'],['Residential real estate','住宅房地產（房地產）'],['Real estate','房地產（產業）'],['Wealth management','財富管理'],['Interior design','室內設計'],['Business networking','Business networking'],['New home','新家'],['Quality of life','生活品質']]},
+  {n:'40-65/南屯交流道+3km/建設營造業主置產族',sub:'對建築品質最有鑑別力的自營業主，全新方向',logic:'我自己做建設/營造，看過太多建案的建材、工法、格局規劃，好壞一眼就看得出來。所以我幫自己找房子反而比一般客戶更龜毛，透天別墅的土地權狀跟結構我會用同業的眼光重新檢視一遍。',lm:['益豐路基地（+3km）','大魯閣新時代（+5km）','秋紅谷公園（+5km）','台中國家歌劇院（+6km）'],tags:[['Construction company','營造公司'],['Property development','建案開發'],['Real estate developer','不動產開發商'],['Business owner','企業主'],['Villa','別墅（住宿）'],['Residential real estate','住宅房地產（房地產）'],['Real estate','房地產（產業）'],['Wealth management','財富管理'],['Interior design','室內設計'],['Business networking','Business networking'],['New home','新家'],['Quality of life','生活品質']]},
+  {n:'42-68/精誠商圈+4km/私人銀行家族辦公室客戶族',sub:'延伸家羽醇華「金融投資」有效邏輯，聚焦私人銀行服務等級客層',logic:'我的資產已經到了私人銀行主動邀約、甚至設立家族辦公室來管理的規模，理財不是自己單打獨鬥，而是有專業團隊做整體資產配置跟世代傳承規劃。買房這件事，我會用跟理財團隊討論資產配置一樣的嚴謹邏輯去評估。',lm:['精誠商圈（+4km）','國際街商圈（+4km）','南屯交流道（+3km）','大墩重劃區（+5km）'],tags:[['Private banking','私人銀行'],['Family office','家族辦公室'],['Wealth transfer to children','財富傳承子女'],['Estate planning','遺產規劃'],['Asset management','資產管理（商業和金融業）'],['NASDAQ 100 Index','納斯達克100指數'],['London Stock Exchange','倫敦證券交易所（投資）'],['Villa','別墅（住宿）'],['Residential real estate','住宅房地產（房地產）'],['Real estate','房地產（產業）'],['Wealth management','財富管理'],['Interior design','室內設計'],['Business networking','Business networking'],['New home','新家'],['Quality of life','生活品質']]},
+  {n:'40-65/台中國家歌劇院+6km/藝術收藏拍賣會常客族',sub:'直接延伸家羽醇華「老闆高管」組驗證有效的佳士得/Art auction標籤',logic:'我固定關注佳士得跟蘇富比的拍賣消息，收藏當代藝術跟古董家具是我這幾年的興趣，也是一種資產配置。透天別墅有足夠的挑高空間跟牆面，能真正把收藏品展示出來，這是一般大樓格局做不到的。',lm:['台中國家歌劇院（+6km）','秋紅谷公園（+5km）','精誠商圈（+4km）'],tags:[['Christie\'s','佳士得'],['Art auction','Art auction'],['Art collecting','藝術收藏'],['Visual art exhibition','藝術展覽（視覺藝術）'],['Antique collecting','古董收藏'],['Louis Vuitton','路易威登（時尚品牌）'],['Hermès','愛馬仕（服飾）'],['Villa','別墅（住宿）'],['Residential real estate','住宅房地產（房地產）'],['Real estate','房地產（產業）'],['Wealth management','財富管理'],['Interior design','室內設計'],['Business networking','Business networking'],['New home','新家'],['Quality of life','生活品質']]},
+  {n:'35-55/南屯區/科技業創辦人天使投資人族',sub:'創業有成的科技業主，全新方向',logic:'我創立的科技公司這幾年成長快速，也開始用自己的資金投資其他新創當天使投資人。收入不像上班族固定，但一旦募資或退場成功，資產會有大幅跳躍。透天別墅對我來說是把紙上資產具體化的一步。',lm:['益豐路基地（+3km）','大魯閣新時代（+5km）','秋紅谷公園（+5km）','台中國家歌劇院（+6km）'],tags:[['Startup company','新創公司'],['Angel investor','天使投資人'],['Venture capital','創業投資'],['Entrepreneurship','創業精神'],['Stock options','股票選擇權'],['NVIDIA','英偉達'],['Villa','別墅（住宿）'],['Residential real estate','住宅房地產（房地產）'],['Real estate','房地產（產業）'],['Wealth management','財富管理'],['Interior design','室內設計'],['Business networking','Business networking'],['New home','新家'],['Quality of life','生活品質']]},
+  {n:'42-65/南屯區/中彰投傳產集團二代族',sub:'中台灣傳產集團接班世代，全新方向',logic:'我們家族在中彰投一帶經營傳產集團好幾代，我是負責接下來的世代。集團規模不小，但外界對傳產的想像常常忽略我們這代人受過完整高等教育、管理思維也很現代化。透天別墅對我來說是延續家族在地根基的自然選擇。',lm:['精誠商圈（+4km）','國際街商圈（+4km）','南屯交流道（+3km）','大墩重劃區（+5km）'],tags:[['Manufacturing industry','製造業'],['Family business','家族企業'],['Business owner','企業主'],['Supply chain','供應鏈'],['Executive education','高階經理人教育'],['Villa','別墅（住宿）'],['Residential real estate','住宅房地產（房地產）'],['Real estate','房地產（產業）'],['Wealth management','財富管理'],['Interior design','室內設計'],['Business networking','Business networking'],['New home','新家'],['Quality of life','生活品質']]},
+  {n:'38-62/精誠商圈+4km/進出口貿易國際貿易業主族',sub:'跨境貿易大戶，全新方向',logic:'我做的是進出口貿易，客戶遍布全球，公司規模夠大讓我能靈活調度全球資金。這幾年生意穩定成長，現金週轉不是問題，比較在意的是透天別墅的格局要能兼顧接待國外客戶跟家庭生活兩種需求。',lm:['精誠商圈（+4km）','國際街商圈（+4km）','南屯交流道（+3km）','大墩重劃區（+5km）'],tags:[['Import export business','進出口貿易'],['International trade','國際貿易'],['Business travel','商務旅行'],['Business class','商務艙（航空旅行）'],['High net worth individual','高淨值人士（商業與財務）'],['Villa','別墅（住宿）'],['Residential real estate','住宅房地產（房地產）'],['Real estate','房地產（產業）'],['Wealth management','財富管理'],['Interior design','室內設計'],['Business networking','Business networking'],['New home','新家'],['Quality of life','生活品質']]},
+  {n:'45-68/南屯區/律師會計師事務所資深合夥人族',sub:'延伸家羽醇華邏輯，聚焦最高階專業菁英而非一般執業者',logic:'我在事務所做到資深合夥人，客戶都是企業主跟高資產家庭，處理的都是別人一輩子的財富規劃。這個等級的專業成就，讓我在買房這件事上也極其講究——地段、建材、產權都要經得起最嚴謹的檢視。',lm:['益豐路基地（+3km）','大魯閣新時代（+5km）','秋紅谷公園（+5km）','台中國家歌劇院（+6km）'],tags:[['Law firm','律師事務所'],['Accounting firm','會計師事務所'],['Senior partner','資深合夥人'],['Estate planning','遺產規劃'],['Tax preparation','Tax preparation'],['Villa','別墅（住宿）'],['Residential real estate','住宅房地產（房地產）'],['Real estate','房地產（產業）'],['Wealth management','財富管理'],['Interior design','室內設計'],['Business networking','Business networking'],['New home','新家'],['Quality of life','生活品質']]},
+  {n:'38-62/精誠商圈+4km/精品名車經銷商業主族',sub:'直接延伸家羽醇華保時捷/賓士標籤，聚焦經銷業主而非單純車主',logic:'我經營的是精品/名車經銷代理，客戶群本身就是這個社會消費力最強的一群人，日常接觸的都是頂級品牌。這種對頂級市場的第一手觀察，讓我對自己選擇的居住環境也有相對應的高標準。',lm:['精誠商圈（+4km）','國際街商圈（+4km）','南屯交流道（+3km）','大墩重劃區（+5km）'],tags:[['Luxury car brand','豪華車品牌'],['Porsche','保時捷（汽車）'],['Mercedes-Benz','賓士（汽車）'],['Car dealership','汽車經銷（零售業者）'],['Business owner','企業主'],['Villa','別墅（住宿）'],['Residential real estate','住宅房地產（房地產）'],['Real estate','房地產（產業）'],['Wealth management','財富管理'],['Interior design','室內設計'],['Business networking','Business networking'],['New home','新家'],['Quality of life','生活品質']]},
+  {n:'40-65/大魯閣新時代+5km/高爾夫球會鄉村俱樂部會員族',sub:'延伸家羽醇華高爾夫/網球運動標籤，聚焦俱樂部會籍身分',logic:'我是幾間高爾夫球會/鄉村俱樂部的會員，這不只是運動嗜好，也是我主要的商務社交場合。這種對俱樂部會籍等級的重視，延伸到我對居住環境的要求，希望鄰里跟社群也是同一水準的人脈圈。',lm:['益豐路基地（+3km）','大魯閣新時代（+5km）','秋紅谷公園（+5km）','台中國家歌劇院（+6km）'],tags:[['Golf','高爾夫（體育運動）'],['Country club membership','鄉村俱樂部會員'],['Tennis','網球（體育運動）'],['Equestrianism','馬術運動（體育運動）'],['Business networking','Business networking'],['Villa','別墅（住宿）'],['Residential real estate','住宅房地產（房地產）'],['Real estate','房地產（產業）'],['Wealth management','財富管理'],['Interior design','室內設計'],['New home','新家'],['Quality of life','生活品質']]},
+  {n:'45-70/南屯區/私人飛行遊艇休閒族',sub:'頂級休閒門檻族群，全新方向',logic:'我平常的休閒是開飛機或開遊艇出海，這種等級的休閒活動本身就是一道很高的財力門檻。買房子對我來說也是同樣的邏輯——不將就一般規格，要的是真正能配得上這種生活方式的產品。',lm:['益豐路基地（+3km）','大魯閣新時代（+5km）','秋紅谷公園（+5km）','台中國家歌劇院（+6km）'],tags:[['Private aviation','私人飛行'],['Yacht','遊艇'],['Boating','遊艇活動'],['Luxury travel','奢華旅遊'],['High net worth individual','高淨值人士（商業與財務）'],['Villa','別墅（住宿）'],['Residential real estate','住宅房地產（房地產）'],['Real estate','房地產（產業）'],['Wealth management','財富管理'],['Interior design','室內設計'],['Business networking','Business networking'],['New home','新家'],['Quality of life','生活品質']]},
+  {n:'40-65/精誠商圈+4km/上市公司大股東投資人族',sub:'延伸金融投資邏輯，聚焦股權持有人而非受薪主管',logic:'我是幾家上市公司的大股東，收入主要來自股利跟股價增值，不是固定薪水。這種資產規模跟波動性，讓我買房子時會用資產配置的角度去看，透天別墅的土地價值長期來說是很好的避險工具。',lm:['精誠商圈（+4km）','國際街商圈（+4km）','南屯交流道（+3km）','大墩重劃區（+5km）'],tags:[['Shareholder','股東'],['Dividend investing','股息投資'],['Stock market','股票市場（投資）'],['Asset management','資產管理（商業和金融業）'],['NASDAQ 100 Index','納斯達克100指數'],['Villa','別墅（住宿）'],['Residential real estate','住宅房地產（房地產）'],['Real estate','房地產（產業）'],['Wealth management','財富管理'],['Interior design','室內設計'],['Business networking','Business networking'],['New home','新家'],['Quality of life','生活品質']]},
+  {n:'38-65/南屯區/連鎖飯店觀光業主族',sub:'觀光服務業高階經營者，全新方向',logic:'我經營的是連鎖飯店/觀光事業，天天接待各種等級的客人，也很清楚什麼叫「頂級服務」跟「頂級居住品質」。這種職業養成的鑑賞力，讓我對自己家的要求也不會妥協。',lm:['益豐路基地（+3km）','大魯閣新時代（+5km）','秋紅谷公園（+5km）','台中國家歌劇院（+6km）'],tags:[['Hotel management','酒店管理'],['Hospitality industry','飯店業'],['Luxury hotel','豪華酒店'],['Business owner','企業主'],['Tourism industry','觀光產業'],['Villa','別墅（住宿）'],['Residential real estate','住宅房地產（房地產）'],['Real estate','房地產（產業）'],['Wealth management','財富管理'],['Interior design','室內設計'],['Business networking','Business networking'],['New home','新家'],['Quality of life','生活品質']]},
+  {n:'40-65/精誠商圈+4km/私立醫院診所投資人族',sub:'醫療產業資本投資角度，區隔一般執業醫師',logic:'我投資的是私立醫院/診所的經營權，角色是出資的股東而不是第一線看診的醫師。這種資本投資者的視角，讓我評估房產時也是用投報率跟長期增值的邏輯，而不是單純的居住需求。',lm:['精誠商圈（+4km）','國際街商圈（+4km）','南屯交流道（+3km）','大墩重劃區（+5km）'],tags:[['Healthcare investment','醫療產業投資'],['Private hospital','私立醫院'],['Investment strategy','投資策略（投資）'],['High net worth individual','高淨值人士（商業與財務）'],['Villa','別墅（住宿）'],['Residential real estate','住宅房地產（房地產）'],['Real estate','房地產（產業）'],['Wealth management','財富管理'],['Interior design','室內設計'],['Business networking','Business networking'],['New home','新家'],['Quality of life','生活品質']]},
+  {n:'42-68/南屯區/半導體上游供應鏈大廠業主族',sub:'延伸科技財力邏輯，聚焦供應鏈頂端業主而非受薪工程師',logic:'我開的公司是台積電、聯電這些大廠的上游關鍵供應商，訂單穩定且議價能力強，這幾年跟著台灣半導體產業一起水漲船高。我不是坐辦公室領死薪水的工程師，是要自己扛整個公司營運的老闆。',lm:['南屯交流道（+3km）','益豐路基地（+3km）','中彰快速道路'],tags:[['Semiconductor supply chain','半導體供應鏈'],['Equipment supplier','設備供應商'],['Business owner','企業主'],['B2B sales','B2B業務'],['NVIDIA','英偉達'],['Villa','別墅（住宿）'],['Residential real estate','住宅房地產（房地產）'],['Real estate','房地產（產業）'],['Wealth management','財富管理'],['Interior design','室內設計'],['Business networking','Business networking'],['New home','新家'],['Quality of life','生活品質']]},
+  {n:'40-65/南屯區/保險經紀財富管理公司負責人族',sub:'金融服務業經營者角度，區隔一般保險業務員',logic:'我經營的是保險經紀/財富管理公司，管的是一整個團隊跟龐大的客戶資產。這種站在金融服務業經營頂端的位置，讓我對自己的居住品質也用同樣的高標準要求，畢竟客戶會看我自己怎麼過生活。',lm:['精誠商圈（+4km）','國際街商圈（+4km）','南屯交流道（+3km）','大墩重劃區（+5km）'],tags:[['Insurance brokerage','保險經紀'],['Wealth management','財富管理'],['Financial services','金融服務（商業與財務）'],['Team leadership','團隊領導'],['Villa','別墅（住宿）'],['Residential real estate','住宅房地產（房地產）'],['Real estate','房地產（產業）'],['Interior design','室內設計'],['Business networking','Business networking'],['New home','新家'],['Quality of life','生活品質']]},
+  {n:'45-70/益豐路+3km/三代同堂大家族置產傳承族',sub:'透天別墅最核心的剛性需求：多代同堂+土地傳承',logic:'我們家是三代同堂的大家族，長輩、我們夫妻、孩子都住在一起，一般大樓格局根本不夠用。透天別墅的土地產權跟垂直空間規劃，讓每一代都能有自己的生活領域，同時又保有家族凝聚力，這是我們認真考慮的核心原因。',lm:['益豐路基地（+3km）','大魯閣新時代（+5km）','秋紅谷公園（+5km）','台中國家歌劇院（+6km）'],tags:[['Extended family','大家庭'],['Multigenerational household','三代同堂'],['Family legacy','家族傳承'],['Land ownership','土地所有權'],['Villa','別墅（住宿）'],['Residential real estate','住宅房地產（房地產）'],['Real estate','房地產（產業）'],['Wealth management','財富管理'],['Interior design','室內設計'],['Business networking','Business networking'],['New home','新家'],['Quality of life','生活品質']]},
+  {n:'50-70/南屯區/退休企業家資產配置族',sub:'退休/半退休企業家，資產配置與生活品質並重',logic:'我已經把公司交棒給下一代，自己進入退休或半退休狀態。這幾年在意的不再是衝刺事業，而是資產的穩健配置跟晚年生活品質。透天別墅對我來說是把過去累積的財富，轉化成能實際享受、也能傳給後代的具體資產。',lm:['益豐路基地（+3km）','大魯閣新時代（+5km）','秋紅谷公園（+5km）','台中國家歌劇院（+6km）'],tags:[['Retirement planning','退休規劃'],['Succession planning','企業傳承'],['Wealth transfer to children','財富傳承子女'],['Leisure activities for seniors','銀髮休閒活動'],['Villa','別墅（住宿）'],['Residential real estate','住宅房地產（房地產）'],['Real estate','房地產（產業）'],['Wealth management','財富管理'],['Interior design','室內設計'],['Business networking','Business networking'],['New home','新家'],['Quality of life','生活品質']]}
+];
+
+function renderAudGrid(gridId, data, prefix){
+  const el=document.getElementById(gridId);
+  if(!el)return;
+  let h='';
+  data.forEach((g,i)=>{
+    const lmH=g.lm.map(l=>`<span class="aud-lm-tag">${l}</span>`).join('');
+    const tagH=g.tags.map((t,j)=>`<tr><td>${j+1}</td><td>${t[0]}</td><td>${t[1]}</td></tr>`).join('');
+    h+=`<div class="aud-card" id="${prefix}${i}">
+<div class="aud-header" onclick="toggleAudG('${prefix}',${i})">
+  <div class="aud-num">${i+1}</div>
+  <div class="aud-info"><div class="aud-name">${g.n}</div><div class="aud-sub">${g.sub}</div></div>
+  <div class="aud-arrow">▶</div>
+</div>
+<div class="aud-body">
+  <div class="aud-sl">評估邏輯</div>
+  <div class="aud-logic">${g.logic}</div>
+  <div class="aud-sl" style="margin-top:12px">地標定位</div>
+  <div class="aud-lm">${lmH}</div>
+  <div class="aud-sl" style="margin-top:12px">興趣標籤（${g.tags.length}個）</div>
+  <table class="tag-tbl"><thead><tr><th>#</th><th>英文</th><th>中文</th></tr></thead><tbody>${tagH}</tbody></table>
+</div></div>`;
+  });
+  el.innerHTML=h;
+}
+
+function copyTxt(txt){return navigator.clipboard?navigator.clipboard.writeText(txt):Promise.reject();}
+function showToast(){const t=document.getElementById('copy-toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200)}
+
+function initAudCard(card){
+  if(card.dataset.cb)return;card.dataset.cb='1';
+  card.querySelectorAll('.tag-tbl tbody tr').forEach(row=>{
+    const en=row.cells[1]?.textContent.trim();if(!en)return;
+    row.addEventListener('click',()=>{
+      copyTxt(en).then(()=>{row.classList.add('flash');setTimeout(()=>row.classList.remove('flash'),600);showToast();});
+    });
+  });
+  card.querySelectorAll('.tag-tbl').forEach(tbl=>{
+    const wrap=document.createElement('div');wrap.className='copy-all-row';
+    const btn=document.createElement('button');
+    btn.className='copy-all-btn';
+    btn.innerHTML='⎘ 複製全部標籤';
+    btn.addEventListener('click',e=>{
+      e.stopPropagation();
+      const tags=Array.from(tbl.querySelectorAll('tbody tr')).map(r=>r.cells[1]?.textContent.trim()).filter(Boolean).join('\n');
+      copyTxt(tags).then(()=>{btn.classList.add('done');btn.textContent='✓ 已複製';setTimeout(()=>{btn.classList.remove('done');btn.innerHTML='⎘ 複製全部標籤';},2000);});
+    });
+    wrap.appendChild(btn);tbl.after(wrap);
+  });
+}
+function toggleAudG(prefix,i){const c=document.getElementById(prefix+i);c.classList.toggle('open');if(c.classList.contains('open'))initAudCard(c);}
+window.addEventListener('scroll',()=>{document.getElementById('btt').classList.toggle('show',window.scrollY>300)});
+renderAudGrid('aud-grid', G, 'ac');
+</script>
+</body>
+</html>
