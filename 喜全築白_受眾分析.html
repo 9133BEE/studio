@@ -66,6 +66,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 /* Audience cards */
 .aud-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;align-items:start}
 @media(max-width:760px){.aud-grid-2{grid-template-columns:1fr}}
+.batch-divider{grid-column:1 / -1;display:flex;align-items:center;gap:10px;margin:14px 0 2px;padding-top:6px}
+.batch-divider:first-child{margin-top:0;padding-top:0}
+.batch-date{font-size:11px;font-weight:700;color:var(--accent-dark);background:var(--accent-light);border:1px solid var(--accent-border);border-radius:20px;padding:4px 12px;letter-spacing:.2px;white-space:nowrap}
+.batch-divider::after{content:'';flex:1;height:1px;background:var(--bd)}
 .aud-card{background:var(--s);border:1px solid var(--bd);border-radius:10px;overflow:hidden;box-shadow:var(--shadow-xs)}
 .aud-header{display:flex;align-items:center;gap:12px;padding:13px 16px;cursor:pointer;user-select:none;transition:background .15s}
 .aud-header:hover{background:#f8fafc}
@@ -127,8 +131,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   <!-- Tab 1: 受眾建議 -->
   <div class="tab-pane show" id="tab0">
     <div class="section">
-      <div class="sec-title">主粉專｜建議受眾（20組）· 更新 2026-06-26</div>
-      <div class="note-bar">已根據「親子交通工業 CPL431」「工業教育 CPL411」「年輕興趣 CPL483」等有效方向延伸。避開已測 0 潛客的「機械製造」「換屋戶外退休」方向，新增廟東在地認同、豐原火車站通勤族、醫護、女性首購、后豐鐵馬道等全新切角。<br><strong>2026-07-29補充：</strong>0702新測「投資興趣」（交易策略/投資報酬率等具體動機詞）翻身成全案最強CPL332，推翻下方第12組「ETF存股」note裡「純投資族CPL破1000」的舊假設，下一輪建議優先延伸具體投資動機詞方向，詳見成效紀錄分頁。</div>
+      <div class="sec-title">主粉專｜建議受眾（40組）· 更新 2026-07-29</div>
+      <div class="note-bar">已根據「親子交通工業 CPL431」「工業教育 CPL411」「年輕興趣 CPL483」等有效方向延伸。避開已測 0 潛客的「機械製造」「換屋戶外退休」方向，新增廟東在地認同、豐原火車站通勤族、醫護、女性首購、后豐鐵馬道等全新切角。<br><strong>2026-07-29新增20組：</strong>0702新測「投資興趣」（交易策略/投資報酬率等具體動機詞）翻身成全案最強CPL332，推翻原本「純投資族CPL破1000」的舊假設，本輪20組全面延伸「具體投資動機詞」邏輯（收租/以房養老/定期定額/通膨避險/資本利得/退休佈局等），並補上網拍電商、外送計程車、汽機車維修、早餐店業主、大貨車駕駛等全新未測職業別。</div>
       <div id="main-aud-grid" class="aud-grid-2"></div>
     </div>
   </div>
@@ -190,86 +194,166 @@ window.addEventListener('scroll',()=>{
 });
 
 const MAIN_G=[
-  {n:'25-45 / 豐原廟東 / 首購年輕族×年輕首購生活',sub:'延伸年輕興趣CPL483·廟東生活圈對年輕族群情感連結最強',
+  {n:'25-45 / 豐原廟東 / 首購年輕族×年輕首購生活',sub:'延伸年輕興趣CPL483·廟東生活圈對年輕族群情感連結最強',batch:'2026-06-26',
    logic:'延伸全案有效的「年輕興趣 CPL483」，鎖定廟東商圈生活圈的25-42歲年輕首購族。雙套房20-26坪是年輕人「自住+彈性使用」的完美格局，廟東步行生活圈對在地年輕族群吸引力最強。「先買廟東的第一間，再換大的」是豐原年輕人最自然的置産邏輯，低總價入場門檻低，廣告轉化動機清楚。',
    lm:['廟東夜市','豐原火車站','豐原高中'],
    tags:[['First-time home buyer','首購族'],['Young adult','年輕族群'],['Apartment','公寓住宅'],['Real estate','房地產'],['Home ownership','置產購屋'],['Mortgage','房貸'],['Saving','儲蓄'],['Investment','投資理財'],['Financial planning','財務規劃'],['Renting','租房族'],['Moving','搬家'],['Interior design','室內設計'],['Urban lifestyle','都市生活'],['Work-life balance','工作生活平衡'],['Coffee','咖啡飲食'],['Food','美食生活'],['Instagram','IG社群'],['Travel','旅遊'],['Fashion','時尚'],['Online shopping','網路購物'],['Music','音樂'],['Netflix','串流媒體'],['Career','職涯發展'],['Education','教育進修'],['Online learning','線上學習'],['Technology','科技'],['Smartphone','智慧型手機'],['Gaming','電玩'],['Cycling','自行車'],['Home improvement','居家佈置']]},
-  {n:'28-55 / 豐原工業區+5km / 工業工程師×製造業首購',sub:'延伸工業教育CPL411·豐原最大就業族群完全精準',
+  {n:'28-55 / 豐原工業區+5km / 工業工程師×製造業首購',sub:'延伸工業教育CPL411·豐原最大就業族群完全精準',batch:'2026-06-26',
    logic:'延伸全案最低CPL 411的「工業教育」方向。豐原工業區傳統製造業工程師是豐原最大就業族群，薪水穩定（月薪4-6萬），多數在豐原生活但租屋。20-26坪小二房是這群人「不用等太久就可以自己住」的首購最佳選項。廟東夜市走路可達，不需改變生活圈，廣告說服成本極低。',
    lm:['豐原工業區','豐原火車站','廟東夜市'],
    tags:[['Manufacturing','製造業'],['Industrial','工業'],['Engineering','工程師'],['Factory','工廠'],['Automotive','汽車製造'],['Metal fabrication','金屬加工'],['Mechanical engineering','機械工程'],['Electrical engineering','電氣工程'],['Quality control','品管'],['Supply chain','供應鏈'],['Real estate','房地產'],['Home buying','購屋'],['First-time home buyer','首購族'],['Property investment','置產投資'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Investment','投資理財'],['Practical lifestyle','實用生活'],['Food','美食'],['Local community','在地社區'],['Career','職涯工作'],['Banking','銀行理財'],['Life insurance','壽險'],['Retirement planning','退休規劃'],['Technology','科技'],['Commuting','通勤族'],['Taichung','台中豐原'],['Overtime working','加班族'],['Home improvement','居家佈置']]},
-  {n:'30-58 / 豐原廟東+學區 / 公教職員×廟東明星學區首購',sub:'全案首次針對公教族群·購買力最穩定·核貸率最高',
+  {n:'30-58 / 豐原廟東+學區 / 公教職員×廟東明星學區首購',sub:'全案首次針對公教族群·購買力最穩定·核貸率最高',batch:'2026-06-26',
    logic:'廟東商圈緊鄰豐原高中（明星學區）、豐原國中，是豐原學區房需求最強地段。公教職員薪資穩定（月薪4-7萬），首購資格佳（銀行核貸率高），且對「廟東步行生活+學區」組合共鳴最強。全案第一次針對公教族群，是完全未覆蓋的置産力最穩定族群，廣告轉化期望值高。',
    lm:['豐原高中','廟東夜市','豐原國中'],
    tags:[['Public servant','公務員'],['Teacher','教師'],['Government employee','政府職員'],['Education','教育'],['Civil servant','公教人員'],['Healthcare worker','醫護人員'],['School teacher','學校老師'],['Academic','學術研究'],['Job security','工作保障'],['Retirement planning','退休規劃'],['Financial planning','財務規劃'],['Real estate','房地產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['Saving','儲蓄'],['Investment','投資理財'],['School district','學區'],['Family','家庭'],['Children','子女教育'],['Quality of life','生活品質'],['Interior design','室內設計'],['Community','社區'],['Banking','銀行理財'],['Life insurance','壽險'],['Stability','穩定收入'],['Home ownership','置産'],['Parenting','育兒'],['Moving','搬家'],['Home improvement','居家改善']]},
-  {n:'26-42 / 豐原廟東 / 新婚首購×成家小宅雙套房',sub:'雙套房是新婚首購最佳格局·廟東生活圈是成家最強地段',
+  {n:'26-42 / 豐原廟東 / 新婚首購×成家小宅雙套房',sub:'雙套房是新婚首購最佳格局·廟東生活圈是成家最強地段',batch:'2026-06-26',
    logic:'20-26坪二房雙套房是新婚首購最匹配格局：小二房、低總價、雙套房可各自使用或作書房/嬰兒房彈性應用，兩間主臥浴室讓新婚夫妻各有私人空間。廟東生活圈的美食、便利、學區對「剛成家」族群天然吸引，「在廟東買第一間」是豐原新婚族最具體的在地置産邏輯。',
    lm:['廟東夜市','豐原火車站','豐原高中'],
    tags:[['Wedding','婚禮結婚'],['Marriage','婚姻'],['Newly married','新婚夫妻'],['Honeymoon','蜜月'],['First home','首購'],['Young couple','年輕夫妻'],['Family planning','家庭規劃'],['Baby','嬰兒幼兒'],['Pregnancy','懷孕生育'],['Childcare','育兒'],['Home ownership','置產購屋'],['Real estate','房地產'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Interior design','室內設計'],['Home improvement','居家佈置'],['Moving','搬家'],['Apartment','公寓住宅'],['Investment','投資理財'],['Saving','儲蓄'],['Home decoration','家居裝潢'],['Furniture','家具傢飾'],['Cooking','料理烹飪'],['Life insurance','壽險'],['Banking','銀行理財'],['Quality of life','生活品質'],['Parenting','育兒知識'],['Smart home','智慧家居'],['Community','社區'],['Property investment','置産投資']]},
-  {n:'28-55 / 豐原廟東周邊 / 廟東美食族×在地生活認同',sub:'廟東夜市是豐原最強地標·情感認同是最低摩擦力切入',
+  {n:'28-55 / 豐原廟東周邊 / 廟東美食族×在地生活認同',sub:'廟東夜市是豐原最強地標·情感認同是最低摩擦力切入',batch:'2026-06-26',
    logic:'廟東夜市是全台知名的豐原最強生活地標，在地美食族對「廟東步行可達」有強烈情感認同。這群人對豐原有高度在地歸屬感，對「住廟東旁邊」的生活想像最具體，廣告素材用「廟東下樓就到」直接命中地段情感。全案第一次以廟東生活圈認同做切入，是全新的地標情感牌，完全未測。',
    lm:['廟東夜市','豐原老街','廟東燒烤一條街'],
    tags:[['Street food','街頭小吃'],['Night market','夜市'],['Food','美食飲食'],['Foodie','美食族饕客'],['Local food','在地美食'],['Taiwanese cuisine','台灣料理'],['Barbecue','燒烤料理'],['Dessert','甜點飲品'],['Bubble tea','手搖飲料'],['Restaurant','餐廳飲食'],['Food photography','美食攝影'],['Instagram','IG社群'],['Local community','在地社群'],['Neighborhood community','鄰里生活'],['Taiwan travel','台灣旅遊'],['Cultural tourism','文化旅遊'],['Cooking','料理烹飪'],['Grocery shopping','採買生活'],['Real estate','房地產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Saving','儲蓄'],['First-time home buyer','首購'],['Interior design','室內設計'],['Home improvement','居家佈置'],['Quality of life','生活品質'],['Community','社區'],['Moving','搬家']]},
-  {n:'26-48 / 豐原火車站+3km / 火車通勤族×台中工作首購',sub:'台中工作豐原住·通勤邏輯清楚·首購動機最強',
+  {n:'26-48 / 豐原火車站+3km / 火車通勤族×台中工作首購',sub:'台中工作豐原住·通勤邏輯清楚·首購動機最強',batch:'2026-06-26',
    logic:'豐原火車站是台鐵縱貫線要站，每日通勤台中市區工作者眾多。「台中工作、豐原住」邏輯清楚：同樣的錢在豐原買得比台中大，火車25分鐘到台中站。信義街距豐原站步行可達，對通勤族是地理最優解。這群人首購動機最強（沒自己的家才每天通勤），完全未被精準鎖定。',
    lm:['豐原火車站','廟東夜市','豐原高中'],
    tags:[['Commuting','通勤族'],['Train','鐵路火車'],['Public transportation','大眾運輸'],['Taichung','台中'],['Work','職場工作'],['Career','職涯發展'],['Office worker','上班族'],['Work-life balance','工作生活平衡'],['Commuter rail','通勤鐵道'],['Business travel','商務出行'],['Real estate','房地產'],['Home buying','購屋'],['First-time home buyer','首購族'],['Property investment','置產投資'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Investment','投資理財'],['Moving','搬家'],['Apartment','公寓住宅'],['Interior design','室內設計'],['Home improvement','居家佈置'],['Neighborhood community','在地社區'],['Quality of life','生活品質'],['Banking','銀行理財'],['Life insurance','壽險'],['Retirement planning','退休規劃'],['Smart home','智慧家居'],['Family','家庭'],['Time management','時間管理']]},
-  {n:'28-55 / 豐原東勢后豐 / 后豐鐵馬道戶外族×登山健走',sub:'延伸登山文化有1潛客·換地標到后豐最精準地標',
+  {n:'28-55 / 豐原東勢后豐 / 后豐鐵馬道戶外族×登山健走',sub:'延伸登山文化有1潛客·換地標到后豐最精準地標',batch:'2026-06-26',
    logic:'延伸有效的「登山文化 CPL840（1潛客）」方向，換地標到「后豐鐵馬道」——豐原最知名的戶外地標，也是豐原人出遊的最強代表地點。對后豐鐵馬道有認同感的人等同對豐原生活圈有高度認同，「住廟東、假日騎后豐」的生活邏輯清晰，是地標情感最精準版本，預期比泛「登山文化」更有效。',
    lm:['后豐鐵馬道入口','東豐綠廊','大甲溪畔'],
    tags:[['Cycling','自行車騎車'],['Mountain bike','登山車'],['Road bike','公路車'],['Hiking','登山健行'],['Trail running','越野跑步'],['Outdoor adventure','戶外冒險'],['Trekking','遠足健走'],['Nature','自然環境'],['National park','國家公園'],['Parks & recreation','公園休閒'],['Camping','露營野營'],['Running','跑步運動'],['Physical fitness','體能訓練'],['Fitness','健身運動'],['Health and wellness','健康養生'],['Active lifestyle','健康生活方式'],['Outdoor clothing','戶外裝備'],['Real estate','房地產'],['Home buying','購屋'],['First-time home buyer','首購族'],['Property investment','置產投資'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Investment','投資理財'],['Quality of life','生活品質'],['Interior design','室內設計'],['Community','社區'],['Work-life balance','工作生活平衡'],['Moving','搬家']]},
-  {n:'28-45 / 豐原潭子大雅 / 竹科中科工程師×豐原首購',sub:'中科工程師高薪資·豐原低總價是他們的分散置産首選',
+  {n:'28-45 / 豐原潭子大雅 / 竹科中科工程師×豐原首購',sub:'中科工程師高薪資·豐原低總價是他們的分散置産首選',batch:'2026-06-26',
    logic:'台中科學園區（中科）距豐原開車約20-25分鐘。中科工程師薪資高（月薪8-15萬），首購購買力強但中科周邊房價高，豐原20-26坪小二房是「低總價先買廟東、等增值再換」的分散置産邏輯。廟東生活圈的便利性對科技族群同樣有吸引力，是完全未測試的高消費力切角。',
    lm:['台中科學園區方向','豐原火車站','潭子交流道'],
    tags:[['Technology','科技業'],['Software development','軟體開發'],['Engineering','工程師'],['Science park','科學園區'],['Semiconductor','半導體'],['Computer programming','電腦程式'],['IT profession','資訊技術'],['Artificial intelligence','人工智慧'],['High tech','高科技業'],['Startup','創業'],['STEM','理工科技'],['Data science','數據科學'],['Cloud computing','雲端運算'],['Electronics','電子業'],['Automation','自動化'],['Real estate','房地產'],['Home buying','購屋'],['First-time home buyer','首購族'],['Property investment','置產投資'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Investment','投資理財'],['Apartment','公寓住宅'],['Interior design','室內設計'],['Smart home','智慧家居'],['Quality of life','生活品質'],['Banking','銀行理財'],['Career development','職涯發展'],['Work-life balance','工作生活平衡']]},
-  {n:'30-58 / 豐原榮總+廟東 / 醫護人員×豐原安心首購',sub:'豐原榮總是全豐原最大醫院·醫護薪資穩定首購資格佳',
+  {n:'30-58 / 豐原榮總+廟東 / 醫護人員×豐原安心首購',sub:'豐原榮總是全豐原最大醫院·醫護薪資穩定首購資格佳',batch:'2026-06-26',
    logic:'豐原榮民醫院（台中榮總豐原院）是豐原最大醫院，醫護人員薪資穩定（月薪5-12萬）且絕大多數仍在租屋。廟東生活圈距豐原榮總約10分鐘車程，對「下班就想在熟悉地帶生活」的醫護族群是最自然選擇。全案第一次針對豐原在地醫護族群，是購買力強且完全未被競品鎖定的空白族群。',
    lm:['豐原榮民醫院','廟東夜市','豐原火車站'],
    tags:[['Healthcare','醫療健康'],['Nurse','護理師'],['Doctor','醫師'],['Medical worker','醫護人員'],['Hospital','醫院'],['Nursing','護理'],['Medical technology','醫療科技'],['Physical therapist','物理治療師'],['Pharmacist','藥師'],['Healthcare administration','醫院管理'],['Mental health','心理健康'],['Medical equipment','醫療器材'],['Dentist','牙醫'],['Clinic','診所'],['Health insurance','健保醫療'],['Real estate','房地產'],['Home buying','購屋'],['First-time home buyer','首購族'],['Property investment','置產投資'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Investment','投資理財'],['Job security','工作保障'],['Retirement planning','退休規劃'],['Quality of life','生活品質'],['Interior design','室內設計'],['Community','社區'],['Banking','銀行理財'],['Life insurance','壽險']]},
-  {n:'30-55 / 豐原廟東后里 / 親子教育×廟東高中學區置産',sub:'延伸親子方向CPL431最有效·廟東學區是信義街最強賣點',
+  {n:'30-55 / 豐原廟東后里 / 親子教育×廟東高中學區置産',sub:'延伸親子方向CPL431最有效·廟東學區是信義街最強賣點',batch:'2026-06-26',
    logic:'延伸全案最有效「親子交通工業 CPL431」的親子方向，鎖定廟東明星學區特色——豐原高中步行可達是信義街最強地段賣點。有孩子在唸豐原高中或就讀豐原中小學的家長，對「廟東旁邊」的居住動機最強，完全不需要說服地段價值，廣告直接打「豐高步行可到，孩子上學不用接送」即可成立。',
    lm:['豐原高中','廟東夜市','豐原國中'],
    tags:[['Parenting','育兒'],['Children','子女'],['Child education','兒童教育'],['School district','學區'],['Elementary school','小學教育'],['High school','高中'],['Family','家庭'],['Child development','兒童發展'],['After-school program','課後輔導'],['Tutoring','補習班'],['Online learning for kids','兒童線上學習'],['Children\'s activities','兒童才藝'],['Family travel','家庭旅遊'],['Home ownership','置產購屋'],['Real estate','房地產'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Property investment','置產投資'],['Home improvement','居家佈置'],['Interior design','室內設計'],['Moving','搬家'],['Apartment','公寓住宅'],['Community','社區'],['Quality of life','生活品質'],['Banking','銀行理財'],['Life insurance','壽險'],['Saving','儲蓄'],['Investment','投資理財'],['Childcare','托育照顧'],['Family planning','家庭規劃']]},
-  {n:'26-45 / 豐原潭子+5km / 雙薪小家庭×租轉買首購',sub:'豐原潭子雙薪最密集·兩人月收繼續租不如買廟東一間',
+  {n:'26-45 / 豐原潭子+5km / 雙薪小家庭×租轉買首購',sub:'豐原潭子雙薪最密集·兩人月收繼續租不如買廟東一間',batch:'2026-06-26',
    logic:'豐原潭子是年輕雙薪家庭最密集地帶，多數仍在租屋（豐原租金4000-9000元/月）。「兩個人月收入10-18萬，繼續租不如買廟東一間」的置産邏輯清晰。20-26坪小二房是雙薪夫妻不擠也不浪費的起步格局，雙套房讓夫妻各有獨立空間。廣告訴求「租了5年的錢可以拿來付頭期款」最有說服力。',
    lm:['廟東夜市','豐原火車站','潭子區'],
    tags:[['Dual income household','雙薪家庭'],['Renting','租房族'],['Young couple','年輕夫妻'],['Work-life balance','工作生活平衡'],['Career','職涯工作'],['Office worker','上班族'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Investment','投資理財'],['First-time home buyer','首購族'],['Real estate','房地產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房貸'],['Moving','搬家'],['Apartment','公寓住宅'],['Interior design','室內設計'],['Home improvement','居家佈置'],['Family planning','家庭規劃'],['Marriage','結婚成家'],['Quality of life','生活品質'],['Banking','銀行理財'],['Life insurance','壽險'],['Community','社區'],['Commuting','通勤族'],['Smart home','智慧家居'],['Cooking','料理烹飪'],['Food','美食飲食'],['Grocery shopping','採買生活'],['Pet','寵物']]},
-  {n:'28-55 / 豐原后里+8km / ETF存股×低總價廟東收租置産',sub:'改善版投資方向·ETF族對固定現金流比純投資更接受',
+  {n:'28-55 / 豐原后里+8km / ETF存股×低總價廟東收租置産',sub:'改善版投資方向·ETF族對固定現金流比純投資更接受',batch:'2026-06-26',
    logic:'改善版投資收租方向，從有效但CPL偏高的「投資興趣 CPL1004」換成「ETF/存股/低總價收租」切角。廟東商圈地段租賃需求穩定（豐高學生、上班族），20-26坪小二房預估月租7000-12000元。ETF存股族對「買房當固定現金流」有高接受度，不追短期增值，重視長期被動收入——和案件「穩定收租廟東宅」定位高度契合。',
    lm:['廟東夜市','豐原火車站','豐原高中'],
    tags:[['ETF','ETF存股'],['Stock market','股票投資'],['Investment','投資理財'],['Passive income','被動收入'],['Dividend investing','股息投資'],['Financial independence','財務自由'],['Real estate investment','不動產投資'],['Rental property','出租收益'],['Financial planning','財務規劃'],['Wealth management','財富管理'],['Asset management','資產管理'],['Portfolio management','投資組合'],['Mutual fund','基金投資'],['Saving','儲蓄理財'],['Banking','銀行理財'],['Tax planning','稅務規劃'],['Personal finance','個人理財'],['Retirement planning','退休規劃'],['Property investment','置產投資'],['Real estate','房地產'],['Home buying','購屋'],['Mortgage','房貸'],['Long-term investment','長期投資'],['Cash flow','現金流管理'],['Risk management','風險管理'],['Stock trading','股票交易'],['Financial news','財經資訊'],['Frugality','節儉省錢'],['Business owner','企業主'],['Investment property','投資置産']]},
-  {n:'30-55 / 豐原潭子+5km / 保險業務×理財顧問首購',sub:'這群人每天在講置産邏輯給客戶聽·自己卻還沒買',
+  {n:'30-55 / 豐原潭子+5km / 保險業務×理財顧問首購',sub:'這群人每天在講置産邏輯給客戶聽·自己卻還沒買',batch:'2026-06-26',
    logic:'豐原潭子一帶保險業務、理財業務人員密集，這群人最懂「提前置産保值」邏輯——他們每天在講這個給客戶聽，自己卻還沒買。月收入中高但不固定，對20-26坪低總價小二房的進場門檻接受度高，「先確保自己有房，業績好了再換大的」是他們的置産動機。全案第一次精準鎖定此族群。',
    lm:['廟東夜市','豐原火車站','潭子區'],
    tags:[['Life insurance','壽險保險'],['Insurance agent','保險業務'],['Financial advisor','財務顧問'],['Financial planning','財務規劃'],['Wealth management','財富管理'],['Investment','投資理財'],['Retirement planning','退休規劃'],['Asset management','資產管理'],['Tax planning','稅務規劃'],['Banking','銀行理財'],['Personal finance','個人理財'],['Stock market','股票投資'],['Real estate investment','不動產投資'],['Property investment','置產投資'],['Real estate','房地產'],['Home buying','購屋'],['Mortgage','房貸'],['Saving','儲蓄'],['Business networking','商業社交'],['Professional development','職業發展'],['Family','家庭'],['Career','職涯'],['Quality of life','生活品質'],['Interior design','室內設計'],['Community','社區'],['Self-improvement','自我提升'],['Online learning','線上學習'],['Leadership','領導力'],['Work-life balance','工作生活平衡'],['Home ownership','置産']]},
-  {n:'32-60 / 豐原工業區+后里 / 傳產二代×豐原在地置産',sub:'父輩工廠在豐原·傳產二代的第一間要在豐原',
+  {n:'32-60 / 豐原工業區+后里 / 傳產二代×豐原在地置産',sub:'父輩工廠在豐原·傳產二代的第一間要在豐原',batch:'2026-06-26',
    logic:'豐原傳統製造業二代（接班或即將接班），有強烈的「在豐原置産」動機（工廠在豐原、人脈在豐原、未來也在豐原），對外地建案無興趣。父輩已有資產，自己首置動機是「留在豐原但要住品質好的」。20-26坪小二房是「先有個自己的窩，不住家裡」的選項，品牌建商有加分。廟東是他們從小長大的生活圈，情感認同天然。',
    lm:['豐原工業區','廟東夜市','豐原老街'],
    tags:[['Family business','家族企業'],['Traditional industry','傳統產業'],['Manufacturing','製造業'],['Small business owner','企業主'],['Business owner','老闆'],['Entrepreneurship','創業'],['Self-employed','自行創業'],['Business succession','接班傳承'],['Real estate','房地產'],['Property investment','置產投資'],['Home buying','購屋'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Asset management','資產管理'],['Wealth management','財富管理'],['Tax planning','稅務規劃'],['Investment','投資理財'],['Saving','儲蓄'],['Local business','在地商業'],['Networking','商業社交'],['Automotive','汽車休旅'],['Travel','旅遊'],['Fine dining','精緻餐飲'],['Interior design','室內設計'],['Quality of life','生活品質'],['Architecture','建築設計'],['Banking','銀行理財'],['Life insurance','壽險'],['Community','鄰里社區'],['Home ownership','置産']]},
-  {n:'24-45 / 豐原廟東 / 女性首購×雙套房獨立生活',sub:'雙套房格局是女性首購天然訴求·廟東安全感是最強地段牌',
+  {n:'24-45 / 豐原廟東 / 女性首購×雙套房獨立生活',sub:'雙套房格局是女性首購天然訴求·廟東安全感是最強地段牌',batch:'2026-06-26',
    logic:'全案雙套房規劃是女性首購的天然訴求——一間主臥室、一間彈性使用（工作室/衣帽間/客房），兩個空間各有浴室，女性獨居或2人合住都完全適合。廟東夜市步行可達的生活便利性對女性有強烈的安全感訴求：「一個人生活，廟東最安心」。全案第一次針對女性首購族，是完全空白的受眾方向。',
    lm:['廟東夜市','豐原火車站','豐原高中'],
    tags:[['Female empowerment','女性自主'],['Women financial independence','女性財務自主'],['Single woman','獨身女性'],['Independent woman','獨立女性'],['Fashion','時尚穿搭'],['Beauty','美容保養'],['Skincare','護膚'],['Shopping','購物'],['Self-care','自我照護'],['Work-life balance','工作生活平衡'],['Career','職涯工作'],['Professional woman','職業女性'],['Saving','儲蓄'],['Financial planning','財務規劃'],['Investment','投資理財'],['First-time home buyer','首購族'],['Real estate','房地產'],['Home buying','購屋'],['Property investment','置産投資'],['Mortgage','房貸'],['Interior design','室內設計'],['Home decoration','家居佈置'],['Home improvement','居家改善'],['Pet','寵物'],['Cooking','料理'],['Food','美食'],['Travel','旅遊'],['Reading','閱讀'],['Yoga','瑜珈'],['Personal development','自我成長']]},
-  {n:'28-55 / 豐原后里清水延伸 / 工業親子×交通族擴圈版',sub:'直接複製CPL431最有效組·換ID擴圈避免受眾疲勞',
+  {n:'28-55 / 豐原后里清水延伸 / 工業親子×交通族擴圈版',sub:'直接複製CPL431最有效組·換ID擴圈避免受眾疲勞',batch:'2026-06-26',
    logic:'直接複製全案CPL431最有效組「親子交通工業（豐原后里清水）」，換廣告組ID重新啟動，用完全相同的興趣邏輯但觸及新受眾個體，避開原組受眾疲勞問題。豐原后里清水是傳統工業×親子生活圈最密集地帶，第一組驗證這是命中首購族的最有效組合，直接複製是確保CPL最低的做法。',
    lm:['豐原后里','清水區','豐原工業區'],
    tags:[['Parenting','育兒'],['Children','子女'],['Child development','兒童發展'],['Family','家庭'],['Children\'s activities','兒童活動'],['School district','學區'],['Elementary school','小學'],['Transportation','大眾交通'],['Commuting','通勤'],['Highway','快速道路'],['Manufacturing','製造業'],['Industrial','工業製造'],['Engineering','工程師'],['Factory','工廠'],['Mechanical engineering','機械工程'],['Real estate','房地產'],['Home buying','購屋'],['First-time home buyer','首購族'],['Property investment','置産投資'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Investment','投資理財'],['Moving','搬家'],['Apartment','公寓住宅'],['Interior design','室內設計'],['Home improvement','居家佈置'],['Quality of life','生活品質'],['Community','社區'],['Work-life balance','工作生活平衡']]},
-  {n:'26-45 / 豐原廟東+潭子 / 精緻消費族×美食打卡廟東生活',sub:'廟東夜市全台知名·美食打卡族對地段有最強情感轉化動機',
+  {n:'26-45 / 豐原廟東+潭子 / 精緻消費族×美食打卡廟東生活',sub:'廟東夜市全台知名·美食打卡族對地段有最強情感轉化動機',batch:'2026-06-26',
    logic:'廟東夜市是全台知名美食聖地，對喜愛美食打卡、IG分享的年輕精緻消費族群有強烈地標吸引力。這族群25-42歲、有消費力但仍在租屋，「廟東美食走路可達」是比「便宜」更有吸引力的生活訴求。廣告素材搭配廟東生活畫面，「買廟東的家，不只是買房子，是買一種生活方式」，情感轉化動機比房地產廣告更低門檻。',
    lm:['廟東夜市','廟東燒烤一條街','豐原老街商圈'],
    tags:[['Food','美食飲食'],['Foodie','美食愛好者'],['Night market','夜市生活'],['Street food','台灣小吃'],['Food photography','美食攝影'],['Instagram','IG'],['Social media','社群媒體'],['Café coffee','咖啡廳'],['Restaurant dining','外食族'],['Bubble tea','手搖飲'],['Travel','旅遊打卡'],['Lifestyle','生活風格'],['Fashion','時尚'],['Beauty','美容'],['Home decor','居家佈置'],['Interior design','室內設計'],['First-time home buyer','首購族'],['Real estate','房地產'],['Home buying','購屋'],['Property investment','置産投資'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Investment','投資理財'],['Moving','搬家'],['Apartment','公寓住宅'],['Quality of life','生活品質'],['Community','社區'],['Young adult','年輕族群'],['Work-life balance','工作生活平衡']]},
-  {n:'24-42 / 豐原潭子+3km / 健身族×積極年輕首購',sub:'健身族在其他案件驗證CPL超低·豐原潭子健身房密集',
+  {n:'24-42 / 豐原潭子+3km / 健身族×積極年輕首購',sub:'健身族在其他案件驗證CPL超低·豐原潭子健身房密集',batch:'2026-06-26',
    logic:'健身/重訓族群在台中同類案件拿下CPL217全案最低，首次在喜全築白測試相同方向。豐原潭子健身房密集，這群25-40歲積極年輕人自我要求高、對居住品質要求高，20-26坪雙套房小宅是他們「開始獨立生活、擁有自己空間」的首購入門。「有在買房的人，跟有在健身的人，都是對自己負責的人」——核心邏輯最直接。',
    lm:['豐原火車站','廟東夜市','潭子區'],
    tags:[['Gym membership','健身房會員'],['Weightlifting','重訓健美'],['Fitness','健身運動'],['Bodybuilding','健力健美'],['Personal trainer','私人教練'],['CrossFit','高強度訓練'],['Yoga','瑜珈'],['Pilates','皮拉提斯'],['Sports nutrition','運動營養'],['Protein supplement','蛋白質補充'],['Active lifestyle','健康生活方式'],['Running','跑步'],['Cycling','自行車'],['Health and wellness','健康養生'],['Sports apparel','運動服飾'],['First-time home buyer','首購族'],['Real estate','房地產'],['Home buying','購屋'],['Property investment','置産投資'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Investment','投資理財'],['Young adult','年輕族群'],['Career','職涯'],['Apartment','公寓住宅'],['Interior design','室內設計'],['Quality of life','生活品質'],['Smart home','智慧家居'],['Work-life balance','工作生活平衡']]},
-  {n:'26-45 / 豐原廟東+5km / 自媒體斜槓×居家辦公雙套房',sub:'雙套房一間臥室一間書房·廟東低物價是遠端工作族最優解',
+  {n:'26-45 / 豐原廟東+5km / 自媒體斜槓×居家辦公雙套房',sub:'雙套房一間臥室一間書房·廟東低物價是遠端工作族最優解',batch:'2026-06-26',
    logic:'後疫情時代居家辦公族大增，自媒體/自由接案/線上創業族群需要「有自己獨立書房/工作室的住所」，20-26坪雙套房的一間臥室一間工作室配置是完美解法。廟東生活圈的美食、便利、豐原物價相對低廉，對「不需要住台中市區但要好生活品質」的遠端工作族是成本最優解。是完全新的切角，全案未測。',
    lm:['廟東夜市','豐原火車站','廟東商圈'],
    tags:[['Freelancing','自由接案'],['Self-employment','自行創業'],['Content creator','內容創作者'],['YouTube','YouTuber'],['Podcast','Podcast'],['Instagram','IG社群'],['Social media influencer','網紅'],['Blogging','部落客'],['Photography','攝影'],['Videography','影片拍攝'],['Work from home','居家辦公'],['Remote work','遠端工作'],['Digital marketing','數位行銷'],['Online business','網路事業'],['E-commerce','電子商務'],['Real estate','房地產'],['Home buying','購屋'],['First-time home buyer','首購族'],['Property investment','置產投資'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Investment','投資理財'],['Interior design','室內設計'],['Home improvement','居家佈置'],['Smart home','智慧家居'],['Quality of life','生活品質'],['Technology','科技'],['Entrepreneurship','創業'],['Work-life balance','工作生活平衡']]},
-  {n:'42-65 / 豐原+8km / 退休前縮小×低維護精裝換屋',sub:'在地長輩老宅換新大樓·廟東是最熟悉的家',
+  {n:'42-65 / 豐原+8km / 退休前縮小×低維護精裝換屋',sub:'在地長輩老宅換新大樓·廟東是最熟悉的家',batch:'2026-06-26',
    logic:'豐原在地45-65歲有資產族群，目前住大坪數老宅，對「縮小換精裝、換新大樓、低維護感」有強烈需求。全案雙套房格局對「老後一人使用一間、各有浴室」的退休夫妻非常友善，7層小規模華廈管理費低，是「換新不換大」的最佳選項。廟東是豐原長輩最熟悉的生活圈，「搬到廟東旁邊的新大樓」是他們感受最舒適的換屋選擇，完全無地段障礙。',
    lm:['廟東夜市','豐原老街','豐原榮民醫院'],
-   tags:[['Retirement planning','退休規劃'],['Retirement','退休生活'],['Senior living','長者居住'],['Downsizing','換小縮屋'],['Financial independence','財務自由'],['Health and wellness','健康養生'],['Active seniors','活躍長者'],['Travel','旅遊'],['Grandchildren','孫子輩'],['Family','家庭'],['Life insurance','壽險'],['Estate planning','遺產規劃'],['Medical insurance','醫療保險'],['Healthcare','醫療健康'],['Senior care','長者照護'],['Real estate','房地產'],['Home buying','購屋'],['Property investment','置産投資'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Moving','搬家'],['Apartment','公寓住宅'],['Interior design','室內設計'],['Home improvement','居家改善'],['Low maintenance','低維護生活'],['Community','社區'],['Elevator building','電梯大廈'],['Quality of life','生活品質'],['Banking','銀行理財'],['Saving','儲蓄']]}
+   tags:[['Retirement planning','退休規劃'],['Retirement','退休生活'],['Senior living','長者居住'],['Downsizing','換小縮屋'],['Financial independence','財務自由'],['Health and wellness','健康養生'],['Active seniors','活躍長者'],['Travel','旅遊'],['Grandchildren','孫子輩'],['Family','家庭'],['Life insurance','壽險'],['Estate planning','遺產規劃'],['Medical insurance','醫療保險'],['Healthcare','醫療健康'],['Senior care','長者照護'],['Real estate','房地產'],['Home buying','購屋'],['Property investment','置産投資'],['Mortgage','房貸'],['Financial planning','財務規劃'],['Moving','搬家'],['Apartment','公寓住宅'],['Interior design','室內設計'],['Home improvement','居家改善'],['Low maintenance','低維護生活'],['Community','社區'],['Elevator building','電梯大廈'],['Quality of life','生活品質'],['Banking','銀行理財'],['Saving','儲蓄']]},
+  {n:'30-55 / 豐原潭子+4km / 收租型置產族×房東經營思維',sub:'延伸0702最強「投資興趣」邏輯・鎖定收租動機而非泛用投資',batch:'2026-07-29',
+   logic:'0702新測的「投資興趣」（交易策略/投資報酬率等具體動機詞）翻身全案最強CPL332，證實具體投資動機詞比泛用「投資」分類更有效。本組進一步聚焦「收租」這個最直接的置產動機，鎖定已有房東經營思維或正在規劃收租型置產的族群。',
+   lm:['廟東夜市','豐原火車站','豐原高中'],
+   tags:[['Landlord','房東'],['Rental income','租金收入'],['Rental yield','租金報酬率'],['Cash flow','現金流'],['Property management','房產管理'],['Lease agreement','租賃合約'],['Tenant','房客管理'],['Real estate investment','不動產投資'],['Investment strategy','投資策略'],['Return on investment','投資報酬率'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Real estate','房地產'],['Property investment','置產投資'],['Mortgage','房貸'],['Interior design','室內設計'],['Home ownership','置產']]},
+  {n:'35-60 / 豐原潭子+5km / 以房養老規劃族',sub:'延伸投資興趣邏輯・鎖定退休現金流動機',batch:'2026-07-29',
+   logic:'以房養老/收租養老是「投資報酬率」動機詞的自然延伸，鎖定中年開始規劃退休被動收入的族群，小坪數低總價正好適合當作退休現金流工具，不是自住主力，是資產配置的一部分。',
+   lm:['廟東夜市','豐原火車站','豐原榮民醫院'],
+   tags:[['Buy-to-let','收租型置產'],['Retirement income','退休收入'],['Passive income','被動收入'],['Asset appreciation','資產增值'],['Annuity','年金'],['Retirement planning','退休規劃'],['Financial independence','財務自由'],['Investment strategy','投資策略'],['Real estate investment','不動產投資'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Real estate','房地產'],['Property investment','置產投資'],['Mortgage','房貸'],['Interior design','室內設計'],['Health','健康養生']]},
+  {n:'26-45 / 豐原潭子+4km / 定期定額存股轉存房族',sub:'ETF/存股族的下一步・把複利邏輯延伸到不動產',batch:'2026-07-29',
+   logic:'定期定額存股族習慣長期複利思維，是「投資報酬率」動機詞命中的核心族群之一，這群人開始把部分資金轉向不動產分散配置，是既有#12 ETF存股組的更聚焦版本，改用具體投資行為詞而非泛用ETF分類。',
+   lm:['廟東夜市','豐原火車站','潭子區'],
+   tags:[['Dollar-cost averaging','定期定額'],['Compound interest','複利投資'],['Index fund','指數型基金'],['ETF','ETF投資'],['Financial freedom','財務自由'],['Investment strategy','投資策略'],['Return on investment','投資報酬率'],['Stock market','股票市場（投資）'],['Personal finance','個人理財'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Real estate','房地產'],['Property investment','置產投資'],['Mortgage','房貸'],['Interior design','室內設計'],['Young adult','年輕族群']]},
+  {n:'30-58 / 豐原后里+8km / 通膨避險置產族',sub:'全新未測動機角度・把不動產當抗通膨工具而非賺價差',batch:'2026-07-29',
+   logic:'通膨避險是「投資報酬率」邏輯之外的另一種具體財務動機——這群人買房不是為了賺價差，是把現金部位轉成實體資產抗通膨，訴求跟收租/增值不同，適合用不同素材角度溝通。',
+   lm:['豐原工業區','廟東夜市','豐原火車站'],
+   tags:[['Inflation hedge','通膨避險'],['Asset allocation','資產配置'],['Real assets','實體資產'],['Store of value','保值資產'],['Investment strategy','投資策略'],['Financial planning','財務規劃'],['Personal finance','個人理財'],['Saving','儲蓄'],['Economic news','財經新聞'],['Real estate investment','不動產投資'],['Real estate','房地產'],['Property investment','置產投資'],['Mortgage','房貸'],['Interior design','室內設計'],['Manufacturing','製造業']]},
+  {n:'30-55 / 豐原潭子+4km / 二房東包租族',sub:'延伸收租邏輯・鎖定已經在經營出租的實務操作者',batch:'2026-07-29',
+   logic:'二房東/包租族已經在實務操作出租，比單純「有收租念頭」的人更接近成交，這群人會用具體的房東經營工具與平台，是收租型置產族裡轉換意圖最強的子集。',
+   lm:['廟東夜市','豐原火車站','豐原高中'],
+   tags:[['Landlord','房東'],['Property management','房產管理'],['Rental property','出租房產'],['Tenant screening','房客篩選'],['Rental listing platform','租屋平台'],['Lease agreement','租賃合約'],['Rental income','租金收入'],['Cash flow','現金流'],['Real estate investment','不動產投資'],['Investment strategy','投資策略'],['Financial planning','財務規劃'],['Real estate','房地產'],['Property investment','置產投資'],['Mortgage','房貸'],['Interior design','室內設計']]},
+  {n:'26-42 / 豐原廟東+3km / 頭期款存款達標族',sub:'鎖定正在存頭期款、離下手只差臨門一腳的族群',batch:'2026-07-29',
+   logic:'這群人已經有明確買房計畫、正在存頭期款，是漏斗最下層、離成交最近的受眾，用具體的「存款目標達成」行為詞鎖定，而非泛用首購分類。',
+   lm:['廟東夜市','豐原火車站','豐原高中'],
+   tags:[['Down payment','頭期款'],['Savings goal','儲蓄目標'],['Mortgage calculator','房貸試算'],['First-time home buyer','首購族'],['Home loan','房屋貸款'],['Financial planning','財務規劃'],['Budgeting','預算規劃'],['Saving','儲蓄'],['Personal finance','個人理財'],['Real estate','房地產'],['Property investment','置產投資'],['Mortgage','房貸'],['Interior design','室內設計'],['Apartment','公寓住宅'],['Moving','搬家']]},
+  {n:'30-55 / 豐原潭子+5km / 資本利得增值族',sub:'鎖定看增值時機而非收租現金流的置產動機',batch:'2026-07-29',
+   logic:'跟收租族群動機不同，這群人買房邏輯是等區域發展/題材帶動增值再轉手，重視進場時機與區域發展題材，是「投資報酬率」動機詞底下另一個具體子分類。',
+   lm:['廟東夜市','豐原火車站','豐原工業區'],
+   tags:[['Capital gain','資本利得'],['Property appreciation','不動產增值'],['Real estate cycle','房市循環'],['Market timing','進場時機'],['Investment strategy','投資策略'],['Return on investment','投資報酬率'],['Real estate investment','不動產投資'],['Financial planning','財務規劃'],['Economic news','財經新聞'],['Saving','儲蓄'],['Real estate','房地產'],['Property investment','置產投資'],['Mortgage','房貸'],['Interior design','室內設計']]},
+  {n:'42-62 / 豐原+8km / 退休金提前佈局族',sub:'中年提前規劃退休資產配置・非長輩本人是子女輩',batch:'2026-07-29',
+   logic:'45-62歲、距退休還有5-15年的族群開始提前佈局退休資產配置，跟既有「退休前縮小換屋」組（65歲以上、換屋動機）不同，這組年紀更輕、動機是「用不動產分散退休資產」而非「自己搬進去住」。',
+   lm:['豐原工業區','廟東夜市','豐原榮民醫院'],
+   tags:[['Retirement planning','退休規劃'],['Pension','退休金'],['Long-term investment','長期投資'],['Retirement income','退休收入'],['Asset allocation','資產配置'],['Financial planning','財務規劃'],['Wealth management','財富管理'],['Investment strategy','投資策略'],['Saving','儲蓄'],['Real estate investment','不動產投資'],['Real estate','房地產'],['Property investment','置產投資'],['Mortgage','房貸'],['Interior design','室內設計'],['Health','健康養生']]},
+  {n:'24-32 / 豐原潭子+3km / 學貸畢業翻身理財族',sub:'全新未測人生階段・剛還完學貸開始累積資產',batch:'2026-07-29',
+   logic:'剛出社會、還完或快還完學貸的年輕人開始有餘裕做第一筆長期資產配置，這個人生階段轉折點過去全案未被鎖定，低總價二房正好是他們負擔得起的第一步。',
+   lm:['廟東夜市','豐原火車站','潭子區'],
+   tags:[['Student loan','學生貸款'],['Debt payoff','還清債務'],['Financial independence','財務自由'],['First investment','第一筆投資'],['Personal finance','個人理財'],['Budgeting','預算規劃'],['Saving','儲蓄'],['Career development','職涯發展'],['First-time home buyer','首購族'],['Financial planning','財務規劃'],['Real estate','房地產'],['Property investment','置產投資'],['Mortgage','房貸'],['Interior design','室內設計'],['Young adult','年輕族群']]},
+  {n:'30-55 / 豐原潭子+5km / 海外複委託轉台股房產族',sub:'全新未測・有海外投資經驗轉向本地不動產配置',batch:'2026-07-29',
+   logic:'已經有複委託買美股經驗的族群理財知識較高，屬於「投資報酬率」動機詞命中的高階子群，把部分資產從海外股票轉向熟悉的本地不動產做配置分散，是全新未測的理財經驗切角。',
+   lm:['廟東夜市','豐原火車站','潭子區'],
+   tags:[['Brokerage account','複委託帳戶'],['Foreign stock','海外股票'],['Dividend investing','股息投資'],['Compound interest','複利投資'],['Investment strategy','投資策略'],['Return on investment','投資報酬率'],['Asset allocation','資產配置'],['Stock market','股票市場（投資）'],['Financial planning','財務規劃'],['Personal finance','個人理財'],['Real estate','房地產'],['Property investment','置產投資'],['Mortgage','房貸'],['Interior design','室內設計']]},
+  {n:'28-55 / 豐原潭子+5km / 包租代管業者客群',sub:'全新未測・服務房東的專業從業者，自己也是潛在置產族',batch:'2026-07-29',
+   logic:'包租代管業者/房仲/租屋平台業務天天在幫別人算租金報酬率，職業背景讓他們對「投資興趣」這組的動機詞天然有共鳴，卻是全案尚未獨立測試過的職業別。',
+   lm:['廟東夜市','豐原火車站','豐原高中'],
+   tags:[['Property management company','包租代管公司'],['Real estate agent','房仲業'],['Rental platform','租屋平台'],['Landlord','房東'],['Rental yield','租金報酬率'],['Property management','房產管理'],['Real estate investment','不動產投資'],['Investment strategy','投資策略'],['Business networking','商業社交'],['Financial planning','財務規劃'],['Real estate','房地產'],['Property investment','置產投資'],['Mortgage','房貸'],['Interior design','室內設計']]},
+  {n:'26-45 / 豐原潭子+4km / 小資族第一桶金置產',sub:'鎖定剛存到第一桶金、準備做第一筆大額決策的族群',batch:'2026-07-29',
+   logic:'存到人生第一桶金（通常是100-200萬）是很多小資族的心理關卡，這個時間點正好是「要不要拿去付頭期款」的決策時刻，用具體的財務里程碑詞鎖定比泛用「首購族」更精準。',
+   lm:['廟東夜市','豐原火車站','潭子區'],
+   tags:[['First million savings','第一桶金'],['Emergency fund','緊急預備金'],['Budgeting','預算規劃'],['Financial literacy','理財知識'],['Personal finance','個人理財'],['Saving','儲蓄'],['Financial planning','財務規劃'],['First-time home buyer','首購族'],['Down payment','頭期款'],['Real estate','房地產'],['Property investment','置產投資'],['Mortgage','房貸'],['Interior design','室內設計'],['Young adult','年輕族群']]},
+  {n:'30-55 / 豐原潭子+5km / 投報比較族（股市vs房市）',sub:'全新未測・正在比較資產類別、尚未決定的猶豫族群',batch:'2026-07-29',
+   logic:'這群人正在理性比較「錢放股市還是房市」，還沒下決定，是漏斗中段但決策動機最理性的族群，訴求「小坪數低總價，波動比股票小」的具體比較邏輯可能有效，全案未測過這種「比較中」的受眾狀態。',
+   lm:['廟東夜市','豐原火車站','潭子區'],
+   tags:[['Risk and return','風險與報酬'],['Asset comparison','資產類別比較'],['Return on investment','投資報酬率'],['Investment strategy','投資策略'],['Stock market','股票市場（投資）'],['Real estate investment','不動產投資'],['Volatility','市場波動'],['Financial planning','財務規劃'],['Personal finance','個人理財'],['Saving','儲蓄'],['Real estate','房地產'],['Property investment','置產投資'],['Mortgage','房貸'],['Interior design','室內設計']]},
+  {n:'30-55 / 豐原潭子+5km / 現金為王避險族',sub:'全新未測・重視流動性與風險控管的保守型置產動機',batch:'2026-07-29',
+   logic:'跟積極增值族相反，這群人重視資產的流動性與安全性，買房動機是「把現金換成看得到摸得到的資產」而非追求高報酬，訴求要走保守穩健路線，跟其他投資組的積極訴求做出區隔。',
+   lm:['廟東夜市','豐原火車站','潭子區'],
+   tags:[['Cash flow','現金流'],['Liquidity','資產流動性'],['Risk management','風險管理'],['Safe haven asset','避險資產'],['Conservative investing','穩健投資'],['Financial planning','財務規劃'],['Personal finance','個人理財'],['Saving','儲蓄'],['Real estate','房地產'],['Property investment','置產投資'],['Mortgage','房貸'],['Interior design','室內設計']]},
+  {n:'28-50 / 豐原潭子+3km / 網拍電商創業族',sub:'全新未測人生角色・豐原在地小型電商創業者',batch:'2026-07-29',
+   logic:'網拍/蝦皮/電商創業者多在家或小型工作室經營，需要獨立空間放貨/拍照/打包，20-26坪雙套房的一間可以當倉庫/工作室，是全新未測的在地小型創業者切角。',
+   lm:['廟東夜市','豐原火車站','潭子區'],
+   tags:[['Online business','網路事業'],['E-commerce','電子商務'],['Shopee','蝦皮購物'],['Self-employment','自行創業'],['Home-based business','居家創業'],['Small business owner','小型企業主'],['Entrepreneurship','創業'],['Digital marketing','數位行銷'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Real estate','房地產'],['Property investment','置產投資'],['Mortgage','房貸'],['Interior design','室內設計']]},
+  {n:'26-48 / 豐原潭子+3km / 外送計程車自營族',sub:'全新未測職業別・零工經濟穩定現金流族群',batch:'2026-07-29',
+   logic:'外送員/計程車/多元計程車駕駛是零工經濟裡收入相對穩定甚至不低的族群，過去房貸/置產廣告很少精準鎖定這群人，但他們同樣有存錢置產的需求，是全案完全未觸及的職業別。',
+   lm:['廟東夜市','豐原火車站','豐原工業區'],
+   tags:[['Gig economy','零工經濟'],['Food delivery','外送服務'],['Ride-hailing','共乘服務'],['Self-employed','自行創業'],['Flexible work','彈性工作'],['Personal finance','個人理財'],['Saving','儲蓄'],['Financial planning','財務規劃'],['First-time home buyer','首購族'],['Real estate','房地產'],['Property investment','置產投資'],['Mortgage','房貸'],['Interior design','室內設計']]},
+  {n:'30-58 / 豐原工業區+5km / 汽機車維修保養業者',sub:'全新未測・豐原工業區周邊技術型自營業主',batch:'2026-07-29',
+   logic:'汽機車維修/保養廠業主是豐原工業區周邊常見的技術型自營業者，收入穩定且多數已經營一段時間有一定積蓄，是延伸「傳產二代」邏輯的另一個具體職業切角，全案未測過。',
+   lm:['豐原工業區','廟東夜市','豐原火車站'],
+   tags:[['Auto repair','汽車維修'],['Motorcycle repair','機車維修'],['Small business owner','小型企業主'],['Self-employed','自行創業'],['Automotive industry','汽車業'],['Entrepreneurship','創業'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Real estate','房地產'],['Property investment','置產投資'],['Mortgage','房貸'],['Interior design','室內設計'],['Local business','在地商業']]},
+  {n:'28-52 / 豐原廟東+3km / 早餐店小吃店自營族',sub:'延伸廟東美食族邏輯・改成經營端而非消費端',batch:'2026-07-29',
+   logic:'既有「廟東美食族」組鎖定的是消費者，本組改成經營端——早餐店/小吃攤業主，這群人現金交易多、儲蓄習慣強，且天天在廟東商圈生活，對「住附近」的動機比一般消費者更強，是同一地標下經營端與消費端的區隔切角。',
+   lm:['廟東夜市','廟東燒烤一條街','豐原老街'],
+   tags:[['Small restaurant owner','小吃店業主'],['Food and beverage business','餐飲業'],['Self-employed','自行創業'],['Small business owner','小型企業主'],['Entrepreneurship','創業'],['Cash flow','現金流'],['Saving','儲蓄'],['Financial planning','財務規劃'],['Real estate','房地產'],['Property investment','置產投資'],['Mortgage','房貸'],['Interior design','室內設計'],['Local business','在地商業'],['Local community','在地社區']]},
+  {n:'28-50 / 豐原+5km / 大貨車客運職業駕駛族',sub:'全新未測職業別・跑豐原周邊路線、收入穩定的藍領族群',batch:'2026-07-29',
+   logic:'大貨車/客運職業駕駛是豐原周邊工業區貨運需求支撐的穩定職業，跑車路線多在中部，收入穩定但過去從未被精準鎖定，是藍領穩定收入族群裡完全空白的職業切角。',
+   lm:['豐原工業區','豐原火車站','廟東夜市'],
+   tags:[['Truck driver','貨車駕駛'],['Commercial driver','職業駕駛'],['Logistics','物流業'],['Transportation industry','運輸業'],['Self-employed','自行創業'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Real estate','房地產'],['Property investment','置產投資'],['Mortgage','房貸'],['Interior design','室內設計'],['First-time home buyer','首購族']]},
+  {n:'26-55 / 豐原潭子+5km / 理財社團存股社群活躍成員',sub:'全新未測・積極參與理財社群討論，決策動機比被動投資族更強',batch:'2026-07-29',
+   logic:'會主動加入理財/存股Facebook社團、參與討論的人，比單純有「投資興趣」標籤的人決策動機更強，這是「投資報酬率」動機詞邏輯下更進階的行為訊號——不只是有興趣，是真的在做功課、討論策略。',
+   lm:['廟東夜市','豐原火車站','潭子區'],
+   tags:[['Investment strategy','投資策略'],['Return on investment','投資報酬率'],['Financial literacy','理財知識'],['Online community','線上社群'],['Personal finance','個人理財'],['Stock market','股票市場（投資）'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Podcast','財經Podcast'],['Real estate investment','不動產投資'],['Real estate','房地產'],['Property investment','置產投資'],['Mortgage','房貸'],['Interior design','室內設計']]}
 ];
 
 function toggleAud2(id){
@@ -292,15 +376,27 @@ function buildAudCard(g,idx,prefix,isAlt){
       <div class="aud-logic">${g.logic}</div>
       <div class="aud-sl">地標定位</div>
       <div class="aud-lm">${lmTags}</div>
-      <div class="aud-sl">興趣標籤（30個）</div>
+      <div class="aud-sl">興趣標籤（${g.tags.length}個）</div>
       <table class="tag-tbl"><thead><tr><th>#</th><th>English</th><th>中文</th></tr></thead><tbody>${rows}</tbody></table>
     </div>
   </div>`;
 }
 
+function renderBatched(gridEl, data, prefix){
+  if(!gridEl)return;
+  const batches=[...new Set(data.map(g=>g.batch||'未標記'))].sort((a,b)=>b.localeCompare(a));
+  let h='', idx=0;
+  batches.forEach(batch=>{
+    const items=data.filter(g=>(g.batch||'未標記')===batch);
+    h+=`<div class="batch-divider"><span class="batch-date">${batch} 新增 ${items.length}組</span></div>`;
+    items.forEach(g=>{ h+=buildAudCard(g,idx,prefix,false); idx++; });
+  });
+  gridEl.innerHTML=h;
+}
+
 (function(){
   const mg=document.getElementById('main-aud-grid');
-  if(mg)mg.innerHTML=MAIN_G.map((g,i)=>buildAudCard(g,i,'m',false)).join('');
+  renderBatched(mg, MAIN_G, 'm');
 })();
 </script>
 </body>
