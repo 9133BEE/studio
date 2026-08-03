@@ -143,14 +143,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
     <p>台中烏日區・製造業重工業首購換屋・總價約1000萬・雙粉專運作：主粉專 + 1510</p>
   </div>
   <div class="case-stats">
-    <div class="stat"><div class="stat-n">63組</div><div class="stat-l">規劃受眾</div></div>
+    <div class="stat"><div class="stat-n">83組</div><div class="stat-l">規劃受眾</div></div>
     <div class="stat"><div class="stat-n">98</div><div class="stat-l">總潛客</div></div>
     <div class="stat"><div class="stat-n">2</div><div class="stat-l">廣告帳號</div></div>
   </div>
 </div>
 
 <div class="tab-bar">
-  <button class="tab-btn active" onclick="switchTab('main')">主粉專（27組 · 22潛客 · NT$18,373）</button>
+  <button class="tab-btn active" onclick="switchTab('main')">主粉專（47組 · 22潛客 · NT$18,373）</button>
   <button class="tab-btn" onclick="switchTab('1510')">1510（36組 · 76潛客 · NT$40,607）</button>
 </div>
 
@@ -171,6 +171,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 </div>
 
 <div class="note-bar">📌 2026-07-22更新：已依0722最新匯出重新盤點成效，主粉專累計22組潛客、花費NT$18,373、平均CPA約NT$835。汰除06/18-07/13批次中從未取得潛客的建議受眾（新婚成家、房產/古典興趣、房地產/父母、上班族、製造業/管理等），頁面只保留「受眾排行」中實測有潛客的7組（公務員/傳產老闆、自營商/醫療業、大車司機、房產/投資、警消/公務員、投資/置產客、投資租賃）當基準，並新增20組全新未測試職業/生活人設受眾，避開歷史已用主題，鎖定醫療/專業服務/綠能技術/嗜好收藏等尚未觸及的族群。</div>
+<div class="note-bar">📌 2026-08-03更新：新增20組主粉專受眾，改以烏日彰化在地真實產業結構切入（螺絲扣件、織襪、精密機械、紡織成衣、製鞋皮革、農產運銷、肉品畜牧、電子零組件、汽車零件、物流倉儲、在地小吃、醫事人員、農會、銀行行員、加盟創業、建材五金、印刷包裝、資源回收、保全、塑膠射出），避開07/22批次已用的職業/嗜好主題，鎖定彰化傳統產業鏈中「有資產卻少被房地產廣告觸及」的隱形老闆與技術族群。</div>
 
 <!-- 主粉專 受眾排行 -->
 <div class="section">
@@ -267,6 +268,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 <div class="section">
   <div class="sec-title">主粉專新受眾（20組）· 全新職業/生活人設 · 建立 2026-07-22</div>
   <div id="main-aud-grid" class="aud-grid-2"></div>
+</div>
+
+<!-- 主粉專 新受眾 20組 2026-08-03 -->
+<div class="section">
+  <div class="sec-title">主粉專新受眾（20組）· 烏日彰化在地產業別精準職業 · 建立 2026-08-03</div>
+  <div id="main-aud-grid2" class="aud-grid-2"></div>
 </div>
 
 </div><!-- end tab-main -->
@@ -496,7 +503,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 
 </div><!-- end tab-1510 -->
 
-<div class="page-footer">鵬程59 受眾分析報告 · 更新 2026-07-22 · 9133 廣告操作團隊</div>
+<div class="page-footer">鵬程59 受眾分析報告 · 更新 2026-08-03 · 9133 廣告操作團隊</div>
 </div>
 
 <script>
@@ -613,6 +620,109 @@ const MAIN_G=[
    logic:'殯葬禮儀從業人員收入穩定甚至優於一般服務業，工作性質特殊使他們對「家」與「安身立命」有更深刻的體會，置產動機明確但常被主流房地產廣告忽略。',
    lm:['臺中市烏日區戶政事務所(+4km)','金馬路一段169號彰化縣(+4km)','烏日生命禮儀園區','彰化殯葬服務業聚落'],
    tags:[['Funeral services','殯葬服務'],['Life services','生命服務'],['Small business owners','小型企業主'],['Management','管理（商業與財務）'],['Investment','投資（商業與財務）'],['Stocks','股票（投資）'],['Financial services','金融服務（商業與財務）'],['Personal finance','個人理財（銀行業）'],['New home','新家'],['Home buying','購屋'],['Wuri District','烏日區'],['Changhua','彰化'],['Taichung','台中'],['Stable income','穩定收入'],['High income','高收入族群']]},
+];
+
+// ── 主粉專 新受眾 20組（烏日彰化在地產業別精準職業，避開歷史40組已用主題，2026-08-03）──
+const MAIN_G2=[
+  {n:'28-58 / 烏日彰化 / 螺絲扣件 / 五金加工廠老闆族',sub:'全球螺絲之都在地隱形冠軍·外銷訂單撐起穩健資產',
+   logic:'彰化是全球螺絲扣件重鎮，和美、線西、大村一帶聚集大量螺絲代工廠，廠主現金流穩定、外銷歐美訂單量大，卻常年埋首工廠鮮少留意自宅品質。訴求：「螺絲外銷全世界，自己的家也該升級了」。',
+   lm:['臺中市烏日區戶政事務所(+4km)','金馬路一段169號彰化縣(+4km)','彰化和美螺絲工業區','線西鄉扣件廠聚落'],
+   tags:[['Fastener','扣件'],['Screw manufacturing','螺絲製造'],['Metalworking','金屬加工'],['Manufacturing','製造業'],['Export','出口貿易'],['Small business owners','小型企業主'],['Management','管理（商業與財務）'],['Investment','投資（商業與財務）'],['Stocks','股票（投資）'],['Financial services','金融服務（商業與財務）'],['Cash flow management','現金流管理'],['New home','新家'],['Home buying','購屋'],['Wuri District','烏日區'],['Changhua','彰化'],['Taichung','台中'],['Stable income','穩定收入'],['High income','高收入族群']]},
+
+  {n:'28-58 / 烏日彰化 / 織襪業 / 針織代工廠老闆族',sub:'社頭織襪故鄉家族傳承·代工利潤薄但資產穩健',
+   logic:'社頭鄉是台灣織襪故鄉，全台逾七成襪子產自此地，多為家族傳承代工廠，利潤雖薄但長年累積資產穩健，卻少被房地產廣告觸及。',
+   lm:['臺中市烏日區戶政事務所(+4km)','金馬路一段169號彰化縣(+4km)','社頭織襪產業園區','彰化襪類觀光工廠聚落'],
+   tags:[['Textile manufacturing','紡織製造'],['Knitting','針織'],['Manufacturing','製造業'],['Family business','家族企業'],['Small business owners','小型企業主'],['Management','管理（商業與財務）'],['Investment','投資（商業與財務）'],['Stocks','股票（投資）'],['Financial services','金融服務（商業與財務）'],['New home','新家'],['Home buying','購屋'],['Wuri District','烏日區'],['Changhua','彰化'],['Taichung','台中'],['Stable income','穩定收入']]},
+
+  {n:'26-55 / 烏日彰化 / 精密機械 / 工具機黑手師傅族',sub:'技術門檻高薪資優渥·黑手變頭家常被房產廣告忽略',
+   logic:'彰化與鄰近大肚山一帶為工具機與精密機械聚落，CNC師傅、模具師傅技術門檻高、薪資優渥，是典型「黑手變頭家」的高資產藍領族群，常被主流房地產廣告忽略。',
+   lm:['臺中市烏日區戶政事務所(+4km)','金馬路一段169號彰化縣(+4km)','彰化精密機械園區','大肚山工具機聚落'],
+   tags:[['Precision machinery','精密機械'],['CNC machining','CNC加工'],['Manufacturing','製造業'],['Machinery','機器'],['Engineering','工程'],['Small business owners','小型企業主'],['Management','管理（商業與財務）'],['Investment','投資（商業與財務）'],['New home','新家'],['Home buying','購屋'],['Wuri District','烏日區'],['Changhua','彰化'],['Taichung','台中'],['High income','高收入族群'],['Stable income','穩定收入']]},
+
+  {n:'30-58 / 烏日彰化 / 紡織成衣 / 代工廠經營族',sub:'和美紡織產業鏈老字號·外銷訂單撐起穩定資產',
+   logic:'和美鎮是彰化紡織成衣代工重鎮，廠主與幹部多年靠外銷訂單累積資產，經營風格保守務實，訴求以「穩紮穩打」的置產邏輯溝通。',
+   lm:['臺中市烏日區戶政事務所(+4km)','金馬路一段169號彰化縣(+4km)','彰化和美紡織工業區','彰化成衣加工廠聚落'],
+   tags:[['Textile manufacturing','紡織製造'],['Garment manufacturing','成衣製造'],['Export','出口貿易'],['Manufacturing','製造業'],['Small business owners','小型企業主'],['Management','管理（商業與財務）'],['Investment','投資（商業與財務）'],['Financial services','金融服務（商業與財務）'],['New home','新家'],['Home buying','購屋'],['Wuri District','烏日區'],['Changhua','彰化'],['Taichung','台中'],['Stable income','穩定收入']]},
+
+  {n:'28-58 / 烏日彰化 / 製鞋皮革 / 手工鞋業老闆族',sub:'傳統製鞋工藝師傅·手感技術養出穩定客源',
+   logic:'彰化製鞋皮革加工業歷史悠久，老師傅與小型鞋廠主靠手工技術養出穩定客源與訂單，資產累積扎實但長年被房地產廣告忽略。',
+   lm:['臺中市烏日區戶政事務所(+4km)','金馬路一段169號彰化縣(+4km)','彰化皮革加工廠聚落','彰化製鞋業商圈'],
+   tags:[['Footwear manufacturing','製鞋業'],['Leather goods','皮革製品'],['Craftsmanship','工藝技術'],['Manufacturing','製造業'],['Small business owners','小型企業主'],['Management','管理（商業與財務）'],['Investment','投資（商業與財務）'],['New home','新家'],['Home buying','購屋'],['Wuri District','烏日區'],['Changhua','彰化'],['Taichung','台中'],['Stable income','穩定收入']]},
+
+  {n:'32-60 / 烏日彰化 / 碾米廠 / 農產運銷合作社經營族',sub:'台灣穀倉在地世家·資產累積於土地與廠房間',
+   logic:'彰化是台灣重要穀倉，碾米廠與農產運銷合作社經營者多為在地世家，資產多集中在土地與廠房，較少配置流動性住宅資產，是待開發的置產族群。',
+   lm:['臺中市烏日區戶政事務所(+4km)','金馬路一段169號彰化縣(+4km)','彰化農會碾米廠聚落','溪州鄉農產運銷園區'],
+   tags:[['Agriculture','農業'],['Rice milling','碾米業'],['Agricultural cooperative','農業合作社'],['Small business owners','小型企業主'],['Management','管理（商業與財務）'],['Investment','投資（商業與財務）'],['Financial services','金融服務（商業與財務）'],['New home','新家'],['Home buying','購屋'],['Wuri District','烏日區'],['Changhua','彰化'],['Taichung','台中'],['Stable income','穩定收入'],['Rural lifestyle','鄉村生活']]},
+
+  {n:'30-58 / 烏日彰化 / 肉品市場 / 畜牧經營族',sub:'北斗溪湖肉品重鎮·現金交易頻繁資產雄厚',
+   logic:'北斗、溪湖一帶是彰化重要肉品市場與畜牧產業聚落，經營者現金交易頻繁、資產雄厚，卻鮮少被房地產廣告針對性溝通。',
+   lm:['臺中市烏日區戶政事務所(+4km)','金馬路一段169號彰化縣(+4km)','北斗肉品市場','溪湖畜牧產業聚落'],
+   tags:[['Livestock','畜牧業'],['Meat industry','肉品業'],['Agriculture','農業'],['Small business owners','小型企業主'],['Management','管理（商業與財務）'],['Investment','投資（商業與財務）'],['Cash flow management','現金流管理'],['New home','新家'],['Home buying','購屋'],['Wuri District','烏日區'],['Changhua','彰化'],['Taichung','台中'],['High income','高收入族群'],['Stable income','穩定收入']]},
+
+  {n:'26-50 / 烏日彰化 / 電子零組件 / PCB產線技術員族',sub:'烏日工業區電子供應鏈·薪資穩定重視通勤便利',
+   logic:'烏日工業區聚集多家電子零組件與PCB相關廠商，產線技術員與工程師薪資穩定，最重視通勤便利與生活機能，鵬程59緊鄰工業區的地理位置正好對應這個需求。',
+   lm:['臺中市烏日區戶政事務所(+4km)','金馬路一段169號彰化縣(+4km)','烏日工業區','大肚電子零組件廠聚落'],
+   tags:[['Electronics manufacturing','電子製造'],['PCB','印刷電路板'],['Manufacturing','製造業'],['Engineering','工程'],['Management','管理（商業與財務）'],['Investment','投資（商業與財務）'],['Commuter','通勤者（行為）'],['New home','新家'],['Home buying','購屋'],['First home','首購族'],['Wuri District','烏日區'],['Changhua','彰化'],['Taichung','台中'],['Stable income','穩定收入']]},
+
+  {n:'26-52 / 烏日彰化 / 汽車零件 / 模具開發技師族',sub:'中部汽車零件供應鏈核心·技術資歷深厚薪資穩健',
+   logic:'烏日彰化鄰近多家汽車零件與模具開發廠商，屬中部汽車供應鏈重要一環，資深技師薪資穩健，是常被忽略的技術藍領高資產族群。',
+   lm:['臺中市烏日區戶政事務所(+4km)','金馬路一段169號彰化縣(+4km)','烏日汽車零件工業區','彰化模具開發廠聚落'],
+   tags:[['Automotive parts','汽車零件'],['Mold making','模具開發'],['Manufacturing','製造業'],['Engineering','工程'],['Management','管理（商業與財務）'],['Investment','投資（商業與財務）'],['New home','新家'],['Home buying','購屋'],['Wuri District','烏日區'],['Changhua','彰化'],['Taichung','台中'],['Stable income','穩定收入'],['High income','高收入族群']]},
+
+  {n:'28-52 / 烏日彰化 / 物流倉儲 / 高鐵園區物流經理族',sub:'高鐵烏日站樞紐效應·物流業擴編催生新興通勤買盤',
+   logic:'新烏日站周邊近年吸引多家物流倉儲業者進駐，物流經理與倉管幹部薪資穩定成長，是隨產業擴編而興起的新興通勤置產買盤。',
+   lm:['臺中市烏日區戶政事務所(+4km)','金馬路一段169號彰化縣(+4km)','烏日物流倉儲園區','新烏日站周邊物流中心'],
+   tags:[['Logistics','物流業'],['Warehouse management','倉儲管理'],['Supply chain','供應鏈'],['Management','管理（商業與財務）'],['Investment','投資（商業與財務）'],['Commuter','通勤者（行為）'],['New home','新家'],['Home buying','購屋'],['First home','首購族'],['Wuri District','烏日區'],['Changhua','彰化'],['Taichung','台中'],['Stable income','穩定收入']]},
+
+  {n:'30-58 / 烏日彰化 / 在地小吃 / 爌肉飯肉圓店老闆族',sub:'排隊名店現金流驚人·卻常年租屋沒空看房',
+   logic:'彰化在地知名小吃店（爌肉飯、肉圓、肉包等）現金流驚人，老闆常年忙於顧店、租屋度日，是典型「有錢卻沒空置產」的族群，訴求：「顧了一輩子店，也該有自己的家」。',
+   lm:['臺中市烏日區戶政事務所(+4km)','金馬路一段169號彰化縣(+4km)','彰化小吃一條街','彰化肉圓爌肉飯名店聚落'],
+   tags:[['Food and beverage','餐飲業'],['Small business owners','小型企業主'],['Restaurant management','餐廳經營'],['Entrepreneurship','創業'],['Management','管理（商業與財務）'],['Investment','投資（商業與財務）'],['Cash flow management','現金流管理'],['New home','新家'],['Home buying','購屋'],['Wuri District','烏日區'],['Changhua','彰化'],['Taichung','台中'],['High income','高收入族群'],['Stable income','穩定收入']]},
+
+  {n:'25-48 / 烏日彰化 / 護理師 / 醫事檢驗人員族',sub:'彰基秀傳醫療體系龐大·三班輪值卻少時間看房',
+   logic:'彰化基督教醫院與秀傳醫療體系規模龐大，護理師與醫檢人員收入穩定但三班輪值工時緊繃，鮮少有時間規劃自己的置產，是精準且尚未被觸及的醫療從業族群。',
+   lm:['臺中市烏日區戶政事務所(+4km)','金馬路一段169號彰化縣(+4km)','彰化基督教醫院','彰化秀傳紀念醫院'],
+   tags:[['Nursing','護理'],['Healthcare industry','醫療保健產業'],['Medical laboratory','醫學檢驗'],['Hospital','醫院'],['Management','管理（商業與財務）'],['Investment','投資（商業與財務）'],['Personal finance','個人理財（銀行業）'],['New home','新家'],['Home buying','購屋'],['First home','首購族'],['Wuri District','烏日區'],['Changhua','彰化'],['Taichung','台中'],['Stable income','穩定收入']]},
+
+  {n:'28-55 / 烏日彰化 / 農會 / 合作社系統職員族',sub:'在地公家色彩福利穩定·長年被投資型受眾忽略',
+   logic:'農會與各級合作社職員具備類公職的穩定福利與年資保障，收入雖非最高但穩定性強，是被過去偏投資型受眾策略忽略的族群。',
+   lm:['臺中市烏日區戶政事務所(+4km)','金馬路一段169號彰化縣(+4km)','彰化農會總部','烏日區農會辦事處'],
+   tags:[['Agricultural cooperative','農業合作社'],['Public sector','公家單位'],['Management','管理（商業與財務）'],['Investment','投資（商業與財務）'],['Personal finance','個人理財（銀行業）'],['Financial services','金融服務（商業與財務）'],['New home','新家'],['Home buying','購屋'],['First home','首購族'],['Wuri District','烏日區'],['Changhua','彰化'],['Taichung','台中'],['Stable income','穩定收入']]},
+
+  {n:'26-50 / 烏日彰化 / 銀行 / 信用合作社基層行員族',sub:'天天幫客戶算房貸·自己卻遲遲沒買房',
+   logic:'在地銀行與信用合作社基層行員天天替客戶核貸、試算房貸，最懂利率與貸款眉角，卻常因薪資中等、猶豫觀望而遲遲沒買房，訴求：「算了別人的房貸，也該算算自己的」。',
+   lm:['臺中市烏日區戶政事務所(+4km)','金馬路一段169號彰化縣(+4km)','彰化銀行總行','烏日信用合作社分行聚落'],
+   tags:[['Banking','銀行業（金融）'],['Financial services','金融服務（商業與財務）'],['Personal finance','個人理財（銀行業）'],['Credit analysis','徵信分析'],['Management','管理（商業與財務）'],['Investment','投資（商業與財務）'],['New home','新家'],['Home buying','購屋'],['First home','首購族'],['Wuri District','烏日區'],['Changhua','彰化'],['Taichung','台中'],['Stable income','穩定收入']]},
+
+  {n:'24-45 / 烏日彰化 / 手搖飲 / 早餐店加盟創業族',sub:'創業現金流佳資金週轉快·年輕店主重視效率決策',
+   logic:'手搖飲與早餐店加盟主現金流佳、資金週轉快，年輕創業者決策效率高，符合鵬程59「小總價高機能」產品定位，適合首購導向溝通。',
+   lm:['臺中市烏日區戶政事務所(+4km)','金馬路一段169號彰化縣(+4km)','彰化手搖飲店聚落','烏日早餐店商圈'],
+   tags:[['Franchise business','加盟創業'],['Food and beverage','餐飲業'],['Entrepreneurship','創業'],['Small business owners','小型企業主'],['Management','管理（商業與財務）'],['Investment','投資（商業與財務）'],['New home','新家'],['Home buying','購屋'],['First home','首購族'],['Wuri District','烏日區'],['Changhua','彰化'],['Taichung','台中'],['Quality of life','生活品質']]},
+
+  {n:'28-58 / 烏日彰化 / 建材五金行 / 水電行老闆族',sub:'幫別人蓋了無數間房·自己家卻拖了好幾年',
+   logic:'建材五金行與水電行老闆長年替客戶施工、進出無數工地，最懂建材與工法品質，卻常因忙於生意拖延自己的購屋計畫，訴求：「幫別人蓋了那麼多房子，換你了」。',
+   lm:['臺中市烏日區戶政事務所(+4km)','金馬路一段169號彰化縣(+4km)','彰化建材五金行聚落','烏日水電行商圈'],
+   tags:[['Hardware store','五金行'],['Construction materials','建材'],['Small business owners','小型企業主'],['Home improvement','居家修繕'],['Management','管理（商業與財務）'],['Investment','投資（商業與財務）'],['Cash flow management','現金流管理'],['New home','新家'],['Home buying','購屋'],['Wuri District','烏日區'],['Changhua','彰化'],['Taichung','台中'],['Stable income','穩定收入'],['High income','高收入族群']]},
+
+  {n:'30-58 / 烏日彰化 / 印刷包裝 / 紙器代工廠老闆族',sub:'傳統加工業穩定接單·長年低調累積資產',
+   logic:'印刷包裝與紙器代工廠是彰化傳統加工業一環，訂單穩定、老闆作風低調，長年累積資產卻幾乎不曾被房地產廣告觸及。',
+   lm:['臺中市烏日區戶政事務所(+4km)','金馬路一段169號彰化縣(+4km)','彰化印刷包裝工業區','烏日紙器加工廠聚落'],
+   tags:[['Printing industry','印刷業'],['Packaging','包裝業'],['Manufacturing','製造業'],['Small business owners','小型企業主'],['Management','管理（商業與財務）'],['Investment','投資（商業與財務）'],['New home','新家'],['Home buying','購屋'],['Wuri District','烏日區'],['Changhua','彰化'],['Taichung','台中'],['Stable income','穩定收入']]},
+
+  {n:'30-58 / 烏日彰化 / 資源回收 / 環保清運業經營族',sub:'現金生意資產雄厚·常被主流房產廣告忽略的隱形富豪',
+   logic:'資源回收與環保清運業多為現金生意，經營者資產普遍雄厚卻低調，是傳統房地產廣告最容易忽略的「隱形富豪」族群。',
+   lm:['臺中市烏日區戶政事務所(+4km)','金馬路一段169號彰化縣(+4km)','彰化資源回收場聚落','烏日環保清運業商圈'],
+   tags:[['Recycling industry','資源回收業'],['Waste management','廢棄物管理'],['Small business owners','小型企業主'],['Management','管理（商業與財務）'],['Investment','投資（商業與財務）'],['Cash flow management','現金流管理'],['New home','新家'],['Home buying','購屋'],['Wuri District','烏日區'],['Changhua','彰化'],['Taichung','台中'],['High income','高收入族群'],['Stable income','穩定收入']]},
+
+  {n:'28-55 / 烏日彰化 / 保全業 / 警衛派遣公司幹部族',sub:'派遣人力業穩定成長·中階幹部收入被低估',
+   logic:'保全與警衛派遣業近年隨工業區與建案增加穩定成長，中階幹部與站長薪資常被低估，是尚未被鎖定的穩定收入族群。',
+   lm:['臺中市烏日區戶政事務所(+4km)','金馬路一段169號彰化縣(+4km)','彰化保全公司聚落','烏日工業區保全站點'],
+   tags:[['Security services','保全業'],['Staffing agency','人力派遣'],['Management','管理（商業與財務）'],['Investment','投資（商業與財務）'],['Personal finance','個人理財（銀行業）'],['New home','新家'],['Home buying','購屋'],['First home','首購族'],['Wuri District','烏日區'],['Changhua','彰化'],['Taichung','台中'],['Stable income','穩定收入']]},
+
+  {n:'28-56 / 烏日彰化 / 塑膠射出 / 射出成型加工廠族',sub:'傳統塑膠代工廠訂單穩·老闆作風保守低調置產',
+   logic:'塑膠射出成型加工廠是彰化傳統代工業重要一環，訂單穩定、老闆作風保守低調，資產配置習慣以土地廠房為主，住宅置產動機常被忽略。',
+   lm:['臺中市烏日區戶政事務所(+4km)','金馬路一段169號彰化縣(+4km)','彰化塑膠射出工業區','烏日模具射出廠聚落'],
+   tags:[['Plastics manufacturing','塑膠製造'],['Injection molding','射出成型'],['Manufacturing','製造業'],['Small business owners','小型企業主'],['Management','管理（商業與財務）'],['Investment','投資（商業與財務）'],['New home','新家'],['Home buying','購屋'],['Wuri District','烏日區'],['Changhua','彰化'],['Taichung','台中'],['Stable income','穩定收入']]},
 ];
 
 // ── 1510 新受眾 20組（全新嗜好/收藏寬受眾類別，避開歷史80組已用主題，2026-07-22）──
@@ -749,6 +859,7 @@ function renderAudGrid(gridId, data, prefix, isAlt){
 }
 
 renderAudGrid('main-aud-grid', MAIN_G, 'ac', false);
+renderAudGrid('main-aud-grid2', MAIN_G2, 'ae', false);
 renderAudGrid('alt-aud-grid',  G_1510,  'bc', true);
 
 function copyTxt(txt){return navigator.clipboard?navigator.clipboard.writeText(txt):Promise.reject();}
