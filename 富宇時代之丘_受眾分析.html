@@ -241,6 +241,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   <div id="lead-aud-grid" class="aud-grid-2"></div>
 </div>
 
+<!-- 新一輪建議受眾 -->
+<div class="section">
+  <div class="sec-title">新一輪建議受眾（20組，地標與嗜好深化・更新 2026-08-10）</div>
+  <div class="note-bar">已有40組建議多沿用沙鹿海線區域歷史數據的職業角度（醫護、工程師、公教、物流貿易等）。這20組改用建案生活機能地標（光華時尚廣場、鹿峰國小、童綜合醫院、家樂福鹿寮店）與海線在地嗜好切角補強，並延伸已驗證有效的「醫護＋科技」雙引擎與「學區換屋」方向做更精準的角度深化。地理範圍維持本案自身參考基準（沙鹿為核心，涵蓋中科／西屯／東海／龍井／大肚／清水／梧棲／大甲／彰化）。</div>
+  <div id="new-aud-grid" class="aud-grid-2"></div>
+</div>
+
 <!-- 排行 + 操作建議（左右兩欄） -->
 <div class="rank-op-grid">
 
@@ -611,6 +618,90 @@ const LEAD_G=[
    lm:['鹿峰國小','沙鹿區公所','光華時尚廣場','福德路'],
    tags:[['School district','學區'],['Primary school','小學'],['Parenting','親子教養'],['Child education','兒童教育'],['Real estate (property)','不動產（房地產）'],['Home buying','購屋'],['Home upgrade','換屋升格'],['Property investment','置產投資'],['New construction','新成屋'],['Mortgage','房屋貸款'],['Home loan calculator','房貸試算'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Married','已婚'],['Family','家庭'],['Parents with children','有孩子的父母'],['Baby products','嬰幼兒用品'],['Toy','玩具'],['Family activities','家庭活動'],['Moving','搬家'],['Interior design','室內設計'],['Furniture','家具'],['Home appliances','家電'],['Health food','健康飲食'],['Cooking','料理'],['Community living','社區生活'],['Quality of life','生活品質'],['Local community','在地社區'],['Bank','銀行金融'],['Insurance','保險']]}
 ];
+
+const NEW_G=[
+  {n:'28-52 / 童綜合醫院周邊 / 醫材藥師×藥局經營族',sub:'延伸區域驗證最強「醫護人員」DNA·聚焦醫材/藥師職級',
+   logic:'區域數據顯示「沙鹿西屯醫療人員」是全案最強訊息型組（CPL$78），此組延伸同一醫療生態圈，但聚焦醫材業務/藥師/社區藥局經營者——這類人收入穩定、常年在童綜合醫院周邊執業卻多半租屋，是與已測「護理人員」不同職級的醫療從業族群。',
+   lm:['童綜合醫院','沙鹿區公所','光華時尚廣場','鹿峰國小'],
+   tags:[['Pharmacy','藥局'],['Medical equipment','醫療器材'],['Healthcare industry','醫療保健產業'],['Medical sales','醫療業務'],['Clinic management','診所管理'],['Stable income','穩定收入'],['Small business owners','小型企業主'],['Continuing education','繼續教育'],['Career development','職涯發展'],['Family','家庭'],['Quality of life','生活品質'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Taichung','台中沙鹿'],['Financial planning','財務規劃'],['Personal finance','個人理財'],['Investment','投資'],['Saving','儲蓄'],['Married','已婚'],['Local community','在地社區'],['Community living','社區生活'],['Weekend activities','假日活動'],['Family time','家庭時光'],['Coffee','咖啡'],['Instagram','Instagram'],['Online shopping','網路購物']]},
+  {n:'26-50 / 光華時尚廣場 / 百貨會員×假日逛街族',sub:'直接對應建案生活機能地標·全新消費行為角度',
+   logic:'光華時尚廣場是本案主打的生活機能地標，這群人習慣假日到百貨逛街、用會員集點，訴求「走路就到光華廣場」是最直接的生活機能連結，過去40組建議從未針對此地標的消費行為單獨定向。',
+   lm:['光華時尚廣場','沙鹿區公所','鹿峰國小','福德路'],
+   tags:[['Department stores','百貨公司'],['Shopping','購物'],['Loyalty programs','會員忠誠計畫'],['Cosmetics','美妝'],['Fashion','時尚'],['Sales promotion','促銷活動'],['Online shopping','網路購物'],['Family time','家庭時光'],['Weekend activities','假日活動'],['Local community','在地社區'],['Quality of life','生活品質'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Taichung','台中沙鹿'],['Family','家庭'],['Financial planning','財務規劃'],['Personal finance','個人理財'],['Investment','投資'],['Saving','儲蓄'],['Stable income','穩定收入'],['Married','已婚'],['Community living','社區生活'],['Career development','職涯發展'],['Coffee','咖啡'],['Instagram','Instagram'],['Interior design','室內設計']]},
+  {n:'30-52 / 鹿峰國小 / 才藝安親班家長族',sub:'延伸區域驗證「學區導向」DNA·聚焦才藝/安親決策行為',
+   logic:'區域數據顯示「沙鹿國小5K房地產學區」CPL$279、37潛客量體大，此組延伸同一學區地緣，但聚焦「幫孩子安排才藝班/安親班」的決策行為——這群家長對接送距離、課後照顧品質很敏感，是比純學區訴求更具體的家長輪廓。',
+   lm:['鹿峰國小','光華時尚廣場','沙鹿區公所','福德路'],
+   tags:[['Extracurricular activities','才藝課程'],['After-school care','安親班'],['Parenting','育兒'],['School district','學區'],['Family activities','家庭活動'],['Local community','在地社區'],['Family time','家庭時光'],['Quality of life','生活品質'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Taichung','台中沙鹿'],['Family','家庭'],['Financial planning','財務規劃'],['Personal finance','個人理財'],['Investment','投資'],['Saving','儲蓄'],['Stable income','穩定收入'],['Married','已婚'],['Community living','社區生活'],['Career development','職涯發展'],['Weekend activities','假日活動'],['Coffee','咖啡'],['Instagram','Instagram'],['Online shopping','網路購物'],['Interior design','室內設計'],['Home appliances','家電']]},
+  {n:'28-55 / 高美濕地 / 生態攝影×假日親子出遊族',sub:'高美濕地是沙鹿海線最強地標·全新嗜好角度',
+   logic:'高美濕地是海線最知名的生態景點，沙鹿居民假日常帶孩子去賞鳥、拍夕陽，這群人重視居住環境的自然景觀可及性，過去40組建議從未針對此地標嗜好單獨定向。',
+   lm:['高美濕地','沙鹿區公所','清水交流道','台中港'],
+   tags:[['Bird watching','賞鳥'],['Nature photography','自然攝影'],['Wetland','濕地生態'],['Ecotourism','生態旅遊'],['Family outdoor','親子戶外'],['Weekend activities','假日活動'],['Photography','攝影'],['Instagram','Instagram'],['Family time','家庭時光'],['Local community','在地社區'],['Quality of life','生活品質'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Taichung','台中沙鹿'],['Family','家庭'],['Financial planning','財務規劃'],['Personal finance','個人理財'],['Investment','投資'],['Saving','儲蓄'],['Stable income','穩定收入'],['Married','已婚'],['Community living','社區生活'],['Career development','職涯發展'],['Coffee','咖啡'],['Online shopping','網路購物'],['Interior design','室內設計']]},
+  {n:'24-42 / 東海大學 / 校園散步×文青書店咖啡族',sub:'東海校園生活圈是驗證有效地理範圍·聚焦文青消費嗜好',
+   logic:'區域數據顯示東海沙鹿是多組驗證有效的地理範圍，此組聚焦東海大學周邊獨立書店/咖啡廳文化——這群人喜歡校園散步、假日逛書店，是與已測「工程師/護理人員」職業角度不同的生活風格族群。',
+   lm:['東海大學','東海別墅商圈','沙鹿區公所','光華時尚廣場'],
+   tags:[['Independent bookstore','獨立書店'],['Coffee culture','咖啡文化'],['Reading','閱讀'],['Campus life','校園生活'],['Slow living','慢活'],['Photography','攝影'],['Lifestyle','生活風格'],['Instagram','Instagram'],['Quality of life','生活品質'],['Local community','在地社區'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Taichung','台中沙鹿'],['Family','家庭'],['Financial planning','財務規劃'],['Personal finance','個人理財'],['Investment','投資'],['Saving','儲蓄'],['Stable income','穩定收入'],['Married','已婚'],['Community living','社區生活'],['Career development','職涯發展'],['Weekend activities','假日活動'],['Family time','家庭時光'],['Coffee','咖啡'],['Online shopping','網路購物']]},
+  {n:'25-42 / 靜宜大學商圈 / 租屋轉買房首購族',sub:'鎖定周邊大學商圈長期租屋、正準備轉買房的年輕族群',
+   logic:'靜宜大學周邊商圈聚集大量長期租屋的年輕上班族/研究生，這群人租屋多年、開始意識到「租金不如貸款」，是首購決策的關鍵轉換族群，訴求「同樣租金，換一間自己的房子」直接對應這種心理轉折。',
+   lm:['靜宜大學','沙鹿區公所','光華時尚廣場','福德路'],
+   tags:[['Renting','租屋'],['First-time home buyer','首次置屋'],['Personal finance','個人理財'],['Mortgage calculator','房貸試算'],['Financial planning','財務規劃'],['Career development','職涯發展'],['Young professional','年輕上班族'],['Online shopping','網路購物'],['Family','家庭'],['Quality of life','生活品質'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Taichung','台中沙鹿'],['Saving','儲蓄'],['Investment','投資'],['Stable income','穩定收入'],['Married','已婚'],['Local community','在地社區'],['Community living','社區生活'],['Weekend activities','假日活動'],['Family time','家庭時光'],['Coffee','咖啡'],['Instagram','Instagram'],['Interior design','室內設計'],['Home appliances','家電'],['Furniture','家具']]},
+  {n:'25-50 / 台中港沿海 / 風箏衝浪×水上運動愛好族',sub:'台中港沿海是中部風箏衝浪熱點·全新運動嗜好角度',
+   logic:'台中港沿海風浪條件穩定，是中部風箏衝浪/滑水板愛好者熱門場地，這群人消費力強、重視裝備收納空間，過去40組建議從未觸及水上運動這個運動分類。',
+   lm:['台中港','高美濕地','清水交流道','梧棲觀光漁港'],
+   tags:[['Kitesurfing','風箏衝浪'],['Windsurfing','滑水板'],['Water sports','水上活動'],['Sports equipment','運動裝備'],['Outdoor recreation','戶外休閒'],['Fitness','健身運動'],['Weekend activities','假日活動'],['Instagram','Instagram'],['Adventure','冒險探索'],['Quality of life','生活品質'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Taichung','台中沙鹿'],['Family','家庭'],['Financial planning','財務規劃'],['Personal finance','個人理財'],['Investment','投資'],['Saving','儲蓄'],['Stable income','穩定收入'],['Married','已婚'],['Local community','在地社區'],['Community living','社區生活'],['Career development','職涯發展'],['Family time','家庭時光'],['Coffee','咖啡'],['Online shopping','網路購物']]},
+  {n:'26-50 / 沙鹿夜市 / 在地小吃巡禮愛好族',sub:'沙鹿夜市是在地知名小吃聚落·全新外食探店嗜好角度',
+   logic:'沙鹿夜市/在地小吃是沙鹿人生活記憶的一部分，這群人喜歡假日探店、排隊嚐鮮，訴求「巷口那攤，走路就到」直接對應本案生活機能訴求，過去未被獨立測試。',
+   lm:['沙鹿夜市','沙鹿火車站','沙鹿區公所','光華時尚廣場'],
+   tags:[['Night market','夜市'],['Local cuisine','在地美食'],['Street food','小吃'],['Food exploration','美食探索'],['Foodie','美食愛好者'],['Instagram','Instagram'],['Weekend activities','假日活動'],['Local business','在地小店'],['Local community','在地社區'],['Family','家庭'],['Quality of life','生活品質'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Taichung','台中沙鹿'],['Financial planning','財務規劃'],['Personal finance','個人理財'],['Investment','投資'],['Saving','儲蓄'],['Stable income','穩定收入'],['Married','已婚'],['Community living','社區生活'],['Career development','職涯發展'],['Family time','家庭時光'],['Coffee','咖啡'],['Online shopping','網路購物'],['Interior design','室內設計']]},
+  {n:'30-58 / 中科園區 / 跨國商務差旅族',sub:'延伸區域驗證「工程師半導體科技」DNA·聚焦商務出差角度',
+   logic:'區域數據顯示「沙鹿東海工程師半導體科技」CPL$148是驗證有效組，此組延伸同一科技產業圈，但聚焦常態國內外出差的中科園區商務人士——這類人重視「回家有品質的休息空間」，是與純技術工程師不同的商務差旅角度。',
+   lm:['中科園區','東海大學','沙鹿區公所','光華時尚廣場'],
+   tags:[['Business travel','商務旅遊'],['Business class','商務艙'],['International trade','國際貿易'],['Technology industry','科技產業'],['Business networking','商務社交'],['Career development','職涯發展'],['High income','高收入族群'],['Personal finance','個人理財'],['Family','家庭'],['Quality of life','生活品質'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Taichung','台中沙鹿'],['Financial planning','財務規劃'],['Investment','投資'],['Saving','儲蓄'],['Stable income','穩定收入'],['Married','已婚'],['Local community','在地社區'],['Community living','社區生活'],['Weekend activities','假日活動'],['Family time','家庭時光'],['Coffee','咖啡'],['Instagram','Instagram'],['Online shopping','網路購物'],['Interior design','室內設計']]},
+  {n:'28-52 / 大肚山 / 夜景×情侶約會景觀餐廳族',sub:'大肚山夜景是台中知名約會景點·全新社交嗜好角度',
+   logic:'大肚山夜景是台中情侶約會的知名場景，這群人重視「有view」的生活品質，訴求換屋時「在家就能看夜景」對這類族群特別有感，過去未被獨立定向。',
+   lm:['大肚山','東海大學','沙鹿區公所','光華時尚廣場'],
+   tags:[['City view','城市景觀'],['Fine dining','精緻餐飲'],['Dating','約會'],['Nightlife','夜生活'],['Photography','攝影'],['Instagram','Instagram'],['Lifestyle','生活風格'],['Coffee','咖啡'],['Quality of life','生活品質'],['Married','已婚'],['Family','家庭'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Taichung','台中沙鹿'],['Financial planning','財務規劃'],['Personal finance','個人理財'],['Investment','投資'],['Saving','儲蓄'],['Stable income','穩定收入'],['Local community','在地社區'],['Community living','社區生活'],['Career development','職涯發展'],['Weekend activities','假日活動'],['Family time','家庭時光'],['Online shopping','網路購物'],['Interior design','室內設計']]},
+  {n:'30-58 / 童綜合醫院 / 志工×社福公益族',sub:'區別於已測之醫護職業角度·聚焦志工服務參與者',
+   logic:'童綜合醫院常態招募志工協助導引、關懷服務，這群人重視「回饋社區」的參與感，與已測的「醫護人員」（職業）角度不同，是願意固定投入時間服務的在地公益族群。',
+   lm:['童綜合醫院','沙鹿區公所','光華時尚廣場','鹿峰國小'],
+   tags:[['Volunteering','志工服務'],['Community service','社區服務'],['Healthcare','醫療保健'],['Social welfare','社會福利'],['Local community','在地社區'],['Family','家庭'],['Quality of life','生活品質'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Taichung','台中沙鹿'],['Financial planning','財務規劃'],['Stable income','穩定收入'],['Personal finance','個人理財'],['Investment','投資'],['Saving','儲蓄'],['Married','已婚'],['Community living','社區生活'],['Career development','職涯發展'],['Weekend activities','假日活動'],['Family time','家庭時光'],['Coffee','咖啡'],['Instagram','Instagram'],['Online shopping','網路購物'],['Interior design','室內設計'],['Home appliances','家電'],['Furniture','家具']]},
+  {n:'28-52 / 沙鹿龍井海線 / 公路自行車環騎車隊族',sub:'區別於已測之工程師/科技角度·聚焦運動裝備消費族群',
+   logic:'沙鹿龍井海線自行車道是台中知名公路車路線，這群人假日組車隊環騎，裝備消費力強，是與已測職業角度不同的運動興趣族群，過去未被獨立測試。',
+   lm:['沙鹿區公所','龍井台中港特定區','高美濕地','台中港'],
+   tags:[['Cycling','自行車運動'],['Road cycling','公路車'],['Sports equipment','運動裝備'],['Fitness','健身運動'],['Outdoor recreation','戶外休閒'],['Endurance training','耐力訓練'],['Weekend activities','假日活動'],['Instagram','Instagram'],['Quality of life','生活品質'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Taichung','台中沙鹿'],['Family','家庭'],['Financial planning','財務規劃'],['Personal finance','個人理財'],['Investment','投資'],['Saving','儲蓄'],['Stable income','穩定收入'],['Married','已婚'],['Local community','在地社區'],['Community living','社區生活'],['Career development','職涯發展'],['Family time','家庭時光'],['Coffee','咖啡'],['Online shopping','網路購物'],['Interior design','室內設計']]},
+  {n:'28-55 / 家樂福鹿寮店 / 週末大採買家庭族',sub:'直接對應建案生活機能地標·全新家庭消費行為角度',
+   logic:'家樂福鹿寮生活圈是本案主打生活機能之一，這群人習慣週末開車大採買一次囤貨，訴求「走路可到家樂福」直接對應這種消費習慣，過去未被獨立定向。',
+   lm:['家樂福鹿寮店','鹿峰國小','沙鹿區公所','福德路'],
+   tags:[['Grocery shopping','日常採買'],['Family budget','家庭預算'],['Bulk shopping','囤貨採買'],['Family activities','家庭活動'],['Cooking','烹飪'],['Home appliances','家電'],['Family time','家庭時光'],['Local community','在地社區'],['Quality of life','生活品質'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Taichung','台中沙鹿'],['Family','家庭'],['Financial planning','財務規劃'],['Personal finance','個人理財'],['Investment','投資'],['Saving','儲蓄'],['Stable income','穩定收入'],['Married','已婚'],['Community living','社區生活'],['Career development','職涯發展'],['Weekend activities','假日活動'],['Coffee','咖啡'],['Instagram','Instagram'],['Online shopping','網路購物'],['Interior design','室內設計']]},
+  {n:'32-60 / 沙鹿在地宮廟 / 遶境陣頭文化欣賞族',sub:'沙鹿在地信仰文化角度·全新未觸及',
+   logic:'沙鹿在地宮廟遶境活動是社區重要的文化活動，這群人重視傳統信仰與在地認同，訴求「在地扎根」對這類族群特別有共鳴，過去40組建議未觸及此文化角度。',
+   lm:['沙鹿區公所','沙鹿老街','光華時尚廣場','鹿峰國小'],
+   tags:[['Temple','廟宇信仰'],['Traditional culture','傳統文化'],['Religious festival','宗教慶典'],['Local community','在地社區'],['Community volunteering','社區志工'],['Family','家庭'],['Quality of life','生活品質'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Taichung','台中沙鹿'],['Financial planning','財務規劃'],['Stable income','穩定收入'],['Personal finance','個人理財'],['Investment','投資'],['Saving','儲蓄'],['Married','已婚'],['Community living','社區生活'],['Career development','職涯發展'],['Weekend activities','假日活動'],['Family time','家庭時光'],['Coffee','咖啡'],['Instagram','Instagram'],['Online shopping','網路購物'],['Interior design','室內設計'],['Home appliances','家電'],['Furniture','家具']]},
+  {n:'26-50 / 沙鹿中科 / 電動車充電×新能源生活族',sub:'區別於已測之科技業職業角度·聚焦電動車消費興趣',
+   logic:'中科園區周邊電動車充電站密集，這群人是電動車車主/新能源生活愛好者，重視居家有充電條件的居住環境，與已測的「工程師/科技業」職業角度不同，這次是純粹的消費者興趣角度。',
+   lm:['中科園區','沙鹿區公所','光華時尚廣場','東海大學'],
+   tags:[['Electric vehicle','電動車'],['Charging station','充電站'],['Green energy','綠色能源'],['Tesla','特斯拉'],['Sustainability','永續發展'],['Technology','科技產品'],['Innovation','創新科技'],['Smart home','智慧家居'],['Quality of life','生活品質'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Taichung','台中沙鹿'],['Family','家庭'],['Financial planning','財務規劃'],['Personal finance','個人理財'],['Investment','投資'],['Saving','儲蓄'],['Stable income','穩定收入'],['Married','已婚'],['Local community','在地社區'],['Community living','社區生活'],['Career development','職涯發展'],['Weekend activities','假日活動'],['Family time','家庭時光'],['Coffee','咖啡'],['Instagram','Instagram']]},
+  {n:'32-60 / 東海大甲 / 傳統糕餅烘焙職人族',sub:'延伸海線在地物產文化·聚焦烘焙職人角度',
+   logic:'大甲糕餅是海線知名傳統產業，這群人是糕餅/烘焙職人或愛好者，重視在地食材文化傳承，訴求「在地扎根、世代傳承」對這類族群有共鳴，過去未被獨立定向。',
+   lm:['大甲區公所','東海大學','沙鹿區公所','大甲車站'],
+   tags:[['Baking','烘焙'],['Traditional pastry','傳統糕餅'],['Local business','在地小店'],['Craft business','手作事業'],['Small business owners','小型企業主'],['Local cuisine','在地美食'],['Cultural heritage','文化資產'],['Family business','家族企業'],['Local community','在地社區'],['Family','家庭'],['Quality of life','生活品質'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Taichung','台中沙鹿'],['Financial planning','財務規劃'],['Personal finance','個人理財'],['Investment','投資'],['Saving','儲蓄'],['Stable income','穩定收入'],['Married','已婚'],['Community living','社區生活'],['Career development','職涯發展'],['Weekend activities','假日活動'],['Family time','家庭時光'],['Coffee','咖啡'],['Instagram','Instagram']]},
+  {n:'26-48 / 龍井大肚 / 露天市集×手作選品族',sub:'區別於已測之工商教育類·聚焦市集消費嗜好角度',
+   logic:'龍井大肚一帶假日常有小型市集，這群人喜歡逛市集挖寶、支持在地手作品牌，是與已測「工商教育類」（人口輪廓）不同的消費嗜好角度，聚焦逛市集這個具體行為。',
+   lm:['龍井台中港特定區','大肚山','沙鹿區公所','東海大學'],
+   tags:[['Craft market','手作市集'],['Local market','在地市集'],['Handmade goods','手作商品'],['Weekend market','週末市集'],['Local business','在地小店'],['Instagram','Instagram'],['Weekend activities','假日活動'],['Family time','家庭時光'],['Local community','在地社區'],['Quality of life','生活品質'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Taichung','台中沙鹿'],['Family','家庭'],['Financial planning','財務規劃'],['Personal finance','個人理財'],['Investment','投資'],['Saving','儲蓄'],['Stable income','穩定收入'],['Married','已婚'],['Community living','社區生活'],['Career development','職涯發展'],['Coffee','咖啡'],['Online shopping','網路購物'],['Interior design','室內設計'],['Home appliances','家電']]},
+  {n:'28-55 / 沙鹿清水海線 / 鐵道攝影迷',sub:'台鐵海線是知名鐵道攝影路線·全新嗜好角度',
+   logic:'台鐵海線（沙鹿/清水/追分沿線）是鐵道迷公認全台最美的鐵道攝影路線之一，這群人固定假日到海線各站拍車，對在地小站與周邊生活圈非常熟悉，過去未被獨立測試。',
+   lm:['沙鹿火車站','追分車站','日南車站','清水車站'],
+   tags:[['Railway','鐵道'],['Train photography','鐵道攝影'],['Railfan','鐵道迷'],['Photography','攝影'],['Travel','旅遊'],['Local history','地方歷史'],['Instagram','Instagram'],['Weekend activities','假日活動'],['Local community','在地社區'],['Quality of life','生活品質'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Taichung','台中沙鹿'],['Family','家庭'],['Financial planning','財務規劃'],['Personal finance','個人理財'],['Investment','投資'],['Saving','儲蓄'],['Stable income','穩定收入'],['Married','已婚'],['Community living','社區生活'],['Career development','職涯發展'],['Family time','家庭時光'],['Coffee','咖啡'],['Online shopping','網路購物'],['Interior design','室內設計']]},
+  {n:'30-58 / 彰化員林+沙鹿 / 跨區通勤上班族置產族',sub:'延伸區域參考範圍至彰化·擴大通勤圈覆蓋',
+   logic:'區域參考數據涵蓋沙鹿龍井彰化圈，此組延伸至彰化員林方向的跨區通勤族，這群人在沙鹿/中科工作但彰化置產成本更低，訴求「往返沙鹿20分鐘，總價省一截」，過去未針對彰化方向獨立測試。',
+   lm:['彰化員林','沙鹿區公所','中科園區','光華時尚廣場'],
+   tags:[['Commuting','通勤'],['Work commute','上下班通勤'],['Public transportation','大眾運輸'],['Personal finance','個人理財'],['Financial planning','財務規劃'],['Home upgrade','換屋升格'],['Family','家庭'],['Quality of life','生活品質'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Taichung','台中沙鹿'],['Stable income','穩定收入'],['Investment','投資'],['Saving','儲蓄'],['Married','已婚'],['Local community','在地社區'],['Community living','社區生活'],['Career development','職涯發展'],['Weekend activities','假日活動'],['Family time','家庭時光'],['Coffee','咖啡'],['Instagram','Instagram'],['Online shopping','網路購物'],['Interior design','室內設計'],['Home appliances','家電'],['Furniture','家具']]},
+  {n:'50-70 / 沙鹿在地 / 退休教職員安養換屋族',sub:'區別於已測之公教職員（在職）·聚焦退休後安養換屋需求',
+   logic:'過去測過「傳產在地公務員小學老師」是在職角度，此組改鎖定已退休的教職員，這群人退休金穩定、重視就醫方便（童綜合醫院鄰近）與居住品質，是換屋而非首購的決策族群，過去未被獨立測試。',
+   lm:['童綜合醫院','沙鹿區公所','鹿峰國小','光華時尚廣場'],
+   tags:[['Retirement planning','退休規劃'],['Healthcare','醫療保健'],['Health and wellness','健康養生'],['Quality of life','生活品質'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Family','家庭'],['Grandparenting','含飴弄孫'],['Local community','在地社區'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Taichung','台中沙鹿'],['Stable income','穩定收入'],['Personal finance','個人理財'],['Investment','投資'],['Married','已婚'],['Community living','社區生活'],['Career development','職涯發展'],['Weekend activities','假日活動'],['Family time','家庭時光'],['Coffee','咖啡'],['Instagram','Instagram'],['Online shopping','網路購物'],['Interior design','室內設計'],['Home appliances','家電'],['Furniture','家具']]}
+];
+
 function buildAudCard(g,idx,prefix){
   const id=prefix+(idx+1);
   const rows=g.tags.map((t,i)=>`<tr><td>${i+1}</td><td>${t[0]}</td><td>${t[1]}</td></tr>`).join('');
@@ -637,6 +728,8 @@ function toggleAud(id){document.getElementById(id).classList.toggle('open')}
   if(mg)mg.innerHTML=MSG_G.map((g,i)=>buildAudCard(g,i,'m')).join('');
   const lg=document.getElementById('lead-aud-grid');
   if(lg)lg.innerHTML=LEAD_G.map((g,i)=>buildAudCard(g,i,'l')).join('');
+  const ng=document.getElementById('new-aud-grid');
+  if(ng)ng.innerHTML=NEW_G.map((g,i)=>buildAudCard(g,i,'n')).join('');
   document.querySelectorAll('.tag-tbl tbody tr').forEach(tr=>{
     tr.addEventListener('click',()=>{
       const cells=tr.querySelectorAll('td');

@@ -234,6 +234,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   <div id="main-aud-grid" class="aud-grid-2"></div>
 </div>
 
+<div class="section">
+  <div class="sec-title">建議新測試受眾方向（新增海線20組・地標與嗜好深化・更新 2026-08-10）</div>
+  <div class="note-bar">全案已累積51組建議，職業/身份角度（傳產工廠、物流貿易、教師醫護、廟宇信仰、漁業、二代接班等）幾乎覆蓋所有海線常見身份。這20組改用海線在地才有的具體地標與嗜好切角（高美濕地、台中港風機、海線鐵道、大甲媽祖徒步進香等），並針對已驗證最佳的「工廠業主」「房地產成家」「機械物流」三條DNA做更精準的職級/角度延伸，同樣完全收斂在大甲/清水/梧棲/沙鹿/龍井/伸港六鄉鎮，不觸及中科/大雅/神岡/西屯/南屯/東海/靜宜（已證實零成效）。</div>
+  <div id="main-aud-grid-2" class="aud-grid-2"></div>
+</div>
+
 <!-- 排行 + 操作建議（左右兩欄） -->
 <div class="rank-op-grid">
 
@@ -676,6 +682,89 @@ const MAIN_G=[
    lm:['清水交流道','沙鹿清水交流道','龍井交流道','伸港交流道'],
    tags:[['Home buying','購屋'],['First home','首購成家'],['Saving','儲蓄'],['Financial planning','財務規劃'],['Investment','投資理財'],['Bank','銀行金融'],['Insurance','保險'],['Local community','在地社區'],['Local food','在地美食'],['Temple','廟宇信仰'],['Traditional culture','傳統文化'],['Commuting','通勤'],['Automobile','汽車'],['Motorcycle','機車'],['Convenience store','便利商店'],['Home appliances','家電'],['Furniture','家具'],['Interior design','室內設計'],['Home improvement','居家裝潢'],['Quality of life','生活品質'],['Community living','社區生活'],['Grandparenting','含飴弄孫'],['Health','健康養生']]}
 ];
+const MAIN2_G=[
+  {n:'28-55 / 清水高美濕地 / 生態攝影×賞鳥愛好族',sub:'高美濕地是海線最強地標之一·從未被獨立定向',
+   logic:'高美濕地是清水最知名的生態景點，賞鳥、拍夕陽、拍風車是在地人假日常態活動，這群人對居住環境的自然景觀敏感度高，過去51組建議從未針對「高美濕地生態嗜好」單獨定向，是最貼近本案地緣卻空白的一塊。',
+   lm:['高美濕地','清水區公所','清水交流道','台中港'],
+   tags:[['Bird watching','賞鳥'],['Nature photography','自然攝影'],['Wetland','濕地生態'],['Wildlife','野生動物'],['Ecotourism','生態旅遊'],['Sunset photography','夕陽攝影'],['Hiking','健行'],['Outdoor recreation','戶外休閒'],['Camera equipment','攝影器材'],['Instagram','Instagram'],['Nature conservation','自然保育'],['Weekend activities','假日活動'],['Family time','家庭時光'],['Local community','在地社區'],['Quality of life','生活品質'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Taichung','台中清水'],['Financial planning','財務規劃'],['Stable income','穩定收入'],['Personal finance','個人理財'],['Investment','投資'],['Saving','儲蓄'],['Family','家庭'],['Married','已婚'],['Community living','社區生活']]},
+  {n:'28-55 / 台中港風力發電區 / 風機地景×綠能攝影族',sub:'台中港離岸風機是海線新地標·全新未觸及嗜好角度',
+   logic:'台中港離岸風機近年成為攝影愛好者專程造訪的新地標，這群人對綠能/永續議題有興趣，也代表對「地方發展帶動生活機能提升」有感的族群，過去從未以此新地標角度定向過。',
+   lm:['台中港','高美濕地','清水交流道','台中港風力發電區'],
+   tags:[['Green energy','綠色能源'],['Renewable energy','再生能源'],['Photography','攝影'],['Landscape photography','風景攝影'],['Sustainability','永續發展'],['Wind power','風力發電'],['Outdoor recreation','戶外休閒'],['Instagram','Instagram'],['Local development','地方發展'],['Quality of life','生活品質'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Investment','投資'],['Financial planning','財務規劃'],['Taichung','台中清水'],['Family','家庭'],['Local community','在地社區'],['Stable income','穩定收入'],['Personal finance','個人理財'],['Saving','儲蓄'],['Married','已婚'],['Community living','社區生活'],['Career development','職涯發展'],['Weekend activities','假日活動'],['Family time','家庭時光'],['Coffee','咖啡']]},
+  {n:'28-55 / 海線鐵道沿線 / 追火車×鐵道攝影迷',sub:'台鐵海線是知名鐵道攝影路線·全新嗜好角度',
+   logic:'台鐵海線（清水/大甲/追分沿線）是鐵道迷公認全台最美的鐵道攝影路線之一，這群人固定在假日到海線各站拍車、追車，對在地小站與周邊生活圈非常熟悉，過去未被獨立測試。',
+   lm:['清水車站','日南車站','大甲車站','追分車站'],
+   tags:[['Railway','鐵道'],['Train photography','鐵道攝影'],['Railfan','鐵道迷'],['Photography','攝影'],['Travel','旅遊'],['Local history','地方歷史'],['Instagram','Instagram'],['Weekend activities','假日活動'],['Outdoor recreation','戶外休閒'],['Camera equipment','攝影器材'],['Local community','在地社區'],['Quality of life','生活品質'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Taichung','台中清水'],['Family','家庭'],['Financial planning','財務規劃'],['Stable income','穩定收入'],['Personal finance','個人理財'],['Investment','投資'],['Saving','儲蓄'],['Married','已婚'],['Community living','社區生活'],['Career development','職涯發展'],['Family time','家庭時光'],['Coffee','咖啡']]},
+  {n:'28-52 / 海線自行車道 / 公路自行車環海線車隊族',sub:'區別於已測之戶外露營釣魚·聚焦公路車運動族群',
+   logic:'海線自行車道（大甲溪出海口至高美濕地一帶）是台中知名公路車路線，這群人假日組車隊環騎海線，與已測的「戶外露營釣魚」休閒族群不同，是強度更高、裝備消費力更強的運動族群。',
+   lm:['高美濕地','大甲溪出海口','清水區公所','台中港'],
+   tags:[['Cycling','自行車運動'],['Road cycling','公路車'],['Sports equipment','運動裝備'],['Fitness','健身運動'],['Outdoor recreation','戶外休閒'],['Endurance training','耐力訓練'],['Sports nutrition','運動營養'],['Healthy lifestyle','健康生活'],['Weekend activities','假日活動'],['Instagram','Instagram'],['Quality of life','生活品質'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Taichung','台中清水'],['Family','家庭'],['Financial planning','財務規劃'],['Stable income','穩定收入'],['Personal finance','個人理財'],['Investment','投資'],['Saving','儲蓄'],['Married','已婚'],['Local community','在地社區'],['Community living','社區生活'],['Career development','職涯發展'],['Family time','家庭時光'],['Coffee','咖啡']]},
+  {n:'30-58 / 台中港 / 夕陽景觀×海邊散步生活族',sub:'台中港夕陽是在地知名打卡場景·未被獨立定向',
+   logic:'台中港夕陽是海線居民下班後常去散步、拍照的日常場景，這群人重視「生活步調有海可以看」的居住體驗，是與高美濕地生態攝影不同、更日常、更輕度的海邊生活族群。',
+   lm:['台中港','高美濕地','清水交流道','梧棲觀光漁港'],
+   tags:[['Sunset','夕陽'],['Beach walk','海邊散步'],['Photography','攝影'],['Coastal living','海線生活'],['Outdoor recreation','戶外休閒'],['Quality of life','生活品質'],['Slow living','慢活'],['Family time','家庭時光'],['Weekend activities','假日活動'],['Local community','在地社區'],['Instagram','Instagram'],['Coffee','咖啡'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Taichung','台中清水'],['Family','家庭'],['Financial planning','財務規劃'],['Stable income','穩定收入'],['Personal finance','個人理財'],['Investment','投資'],['Saving','儲蓄'],['Married','已婚'],['Community living','社區生活'],['Career development','職涯發展'],['Online shopping','網路購物'],['Interior design','室內設計']]},
+  {n:'28-55 / 梧棲龍井潮間帶 / 生態導覽×淨灘愛好族',sub:'海線潮間帶生態導覽與淨灘活動參與者·全新公益嗜好角度',
+   logic:'梧棲/龍井沿海潮間帶常有生態導覽與淨灘活動，參與者多是重視環境永續、願意投入公益時間的在地家庭，這群人對「地方環境變好」有實際行動力，過去未被獨立定向。',
+   lm:['梧棲觀光漁港','龍井台中港特定區','高美濕地','台中港'],
+   tags:[['Beach cleanup','淨灘'],['Environmental conservation','環境保育'],['Volunteering','志工服務'],['Ecotourism','生態旅遊'],['Marine life','海洋生態'],['Sustainability','永續發展'],['Outdoor recreation','戶外休閒'],['Family time','家庭時光'],['Local community','在地社區'],['Quality of life','生活品質'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Taichung','台中清水'],['Family','家庭'],['Financial planning','財務規劃'],['Stable income','穩定收入'],['Personal finance','個人理財'],['Investment','投資'],['Saving','儲蓄'],['Married','已婚'],['Community living','社區生活'],['Career development','職涯發展'],['Weekend activities','假日活動'],['Coffee','咖啡'],['Instagram','Instagram'],['Online shopping','網路購物']]},
+  {n:'30-60 / 大甲鎮瀾宮 / 媽祖徒步進香健走族',sub:'區別於已測之陣頭文化商圈角度·聚焦徒步進香參與者',
+   logic:'過去測過「媽祖信仰陣頭文化族」與「廟口店家攤商自營族」，此組改鎖定「實際參與徒步進香」的信眾——這群人每年固定跟著進香隊伍走完全程，體力好、重視傳統、對在地認同感極強，是與商業/表演角度都不同的虔誠信眾族群。',
+   lm:['大甲鎮瀾宮','大甲高中','大甲區公所','大甲車站'],
+   tags:[['Pilgrimage','進香'],['Religious walking','徒步信仰'],['Mazu culture','媽祖文化'],['Walking','健走運動'],['Temple','廟宇信仰'],['Traditional culture','傳統文化'],['Community volunteering','社區志工'],['Endurance','耐力'],['Local community','在地社區'],['Family','家庭'],['Quality of life','生活品質'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Taichung','台中清水'],['Financial planning','財務規劃'],['Stable income','穩定收入'],['Personal finance','個人理財'],['Investment','投資'],['Saving','儲蓄'],['Married','已婚'],['Community living','社區生活'],['Career development','職涯發展'],['Weekend activities','假日活動'],['Family time','家庭時光'],['Coffee','咖啡'],['Instagram','Instagram']]},
+  {n:'30-58 / 大甲鎮瀾宮 / 剪黏交趾陶工藝欣賞族',sub:'廟宇建築工藝美學角度·區別於已測之信仰/商業角度',
+   logic:'大甲鎮瀾宮的剪黏、交趾陶、木雕是台灣廟宇工藝的代表作，這群人是被「建築藝術/傳統工藝」吸引而非單純信仰或做生意，跟已測的陣頭文化、廟口攤商都是完全不同的欣賞角度，過去未觸及。',
+   lm:['大甲鎮瀾宮','大甲區公所','清水紫雲巖','梧棲浩天宮'],
+   tags:[['Traditional crafts','傳統工藝'],['Temple architecture','廟宇建築'],['Folk art','民俗藝術'],['Ceramic art','交趾陶'],['Woodcarving','木雕'],['Cultural heritage','文化資產'],['Museum','博物館'],['Photography','攝影'],['Art appreciation','藝術欣賞'],['Local culture','在地文化'],['Quality of life','生活品質'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Taichung','台中清水'],['Family','家庭'],['Financial planning','財務規劃'],['Stable income','穩定收入'],['Personal finance','個人理財'],['Investment','投資'],['Saving','儲蓄'],['Married','已婚'],['Local community','在地社區'],['Community living','社區生活'],['Career development','職涯發展'],['Weekend activities','假日活動'],['Family time','家庭時光']]},
+  {n:'28-52 / 清水老街 / 職人手作×選品咖啡族',sub:'清水老街近年出現文青選品店與咖啡廳·全新生活風格角度',
+   logic:'清水老街近年陸續出現職人手作品牌與選品咖啡廳，這群人重視在地生活風格與慢活步調，是與已測「小資文青夫妻」（人口輪廓）不同的「消費行為/嗜好」角度，聚焦逛選品店、喝咖啡的生活習慣。',
+   lm:['清水老街','清水區公所','清水鰲峰山運動公園','清水火車站'],
+   tags:[['Craft market','手作市集'],['Specialty coffee','精品咖啡'],['Boutique shop','選品店'],['Handmade goods','手作商品'],['Local business','在地小店'],['Slow living','慢活'],['Interior design','室內設計'],['Instagram','Instagram'],['Lifestyle','生活風格'],['Weekend activities','假日活動'],['Local community','在地社區'],['Quality of life','生活品質'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Taichung','台中清水'],['Family','家庭'],['Financial planning','財務規劃'],['Stable income','穩定收入'],['Personal finance','個人理財'],['Investment','投資'],['Saving','儲蓄'],['Married','已婚'],['Community living','社區生活'],['Career development','職涯發展'],['Family time','家庭時光'],['Coffee','咖啡']]},
+  {n:'28-55 / 海線公路+61線 / 自駕兜風×觀景平台打卡族',sub:'區別於已測之戶外露營釣魚·聚焦輕度自駕休閒族群',
+   logic:'台61線海線公路沿線有多個觀景平台（高美/台中港/龍井），假日開車兜風、找地方拍照打卡是海線居民常見的輕鬆休閒方式，與已測的「露營釣魚」重裝備休閒族群不同，這群人只需要一台車跟一支手機。',
+   lm:['台61線','高美濕地','台中港','龍井台中港特定區'],
+   tags:[['Road trip','自駕旅行'],['Scenic viewpoint','觀景平台'],['Photography','攝影'],['Weekend activities','假日活動'],['Automobiles','汽車'],['Family time','家庭時光'],['Local community','在地社區'],['Instagram','Instagram'],['Quality of life','生活品質'],['Slow living','慢活'],['Coffee','咖啡'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Taichung','台中清水'],['Family','家庭'],['Financial planning','財務規劃'],['Stable income','穩定收入'],['Personal finance','個人理財'],['Investment','投資'],['Saving','儲蓄'],['Married','已婚'],['Community living','社區生活'],['Career development','職涯發展'],['Online shopping','網路購物'],['Interior design','室內設計'],['Home appliances','家電']]},
+  {n:'30-58 / 清水大甲 / 芋頭筊白筍×在地物產美食族',sub:'大甲芋頭、清水筊白筍是知名在地物產·美食愛好角度未觸及',
+   logic:'大甲芋頭、清水筊白筍是海線代表性農產，這群人重視吃當季在地食材，常去產地直銷、農夫市集採買，對「在地生活」的認同感強，過去未以在地物產美食角度定向。',
+   lm:['大甲區公所','清水區公所','清水農會','大甲農會'],
+   tags:[['Local produce','在地農產'],['Farmers market','農夫市集'],['Organic food','有機食品'],['Local cuisine','在地美食'],['Cooking','烹飪'],['Farm to table','產地到餐桌'],['Healthy eating','健康飲食'],['Grocery shopping','日常採買'],['Local community','在地社區'],['Family','家庭'],['Quality of life','生活品質'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Taichung','台中清水'],['Financial planning','財務規劃'],['Stable income','穩定收入'],['Personal finance','個人理財'],['Investment','投資'],['Saving','儲蓄'],['Married','已婚'],['Community living','社區生活'],['Career development','職涯發展'],['Weekend activities','假日活動'],['Family time','家庭時光'],['Coffee','咖啡'],['Instagram','Instagram']]},
+  {n:'25-48 / 大肚山沿線 / 越野機車×林道探勘族',sub:'大肚山林道是中部越野機車熱門場地·全新嗜好角度',
+   logic:'大肚山周邊林道是中部越野機車/林道探勘愛好者常去的場地，這群人重視周邊有停車/整備空間的居住環境，消費力集中在機車改裝與裝備，過去未被獨立測試。',
+   lm:['大肚山','清水鰲峰山運動公園','沙鹿區','龍井區'],
+   tags:[['Off-road motorcycle','越野機車'],['Motorcycle gear','機車裝備'],['Adventure','冒險探索'],['Outdoor recreation','戶外休閒'],['Trail riding','林道騎乘'],['Mechanical hobby','機械嗜好'],['Automobiles','汽車'],['Weekend activities','假日活動'],['Instagram','Instagram'],['Quality of life','生活品質'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Taichung','台中清水'],['Family','家庭'],['Financial planning','財務規劃'],['Stable income','穩定收入'],['Personal finance','個人理財'],['Investment','投資'],['Saving','儲蓄'],['Married','已婚'],['Local community','在地社區'],['Community living','社區生活'],['Career development','職涯發展'],['Family time','家庭時光'],['Coffee','咖啡'],['Online shopping','網路購物']]},
+  {n:'25-50 / 台中港+高美濕地 / 衝浪風箏板×水上運動愛好族',sub:'台中港沿海是中部風箏衝浪熱點·全新運動嗜好角度',
+   logic:'台中港/高美濕地沿海風浪條件穩定，是中部風箏衝浪/滑水板愛好者的熱門場地，這群人消費力強、重視裝備收納空間，過去51組建議從未觸及水上運動這個運動分類，補足運動興趣覆蓋空白。',
+   lm:['台中港','高美濕地','梧棲觀光漁港','清水交流道'],
+   tags:[['Kitesurfing','風箏衝浪'],['Windsurfing','滑水板'],['Water sports','水上活動'],['Sports equipment','運動裝備'],['Outdoor recreation','戶外休閒'],['Fitness','健身運動'],['Weekend activities','假日活動'],['Instagram','Instagram'],['Adventure','冒險探索'],['Quality of life','生活品質'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Taichung','台中清水'],['Family','家庭'],['Financial planning','財務規劃'],['Stable income','穩定收入'],['Personal finance','個人理財'],['Investment','投資'],['Saving','儲蓄'],['Married','已婚'],['Local community','在地社區'],['Community living','社區生活'],['Career development','職涯發展'],['Family time','家庭時光'],['Coffee','咖啡'],['Online shopping','網路購物']]},
+  {n:'28-55 / 海線在地 / 手工皮革木工×職人手作族',sub:'需要工作室空間的手作嗜好·對三房+車位有實際空間需求',
+   logic:'手工皮革/木工愛好者需要一個固定角落擺放工具、材料，是對「多一房當工作室」有實際空間需求的族群，這種空間需求直接對應本案格局，過去未被獨立定向。',
+   lm:['清水區公所','沙鹿區','梧棲區','龍井區'],
+   tags:[['Leathercraft','皮革工藝'],['Woodworking','木工'],['DIY','自己動手做'],['Handmade goods','手作商品'],['Craft business','手作事業'],['Tools and equipment','工具設備'],['Maker culture','自造者文化'],['Online marketplace','線上交易平台'],['Home workshop','居家工作室'],['Instagram','Instagram'],['Quality of life','生活品質'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Taichung','台中清水'],['Family','家庭'],['Financial planning','財務規劃'],['Stable income','穩定收入'],['Personal finance','個人理財'],['Investment','投資'],['Saving','儲蓄'],['Married','已婚'],['Local community','在地社區'],['Community living','社區生活'],['Career development','職涯發展'],['Weekend activities','假日活動'],['Family time','家庭時光']]},
+  {n:'32-58 / 清水沙鹿工業區 / 工廠品管安全衛生管理職族',sub:'延伸全案最佳「工廠小型業主」組·聚焦品管/職安職級',
+   logic:'成效紀錄顯示「清水工廠小型業主家庭」是全案最高量組（18訊息，CPL$238），此組延伸至同一職場但不同職級的品管/職業安全衛生管理人員——這類人重視法規與制度，收入穩定但決策風格更謹慎，可測試是否比業主本人更容易被說服。',
+   lm:['清水區公所','沙鹿工業區','清水交流道','台中港'],
+   tags:[['Quality control','品質管理'],['Occupational safety','職業安全'],['Manufacturing','製造業'],['Factory management','工廠管理'],['Industrial safety','工業安全'],['Management','管理'],['Stable income','穩定收入'],['Career development','職涯發展'],['Local community','在地社區'],['Family','家庭'],['Quality of life','生活品質'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Taichung','台中清水'],['Financial planning','財務規劃'],['Insurance','保險'],['Personal finance','個人理財'],['Investment','投資'],['Saving','儲蓄'],['Married','已婚'],['Community living','社區生活'],['Weekend activities','假日活動'],['Family time','家庭時光'],['Coffee','咖啡'],['Instagram','Instagram'],['Online shopping','網路購物']]},
+  {n:'28-45 / 清水東海 / 首購新婚換算坪效族',sub:'延伸全案CPL最低「房地產成家」組·聚焦坪效換算行為',
+   logic:'成效紀錄顯示「清水東海房地產上班族成家」CPL$213為全案最低，此組延伸同一族群但聚焦「精算坪效/總價比較」的消費行為——這群首購新婚族習慣拿清水總價跟市區同坪數比較，訴求「同樣預算，清水買到更大空間」直接對應這種比價心理。',
+   lm:['清水區公所','清水交流道','台中火車站','清水國小'],
+   tags:[['Real estate listings','房屋廣告和入口網站'],['Price comparison','比價行為'],['First-time home buyer','首次置屋'],['Newlywed','新婚'],['Home buying','購屋'],['Mortgage','房屋貸款'],['Financial planning','財務規劃'],['Personal finance','個人理財'],['Budgeting','預算規劃'],['Family planning','家庭規劃'],['Online shopping','網路購物'],['Local community','在地社區'],['Family','家庭'],['Quality of life','生活品質'],['Real estate','不動產'],['Property investment','置產投資'],['Taichung','台中清水'],['Stable income','穩定收入'],['Investment','投資'],['Saving','儲蓄'],['Married','已婚'],['Community living','社區生活'],['Career development','職涯發展'],['Weekend activities','假日活動'],['Family time','家庭時光'],['Coffee','咖啡'],['Instagram','Instagram'],['Interior design','室內設計']]},
+  {n:'30-58 / 沙鹿清水神岡 / 貨運聯結車駕駛×物流運輸族',sub:'延伸「傳產倉儲物流貨運業主」組·聚焦第一線駕駛職級',
+   logic:'過去測過「傳產倉儲物流貨運業主」是老闆角度，此組延伸至第一線聯結車/大貨車駕駛，這群人收入穩定、作息規律，對「離工作地點近、停車方便」的住宅需求明確，是與業主不同職級的物流從業族群。',
+   lm:['台中港','清水交流道','沙鹿工業區','國道4號'],
+   tags:[['Trucking','貨運業'],['Logistics','物流業'],['Commercial driving','商用駕駛'],['Supply chain','供應鏈'],['Shift work','輪班工作制'],['Vehicle maintenance','車輛保養'],['Stable income','穩定收入'],['Insurance','保險'],['Family','家庭'],['Local community','在地社區'],['Quality of life','生活品質'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Taichung','台中清水'],['Financial planning','財務規劃'],['Personal finance','個人理財'],['Investment','投資'],['Saving','儲蓄'],['Married','已婚'],['Community living','社區生活'],['Career development','職涯發展'],['Weekend activities','假日活動'],['Family time','家庭時光'],['Coffee','咖啡'],['Instagram','Instagram'],['Online shopping','網路購物']]},
+  {n:'32-60 / 伸港福安宮+海線 / 宮廟志工×社區公益服務族',sub:'區別於已測之信仰生活圈/陣頭文化·聚焦志工服務角度',
+   logic:'海線各地宮廟常態需要志工協助祭典、社區服務，這群人重視「做點什麼回饋在地」，跟已測的「陣頭文化」（表演）、「伸港信仰生活圈家庭」（居住認同）都不同，是願意固定投入時間服務社區的族群。',
+   lm:['伸港福安宮','大甲鎮瀾宮','清水紫雲巖','梧棲浩天宮'],
+   tags:[['Volunteering','志工服務'],['Community service','社區服務'],['Temple','廟宇信仰'],['Local community','在地社區'],['Traditional culture','傳統文化'],['Social welfare','社會福利'],['Family','家庭'],['Quality of life','生活品質'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Taichung','台中清水'],['Financial planning','財務規劃'],['Stable income','穩定收入'],['Personal finance','個人理財'],['Investment','投資'],['Saving','儲蓄'],['Married','已婚'],['Community living','社區生活'],['Career development','職涯發展'],['Weekend activities','假日活動'],['Family time','家庭時光'],['Coffee','咖啡'],['Instagram','Instagram'],['Online shopping','網路購物'],['Interior design','室內設計'],['Home appliances','家電']]},
+  {n:'28-50 / 清水沙鹿在地 / 親子共學×社區育兒支持族',sub:'區別於已測之全職家庭主婦採購決策者·聚焦育兒共學社群角度',
+   logic:'海線在地有不少親子共學團、社區育兒互助社群，這群家長重視「有其他媽媽/家庭可以互相支援」的鄰里關係，跟已測的「家庭主婦採購決策」角度不同，這次聚焦社群連結而非消費決策。',
+   lm:['清水區公所','沙鹿區','清水國小','鰲峰山運動公園'],
+   tags:[['Parenting','育兒'],['Parent support group','親子共學'],['Community','社區'],['Early childhood education','幼兒教育'],['Family activities','家庭活動'],['Local community','在地社區'],['Family time','家庭時光'],['Quality of life','生活品質'],['School district','學區'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Taichung','台中清水'],['Family','家庭'],['Financial planning','財務規劃'],['Stable income','穩定收入'],['Personal finance','個人理財'],['Investment','投資'],['Saving','儲蓄'],['Married','已婚'],['Community living','社區生活'],['Career development','職涯發展'],['Weekend activities','假日活動'],['Coffee','咖啡'],['Instagram','Instagram'],['Online shopping','網路購物'],['Interior design','室內設計']]},
+  {n:'28-55 / 清水沙鹿老街 / 在地早餐店×小吃巡禮愛好族',sub:'區別於已測之家庭採購決策/夜市攤商·聚焦外食探店興趣',
+   logic:'海線在地有不少排隊早餐店與小吃名店，這群人喜歡假日探店、排隊嚐鮮，是純粹的「外食興趣」族群，與已測的「家庭主婦採購決策」（自己煮）、「夜市攤商自營」（做生意）都不同角度。',
+   lm:['清水老街','沙鹿老街','清水火車站','沙鹿火車站'],
+   tags:[['Local cuisine','在地美食'],['Breakfast','早餐文化'],['Food exploration','美食探索'],['Street food','小吃'],['Foodie','美食愛好者'],['Instagram','Instagram'],['Weekend activities','假日活動'],['Local business','在地小店'],['Local community','在地社區'],['Family','家庭'],['Quality of life','生活品質'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Taichung','台中清水'],['Financial planning','財務規劃'],['Stable income','穩定收入'],['Personal finance','個人理財'],['Investment','投資'],['Saving','儲蓄'],['Married','已婚'],['Community living','社區生活'],['Career development','職涯發展'],['Family time','家庭時光'],['Coffee','咖啡'],['Online shopping','網路購物'],['Interior design','室內設計']]}
+];
+
 function buildAudCard(g,idx,prefix){
   const id=prefix+(idx+1);
   const rows=g.tags.map((t,i)=>`<tr><td>${i+1}</td><td>${t[0]}</td><td>${t[1]}</td></tr>`).join('');
@@ -700,6 +789,8 @@ function toggleAud(id){document.getElementById(id).classList.toggle('open')}
 (function(){
   const mg=document.getElementById('main-aud-grid');
   if(mg)mg.innerHTML=MAIN_G.map((g,i)=>buildAudCard(g,i,'m')).join('');
+  const mg2=document.getElementById('main-aud-grid-2');
+  if(mg2)mg2.innerHTML=MAIN2_G.map((g,i)=>buildAudCard(g,i,'m2')).join('');
   document.querySelectorAll('.tag-tbl tbody tr').forEach(tr=>{
     tr.addEventListener('click',()=>{
       const cells=tr.querySelectorAll('td');
