@@ -239,7 +239,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   <div class="case-stats">
     <div class="stat"><div class="stat-n">290</div><div class="stat-l">雙粉專總潛客</div></div>
     <div class="stat"><div class="stat-n">NT$368</div><div class="stat-l">整體均CPL</div></div>
-    <div class="stat"><div class="stat-n">260組</div><div class="stat-l">累積受眾建議</div></div>
+    <div class="stat"><div class="stat-n">261組</div><div class="stat-l">累積受眾建議</div></div>
   </div>
 </div>
 
@@ -355,6 +355,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 <div class="section">
   <div class="sec-title">主粉專｜單組追加（購物×自由業接案族）· 更新 2026-08-10</div>
   <div id="main-aud-grid-10" class="aud-grid-2"></div>
+</div>
+
+<div class="section">
+  <div class="sec-title">主粉專｜單組追加（百貨餐飲服務業管理職族）· 更新 2026-08-11</div>
+  <div id="main-aud-grid-11" class="aud-grid-2"></div>
 </div>
 
 <div class="section">
@@ -1607,6 +1612,13 @@ const MAIN10_G=[
    tags:[['Freelancer','自由工作者'],['Self-employed','自營工作者'],['Work from home','居家辦公'],['Online shopping','網路購物'],['E-commerce','電子商務'],['Shopping','購物'],['Retail therapy','購物療癒'],['Fashion','時尚'],['Department stores','百貨公司'],['Loyalty programs','會員忠誠計畫'],['Discount shopping','折扣購物'],['Social media','社群媒體'],['Instagram','Instagram'],['Digital nomad','數位游牧'],['Creative industry','創意產業'],['Freelance platform','接案平台'],['Personal branding','個人品牌'],['Content creation','內容創作'],['Flexible schedule','彈性工時'],['Coffee shops','咖啡廳'],['Personal finance','個人理財'],['Financial planning','財務規劃'],['Interior design','室內設計'],['Home office','居家辦公室'],['Smart home','智慧家居'],['Quality of life','生活品質'],['Taichung','台中'],['National Chung Hsing University','中興大學']]}
 ];
 
+const MAIN11_G=[
+  {n:'28-50 / 南屯精品圈+大慶車站LALAPORT / 百貨餐飲服務業管理職族',sub:'全新未測角度·百貨/連鎖餐飲第一線中階管理職',
+   logic:'鎖定百貨公司樓管/店經理、連鎖餐廳店長等服務業第一線管理職，這群人具備團隊調度/排班/庫存管理等中階管理經驗，收入穩定但非坐辦公室型態，長期站立、需輪班，過去300組建議從未針對此職業族群定向過，南屯精品圈周邊百貨/連鎖餐飲密集，工作地緣高度吻合。',
+   lm:['南屯精品圈','大慶車站LALAPORT','文心森林公園','草悟道'],
+   tags:[['Retail management','零售管理'],['Restaurant management','餐廳管理'],['Hospitality management','餐旅管理'],['Store manager','店經理'],['Food service industry','餐飲服務業'],['Customer service','顧客服務'],['Team management','團隊管理'],['Shift work','輪班工作'],['Department stores','百貨公司'],['Chain store','連鎖店'],['Inventory management','庫存管理'],['Employee scheduling','排班管理'],['Leadership','領導力'],['Supply chain management','供應鏈管理'],['Career development','職涯發展'],['Coffee shops','咖啡廳'],['Fast food','速食'],['Franchising','加盟連鎖'],['Personal finance','個人理財'],['Financial planning','財務規劃'],['Quality of life','生活品質'],['Interior design','室內設計'],['New home','新家'],['Home buying','購屋'],['Taichung','台中'],['National Chung Hsing University','中興大學']]}
+];
+
 
 const ALT10_G=[{n:'24-40 / 草悟道市民廣場+文心森林公園 / 馬拉松路跑俱樂部有氧愛好族',sub:'1510延伸Thread A·路跑賽事訓練社群角度區隔主粉專',
    logic:'1510延伸Thread A，鎖定馬拉松/路跑俱樂部訓練社群，強化「跑步/有氧」行為密度，與主粉專的藝文消費角度區隔。',
@@ -1688,6 +1700,8 @@ const ALT10_G=[{n:'24-40 / 草悟道市民廣場+文心森林公園 / 馬拉松�
   if(mg9)mg9.innerHTML=MAIN9_G.map((g,i)=>buildAudCard(g,i,'m9',false)).join('');
   const mg10=document.getElementById('main-aud-grid-10');
   if(mg10)mg10.innerHTML=MAIN10_G.map((g,i)=>buildAudCard(g,i,'m10',false)).join('');
+  const mg11=document.getElementById('main-aud-grid-11');
+  if(mg11)mg11.innerHTML=MAIN11_G.map((g,i)=>buildAudCard(g,i,'m11',false)).join('');
   const ag10=document.getElementById('alt-aud-grid-10');
   if(ag10)ag10.innerHTML=ALT10_G.map((g,i)=>buildAudCard(g,i,'a10',true)).join('');
 })();
