@@ -256,7 +256,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   <div class="case-stats">
     <div class="stat"><div class="stat-n">456</div><div class="stat-l">雙粉專總潛客</div></div>
     <div class="stat"><div class="stat-n">NT$1,087</div><div class="stat-l">整體均CPL</div></div>
-    <div class="stat"><div class="stat-n">246+</div><div class="stat-l">累積受眾組</div></div>
+    <div class="stat"><div class="stat-n">249+</div><div class="stat-l">累積受眾組</div></div>
   </div>
 </div>
 
@@ -592,6 +592,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   <div id="alt-aud-grid2" class="aud-grid-2"></div>
 </div>
 
+<!-- 1510 建議嘗試受眾（高消費力年輕族群，3組） -->
+<div class="section">
+  <div class="sec-title teal-bar">1510｜建議嘗試受眾（3組，高消費力年輕族群）· 建立 2026-08-11</div>
+  <div class="note-bar" style="background:var(--teal-light);border-color:var(--teal-border);color:#1a4a52">📌 鎖定消費力明顯超出一般年輕受薪族水準的族群（精品/超跑/私人俱樂部消費興趣），這類人年齡輕但購屋決策不完全靠自己收入支撐，常見有家族資源或長輩資助頭期款的背景。不直接使用「父母資助」這類人生事件標籤（非真實Meta分類），改用精品奢華消費行為作為代理指標。</div>
+  <div id="alt-aud-grid3" class="aud-grid-2"></div>
+</div>
+
 <!-- 1510 rank-op-grid -->
 <div class="rank-op-grid">
 
@@ -898,6 +905,13 @@ const ALT_G2=[
   {n:'22-45 / 逢甲 / 深夜小吃在地美食探店族',sub:'在地美食探索DNA延伸·深夜飲食文化深化',logic:'延伸「次文化＋Y世代」在地生活DNA至深夜小吃/美食探店社群，這群人熟悉在地商圈美食地圖，社群分享意願高。',lm:['逢甲(+8km)','北屯崇德商圈','洲際棒球場','LALAPORT台中'],tags:[['Night market','夜市'],['Street food','街頭小吃'],['Local cuisine','在地美食'],['Foodie','美食愛好者'],['Late night dining','深夜飲食'],['Food blogger','美食部落客'],['Instagram','Instagram'],['Restaurant','餐廳'],['Food photography','美食攝影'],['Hot pot','火鍋'],['Bubble tea','手搖飲'],['Barbecue','烤肉'],['Convenience store','便利商店'],['Delivery app','外送App'],['Subculture','次文化'],['Generation Y','Y世代'],['Trivia','冷知識'],['Netflix','Netflix'],['Bar','酒吧'],['Fitness club','健身俱樂部'],['Personal finance','個人理財'],['New home','新家'],['Home buying','購屋'],['Quality of life','生活品質'],['Taichung','台中']]}
 ];
 
+/* ── aud-card: ALT_G3（1510，3組，高消費力年輕族群/精品奢華消費代理指標） ── */
+const ALT_G3=[
+  {n:'22-32 / 逢甲 / 名牌精品奢華消費族',sub:'消費力明顯超齡·精品消費作為家族資源代理指標',logic:'年齡輕但精品消費密度高，收入水準與消費力明顯不對等，這類族群購屋決策常有家族資源支持，決策速度快、對「總價門檻」不敏感，重視地段與規格門面。',lm:['逢甲(+8km)','北屯崇德商圈','洲際棒球場','LALAPORT台中'],tags:[['Luxury goods','精品奢侈品'],['Designer brand','設計師品牌'],['Gucci','古馳'],['Louis Vuitton','路易威登'],['Chanel','香奈兒'],['Hermès','愛馬仕'],['Prada','普拉達'],['Personal shopper','私人採購顧問'],['Fashion week','時裝週'],['High society','上流社會'],['Fine dining','精緻餐飲'],['Michelin restaurants','米其林餐廳'],['Champagne','香檳'],['Designer furniture','設計師家具'],['Interior design','室內設計'],['International travel','國際旅遊'],['First class travel','頭等艙旅遊'],['Instagram','Instagram'],['Online shopping','網路購物'],['Subculture','次文化'],['Generation Y','Y世代'],['New home','新家'],['Home buying','購屋'],['Quality of life','生活品質'],['Taichung','台中']]},
+  {n:'22-35 / 逢甲 / 超跑名錶收藏族',sub:'消費力明顯超齡·超跑名錶收藏作為家族資源代理指標',logic:'超跑/名錶收藏是消費門檻極高的興趣，年輕族群若有此類興趣，多半有家族資源背景，這類人重視「配得上車庫/身分」的居住規格。',lm:['逢甲(+8km)','北屯崇德商圈','洲際棒球場','LALAPORT台中'],tags:[['Supercar','超跑'],['Ferrari','法拉利'],['Lamborghini','藍寶堅尼'],['Porsche','保時捷'],['Luxury watch','名錶'],['Rolex','勞力士'],['Cartier','卡地亞'],['Automobile','汽車'],['Car culture','汽車文化'],['Yacht','遊艇'],['Country club','鄉村俱樂部'],['Golf','高爾夫'],['Fine dining','精緻餐飲'],['Wine collecting','葡萄酒收藏'],['Art collecting','藝術收藏'],['International travel','國際旅遊'],['Business class','商務艙（航空旅行）'],['Instagram','Instagram'],['Subculture','次文化'],['Generation Y','Y世代'],['Real estate','房地產'],['New home','新家'],['Home buying','購屋'],['Quality of life','生活品質'],['Taichung','台中']]},
+  {n:'22-32 / 逢甲 / 私人俱樂部社交名媛族',sub:'消費力明顯超齡·頂級社交場域作為家族資源代理指標',logic:'頂級夜店/私人會員俱樂部是社交門檻與消費門檻雙高的場域，年輕族群若活躍其中，家族背景支持機率高，重視居住的門面與地段象徵性。',lm:['逢甲(+8km)','北屯崇德商圈','洲際棒球場','LALAPORT台中'],tags:[['Exclusive nightclub','頂級夜店'],['VIP lounge','貴賓室'],['High society','上流社會'],['Fine dining','精緻餐飲'],['Champagne','香檳'],['Cocktail','調酒'],['Fashion','時尚'],['Luxury goods','精品奢侈品'],['Designer brand','設計師品牌'],['Jewelry','珠寶飾品'],['Nightlife','夜生活'],['Bar','酒吧'],['International travel','國際旅遊'],['Fashion week','時裝週'],['Instagram','Instagram'],['Social media','社群媒體'],['Photography','攝影'],['Private event','私人派對'],['Subculture','次文化'],['Generation Y','Y世代'],['Personal finance','個人理財'],['New home','新家'],['Home buying','購屋'],['Quality of life','生活品質'],['Taichung','台中']]}
+];
+
 /* ── aud-card functions ── */
 function showCopyToast(msg){const t=document.getElementById('toast');t.textContent=msg||'已複製';t.style.opacity='1';t.style.transform='translateX(-50%) translateY(0)';setTimeout(()=>{t.style.opacity='0';t.style.transform='translateX(-50%) translateY(20px)'},2200)}
 function copyTxt(txt){navigator.clipboard.writeText(txt).then(()=>showCopyToast('已複製 → 貼至 Claude')).catch(()=>{const ta=document.createElement('textarea');ta.value=txt;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showCopyToast('已複製 → 貼至 Claude')})}
@@ -909,6 +923,8 @@ function buildAudCard(g,idx){const id='aud-'+idx;const rows=g.tags.map((t,i)=>`<
   if(ag)ag.innerHTML=ALT_G.map((g,i)=>buildAudCard(g,i+100)).join('');
   const ag2=document.getElementById('alt-aud-grid2');
   if(ag2)ag2.innerHTML=ALT_G2.map((g,i)=>buildAudCard(g,i+300)).join('');
+  const ag3=document.getElementById('alt-aud-grid3');
+  if(ag3)ag3.innerHTML=ALT_G3.map((g,i)=>buildAudCard(g,i+400)).join('');
   document.querySelectorAll('.aud-header').forEach(hdr=>{hdr.addEventListener('click',()=>hdr.closest('.aud-card').classList.toggle('open'))});
   document.querySelectorAll('.tag-tbl tbody tr').forEach(tr=>{tr.addEventListener('click',e=>{e.stopPropagation();const cells=tr.querySelectorAll('td');if(cells.length>=3)copyTxt(cells[1].textContent.trim())})});
 })();
