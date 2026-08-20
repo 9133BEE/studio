@@ -248,6 +248,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   <div id="new-aud-grid" class="aud-grid-2"></div>
 </div>
 
+<!-- 全新策略受眾（跳脫職業/嗜好排列組合） -->
+<div class="section">
+  <div class="sec-title">全新策略受眾（20組，跳脫職業/嗜好排列組合・依實測未達效果重新設計）· 更新 2026-08-20</div>
+  <div class="note-bar">正式上線後，前面60組（沿用沙鹿0709／清水訊息0709區域歷史數據所設計的職業與嗜好角度，含醫護/工程師/自營商/軍公教/文青等訊息型、餐飲業務/電商直銷/投資興趣/保全消防/家具設計等名單型、以及醫材業務/才藝班家長/獨立書店/中科商務/志工公益/自行車隊/電動車/市集手作/退休教職員等地標嗜好深化）實測後成效全數不佳，代表「借用區域歷史數據直接套用職業/嗜好排列組合」這個方法論在本案可能不適用。本批20組改用四個全新策略軸線：①高意圖行為訊號（鎖定591房屋交易網、房貸試算工具、賞屋預約、裝潢設計App、Pinterest居家收藏等「正在找房」的具體行為，而非用職業推測購買力）②極簡廣投對照組（刻意不疊加窄興趣，測試前60組「窄興趣定向」本身是否才是反效果）③地理完全外溢組（跳脫沙鹿/龍井/東海/清水/西屯/中科既有地標，改鎖定雙北桃園、台中市區、彰化市區、苗栗海線、新竹竹科等外縣市回流與外溢族群）④消費者生活情境行為組（用家電比價/搬家洽詢/嬰幼兒用品/居家收納/裝修估價等「準備搬新家」的具體周邊消費行為，不用人生轉折時機框架）。</div>
+  <div id="new2-aud-grid" class="aud-grid-2"></div>
+</div>
+
 <!-- 排行 + 操作建議（左右兩欄） -->
 <div class="rank-op-grid">
 
@@ -702,6 +709,89 @@ const NEW_G=[
    tags:[['Retirement planning','退休規劃'],['Healthcare','醫療保健'],['Health and wellness','健康養生'],['Quality of life','生活品質'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Family','家庭'],['Grandparenting','含飴弄孫'],['Local community','在地社區'],['Real estate','不動產'],['Home buying','購屋'],['Property investment','置產投資'],['Mortgage','房屋貸款'],['Taichung','台中沙鹿'],['Stable income','穩定收入'],['Personal finance','個人理財'],['Investment','投資'],['Married','已婚'],['Community living','社區生活'],['Career development','職涯發展'],['Weekend activities','假日活動'],['Family time','家庭時光'],['Coffee','咖啡'],['Instagram','Instagram'],['Online shopping','網路購物'],['Interior design','室內設計'],['Home appliances','家電'],['Furniture','家具']]}
 ];
 
+const NEW2_G=[
+  {n:'25-55 / 沙鹿海線 / 591房屋交易網高頻瀏覽族',sub:'【高意圖行為訊號】鎖定近期高頻瀏覽房屋交易平台的當下搜尋行為，而非用職業/嗜好推測購買力',
+   logic:'前60組全部借用區域職業與嗜好標籤推測誰「可能」買房，實測後全部沒有轉換。這組改用行為訊號：鎖定近期高頻使用591、樂屋網等房屋交易平台搜尋看屋的使用者，這是「正在找房子」的當下動作，而非用醫護/工程師等職業身分間接猜測，理論上更接近真實購屋意圖，適合搭配「限量戶型」「賞屋預約」類直接轉換素材測試。',
+   lm:['福德路','沙鹿區公所','光華時尚廣場','鹿峰國小'],
+   tags:[['Real estate listings','房屋交易平台'],['House hunting','看房搜尋行為'],['Property search','房產物件搜尋'],['Real estate website','房仲網站'],['Presale housing','預售屋'],['New construction','新成屋'],['Open house','實品屋賞屋'],['Real estate agent','房仲服務'],['Home value estimator','房屋估價工具'],['Real estate investment','房地產投資'],['Real estate market trends','房市動態'],['Property comparison','物件比較行為'],['Real estate news','房產新聞'],['Taichung real estate','台中房市'],['Local real estate','在地房產資訊'],['Real estate app','房產類App使用'],['Google search behavior','搜尋引擎比較行為'],['Online research','網路比價研究'],['Consumer decision making','購屋決策行為'],['Mortgage calculator','房貸試算'],['Financial planning','財務規劃'],['Personal finance','個人理財'],['Saving','儲蓄'],['Career development','職涯發展'],['Stable income','穩定收入'],['Quality of life','生活品質'],['Community living','社區生活'],['Local community','在地社區']]},
+  {n:'28-55 / 沙鹿海線 / 房貸試算工具活躍使用族',sub:'【高意圖行為訊號】鎖定近期主動使用房貸試算/利率比較工具的當下財務行為，鎖定「正在算得起」的族群',
+   logic:'前面推測收入多半用職業標籤（醫護/工程師/自營商）間接猜測，全數實測沒效；此組改用實際財務工具使用行為，這是比職業標籤更直接的「準備好要買」訊號，因為會去試算月付金的人已經在具體評估負擔能力，非泛泛的投資理財興趣。',
+   lm:['福德路','沙鹿區公所','光華時尚廣場','沙鹿農會'],
+   tags:[['Mortgage calculator','房貸試算工具'],['Home loan','房屋貸款申請'],['Interest rate comparison','利率比較'],['Bank loan','銀行貸款'],['Loan application','貸款申辦流程'],['First-time home buyer loan','首購貸款方案'],['Down payment planning','頭期款規劃'],['Fixed rate mortgage','固定利率房貸'],['Refinancing','轉貸'],['Credit score','信用評分'],['Online banking','網路銀行'],['Digital banking app','數位銀行App'],['Financial calculator','財務試算工具'],['Government housing subsidy','政府購屋補貼'],['Housing loan subsidy','青年安心成家貸款'],['Bank promotions','銀行優惠方案'],['Interest rate news','利率新聞'],['Central bank policy','央行政策關注'],['Economic news','財經新聞'],['Budgeting app','記帳理財App'],['Debt management','債務管理'],['Personal finance','個人理財'],['Financial planning','財務規劃'],['Saving','儲蓄'],['Investment','投資理財'],['Stable income','穩定收入'],['Career development','職涯發展'],['Quality of life','生活品質']]},
+  {n:'25-50 / 沙鹿海線 / 房仲聯繫×賞屋預約行為族',sub:'【高意圖行為訊號】鎖定曾與房仲互動、預約賞屋等具體接觸行為，比職業標籤更接近成交前哨站',
+   logic:'與其猜測誰「應該」有能力買房，不如鎖定已經產生具體購屋接觸行為的人——例如曾點擊房仲廣告、預約賞屋、填過房產詢問表單，這群人已經進入決策漏斗中後段，轉換路徑比從職業興趣冷啟動短很多，是與前60組截然不同的漏斗定位邏輯。',
+   lm:['光華時尚廣場','沙鹿區公所','福德路','鹿峰國小'],
+   tags:[['Real estate agent','房仲服務接觸'],['Open house booking','賞屋預約'],['Real estate lead form','房產詢問表單'],['Real estate advertising','建案廣告點擊'],['Virtual home tour','線上賞屋'],['Property viewing appointment','看屋預約行為'],['Real estate consultation','購屋諮詢'],['New home sales center','預售接待中心'],['Model house','樣品屋'],['Real estate exhibition','房產展覽'],['Property comparison','物件比較'],['Real estate investment','房地產投資'],['Home buying process','購屋流程'],['Real estate market','房市資訊'],['Taichung real estate','台中房市'],['Local real estate','在地房產'],['Mortgage calculator','房貸試算'],['Financial planning','財務規劃'],['Personal finance','個人理財'],['Saving','儲蓄'],['Investment','投資理財'],['Career development','職涯發展'],['Stable income','穩定收入'],['Family time','家庭時光'],['Quality of life','生活品質'],['Community living','社區生活'],['Local community','在地社區']]},
+  {n:'26-50 / 沙鹿海線 / 裝潢設計App規劃族',sub:'【高意圖行為訊號】鎖定使用裝潢設計App規劃新家格局的當下行為，代表已進入「即將擁有新家」階段',
+   logic:'會打開裝潢設計App規劃格局配色的人，通常已經有明確的新家（不論購買或即將入住）在手上規劃，這比單純「對室內設計有興趣」的嗜好標籤更接近實際購屋後期或即將簽約階段，訴求可直接連結「客變前先規劃好格局」，與前面已測的職業/嗜好角度完全不同邏輯。',
+   lm:['福德路','光華時尚廣場','沙鹿區公所','鹿峰國小'],
+   tags:[['Interior design app','裝潢設計App'],['Home design software','居家設計軟體'],['Floor plan planning','格局規劃'],['Room layout planning','空間配置規劃'],['3D home design','3D居家設計'],['Renovation planning','裝修規劃'],['Home customization','客變規劃'],['Interior design','室內設計'],['Home decor','居家佈置'],['Color scheme planning','配色規劃'],['Furniture shopping app','家具購物App'],['Smart home','智慧家居'],['Home appliances','家電'],['Furniture','家具'],['Home improvement','居家改造'],['Storage solutions','收納規劃'],['Kitchen design','廚房設計'],['Bathroom design','衛浴設計'],['DIY home projects','居家DIY'],['Online shopping','網路購物'],['Instagram','Instagram'],['Pinterest','Pinterest'],['Quality of life','生活品質'],['Financial planning','財務規劃'],['Personal finance','個人理財'],['Saving','儲蓄'],['Family time','家庭時光']]},
+  {n:'24-48 / 沙鹿海線 / Pinterest居家佈置收藏族',sub:'【高意圖行為訊號】鎖定長期在Pinterest收藏居家佈置靈感的族群，代表已具體想像過「未來的家」',
+   logic:'與裝潢App規劃（積極規劃）不同，Pinterest收藏是「持續蒐集靈感」的前期但長期累積行為，代表這個人對「未來理想的家」有具體圖像已久，是有意圖但尚未進入交易環節的族群，適合用夢想圖像素材喚醒購屋意圖，是行為訊號軸線中較前段但仍具體可查證的一組。',
+   lm:['光華時尚廣場','福德路','沙鹿區公所','高美濕地'],
+   tags:[['Pinterest','Pinterest'],['Home decor inspiration','居家佈置靈感'],['Interior design','室內設計'],['Mood board','靈感收藏板'],['Minimalist home','極簡居家風格'],['Scandinavian design','北歐風設計'],['Japandi style','日式無印風'],['Home styling','居家造型'],['DIY home projects','居家DIY'],['Home organization','居家收納'],['Furniture','家具'],['Home appliances','家電'],['Plants and gardening','園藝植栽'],['Cozy home','溫馨居家'],['Aesthetic lifestyle','美感生活風格'],['Photography','攝影'],['Instagram','Instagram'],['Online shopping','網路購物'],['Lifestyle blog','生活風格部落格'],['Home renovation','房屋翻新'],['Quality of life','生活品質'],['Family time','家庭時光'],['Financial planning','財務規劃'],['Personal finance','個人理財'],['Saving','儲蓄'],['Career development','職涯發展'],['Community living','社區生活']]},
+  {n:'25-55 / 沙鹿龍井梧棲清水+8K / 純廣投零疊加對照組',sub:'【極簡廣投對照組】完全不疊加任何興趣標籤，只用年齡＋地理半徑，測試窄興趣定向本身是否才是失敗主因',
+   logic:'前60組全數採用窄興趣疊加（職業/嗜好），全部成效不佳；這代表可能不是「哪個興趣沒選對」，而是「疊加窄興趣」這個做法本身在本案就是反效果。此組刻意反向操作，完全不疊加任何興趣定向，只設定年齡與海線8公里地理半徑，交給演算法自動尋找轉換率最高的受眾，作為對照實驗基準，下列標籤僅供監測參考，不建議手動疊加。',
+   lm:['沙鹿區公所','福德路','光華時尚廣場','鹿峰國小'],
+   tags:[['Real estate (property)','不動產（房地產）'],['Home buying','購屋'],['Family','家庭'],['Married','已婚'],['Local community','在地社區'],['Community living','社區生活'],['Quality of life','生活品質'],['Financial planning','財務規劃'],['Personal finance','個人理財'],['Saving','儲蓄'],['Investment','投資理財'],['Stable income','穩定收入'],['Career development','職涯發展'],['Online shopping','網路購物'],['Instagram','Instagram'],['Facebook','Facebook'],['Mobile shopping','行動購物'],['Streaming service','串流影音'],['Coffee','咖啡'],['Weekend activities','假日活動'],['Family time','家庭時光'],['Food and dining','美食餐飲'],['Travel','旅遊'],['Fitness','健身運動'],['Health and wellness','健康養生'],['Taichung','台中沙鹿'],['Local business','在地小店']]},
+  {n:'28-58 / 沙鹿龍井梧棲清水+8K / 廣投＋單一不動產興趣對照組',sub:'【極簡廣投對照組】僅疊加「不動產」單一興趣，測試單層疊加是否優於前60組常見的3-5層複合疊加',
+   logic:'前60組多數疊加3層以上興趣（職業+嗜好+財務+家庭），屬於複合窄定向；此組測試單層疊加的效果，只加「不動產」這一個興趣層，其餘交給廣泛受眾自然觸及，用來釐清「疊加層數過多」是否是造成前面成效不佳的關鍵變數之一，而非興趣主題本身選錯。',
+   lm:['沙鹿區公所','福德路','光華時尚廣場','鹿峰國小'],
+   tags:[['Real estate (property)','不動產（房地產）'],['Home buying','購屋'],['Property investment','置產投資'],['Family','家庭'],['Married','已婚'],['Local community','在地社區'],['Community living','社區生活'],['Quality of life','生活品質'],['Financial planning','財務規劃'],['Personal finance','個人理財'],['Saving','儲蓄'],['Investment','投資理財'],['Stable income','穩定收入'],['Career development','職涯發展'],['Online shopping','網路購物'],['Instagram','Instagram'],['Facebook','Facebook'],['Mobile shopping','行動購物'],['Streaming service','串流影音'],['Coffee','咖啡'],['Weekend activities','假日活動'],['Family time','家庭時光'],['Food and dining','美食餐飲'],['Travel','旅遊'],['Fitness','健身運動'],['Taichung','台中沙鹿'],['Local business','在地小店']]},
+  {n:'30-60 / 沙鹿龍井梧棲清水+8K / 廣投＋單一購屋興趣對照組',sub:'【極簡廣投對照組】僅疊加「購屋」單一行為型興趣，測試行為型興趣是否優於分類型興趣的單層疊加效果',
+   logic:'同樣測試單層疊加假設，但改用「購屋」這個更直接的行為型興趣取代「不動產」這個較廣泛的分類興趣，用來比較「分類興趣」與「行為型興趣」在單層疊加下何者表現較好，作為極簡策略內部的變數對照，避免只測一種疊加方式就下結論。',
+   lm:['沙鹿區公所','福德路','光華時尚廣場','鹿峰國小'],
+   tags:[['Home buying','購屋'],['Real estate (property)','不動產（房地產）'],['Home upgrade','換屋升格'],['Family','家庭'],['Married','已婚'],['Local community','在地社區'],['Community living','社區生活'],['Quality of life','生活品質'],['Financial planning','財務規劃'],['Personal finance','個人理財'],['Saving','儲蓄'],['Investment','投資理財'],['Stable income','穩定收入'],['Career development','職涯發展'],['Online shopping','網路購物'],['Instagram','Instagram'],['Facebook','Facebook'],['Mobile shopping','行動購物'],['Streaming service','串流影音'],['Coffee','咖啡'],['Weekend activities','假日活動'],['Family time','家庭時光'],['Food and dining','美食餐飲'],['Travel','旅遊'],['Health and wellness','健康養生'],['Taichung','台中沙鹿'],['Local business','在地小店']]},
+  {n:'25-65 / 沙鹿龍井梧棲清水+10K / 全客層放寬廣投對照組',sub:'【極簡廣投對照組】年齡放寬至25-65全客層＋地理半徑放大至10公里，測試年齡窄化本身是否也是變數',
+   logic:'前60組全數鎖定30-65歲之間的窄年齡層，此組刻意放寬至25-65全客層並放大地理半徑至10公里，測試「年齡層限縮」本身是否也是造成量體不足、成效不佳的變數之一，而非只有興趣定向的問題，讓演算法在更大母數中自行尋找轉換率高的族群。',
+   lm:['沙鹿區公所','福德路','光華時尚廣場','鹿峰國小'],
+   tags:[['Family','家庭'],['Married','已婚'],['Real estate (property)','不動產（房地產）'],['Home buying','購屋'],['Local community','在地社區'],['Community living','社區生活'],['Quality of life','生活品質'],['Financial planning','財務規劃'],['Personal finance','個人理財'],['Saving','儲蓄'],['Investment','投資理財'],['Stable income','穩定收入'],['Career development','職涯發展'],['Online shopping','網路購物'],['Instagram','Instagram'],['Facebook','Facebook'],['Mobile shopping','行動購物'],['Streaming service','串流影音'],['Coffee','咖啡'],['Weekend activities','假日活動'],['Family time','家庭時光'],['Food and dining','美食餐飲'],['Travel','旅遊'],['Retirement planning','退休規劃'],['Health and wellness','健康養生'],['Taichung','台中沙鹿'],['Local business','在地小店']]},
+  {n:'28-60 / 沙鹿海線＋12K放大半徑 / 地理放大廣投對照組',sub:'【極簡廣投對照組】維持基礎年齡與地理放大至12公里，不疊加任何身分/嗜好興趣，測試地理覆蓋率放大的效果',
+   logic:'前60組地理半徑多半落在5-8公里之間且疊加多層興趣，此組保留基礎年齡設定但將地理半徑放大至12公里、完全不疊加任何身分興趣，測試單純放大地理覆蓋率本身能否用更大的自然觸及量換取更低的單位成本，作為極簡策略中的地理變數對照組。',
+   lm:['沙鹿區公所','福德路','光華時尚廣場','鹿峰國小'],
+   tags:[['Real estate (property)','不動產（房地產）'],['Home buying','購屋'],['Local community','在地社區'],['Community living','社區生活'],['Taichung','台中沙鹿'],['Local business','在地小店'],['Quality of life','生活品質'],['Financial planning','財務規劃'],['Personal finance','個人理財'],['Saving','儲蓄'],['Investment','投資理財'],['Stable income','穩定收入'],['Career development','職涯發展'],['Family','家庭'],['Married','已婚'],['Online shopping','網路購物'],['Instagram','Instagram'],['Facebook','Facebook'],['Mobile shopping','行動購物'],['Streaming service','串流影音'],['Coffee','咖啡'],['Weekend activities','假日活動'],['Family time','家庭時光'],['Food and dining','美食餐飲'],['Travel','旅遊'],['Fitness','健身運動'],['Commuting','通勤生活圈']]},
+  {n:'30-55 / 台北桃園 / 北漂游子返鄉置產族',sub:'【地理外溢組】跳脫沙鹿海線在地地標，鎖定在雙北桃園工作、老家在海線的游子，主打返鄉置產動機',
+   logic:'前60組地理範圍全部鎖在沙鹿/龍井/東海/清水/西屯/中科這幾個既有地標打轉，即使職業角度不同、地理邏輯完全一樣；此組徹底跳出海線，鎖定人在雙北/桃園工作、家鄉在台中海線的游子，這群人對「回家有個好房子」的情感連結強，且雙北房價對比下沙鹿總價更有吸引力，是全新的地理與情感雙重邏輯。',
+   lm:['台北車站','桃園區','沙鹿火車站','福德路'],
+   tags:[['Working away from home','異地工作'],['Hometown','家鄉情懷'],['Homesickness','思鄉情感'],['Long distance commuting','長途通勤'],['High-speed rail','高鐵通勤'],['Real estate investment','房地產投資'],['Property investment','置產投資'],['Second home','第二居所'],['Family reunion','返鄉團聚'],['Filial piety','孝親'],['Parents care','照顧父母'],['Remote work','遠距工作'],['Career development','職涯發展'],['High income','高收入族群'],['Taipei housing market','雙北房市'],['Housing affordability','房價負擔能力'],['Real estate (property)','不動產（房地產）'],['Home buying','購屋'],['Mortgage','房屋貸款'],['Financial planning','財務規劃'],['Personal finance','個人理財'],['Saving','儲蓄'],['Investment','投資理財'],['Family','家庭'],['Weekend travel','假日返鄉旅行'],['High-speed rail travel','高鐵旅遊通勤'],['Local community','在地社區'],['Quality of life','生活品質']]},
+  {n:'28-52 / 台中七期北屯 / 市區買不起外溢首購族',sub:'【地理外溢組】鎖定台中市區七期/北屯高房價買不起、考慮外溢置產的首購族，地理邏輯與海線在地案全然不同',
+   logic:'前60組全數鎖定「已經住在海線」或「通勤到中科西屯」的既有海線居民，此組反過來鎖定人在市區七期/北屯，因市區房價過高負擔不起，正在考慮往外圍尋找總價帶較低、車程可接受區域的外溢首購族，訴求「市區總價買不起的兩房，沙鹿換三房」。',
+   lm:['台中七期','北屯區','沙鹿火車站','福德路'],
+   tags:[['Housing affordability','房價負擔能力'],['Real estate market','房市動態'],['First-time home buyer','首購族'],['Property comparison','物件比較'],['Home upgrade','換屋升格'],['Commuting','通勤考量'],['Highway driving','高速公路通勤'],['Real estate investment','房地產投資'],['Taichung real estate','台中房市'],['Urban living','市區生活'],['Suburban living','郊區生活選擇'],['Cost of living','生活成本'],['Young professional','年輕上班族'],['Career development','職涯發展'],['Financial planning','財務規劃'],['Personal finance','個人理財'],['Mortgage calculator','房貸試算'],['Saving','儲蓄'],['Investment','投資理財'],['Home buying','購屋'],['Property investment','置產投資'],['Family','家庭'],['Married','已婚'],['Quality of life','生活品質'],['Community living','社區生活'],['Local community','在地社區'],['Online shopping','網路購物']]},
+  {n:'30-58 / 彰化市區和美 / 跨區外溢置產族',sub:'【地理外溢組】不同於既有彰化員林通勤組，改鎖定彰化市區/和美方向的置產外溢族，地理與訴求角度不同',
+   logic:'過去建議已測過「彰化員林+沙鹿」通勤方向，這組改鎖定彰化市區與和美，這群人與沙鹿車程距離相近但總價帶落差更大，訴求聚焦「總價帶」而非「通勤時間」，用「一樣車程，總價省更多」做差異化角度，避免與已測員林組重疊。',
+   lm:['彰化市','和美鎮','沙鹿火車站','福德路'],
+   tags:[['Real estate market','房市動態'],['Housing affordability','房價負擔能力'],['Property comparison','物件比較行為'],['Home upgrade','換屋升格'],['Commuting','通勤考量'],['Cross-county commuting','跨縣市通勤'],['Highway driving','國道通勤'],['Real estate investment','房地產投資'],['Property investment','置產投資'],['Changhua','彰化在地'],['Local business owner','在地企業主'],['Small business owners','小型企業主'],['Career development','職涯發展'],['Financial planning','財務規劃'],['Personal finance','個人理財'],['Mortgage calculator','房貸試算'],['Saving','儲蓄'],['Investment','投資理財'],['Home buying','購屋'],['Family','家庭'],['Married','已婚'],['Stable income','穩定收入'],['Quality of life','生活品質'],['Community living','社區生活'],['Local community','在地社區'],['Online shopping','網路購物'],['Cost of living','生活成本']]},
+  {n:'28-55 / 苗栗苑裡通霄 / 北側外溢通勤置產族',sub:'【地理外溢組】跳脫既有大甲地標的職人嗜好角度，改用苑裡通霄北側外溢通勤這個地理邏輯做置產訴求',
+   logic:'既有建議中「東海大甲傳統糕餅烘焙職人族」雖有用到大甲地標，但邏輯是職人嗜好而非地理外溢；此組改用苗栗苑裡/通霄往南通勤沙鹿中科的族群，這群人在地價更低的苗栗海線居住，因中科/沙鹿就業機會南移考慮置產，是純地理外溢邏輯，過去未被獨立測試。',
+   lm:['苑裡鎮','通霄鎮','沙鹿火車站','福德路'],
+   tags:[['Commuting','南向通勤'],['Work commute','上下班通勤'],['Highway driving','台61線通勤'],['Railway commuting','台鐵通勤'],['Housing affordability','房價負擔能力'],['Real estate market','房市動態'],['Home upgrade','換屋升格'],['Property investment','置產投資'],['Miaoli','苗栗在地'],['Local community','在地社區'],['Small business owners','小型企業主'],['Manufacturing industry','傳產製造業'],['Career development','職涯發展'],['Financial planning','財務規劃'],['Personal finance','個人理財'],['Mortgage calculator','房貸試算'],['Saving','儲蓄'],['Investment','投資理財'],['Home buying','購屋'],['Family','家庭'],['Married','已婚'],['Stable income','穩定收入'],['Quality of life','生活品質'],['Community living','社區生活'],['Cost of living','生活成本'],['Online shopping','網路購物'],['Real estate investment','房地產投資']]},
+  {n:'28-55 / 新竹竹科 / 竹科游子返鄉置產族',sub:'【地理外溢組】完全跳脫中科地標邏輯，改鎖定人在新竹竹科工作、家鄉在海線的游子返鄉置產需求',
+   logic:'既有建議多次使用「中科園區」做工程師/科技業角度定向，全部落在既有地標圈；此組改鎖定完全外縣市的新竹竹科上班族，這群人在新竹高房價環境工作多年，家鄉在台中海線，訴求「新竹買不起的預算，回沙鹿買三房」，地理與心理邏輯都與中科組不同。',
+   lm:['新竹科學園區','新竹市','沙鹿火車站','福德路'],
+   tags:[['Technology industry','科技產業'],['High income','高收入族群'],['Housing affordability','房價負擔能力'],['Hometown','家鄉情懷'],['Working away from home','異地工作'],['High-speed rail','高鐵通勤'],['Real estate investment','房地產投資'],['Property investment','置產投資'],['Second home','第二居所'],['Career development','職涯發展'],['Engineering profession','工程師職業'],['Semiconductor industry','半導體產業'],['Financial planning','財務規劃'],['Personal finance','個人理財'],['Mortgage calculator','房貸試算'],['Saving','儲蓄'],['Investment','投資理財'],['Home buying','購屋'],['Family','家庭'],['Married','已婚'],['Stable income','穩定收入'],['Quality of life','生活品質'],['Community living','社區生活'],['Local community','在地社區'],['Online shopping','網路購物'],['Business travel','商務差旅'],['High-speed rail travel','高鐵通勤旅遊']]},
+  {n:'28-52 / 沙鹿海線 / 家電家具比價採購行為族',sub:'【生活情境行為組】鎖定正在比較家電/家具價格採購的具體消費行為，訴求新家家電家具採購優惠，非用嗜好或職業推測',
+   logic:'前面「志工/自行車隊/市集手作」這類是嗜好興趣角度，此組改用「正在做的事」這個具體消費行為訊號——會密集比較家電家具價格的人，通常代表家裡有明確的採購計畫（準備搬新家/裝修完工），比嗜好標籤更貼近「即將入住新家」這個實際時間點，且完全不使用人生轉折時機框架，只用可查證的購物比較行為分類。',
+   lm:['家樂福鹿寮店','福德路','光華時尚廣場','沙鹿區公所'],
+   tags:[['Home appliances','家電比價'],['Furniture','家具採購'],['Price comparison shopping','比價購物行為'],['Online shopping','網路購物'],['E-commerce','電商平台'],['Discount and coupons','優惠折扣'],['Sales promotion','促銷活動'],['Home improvement','居家改造'],['Kitchen appliances','廚房家電'],['Air conditioning','冷氣空調'],['Smart home','智慧家居'],['Furniture shopping','家具購物'],['IKEA','IKEA'],['Home decor','居家佈置'],['Consumer electronics','消費電子'],['Warranty and service','保固服務'],['Installment payment','分期付款'],['Credit card promotions','信用卡優惠'],['Financial planning','財務規劃'],['Personal finance','個人理財'],['Saving','儲蓄'],['Family','家庭'],['Family time','家庭時光'],['Quality of life','生活品質'],['Local business','在地小店'],['Community living','社區生活']]},
+  {n:'28-50 / 沙鹿海線 / 搬家服務洽詢比較族',sub:'【生活情境行為組】鎖定正在洽詢/比較搬家公司服務的具體行為，代表已進入實際搬遷準備階段',
+   logic:'這群人正在做的事情很明確——比較搬家公司報價、詢問搬遷服務，這是比「志工/公益/宮廟文化」這類生活風格嗜好更直接的入住前哨訊號，代表短期內就有實體搬遷需求，適合搭配交屋/入住時程類素材做時間點對接，不使用任何人生轉折時機框架。',
+   lm:['福德路','沙鹿區公所','光華時尚廣場','沙鹿火車站'],
+   tags:[['Moving services','搬家服務'],['Moving company','搬家公司'],['Relocation','搬遷規劃'],['Packing supplies','打包用品'],['Storage services','倉儲服務'],['Home improvement','居家改造'],['Interior design','室內設計'],['Furniture','家具'],['Home appliances','家電'],['New home setup','新家佈置'],['Address change','地址變更'],['Utility services','水電瓦斯申請'],['Internet installation','網路申裝'],['Local services','在地服務'],['Online shopping','網路購物'],['Price comparison shopping','比價行為'],['Financial planning','財務規劃'],['Personal finance','個人理財'],['Saving','儲蓄'],['Family','家庭'],['Family time','家庭時光'],['Quality of life','生活品質'],['Community living','社區生活'],['Local community','在地社區'],['Career development','職涯發展'],['Stable income','穩定收入']]},
+  {n:'26-42 / 沙鹿海線 / 嬰幼兒用品採購比較族',sub:'【生活情境行為組】用具體嬰幼兒用品採購/比較消費行為做定向，非用「新手父母」等人生轉折時機框架',
+   logic:'這組刻意避開「即將生產/新手爸媽」這種Meta沒有真實分類的人生轉折框架，改用可查證的消費行為——密集研究/比較嬰兒推車、汽座、副食品用品的人，代表家中有明確且即時的育兒採購需求，這群人對「大坪數、有電梯、社區安全」的居住條件特別敏感，訴求可直接對接三房戶型。',
+   lm:['童綜合醫院','光華時尚廣場','鹿峰國小','福德路'],
+   tags:[['Baby products','嬰幼兒用品'],['Baby stroller','嬰兒推車'],['Car seat','汽車安全座椅'],['Baby food','嬰兒副食品'],['Diapers','尿布'],['Parenting','育兒'],['Child safety','兒童安全'],['Parenting apps','育兒App'],['Online shopping','網路購物'],['Price comparison shopping','比價購物行為'],['Baby monitor','嬰兒監視器'],['Nursery furniture','嬰兒房家具'],['Toy','玩具'],['Child education','兒童教育'],['School district','學區'],['Family activities','家庭活動'],['Elevator building','電梯大樓'],['Community safety','社區安全'],['Family','家庭'],['Family time','家庭時光'],['Financial planning','財務規劃'],['Personal finance','個人理財'],['Saving','儲蓄'],['Quality of life','生活品質'],['Community living','社區生活'],['Local community','在地社區']]},
+  {n:'28-55 / 沙鹿海線 / 居家收納整理規劃族',sub:'【生活情境行為組】鎖定正在研究收納/整理術規劃新居空間的具體行為，區別於純室內設計嗜好角度',
+   logic:'這群人正在做的事情是「規劃怎麼收納整理新空間」，跟單純喜歡看室內設計美照的嗜好不同，是更貼近「即將有新的居住空間需要規劃收納系統」的實用行為訊號，訴求可對接建案坪效規劃與收納規劃優勢，與前面純美感取向的文青/日系生活組邏輯不同。',
+   lm:['福德路','光華時尚廣場','沙鹿區公所','鹿峰國小'],
+   tags:[['Home organization','居家收納'],['Decluttering','斷捨離整理'],['Storage solutions','收納系統規劃'],['KonMari method','怦然心動整理法'],['Closet organization','衣櫃收納'],['Space planning','空間規劃'],['Minimalist living','極簡生活'],['Home improvement','居家改造'],['Interior design','室內設計'],['Furniture','家具'],['Home appliances','家電'],['DIY home projects','居家DIY'],['Online shopping','網路購物'],['Home decor','居家佈置'],['Smart home','智慧家居'],['Lifestyle blog','生活風格部落格'],['Instagram','Instagram'],['Pinterest','Pinterest'],['Financial planning','財務規劃'],['Personal finance','個人理財'],['Saving','儲蓄'],['Family','家庭'],['Family time','家庭時光'],['Quality of life','生活品質'],['Community living','社區生活'],['Local community','在地社區']]},
+  {n:'30-55 / 沙鹿海線 / 裝修估價比價洽詢族',sub:'【生活情境行為組】鎖定正在向工班/設計公司詢價比較裝修報價的行為，代表房屋交易已進入後段實質階段',
+   logic:'這群人正在做的事情是「向多家工班/設計公司要報價比較」，這是比軸線一的「裝潢App規劃靈感」更後段、更接近實際簽約付款的行為訊號，代表房屋交易可能已經接近完成或剛完成，是最貼近「準備搬新家」這個具體時間點的消費行為訊號，全程不使用人生轉折時機框架。',
+   lm:['福德路','沙鹿區公所','光華時尚廣場','鹿峰國小'],
+   tags:[['Renovation quote','裝修估價'],['Contractor comparison','工班比價'],['Interior design firm','設計公司洽詢'],['Home renovation','房屋裝修'],['Construction materials','建材選購'],['Renovation planning','裝修規劃'],['Home improvement','居家改造'],['Kitchen renovation','廚房翻新'],['Bathroom renovation','衛浴翻新'],['Flooring','地板選材'],['Painting services','油漆工程'],['Electrical work','水電工程'],['Price comparison shopping','比價行為'],['Online shopping','網路購物'],['Furniture','家具'],['Home appliances','家電'],['Smart home','智慧家居'],['Interior design','室內設計'],['Financial planning','財務規劃'],['Personal finance','個人理財'],['Saving','儲蓄'],['Investment','投資理財'],['Family','家庭'],['Family time','家庭時光'],['Quality of life','生活品質'],['Community living','社區生活']]}
+];
+
 function buildAudCard(g,idx,prefix){
   const id=prefix+(idx+1);
   const rows=g.tags.map((t,i)=>`<tr><td>${i+1}</td><td>${t[0]}</td><td>${t[1]}</td></tr>`).join('');
@@ -730,6 +820,8 @@ function toggleAud(id){document.getElementById(id).classList.toggle('open')}
   if(lg)lg.innerHTML=LEAD_G.map((g,i)=>buildAudCard(g,i,'l')).join('');
   const ng=document.getElementById('new-aud-grid');
   if(ng)ng.innerHTML=NEW_G.map((g,i)=>buildAudCard(g,i,'n')).join('');
+  const ng2=document.getElementById('new2-aud-grid');
+  if(ng2)ng2.innerHTML=NEW2_G.map((g,i)=>buildAudCard(g,i,'n2')).join('');
   document.querySelectorAll('.tag-tbl tbody tr').forEach(tr=>{
     tr.addEventListener('click',()=>{
       const cells=tr.querySelectorAll('td');
