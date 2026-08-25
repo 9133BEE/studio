@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>植福豪運來｜受眾分析報告</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --accent:#7a5a3a;--accent-dark:#5a3e26;--accent-light:#f6efe6;--accent-border:#c4a07a;
+  --bg:#f2f1ee;--s:#ffffff;--bd:#e6e2da;--tx:#2c2a26;--sub:#7e7a72;--sub2:#a8a49a;
+  --good:#1e3a6e;--goodl:#e6eaf4;--warn:#4a6a8a;
+  --radius:12px;--shadow-xs:0 1px 3px rgba(0,0,0,.05);--shadow-sm:0 2px 8px rgba(0,0,0,.07);--shadow-card:0 2px 10px rgba(0,0,0,.06),0 1px 3px rgba(0,0,0,.04);
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft JhengHei','Segoe UI',sans-serif;background:var(--bg);color:var(--tx);font-size:14px;line-height:1.6;min-height:100vh}
+.page-header{background:linear-gradient(180deg,#1a1410 0%,#100d0a 100%);padding:0 40px;height:56px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.04),0 4px 20px rgba(0,0,0,.35);border-bottom:1px solid rgba(255,255,255,.06)}
+.ph-logo{width:30px;height:30px;background:linear-gradient(135deg,#a47a4a,var(--accent-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;flex-shrink:0}
+.ph-title{font-size:14px;font-weight:700;color:#f1e8dd;letter-spacing:-.2px}
+.ph-sub{font-size:11px;color:#3a2e20;margin-left:2px}
+.ph-nav{margin-left:auto;display:flex;gap:8px;align-items:center}
+.ph-nav a{font-size:12px;color:#c4a07a;text-decoration:none;padding:5px 13px;border-radius:6px;border:1px solid rgba(122,90,58,.3);background:rgba(122,90,58,.15);font-weight:500}
+.ph-nav a:hover{background:rgba(122,90,58,.25);color:#e0c4a0}
+#btt{position:fixed;right:24px;bottom:28px;width:38px;height:38px;border-radius:50%;background:rgba(20,16,12,.75);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.85);font-size:15px;cursor:pointer;opacity:0;transform:translateY(8px);transition:opacity .2s,transform .2s;pointer-events:none;z-index:150;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.3);font-family:inherit}
+#btt.show{opacity:1;transform:translateY(0);pointer-events:auto}
+#btt:hover{background:rgba(40,32,24,.9);transform:translateY(-2px)}
+.wrap{max-width:1440px;margin:0 auto;padding:32px 48px 48px}
+.case-header{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:20px 24px;margin-bottom:10px;display:flex;align-items:center;gap:18px;box-shadow:var(--shadow-card)}
+.case-logo{width:44px;height:44px;background:linear-gradient(135deg,#a47a4a,var(--accent-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;flex-shrink:0}
+.case-info h2{font-size:17px;font-weight:700;color:var(--tx);letter-spacing:-.3px}
+.case-info p{font-size:12px;color:var(--sub);margin-top:3px;line-height:1.5}
+.case-stats{margin-left:auto;display:flex;gap:28px;flex-shrink:0}
+.stat{text-align:right}
+.stat-n{font-size:24px;font-weight:800;color:var(--accent);line-height:1;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.stat-l{font-size:10px;color:var(--sub2);margin-top:3px;font-weight:600;letter-spacing:.3px;text-transform:uppercase}
+.top-link{font-size:12px;color:var(--accent);margin-bottom:24px;display:inline-block;text-decoration:none;font-weight:500}
+.top-link span{border-bottom:1px solid var(--accent-border)}
+.sec-title{font-size:12px;font-weight:700;color:var(--sub);margin-bottom:14px;display:flex;align-items:center;gap:10px;letter-spacing:.4px;text-transform:uppercase}
+.sec-title::before{content:'';display:inline-block;width:3px;height:14px;background:var(--accent);border-radius:2px;flex-shrink:0}
+.sec-title::after{content:'';flex:1;height:1px;background:var(--bd)}
+.section{margin-bottom:28px}
+.profiles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.profile-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow-xs);transition:box-shadow .2s,transform .2s}
+.profile-card:hover{box-shadow:var(--shadow-sm);transform:translateY(-2px)}
+.profile-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:17px;margin-bottom:12px}
+.profile-icon.warm{background:var(--accent-light)}
+.profile-icon.blue{background:#eaecf6}
+.profile-icon.green{background:#e8f4ee}
+.profile-name{font-size:15px;font-weight:700;color:var(--tx);margin-bottom:4px}
+.profile-meta{font-size:12px;color:var(--sub);margin-bottom:10px}
+.profile-tags{font-size:12px;color:#4a5568;margin-bottom:10px;line-height:1.6}
+.profile-behavior{font-size:12px;color:var(--sub);line-height:1.55;margin-bottom:12px}
+.profile-badge{display:inline-block;font-size:11px;font-weight:700;padding:4px 11px;border-radius:20px;margin-top:2px}
+.badge-warm{background:var(--accent-light);color:#5a3e26;border:1px solid var(--accent-border)}
+.badge-blue{background:#eaecf6;color:#2a3a6a;border:1px solid #8a9ac8}
+.badge-green{background:#e8f4ee;color:#1a4a2a;border:1px solid #7ac4a0}
+.note-bar{font-size:12px;color:var(--sub);background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:12px 16px;margin-bottom:14px;line-height:1.65}
+.tips{display:flex;flex-direction:column;gap:10px}
+.tip{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:16px 18px;display:flex;gap:16px;align-items:flex-start;cursor:pointer;transition:border-color .15s,box-shadow .15s;box-shadow:var(--shadow-xs)}
+.tip:hover{border-color:var(--accent-border);box-shadow:var(--shadow-sm)}
+.tip-num{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;flex-shrink:0;color:#fff}
+.c1{background:var(--accent)}.c2{background:#8a6a3a}.c3{background:#6a7a4a}
+.tip-body{flex:1}
+.tip-title{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:5px;line-height:1.4}
+.tip-desc{font-size:12px;color:var(--sub);line-height:1.65}
+.page-banner{border-radius:var(--radius);padding:18px 24px;margin-bottom:22px;display:flex;align-items:center;gap:20px;box-shadow:var(--shadow-card)}
+.page-banner.main{background:linear-gradient(135deg,#5a3e26,#7a5a3a);color:#fff}
+.banner-icon{width:40px;height:40px;background:rgba(255,255,255,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;flex-shrink:0}
+.banner-title{font-size:16px;font-weight:800;letter-spacing:-.2px}
+.banner-sub{font-size:12px;opacity:.8;margin-top:2px}
+.banner-stats{margin-left:auto;display:flex;gap:28px;flex-shrink:0}
+.bs{text-align:right}
+.bs-n{font-size:22px;font-weight:800;color:#fff;line-height:1;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.bs-l{font-size:10px;color:rgba(255,255,255,.7);margin-top:3px;font-weight:600;letter-spacing:.3px;text-transform:uppercase}
+.aud-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;align-items:stretch}
+@media(max-width:760px){.aud-grid-2{grid-template-columns:1fr}}
+.aud-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);box-shadow:var(--shadow-xs);overflow:hidden;display:flex;flex-direction:column}
+.aud-header{display:flex;align-items:center;gap:12px;padding:13px 16px;cursor:pointer;transition:background .15s;user-select:none}
+.aud-header:hover{background:var(--accent-light)}
+.aud-arrow{font-size:12px;color:var(--sub2);transition:transform .2s;flex-shrink:0}
+.aud-card.open .aud-arrow{transform:rotate(90deg)}
+.aud-body{display:none;padding:0 16px 16px;border-top:1px solid var(--bd)}
+.aud-card.open .aud-body{display:block}
+.aud-name{font-size:14px;font-weight:700;color:var(--tx);line-height:1.4}
+.aud-num{width:24px;height:24px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0}
+.aud-info{flex:1;min-width:0}
+.aud-sub{font-size:11px;color:var(--sub2);margin-top:2px}
+.aud-sl{font-size:10px;font-weight:700;color:var(--sub2);text-transform:uppercase;letter-spacing:.4px;margin:12px 0 6px}
+.aud-logic{font-size:12px;color:var(--tx);line-height:1.65;background:var(--accent-light);border:1px solid var(--accent-border);border-radius:8px;padding:9px 12px}
+.aud-lm{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px}
+.aud-lm-tag{background:var(--bg);border:1px solid var(--bd);border-radius:12px;padding:2px 9px;font-size:10px;color:var(--sub)}
+.tag-tbl{width:100%;border-collapse:collapse;font-size:11px;margin-top:6px}
+.tag-tbl th{padding:3px 8px;text-align:left;font-weight:600;border:1px solid var(--bd);background:var(--accent-light);color:var(--accent-dark)}
+.tag-tbl td{padding:2px 8px;border:1px solid var(--bd);color:var(--sub)}
+.tag-tbl tr:nth-child(even) td{background:var(--bg)}
+.tag-tbl tbody tr{cursor:pointer;transition:background .1s}
+.tag-tbl tbody tr:hover{background:var(--accent-light)}
+.page-footer{text-align:center;font-size:11px;color:var(--sub2);margin-top:12px;padding-bottom:8px}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="ph-logo">豪</div>
+  <span class="ph-title">植福豪運來｜受眾分析</span>
+  <span class="ph-sub">· 彰化溪州 · 單粉專 · 開案前受眾規劃</span>
+  <nav class="ph-nav"><a href="index.html">標籤資料庫</a><a href="hub.html">← 返回總覽</a></nav>
+</header>
+
+<div class="wrap">
+
+<div class="case-header">
+  <div class="case-logo">豪</div>
+  <div class="case-info">
+    <h2>植福豪運來｜彰化溪州</h2>
+    <p>溪州鄉公平街 · 華廈1棟8層26戶 · 2房26~27坪 · 約600多萬（591牌價待定，依市場行情估算）· 公設比34% · 預計2028下半年交屋 · 廣告目標：待定（尚未上線）</p>
+  </div>
+  <div class="case-stats">
+    <div class="stat"><div class="stat-n">3</div><div class="stat-l">建議受眾組</div></div>
+    <div class="stat"><div class="stat-n">2026/9</div><div class="stat-l">預計上線</div></div>
+    <div class="stat"><div class="stat-n">NT$105</div><div class="stat-l">溪州區域最低CPL參考</div></div>
+  </div>
+</div>
+
+<a class="top-link" href="hub.html"><span>← 返回報告集</span></a>
+
+<div class="page-banner main">
+  <div class="banner-icon">豪</div>
+  <div>
+    <div class="banner-title">主粉專｜植福豪運來 FB（開案前受眾規劃）</div>
+    <div class="banner-sub">尚未正式上線 · 3組受眾方案 · 依溪州鄉歷史區域數據（0825彙整）＋建案定位設計</div>
+  </div>
+  <div class="banner-stats">
+    <div class="bs"><div class="bs-n">NT$204</div><div class="bs-l">傳產/青農/包租 區域CPL</div></div>
+    <div class="bs"><div class="bs-n">NT$105</div><div class="bs-l">畜牧/農業 區域CPL</div></div>
+    <div class="bs"><div class="bs-n">NT$128</div><div class="bs-l">製造業/半導體 區域CPL</div></div>
+  </div>
+</div>
+
+<!-- 三大核心受眾輪廓 -->
+<div class="section">
+  <div class="sec-title">三大核心受眾輪廓</div>
+  <div class="profiles">
+
+    <div class="profile-card">
+      <div class="profile-icon warm">👶</div>
+      <div class="profile-name">小資新婚首購學區家庭</div>
+      <div class="profile-meta">年齡 25–40｜溪州西螺北斗圈</div>
+      <div class="profile-tags">興趣：育兒、學區、居家佈置、社區生活、財務規劃</div>
+      <div class="profile-behavior">行為：溪州西螺莿桐歷史「新婚/上班族/親子教育」組合過去多輪投放CPL穩定在NT$108~277，本案2房26-27坪剛好是起家規模，明星學區是決策誘因</div>
+      <span class="profile-badge badge-warm">歷史區域參考 CPL NT$108~277 · 起家坪數對接</span>
+    </div>
+
+    <div class="profile-card">
+      <div class="profile-icon green">🏭</div>
+      <div class="profile-name">傳產自營置產包租族</div>
+      <div class="profile-meta">年齡 35–60｜溪州北斗西螺埤頭圈</div>
+      <div class="profile-tags">興趣：企業經營、農產經營、租金收入、民俗信仰、農機具</div>
+      <div class="profile-behavior">行為：歷史資料中「傳產二代換屋」CPL NT$207（5潛客為單組最高）、「傳產/青農/包租」CPL NT$204（68則訊息為全期最大量體），是溪州區域證實最穩定的族群，動機多為幫子女置產或收租</div>
+      <span class="profile-badge badge-green">傳產二代換屋 CPL NT$207 · 青農包租 CPL NT$204</span>
+    </div>
+
+    <div class="profile-card">
+      <div class="profile-icon blue">🛗</div>
+      <div class="profile-name">電梯華廈生活品質換屋族</div>
+      <div class="profile-meta">年齡 40–65｜溪州田中北斗二林圈</div>
+      <div class="profile-tags">興趣：健康養生、園藝、傳統市場、旅遊、社區生活</div>
+      <div class="profile-behavior">行為：對接本案8層電梯華廈的核心差異化——長期住透天/老公寓、爬樓梯不便的在地中壯年，用生活品質與健康興趣角度切入，不使用退休等人生轉折框架</div>
+      <span class="profile-badge badge-blue">電梯宅差異化訴求 · 生活品質興趣角度</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- 建議受眾方向 -->
+<div class="section">
+  <div class="sec-title">建議受眾方向（3組，尚未實測，依溪州鄉歷史區域數據＋建案定位設計）</div>
+  <div class="note-bar">本案尚未動工、預計2026/9上線，目前無自身實測數據。以下3組依「彰化溪州0825」歷史區域數據彙整（跨案投放於溪州/西螺/北斗/埤頭/竹塘/二林等鄰近鄉鎮）及本案2房26-27坪、明星學區、電梯華廈定位設計，上線後應優先驗證這3組再依實測結果調整。</div>
+  <div id="main-aud-grid" class="aud-grid-2"></div>
+</div>
+
+<!-- 操作建議 -->
+<div class="section">
+  <div class="sec-title">上線前操作建議</div>
+  <div class="tips">
+    <div class="tip">
+      <div class="tip-num c1">1</div>
+      <div class="tip-body">
+        <div class="tip-title">前期以訊息互動為主，避免過早催促成交</div>
+        <div class="tip-desc">本案尚未動工、預計2028下半年交屋，銷售週期長，前期廣告目標建議設定為訊息互動＋留名單蓄客，而非直接導客到場，降低過早施壓造成的流失</div>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-num c2">2</div>
+      <div class="tip-body">
+        <div class="tip-title">優先測試溪州區域證實有效的職業方向</div>
+        <div class="tip-desc">歷史數據顯示「畜牧業/農業」CPL NT$105、「製造業/半導體」CPL NT$128 是全期表現最好的兩個方向，正式上線後可作為「傳產自營置產包租族」的延伸深化組優先測試</div>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-num c3">3</div>
+      <div class="tip-body">
+        <div class="tip-title">避開歷史證實無效的方向</div>
+        <div class="tip-desc">汽車機械（CPL NT$577+）、藍領社群娛樂、房地產興趣直投等組別在溪州區域歷史數據中反應差或無對話，不建議在本案沿用</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="page-footer">植福豪運來 受眾分析報告 · 最後更新 2026-08-25</div>
+
+</div>
+
+<div id="toast" style="position:fixed;left:50%;bottom:30px;transform:translateX(-50%) translateY(20px);background:rgba(20,16,12,.9);color:#fff;padding:9px 18px;border-radius:20px;font-size:12px;opacity:0;transition:opacity .2s,transform .2s;pointer-events:none;z-index:200">已複製</div>
+
+<script>
+const PROJECT = "植福豪運來";
+
+const MAIN_G=[
+  {n:'25-40 / 溪州西螺北斗 / 小資新婚首購學區家庭',sub:'主打明星學區＋公平街生活機能，鎖定即將成家或剛生育的小資家庭',
+   logic:'溪州西螺莿桐歷史數據中「新婚/上班族/寵物/親子教育」組合過去多輪投放，CPL穩定在NT$108~277、訊息量9~35則不等，證實這個族群對本地案件有反應。本案2房26-27坪、總價約600多萬親民，剛好對接想在小孩入學前先卡位學區的年輕小家庭，公平街生活機能（市場、診所、超商）也是這群人重視的日常便利性。',
+   lm:['溪州國小','西螺延平老街','溪州公園','溪州鄉公所'],
+   tags:[['Parenting','育兒'],['Early childhood education','幼兒教育'],['School district','學區'],['Preschool','學齡前教育'],['Baby products','嬰幼兒用品'],['Baby stroller','嬰兒推車'],['Child safety','兒童安全'],['Family activities','家庭活動'],['Parenting apps','育兒App'],['Home organization','居家收納'],['Interior design','室內設計'],['Furniture','家具'],['Home appliances','家電'],['Coffee','咖啡'],['Weekend activities','假日活動'],['Local community','在地社區'],['Community living','社區生活'],['Quality of life','生活品質'],['Personal finance','個人理財'],['Saving','儲蓄'],['Financial planning','財務規劃'],['Career development','職涯發展'],['Stable income','穩定收入'],['Instagram','Instagram'],['Facebook','Facebook'],['Mobile shopping','行動購物'],['Food and dining','美食餐飲'],['Health and wellness','健康養生'],['Toy','玩具'],['Online shopping','網路購物']]},
+  {n:'35-60 / 溪州北斗西螺埤頭 / 傳產自營置產包租族',sub:'對接溪州在地傳產自營商／青農幫子女置產或收租，歷史資料證實此族群反應最穩定',
+   logic:'CSV歷史資料中「傳產二代換屋」（30-55/埤頭溪州西螺，0317調）CPL NT$207、5個潛客；「傳產/青農/包租」（28-65/溪州北斗竹塘西螺）CPL NT$204、68則訊息，是全期數據中量體最大且CPL最穩定的族群。這群人多半自己已有透天或農地住所，購屋動機是「幫子女置產」或「包租收租」，公平街近市區，適合出租給上班族或作為子女未來成家用房。',
+   lm:['溪州鄉農會','西螺果菜市場','北斗夜市','溪州工業區'],
+   tags:[['Business owner','企業主'],['Small business owners','小型企業主'],['Entrepreneurship','創業'],['Agribusiness','農產經營'],['Manufacturing industry','傳產製造業'],['Warehouse and logistics','倉儲物流'],['Landlord','房東'],['Rental income','租金收入'],['Rental property','出租物件'],['Investment','投資理財'],['Financial planning','財務規劃'],['Personal finance','個人理財'],['Saving','儲蓄'],['Stable income','穩定收入'],['Career development','職涯發展'],['Local business','在地小店'],['Local community','在地社區'],['Community living','社區生活'],['Folk beliefs','民俗信仰'],['Temple culture','宮廟文化'],['Agricultural machinery','農機具'],['Farmers market','農產市集'],['Trucking','貨運業'],['Wholesale trade','批發貿易'],['Tools and hardware','五金工具'],['Business networking','商業人脈'],['Tea culture','茶文化'],['Banquet and dining culture','辦桌文化'],['Pickup truck','貨卡車'],['Mobile banking','行動銀行']]},
+  {n:'40-65 / 溪州田中北斗二林 / 電梯華廈生活品質換屋族',sub:'鎖定長期住透天/老公寓、想換有電梯方便進出的舒適住宅族群，用生活品質與健康興趣角度切入，非人生轉折框架',
+   logic:'本案8層樓電梯華廈、公設比34%含休閒設施，對長期爬樓梯的透天/老公寓住戶是明確痛點解方。歷史資料中「北斗溪州田中/化工產業/不鏽鋼/成家」「食品業/紡織業/理財」等中壯年傳產從業組別皆有訊息互動，顯示此年齡層對本地案件有基本反應，這組改用健康養生/生活品質類通用興趣角度，避開年齡職業窄化，以電梯宅的居住舒適度作為核心訴求。',
+   lm:['溪州公園','溪州衛生所','溪州傳統市場','西螺大橋'],
+   tags:[['Health and wellness','健康養生'],['Fitness','健身運動'],['Walking and hiking','健走登山'],['Yoga','瑜伽'],['Tai chi','太極拳'],['Gardening','園藝'],['Tea culture','茶文化'],['Traditional Chinese medicine','中醫養生'],['Healthy eating','健康飲食'],['Quality of life','生活品質'],['Elevator building','電梯大樓'],['Home comfort','居家舒適'],['Community living','社區生活'],['Local community','在地社區'],['Grandparenting','含飴弄孫'],['Family time','家庭時光'],['Financial planning','財務規劃'],['Personal finance','個人理財'],['Saving','儲蓄'],['Stable income','穩定收入'],['Local business','在地小店'],['Temple culture','宮廟文化'],['Folk beliefs','民俗信仰'],['Traditional market','傳統市場'],['Travel','旅遊'],['Domestic travel','國內旅遊'],['Photography','攝影'],['Chinese opera','傳統戲曲'],['Radio','廣播'],['Coffee','咖啡']]}
+];
+
+function buildAudCard(g,idx,prefix){
+  const id=prefix+(idx+1);
+  const rows=g.tags.map((t,i)=>`<tr><td>${i+1}</td><td>${t[0]}</td><td>${t[1]}</td></tr>`).join('');
+  const lmTags=g.lm.map(l=>`<span class="aud-lm-tag">${l}</span>`).join('');
+  return `<div class="aud-card" id="${id}">
+    <div class="aud-header" onclick="toggleAud('${id}')">
+      <div class="aud-num">${idx+1}</div>
+      <div class="aud-info"><div class="aud-name">${g.n}</div><div class="aud-sub">${g.sub}</div></div>
+      <div class="aud-arrow">▶</div>
+    </div>
+    <div class="aud-body">
+      <div class="aud-sl">評估邏輯</div>
+      <div class="aud-logic">${g.logic}</div>
+      <div class="aud-sl">地標定位</div>
+      <div class="aud-lm">${lmTags}</div>
+      <div class="aud-sl">興趣標籤（點擊列複製單個）</div>
+      <table class="tag-tbl"><thead><tr><th>#</th><th>English</th><th>中文</th></tr></thead><tbody>${rows}</tbody></table>
+    </div>
+  </div>`;
+}
+function toggleAud(id){document.getElementById(id).classList.toggle('open')}
+(function(){
+  const mg=document.getElementById('main-aud-grid');
+  if(mg)mg.innerHTML=MAIN_G.map((g,i)=>buildAudCard(g,i,'m')).join('');
+  document.querySelectorAll('.tag-tbl tbody tr').forEach(tr=>{
+    tr.addEventListener('click',()=>{
+      const cells=tr.querySelectorAll('td');
+      if(cells.length>=3)copyText(cells[1].textContent.trim());
+    });
+  });
+})();
+function showToast(){const t=document.getElementById('toast');t.style.opacity='1';t.style.transform='translateX(-50%) translateY(0)';setTimeout(()=>{t.style.opacity='0';t.style.transform='translateX(-50%) translateY(20px)'},2200)}
+function copyText(text){navigator.clipboard.writeText(text).then(showToast).catch(()=>{const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast()})}
+document.querySelectorAll('.tip').forEach(el=>{el.addEventListener('click',()=>{const title=el.querySelector('.tip-title').textContent.trim();const desc=el.querySelector('.tip-desc').textContent.trim();copyText(`針對${PROJECT}，關於這項操作建議：\n「${title}」\n背景：${desc}\n\n請幫我制定具體執行方案，包含受眾設定細節和素材方向。`)})});
+window.addEventListener('scroll',()=>document.getElementById('btt').classList.toggle('show',window.scrollY>300));
+</script>
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到頂部">↑</button>
+</body>
+</html>
