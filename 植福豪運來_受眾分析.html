@@ -54,6 +54,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .badge-blue{background:#eaecf6;color:#2a3a6a;border:1px solid #8a9ac8}
 .badge-green{background:#e8f4ee;color:#1a4a2a;border:1px solid #7ac4a0}
 .note-bar{font-size:12px;color:var(--sub);background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:12px 16px;margin-bottom:14px;line-height:1.65}
+.tags-row{display:flex;flex-wrap:wrap;gap:8px}
+.core-tag{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;background:var(--s);border:1.5px solid var(--bd);border-radius:20px;font-size:13px;font-weight:600;color:var(--tx)}
 .tips{display:flex;flex-direction:column;gap:10px}
 .tip{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:16px 18px;display:flex;gap:16px;align-items:flex-start;cursor:pointer;transition:border-color .15s,box-shadow .15s;box-shadow:var(--shadow-xs)}
 .tip:hover{border-color:var(--accent-border);box-shadow:var(--shadow-sm)}
@@ -115,7 +117,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
     <p>溪州鄉公平街 · 華廈1棟8層26戶 · 2房26~27坪 · 約600多萬（591牌價待定，依市場行情估算）· 公設比34% · 預計2028下半年交屋 · 廣告目標：待定（尚未上線）</p>
   </div>
   <div class="case-stats">
-    <div class="stat"><div class="stat-n">3</div><div class="stat-l">建議受眾組</div></div>
+    <div class="stat"><div class="stat-n">23</div><div class="stat-l">建議受眾組</div></div>
     <div class="stat"><div class="stat-n">2026/9</div><div class="stat-l">預計上線</div></div>
     <div class="stat"><div class="stat-n">NT$105</div><div class="stat-l">溪州區域最低CPL參考</div></div>
   </div>
@@ -127,7 +129,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   <div class="banner-icon">豪</div>
   <div>
     <div class="banner-title">主粉專｜植福豪運來 FB（開案前受眾規劃）</div>
-    <div class="banner-sub">尚未正式上線 · 3組受眾方案 · 依溪州鄉歷史區域數據（0825彙整）＋建案定位設計</div>
+    <div class="banner-sub">尚未正式上線 · 23組受眾方案（3組基礎＋20組深化）· 依溪州鄉歷史區域數據＋你提供的5組驗證有效標籤設計</div>
   </div>
   <div class="banner-stats">
     <div class="bs"><div class="bs-n">NT$204</div><div class="bs-l">傳產/青農/包租 區域CPL</div></div>
@@ -176,6 +178,28 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   <div class="sec-title">建議受眾方向（3組，尚未實測，依溪州鄉歷史區域數據＋建案定位設計）</div>
   <div class="note-bar">本案尚未動工、預計2026/9上線，目前無自身實測數據。以下3組依「彰化溪州0825」歷史區域數據彙整（跨案投放於溪州/西螺/北斗/埤頭/竹塘/二林等鄰近鄉鎮）及本案2房26-27坪、明星學區、電梯華廈定位設計，上線後應優先驗證這3組再依實測結果調整。</div>
   <div id="main-aud-grid" class="aud-grid-2"></div>
+</div>
+
+<!-- 核心標籤 -->
+<div class="section">
+  <div class="sec-title">跨受眾核心標籤（從5組溪州驗證有效受眾萃取，請自行加入各組，不重複列在下方20組內）</div>
+  <div class="tags-row">
+    <span class="core-tag">不動產（房地產）</span>
+    <span class="core-tag">房地產（產業）</span>
+    <span class="core-tag">房屋貸款</span>
+    <span class="core-tag">已婚（感情狀態）</span>
+    <span class="core-tag">家庭（社會觀念）</span>
+    <span class="core-tag">有孩子的父母</span>
+    <span class="core-tag">家長：父母（全部）</span>
+    <span class="core-tag">591房屋交易網</span>
+  </div>
+</div>
+
+<!-- 新一輪建議受眾（20組） -->
+<div class="section">
+  <div class="sec-title">新一輪建議受眾（20組，依溪州驗證有效標籤深化・每組相似度<50%・更新 2026-08-25）</div>
+  <div class="note-bar">依你提供的5組溪州驗證有效受眾（金屬工業/傳產青農/首購年輕人/製造業半導體）拆解出4大證實方向，各深化4組（共16組），另補4組全新未測角度（物流運輸/醫療照護/在地餐飲/電商烘焙）做量體與角度分散。每組保留7個通用標籤（在地社區/財務規劃等）當共同底色，其餘18-20個為各組獨有標籤，任兩組整體重疊率皆控制在50%以下，避免打到同一批人。核心標籤（不動產/房貸/家庭等）已抽離至上方，不重複塞入下列各組。</div>
+  <div id="new-aud-grid" class="aud-grid-2"></div>
 </div>
 
 <!-- 操作建議 -->
@@ -230,6 +254,88 @@ const MAIN_G=[
    tags:[['Health and wellness','健康養生'],['Fitness','健身運動'],['Walking and hiking','健走登山'],['Yoga','瑜伽'],['Tai chi','太極拳'],['Gardening','園藝'],['Tea culture','茶文化'],['Traditional Chinese medicine','中醫養生'],['Healthy eating','健康飲食'],['Quality of life','生活品質'],['Elevator building','電梯大樓'],['Home comfort','居家舒適'],['Community living','社區生活'],['Local community','在地社區'],['Grandparenting','含飴弄孫'],['Family time','家庭時光'],['Financial planning','財務規劃'],['Personal finance','個人理財'],['Saving','儲蓄'],['Stable income','穩定收入'],['Local business','在地小店'],['Temple culture','宮廟文化'],['Folk beliefs','民俗信仰'],['Traditional market','傳統市場'],['Travel','旅遊'],['Domestic travel','國內旅遊'],['Photography','攝影'],['Chinese opera','傳統戲曲'],['Radio','廣播'],['Coffee','咖啡']]}
 ];
 
+const NEW_G=[{n:'25-50 / 溪州西螺二崙 / 金屬加工廠工班師傅',sub:'【金屬工業深化1】直接承接驗證組核心職業標籤，聚焦第一線工班師傅角色',
+   logic:'直接承接你提供的「溪州西螺二崙/成家/金屬工業/美食/運動」驗證組，保留機械加工、金屬加工、電機機械工程等核心職業標籤，聚焦第一線工班師傅角色，加入排球棒球游泳等藍領社交運動與美食場景，做為金屬工業方向的第一個深化角度。',
+   lm:['西螺果菜市場','二崙國小','溪州花博公園','北斗國中'],
+   tags:[['Machining','機械加工'],['Metalworking','金屬加工（建築業）'],['Factory (manufacturing)','工廠（製造業）'],['Automation technology','自動化技術'],['Industrial engineering','工業工程（工程）'],['Volleyball','排球（體育運動）'],['Baseball','棒球（體育運動）'],['Swimming','游泳（水上運動）'],['Stainless steel','不鏽鋼'],['Electrical engineering','電機工程（工程）'],['Mechanical engineering','機械工程（工程）'],['Home improvement','居家裝修（家居和園藝用品）'],['Fitness and wellness','健身和保健（健身）'],['Photography','攝影'],['Vocational training','職業訓練'],['Small business owners','小型企業主'],['Stock (investment)','股票（投資）'],['Loan','貸款（借貸）'],['Customer service','顧客服務（商業與財務）'],['Coffee','咖啡'],['Local community','在地社區'],['Community living','社區生活'],['Quality of life','生活品質'],['Career development','職涯發展'],['Stable income','穩定收入'],['Financial planning','財務規劃']]},
+  {n:'28-55 / 溪州北斗竹塘 / 自動化設備技師',sub:'【金屬工業深化2】拆出自動化技術線，聚焦設備維修技師而非現場工班',
+   logic:'從同一組金屬工業驗證資料中拆出「自動化技術」線，改聚焦設備維修技師而非現場工班，疊加智慧製造、機器人技術、PLC控制等更高技術含量標籤，與工班師傅組在職務內容與決策角度上明確區隔。',
+   lm:['竹塘三清宮','北斗國民小學','溪州工業區','溪州公園'],
+   tags:[['Industrial automation','工業自動化'],['Robotics','機器人技術'],['PLC programming','可程式控制器（PLC）'],['Industry 4.0','工業4.0'],['Consumer electronics','消費電子產品（電腦和電子產品）'],['High technology','高科技（電腦和電子產品）'],['Electronic products','電子產品（電腦和電子產品）'],['Technical certification','技術證照'],['Semiconductor','半導體'],['Quality management','品質管理'],['Tech news','科技新知'],['Streaming service','串流服務'],['Photography','攝影'],['Savings','儲蓄（銀行業）'],['Smartphone','智慧型手機'],['Weekend activities','假日活動'],['Business networking','商業人脈'],['Travel','旅遊'],['Mobile payment','行動支付'],['Business travel','商務差旅'],['Local community','在地社區'],['Community living','社區生活'],['Quality of life','生活品質'],['Career development','職涯發展'],['Stable income','穩定收入'],['Financial planning','財務規劃']]},
+  {n:'30-58 / 溪州二崙莿桐 / 汽車零件加工業主',sub:'【金屬工業深化3】鎖定自己開零件加工廠的自營業主，非受雇角色',
+   logic:'承接驗證組中的「不鏽鋼」「金屬加工」標籤，但改鎖定自己開零件加工廠或汽車保養廠的自營業主，這群人決策權在自己身上、資產配置意識強，與受雇的工班師傅、技師角度完全不同。',
+   lm:['二崙國小','莿桐國小','西螺鎮農會','溪州鄉公所'],
+   tags:[['Auto parts','零部件市場'],['Car maintenance','汽車保養（交通工具）'],['Automotive industry','汽車業（產業）'],['Entrepreneurship','創業'],['Supply chain','供應鏈'],['Wholesale','批發（零售）'],['Financial services','金融服務（商業與財務）'],['Credit','信貸（金融）'],['Tools and hardware','五金工具'],['Retail industry','零售業（產業）'],['Distribution (business)','經銷（商業）'],['Vocational training','職業訓練'],['Coffee','咖啡'],['Food and dining','美食（美食和餐飲）'],['Travel','旅遊'],['Small business owners','小型企業主'],['Online shopping','網路購物（零售）'],['Business networking','商業人脈'],['Employee benefits','員工福利'],['Savings','儲蓄（銀行業）'],['Local community','在地社區'],['Community living','社區生活'],['Quality of life','生活品質'],['Career development','職涯發展'],['Stable income','穩定收入'],['Financial planning','財務規劃']]},
+  {n:'26-52 / 溪州田中北斗 / 機械加工廠二代接班人',sub:'【金屬工業深化4】鎖定家族工廠世代交替的接班角度，非現場/技術/自營',
+   logic:'鎖定家族機械加工廠準備接班的青壯年二代，這群人教育程度較上一代高，關注品牌轉型與電商外銷，是金屬工業方向中唯一從「經營世代交替」切入的角度，與前三組現場/技術/自營角度區隔明確。',
+   lm:['溪州鄉農會','田中鎮公所','北斗夜市','溪州公園'],
+   tags:[['Business management','企業管理'],['Brand management','品牌管理'],['Family business','家族企業'],['Export trade','外銷貿易'],['E-commerce','電子商務'],['Industrial engineering','工業工程（工程）'],['Business and finance','商業與財務'],['Social media','社群媒體（網路媒體）'],['News media','新聞媒體（新聞服務）'],['Stock (investment)','股票（投資）'],['Group insurance','團體保險'],['Weekend activities','假日活動'],['Online shopping','網路購物（零售）'],['Loan','貸款（借貸）'],['Employee benefits','員工福利'],['Starter home','起步房（房地產）或首次購屋補助（房地產）'],['Coffee','咖啡'],['Vocational training','職業訓練'],['Mobile payment','行動支付'],['Insurance','保險（商業與財務）'],['Local community','在地社區'],['Community living','社區生活'],['Quality of life','生活品質'],['Career development','職涯發展'],['Stable income','穩定收入'],['Financial planning','財務規劃']]},
+  {n:'26-48 / 溪州西螺虎尾 / 青農二代首購成家',sub:'【傳產青農深化1】直接承接驗證組農業職業標籤，聚焦首購成家親子需求',
+   logic:'直接承接你提供的兩組「傳產/青農/自營/首購/成家」驗證組，保留有機農業、農作物、畜牧業等核心農業職業標籤，聚焦青農二代首購成家的親子教育需求角度。',
+   lm:['西螺鎮農會','虎尾高鐵站','竹塘鄉長安國小','溪州鄉公所'],
+   tags:[['Organic farming','有機農業（農業）'],['Crops','農作物（農業）'],['Livestock farming','畜牧業（農業）'],['Food processing','食品加工'],['Food industry','食品產業'],['Parenting education','親子教育（兒童和親子教育）'],['Early childhood education','幼兒教育（小學和中學教育）'],['Children','兒童（兒童和親子教育）'],['Pregnancy and parenting','媽媽寶寶-懷孕、生產、育兒'],['Automotive industry','汽車業（產業）'],['Stock (investment)','股票（投資）'],['First-time home buyer','首次購房者（房地產）'],['Insurance','保險（商業與財務）'],['Smartphone','智慧型手機'],['Photography','攝影'],['Vocational training','職業訓練'],['Business travel','商務差旅'],['Business networking','商業人脈'],['Loan','貸款（借貸）'],['Group insurance','團體保險'],['Local community','在地社區'],['Community living','社區生活'],['Quality of life','生活品質'],['Career development','職涯發展'],['Stable income','穩定收入'],['Financial planning','財務規劃']]},
+  {n:'25-45 / 溪州莿桐崙背 / 傳統市場自營攤商首購族',sub:'【傳產青農深化2】從批發經銷延伸至傳統市場攤商，加入在地生活型態',
+   logic:'從驗證組的「批發」「經銷」標籤延伸，但改聚焦傳統市場自營攤商而非批發經銷商，加入現金交易、行動支付、廟會信仰等在地生活型態標籤，與青農首購組在職業內容上明確不同。',
+   lm:['莿桐國小','西螺延平老街','溪州傳統市場','溪州鄉公所'],
+   tags:[['Traditional market','傳統市場'],['Street vendor operations','攤商經營'],['Cash transactions','現金交易'],['Mobile payment','行動支付'],['Money (currency)','金錢（貨幣）'],['Personal credit','個人信貸'],['Early riser lifestyle','早起生活型態'],['Local delicacy','在地小吃'],['Motorcycle','機車'],['Temple festival','廟會活動'],['Folk beliefs','民俗信仰'],['Vocational training','職業訓練'],['Insurance','保險（商業與財務）'],['Starter home','起步房（房地產）或首次購屋補助（房地產）'],['Food and dining','美食（美食和餐飲）'],['Small business owners','小型企業主'],['Stock (investment)','股票（投資）'],['Weekend activities','假日活動'],['Facebook','Facebook'],['Business owner','企業主'],['Local community','在地社區'],['Community living','社區生活'],['Quality of life','生活品質'],['Career development','職涯發展'],['Stable income','穩定收入'],['Financial planning','財務規劃']]},
+  {n:'28-50 / 溪州埤頭田尾 / 農機具行自營首購族',sub:'【傳產青農深化3】鎖定賣農具給農民的中介商角色，非自己種田',
+   logic:'鎖定溪州當地農機具行/五金行自營業主，承接驗證組中的農業周邊產業角度，但聚焦「賣農具給農民」而非「自己種田」的中介商角色，與青農組、市場攤商組區隔清楚。',
+   lm:['埤頭鄉合興國小','田尾公路花園','溪州鄉農會','北斗夜市'],
+   tags:[['Agricultural machinery','農機具'],['Tools and hardware','五金工具'],['Machining','機械加工'],['Crops','農作物（農業）'],['Tractor','拖拉機'],['Farmland leasing','農地租賃'],['Irrigation equipment','灌溉設備'],['Credit','信貸（金融）'],['Customer relationship management','顧客關係管理'],['Customer service','顧客服務（商業與財務）'],['Employee benefits','員工福利'],['Business travel','商務差旅'],['Starter home','起步房（房地產）或首次購屋補助（房地產）'],['Smartphone','智慧型手機'],['Group insurance','團體保險'],['Online shopping','網路購物（零售）'],['Business owner','企業主'],['Insurance','保險（商業與財務）'],['Facebook','Facebook'],['Savings','儲蓄（銀行業）'],['Local community','在地社區'],['Community living','社區生活'],['Quality of life','生活品質'],['Career development','職涯發展'],['Stable income','穩定收入'],['Financial planning','財務規劃']]},
+  {n:'27-50 / 溪州西螺莿桐 / 農產加工廠品管職員首購族',sub:'【傳產青農深化4】鎖定受雇技術職員角色，區別於前三組自營/青農身分',
+   logic:'鎖定在農產加工廠擔任品管/生產線職員的受雇者角色，與前三組的自營/青農/攤商身分不同，是傳產方向中唯一從「受雇技術職員」切入的角度。',
+   lm:['西螺鎮農會','莿桐國小','溪州花博公園','溪州鄉公所'],
+   tags:[['Food science','食品科學'],['Quality management','品質管理'],['Food safety inspection','食品安全檢驗'],['Food processing','食品加工'],['Production line work','生產線作業'],['Vocational certification','職業技能認證'],['Shift work','輪班工作'],['Vocational training','職業訓練'],['Motorcycle','機車'],['Business owner','企業主'],['Customer service','顧客服務（商業與財務）'],['First-time home buyer','首次購房者（房地產）'],['Coffee','咖啡'],['Stock (investment)','股票（投資）'],['Mobile payment','行動支付'],['Online shopping','網路購物（零售）'],['Food and dining','美食（美食和餐飲）'],['Savings','儲蓄（銀行業）'],['Business networking','商業人脈'],['Loan','貸款（借貸）'],['Local community','在地社區'],['Community living','社區生活'],['Quality of life','生活品質'],['Career development','職涯發展'],['Stable income','穩定收入'],['Financial planning','財務規劃']]},
+  {n:'24-38 / 溪州西螺斗六 / 社群媒體活躍首購新鮮人',sub:'【首購年輕人深化1】直接承接驗證組數位行為標籤，聚焦社群活躍角度',
+   logic:'直接承接你提供的「溪州西螺斗六斗南/首購族/年輕人興趣」驗證組，保留591房屋交易網、社群媒體、YouTube等核心數位行為標籤，聚焦社群活躍的首購新鮮人角度。',
+   lm:['埤頭鄉合興國小','虎尾高鐵站','斗六車站','溪州鄉公所'],
+   tags:[['Social media','社群媒體（網路媒體）'],['YouTube','YouTube（串流服務）'],['News media','新聞媒體（新聞服務）'],['591 real estate website','591房屋交易網'],['Instagram','Instagram'],['Short-form video','短影音'],['Influencer following','網紅追蹤'],['Mobile photography','手機拍照'],['Online food ordering','線上訂餐'],['Food delivery platform','外送平台'],['Bubble tea culture','手搖飲文化'],['E-commerce','電子商務'],['Travel','旅遊'],['Food and dining','美食（美食和餐飲）'],['Online shopping','網路購物（零售）'],['Smartphone','智慧型手機'],['Loan','貸款（借貸）'],['Coffee','咖啡'],['Facebook','Facebook'],['Business networking','商業人脈'],['Local community','在地社區'],['Community living','社區生活'],['Quality of life','生活品質'],['Career development','職涯發展'],['Stable income','穩定收入'],['Financial planning','財務規劃']]},
+  {n:'25-40 / 溪州斗南虎尾 / 健身運動型首購小資族',sub:'【首購年輕人深化2】延伸出健身運動角度，訴求對接生活品質而非社群行為',
+   logic:'從首購年輕人驗證組延伸出健身運動角度，這群人重視自我管理與生活品質，訴求可對接「運動後回家有個舒適的家」，與社群媒體活躍組在興趣主軸上明確不同。',
+   lm:['斗南國小','虎尾鎮立圖書館','溪州花博公園','溪州鄉公所'],
+   tags:[['Weight training','重訓'],['Running','路跑'],['Yoga','瑜伽'],['Sports brands','運動品牌'],['Sporting goods','運動用品'],['Protein supplements','蛋白質補給'],['Gym membership','健身房會員'],['Sports smartwatch','運動科技手錶'],['Cycling','自行車'],['Swimming','游泳（水上運動）'],['Camping','露營'],['Outdoor recreation','戶外休閒'],['Employee benefits','員工福利'],['Starter home','起步房（房地產）或首次購屋補助（房地產）'],['Mobile payment','行動支付'],['Photography','攝影'],['Small business owners','小型企業主'],['Business owner','企業主'],['Loan','貸款（借貸）'],['Business travel','商務差旅'],['Local community','在地社區'],['Community living','社區生活'],['Quality of life','生活品質'],['Career development','職涯發展'],['Stable income','穩定收入'],['Financial planning','財務規劃']]},
+  {n:'23-38 / 溪州田中社頭 / 遊戲串流娛樂首購族',sub:'【首購年輕人深化3】延伸出重度數位娛樂角度，重視居家空間與網路品質',
+   logic:'從首購年輕人驗證組延伸出遊戲串流娛樂角度，鎖定重度數位娛樂使用者，這群人對居家網路品質與獨立空間需求高，與健身運動組、社群媒體組區隔在興趣主軸。',
+   lm:['田中鎮公所','社頭鄉公所','溪州公園','北斗夜市'],
+   tags:[['Mobile gaming','手機遊戲'],['Esports','電競'],['Netflix','Netflix'],['Live streaming','線上直播'],['Board games','桌遊'],['Anime and manga','動漫文化'],['PC peripherals','電腦周邊'],['Gaming chair','電競椅'],['Audio equipment','耳機音響'],['Subscription services','訂閱制服務'],['Live streaming tipping','社群直播打賞'],['Virtual reality','虛擬實境'],['Cosplay culture','Cosplay文化'],['Business travel','商務差旅'],['Weekend activities','假日活動'],['First-time home buyer','首次購房者（房地產）'],['Customer service','顧客服務（商業與財務）'],['Travel','旅遊'],['Stock (investment)','股票（投資）'],['Coffee','咖啡'],['Local community','在地社區'],['Community living','社區生活'],['Quality of life','生活品質'],['Career development','職涯發展'],['Stable income','穩定收入'],['Financial planning','財務規劃']]},
+  {n:'26-42 / 溪州北斗員林 / 網拍電商創業首購族',sub:'【首購年輕人深化4】延伸出居家電商創業角度，需要多的房間放貨',
+   logic:'從首購年輕人驗證組延伸出電商創業角度，鎖定在家經營網拍蝦皮的年輕創業者，這群人需要在家兼顧倉儲與接單，對「有多的房間可以放貨」有具體需求，與純上班族角度不同。',
+   lm:['北斗夜市','員林市區','溪州工業區','溪州鄉公所'],
+   tags:[['Online store setup','網路開店'],['Influencer economy','網紅經濟'],['Livestream selling','直播銷售'],['Shopee','蝦皮購物'],['Social media marketing','社群媒體行銷'],['Brand management','品牌經營'],['Delivery logistics','物流配送'],['Warehouse management','倉儲管理'],['Customer service system','客服系統'],['Digital advertising','數位廣告'],['E-commerce tools','電商工具'],['Customer service','顧客服務（商業與財務）'],['Group insurance','團體保險'],['Photography','攝影'],['Employee benefits','員工福利'],['First-time home buyer','首次購房者（房地產）'],['Business travel','商務差旅'],['Loan','貸款（借貸）'],['Weekend activities','假日活動'],['Coffee','咖啡'],['Local community','在地社區'],['Community living','社區生活'],['Quality of life','生活品質'],['Career development','職涯發展'],['Stable income','穩定收入'],['Financial planning','財務規劃']]},
+  {n:'28-52 / 溪州竹塘北斗 / 半導體廠輪班技術員',sub:'【製造半導體深化1】直接承接驗證組產業，改聚焦輪班生活型態而非技術類別',
+   logic:'直接承接你提供的「溪州竹塘西螺北斗/製造業/半導體」驗證組，但改聚焦輪班技術員的生活型態（大夜班、宿舍生活、外送消費）而非產業技術類別本身，與自動化設備技師組的技術角度區隔明確。',
+   lm:['竹塘三清宮','北斗國民小學','溪州工業區','溪州公園'],
+   tags:[['Night shift lifestyle','大夜班生活'],['Factory dormitory life','廠區宿舍生活'],['Food delivery platform','外送平台'],['Convenience store shopping','超商消費'],['Mobile gaming','手機遊戲'],['Streaming video service','串流服務影音'],['Sleep quality','睡眠品質'],['Occupational safety','職業安全衛生'],['Technical certification','技術證照'],['Mobile payment','行動支付'],['Travel','旅遊'],['Vocational training','職業訓練'],['Group insurance','團體保險'],['First-time home buyer','首次購房者（房地產）'],['Food and dining','美食（美食和餐飲）'],['Facebook','Facebook'],['Loan','貸款（借貸）'],['Weekend activities','假日活動'],['Starter home','起步房（房地產）或首次購屋補助（房地產）'],['Photography','攝影'],['Local community','在地社區'],['Community living','社區生活'],['Quality of life','生活品質'],['Career development','職涯發展'],['Stable income','穩定收入'],['Financial planning','財務規劃']]},
+  {n:'30-55 / 溪州西螺北斗 / 塑膠射出成型業主',sub:'【製造半導體深化2】延伸出塑膠射出成型自營業主，聚焦國際貿易外銷面',
+   logic:'從製造業半導體驗證組延伸出塑膠射出成型業主角度，鎖定經營射出成型/模具廠的自營業主，聚焦國際貿易與外銷訂單面向，與受雇技術員角度不同。',
+   lm:['西螺鎮農會','北斗國中','溪州工業區','溪州鄉公所'],
+   tags:[['Injection molding','塑膠射出成型'],['Mold design','模具設計'],['Biodegradable plastic','生物可分解塑膠'],['Industrial materials','工業材料'],['Product development','產品開發'],['Quality certification','品質認證'],['ISO certification','ISO驗證'],['International trade','國際貿易'],['Export orders','外銷訂單'],['Golf','高爾夫'],['Customer service','顧客服務（商業與財務）'],['Business networking','商業人脈'],['Weekend activities','假日活動'],['Travel','旅遊'],['Business owner','企業主'],['Savings','儲蓄（銀行業）'],['Smartphone','智慧型手機'],['Coffee','咖啡'],['Employee benefits','員工福利'],['Loan','貸款（借貸）'],['Local community','在地社區'],['Community living','社區生活'],['Quality of life','生活品質'],['Career development','職涯發展'],['Stable income','穩定收入'],['Financial planning','財務規劃']]},
+  {n:'27-50 / 溪州田中二林 / 精密機械外銷業務職員',sub:'【製造半導體深化3】延伸出工具機外銷業務角度，商務差旅是生活特徵',
+   logic:'從製造業驗證組延伸出精密機械外銷業務職員角度，鎖定負責工具機出口貿易的業務人員，商務差旅與高鐵通勤是這群人的生活特徵，與工廠現場技術職完全不同。',
+   lm:['田中鎮公所','二林鎮公所','溪州工業區','北斗夜市'],
+   tags:[['Precision machinery','精密機械'],['Machine tool export','工具機出口'],['International trade show','國際貿易展覽'],['Business English','商務英語'],['Product certification','產品認證'],['Quality management','品質管理'],['High-speed rail commuting','高鐵通勤'],['Financial news','財經新聞'],['Stock (investment)','股票（投資）'],['Insurance','保險（商業與財務）'],['Travel','旅遊'],['Weekend activities','假日活動'],['Coffee','咖啡'],['Photography','攝影'],['Small business owners','小型企業主'],['Business travel','商務差旅'],['Smartphone','智慧型手機'],['Loan','貸款（借貸）'],['Food and dining','美食（美食和餐飲）'],['Starter home','起步房（房地產）或首次購屋補助（房地產）'],['Local community','在地社區'],['Community living','社區生活'],['Quality of life','生活品質'],['Career development','職涯發展'],['Stable income','穩定收入'],['Financial planning','財務規劃']]},
+  {n:'29-54 / 溪州公園竹塘 / 電子代工廠儲備幹部',sub:'【製造半導體深化4】延伸出管理培訓角度，關注職涯發展而非技術本身',
+   logic:'從製造業驗證組延伸出電子代工廠儲備幹部角度，鎖定準備往管理職發展的年輕儲幹，關注職涯發展與進修投資，是製造業方向中唯一從「管理培訓」切入的角度。',
+   lm:['溪州公園','竹塘三清宮','溪州工業區','北斗夜市'],
+   tags:[['Electronics contract manufacturing','電子代工'],['Management trainee program','儲備幹部訓練'],['Team leadership','團隊領導'],['Performance management','績效管理'],['Executive coaching','高階主管培訓'],['Business negotiation','商務談判'],['Financial news','財經新聞'],['Mutual funds','基金（投資）'],['Career development planning','職涯發展規劃'],['Continuing education','進修學習'],['MBA','MBA'],['Business owner','企業主'],['Coffee','咖啡'],['Facebook','Facebook'],['Stock (investment)','股票（投資）'],['Customer service','顧客服務（商業與財務）'],['Group insurance','團體保險'],['Mobile payment','行動支付'],['Vocational training','職業訓練'],['Employee benefits','員工福利'],['Local community','在地社區'],['Community living','社區生活'],['Quality of life','生活品質'],['Career development','職涯發展'],['Stable income','穩定收入'],['Financial planning','財務規劃']]},
+  {n:'28-55 / 溪州北斗西螺 / 物流貨運駕駛自營車隊',sub:'【全新角度1】5組驗證資料未涵蓋的物流貨運職業方向',
+   logic:'全新未測角度，鎖定溪州在地物流貨運自營車隊主，這群人收入來自貨運業務、決策權在自己身上，且長時間在外奔波，對「有個穩定的家」有具體需求，過去5組驗證資料未涵蓋此職業方向。',
+   lm:['溪州鄉公所','北斗夜市','西螺果菜市場','溪州工業區'],
+   tags:[['Trucking industry','貨運業'],['Pickup truck','貨卡車'],['Fleet management','車隊管理'],['GPS navigation','GPS導航'],['Fuel efficiency','油耗控制'],['Freight delivery','貨物配送'],['Warehouse management','倉儲管理'],['Radio','廣播'],['Traffic conditions','交通路況'],['Betel nut culture','檳榔文化'],['Stock (investment)','股票（投資）'],['Business owner','企業主'],['Food and dining','美食（美食和餐飲）'],['Customer service','顧客服務（商業與財務）'],['Starter home','起步房（房地產）或首次購屋補助（房地產）'],['Employee benefits','員工福利'],['Coffee','咖啡'],['Travel','旅遊'],['Business networking','商業人脈'],['Business travel','商務差旅'],['Local community','在地社區'],['Community living','社區生活'],['Quality of life','生活品質'],['Career development','職涯發展'],['Stable income','穩定收入'],['Financial planning','財務規劃']]},
+  {n:'30-58 / 溪州公園埤頭 / 診所藥局醫療照護從業',sub:'【全新角度2】5組驗證資料未涵蓋的醫療照護職業方向',
+   logic:'全新未測角度，鎖定在地診所藥局的醫療照護從業人員，這群人工作穩定、重視健康養生，且熟悉在地長者需求，是過去驗證資料未觸及的職業方向。',
+   lm:['溪州衛生所','溪州傳統市場','埤頭鄉合興國小','溪州鄉公所'],
+   tags:[['Nursing care','護理照護'],['Pharmacy operations','藥局經營'],['Medical devices','醫療器材'],['Long-term care','長期照護'],['Home care services','居家照護服務'],['Health checkup','健康檢查'],['Traditional Chinese medicine','中醫養生'],['Healthy eating','健康飲食'],['Walking and hiking','健走登山'],['Yoga','瑜伽'],['Elder care','銀髮照護'],['Loan','貸款（借貸）'],['Savings','儲蓄（銀行業）'],['Travel','旅遊'],['Weekend activities','假日活動'],['Insurance','保險（商業與財務）'],['Food and dining','美食（美食和餐飲）'],['Facebook','Facebook'],['Smartphone','智慧型手機'],['Employee benefits','員工福利'],['Local community','在地社區'],['Community living','社區生活'],['Quality of life','生活品質'],['Career development','職涯發展'],['Stable income','穩定收入'],['Financial planning','財務規劃']]},
+  {n:'25-48 / 溪州西螺 / 在地小吃店餐飲創業主',sub:'【全新角度3】聚焦餐飲店經營管理面，區別於傳產方向的市場攤商角度',
+   logic:'全新未測角度，鎖定經營小吃店/餐飲業的在地創業主，與傳產方向的攤商包租角度不同，聚焦餐飲店經營管理面（POS系統、員工排班、外送合作）而非單純市場買賣。',
+   lm:['西螺延平老街','西螺鎮農會','溪州傳統市場','溪州鄉公所'],
+   tags:[['Restaurant entrepreneurship','餐飲創業'],['Food safety inspection','食品衛生檢驗'],['Restaurant management system','餐廳管理系統'],['Food delivery partnership','外送平台合作'],['Ingredient procurement','食材採購'],['Kitchen equipment','廚房設備'],['POS system','POS收銀系統'],['Staff scheduling','員工排班'],['Local delicacy','在地小吃'],['Online reviews','Google評論'],['Weekend activities','假日活動'],['Travel','旅遊'],['Group insurance','團體保險'],['Employee benefits','員工福利'],['Smartphone','智慧型手機'],['Photography','攝影'],['Vocational training','職業訓練'],['Loan','貸款（借貸）'],['Online shopping','網路購物（零售）'],['Business owner','企業主'],['Local community','在地社區'],['Community living','社區生活'],['Quality of life','生活品質'],['Career development','職涯發展'],['Stable income','穩定收入'],['Financial planning','財務規劃']]},
+  {n:'24-45 / 溪州田中 / 手作烘焙電商賣家',sub:'【全新角度4】聚焦烘焙垂直品類，區別於首購年輕人方向的綜合電商創業組',
+   logic:'全新未測角度，鎖定在家經營手作烘焙電商的賣家，與首購年輕人方向的電商創業組不同，聚焦烘焙食品這個更垂直的品類與居家生產空間需求。',
+   lm:['田中鎮公所','溪州花博公園','溪州公園','北斗夜市'],
+   tags:[['Baking','烘焙'],['Handmade desserts','手作甜點'],['E-commerce platform','電商平台'],['Shopee','蝦皮購物'],['Instagram Stories marketing','IG限動行銷'],['Recipe sharing','食譜分享'],['Kitchen appliances','廚房家電'],['Baking equipment','烘焙器具'],['Ingredient delivery','食材宅配'],['Custom orders','客製化訂單'],['Packaging design','包裝設計'],['Group buying economy','團購經濟'],['Handmade crafts','手作工藝'],['Dessert lovers','甜點控'],['Group insurance','團體保險'],['Stock (investment)','股票（投資）'],['Loan','貸款（借貸）'],['Smartphone','智慧型手機'],['Facebook','Facebook'],['Business travel','商務差旅'],['Local community','在地社區'],['Community living','社區生活'],['Quality of life','生活品質'],['Career development','職涯發展'],['Stable income','穩定收入'],['Financial planning','財務規劃']]}
+];
+
 function buildAudCard(g,idx,prefix){
   const id=prefix+(idx+1);
   const rows=g.tags.map((t,i)=>`<tr><td>${i+1}</td><td>${t[0]}</td><td>${t[1]}</td></tr>`).join('');
@@ -254,6 +360,8 @@ function toggleAud(id){document.getElementById(id).classList.toggle('open')}
 (function(){
   const mg=document.getElementById('main-aud-grid');
   if(mg)mg.innerHTML=MAIN_G.map((g,i)=>buildAudCard(g,i,'m')).join('');
+  const ng=document.getElementById('new-aud-grid');
+  if(ng)ng.innerHTML=NEW_G.map((g,i)=>buildAudCard(g,i,'n')).join('');
   document.querySelectorAll('.tag-tbl tbody tr').forEach(tr=>{
     tr.addEventListener('click',()=>{
       const cells=tr.querySelectorAll('td');
