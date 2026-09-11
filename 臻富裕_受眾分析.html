@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>臻富裕｜受眾分析報告</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --accent:#8a6a3a;--accent-dark:#6e4e1e;--accent-light:#f6eeda;--accent-border:#d4b06a;
+  --bg:#f2f3f1;--s:#ffffff;--bd:#e4e5e2;--tx:#2e2c29;--sub:#7d7870;--sub2:#a8a199;
+  --good:#1e6e3f;--goodl:#e6f4ea;--warn:#c05c00;
+  --radius:12px;--shadow-xs:0 1px 3px rgba(0,0,0,.05);--shadow-sm:0 2px 8px rgba(0,0,0,.07);--shadow-card:0 2px 10px rgba(0,0,0,.06),0 1px 3px rgba(0,0,0,.04);
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft JhengHei','Segoe UI',sans-serif;background:var(--bg);color:var(--tx);font-size:14px;line-height:1.6;min-height:100vh}
+.page-header{background:linear-gradient(180deg,#0e1220 0%,#080c18 100%);padding:0 40px;height:56px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.04),0 4px 20px rgba(0,0,0,.35);border-bottom:1px solid rgba(255,255,255,.06)}
+.ph-logo{width:30px;height:30px;background:linear-gradient(135deg,#c4a05a,var(--accent-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;flex-shrink:0}
+.ph-title{font-size:14px;font-weight:700;color:#e8eaf5;letter-spacing:-.2px}
+.ph-sub{font-size:11px;color:#3a4060;margin-left:2px}
+.ph-nav{margin-left:auto;display:flex;gap:8px;align-items:center}
+.ph-nav a{font-size:12px;color:#d4b06a;text-decoration:none;padding:5px 13px;border-radius:6px;border:1px solid rgba(138,106,58,.25);background:rgba(138,106,58,.12);font-weight:500}
+.ph-nav a:hover{background:rgba(138,106,58,.22);color:#f0daa0}
+#btt{position:fixed;right:24px;bottom:28px;width:38px;height:38px;border-radius:50%;background:rgba(12,14,28,.75);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.85);font-size:15px;cursor:pointer;opacity:0;transform:translateY(8px);transition:opacity .2s,transform .2s;pointer-events:none;z-index:150;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.3);font-family:inherit}
+#btt.show{opacity:1;transform:translateY(0);pointer-events:auto}
+#btt:hover{background:rgba(25,28,60,.9);transform:translateY(-2px)}
+.wrap{max-width:1200px;margin:0 auto;padding:32px 40px 48px}
+.case-header{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:20px 24px;margin-bottom:10px;display:flex;align-items:center;gap:18px;box-shadow:var(--shadow-card)}
+.case-logo{width:44px;height:44px;background:linear-gradient(135deg,#c4a05a,var(--accent-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;flex-shrink:0}
+.case-info h2{font-size:17px;font-weight:700;color:var(--tx);letter-spacing:-.3px}
+.case-info p{font-size:12px;color:var(--sub);margin-top:3px;line-height:1.5}
+.case-stats{margin-left:auto;display:flex;gap:28px;flex-shrink:0}
+.stat{text-align:right}
+.stat-n{font-size:24px;font-weight:800;color:var(--accent);line-height:1;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.stat-l{font-size:10px;color:var(--sub2);margin-top:3px;font-weight:600;letter-spacing:.3px;text-transform:uppercase}
+.sec-title{font-size:12px;font-weight:700;color:var(--sub);margin-bottom:14px;display:flex;align-items:center;gap:10px;letter-spacing:.4px;text-transform:uppercase}
+.sec-title::before{content:'';display:inline-block;width:3px;height:14px;background:var(--accent);border-radius:2px;flex-shrink:0}
+.sec-title::after{content:'';flex:1;height:1px;background:var(--bd)}
+.section{margin-bottom:28px}
+/* Profiles */
+.profiles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.profile-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow-xs);transition:box-shadow .2s,transform .2s}
+.profile-card:hover{box-shadow:var(--shadow-sm);transform:translateY(-2px)}
+.profile-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:17px;margin-bottom:12px}
+.profile-icon.blue{background:var(--accent-light)}
+.profile-icon.teal{background:#e0eff2}
+.profile-icon.amber{background:#fdf0dc}
+.profile-name{font-size:15px;font-weight:700;color:var(--tx);margin-bottom:4px}
+.profile-meta{font-size:12px;color:var(--sub);margin-bottom:10px}
+.profile-tags{font-size:12px;color:#4a5568;margin-bottom:10px;line-height:1.6}
+.profile-behavior{font-size:12px;color:var(--sub);line-height:1.55;margin-bottom:12px}
+.profile-badge{display:inline-block;font-size:11px;font-weight:700;padding:4px 11px;border-radius:20px;margin-top:2px}
+.badge-blue{background:var(--accent-light);color:#6e4e1e;border:1px solid var(--accent-border)}
+.badge-teal{background:#e0eff2;color:#2f6672;border:1px solid #87b5be}
+.badge-amber{background:#fdf0dc;color:#7a5c20;border:1px solid #d4b06a}
+/* Tags */
+.tags-row{display:flex;flex-wrap:wrap;gap:8px}
+.core-tag{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;background:var(--s);border:1.5px solid var(--bd);border-radius:20px;font-size:13px;font-weight:600;color:var(--tx);cursor:pointer;transition:all .15s}
+.core-tag:hover{border-color:var(--accent-border);background:var(--accent-light);color:#6e4e1e}
+.core-tag .arr{font-size:11px;color:var(--accent-border)}
+/* Tips */
+.tips{display:flex;flex-direction:column;gap:10px}
+.tip{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:16px 18px;display:flex;gap:16px;align-items:flex-start;cursor:pointer;transition:border-color .15s,box-shadow .15s;box-shadow:var(--shadow-xs)}
+.tip:hover{border-color:var(--accent-border);box-shadow:var(--shadow-sm)}
+.tip-num{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;flex-shrink:0;color:#fff}
+.c1{background:var(--accent)}.c2{background:#a07a3a}.c3{background:#3a8a6a}.c4{background:#8a7a3a}.c5{background:#7a5a4a}
+.tip-body{flex:1}
+.tip-title{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:5px;line-height:1.4}
+.tip-desc{font-size:12px;color:var(--sub);line-height:1.65}
+/* Insight */
+.insight-box{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow-xs)}
+.insight-title{font-size:14px;font-weight:700;color:var(--tx);margin-bottom:14px}
+.insight-highlight{background:var(--accent-light);border-left:3px solid var(--accent);padding:12px 16px;border-radius:0 8px 8px 0;margin-bottom:16px;font-size:13px;color:#5a3e10;font-weight:600;line-height:1.65}
+.insight-sub{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:10px;margin-top:14px}
+.insight-list{list-style:none;display:flex;flex-direction:column;gap:7px}
+.insight-list li{font-size:13px;color:#4a5568;padding-left:18px;position:relative;line-height:1.6}
+.insight-list li::before{content:'→';position:absolute;left:0;color:var(--accent-border);font-size:12px;top:1px}
+/* back-link */
+.back-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--accent);text-decoration:none;margin-bottom:16px;padding:5px 12px;background:var(--accent-light);border-radius:20px;border:1px solid var(--accent-border);transition:all .15s}
+.back-link:hover{background:#eeddb8;color:var(--accent-dark)}
+/* ── aud-card ── */
+.aud-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;align-items:stretch}
+.aud-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:border-color .15s,box-shadow .15s}
+.aud-card:hover{border-color:var(--accent-border);box-shadow:var(--shadow-sm)}
+.aud-header{padding:14px 16px;display:flex;align-items:center;gap:10px;cursor:pointer}
+.aud-header:hover{background:var(--accent-light)}
+.aud-num{width:24px;height:24px;border-radius:50%;background:var(--accent);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.aud-info{flex:1;min-width:0}
+.aud-name{font-size:13px;font-weight:700;color:var(--tx);line-height:1.3}
+.aud-sub{font-size:11px;color:var(--sub2);margin-top:2px}
+.aud-arrow{font-size:12px;color:var(--sub2);transition:transform .2s;flex-shrink:0}
+.aud-card.open .aud-arrow{transform:rotate(90deg)}
+.aud-body{display:none;padding:0 16px 16px;border-top:1px solid var(--bd)}
+.aud-card.open .aud-body{display:block}
+.aud-sl{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--sub2);margin:12px 0 6px}
+.aud-logic{font-size:12px;color:var(--sub);line-height:1.65;background:var(--accent-light);border:1px solid var(--accent-border);border-radius:6px;padding:8px 10px}
+.aud-lm{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px}
+.aud-lm-tag{background:var(--bg);border:1px solid var(--bd);border-radius:12px;padding:2px 9px;font-size:10px;color:var(--sub)}
+.tag-tbl{width:100%;border-collapse:collapse;font-size:11px;margin-top:6px}
+.tag-tbl th{text-align:left;padding:4px 6px;border:1px solid var(--bd);background:var(--accent-light);color:var(--accent-dark);font-weight:600;font-size:10px}
+.tag-tbl td{padding:3px 6px;border:1px solid var(--bd);color:var(--sub)}
+.tag-tbl tr:nth-child(even) td{background:var(--bg)}
+.tag-tbl tbody tr{cursor:pointer;transition:background .1s}
+.tag-tbl tbody tr:hover td{background:var(--accent-light)}
+/* rank-op-grid: 2 columns (tips / ranking), no creative row for this case */
+.rank-op-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+@media(max-width:900px){.rank-op-grid{display:block}}
+/* Ranking */
+.rk-grid{display:flex;flex-direction:column;gap:7px}
+.rk-row{background:var(--s);border:1px solid var(--bd);border-left:3px solid var(--bd);border-radius:var(--radius);padding:14px 18px 14px 14px;margin-bottom:6px;display:flex;gap:14px;align-items:center;box-shadow:none;transition:border-left-color .15s,box-shadow .15s,transform .15s;cursor:pointer}
+.rk-row:hover{border-left-color:var(--accent);box-shadow:0 2px 12px rgba(0,0,0,.06);transform:translateX(2px)}
+.rk-row.gold{border-left-color:#e6a820;background:linear-gradient(90deg,#fffef0 0%,#fff 70%)}
+.rk-row.silver{border-left-color:#9aa5b4;background:linear-gradient(90deg,#f5f7fa 0%,#fff 70%)}
+.rk-row.bronze{border-left-color:#c47f3a;background:linear-gradient(90deg,#fdf7f0 0%,#fff 70%)}
+.rk-medal{width:26px;height:26px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.rk-rank{width:32px;height:32px;border-radius:50%;background:var(--accent-light);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:var(--accent);flex-shrink:0}
+.rk-body{flex:1;min-width:0}
+.rk-name{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:4px;line-height:1.35}
+.rk-loc{font-size:11px;color:var(--sub2);line-height:1.4;margin-bottom:7px}
+.rk-tags{display:flex;flex-wrap:wrap;gap:4px}
+.rk-tag{font-size:10px;font-weight:600;padding:2px 8px;border-radius:8px;line-height:1.5}
+.t-biz{background:#fff3e0;color:#bf5600;border:1px solid #ffd0a0}
+.t-home{background:var(--accent-light);color:var(--accent-dark);border:1px solid var(--accent-border)}
+.t-ret{background:#fef3c7;color:#92400e;border:1px solid #fcd34d}
+.t-remk{background:#e8f0fe;color:#1a56b0;border:1px solid #93b4e8}
+.rk-stats{display:flex;gap:24px;flex-shrink:0;align-items:center}
+.rk-stat-block{text-align:right}
+.rk-result{font-size:28px;font-weight:900;color:var(--tx);line-height:1;letter-spacing:-1px;font-variant-numeric:tabular-nums}
+.rk-result-l{font-size:10px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.2px;margin-top:2px}
+.rk-cpl{font-size:18px;font-weight:800;color:var(--warn);line-height:1;font-variant-numeric:tabular-nums}
+.rk-cpl.good-cpl{color:var(--good)}
+.rk-cpl-l{font-size:10px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.2px;margin-top:2px}
+.rk-spend{font-size:13px;font-weight:700;color:#6d6560;line-height:1;font-variant-numeric:tabular-nums}
+.rk-spend-l{font-size:10px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.2px;margin-top:2px}
+.page-footer{text-align:center;font-size:11px;color:var(--sub2);margin-top:12px;padding-bottom:8px}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="ph-logo">臻</div>
+  <span class="ph-title">臻富裕｜受眾分析</span>
+  <span class="ph-sub">· 台中清水 · 工商案（實木百葉窗代理）</span>
+  <nav class="ph-nav"><a href="index.html">標籤資料庫</a><a href="hub.html">← 返回總覽</a></nav>
+</header>
+
+<div class="wrap">
+
+<div class="case-header">
+  <div class="case-logo">臻</div>
+  <div class="case-info">
+    <h2>臻富裕 ALTALIPA｜台中清水</h2>
+    <p>台中市清水區鎮政路17號1F · 進口歐式實木百葉窗代理商（椴木/俄羅斯緞木）· 電動天窗/羅馬簾/布簾/紗簾/捲簾/蜂巢簾 · 客群：住宅（別墅、公館）＋商業空間（餐酒館等）· 廣告目標：訊息</p>
+  </div>
+  <div class="case-stats">
+    <div class="stat"><div class="stat-n">640</div><div class="stat-l">累積訊息對話</div></div>
+    <div class="stat"><div class="stat-n">NT$228</div><div class="stat-l">均CPL(訊息)</div></div>
+    <div class="stat"><div class="stat-n">25</div><div class="stat-l">受眾組數</div></div>
+  </div>
+</div>
+
+<a class="back-link" href="hub.html">← 返回案件總覽</a>
+
+<!-- ── 三大核心受眾輪廓 ── -->
+<div class="section">
+  <div class="sec-title">三大核心受眾輪廓</div>
+  <div class="profiles">
+
+    <div class="profile-card">
+      <div class="profile-icon blue">🪟</div>
+      <div class="profile-name">百葉簾/居家裝潢型</div>
+      <div class="profile-meta">年齡 25–55｜北部中彰 / 大台中</div>
+      <div class="profile-tags">興趣：百葉簾、傢俱、居家裝修、室內設計、住家修繕</div>
+      <div class="profile-behavior">行為：直接鎖定「百葉簾/窗簾」核心產品興趣的族群，是全案量體最大、CPL 最低的主題（北部中彰版 CPL $177 為全案最佳）</div>
+      <span class="profile-badge badge-blue">3潛客 · 118訊息 · CPL NT$177 · 全案主力</span>
+    </div>
+
+    <div class="profile-card">
+      <div class="profile-icon teal">🎨</div>
+      <div class="profile-name">美學裝潢型</div>
+      <div class="profile-meta">年齡 25–55｜大台中（台中中央公園/IKEA旗艦店/港區藝術中心周邊）</div>
+      <div class="profile-tags">興趣：室內設計內容、室內建築、視覺藝術、裝飾藝術、房屋</div>
+      <div class="profile-behavior">行為：對美學/設計/藝術有偏好的族群，對「客製化質感」訴求接受度高，101次訊息對話換來4潛客，轉換率全案數一數二</div>
+      <span class="profile-badge badge-teal">4潛客 · 101訊息 · CPL NT$182 · 第二主力</span>
+    </div>
+
+    <div class="profile-card">
+      <div class="profile-icon amber">🚚</div>
+      <div class="profile-name">搬家/整修/家具零售型</div>
+      <div class="profile-meta">年齡 28–55｜台中市區+豐原后里 / 海線+大甲伸港</div>
+      <div class="profile-tags">興趣：搬家公司、居家整裝、家具零售、透天/整修</div>
+      <div class="profile-behavior">行為：有實際居家異動需求（搬新家/整修/買房）的族群，訴求時機精準，是目前唯二 active 投放中的組別，CPL NT$143~155 全案最低</div>
+      <span class="profile-badge badge-amber">現行主力 · CPL NT$143~155 · active 投放中</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── 核心標籤 ── -->
+<div class="section">
+  <div class="sec-title">跨受眾必保留的核心標籤</div>
+  <div class="tags-row">
+    <span class="core-tag">百葉簾<span class="arr">↗</span></span>
+    <span class="core-tag">傢俱（居家裝潢）<span class="arr">↗</span></span>
+    <span class="core-tag">居家裝修（家居和園藝用品）<span class="arr">↗</span></span>
+    <span class="core-tag">室內設計（設計）<span class="arr">↗</span></span>
+    <span class="core-tag">現代家具（居家裝潢）<span class="arr">↗</span></span>
+    <span class="core-tag">宜家家居（零售業者）<span class="arr">↗</span></span>
+    <span class="core-tag">住家修繕（居家裝修）<span class="arr">↗</span></span>
+    <span class="core-tag">搬家公司（運送服務）<span class="arr">↗</span></span>
+  </div>
+</div>
+
+<!-- ── 已實測有效標籤組合 ── -->
+<div class="section">
+  <div class="sec-title">已實測有效標籤組合（4組）· 更新 2026-09-11</div>
+  <div id="main-aud-grid" class="aud-grid-2"></div>
+</div>
+
+<div class="rank-op-grid">
+
+<!-- 五大操作建議 -->
+<div class="section">
+  <div class="sec-title">五大操作建議</div>
+  <div class="tips">
+
+    <div class="tip">
+      <div class="tip-num c1">1</div>
+      <div class="tip-body">
+        <div class="tip-title">加碼現行 active 的「搬家/整修/家具零售」系列，CPL 全案最低</div>
+        <div class="tip-desc">台中市區+豐原后里（CPL $143）、台中海線+大甲伸港（CPL $155）是目前唯二 active 投放中的組別，CPL 明顯低於「百葉簾家具」「美學裝潢」等品類興趣組。建議提高這兩組預算，並複製到苗栗/南投等尚未覆蓋的「整修/買房」時機族群。</div>
+      </div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-num c2">2</div>
+      <div class="tip-body">
+        <div class="tip-title">「百葉簾家具」+「美學裝潢」兩大主題支柱應持續放大</div>
+        <div class="tip-desc">北部中彰/百葉簾家具（CPL $177，118訊息）與大台中/美學裝潢（CPL $182，101訊息）合計花費近4萬元，是全案最大兩組且CPL最穩定。建議依提供的地標+興趣組合（華山文創/桃園車站/北新竹車站版、台中中央公園/IKEA旗艦店版）分開加碼測試，找出哪個地標圈層效率更高。</div>
+      </div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-num c3">3</div>
+      <div class="tip-body">
+        <div class="tip-title">居家裝飾設計組潛客數全案最高，應優先擴大</div>
+        <div class="tip-desc">台中(西屯沙鹿)/居家裝飾設計版 CPL $198，潛客數達6筆是全案最高，顯示「裝潢設計」切角對實際留資轉換率最友善。建議複製到台中海線+屯區以外地區，並測試轉換率是否維持。</div>
+      </div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-num c4">4</div>
+      <div class="tip-body">
+        <div class="tip-title">再行銷組轉換率佳，建議擴大再行銷受眾規模</div>
+        <div class="tip-desc">中彰再行銷組 CPL $340 雖非最低，但16次訊息換4潛客（轉換率25%，全案最高），證明再行銷名單質量明顯優於冷受眾。建議加入網站瀏覽>30秒、IG互動名單等來源，擴大再行銷池。</div>
+      </div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-num c5">5</div>
+      <div class="tip-body">
+        <div class="tip-title">4組曝光不足受眾先補預算再判讀，彰化外圍/苗栗效率偏低應降預算</div>
+        <div class="tip-desc">設計建築業、彰化軟裝採購、南投軟裝採購/百葉簾家具等4組曝光量僅969~3,572次，花費多在$600以下，屬於「還沒真正測試」，建議先補足到NT$3,000~5,000再判讀。同時彰化外圍（伸港/和美/鹿港/彰市/員林）、苗栗地區CPL普遍偏高（$360~456），建議降低預算佔比，資源集中回台中核心區。</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- 受眾排行 -->
+<div class="section">
+  <div class="sec-title">成果受眾排行（2025/10–2026/09，以訊息CPL排序）</div>
+  <div class="rk-grid">
+
+  <div class="rk-row gold">
+    <div class="rk-medal">🥇</div>
+    <div class="rk-body">
+      <div class="rk-name">28-55/台中市區+豐原后里/搬家/家具零售</div>
+      <div class="rk-loc">台中市區 + 豐原 + 后里 · active 投放中</div>
+      <div class="rk-tags"><span class="rk-tag t-biz">搬家</span><span class="rk-tag t-ret">家具零售</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">101</div><div class="rk-result-l">訊息</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$143</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$14,404</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row silver">
+    <div class="rk-medal">🥈</div>
+    <div class="rk-body">
+      <div class="rk-name">28-55/台中海線+大甲伸港/搬家/整修/透天</div>
+      <div class="rk-loc">台中海線 + 大甲 + 伸港 · active 投放中</div>
+      <div class="rk-tags"><span class="rk-tag t-biz">搬家</span><span class="rk-tag t-biz">整修</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">37</div><div class="rk-result-l">訊息</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$155</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$5,730</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row bronze">
+    <div class="rk-medal">🥉</div>
+    <div class="rk-body">
+      <div class="rk-name">25-55/北部中彰/百葉簾家具(1208+北部&興趣)</div>
+      <div class="rk-loc">北部 + 中彰 · 全案量體最大</div>
+      <div class="rk-tags"><span class="rk-tag t-home">百葉簾</span><span class="rk-tag t-home">家具</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">118</div><div class="rk-result-l">訊息</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$177</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$20,903</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row">
+    <div class="rk-rank">4</div>
+    <div class="rk-body">
+      <div class="rk-name">25-55/大台中/美學裝潢</div>
+      <div class="rk-loc">大台中 · 台中中央公園/IKEA旗艦店周邊</div>
+      <div class="rk-tags"><span class="rk-tag t-home">美學裝潢</span><span class="rk-tag t-home">室內設計</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">101</div><div class="rk-result-l">訊息</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$182</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$18,417</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row">
+    <div class="rk-rank">5</div>
+    <div class="rk-body">
+      <div class="rk-name">28-55/台中(西屯沙鹿)/居家裝飾設計(0305改地點)</div>
+      <div class="rk-loc">西屯 + 沙鹿 · 潛客數全案最高（6筆）</div>
+      <div class="rk-tags"><span class="rk-tag t-home">居家裝飾設計</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">46</div><div class="rk-result-l">訊息</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$198</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$9,090</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row">
+    <div class="rk-rank">6</div>
+    <div class="rk-body">
+      <div class="rk-name">25-55/中彰/軟裝整建(018改地點)</div>
+      <div class="rk-loc">中彰地區</div>
+      <div class="rk-tags"><span class="rk-tag t-home">軟裝整建</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">40</div><div class="rk-result-l">訊息</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$216</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$8,646</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  <div class="rk-row">
+    <div class="rk-rank">7</div>
+    <div class="rk-body">
+      <div class="rk-name">中彰再行銷/臻富裕</div>
+      <div class="rk-loc">中彰地區 · 再行銷名單</div>
+      <div class="rk-tags"><span class="rk-tag t-remk">再行銷</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">16</div><div class="rk-result-l">訊息</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$340</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$5,433</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+
+  </div><!-- /rk-grid -->
+</div><!-- /排行 -->
+
+</div><!-- /rank-op-grid -->
+
+<div class="section" style="margin-top:8px">
+  <div class="insight-box">
+    <div class="insight-title">關鍵洞見分析</div>
+    <div class="insight-highlight">
+      關鍵發現：廣告目標是「訊息」而非「名單」，640次訊息對話中僅39筆真正留資（轉換率約6%）——CPL要看「每次訊息成本」而非籠統的潛客數，訊息量大但潛客少是客製化建材/窗簾長決策鏈的正常現象，不代表受眾無效。
+    </div>
+    <div class="insight-sub">下一步建議：</div>
+    <ul class="insight-list">
+      <li>加碼現行 active 的「搬家/整修/家具零售」系列，這是目前CPL最低、又貼合真實居家異動時機的角度</li>
+      <li>「百葉簾家具」「美學裝潢」兩大主題持續放大，依提供的地標+興趣組合分開測試找出最佳圈層</li>
+      <li>擴大再行銷池（網站瀏覽/IG互動名單），轉換率明顯優於冷受眾</li>
+      <li>曝光不足的4組先補預算到NT$3,000~5,000再判讀，避免誤殺尚未真正測試的受眾</li>
+    </ul>
+  </div>
+</div>
+
+<div class="page-footer">資料期間：2025-10-20 至 2026-09-11 · 臻富裕 ALTALIPA 台中清水 · 最後更新 2026-09-11</div>
+
+</div>
+
+<div id="toast" style="position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);background:#2e2c29;color:#fff;font-size:12.5px;padding:10px 20px;border-radius:24px;opacity:0;transition:all .25s;pointer-events:none;z-index:999;white-space:nowrap">📋 已複製 → 貼至 Claude 對話</div>
+<script>
+const PROJECT = '臻富裕 ALTALIPA（台中清水・實木百葉窗代理商・訊息對話為主・均CPL NT$228）';
+function showToast(){const t=document.getElementById('toast');t.style.opacity='1';t.style.transform='translateX(-50%) translateY(0)';setTimeout(()=>{t.style.opacity='0';t.style.transform='translateX(-50%) translateY(20px)'},2200)}
+function copyPrompt(text){navigator.clipboard.writeText(text).then(showToast).catch(()=>{const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast()})}
+document.querySelectorAll('.core-tag').forEach(el=>{el.addEventListener('click',()=>{const tag=el.textContent.replace('↗','').trim();copyPrompt(`針對${PROJECT}，請深入分析「${tag}」這個興趣標籤：\n1. 在本案受眾中代表什麼輪廓？\n2. 搭配哪些標籤組合效果最好？\n3. 素材訴求應該怎麼寫？`)})});
+const MAIN_G=[
+{n:"大台中/百葉簾家具 A",sub:"25-55 / 大台中（華山文創/桃園車站/北新竹車站圈）",logic:"以「百葉簾家具」核心產品興趣為主軸，搭配北部至中彰的多個20公里地標圈（華山文創、桃園車站、台中中央公園、彰化車站、北新竹車站），涵蓋跨區有裝潢/家具採購需求的族群。此主題（北部中彰版）CPL $177 為全案最佳，是量體最大的主力方向。",lm:["華山文創（+20公里）","桃園車站（+20公里）","台中中央公園（+20公里）","彰化車站（+20公里）","北新竹車站（+20公里）"],tags:[["Furniture (Home & Garden)","傢俱（居家裝潢）"],["Home improvement (Home & Garden)","居家裝修（家居和園藝用品）"],["Interior design (Design)","室內設計（設計）"],["Modern furniture (Home & Garden)","現代家具（居家裝潢）"],["Window blind","百葉簾"],["Window (Architecture)","窗戶（建築）"],["IKEA (Retail company)","宜家家居（零售業者）"],["Home accessories (Home & Garden)","居家飾品（居家裝潢）"],["Home furnishings retailer (Retail)","居家裝潢零售商（零售）"],["Aesthetics (Philosophy)","美學（哲學）"],["Home repair (Home improvement)","住家修繕（居家裝修）"],["Procurement","Procurement"],["Lifestyle (Lifestyle content)","生活風格（生活風格內容）"],["Home goods store (Retail)","居家用品零售商（零售）"],["LifeStyle Home","LifeStyle Home"],["Interior architecture (Architecture)","室內建築（建築）"],["Home renovation (Home repair)","住家翻新（住家修繕）"],["Architecture & Interior Design","Architecture & Interior Design"]]},
+{n:"大台中/百葉簾家具 B",sub:"25-55 / 大台中（台中車站/豐原車站/后里車站圈）",logic:"換地標到台中車站、豐原車站、后里車站周邊（10公里內、5公里內），興趣改用「搬家公司+居家自動化+婚禮」等生活時機類標籤，鎖定有居家異動或成家需求、且會逛IKEA/momo/淘寶等家具電商通路的族群，作為百葉簾家具主題的第二版本測試。",lm:["台中車站（+10公里）","豐原車站（+5公里）","后里車站（+5公里）"],tags:[["Moving company (Shipping service)","搬家公司（運送服務）"],["Window blind","百葉簾"],["Patio furniture (Home & Garden)","庭院家具（居家裝潢）"],["Home automation (Consumer electronics)","家庭自動化（消費電子產品）"],["Curtain","簾"],["Home furnishings retailer (Retail)","居家裝潢零售商（零售）"],["Wedding (Social concept)","婚禮（社會觀念）"],["Modern furniture (Home & Garden)","現代家具（居家裝潢）"],["IKEA (Retail company)","宜家家居（零售業者）"],["Home decor brands and retailers (Retail)","室內裝潢品牌和零售商（零售）"],["Workinghouse","Workinghouse 生活工場"],["Daiso","大創百貨"],["momo","momo購物網"],["Taobao","淘寶網"]]},
+{n:"大台中/美學裝潢 A",sub:"25-55 / 大台中（台中中央公園/IKEA旗艦店/港區藝術中心圈）",logic:"以「美學/藝術/設計」內容偏好為主軸，搭配台中中央公園、IKEA旗艦店、台中市港區藝術中心（10公里內）三大文化/家居地標，鎖定注重空間美感、對藝術文化有涉獵的族群。此組合CPL $182，101次訊息換4潛客，是全案第二主力。",lm:["台中中央公園（+10公里）","台中IKEA旗艦店（+10公里）","臺中市港區藝術中心（+10公里）"],tags:[["Interior design content (Design)","室內設計內容（設計）"],["Home improvement (Home & Garden)","居家裝修（家居和園藝用品）"],["Interior architecture (Architecture)","室內建築（建築）"],["Woodworking (Construction & maintenance)","木工（興建和維修）"],["Literature (Art)","文學（藝術）"],["Visual arts (Art)","視覺藝術（藝術）"],["Decorative arts (Visual arts)","裝飾藝術（視覺藝術）"],["Nature (Science)","大自然（科學）"],["Home (Home & Garden)","住家（家居和園藝用品）"],["Painting (Visual arts)","繪畫（視覺藝術）"],["House (Real estate)","房屋（房地產）"],["Online advertising (Marketing)","網路廣告（行銷）"]]},
+{n:"大台中/美學裝潢 B",sub:"25-55 / 大台中（大甲車站/沙鹿國小/伸港鄉立圖書館圈）",logic:"換地標到大甲車站、沙鹿國小、伸港鄉立圖書館（6~10公里內），興趣改用「住家翻新+建材+別墅+連棟住宅」等更具體的房屋類型與翻修標籤，鎖定海線/沿海一帶正在整修或新購透天/別墅的屋主族群，作為美學裝潢主題的延伸版本。",lm:["大甲車站（+6公里）","沙鹿國小（+10公里）","伸港鄉立圖書館（+6公里）"],tags:[["Modern furniture (Home & Garden)","現代家具（居家裝潢）"],["Window blind","百葉簾"],["Patio furniture (Home & Garden)","庭院家具（居家裝潢）"],["Home renovation (Home repair)","住家翻新（住家修繕）"],["Moving company (Shipping service)","搬家公司（運送服務）"],["Curtain","簾"],["Villa (Accommodation)","別墅（住宿）"],["Building materials (Industrial materials & equipment)","建材（工業材料和設備）"],["Home decor brands and retailers (Retail)","室內裝潢品牌和零售商（零售）"],["Home furnishings retailer (Retail)","居家裝潢零售商（零售）"],["Terraced house (Architecture)","連棟住宅（建築）"],["Gardening (Home & Garden)","園藝（家居和園藝用品）"]]}
+];
+function buildAudCard(g,idx,prefix){
+  const id=prefix+(idx+1);
+  const rows=g.tags.map((t,i)=>`<tr><td>${i+1}</td><td>${t[0]}</td><td>${t[1]}</td></tr>`).join('');
+  const lmTags=g.lm.map(l=>`<span class="aud-lm-tag">${l}</span>`).join('');
+  return`<div class="aud-card" id="${id}"><div class="aud-header" onclick="toggleAud2('${id}')"><div class="aud-num">${idx+1}</div><div class="aud-info"><div class="aud-name">${g.n}</div><div class="aud-sub">${g.sub}</div></div><div class="aud-arrow">▶</div></div><div class="aud-body"><div class="aud-sl">評估邏輯</div><div class="aud-logic">${g.logic}</div><div class="aud-sl">地標定位</div><div class="aud-lm">${lmTags}</div><div class="aud-sl">興趣標籤（點擊列複製英文）</div><table class="tag-tbl"><thead><tr><th>#</th><th>English</th><th>中文</th></tr></thead><tbody>${rows}</tbody></table></div></div>`;
+}
+function toggleAud2(id){document.getElementById(id).classList.toggle('open')}
+(function(){
+  const mg=document.getElementById('main-aud-grid');
+  if(mg)mg.innerHTML=MAIN_G.map((g,i)=>buildAudCard(g,i,'zf')).join('');
+  document.querySelectorAll('.tag-tbl tbody tr').forEach(tr=>{
+    tr.addEventListener('click',e=>{e.stopPropagation();const cells=tr.querySelectorAll('td');if(cells.length>=3)copyPrompt(cells[1].textContent.trim())});
+  });
+})();
+document.querySelectorAll('.tip').forEach(el=>{el.addEventListener('click',()=>{const title=el.querySelector('.tip-title').textContent.trim();const desc=el.querySelector('.tip-desc').textContent.trim();copyPrompt(`針對${PROJECT}，關於這項操作建議：\n「${title}」\n背景：${desc}\n\n請幫我制定具體執行方案，包含受眾設定細節和素材方向。`)})});
+document.querySelectorAll('.rk-row').forEach(el=>{el.addEventListener('click',()=>{const name=el.querySelector('.rk-name');if(name)copyPrompt(`針對${PROJECT}，請分析受眾「${name.textContent.trim()}」，給我深度策略建議。`)})});
+</script>
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到頂部">↑</button>
+<script>window.addEventListener('scroll',()=>document.getElementById('btt').classList.toggle('show',window.scrollY>300))</script>
+</body>
+</html>
