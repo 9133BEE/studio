@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>御墅微風｜受眾分析報告</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --accent:#4a7a9a;--accent-dark:#2a5a78;--accent-light:#eaf3f8;--accent-border:#8ab8d8;
+  --bg:#f3f5f6;--s:#ffffff;--bd:#e4e8eb;--tx:#2a2e32;--sub:#7a7e84;--sub2:#a4a8ae;
+  --good:#1e6e3f;--goodl:#e6f4ea;--warn:#c05c00;--warnl:#fff4e8;
+  --radius:12px;--shadow-xs:0 1px 3px rgba(0,0,0,.05);--shadow-sm:0 2px 8px rgba(0,0,0,.07);--shadow-card:0 2px 10px rgba(0,0,0,.06),0 1px 3px rgba(0,0,0,.04);
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft JhengHei','Segoe UI',sans-serif;background:var(--bg);color:var(--tx);font-size:14px;line-height:1.6;min-height:100vh}
+.page-header{background:linear-gradient(180deg,#0e1a22 0%,#0a141a 100%);padding:0 40px;height:56px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.04),0 4px 20px rgba(0,0,0,.35);border-bottom:1px solid rgba(255,255,255,.06)}
+.ph-logo{width:30px;height:30px;background:linear-gradient(135deg,#7ab0d0,var(--accent-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;flex-shrink:0}
+.ph-title{font-size:14px;font-weight:700;color:#eaf2f7;letter-spacing:-.2px}
+.ph-sub{font-size:11px;color:#4a7a9a;margin-left:2px}
+.ph-nav{margin-left:auto;display:flex;gap:8px;align-items:center}
+.ph-nav a{font-size:12px;color:#8ab8d8;text-decoration:none;padding:5px 13px;border-radius:6px;border:1px solid rgba(138,184,216,.3);background:rgba(138,184,216,.1);font-weight:500}
+.ph-nav a:hover{background:rgba(138,184,216,.2);color:#c0dcf0}
+#btt{position:fixed;right:24px;bottom:28px;width:38px;height:38px;border-radius:50%;background:rgba(14,26,34,.75);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.85);font-size:15px;cursor:pointer;opacity:0;transform:translateY(8px);transition:opacity .2s,transform .2s;pointer-events:none;z-index:150;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.3);font-family:inherit}
+#btt.show{opacity:1;transform:translateY(0);pointer-events:auto}
+.wrap{max-width:1100px;margin:0 auto;padding:32px 40px 48px}
+.case-header{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:20px 24px;margin-bottom:10px;display:flex;align-items:center;gap:18px;box-shadow:var(--shadow-card)}
+.case-logo{width:44px;height:44px;background:linear-gradient(135deg,#7ab0d0,var(--accent-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;flex-shrink:0}
+.case-info h2{font-size:17px;font-weight:700;color:var(--tx);letter-spacing:-.3px}
+.case-info p{font-size:12px;color:var(--sub);margin-top:3px;line-height:1.5}
+.case-stats{margin-left:auto;display:flex;gap:28px;flex-shrink:0}
+.stat{text-align:right}
+.stat-n{font-size:24px;font-weight:800;color:var(--accent);line-height:1;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.stat-l{font-size:10px;color:var(--sub2);margin-top:3px;font-weight:600;letter-spacing:.3px;text-transform:uppercase}
+.top-link{font-size:12px;color:var(--accent);margin-bottom:24px;display:inline-block;text-decoration:none;font-weight:500}
+.top-link span{border-bottom:1px solid var(--accent-border)}
+.sec-title{font-size:12px;font-weight:700;color:var(--sub);margin-bottom:14px;display:flex;align-items:center;gap:10px;letter-spacing:.4px;text-transform:uppercase}
+.sec-title::before{content:'';display:inline-block;width:3px;height:14px;background:var(--accent);border-radius:2px;flex-shrink:0}
+.sec-title::after{content:'';flex:1;height:1px;background:var(--bd)}
+.section{margin-bottom:28px}
+.note-bar{background:var(--accent-light);border:1px solid var(--accent-border);border-radius:10px;padding:10px 16px;font-size:12px;color:var(--accent-dark);margin-bottom:20px;line-height:1.6}
+.note-bar.warn{background:var(--warnl);border-color:#f4c08a;color:#7a3e00}
+.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:22px}
+.sb-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:14px 16px;box-shadow:var(--shadow-xs);text-align:center}
+.sb-n{font-size:26px;font-weight:900;color:var(--accent);line-height:1;letter-spacing:-1px;font-variant-numeric:tabular-nums}
+.sb-n.good{color:var(--good)}
+.sb-n.warn{color:var(--warn)}
+.sb-l{font-size:10px;color:var(--sub2);font-weight:600;margin-top:4px;text-transform:uppercase;letter-spacing:.3px}
+.profiles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.profile-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow-xs);transition:box-shadow .2s,transform .2s}
+.profile-card:hover{box-shadow:var(--shadow-sm);transform:translateY(-2px)}
+.profile-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:17px;margin-bottom:12px}
+.pi-a{background:var(--accent-light)}.pi-b{background:#e8f0fe}.pi-c{background:#fef3e2}
+.profile-name{font-size:15px;font-weight:700;color:var(--tx);margin-bottom:4px}
+.profile-meta{font-size:12px;color:var(--sub);margin-bottom:10px}
+.profile-tags{font-size:12px;color:#4a5568;margin-bottom:10px;line-height:1.6}
+.profile-behavior{font-size:12px;color:var(--sub);line-height:1.55;margin-bottom:12px}
+.profile-badge{display:inline-block;font-size:11px;font-weight:700;padding:4px 11px;border-radius:20px;margin-top:2px}
+.badge-a{background:var(--accent-light);color:var(--accent-dark);border:1px solid var(--accent-border)}
+.badge-b{background:#e8f0fe;color:#1a56b0;border:1px solid #93b4e8}
+.badge-c{background:#fef9e7;color:#8a6000;border:1px solid #ddb860}
+.tags-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.core-tag{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;background:var(--s);border:1.5px solid var(--bd);border-radius:20px;font-size:13px;font-weight:600;color:var(--tx);cursor:pointer;transition:all .15s}
+.core-tag:hover{border-color:var(--accent-border);background:var(--accent-light)}
+.core-tag .arr{font-size:11px;color:var(--accent-border)}
+.rk-grid{display:flex;flex-direction:column;gap:8px}
+.rk-row{background:var(--s);border:1px solid var(--bd);border-left:3px solid var(--bd);border-radius:var(--radius);padding:14px 18px 14px 14px;display:flex;gap:14px;align-items:center;box-shadow:var(--shadow-xs);transition:border-left-color .15s,box-shadow .15s}
+.rk-row.gold{border-left-color:#c8a000;background:linear-gradient(90deg,#fffef0 0%,#fff 70%)}
+.rk-row.silver{border-left-color:#9aacbe;background:linear-gradient(90deg,#f5f7fa 0%,#fff 70%)}
+.rk-row.bronze{border-left-color:#c08060;background:linear-gradient(90deg,#fdf7f0 0%,#fff 70%)}
+.rk-medal{font-size:20px;flex-shrink:0;width:30px;text-align:center}
+.rk-rank{width:30px;height:30px;border-radius:50%;background:var(--bg);border:1.5px solid var(--bd);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:var(--sub);flex-shrink:0}
+.rk-body{flex:1;min-width:0}
+.rk-name{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:4px}
+.rk-loc{font-size:11px;color:var(--sub2);margin-bottom:6px}
+.rk-tags{display:flex;flex-wrap:wrap;gap:5px}
+.rk-tag{font-size:10px;font-weight:600;padding:2px 8px;border-radius:10px;background:var(--bg);border:1px solid var(--bd);color:var(--sub)}
+.t-biz{background:#fef3e2;border-color:var(--accent-border);color:var(--accent-dark)}
+.t-loc{background:#e8f4ee;border-color:#9ac8b0;color:#1e6e3f}
+.t-active{background:#e8f4ee;border-color:#7ac08a;color:#1a5a34}
+.t-stop{background:var(--bg);border-color:var(--bd);color:var(--sub2)}
+.rk-badge{font-size:10px;font-weight:700;padding:2px 8px;border-radius:8px;margin-left:6px;vertical-align:middle}
+.rb-active{background:#e8f4ee;color:#1a5a34;border:1px solid #7ac08a}
+.rb-stopped{background:var(--bg);color:var(--sub2);border:1px solid var(--bd)}
+.rk-stats{display:flex;gap:18px;flex-shrink:0;align-items:center}
+.rk-stat-block{text-align:right;min-width:56px}
+.rk-result{font-size:18px;font-weight:800;color:var(--accent);line-height:1;font-variant-numeric:tabular-nums}
+.rk-result-l{font-size:10px;color:var(--sub2);font-weight:600}
+.rk-cpl{font-size:16px;font-weight:800;color:var(--tx);line-height:1;font-variant-numeric:tabular-nums}
+.rk-cpl.good-cpl{color:var(--good)}
+.rk-cpl-l{font-size:10px;color:var(--sub2);font-weight:600}
+.rk-spend{font-size:13px;font-weight:600;color:var(--sub);line-height:1;font-variant-numeric:tabular-nums}
+.rk-spend-l{font-size:10px;color:var(--sub2)}
+.tips{display:flex;flex-direction:column;gap:10px}
+.tip{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:16px 18px;display:flex;gap:16px;align-items:flex-start;box-shadow:var(--shadow-xs);cursor:pointer;transition:border-color .15s,box-shadow .15s}
+.tip:hover{border-color:var(--accent-border);box-shadow:0 3px 12px rgba(74,122,154,.12)}
+.tip-num{width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;flex-shrink:0;color:#fff;background:var(--accent)}
+.c2{background:#6a8a4a}.c3{background:#4a6a8a}.c4{background:#8a4a4a}
+.tip-body{flex:1}
+.tip-title{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:5px;line-height:1.4}
+.tip-desc{font-size:12px;color:var(--sub);line-height:1.65}
+.hist-bar{background:#f0ede8;border:1px solid #d8d0c4;border-radius:10px;padding:12px 16px;margin-bottom:16px}
+.hist-bar h4{font-size:12px;font-weight:700;color:var(--sub);margin-bottom:8px;letter-spacing:.3px}
+.hist-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.hist-item{text-align:center}
+.hist-n{font-size:20px;font-weight:800;color:var(--sub);line-height:1}
+.hist-l{font-size:10px;color:var(--sub2);margin-top:2px}
+.aud-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);box-shadow:var(--shadow-xs);overflow:hidden}
+.aud-header{display:flex;align-items:center;gap:12px;padding:14px 18px;cursor:pointer;transition:background .15s;user-select:none}
+.aud-header:hover{background:var(--accent-light)}
+.aud-num{width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;flex-shrink:0}
+.aud-info{flex:1}
+.aud-name{font-size:13px;font-weight:700;color:var(--tx)}
+.aud-sub{font-size:11px;color:var(--sub2);margin-top:2px}
+.aud-arrow{font-size:13px;color:var(--sub2);transition:transform .2s;flex-shrink:0}
+.aud-card.open .aud-arrow{transform:rotate(90deg)}
+.aud-body{display:none;padding:0 18px 18px;border-top:1px solid var(--bd)}
+.aud-card.open .aud-body{display:block}
+.aud-sl{font-size:10px;font-weight:700;color:var(--sub2);text-transform:uppercase;letter-spacing:.4px;margin:14px 0 7px}
+.aud-logic{font-size:12px;color:#2a4a5a;line-height:1.65;background:var(--accent-light);border:1px solid var(--accent-border);border-radius:8px;padding:10px 14px}
+.aud-lm{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.aud-lm-tag{background:var(--bg);border:1px solid var(--bd);border-radius:14px;padding:3px 10px;font-size:11px;color:var(--sub)}
+.tag-tbl{width:100%;border-collapse:collapse;margin-top:6px;font-size:12px}
+.tag-tbl th{text-align:left;padding:5px 10px;background:var(--bg);border-bottom:1.5px solid var(--bd);font-size:10px;font-weight:700;color:var(--sub2);letter-spacing:.3px;text-transform:uppercase}
+.tag-tbl td{padding:4px 10px;border-bottom:1px solid var(--bd)}
+.tag-tbl tr:last-child td{border-bottom:none}
+.tag-tbl td:first-child{width:28px;color:var(--sub2);font-weight:600;text-align:center}
+.tag-tbl td:nth-child(2){font-weight:500;color:var(--tx)}
+.tag-tbl td:nth-child(3){color:var(--sub)}
+.aud-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;align-items:start}
+@media(max-width:760px){.aud-grid-2{grid-template-columns:1fr}}
+.tag-tbl tbody tr{cursor:pointer;transition:background .12s}
+.tag-tbl tbody tr:hover{background:var(--accent-light)}
+.tag-tbl tbody tr:hover td:nth-child(2)::after{content:' ⎘';font-size:10px;color:var(--accent-border)}
+.tag-tbl tbody tr.flash{background:#d4f0dc}
+.copy-all-row{display:flex;justify-content:flex-end;margin-top:8px}
+.copy-all-btn{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;color:var(--accent-dark);background:var(--accent-light);border:1px solid var(--accent-border);border-radius:6px;padding:5px 12px;cursor:pointer;transition:background .15s}
+.copy-all-btn:hover{background:#dcecf5}
+.copy-all-btn.done{background:#d4f0dc;border-color:#7ac09a;color:#1a5a34}
+#copy-toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(10px);background:#1a2a18;color:#a8e8b8;font-size:12px;font-weight:600;padding:8px 18px;border-radius:20px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:200;white-space:nowrap}
+#copy-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+#toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);background:#2e2c29;color:#fff;font-size:12.5px;padding:10px 20px;border-radius:24px;opacity:0;transition:all .25s;pointer-events:none;z-index:999;white-space:nowrap}
+.rank-op-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:20px;align-items:stretch;margin-bottom:28px}
+.rank-op-grid>.section:nth-child(1){grid-column:1;grid-row:1;display:flex;flex-direction:column;margin-bottom:0}
+.rank-op-grid>.section:nth-child(2){grid-column:1/3;grid-row:2;margin-bottom:0}
+.rank-op-grid>.section:nth-child(3){grid-column:2;grid-row:1;display:flex;flex-direction:column;margin-bottom:0}
+.rank-op-grid>.section:nth-child(1) .rk-grid,.rank-op-grid>.section:nth-child(3) .tips{flex:1}
+.rank-op-grid>.section:nth-child(1) .rk-row,.rank-op-grid>.section:nth-child(3) .tip{flex:1;min-height:0}
+@media(max-width:900px){.rank-op-grid{display:block}}
+.insight-box{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow-xs)}
+.insight-title{font-size:14px;font-weight:700;color:var(--tx);margin-bottom:14px}
+.insight-highlight{background:var(--accent-light);border-left:3px solid var(--accent);padding:12px 16px;border-radius:0 8px 8px 0;margin-bottom:16px;font-size:13px;color:var(--accent-dark);font-weight:600;line-height:1.65}
+.insight-sub{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:10px;margin-top:14px}
+.insight-list{list-style:none;display:flex;flex-direction:column;gap:7px}
+.insight-list li{font-size:13px;color:#4a5568;padding-left:18px;position:relative;line-height:1.6}
+.insight-list li::before{content:'→';position:absolute;left:0;color:var(--accent-border);font-size:12px;top:1px}
+.principle-list{list-style:none;display:flex;flex-direction:column;gap:8px;margin-top:6px;counter-reset:item}
+.principle-list li{font-size:13px;color:#4a5568;padding-left:22px;position:relative;line-height:1.55}
+.principle-list li::before{content:counter(item);counter-increment:item;position:absolute;left:0;width:16px;height:16px;background:var(--accent-light);border-radius:4px;color:var(--accent);font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;top:1px}
+.page-footer{text-align:center;font-size:11px;color:var(--sub2);margin-top:12px;padding-bottom:8px}
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="ph-logo">御</div>
+  <div class="ph-title">御墅微風</div>
+  <div class="ph-sub">台中龍井・連棟住宅（透天）</div>
+  <nav class="ph-nav">
+    <a href="hub.html">← 返回總覽</a>
+  </nav>
+</div>
+
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到頂部">↑</button>
+
+<div class="wrap">
+
+  <a href="hub.html" class="top-link">← <span>返回受眾分析總覽</span></a>
+
+  <div class="case-header">
+    <div class="case-logo">御</div>
+    <div class="case-info">
+      <h2>御墅微風｜台中龍井連棟住宅</h2>
+      <p>台中市龍井區・龍井車站/靜宜大學周邊・御墅家系列連棟住宅（透天）・海線親民總價產品<br>主打：首購・換屋・在地成家｜廣告目標：名單</p>
+    </div>
+    <div class="case-stats">
+      <div class="stat"><div class="stat-n">87</div><div class="stat-l">累計潛客</div></div>
+      <div class="stat"><div class="stat-n">$172</div><div class="stat-l">最佳CPL</div></div>
+      <div class="stat"><div class="stat-n">$21K</div><div class="stat-l">累計花費</div></div>
+    </div>
+  </div>
+
+  <div class="note-bar">截至2026-09-14｜591與實價登錄查無「御墅微風」獨立頁面（同系列御墅欣境/御墅愛家開價888-988萬起，屬龍井連棟住宅產品），本頁受眾邏輯以既有14組實測數據＋業主提供之4組已驗證有效標籤組為基準校準，總價如有出入可再調整</div>
+
+  <div class="stats-bar">
+    <div class="sb-card"><div class="sb-n good">87</div><div class="sb-l">累計潛客</div></div>
+    <div class="sb-card"><div class="sb-n good">$172</div><div class="sb-l">最佳 CPL</div></div>
+    <div class="sb-card"><div class="sb-n">$21,192</div><div class="sb-l">累計總花費</div></div>
+    <div class="sb-card"><div class="sb-n">14</div><div class="sb-l">已實測受眾組</div></div>
+  </div>
+
+  <div class="section">
+    <div class="sec-title">三大核心受眾輪廓</div>
+    <div class="profiles">
+      <div class="profile-card">
+        <div class="profile-icon pi-a">🏘️</div>
+        <div class="profile-name">純房產廣投型</div>
+        <div class="profile-meta">年齡 28–60｜龍井+5公里（含南屯延伸）</div>
+        <div class="profile-tags">興趣：連棟住宅、獨立式洋房、591房屋交易網、房地產產業</div>
+        <div class="profile-behavior">行為：對海線透天/連棟產品有直接購屋興趣的廣泛族群，不限職業或年齡層細分。曝光17,112次、21潛客，CPL $171.71 是全案最低，證明「先求廣泛房產興趣觸及」比窄職業定向更有效率</div>
+        <span class="profile-badge badge-a">21潛客 · CPL $171.71 · 全案最強</span>
+      </div>
+      <div class="profile-card">
+        <div class="profile-icon pi-b">💍</div>
+        <div class="profile-name">新婚成家型</div>
+        <div class="profile-meta">年齡 28–55｜龍井+5公里</div>
+        <div class="profile-tags">興趣：婚禮、婚宴、婚紗攝影、媽媽寶寶懷孕生產育兒、戒指、結婚蛋糕</div>
+        <div class="profile-behavior">行為：以真實存在的婚禮相關興趣標籤鎖定準新人/新婚族群，購屋動機明確為「成家」。曝光15,346次、14潛客，CPL $222.69，是次強的核心方向</div>
+        <span class="profile-badge badge-b">14潛客 · CPL $222.69 · 次強</span>
+      </div>
+      <div class="profile-card">
+        <div class="profile-icon pi-c">🚉</div>
+        <div class="profile-name">通勤上班族型</div>
+        <div class="profile-meta">年齡 28–55｜龍井+5公里＋靜宜大學</div>
+        <div class="profile-tags">興趣：上班族、個人理財、UberEATS、線上訂餐、網路購物；行為：通勤者</div>
+        <div class="profile-behavior">行為：鎖定往返市區通勤、生活習慣digital化的上班族群，疊加靜宜大學周邊擴大觸及。曝光25,281次、19潛客，CPL $276.88，量能最大的驗證方向</div>
+        <span class="profile-badge badge-c">19潛客 · CPL $276.88 · 量能最大</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-title">核心有效標籤</div>
+    <div class="tags-row">
+      <span class="core-tag">連棟住宅/純房產興趣（最強核心）<span class="arr">↗</span></span>
+      <span class="core-tag">新婚成家（婚禮類真實興趣）<span class="arr">↗</span></span>
+      <span class="core-tag">上班族通勤<span class="arr">↗</span></span>
+      <span class="core-tag">年輕人興趣（靜宜）<span class="arr">↗</span></span>
+      <span class="core-tag">龍井海線在地認同<span class="arr">↗</span></span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-title">下一步受眾測試建議（20組）· 更新 2026-09-14</div>
+    <div class="note-bar">依據14組實測數據交叉比對：CPL最低的3組（純房產$171.71/21潛客、新婚成家$222.69/14潛客、上班族通勤$276.88/19潛客）都是「廣泛房產興趣或真實生活興趣」而非窄職業標籤；反觀教授教育（CPL$572,曝光10,824已充分驗證）、家具設計（CPL$795,曝光6,104已充分驗證）、傳產公務員/有小孩寵物/父母成家等窄職業或單一情境標籤，曝光量普遍偏低（4,000-6,000之間）且CPL明顯偏高，判斷「單一職業切角」在此案效果不佳。<br><br>📌 本批20組全數改採「興趣人設優先於職業標籤」策略：以連棟住宅獨有的院子/車庫/獨立空間作為產品賣點切角，逐一對應戶外休閒（重機露營、海洋休閒、登山健行）、寵物生活（大型犬）、居家嗜好（園藝、木工DIY、烘焙、手作市集）、在地文化（鐵道迷、農會小農）、運動生活（公路車、健身重訓、瑜伽皮拉提斯）、數位生活（電競、攝影創作、蝦皮電商）、事業型態（家族企業二代、加盟創業、汽機車保修、夜市餐飲）等真實存在的Meta興趣分類，且刻意避開CSV已測過的新婚成家/科技業/零售批發/純房產/上班族/傳產公務員/家具設計/有小孩寵物/投資興趣/父母成家/年輕人興趣/教授教育/製造業水電/銷售自營商等主題方向，確保全數為未觸及的全新切角。</div>
+    <div class="aud-grid-2" id="main-aud-grid"></div>
+  </div>
+
+  <div class="rank-op-grid">
+
+    <div class="section">
+      <div class="sec-title">受眾成效排行（累計實測）</div>
+      <div class="rk-grid">
+        <div class="rk-row gold">
+          <div class="rk-medal">🥇</div>
+          <div class="rk-body">
+            <div class="rk-name">28-60 / 龍井+5 / 純房產(0803+南屯) <span class="rk-badge rb-stopped">已暫停</span></div>
+            <div class="rk-loc">龍井區＋南屯延伸・目標：名單・累計投遞</div>
+            <div class="rk-tags"><span class="rk-tag t-biz">純房產</span><span class="rk-tag t-loc">龍井+南屯</span></div>
+          </div>
+          <div class="rk-stats">
+            <div class="rk-stat-block"><div class="rk-result">21</div><div class="rk-result-l">潛客</div></div>
+            <div class="rk-stat-block"><div class="rk-cpl good-cpl">$172</div><div class="rk-cpl-l">最佳CPL</div></div>
+            <div class="rk-stat-block"><div class="rk-spend">$2,919</div><div class="rk-spend-l">花費</div></div>
+          </div>
+        </div>
+        <div class="rk-row silver">
+          <div class="rk-medal">🥈</div>
+          <div class="rk-body">
+            <div class="rk-name">28-55 / 龍井+5 / 新婚成家/房產 <span class="rk-badge rb-stopped">已暫停</span></div>
+            <div class="rk-loc">龍井區周邊・目標：名單・累計投遞</div>
+            <div class="rk-tags"><span class="rk-tag t-biz">新婚成家</span><span class="rk-tag t-loc">龍井+5</span></div>
+          </div>
+          <div class="rk-stats">
+            <div class="rk-stat-block"><div class="rk-result">14</div><div class="rk-result-l">潛客</div></div>
+            <div class="rk-stat-block"><div class="rk-cpl good-cpl">$223</div><div class="rk-cpl-l">CPL</div></div>
+            <div class="rk-stat-block"><div class="rk-spend">$2,895</div><div class="rk-spend-l">花費</div></div>
+          </div>
+        </div>
+        <div class="rk-row bronze">
+          <div class="rk-medal">🥉</div>
+          <div class="rk-body">
+            <div class="rk-name">28-55 / 龍井+5 / 上班族(0824+靜宜) <span class="rk-badge rb-stopped">已暫停</span></div>
+            <div class="rk-loc">龍井區＋靜宜大學・目標：名單・累計投遞</div>
+            <div class="rk-tags"><span class="rk-tag t-biz">上班族通勤</span><span class="rk-tag t-loc">龍井+靜宜</span></div>
+          </div>
+          <div class="rk-stats">
+            <div class="rk-stat-block"><div class="rk-result">19</div><div class="rk-result-l">潛客</div></div>
+            <div class="rk-stat-block"><div class="rk-cpl">$277</div><div class="rk-cpl-l">CPL</div></div>
+            <div class="rk-stat-block"><div class="rk-spend">$4,707</div><div class="rk-spend-l">花費</div></div>
+          </div>
+        </div>
+        <div class="rk-row">
+          <div class="rk-rank">4</div>
+          <div class="rk-body">
+            <div class="rk-name">28-55 / 龍井靜宜 / 年輕人興趣 <span class="rk-badge rb-stopped">已暫停</span></div>
+            <div class="rk-loc">靜宜大學周邊・目標：名單・累計投遞</div>
+            <div class="rk-tags"><span class="rk-tag t-biz">年輕人興趣</span><span class="rk-tag t-loc">靜宜</span></div>
+          </div>
+          <div class="rk-stats">
+            <div class="rk-stat-block"><div class="rk-result">6</div><div class="rk-result-l">潛客</div></div>
+            <div class="rk-stat-block"><div class="rk-cpl">$320</div><div class="rk-cpl-l">CPL</div></div>
+            <div class="rk-stat-block"><div class="rk-spend">$1,601</div><div class="rk-spend-l">花費</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sec-title">已驗證無效方向（曝光≥5,000、CPL偏高）</div>
+      <div class="hist-bar">
+        <h4>窄職業/單一情境標籤，判定效果不佳</h4>
+        <div class="hist-grid">
+          <div class="hist-item"><div class="hist-n">$572</div><div class="hist-l">教授教育（曝光10,824）</div></div>
+          <div class="hist-item"><div class="hist-n">$795</div><div class="hist-l">上班族家具設計（曝光6,104）</div></div>
+          <div class="hist-item"><div class="hist-n">$365</div><div class="hist-l">投資興趣（曝光7,903・尚可）</div></div>
+        </div>
+      </div>
+      <div class="note-bar warn">傳產/在地公務員（CPL$753）、有小孩寵物（CPL$774）、父母成家興趣（CPL$899）曝光量落在4,000-4,400之間，未達5,000可信門檻，數據僅供參考不宜直接判定無效，建議之後有預算可小額重測驗證。製造業/水電組曝光僅410次，目前仍太早無法下結論。</div>
+    </div>
+
+    <div class="section">
+      <div class="sec-title">立即行動建議</div>
+      <div class="tips">
+        <div class="tip">
+          <div class="tip-num">1</div>
+          <div class="tip-body">
+            <div class="tip-title">純房產廣投款優先重啟並加碼</div>
+            <div class="tip-desc">CPL $171.71 是全案最低、21潛客也是最多，證明廣泛房產興趣＋海線地緣認同的組合效率最高。建議優先重新開啟此組，預算可拉高至$250-300/日測試規模化。</div>
+          </div>
+        </div>
+        <div class="tip">
+          <div class="tip-num c2">2</div>
+          <div class="tip-body">
+            <div class="tip-title">新婚成家＋上班族通勤雙軸心維持並輪替素材</div>
+            <div class="tip-desc">兩組CPL都在$280以內、量能穩定，是次強雙主力。建議兩組輪替不同素材（婚禮情境 vs 通勤生活情境）測試哪個文案轉換率更高，避免受眾疲乏。</div>
+          </div>
+        </div>
+        <div class="tip">
+          <div class="tip-num c3">3</div>
+          <div class="tip-body">
+            <div class="tip-title">教授教育、家具設計兩組確認停用</div>
+            <div class="tip-desc">兩組曝光量都超過6,000次仍轉換不佳（CPL$572、$795），數據已充分，確認不適合本案，預算應轉移至新一批20組興趣人設測試。</div>
+          </div>
+        </div>
+        <div class="tip">
+          <div class="tip-num c4">4</div>
+          <div class="tip-body">
+            <div class="tip-title">新一批20組採小額分散測試，找出第二波主力</div>
+            <div class="tip-desc">本批20組全數為興趣人設切角（戶外/寵物/居家嗜好/在地文化/運動/數位生活/事業型態），建議每組先以$100-150/日小額測試1-2週，觀察哪2-3個方向可晉升為主力受眾。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /rank-op-grid -->
+
+  <div class="section">
+    <div class="insight-box">
+      <div class="insight-title">根據現有高效受眾的設定邏輯，整理出幾個關鍵洞見：</div>
+      <div class="insight-highlight">
+        最重要的發現：御墅微風的核心買盤是「海線在地生活圈」的廣泛房產興趣族群，加上新婚成家與通勤上班族兩條真實生活興趣主線<br>
+        單一窄職業標籤（教授教育、傳產公務員、家具設計等）在此案效果普遍不理想，反而是「興趣人設」比「職業身份」更能打中買家。
+      </div>
+      <div class="insight-sub">有效受眾的共同特徵：</div>
+      <ul class="insight-list">
+        <li>廣泛房產興趣優於窄職業定向：純房產廣投款CPL $171.71 遠低於任何單一職業組</li>
+        <li>真實生活興趣有效：婚禮類（新婚成家）、通勤行為（上班族）都是Meta可定向的真實興趣分類，轉換效率穩定</li>
+        <li>窄職業/單一情境標籤效率低：教授教育、家具設計、傳產公務員等單一切角，CPL普遍在$570以上</li>
+      </ul>
+      <div class="insight-sub">未來新開受眾的設定原則：</div>
+      <ol class="principle-list">
+        <li>地理錨點：龍井車站+5公里為核心，靜宜大學/東海大學/沙鹿/台中港為擴散點，暫不建議跳出海線範圍</li>
+        <li>興趣人設優先於職業標籤：連棟住宅的院子/車庫是差異化賣點，應對應到戶外、寵物、居家嗜好等真實生活興趣</li>
+        <li>避免單一狹窄職業/情境包裝：任何新受眾組都應補足完整人設（工作/生活/消費/理財/社交），不能只打職業或單一情境</li>
+        <li>低曝光組別（<5,000次）不宜直接判定無效，僅供參考，值得小額重測取得更可靠數據</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="page-footer">資料期間：2026-06-30 至 2026-09-14 · 御墅微風 台中龍井 · 最後更新 2026-09-14</div>
+
+</div>
+
+<div id="copy-toast">已複製</div>
+<div id="toast">📋 詢問建議已複製 → 貼至 Claude 對話</div>
+
+<script>
+const PROJECT = '御墅微風（台中龍井・連棟住宅透天・87潛客・最佳CPL NT$172）';
+
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg||'📋 詢問建議已複製 → 貼至 Claude 對話';
+  t.style.opacity='1';t.style.transform='translateX(-50%) translateY(0)';
+  setTimeout(()=>{t.style.opacity='0';t.style.transform='translateX(-50%) translateY(20px)'},2200);
+}
+
+function copyPrompt(text){
+  navigator.clipboard.writeText(text).then(()=>showToast()).catch(()=>{
+    const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast();
+  });
+}
+
+const MAIN_G=[
+  {n:'25-45 / 龍井+5・大肚山 / 重機露營裝備玩家型',sub:'全新興趣人設・連棟住宅車庫是重機/露營裝備天然收納空間',
+   logic:'連棟住宅有獨立前院與車庫，天然適合停放重機與露營裝備，龍井鄰近台61線濱海公路是中部重機/露營路線熱點。訴求「有院子有車庫，重機露營裝備終於不用寄放在外面」，鎖定有重機或露營嗜好、目前租屋/大樓住戶最痛的收納痛點。',
+   lm:['龍井車站（+5公里）','高美濕地（+8公里）','大肚山','台61線龍井段'],
+   tags:[['Motorcycling','機車重機'],['Off-road vehicle','越野車輛'],['Camping','露營'],['RV (recreational vehicle)','露營車'],['Camping gear','露營裝備'],['Outdoor recreation','戶外休閒'],['Hiking','健行登山'],['Off-roading','越野活動'],['Garage','車庫'],['DIY','自己動手做'],['Tools','工具設備'],['Automobile','汽車'],['Car customization','改裝車'],['Motorcycle gear','重機裝備'],['Adventure travel','探險旅遊'],['Fishing','釣魚'],['Barbecue','烤肉'],['National park','國家公園'],['Coastal cycling','海濱自行車道'],['GoPro','運動攝影機'],['Photography','攝影'],['YouTube','YouTube影音'],['Home improvement','居家修繕'],['New home','新成屋'],['Home buying','購屋'],['Storage solutions','收納規劃'],['Quality of life','生活品質'],['Weekend getaway','週末小旅行']]},
+  {n:'28-50 / 龍井+5・東海大學 / 大型犬毛孩生活型',sub:'全新興趣人設・獨立庭院不需管委會限制，養大型犬首選',
+   logic:'連棟住宅有獨立庭院，不像大樓要看管委會臉色，養大型犬家庭最在意「有無院子、獨立出入口」，龍井海線腹地大適合遛狗散步。訴求「終於不用配合大樓規定，院子就是狗狗的操場」，鎖定完整寵物生活人設而非單一寵物興趣標籤。',
+   lm:['龍井車站（+5公里）','麗水漁港（+6公里）','龍井交流道','東海大學（+5公里）'],
+   tags:[['Dog','狗'],['Dog training','狗狗訓練'],['Pet grooming','寵物美容'],['Veterinary medicine','獸醫'],['Pet food','寵物食品'],['Pet supplies','寵物用品'],['Dog park','狗狗公園'],['Animal shelter','動物收容'],['Dog walking','遛狗'],['Outdoor recreation','戶外活動'],['Gardening','園藝'],['Garden design','庭院造景'],['Home improvement','居家修繕'],['Fence','圍籬'],['Backyard','後院生活'],['New home','新成屋'],['Home buying','購屋'],['Pet-friendly','寵物友善'],['Hiking','健行'],['Camping','露營'],['Photography','攝影'],['Instagram','IG社群'],['Animal welfare','動物福利'],['Cat','貓'],['Farmers market','農夫市集'],['Organic food','有機食品'],['Quality of life','生活品質'],['Community','社區生活']]},
+  {n:'35-60 / 龍井區公所・大肚 / 療癒系園藝家庭菜園型',sub:'全新興趣人設・連棟住宅前院適合種花種菜療癒生活',
+   logic:'連棟住宅有前院或露臺空間，適合都市園藝與香草菜園愛好者，海線日照充足種植條件佳。訴求「有院子能種花種菜，週末生活多一個去處」，鎖定真實存在的園藝興趣分類，而非年齡層框架。',
+   lm:['龍井區公所（+5公里）','清水鰲峰山（+8公里）','大肚（+5公里）','台灣大道沿線'],
+   tags:[['Gardening','園藝'],['Urban farming','都市農耕'],['Organic gardening','有機種植'],['Vegetable gardening','蔬菜種植'],['Herb garden','香草花園'],['Succulent plants','多肉植物'],['Flower arrangement','花藝'],['Landscape design','景觀設計'],['Greenhouse','溫室'],['Composting','堆肥'],['Farmers market','農夫市集'],['Organic food','有機食品'],['Home improvement','居家修繕'],['Backyard','後院生活'],['Patio','露臺生活'],['DIY','手作'],['Cooking','料理'],['Tea','茶飲文化'],['Nature','大自然'],['Bird watching','賞鳥'],['Local food','在地美食'],['Home decor','居家佈置'],['Interior design','室內設計'],['New home','新成屋'],['Home buying','購屋'],['Quality of life','生活品質'],['Farm-to-table','產地直送'],['Weekend getaway','週末小旅行']]},
+  {n:'30-55 / 龍井+5・沙鹿五金商圈 / DIY木工居家修繕型',sub:'全新興趣人設・車庫是木工愛好者唯一能鋸切施工的空間',
+   logic:'車庫/儲藏空間是木工與修繕愛好者最需要的獨立工作區，大樓住戶完全無法在陽台鋸切木工，透天車庫直接解決這個痛點。訴求「有車庫，終於能自己動手做家具」，鎖定手作/修繕真實興趣。',
+   lm:['龍井車站（+5公里）','沙鹿五金材料行商圈（+5公里）','台中港特定區（+8公里）'],
+   tags:[['Woodworking','木工'],['DIY','自己動手做'],['Power tools','電動工具'],['Hardware store','五金行'],['Home improvement','居家修繕'],['Furniture making','家具製作'],['Carpentry','木匠工藝'],['Home renovation','居家翻修'],['Interior design','室內設計'],['Garage','車庫'],['Workshop','工作室'],['3D printing','3D列印'],['Home automation','智慧家庭'],['Painting (DIY)','油漆粉刷'],['Tile work','磁磚工程'],['Plumbing','水電工程'],['Electrical work','電路工程'],['Upcycling','廢物利用'],['Handyman','修繕達人'],['YouTube','YouTube教學'],['Home decor','居家佈置'],['Minimalism','極簡生活'],['Storage solutions','收納規劃'],['New home','新成屋'],['Home buying','購屋'],['Hardware and tools','工具五金'],['Metal working','金屬加工'],['Craft','手作工藝']]},
+  {n:'20-45 / 龍井車站+3公里・海線各站 / 龍井鐵道迷文化型',sub:'全新興趣人設・以龍井車站本身作為興趣切角，而非單純地理定位',
+   logic:'延續「用興趣而非職業切角」的設計原則，龍井車站本身是海線鐵路支線知名景點，鐵道迷族群對「住在車站旁」有天然情感認同與生活便利雙重誘因。訴求「每天通勤都能看見海線鐵道風景」，鎖定真實存在的鐵道興趣社群。',
+   lm:['龍井車站（+3公里）','追分車站（+8公里）','大肚車站（+8公里）','沙鹿車站（+8公里）'],
+   tags:[['Rail transport','鐵路運輸'],['Train','火車'],['Taiwan Railway','台鐵'],['Model railway','鐵道模型'],['Photography','攝影'],['Public transportation','大眾運輸'],['Travel by train','鐵道旅行'],['Vintage trains','復古列車'],['Railway station','火車站'],['Commuting','通勤'],['Urban exploration','城市探索'],['History','歷史文化'],['Local culture','在地文化'],['Documentary','紀錄片'],['Travel photography','旅遊攝影'],['Model building','模型製作'],['Collecting','收藏'],['Map','地圖'],['Cycling','自行車'],['Local food','在地美食'],['Coffee','咖啡'],['Independent bookstore','獨立書店'],['YouTube','YouTube頻道'],['Blogging','部落格寫作'],['Home buying','購屋'],['New home','新成屋'],['Quality of life','生活品質'],['Weekend getaway','週末小旅行']]},
+  {n:'30-55 / 台中港・高美濕地 / 台中港海洋休閒型',sub:'全新興趣人設・海釣風帆衝浪族群，離海近但不住觀光區',
+   logic:'台中港近在咫尺，海釣、風帆、衝浪等海洋休閒族群需要「離海近但生活機能完整」的住宅，龍井正好是海線生活與海洋休閒的交會點。訴求「假日就能出海，回家還是安靜生活圈」，鎖定真實海洋休閒興趣。',
+   lm:['台中港（+8公里）','高美濕地（+8公里）','麗水漁港（+6公里）','龍井車站（+5公里）'],
+   tags:[['Fishing','釣魚'],['Sea fishing','海釣'],['Sailing','帆船'],['Surfing','衝浪'],['Windsurfing','風帆'],['Kayaking','獨木舟'],['Scuba diving','潛水'],['Beach','海灘生活'],['Marine life','海洋生態'],['Seafood','海鮮料理'],['Boating','遊艇'],['Water sports','水上運動'],['Sunset photography','夕陽攝影'],['Photography','攝影'],['Outdoor recreation','戶外休閒'],['Camping','露營'],['Barbecue','烤肉'],['Local food','在地美食'],['Travel','旅遊'],['Coastal living','海濱生活'],['Nature','大自然'],['Environmental conservation','生態保育'],['Bird watching','賞鳥'],['Cycling','自行車'],['New home','新成屋'],['Home buying','購屋'],['Quality of life','生活品質'],['Weekend getaway','週末小旅行']]},
+  {n:'28-45 / 龍井工業區・大肚工業區 / 在地家族企業二代接班型',sub:'全新興趣人設・區隔既有傳產公務員組，聚焦家族企業經營層而非受薪職位',
+   logic:'海線傳產家族企業第二代已從父輩手中接班或即將接班，在地成長、有經濟基礎但仍在累積個人資產，換屋動機來自「跟父母分開住但不想離開家族事業所在地」。與CSV已測過的「傳產/在地公務員」（受薪階級）不同，此組聚焦企業經營者身份與資產配置行為。',
+   lm:['龍井工業區（+5公里）','大肚工業區（+8公里）','沙鹿工業區（+8公里）','台中港特定區（+8公里）'],
+   tags:[['Family business','家族企業'],['Business management','企業管理'],['Business succession','企業傳承'],['Entrepreneurship','創業'],['Manufacturing','製造業'],['Business owner','企業主'],['Leadership','領導力'],['MBA','企業管理碩士'],['Business networking','商業社交'],['Golf','高爾夫'],['Luxury cars','名車'],['Wine','紅酒'],['Fine dining','精緻餐飲'],['Watch collecting','名錶收藏'],['Business travel','商務旅行'],['Investment','投資理財'],['Stock market','股票市場'],['Chamber of commerce','工商公會'],['Trade show','展覽博覽'],['Automobile','汽車'],['Interior design','室內設計'],['New home','新成屋'],['Home buying','購屋'],['Wealth management','財富管理'],['Private banking','私人銀行'],['Business plan','商業計畫'],['Quality of life','生活品質']]},
+  {n:'25-45 / 龍井車站商圈・沙鹿市區 / 連鎖加盟創業型',sub:'全新興趣人設・區隔既有零售批發自營組，聚焦加盟主而非批發商',
+   logic:'海線人口成長帶動便利商店/手搖飲加盟需求，這群加盟主收入穩定但仍在累積資產階段，多數在地經營、對總價親民的透天接受度高。與CSV已測過的「零售批發自營」（批發業主）不同，此組聚焦連鎖加盟創業者的經營行為與資產累積階段。',
+   lm:['龍井車站商圈（+5公里）','沙鹿市區（+8公里）','大肚（+8公里）'],
+   tags:[['Franchising','加盟連鎖'],['Convenience store','便利商店'],['Bubble tea','手搖飲'],['Small business','小型企業'],['Entrepreneurship','創業'],['Retail','零售業'],['Business management','企業管理'],['Point of sale','收銀系統'],['Inventory management','庫存管理'],['Franchise business','加盟事業'],['Business loan','商業貸款'],['Business plan','商業計畫'],['Marketing','行銷'],['Social media marketing','社群行銷'],['Customer service','客戶服務'],['Food and beverage','餐飲業'],['Coffee','咖啡'],['Beverage industry','飲料業'],['Business networking','商業社交'],['Self-employment','自營商'],['Accounting','會計'],['Tax planning','稅務規劃'],['New home','新成屋'],['Home buying','購屋'],['Local business','在地商業'],['Community','社區生活'],['Quality of life','生活品質']]},
+  {n:'25-50 / 高美濕地自行車道・台61線 / 公路車單車運動型',sub:'全新興趣人設・車庫解決高單價自行車存放與保養痛點',
+   logic:'台61線濱海公路是中台灣知名公路車路線，車友需要能停放高單價自行車的獨立空間，車庫直接滿足停車與保養需求，避免大樓電梯搬車的困擾。訴求「有車庫，愛車不用每天搬上搬下」，鎖定真實運動興趣族群。',
+   lm:['高美濕地自行車道（+8公里）','台61線龍井段（+5公里）','東海大學（+5公里）','大肚山'],
+   tags:[['Road cycling','公路車'],['Cycling','自行車運動'],['Bicycle','自行車'],['Mountain biking','登山車'],['Triathlon','鐵人三項'],['Marathon','馬拉松'],['Sports nutrition','運動營養'],['Cycling gear','自行車裝備'],['Fitness','健身'],['Endurance training','耐力訓練'],['Outdoor recreation','戶外運動'],['Garage','車庫'],['Bicycle maintenance','自行車保養'],['Sports watch','運動手錶'],['GoPro','運動攝影機'],['Coastal cycling route','海濱車道'],['Camping','露營'],['Hiking','登山健行'],['Photography','攝影'],['Health food','健康飲食'],['Protein supplement','蛋白質補給'],['Sports club','運動社團'],['New home','新成屋'],['Home buying','購屋'],['Storage solutions','收納空間'],['Quality of life','生活品質'],['Weekend getaway','週末小旅行']]},
+  {n:'28-50 / 龍井車站商圈・清水中山路 / 烘焙甜點手作副業型',sub:'全新興趣人設・獨立廚房空間大，適合經營居家烘焙副業',
+   logic:'連棟住宅獨立廚房空間大，適合經營居家烘焙副業或未來開設工作室，海線消費者對手作甜點接受度高。訴求「廚房夠大，副業終於可以正式開始」，鎖定真實烘焙興趣與居家創業行為交叉。',
+   lm:['龍井車站商圈（+5公里）','沙鹿市區（+8公里）','清水中山路商圈（+8公里）'],
+   tags:[['Baking','烘焙'],['Dessert','甜點'],['Pastry','糕點'],['Cake decorating','蛋糕裝飾'],['Home baking','居家烘焙'],['Cooking','料理'],['Recipe','食譜'],['Kitchen appliances','廚房家電'],['Food photography','美食攝影'],['Small business','小型企業'],['Home-based business','居家創業'],['Online store','網路商店'],['Instagram','IG經營'],['Facebook marketing','FB行銷'],['Farmers market','市集擺攤'],['Coffee','咖啡'],['Tea','茶飲'],['Organic food','有機食品'],['Food blogger','美食部落客'],['Culinary arts','烹飪藝術'],['Entrepreneurship','創業'],['Packaging design','包裝設計'],['Local food','在地美食'],['Kitchen design','廚房設計'],['Home renovation','居家翻修'],['New home','新成屋'],['Home buying','購屋'],['Quality of life','生活品質']]},
+  {n:'25-45 / 沙鹿市區・東海大學 / 假日市集文創手作型',sub:'全新興趣人設・海線假日市集文化興起，家裡兼備料倉儲空間',
+   logic:'海線近年興起假日市集文化（大肚、沙鹿、梧棲），手作創作者需要「家裡有空間備料、放庫存」，透天比大樓更適合小型創作與倉儲併用。訴求「家裡有工作室，市集擺攤說走就走」，鎖定手作創作真實興趣。',
+   lm:['沙鹿市區（+8公里）','大肚（+8公里）','東海大學（+5公里）','龍井車站（+5公里）'],
+   tags:[['Handicraft','手工藝'],['Craft market','手作市集'],['Pottery','陶藝'],['Jewelry making','手作飾品'],['Leather craft','皮革工藝'],['Candle making','蠟燭手作'],['Illustration','插畫'],['Independent bookstore','獨立書店'],['Art exhibition','藝術展覽'],['Flea market','跳蚤市場'],['Vintage','復古風格'],['Small business','小型企業'],['Online store','網路商店'],['Social media marketing','社群行銷'],['Photography','攝影'],['Design','設計'],['Interior design','室內設計'],['Home studio','居家工作室'],['DIY','手作'],['Local culture','在地文化'],['Art supplies','美術用品'],['Coffee','咖啡'],['Weekend market','週末市集'],['Entrepreneurship','創業'],['New home','新成屋'],['Home buying','購屋'],['Quality of life','生活品質']]},
+  {n:'22-40 / 龍井+5・靜宜大學・東海大學 / 電競居家娛樂宅家型',sub:'全新興趣人設・房間數多、隔音相對獨立，適合配置遊戲室/直播間',
+   logic:'連棟住宅房間數多、隔音相對獨立，適合電競/直播玩家配置多間房作為遊戲室兼直播間，海線總價親民對年輕族群負擔較輕。訴求「有自己的房間打電動、開直播不吵到家人」，鎖定真實數位娛樂興趣。',
+   lm:['龍井車站（+5公里）','東海大學（+5公里）','靜宜大學（+3公里）','沙鹿市區（+8公里）'],
+   tags:[['Video games','電子遊戲'],['Esports','電競'],['Gaming PC','電競主機'],['Twitch','Twitch實況'],['YouTube Gaming','YouTube電競'],['Streaming','直播'],['League of Legends','英雄聯盟'],['PlayStation','PlayStation遊戲機'],['Nintendo Switch','Switch遊戲機'],['Gaming chair','電競椅'],['Home theater','家庭劇院'],['Anime','動漫'],['Manga','漫畫'],['Board games','桌遊'],['Technology','科技'],['Computer hardware','電腦硬體'],['Internet culture','網路文化'],['Discord','Discord社群'],['Streaming service','串流影音'],['Mobile games','手機遊戲'],['Comic convention','動漫展'],['Figure collecting','公仔收藏'],['Home office','居家辦公'],['Home renovation','居家翻修'],['New home','新成屋'],['Home buying','購屋'],['Soundproofing','隔音工程']]},
+  {n:'28-50 / 靜宜大學・東海大學 / 瑜伽皮拉提斯質感運動型',sub:'全新興趣人設・獨立運動房不受大樓公設排隊限制',
+   logic:'連棟住宅可規劃獨立運動房或瑜伽室，不受大樓公設排隊時段限制，海線近年質感生活風氣興起。訴求「家裡就有練習空間，不用配合教室時間」，鎖定質感運動生活真實興趣，非人生轉折框架。',
+   lm:['靜宜大學（+3公里）','東海大學（+5公里）','龍井車站（+5公里）'],
+   tags:[['Yoga','瑜伽'],['Pilates','皮拉提斯'],['Meditation','冥想'],['Fitness','健身'],['Wellness','身心健康'],['Lululemon','Lululemon運動服飾'],['Health food','健康飲食'],['Organic food','有機食品'],['Smoothie','精力湯'],['Home gym','居家健身房'],['Personal trainer','私人教練'],['Mindfulness','正念'],['Aromatherapy','芳香療法'],['Spa','水療'],['Skincare','保養品'],['Coffee','精品咖啡'],['Interior design','室內設計'],['Minimalism','極簡生活'],['Scandinavian design','北歐設計'],['Travel','旅遊'],['Reading','閱讀'],['Independent bookstore','獨立書店'],['Home decor','居家佈置'],['Quality of life','生活品質'],['New home','新成屋'],['Home buying','購屋'],['Sustainable living','永續生活'],['Athleisure','運動休閒服']]},
+  {n:'28-55 / 龍井工業區・沙鹿・大肚 / 汽機車保修師傅個人事業型',sub:'全新興趣人設・區隔既有製造業水電組，聚焦自立門戶保修師傅',
+   logic:'有意自立門戶開保修廠的技師，需要住家帶車庫方便存放工具設備，甚至可先在自家車庫接案再擴大營業規模。訴求「先在家車庫做，存到錢再租店面」，與CSV已測過的「製造業/水電」受僱身份不同，此組聚焦自營創業意圖。',
+   lm:['龍井工業區（+5公里）','沙鹿（+8公里）','大肚（+8公里）'],
+   tags:[['Auto repair','汽車維修'],['Automobile','汽車'],['Motorcycle','機車'],['Car maintenance','汽車保養'],['Car modification','汽車改裝'],['Auto parts','汽車零件'],['Mechanic','技師'],['Auto detailing','汽車美容'],['Diesel engine','柴油引擎'],['Turbocharger','渦輪增壓'],['Garage','車庫'],['Hand tools','手工具'],['Power tools','電動工具'],['Self-employment','自營商'],['Small business','小型企業'],['Entrepreneurship','創業'],['Business loan','商業貸款'],['Motorsport','賽車運動'],['Racing','競速'],['Car enthusiast','玩車愛好者'],['YouTube','YouTube汽車頻道'],['Facebook marketing','FB行銷'],['Local business','在地商業'],['Truck','貨卡車'],['New home','新成屋'],['Home buying','購屋'],['Storage solutions','收納規劃'],['Quality of life','生活品質']]},
+  {n:'28-50 / 沙鹿夜市・清水夜市・龍井車站商圈 / 夜市小吃餐飲外燴創業型',sub:'全新興趣人設・車庫可暫存攤車設備，回家就能備料',
+   logic:'海線夜市與小吃文化興盛，攤商與外燴業者需要住家有空間備料、放置攤車設備，車庫與院子可暫存。訴求「回家就能備料，不用另外租倉庫」，鎖定餐飲創業真實興趣。',
+   lm:['沙鹿夜市（+8公里）','清水夜市（+8公里）','龍井車站商圈（+5公里）'],
+   tags:[['Street food','街頭小吃'],['Night market','夜市'],['Catering','外燴'],['Food truck','餐車'],['Cooking','料理'],['Small business','小型企業'],['Self-employment','自營商'],['Entrepreneurship','創業'],['Food and beverage','餐飲業'],['Kitchen equipment','廚房設備'],['Food safety','食品安全'],['Recipe','食譜'],['Local food','在地美食'],['Traditional market','傳統市場'],['Business loan','商業貸款'],['Food delivery','外送平台'],['Facebook marketing','FB行銷'],['Social media marketing','社群行銷'],['Customer service','客戶服務'],['Wholesale','批發'],['Ingredients sourcing','食材採購'],['Storage solutions','收納規劃'],['Garage','車庫'],['New home','新成屋'],['Home buying','購屋'],['Community','在地社區'],['Quality of life','生活品質'],['Business networking','商業社交']]},
+  {n:'35-60 / 龍井農會・大肚・龍井區公所 / 在地農會小農市集經營型',sub:'全新興趣人設・院子可曬穀、車庫可放農機具，貼近實際生活需求',
+   logic:'龍井與大肚仍有不少農業腹地，小農二代或兼業農戶需要「住家附車庫可放農機具、有院子曬穀」，透天比大樓更貼近實際生活需求。訴求「有院子有車庫，農忙生活方便多了」，鎖定在地農業真實生活興趣。',
+   lm:['龍井農會（+5公里）','大肚（+8公里）','龍井區公所（+5公里）'],
+   tags:[['Agriculture','農業'],['Farming','務農'],['Organic farming','有機農業'],['Farmers market','農夫市集'],['Agricultural machinery','農機具'],['Local produce','在地農產'],['Farm-to-table','產地直送'],['Sustainable agriculture','永續農業'],['Gardening','園藝'],['Cooperative','合作社'],['Small business','小型企業'],['Self-employment','自營商'],['Local community','在地社區'],['Traditional market','傳統市場'],['Truck','貨卡車'],['Storage solutions','收納規劃'],['Garage','車庫'],['Rural life','鄉村生活'],['Weather','氣象天氣'],['Cooking','料理'],['Local food','在地美食'],['Temple','廟宇信仰'],['Farmers association','農會'],['Home improvement','居家修繕'],['New home','新成屋'],['Home buying','購屋'],['Quality of life','生活品質'],['Community','社區生活']]},
+  {n:'22-40 / 龍井車站・沙鹿・東海大學 / 重訓健身愛好者型',sub:'全新興趣人設・車庫/地下室可規劃居家健身房，海線健身選擇少',
+   logic:'連棟住宅車庫或地下室空間可規劃居家健身房/重訓室，海線健身工作室選擇偏少。訴求「自己在家練，不用等健身房開門」，鎖定重訓健身真實運動興趣，非職業教練切角。',
+   lm:['龍井車站（+5公里）','沙鹿（+8公里）','東海大學（+5公里）'],
+   tags:[['Bodybuilding','健美'],['Weightlifting','重量訓練'],['CrossFit','高強度間歇訓練'],['Gym','健身房'],['Personal trainer','私人教練'],['Sports nutrition','運動營養'],['Protein supplement','蛋白質補給'],['Fitness','健身'],['Strength training','力量訓練'],['Powerlifting','健力'],['Home gym','居家健身房'],['Athletic performance','運動表現'],['Sports apparel','運動服飾'],['Under Armour','Under Armour運動品牌'],['Nike','Nike運動品牌'],['Meal prep','備餐'],['Health food','健康飲食'],['Boxing','拳擊'],['Martial arts','格鬥武術'],['Recovery','運動恢復'],['Sports watch','運動手錶'],['Garage','車庫'],['New home','新成屋'],['Home buying','購屋'],['Storage solutions','收納規劃'],['Quality of life','生活品質']]},
+  {n:'22-45 / 高美濕地・龍井車站・台中港 / 攝影空拍機YouTube創作者型',sub:'全新興趣人設・海線夕陽/空拍熱門景點，內容創作者需要獨立工作空間',
+   logic:'海線夕陽、高美濕地、台中港等地是熱門空拍與攝影景點，內容創作者需要住家有獨立空間放器材、剪片，透天多房型比套房更符合工作室需求。訴求「有房間放器材、剪片不受打擾」，鎖定內容創作真實興趣。',
+   lm:['高美濕地（+8公里）','龍井車站（+5公里）','台中港（+8公里）'],
+   tags:[['Photography','攝影'],['Drone','空拍機'],['DJI','DJI空拍機品牌'],['Videography','影像製作'],['YouTube','YouTube創作者'],['Content creation','內容創作'],['Video editing','影片剪輯'],['Adobe Premiere','Premiere剪輯軟體'],['Camera','相機'],['Landscape photography','風景攝影'],['Sunset photography','夕陽攝影'],['Travel photography','旅遊攝影'],['Vlogging','生活影音'],['Social media marketing','社群行銷'],['Instagram','IG經營'],['Live streaming','直播'],['Freelancer','自由接案'],['Home studio','居家工作室'],['Computer hardware','電腦硬體'],['Editing software','剪輯軟體'],['Storage solutions','收納規劃'],['Technology','科技'],['Travel','旅遊'],['Nature','大自然'],['New home','新成屋'],['Home buying','購屋'],['Home office','居家辦公'],['Quality of life','生活品質']]},
+  {n:'22-40 / 龍井車站・沙鹿・台中港物流園區 / 蝦皮電商小資創業型',sub:'全新興趣人設・多房型可規劃倉庫兼包貨區，免月租倉儲',
+   logic:'連棟住宅多房型可規劃「一間當倉庫、一間當包貨區」，海線年輕世代兼職做蝦皮/momo代購者不少。訴求「家裡有地方囤貨，不用月租倉庫」，鎖定電商創業真實興趣與居家事業行為。',
+   lm:['龍井車站（+5公里）','沙鹿（+8公里）','台中港物流園區（+8公里）'],
+   tags:[['E-commerce','電商'],['Online shopping','網路購物'],['Shopee','蝦皮購物'],['Dropshipping','代發貨'],['Social commerce','社群電商'],['Small business','小型企業'],['Self-employment','自營商'],['Entrepreneurship','創業'],['Inventory management','庫存管理'],['Logistics','物流'],['Package delivery','包裹配送'],['Digital marketing','數位行銷'],['Facebook marketing','FB行銷'],['Instagram marketing','IG行銷'],['KOL marketing','網紅行銷'],['Product photography','商品攝影'],['Packaging design','包裝設計'],['Online store','網路商店'],['Warehouse','倉儲'],['Business plan','商業計畫'],['Startup','新創事業'],['Freelancer','自由接案'],['Side hustle','副業經營'],['Storage solutions','收納規劃'],['New home','新成屋'],['Home buying','購屋'],['Quality of life','生活品質']]},
+  {n:'25-55 / 大肚山・龍井車站・東海大學 / 登山健行戶外探險型',sub:'全新興趣人設・大肚山近在咫尺，車庫可存放裝備曬帳篷',
+   logic:'大肚山、大坑、八卦山等登山路線環繞龍井周邊，戶外愛好者需要車庫存放裝備，回家有地方曬帳篷。訴求「假日出發爬山方便，回家有地方放裝備」，鎖定登山健行真實戶外興趣。',
+   lm:['大肚山','龍井車站（+5公里）','東海大學（+5公里）'],
+   tags:[['Hiking','登山健行'],['Trekking','健行旅遊'],['Mountaineering','登山運動'],['Outdoor recreation','戶外休閒'],['Camping','露營'],['Trail running','越野跑'],['Backpacking','背包旅行'],['National park','國家公園'],['Nature','大自然'],['Rock climbing','攀岩'],['Outdoor gear','戶外裝備'],['The North Face','The North Face戶外品牌'],['Columbia Sportswear','Columbia戶外品牌'],['GoPro','運動攝影機'],['Photography','攝影'],['Bird watching','賞鳥'],['Environmental conservation','生態保育'],['Fitness','健身'],['Sports nutrition','運動營養'],['Travel','旅遊'],['Weekend getaway','週末小旅行'],['Garage','車庫'],['Storage solutions','收納規劃'],['Home improvement','居家修繕'],['New home','新成屋'],['Home buying','購屋'],['Quality of life','生活品質'],['GPS navigation','GPS導航']]}
+];
+
+let audToastT;
+function showCopyToast(msg){
+  let t=document.getElementById('copy-toast');
+  t.textContent=msg;t.classList.add('show');
+  clearTimeout(audToastT);audToastT=setTimeout(()=>t.classList.remove('show'),1400);
+}
+function copyTxt(txt){return navigator.clipboard?navigator.clipboard.writeText(txt):Promise.reject();}
+
+function initAudCard(card){
+  if(card.dataset.cb)return;card.dataset.cb='1';
+  card.querySelectorAll('.tag-tbl tbody tr').forEach(row=>{
+    const en=row.cells[1]?.textContent.trim();if(!en)return;
+    row.addEventListener('click',()=>{
+      copyTxt(en).then(()=>{row.classList.add('flash');setTimeout(()=>row.classList.remove('flash'),600);showCopyToast('已複製：'+en);});
+    });
+  });
+  card.querySelectorAll('.tag-tbl').forEach(tbl=>{
+    const wrap=document.createElement('div');wrap.className='copy-all-row';
+    const btn=document.createElement('button');btn.className='copy-all-btn';btn.innerHTML='⎘ 複製全部標籤';
+    btn.addEventListener('click',e=>{
+      e.stopPropagation();
+      const tags=Array.from(tbl.querySelectorAll('tbody tr')).map(r=>r.cells[1]?.textContent.trim()).filter(Boolean).join('\n');
+      copyTxt(tags).then(()=>{btn.classList.add('done');btn.textContent='✓ 已複製';showCopyToast('已複製全部標籤');setTimeout(()=>{btn.classList.remove('done');btn.innerHTML='⎘ 複製全部標籤';},2000);});
+    });
+    wrap.appendChild(btn);tbl.after(wrap);
+  });
+}
+
+function toggleAud(id){
+  const c=document.getElementById(id);
+  c.classList.toggle('open');
+  if(c.classList.contains('open'))initAudCard(c);
+}
+
+function buildAudCard(g,idx){
+  const id='m'+(idx+1);
+  const rows=g.tags.map((t,i)=>`<tr><td>${i+1}</td><td>${t[0]}</td><td>${t[1]}</td></tr>`).join('');
+  const lmTags=g.lm.map(l=>`<span class="aud-lm-tag">${l}</span>`).join('');
+  return `<div class="aud-card" id="${id}">
+    <div class="aud-header" onclick="toggleAud('${id}')">
+      <div class="aud-num">${idx+1}</div>
+      <div class="aud-info"><div class="aud-name">${g.n}</div><div class="aud-sub">${g.sub}</div></div>
+      <div class="aud-arrow">▶</div>
+    </div>
+    <div class="aud-body">
+      <div class="aud-sl">評估邏輯</div>
+      <div class="aud-logic">${g.logic}</div>
+      <div class="aud-sl">地標定位</div>
+      <div class="aud-lm">${lmTags}</div>
+      <div class="aud-sl">興趣標籤（點擊列複製單個）</div>
+      <table class="tag-tbl"><thead><tr><th>#</th><th>English</th><th>中文</th></tr></thead><tbody>${rows}</tbody></table>
+    </div>
+  </div>`;
+}
+
+(function(){
+  const mg=document.getElementById('main-aud-grid');
+  if(mg)mg.innerHTML=MAIN_G.map((g,i)=>buildAudCard(g,i)).join('');
+})();
+
+document.querySelectorAll('.core-tag').forEach(el=>{
+  el.addEventListener('click',()=>{
+    const tag=el.textContent.replace('↗','').trim();
+    copyPrompt(`針對${PROJECT}的 META 廣告投放，請深入分析「${tag}」這個興趣標籤：\n1. 這個標籤在本案受眾中代表什麼輪廓的人？\n2. 搭配哪些其他標籤組合效果最好？\n3. 素材訴求應該怎麼寫才能匹配這類受眾？`);
+  });
+});
+
+document.querySelectorAll('.tip').forEach(el=>{
+  el.addEventListener('click',()=>{
+    const title=el.querySelector('.tip-title').textContent.trim();
+    const desc=el.querySelector('.tip-desc').textContent.trim();
+    copyPrompt(`針對${PROJECT}，關於這項操作建議：\n「${title}」\n背景：${desc}\n\n請幫我制定具體的執行方案，包含受眾設定細節和素材方向。`);
+  });
+});
+</script>
+<script>window.addEventListener('scroll',()=>document.getElementById('btt').classList.toggle('show',window.scrollY>300))</script>
+</body>
+</html>
