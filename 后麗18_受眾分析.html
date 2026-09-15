@@ -459,7 +459,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   <div id="new4-aud-grid" class="aud-grid-2"></div>
 </div>
 
-<div class="page-footer">資料期間：2026-03-02 至 2026-09-10 · 后麗18 台中后里 · 廣告目標：訊息 · 最後更新 2026-09-10</div>
+<!-- 第六波受眾 NEW5_G -->
+<div class="section">
+  <div class="sec-title">第六波測試受眾（20組）· 全新未測試 · 2026-09-15</div>
+  <div class="note-bar">📌 前五波已累積78組建議受眾，幾乎覆蓋后里在地所有可辨識的職人業態（花卉、馬術、單車、烘焙、藥局、汽車美容、鋁門窗、資源回收、命理、露營車改裝等）。本波20組鎖定前五波唯一遺漏的專業服務類別：醫療診所主理人（獸醫/牙醫，而非設備業務代表或醫院受僱員工）、金融保險個人品牌（保經代理人、房貸專員、銀行放款員、理賠查勘員，區隔既有連鎖藥局/加油站加盟角度）、設計創作服務業（建築師、花藝設計、獨立書店、市集策展人，區隔既有批發零售業主角度）、以及居家服務類（寵物美容旅館、看護仲介、瑜伽教練工作室，皆為經營者/從業者角度而非既有的消費者角度）。20組與前78組重疊率皆低於50%。</div>
+  <div id="new5-aud-grid" class="aud-grid-2"></div>
+</div>
+
+<div class="page-footer">資料期間：2026-03-02 至 2026-09-15 · 后麗18 台中后里 · 廣告目標：訊息 · 最後更新 2026-09-15</div>
 
 </div><!-- end wrap -->
 
@@ -849,6 +856,90 @@ const NEW4_G=[
    tags:[['RV conversion','露營車改裝'],['Vehicle manufacturing','車輛製造'],['Small business owners','小型企業主'],['Custom vehicle build','客製化車輛打造'],['Cash flow management','現金流管理'],['Local commerce','在地商業'],['Entrepreneurship','創業'],['RV camping','休旅車露營'],['Automotive industry','汽車業'],['Business networking','商業社交'],['Local community','在地社區'],['Quality of life','生活品質'],['Taichung','台中'],['Houli District','后里區'],['Detached house','透天別墅'],['Garage parking','車庫停車'],['Warehouse','倉儲'],['Customer loyalty','熟客經營'],['Skilled trades','技術職人'],['Property value','房屋增值'],['Small workshop','小型工坊'],['Community trust','社區信賴'],['Cash flow stability','收入穩定'],['Vehicle maintenance','車輛保養'],['Trade association','同業公會']]}
 ];
 renderAudGrid('new4-aud-grid',NEW4_G,'n4');
+
+const NEW5_G=[
+  {n:'30-55 / 后里豐原 / 獸醫動物醫院主理人型',sub:'全新測試・獸醫診所業主角度・跟已測「大型犬飼主」(消費者角度)區隔',
+   logic:'獸醫動物醫院主理人服務的是整個后里豐原地區的寵物飼主，跟已測過的「大型犬飼主」(消費者興趣角度)完全不同，這組聚焦「經營動物醫院」的業主角度，收入穩定且有明確的資產配置意識。',
+   lm:['后里豐原+5km','大甲后里'],
+   tags:[['Veterinary clinic','獸醫診所'],['Animal hospital','動物醫院'],['Veterinary medicine','獸醫學'],['Pet care','寵物照護'],['Pet grooming','寵物美容'],['Dog','狗'],['Cat','貓'],['Animal welfare','動物福利'],['Pet supplies','寵物用品'],['Clinic management','診所管理'],['Small business','小型企業'],['Self-employment','自營商'],['Entrepreneurship','創業'],['Medical equipment','醫療設備'],['Healthcare industry','醫療保健產業'],['Business loan','商業貸款'],['Investment','投資理財'],['Personal finance','個人理財'],['Home renovation','居家翻修'],['Garage','車庫'],['Storage solutions','收納規劃'],['New home','新成屋'],['Home buying','購屋'],['Business networking','商業社交'],['Quality of life','生活品質'],['Career development','職涯發展'],['Local business','在地商業']]},
+  {n:'30-55 / 后里豐原 / 牙醫醫美診所主理人型',sub:'全新測試・診所醫師業主角度・跟已測「醫療牙科器材業務代表」(業務端)區隔',
+   logic:'牙醫/醫美診所主理人是診所的實際經營者，跟已測過的「醫療牙科器材業務代表」(銷售端角色)完全不同，這組聚焦醫師本人自行開業的資產配置需求，對建案的品質與地段特別挑剔。',
+   lm:['后里豐原+5km','豐原市區'],
+   tags:[['Dental clinic','牙科診所'],['Medical aesthetics','醫美診所'],['Dermatology','皮膚科'],['Dentist','牙醫師'],['Clinic management','診所管理'],['Healthcare industry','醫療保健產業'],['Medical equipment','醫療設備'],['Medical license','醫師執照'],['Skincare','保養品'],['Cosmetic dentistry','美容牙科'],['Botox','肉毒桿菌療程'],['Self-employment','自營商'],['Entrepreneurship','創業'],['Small business','小型企業'],['Business loan','商業貸款'],['Investment','投資理財'],['Personal finance','個人理財'],['Interior design','室內設計'],['Business networking','商業社交'],['Professional certification','專業證照'],['Luxury goods','精品'],['Wine','紅酒'],['New home','新成屋'],['Home buying','購屋'],['Home renovation','居家翻修'],['Quality of life','生活品質'],['Career development','職涯發展']]},
+  {n:'30-55 / 后里豐原 / 保險業務個人品牌型',sub:'全新測試・獨立保經代理人角度・跟已測「連鎖藥局社區藥師」不同產業別',
+   logic:'獨立保險經紀人/財富規劃顧問收入來自佣金，資產配置意識極強，過去78組從未觸及保險從業角度，訴求「幫別人規劃財富的人，自己的房子也該規劃好」。',
+   lm:['后里豐原+5km'],
+   tags:[['Life insurance','壽險'],['Insurance broker','保險經紀人'],['Financial advisor','財務顧問'],['Wealth management','財富管理'],['Financial planning','財務規劃'],['Personal branding','個人品牌'],['Self-employment','自營'],['Retirement planning','退休金規劃'],['Investment','投資理財'],['Stock market','股票市場'],['Personal finance','個人理財'],['Passive income','被動收入'],['LinkedIn','LinkedIn社群'],['Business networking','商業社交'],['Client relationship management','客戶關係管理'],['Public speaking','公開演講'],['Sales training','業務銷售訓練'],['Professional certification','專業證照'],['Business travel','商務旅行'],['Business plan','商業計畫'],['MacBook Pro','MacBook Pro'],['Automobile','汽車'],['New home','新成屋'],['Home buying','購屋'],['Quality of life','生活品質'],['Career development','職涯發展'],['Local business','在地商業']]},
+  {n:'28-52 / 后里豐原 / 房貸信保專員理財顧問型',sub:'全新測試・貸款專業角色・過去78組從未觸及信貸/放款專業職',
+   logic:'房貸信保專員每天協助客戶申辦貸款、分析信用條件，對房地產交易流程比一般人更熟悉，買房時反而更懂得如何精算負擔能力與時機，訴求「幫別人辦貸款的人，自己買房更精打細算」。',
+   lm:['后里豐原+5km','豐原大道六段（+3km）'],
+   tags:[['Loan officer','信貸專員'],['Banking','銀行業'],['Financial services','金融服務'],['Personal finance','個人理財'],['Credit analysis','信用分析'],['Interest rate','利率'],['Financial planning','財務規劃'],['Investment','投資理財'],['Stock market','股票市場'],['Wealth management','財富管理'],['Passive income','被動收入'],['Business networking','商業社交'],['Client relationship management','客戶關係管理'],['Sales training','業務銷售訓練'],['Professional certification','專業證照'],['Excel','Excel試算表'],['Productivity','生產力'],['MacBook Pro','MacBook Pro'],['Business travel','商務旅行'],['Coffee','咖啡'],['Reading','閱讀'],['New home','新成屋'],['Home buying','購屋'],['Quality of life','生活品質'],['Career development','職涯發展'],['Local business','在地商業']]},
+  {n:'30-55 / 后里科技園區 / 建築師室內設計師事業主型',sub:'全新測試・設計端本人角度・跟已測「建築生活品質」(消費興趣)區隔',
+   logic:'建築師/室內設計師本人自行執業，跟MAIN_G已測過的「建築生活品質」(單純興趣標籤組合)不同，此組是設計端從業者本人，審美要求極高，對建案設計細節特別挑剔。',
+   lm:['后里科技園區（+4km）','豐原市區'],
+   tags:[['Architecture','建築設計'],['Interior design','室內設計'],['Architect','建築師'],['Interior designer','室內設計師'],['Design studio','設計工作室'],['Space planning','空間規劃'],['Furniture design','家具設計'],['Scandinavian design','北歐設計'],['Minimalism','極簡生活'],['3D rendering','3D建模'],['AutoCAD','AutoCAD設計軟體'],['SketchUp','SketchUp建模軟體'],['Art exhibition','藝術展覽'],['Design award','設計獎項'],['Self-employment','自營商'],['Small business','小型企業'],['Business networking','商業社交'],['Luxury goods','精品'],['Home decor','居家佈置'],['Home renovation','居家翻修'],['Travel','旅遊'],['Investment','投資理財'],['Personal finance','個人理財'],['New home','新成屋'],['Home buying','購屋'],['Quality of life','生活品質'],['Career development','職涯發展']]},
+  {n:'28-55 / 育英國小・后里國中 / 學校教師受僱換屋族型',sub:'全新測試・受僱教師本人角度・跟已測「學區家長・育英國小換屋」(家長角色)區隔',
+   logic:'已測過的「學區家長」鎖定的是選學區的家長角色，此組改為在地學校「受僱教師」本人，作息穩定、收入雖不高但公職保障強，換屋動機來自離校近、生活單純安穩。',
+   lm:['育英國小（+3km）','后里國中（+3km）','豐原市區'],
+   tags:[['Teacher','教師'],['Elementary education','國小教育'],['Secondary education','國中教育'],['Classroom management','班級經營'],['Curriculum design','課程設計'],['Child education','兒童教育'],['Extracurricular activities','課外活動'],['Reading','閱讀'],['Independent bookstore','獨立書店'],['Educational technology','教育科技'],['Professional development','專業發展'],['Summer vacation','暑假生活'],['Travel','旅遊'],['Family activities','家庭活動'],['Cooking','料理'],['Health food','健康飲食'],['Fitness','健身'],['Personal finance','個人理財'],['Financial planning','財務規劃'],['Savings','儲蓄'],['Public sector employment','公職'],['Career development','職涯發展'],['Business networking','商業社交'],['New home','新成屋'],['Home buying','購屋'],['School district','學區'],['Quality of life','生活品質']]},
+  {n:'28-55 / 后里豐原・后里科技園區 / 保全警衛從業人員型',sub:'全新測試・保全員工本人角度・跟已測「消防保全系統安裝工程商」(業主角度)區隔',
+   logic:'已測過的「消防保全系統安裝工程商」是設備安裝業主，此組改為保全公司「受僱員工」本人，輪班作息特殊，收入穩定但不高，換屋動機來自需要安靜好睡的居住環境。',
+   lm:['后里豐原+5km','后里科技園區（+4km）'],
+   tags:[['Security guard','保全人員'],['Security services','保全服務'],['Shift work','輪班工作'],['Surveillance','監控系統'],['Physical security','實體安全'],['Law enforcement','執法'],['Overtime work','加班'],['Uniformed services','制服工作'],['Fitness','健身'],['Martial arts','格鬥武術'],['Motorcycle','機車'],['Automobile','汽車'],['Local food','在地美食'],['Convenience store','便利商店'],['Mobile games','手機遊戲'],['Savings','儲蓄'],['Personal finance','個人理財'],['Financial planning','財務規劃'],['Insurance','保險'],['Career development','職涯發展'],['Local business','在地商業'],['New home','新成屋'],['Home buying','購屋'],['Sleep quality','睡眠品質'],['Noise-free environment','安靜環境'],['Quality of life','生活品質']]},
+  {n:'28-55 / 后里豐原 / 獨立書店文具行老闆型',sub:'全新測試・過去78組完全未觸及的文化零售業態',
+   logic:'獨立書店/文具行老闆重視在地文化累積，過去78組完全沒有觸及這個文化零售角度，這群人收入不高但生活步調自主，訴求「開書店的人，也想有個能安靜生活的家」。',
+   lm:['后里豐原+5km','豐原市區'],
+   tags:[['Independent bookstore','獨立書店'],['Stationery','文具用品'],['Bookselling','書店經營'],['Reading','閱讀'],['Literature','文學'],['Small business','小型企業'],['Self-employment','自營商'],['Entrepreneurship','創業'],['Retail','零售業'],['Local culture','在地文化'],['Book club','讀書會'],['Art supplies','美術用品'],['Craft','手作工藝'],['Coffee','精品咖啡'],['Independent publishing','獨立出版'],['Book fair','書展'],['Community','在地社區'],['Social media marketing','社群行銷'],['Instagram','IG經營'],['Business loan','商業貸款'],['Investment','投資理財'],['Personal finance','個人理財'],['New home','新成屋'],['Home buying','購屋'],['Business networking','商業社交'],['Quality of life','生活品質'],['Career development','職涯發展']]},
+  {n:'25-50 / 后里豐原 / 花藝設計新娘捧花工作室型',sub:'全新測試・花藝設計服務角度・跟已測「花卉苗圃業者・園藝批發商」(批發業)區隔',
+   logic:'已測過的「花卉苗圃業者」是批發供應商角色，此組改為花藝設計/新娘捧花工作室，是服務終端消費者的設計師角色，需要居家工作室空間備料創作，訴求「幫別人設計美麗時刻的人，自己的家也該有一個美麗角落」。',
+   lm:['后里豐原+5km','豐原市區'],
+   tags:[['Floral design','花藝設計'],['Wedding bouquet','新娘捧花'],['Flower arrangement','插花藝術'],['Wedding industry','婚禮產業'],['Florist','花藝師'],['Event decoration','活動佈置'],['Small business','小型企業'],['Self-employment','自營商'],['Entrepreneurship','創業'],['Home studio','居家工作室'],['Instagram','IG經營'],['Social media marketing','社群行銷'],['Wedding photography','婚紗攝影'],['Gardening','園藝'],['Interior design','室內設計'],['Home decor','居家佈置'],['Art exhibition','藝術展覽'],['Business loan','商業貸款'],['Investment','投資理財'],['Personal finance','個人理財'],['New home','新成屋'],['Home buying','購屋'],['Business networking','商業社交'],['Quality of life','生活品質'],['Career development','職涯發展'],['Local business','在地商業'],['Craft','手作工藝']]},
+  {n:'28-55 / 后里豐原・大甲后里 / 寵物美容旅館經營者型',sub:'全新測試・寵物服務業主角度・跟已測「大型犬飼主」(消費者角度)區隔',
+   logic:'已測過的「大型犬飼主」是養狗消費者角色，此組改為寵物美容/旅館的經營者本人，訴求「幫別人家毛孩服務的人，自己家也該有寵物友善的空間」，前院/車庫可規劃寵物用途空間。',
+   lm:['后里豐原+5km','大甲后里'],
+   tags:[['Pet grooming','寵物美容'],['Pet boarding','寵物旅館'],['Pet hotel','寵物住宿'],['Dog','狗'],['Cat','貓'],['Pet care','寵物照護'],['Pet supplies','寵物用品'],['Veterinary medicine','獸醫'],['Animal welfare','動物福利'],['Small business','小型企業'],['Self-employment','自營商'],['Entrepreneurship','創業'],['Home-based business','居家創業'],['Backyard','後院生活'],['Garden design','庭院造景'],['Social media marketing','社群行銷'],['Instagram','IG經營'],['Business loan','商業貸款'],['Investment','投資理財'],['Personal finance','個人理財'],['New home','新成屋'],['Home buying','購屋'],['Business networking','商業社交'],['Local business','在地商業'],['Quality of life','生活品質'],['Career development','職涯發展'],['Pet-friendly','寵物友善']]},
+  {n:'28-52 / 后里豐原・后里科技園區 / 汽車貸款融資顧問型',sub:'全新測試・汽車金融從業角度・跟已測「進口車商中古車行老闆」(車商)區隔',
+   logic:'已測過的「進口車商中古車行老闆」是賣車的業主，此組改為汽車貸款/融資顧問，是幫客戶辦車貸的金融從業者，天天在算利率跟負擔能力，訴求「幫別人辦車貸的人，買房也精打細算」。',
+   lm:['后里豐原+5km','后里科技園區（+4km）'],
+   tags:[['Auto financing','汽車貸款'],['Car loan','車貸'],['Financial services','金融服務'],['Banking','銀行業'],['Personal finance','個人理財'],['Credit analysis','信用分析'],['Sales training','業務銷售訓練'],['Client relationship management','客戶關係管理'],['Automobile','汽車'],['Car dealership','汽車銷售'],['Investment','投資理財'],['Stock market','股票市場'],['Wealth management','財富管理'],['Business networking','商業社交'],['Professional certification','專業證照'],['Business travel','商務旅行'],['MacBook Pro','MacBook Pro'],['Productivity','生產力'],['Excel','Excel試算表'],['Business plan','商業計畫'],['New home','新成屋'],['Home buying','購屋'],['Quality of life','生活品質'],['Career development','職涯發展'],['Local business','在地商業'],['Fine dining','精緻餐飲'],['Coffee','咖啡']]},
+  {n:'30-58 / 后里豐原・甲后路三段 / 驗車廠監理站代辦業主型',sub:'全新測試・過去78組完全未觸及的代辦服務業態',
+   logic:'驗車廠/監理站代辦業者服務在地所有車主的行政需求，過去78組完全沒有觸及這個代辦服務角度，收入穩定且跟在地社群關係緊密，訴求「幫全后里辦車的人，也最了解在地生活」。',
+   lm:['后里豐原+5km','甲后路三段（+4km）'],
+   tags:[['Vehicle inspection','車輛驗車'],['Motor vehicles office','監理站'],['Automobile','汽車'],['Car maintenance','汽車保養'],['Business agent','代辦業務'],['Small business','小型企業'],['Self-employment','自營商'],['Entrepreneurship','創業'],['Local business','在地商業'],['Customer service','客戶服務'],['Paperwork processing','文件代辦'],['Government services','政府服務'],['Business loan','商業貸款'],['Investment','投資理財'],['Personal finance','個人理財'],['Truck','貨卡車'],['Motorcycle','機車'],['Garage','車庫'],['Storage solutions','收納規劃'],['Business networking','商業社交'],['New home','新成屋'],['Home buying','購屋'],['Quality of life','生活品質'],['Career development','職涯發展'],['Local food','在地美食'],['Traditional market','傳統市場']]},
+  {n:'25-48 / 后里豐原 / 獨立早午餐店主理人型',sub:'全新測試・西式早午餐角度・跟已測「早餐店自助餐簡餐店老闆」(傳統早餐)區隔',
+   logic:'已測過的「早餐店自助餐簡餐店老闆」是傳統早餐店角度，此組改為西式獨立早午餐店主理人，客群更年輕、更重視社群曝光與空間美感，訴求「開一間打卡等級早午餐店的人，家也該有這個質感」。',
+   lm:['后里豐原+5km','豐原市區'],
+   tags:[['Brunch','早午餐'],['Café culture','咖啡館文化'],['Specialty coffee','精品咖啡'],['Independent coffee shop','獨立咖啡館'],['Cooking','料理'],['Baking','烘焙'],['Food photography','美食攝影'],['Small business','小型企業'],['Self-employment','自營商'],['Entrepreneurship','創業'],['Restaurant management','餐廳經營管理'],['Menu design','菜單設計'],['Interior design','室內設計'],['Instagram','IG美食帳號'],['Social media marketing','社群行銷'],['Local food','在地美食'],['Organic food','有機食品'],['Farmers market','農夫市集'],['Business loan','商業貸款'],['Investment','投資理財'],['Personal finance','個人理財'],['New home','新成屋'],['Home buying','購屋'],['Business networking','商業社交'],['Quality of life','生活品質'],['Career development','職涯發展'],['Kitchen design','廚房設計']]},
+  {n:'25-48 / 花博后里森林園區・后里豐原 / 文創市集策展人型',sub:'全新測試・策展統籌角度・跟已測「夜市市集攤商・週末擺攤創業」(單一攤商)區隔',
+   logic:'已測過的「夜市市集攤商」是單一攤商角色，此組改為文創市集的策展/統籌人，負責整合招商與活動企劃，是更上游的統籌角色，訴求「辦市集辦出口碑的人，自己的家也該有風格」。',
+   lm:['花博后里森林園區（+3km）','后里豐原+5km'],
+   tags:[['Craft market','手作市集'],['Market curator','市集策展人'],['Handicraft','手工藝'],['Event planning','活動企劃'],['Small business','小型企業'],['Self-employment','自營商'],['Entrepreneurship','創業'],['Local culture','在地文化'],['Vintage','復古風格'],['Art exhibition','藝術展覽'],['Independent bookstore','獨立書店'],['Design','設計'],['Social media marketing','社群行銷'],['Instagram','IG經營'],['Photography','攝影'],['Community','在地社區'],['Weekend market','週末市集'],['Local food','在地美食'],['Coffee','精品咖啡'],['Business loan','商業貸款'],['Investment','投資理財'],['Personal finance','個人理財'],['New home','新成屋'],['Home buying','購屋'],['Business networking','商業社交'],['Quality of life','生活品質'],['Career development','職涯發展']]},
+  {n:'26-50 / 后里豐原 / 銀行放款業務員型',sub:'全新測試・銀行受僱員工角度・過去78組從未觸及銀行業從業角度',
+   logic:'銀行放款業務員每天處理客戶貸款申請，收入穩定並有業績獎金，對房地產市場行情比一般人敏感，訴求「天天幫別人核貸的人，自己買房也最懂門道」。',
+   lm:['后里豐原+5km','豐原市區'],
+   tags:[['Bank loan officer','銀行放款專員'],['Banking','銀行業'],['Financial services','金融服務'],['Personal finance','個人理財'],['Credit analysis','信用分析'],['Sales training','業務銷售訓練'],['Client relationship management','客戶關係管理'],['Investment','投資理財'],['Stock market','股票市場'],['Wealth management','財富管理'],['Business networking','商業社交'],['Professional certification','專業證照'],['MacBook Pro','MacBook Pro'],['Productivity','生產力'],['Excel','Excel試算表'],['Business travel','商務旅行'],['Suit and tie','西裝穿搭'],['Fine dining','精緻餐飲'],['Coffee','咖啡'],['New home','新成屋'],['Home buying','購屋'],['Quality of life','生活品質'],['Career development','職涯發展'],['Local business','在地商業'],['Business plan','商業計畫'],['Automobile','汽車'],['Local food','在地美食']]},
+  {n:'30-58 / 后里豐原 / 保姆看護仲介經營者型',sub:'全新測試・仲介經營角度・跟已測「保母日照・居家托育創業」(直接托育)區隔',
+   logic:'已測過的「保母日照創業」是直接提供托育服務的角色，此組改為看護/保姆仲介的經營者，是媒合供需的中介角色，接觸更廣泛的家庭客群，訴求「幫全后里家庭找到照護資源的人，自己的家也該安穩」。',
+   lm:['后里豐原+5km'],
+   tags:[['Caregiver agency','看護仲介'],['Elderly care','長者照護'],['Nanny service','保母服務'],['Home care','居家照護'],['Childcare','育兒照顧'],['Small business','小型企業'],['Self-employment','自營商'],['Entrepreneurship','創業'],['Healthcare industry','醫療保健產業'],['Social work','社會工作'],['Customer service','客戶服務'],['Human resources','人力資源'],['Business management','企業管理'],['Business loan','商業貸款'],['Investment','投資理財'],['Personal finance','個人理財'],['Insurance','保險'],['Community','在地社區'],['Social media marketing','社群行銷'],['New home','新成屋'],['Home buying','購屋'],['Business networking','商業社交'],['Local business','在地商業'],['Quality of life','生活品質'],['Career development','職涯發展'],['Traditional Chinese medicine','中醫養生'],['Health food','健康飲食']]},
+  {n:'28-50 / 后里豐原 / 瑜伽皮拉提斯教練工作室經營者型',sub:'全新測試・教練經營者角度・跟已測「居家瑜伽健身・獨立運動空間需求」(消費者角度)區隔',
+   logic:'已測過的「居家瑜伽健身」是消費者興趣角度，此組改為瑜伽/皮拉提斯教練與工作室經營者本人，收入來自課程與會員費，訴求「教別人放鬆的人，自己的家也該是放鬆的地方」。',
+   lm:['后里豐原+5km'],
+   tags:[['Yoga instructor','瑜伽老師'],['Pilates instructor','皮拉提斯教練'],['Yoga studio','瑜伽工作室'],['Fitness business','健身創業'],['Personal trainer','私人教練'],['Wellness','身心健康'],['Meditation','冥想'],['Mindfulness','正念'],['Health food','健康飲食'],['Organic food','有機食品'],['Lululemon','Lululemon運動服飾'],['Athleisure','運動休閒服'],['Small business','小型企業'],['Self-employment','自營商'],['Entrepreneurship','創業'],['Social media marketing','社群行銷'],['Instagram','IG經營'],['Membership management','會員管理'],['Business plan','商業計畫'],['Spa','水療'],['Aromatherapy','芳香療法'],['Investment','投資理財'],['Personal finance','個人理財'],['New home','新成屋'],['Home buying','購屋'],['Home studio','居家工作室'],['Quality of life','生活品質']]},
+  {n:'32-58 / 后里豐原 / 律師會計師事務所合夥人型',sub:'全新測試・過去78組完全未觸及的專業事務所合夥人角度',
+   logic:'律師/會計師事務所合夥人收入穩定且社會地位高，過去78組完全沒有觸及法律/會計專業服務角度，這群人重視資產配置與稅務規劃，訴求「幫客戶處理法律財務問題的人，自己的房子更該規劃好」。',
+   lm:['后里豐原+5km','豐原市區'],
+   tags:[['Lawyer','律師'],['Accountant','會計師'],['Law firm','法律事務所'],['Accounting firm','會計師事務所'],['Legal services','法律服務'],['Tax planning','稅務規劃'],['Business consulting','企業顧問'],['Contract law','合約法'],['Corporate law','公司法'],['Professional certification','專業證照'],['MBA','企業管理碩士'],['Business networking','商業社交'],['Investment','投資理財'],['Stock market','股票市場'],['Wealth management','財富管理'],['Luxury goods','精品'],['Wine','紅酒'],['Fine dining','精緻餐飲'],['Business travel','商務旅行'],['Watch collecting','名錶收藏'],['MacBook Pro','MacBook Pro'],['New home','新成屋'],['Home buying','購屋'],['Luxury real estate','豪宅'],['Business plan','商業計畫'],['Career development','職涯發展'],['Quality of life','生活品質']]},
+  {n:'35-60 / 后里農會・后里豐原 / 農會合作社幹部型',sub:'全新測試・農會受僱幹部角度・跟已測「稻米水果農場直產直銷」(自營農場)區隔',
+   logic:'已測過的「稻米水果農場直產直銷」是自營農場主角色，此組改為農會/合作社的受僱幹部，是服務整個在地農業體系的公職性質角色，收入穩定且深耕在地人脈，訴求「服務全后里農民的人，自己也該在后里安家」。',
+   lm:['后里豐原+5km'],
+   tags:[['Farmers association','農會'],['Agricultural cooperative','合作社'],['Agriculture','農業'],['Farm management','農場管理'],['Agricultural policy','農業政策'],['Rural development','農村發展'],['Farmers market','農夫市集'],['Local produce','在地農產'],['Sustainable agriculture','永續農業'],['Agricultural machinery','農機具'],['Community organization','社區組織'],['Public sector employment','公職'],['Local government','地方政府'],['Traditional market','傳統市場'],['Temple','廟宇信仰'],['Local food','在地美食'],['Investment','投資理財'],['Personal finance','個人理財'],['Financial planning','財務規劃'],['Savings','儲蓄'],['Business networking','商業社交'],['New home','新成屋'],['Home buying','購屋'],['Rural life','鄉村生活'],['Quality of life','生活品質'],['Career development','職涯發展'],['Community','在地社區']]},
+  {n:'28-52 / 后里豐原・豐洲科技工業園區 / 保險理賠查勘員型',sub:'全新測試・理賠查勘專業角度・過去78組從未觸及保險理賠專業職',
+   logic:'保險理賠查勘員負責到現場勘查事故與財損，需要細心與判斷力，收入穩定且工作內容跟不動產估價邏輯相通，訴求「天天鑑定損失的人，買房子最懂得判斷真實價值」。',
+   lm:['后里豐原+5km','豐洲科技工業園區（+2km）'],
+   tags:[['Insurance claims','保險理賠'],['Claims adjuster','保險查勘員'],['Insurance industry','保險業'],['Risk assessment','風險評估'],['Property damage assessment','財損鑑定'],['Automobile','汽車'],['Photography','攝影'],['Report writing','報告撰寫'],['Investigation','調查工作'],['Customer service','客戶服務'],['Financial services','金融服務'],['Personal finance','個人理財'],['Investment','投資理財'],['Professional certification','專業證照'],['Business travel','商務旅行'],['MacBook Pro','MacBook Pro'],['Productivity','生產力'],['Excel','Excel試算表'],['Business networking','商業社交'],['New home','新成屋'],['Home buying','購屋'],['Quality of life','生活品質'],['Career development','職涯發展'],['Local business','在地商業'],['Fine dining','精緻餐飲'],['Coffee','咖啡'],['Local food','在地美食']]}
+];
+renderAudGrid('new5-aud-grid',NEW5_G,'n5');
 
 function toggleAudG(prefix,i){document.getElementById(prefix+i).classList.toggle('open')}
 function copyTagsG(e,prefix,i,allTags){
