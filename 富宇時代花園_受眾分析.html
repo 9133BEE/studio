@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>富宇時代花園｜受眾分析報告</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --accent:#3a8a6a;--accent-dark:#256b52;--accent-light:#e8f5ee;--accent-border:#8ecbab;
+  --bg:#f3f5f6;--s:#ffffff;--bd:#e4e8eb;--tx:#2a2e32;--sub:#7a7e84;--sub2:#a4a8ae;
+  --good:#1e6e3f;--goodl:#e6f4ea;--warn:#c05c00;--warnl:#fff4e8;
+  --radius:12px;--shadow-xs:0 1px 3px rgba(0,0,0,.05);--shadow-sm:0 2px 8px rgba(0,0,0,.07);--shadow-card:0 2px 10px rgba(0,0,0,.06),0 1px 3px rgba(0,0,0,.04);
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft JhengHei','Segoe UI',sans-serif;background:var(--bg);color:var(--tx);font-size:14px;line-height:1.6;min-height:100vh}
+.page-header{background:linear-gradient(180deg,#0e1a15 0%,#0a1410 100%);padding:0 40px;height:56px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.04),0 4px 20px rgba(0,0,0,.35);border-bottom:1px solid rgba(255,255,255,.06)}
+.ph-logo{width:30px;height:30px;background:linear-gradient(135deg,#7ac09a,var(--accent-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;flex-shrink:0}
+.ph-title{font-size:14px;font-weight:700;color:#eaf7f0;letter-spacing:-.2px}
+.ph-sub{font-size:11px;color:#4a9a72;margin-left:2px}
+.ph-nav{margin-left:auto;display:flex;gap:8px;align-items:center}
+.ph-nav a{font-size:12px;color:#8ecbab;text-decoration:none;padding:5px 13px;border-radius:6px;border:1px solid rgba(142,203,171,.3);background:rgba(142,203,171,.1);font-weight:500}
+.ph-nav a:hover{background:rgba(142,203,171,.2);color:#c0e8d0}
+#btt{position:fixed;right:24px;bottom:28px;width:38px;height:38px;border-radius:50%;background:rgba(14,26,20,.75);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.85);font-size:15px;cursor:pointer;opacity:0;transform:translateY(8px);transition:opacity .2s,transform .2s;pointer-events:none;z-index:150;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.3);font-family:inherit}
+#btt.show{opacity:1;transform:translateY(0);pointer-events:auto}
+.wrap{max-width:1100px;margin:0 auto;padding:32px 40px 48px}
+.case-header{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:20px 24px;margin-bottom:10px;display:flex;align-items:center;gap:18px;box-shadow:var(--shadow-card)}
+.case-logo{width:44px;height:44px;background:linear-gradient(135deg,#7ac09a,var(--accent-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;flex-shrink:0}
+.case-info h2{font-size:17px;font-weight:700;color:var(--tx);letter-spacing:-.3px}
+.case-info p{font-size:12px;color:var(--sub);margin-top:3px;line-height:1.5}
+.case-stats{margin-left:auto;display:flex;gap:28px;flex-shrink:0}
+.stat{text-align:right}
+.stat-n{font-size:24px;font-weight:800;color:var(--accent);line-height:1;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.stat-l{font-size:10px;color:var(--sub2);margin-top:3px;font-weight:600;letter-spacing:.3px;text-transform:uppercase}
+.top-link{font-size:12px;color:var(--accent);margin-bottom:24px;display:inline-block;text-decoration:none;font-weight:500}
+.top-link span{border-bottom:1px solid var(--accent-border)}
+.sec-title{font-size:12px;font-weight:700;color:var(--sub);margin-bottom:14px;display:flex;align-items:center;gap:10px;letter-spacing:.4px;text-transform:uppercase}
+.sec-title::before{content:'';display:inline-block;width:3px;height:14px;background:var(--accent);border-radius:2px;flex-shrink:0}
+.sec-title::after{content:'';flex:1;height:1px;background:var(--bd)}
+.section{margin-bottom:28px}
+.note-bar{background:var(--accent-light);border:1px solid var(--accent-border);border-radius:10px;padding:10px 16px;font-size:12px;color:var(--accent-dark);margin-bottom:20px;line-height:1.6}
+.note-bar.warn{background:var(--warnl);border-color:#f4c08a;color:#7a3e00}
+.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:22px}
+.sb-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:14px 16px;box-shadow:var(--shadow-xs);text-align:center}
+.sb-n{font-size:26px;font-weight:900;color:var(--accent);line-height:1;letter-spacing:-1px;font-variant-numeric:tabular-nums}
+.sb-n.good{color:var(--good)}
+.sb-n.warn{color:var(--warn)}
+.sb-l{font-size:10px;color:var(--sub2);font-weight:600;margin-top:4px;text-transform:uppercase;letter-spacing:.3px}
+.profiles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.profile-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow-xs);transition:box-shadow .2s,transform .2s}
+.profile-card:hover{box-shadow:var(--shadow-sm);transform:translateY(-2px)}
+.profile-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:17px;margin-bottom:12px}
+.pi-a{background:var(--accent-light)}.pi-b{background:#e8f0fe}.pi-c{background:#fef3e2}
+.profile-name{font-size:15px;font-weight:700;color:var(--tx);margin-bottom:4px}
+.profile-meta{font-size:12px;color:var(--sub);margin-bottom:10px}
+.profile-tags{font-size:12px;color:#4a5568;margin-bottom:10px;line-height:1.6}
+.profile-behavior{font-size:12px;color:var(--sub);line-height:1.55;margin-bottom:12px}
+.profile-badge{display:inline-block;font-size:11px;font-weight:700;padding:4px 11px;border-radius:20px;margin-top:2px}
+.badge-a{background:var(--accent-light);color:var(--accent-dark);border:1px solid var(--accent-border)}
+.badge-b{background:#e8f0fe;color:#1a56b0;border:1px solid #93b4e8}
+.badge-c{background:#fef9e7;color:#8a6000;border:1px solid #ddb860}
+.tags-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.core-tag{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;background:var(--s);border:1.5px solid var(--bd);border-radius:20px;font-size:13px;font-weight:600;color:var(--tx);cursor:pointer;transition:all .15s}
+.core-tag:hover{border-color:var(--accent-border);background:var(--accent-light)}
+.core-tag .arr{font-size:11px;color:var(--accent-border)}
+.rk-grid{display:flex;flex-direction:column;gap:8px}
+.rk-row{background:var(--s);border:1px solid var(--bd);border-left:3px solid var(--bd);border-radius:var(--radius);padding:14px 18px 14px 14px;display:flex;gap:14px;align-items:center;box-shadow:var(--shadow-xs);transition:border-left-color .15s,box-shadow .15s}
+.rk-row.gold{border-left-color:#c8a000;background:linear-gradient(90deg,#fffef0 0%,#fff 70%)}
+.rk-row.silver{border-left-color:#9aacbe;background:linear-gradient(90deg,#f5f7fa 0%,#fff 70%)}
+.rk-row.bronze{border-left-color:#c08060;background:linear-gradient(90deg,#fdf7f0 0%,#fff 70%)}
+.rk-medal{font-size:20px;flex-shrink:0;width:30px;text-align:center}
+.rk-rank{width:30px;height:30px;border-radius:50%;background:var(--bg);border:1.5px solid var(--bd);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:var(--sub);flex-shrink:0}
+.rk-body{flex:1;min-width:0}
+.rk-name{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:4px}
+.rk-loc{font-size:11px;color:var(--sub2);margin-bottom:6px}
+.rk-tags{display:flex;flex-wrap:wrap;gap:5px}
+.rk-tag{font-size:10px;font-weight:600;padding:2px 8px;border-radius:10px;background:var(--bg);border:1px solid var(--bd);color:var(--sub)}
+.t-biz{background:#fef3e2;border-color:var(--accent-border);color:var(--accent-dark)}
+.t-loc{background:#e8f4ee;border-color:#9ac8b0;color:#1e6e3f}
+.t-active{background:#e8f4ee;border-color:#7ac08a;color:#1a5a34}
+.t-stop{background:var(--bg);border-color:var(--bd);color:var(--sub2)}
+.rk-badge{font-size:10px;font-weight:700;padding:2px 8px;border-radius:8px;margin-left:6px;vertical-align:middle}
+.rb-active{background:#e8f4ee;color:#1a5a34;border:1px solid #7ac08a}
+.rb-stopped{background:var(--bg);color:var(--sub2);border:1px solid var(--bd)}
+.rk-stats{display:flex;gap:18px;flex-shrink:0;align-items:center}
+.rk-stat-block{text-align:right;min-width:56px}
+.rk-result{font-size:18px;font-weight:800;color:var(--accent);line-height:1;font-variant-numeric:tabular-nums}
+.rk-result-l{font-size:10px;color:var(--sub2);font-weight:600}
+.rk-cpl{font-size:16px;font-weight:800;color:var(--tx);line-height:1;font-variant-numeric:tabular-nums}
+.rk-cpl.good-cpl{color:var(--good)}
+.rk-cpl-l{font-size:10px;color:var(--sub2);font-weight:600}
+.rk-spend{font-size:13px;font-weight:600;color:var(--sub);line-height:1;font-variant-numeric:tabular-nums}
+.rk-spend-l{font-size:10px;color:var(--sub2)}
+.tips{display:flex;flex-direction:column;gap:10px}
+.tip{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:16px 18px;display:flex;gap:16px;align-items:flex-start;box-shadow:var(--shadow-xs);cursor:pointer;transition:border-color .15s,box-shadow .15s}
+.tip:hover{border-color:var(--accent-border);box-shadow:0 3px 12px rgba(58,138,106,.12)}
+.tip-num{width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;flex-shrink:0;color:#fff;background:var(--accent)}
+.c2{background:#6a8a4a}.c3{background:#4a6a8a}.c4{background:#8a4a4a}
+.tip-body{flex:1}
+.tip-title{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:5px;line-height:1.4}
+.tip-desc{font-size:12px;color:var(--sub);line-height:1.65}
+.hist-bar{background:#f0ede8;border:1px solid #d8d0c4;border-radius:10px;padding:12px 16px;margin-bottom:16px}
+.hist-bar h4{font-size:12px;font-weight:700;color:var(--sub);margin-bottom:8px;letter-spacing:.3px}
+.hist-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.hist-item{text-align:center}
+.hist-n{font-size:20px;font-weight:800;color:var(--sub);line-height:1}
+.hist-l{font-size:10px;color:var(--sub2);margin-top:2px}
+.aud-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);box-shadow:var(--shadow-xs);overflow:hidden}
+.aud-header{display:flex;align-items:center;gap:12px;padding:14px 18px;cursor:pointer;transition:background .15s;user-select:none}
+.aud-header:hover{background:var(--accent-light)}
+.aud-num{width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;flex-shrink:0}
+.aud-info{flex:1}
+.aud-name{font-size:13px;font-weight:700;color:var(--tx)}
+.aud-sub{font-size:11px;color:var(--sub2);margin-top:2px}
+.aud-arrow{font-size:13px;color:var(--sub2);transition:transform .2s;flex-shrink:0}
+.aud-card.open .aud-arrow{transform:rotate(90deg)}
+.aud-body{display:none;padding:0 18px 18px;border-top:1px solid var(--bd)}
+.aud-card.open .aud-body{display:block}
+.aud-sl{font-size:10px;font-weight:700;color:var(--sub2);text-transform:uppercase;letter-spacing:.4px;margin:14px 0 7px}
+.aud-logic{font-size:12px;color:#2a4a3a;line-height:1.65;background:var(--accent-light);border:1px solid var(--accent-border);border-radius:8px;padding:10px 14px}
+.aud-lm{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.aud-lm-tag{background:var(--bg);border:1px solid var(--bd);border-radius:14px;padding:3px 10px;font-size:11px;color:var(--sub)}
+.tag-tbl{width:100%;border-collapse:collapse;margin-top:6px;font-size:12px}
+.tag-tbl th{text-align:left;padding:5px 10px;background:var(--bg);border-bottom:1.5px solid var(--bd);font-size:10px;font-weight:700;color:var(--sub2);letter-spacing:.3px;text-transform:uppercase}
+.tag-tbl td{padding:4px 10px;border-bottom:1px solid var(--bd)}
+.tag-tbl tr:last-child td{border-bottom:none}
+.tag-tbl td:first-child{width:28px;color:var(--sub2);font-weight:600;text-align:center}
+.tag-tbl td:nth-child(2){font-weight:500;color:var(--tx)}
+.tag-tbl td:nth-child(3){color:var(--sub)}
+.aud-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;align-items:start}
+@media(max-width:760px){.aud-grid-2{grid-template-columns:1fr}}
+.tag-tbl tbody tr{cursor:pointer;transition:background .12s}
+.tag-tbl tbody tr:hover{background:var(--accent-light)}
+.tag-tbl tbody tr:hover td:nth-child(2)::after{content:' ⎘';font-size:10px;color:var(--accent-border)}
+.tag-tbl tbody tr.flash{background:#d4f0dc}
+.copy-all-row{display:flex;justify-content:flex-end;margin-top:8px}
+.copy-all-btn{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;color:var(--accent-dark);background:var(--accent-light);border:1px solid var(--accent-border);border-radius:6px;padding:5px 12px;cursor:pointer;transition:background .15s}
+.copy-all-btn:hover{background:#dcf0e6}
+.copy-all-btn.done{background:#d4f0dc;border-color:#7ac09a;color:#1a5a34}
+#copy-toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(10px);background:#1a2a18;color:#a8e8b8;font-size:12px;font-weight:600;padding:8px 18px;border-radius:20px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:200;white-space:nowrap}
+#copy-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+#toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);background:#2e2c29;color:#fff;font-size:12.5px;padding:10px 20px;border-radius:24px;opacity:0;transition:all .25s;pointer-events:none;z-index:999;white-space:nowrap}
+.rank-op-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:20px;align-items:stretch;margin-bottom:28px}
+.rank-op-grid>.section:nth-child(1){grid-column:1;grid-row:1;display:flex;flex-direction:column;margin-bottom:0}
+.rank-op-grid>.section:nth-child(2){grid-column:1/3;grid-row:2;margin-bottom:0}
+.rank-op-grid>.section:nth-child(3){grid-column:2;grid-row:1;display:flex;flex-direction:column;margin-bottom:0}
+.rank-op-grid>.section:nth-child(1) .rk-grid,.rank-op-grid>.section:nth-child(3) .tips{flex:1}
+.rank-op-grid>.section:nth-child(1) .rk-row,.rank-op-grid>.section:nth-child(3) .tip{flex:1;min-height:0}
+@media(max-width:900px){.rank-op-grid{display:block}}
+.insight-box{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow-xs)}
+.insight-title{font-size:14px;font-weight:700;color:var(--tx);margin-bottom:14px}
+.insight-highlight{background:var(--accent-light);border-left:3px solid var(--accent);padding:12px 16px;border-radius:0 8px 8px 0;margin-bottom:16px;font-size:13px;color:var(--accent-dark);font-weight:600;line-height:1.65}
+.insight-sub{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:10px;margin-top:14px}
+.insight-list{list-style:none;display:flex;flex-direction:column;gap:7px}
+.insight-list li{font-size:13px;color:#4a5568;padding-left:18px;position:relative;line-height:1.6}
+.insight-list li::before{content:'→';position:absolute;left:0;color:var(--accent-border);font-size:12px;top:1px}
+.principle-list{list-style:none;display:flex;flex-direction:column;gap:8px;margin-top:6px;counter-reset:item}
+.principle-list li{font-size:13px;color:#4a5568;padding-left:22px;position:relative;line-height:1.55}
+.principle-list li::before{content:counter(item);counter-increment:item;position:absolute;left:0;width:16px;height:16px;background:var(--accent-light);border-radius:4px;color:var(--accent);font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;top:1px}
+.page-footer{text-align:center;font-size:11px;color:var(--sub2);margin-top:12px;padding-bottom:8px}
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="ph-logo">花</div>
+  <div class="ph-title">富宇時代花園</div>
+  <div class="ph-sub">台中沙鹿・福德路（鹿峰東段1734地號）</div>
+  <nav class="ph-nav">
+    <a href="hub.html">← 返回總覽</a>
+  </nav>
+</div>
+
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到頂部">↑</button>
+
+<div class="wrap">
+
+  <a href="hub.html" class="top-link">← <span>返回受眾分析總覽</span></a>
+
+  <div class="case-header">
+    <div class="case-logo">花</div>
+    <div class="case-info">
+      <h2>富宇時代花園｜台中沙鹿住宅大樓</h2>
+      <p>台中市沙鹿區福德路（鹿峰東段1734地號）・住宅大樓202戶・二房22-28坪/三房30-34.9坪・開價1598萬/戶・平面式150個+機械式60個車位<br>591實價登錄187筆成交・均價40.8萬/坪（已售約92.6%，接近完銷）｜廣告目標：名單／訊息</p>
+    </div>
+    <div class="case-stats">
+      <div class="stat"><div class="stat-n">2</div><div class="stat-l">累計潛客</div></div>
+      <div class="stat"><div class="stat-n">$1,428</div><div class="stat-l">最佳CPL</div></div>
+      <div class="stat"><div class="stat-n">$8,372</div><div class="stat-l">累計花費</div></div>
+    </div>
+  </div>
+
+  <div class="note-bar">591實價登錄確認：富宇時代花園187筆成交，均價40.8萬/坪，總價940~1898萬（二房22坪起~三房34.9坪），與開價1598萬/戶相符。187/202戶已售出（約92.6%），已接近完銷、即將完工交屋。</div>
+
+  <div class="note-bar warn">⚠️ 現況問題分析（2026-09-15）：過去12組測試全數未達5,000曝光可信門檻，累計花費NT$8,372僅換回2個真實潛客（CPL皆逾NT$1,400）與5次訊息對話，資料量不足以判定任何方向有效或無效。其中7組集中投放在中科／東海／靜宜／嶺東北屯等科技通勤圈，與業主本輪指定的「有預算、區域客（沙鹿、清水）」方向不一致，過度分散的預算也是導致單組始終衝不到可信曝光量的主因。本頁下方20組全面轉向沙鹿＋清水在地客群。</div>
+
+  <div class="stats-bar">
+    <div class="sb-card"><div class="sb-n warn">2</div><div class="sb-l">累計潛客（樣本過小）</div></div>
+    <div class="sb-card"><div class="sb-n">$1,428</div><div class="sb-l">最佳 CPL</div></div>
+    <div class="sb-card"><div class="sb-n">$8,372</div><div class="sb-l">累計總花費</div></div>
+    <div class="sb-card"><div class="sb-n">12</div><div class="sb-l">已實測受眾組（皆曝光不足）</div></div>
+  </div>
+
+  <div class="section">
+    <div class="sec-title">現有測試觀察（資料量過小，僅供參考）</div>
+    <div class="profiles">
+      <div class="profile-card">
+        <div class="profile-icon pi-a">💻</div>
+        <div class="profile-name">中科東海逢甲／科技新貴</div>
+        <div class="profile-meta">曝光3,241｜曝光不足5,000可信門檻</div>
+        <div class="profile-tags">興趣：科技新貴、中科通勤圈</div>
+        <div class="profile-behavior">行為：唯二有真實潛客轉換的組別之一，1潛客、CPL $1,428，但樣本只有1筆，且落在業主本輪要避開的中科通勤圈，不建議放大預算，僅供參考</div>
+        <span class="profile-badge badge-a">1潛客 · CPL $1,428 · 樣本過小</span>
+      </div>
+      <div class="profile-card">
+        <div class="profile-icon pi-b">🏢</div>
+        <div class="profile-name">嶺東中科北屯／科技新貴</div>
+        <div class="profile-meta">曝光3,933｜曝光不足5,000可信門檻</div>
+        <div class="profile-tags">興趣：科技新貴、嶺東北屯通勤圈</div>
+        <div class="profile-behavior">行為：另一組有轉換的科技新貴類型，1潛客、CPL $1,999，全案CPL最高，同樣落在本輪要避開的區域，確認不延續</div>
+        <span class="profile-badge badge-b">1潛客 · CPL $1,999 · 全案最高</span>
+      </div>
+      <div class="profile-card">
+        <div class="profile-icon pi-c">💬</div>
+        <div class="profile-name">富宇時代花園 再行銷</div>
+        <div class="profile-meta">曝光3,891｜訊息型，非名單型</div>
+        <div class="profile-tags">興趣：既有粉專互動者再行銷</div>
+        <div class="profile-behavior">行為：訊息對話2次、CPL $719（以訊息計），是訊息型裡表現較穩定的一組，但屬再行銷非新客受眾，不計入新客受眾成效比較</div>
+        <span class="profile-badge badge-c">訊息2次 · CPL $719 · 再行銷型</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-title">下一步受眾測試建議（20組）· 更新 2026-09-15</div>
+    <div class="note-bar">依業主指示「快蓋好，抓有預算、區域客（沙鹿、清水）」重新設計方向：過去12組曝光量都太低、判斷力不足，且7組集中在中科/東海/靜宜/嶺東北屯等通勤圈，非本輪指定範圍。本批20組全數改鎖<b>沙鹿+5公里、清水+5公里</b>在地地緣，地標涵蓋童綜合醫院、弘光科技大學、沙鹿老街晉江街、南陽路商圈、家樂福沙鹿店、全聯清水中山店、鰲峰山、高美濕地、牛罵頭文化園區、清水魚市場、清水中山路商圈等；興趣人設以「有消費力的真實生活興趣」取代直接的置產/理財基礎標籤，例如高爾夫球、精品咖啡、進口車自駕旅遊、健身重訓、單眼攝影等能反映購買力的興趣分類，搭配園藝、寵物、露營、單車、居家美學等在地生活興趣補足完整人設。全數刻意避開已測過的科技新貴、餐飲相關、自營商投資、廣泛房地產、房地產互動、家具製造業、科技業生活興趣、高科技藝術時尚等8個方向，確保為未觸及的全新切角。</div>
+    <div class="aud-grid-2" id="main-aud-grid"></div>
+  </div>
+
+  <div class="rank-op-grid">
+
+    <div class="section">
+      <div class="sec-title">舊測試成效排行（12組，全數曝光不足）</div>
+      <div class="rk-grid">
+        <div class="rk-row gold">
+          <div class="rk-medal">🥇</div>
+          <div class="rk-body">
+            <div class="rk-name">中科東海逢甲／科技新貴 <span class="rk-badge rb-stopped">已停用</span></div>
+            <div class="rk-loc">中科・東海・逢甲通勤圈・目標：名單</div>
+            <div class="rk-tags"><span class="rk-tag t-biz">科技新貴</span><span class="rk-tag t-loc">中科東海</span></div>
+          </div>
+          <div class="rk-stats">
+            <div class="rk-stat-block"><div class="rk-result">1</div><div class="rk-result-l">潛客</div></div>
+            <div class="rk-stat-block"><div class="rk-cpl">$1,428</div><div class="rk-cpl-l">CPL</div></div>
+            <div class="rk-stat-block"><div class="rk-spend">$1,428</div><div class="rk-spend-l">花費</div></div>
+          </div>
+        </div>
+        <div class="rk-row silver">
+          <div class="rk-medal">🥈</div>
+          <div class="rk-body">
+            <div class="rk-name">嶺東中科北屯／科技新貴(0111) <span class="rk-badge rb-stopped">已停用</span></div>
+            <div class="rk-loc">嶺東・中科・北屯通勤圈・目標：名單</div>
+            <div class="rk-tags"><span class="rk-tag t-biz">科技新貴</span><span class="rk-tag t-loc">嶺東北屯</span></div>
+          </div>
+          <div class="rk-stats">
+            <div class="rk-stat-block"><div class="rk-result">1</div><div class="rk-result-l">潛客</div></div>
+            <div class="rk-stat-block"><div class="rk-cpl">$1,999</div><div class="rk-cpl-l">CPL</div></div>
+            <div class="rk-stat-block"><div class="rk-spend">$1,999</div><div class="rk-spend-l">花費</div></div>
+          </div>
+        </div>
+        <div class="rk-row bronze">
+          <div class="rk-medal">🥉</div>
+          <div class="rk-body">
+            <div class="rk-name">富宇時代花園 再行銷 <span class="rk-badge rb-stopped">未投遞</span></div>
+            <div class="rk-loc">既有互動者再行銷・目標：訊息</div>
+            <div class="rk-tags"><span class="rk-tag t-biz">再行銷</span></div>
+          </div>
+          <div class="rk-stats">
+            <div class="rk-stat-block"><div class="rk-result">2</div><div class="rk-result-l">訊息</div></div>
+            <div class="rk-stat-block"><div class="rk-cpl">$719</div><div class="rk-cpl-l">CPL(訊息)</div></div>
+            <div class="rk-stat-block"><div class="rk-spend">$1,438</div><div class="rk-spend-l">花費</div></div>
+          </div>
+        </div>
+        <div class="rk-row">
+          <div class="rk-rank">4</div>
+          <div class="rk-body">
+            <div class="rk-name">28-60/海線再行銷 <span class="rk-badge rb-active">進行中</span></div>
+            <div class="rk-loc">海線再行銷・目標：訊息</div>
+            <div class="rk-tags"><span class="rk-tag t-biz">再行銷</span><span class="rk-tag t-loc">海線</span></div>
+          </div>
+          <div class="rk-stats">
+            <div class="rk-stat-block"><div class="rk-result">1</div><div class="rk-result-l">訊息</div></div>
+            <div class="rk-stat-block"><div class="rk-cpl">$748</div><div class="rk-cpl-l">CPL(訊息)</div></div>
+            <div class="rk-stat-block"><div class="rk-spend">$748</div><div class="rk-spend-l">花費</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sec-title">已知問題（曝光全數<5,000，判斷力不足）</div>
+      <div class="hist-bar">
+        <h4>12組全數低於可信門檻，無法下定論</h4>
+        <div class="hist-grid">
+          <div class="hist-item"><div class="hist-n">24,512</div><div class="hist-l">12組合計曝光（單組最高僅3,933）</div></div>
+          <div class="hist-item"><div class="hist-n">7/12</div><div class="hist-l">組別落在中科/東海/靜宜通勤圈</div></div>
+          <div class="hist-item"><div class="hist-n">$8,372</div><div class="hist-l">累計花費／僅2真實潛客</div></div>
+        </div>
+      </div>
+      <div class="note-bar warn">中科／東海／靜宜／嶺東北屯等科技通勤圈的7組，合計花費約NT$5,700僅換回2個真實潛客且CPL皆逾$1,400；其餘再行銷/互動型組別非新客受眾比較對象。預算過度分散是核心問題，非受眾方向本身已被驗證無效。</div>
+    </div>
+
+    <div class="section">
+      <div class="sec-title">立即行動建議</div>
+      <div class="tips">
+        <div class="tip">
+          <div class="tip-num">1</div>
+          <div class="tip-body">
+            <div class="tip-title">停用中科/東海/靜宜/嶺東通勤圈的7組舊受眾</div>
+            <div class="tip-desc">這7組合計花費約$5,700僅換回2個真實潛客（CPL$1,428、$1,999），與本輪業主指定的沙鹿清水在地客群方向不一致，預算應全數轉移至新一批20組。</div>
+          </div>
+        </div>
+        <div class="tip">
+          <div class="tip-num c2">2</div>
+          <div class="tip-body">
+            <div class="tip-title">新一批20組先以小額分散測試找出可信方向</div>
+            <div class="tip-desc">過去12組的核心問題是預算太分散、沒有一組衝過5,000曝光。建議每組先以$100-150/日測試1-2週，優先觀察哪2-3組能率先衝到5,000曝光以上取得可信CPL數據。</div>
+          </div>
+        </div>
+        <div class="tip">
+          <div class="tip-num c3">3</div>
+          <div class="tip-body">
+            <div class="tip-title">再行銷組維持既有小額投放，不佔用新客測試預算</div>
+            <div class="tip-desc">富宇時代花園再行銷、海線富宇再行銷、28-60海線再行銷屬既有互動者再行銷，CPL(訊息)$719-748尚可接受，可維持小額投放，但不計入新客受眾成效比較。</div>
+          </div>
+        </div>
+        <div class="tip">
+          <div class="tip-num c4">4</div>
+          <div class="tip-body">
+            <div class="tip-title">素材文案加入「僅剩約15戶」稀缺感</div>
+            <div class="tip-desc">591實價登錄顯示187/202戶已售出（約92.6%），已接近完銷。搭配沙鹿清水在地地標作為信任背書，訴求「在地客群把握最後機會」。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /rank-op-grid -->
+
+  <div class="section">
+    <div class="insight-box">
+      <div class="insight-title">根據現有測試資料整理出的關鍵洞見：</div>
+      <div class="insight-highlight">
+        最重要的發現：過去9個月的12組測試沒有一組衝過5,000曝光可信門檻，資料量太小無法判定任何方向有效或無效——問題出在預算過度分散、且過度集中在業主本輪不要的中科/東海/靜宜通勤圈，而非「房地產受眾在沙鹿清水沒有市場」。<br>
+        本案已接近完銷（187/202戶），行銷重心應從「廣泛試錯」轉為「集中預算、精準觸及沙鹿清水在地有預算客群」。
+      </div>
+      <div class="insight-sub">現有資料的共同特徵：</div>
+      <ul class="insight-list">
+        <li>唯二有真實潛客轉換的組別都落在中科通勤圈，但CPL皆逾$1,400、樣本只有1筆，不足以證明方向有效</li>
+        <li>訊息型與名單型指標混用，過去紀錄容易誤判——訊息CPL$644-748跟名單CPL$1,428-1,999不能直接比較</li>
+        <li>7/12組落在業主本輪明確要避開的中科/東海/靜宜/嶺東北屯範圍，方向與現在的指示不一致</li>
+      </ul>
+      <div class="insight-sub">下一輪受眾的設定原則：</div>
+      <ol class="principle-list">
+        <li>地理錨點：沙鹿+5公里、清水+5公里為核心，不再擴散到中科/大雅/神岡/西屯/南屯/東海/靜宜</li>
+        <li>興趣人設優先於直接理財標籤：用高爾夫、精品咖啡、進口車、健身重訓等真實生活興趣展現購買力，避開置產/投資類基礎標籤</li>
+        <li>集中預算而非分散測試：每組先以$100-150/日規模測試，優先讓部分組別衝過5,000曝光取得可信數據，而非一次性拆成太多小組</li>
+        <li>名單與訊息目標分開追蹤：兩種優化目標的CPL不可直接比較，成效紀錄應分開列表</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="page-footer">資料期間：2024-12-24 至 2026-09-15 · 富宇時代花園 台中沙鹿 · 最後更新 2026-09-15</div>
+
+</div>
+
+<div id="copy-toast">已複製</div>
+<div id="toast">📋 詢問建議已複製 → 貼至 Claude 對話</div>
+
+<script>
+const PROJECT = '富宇時代花園（台中沙鹿・住宅大樓202戶・累計潛客2・最佳CPL NT$1,428・已測12組皆曝光不足）';
+
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg||'📋 詢問建議已複製 → 貼至 Claude 對話';
+  t.style.opacity='1';t.style.transform='translateX(-50%) translateY(0)';
+  setTimeout(()=>{t.style.opacity='0';t.style.transform='translateX(-50%) translateY(20px)'},2200);
+}
+
+function copyPrompt(text){
+  navigator.clipboard.writeText(text).then(()=>showToast()).catch(()=>{
+    const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast();
+  });
+}
+
+const MAIN_G=[
+  {n:'25-60 / 沙鹿+3・童綜合醫院 / 健康管理保健型',sub:'全新興趣人設・以健康保健真實興趣取代醫護職業窄框',
+   logic:'童綜合醫院是沙鹿最大醫療地標，鄰近居民健康意識普遍較高。改用「健康管理／保健消費」真實興趣分類取代窄職業標籤，鎖定重視健康、有能力消費保健品的在地客群，訴求「離醫學中心近，健康有保障」。',
+   lm:['童綜合醫院（+2公里）','沙鹿火車站（+3公里）','弘光科技大學（+3公里）','鹿寮國中（+3公里）'],
+   tags:[['Health and wellness','健康與保健'],['Preventive healthcare','預防醫學'],['Vitamins and supplements','維生素保健品'],['Physical fitness','體適能'],['Yoga','瑜伽'],['Meditation','靜坐冥想'],['Pilates','皮拉提斯'],['Running','跑步'],['Weight training','重量訓練'],['Nutrition','營養學'],['Organic food','有機食品'],['Healthy diet','健康飲食'],['Wellness tourism','健康旅遊'],['Hospital','醫院'],['Physical therapy','物理治療'],['Health club','健身俱樂部'],['Personal trainer','私人教練'],['Health insurance','健康保險'],['Medical checkup','健康檢查'],['Skincare','保養品'],['Aromatherapy','香氛療癒'],['Spa','spa養生'],['Sleep health','睡眠健康'],['New home','新成屋'],['Home buying','購屋'],['Quality of life','生活品質'],['Community health','社區健康']]},
+  {n:'28-60 / 沙鹿+3・弘光科大 / 教育文教在地型',sub:'全新興趣人設・以教育文史真實興趣取代學區廣投',
+   logic:'弘光科技大學是沙鹿在地最大教育機構，周邊生活圈聚集重視教育文化資源的居民。用教育/文史興趣角度切入，訴求「學區近、文教資源完整」。',
+   lm:['弘光科技大學（+2公里）','鹿峰國小（+3公里）','鹿寮國中（+3公里）','沙鹿藝文中心（+4公里）'],
+   tags:[['Higher education','高等教育'],['Continuing education','終身學習'],['Online learning','線上學習'],['E-learning','數位學習'],['Language learning','語言學習'],['Reading','閱讀'],['Bookstore','書店'],['Library','圖書館'],['Academic conference','學術研討'],['STEM education','科普教育'],['Tutoring','課後輔導'],['Art education','藝術教育'],['Music lessons','音樂課程'],['Public speaking','公開演講'],['Career development','職涯發展'],['Professional development','專業成長'],['Documentary film','紀錄片'],['Museum','博物館'],['Cultural events','文化活動'],['Local history','在地歷史'],['Volunteering','志工服務'],['Non-profit organization','非營利組織'],['New home','新成屋'],['Home buying','購屋'],['Quality of life','生活品質'],['Community involvement','社區參與']]},
+  {n:'25-55 / 沙鹿+1・晉江街老街 / 在地美食探店型',sub:'全新興趣人設・以老街飲食文化鎖定在地生活族群',
+   logic:'沙鹿老街（晉江街）是在地飲食文化核心，鎖定熱愛在地小吃、傳統市場採買、美食探店的居民，訴求「巷口就是美食，生活機能超強」。',
+   lm:['沙鹿老街晉江街（+1公里）','福安黃昏市場（+2公里）','沙鹿轉運站（+2公里）'],
+   tags:[['Street food','街頭小吃文化'],['Night market','夜市'],['Local cuisine','在地美食'],['Food blogging','美食部落格'],['Restaurant','餐廳'],['Traditional market','傳統市場'],['Cooking','料理烹飪'],['Home cooking','家常料理'],['Baking','烘焙'],['Tea culture','茶文化'],['Dessert','甜點'],['Bubble tea','手搖飲'],['Food photography','美食攝影'],['Instagram','IG社群'],['YouTube','YouTube頻道'],['Food delivery','外送美食'],['Farmers market','農夫市集'],['Seasonal produce','當季食材'],['Vegetarian food','蔬食料理'],['Wine tasting','品酒'],['Coffee culture','咖啡文化'],['Craft beer','精釀啤酒'],['New home','新成屋'],['Home buying','購屋'],['Quality of life','生活品質'],['Neighborhood community','在地社區']]},
+  {n:'28-58 / 沙鹿+1・南陽路商圈 / 逛街購物生活型',sub:'全新興趣人設・以商圈消費興趣鎖定在地生活族群',
+   logic:'南陽路商圈是沙鹿最大消費商圈，鎖定重視逛街購物、品牌消費的在地生活族群，訴求「商圈就在家門口，生活採買零距離」。',
+   lm:['南陽路商圈（+1公里）','家樂福沙鹿店（+2公里）','沙鹿轉運站（+2公里）'],
+   tags:[['Shopping','購物'],['Online shopping','網路購物'],['Fashion','時尚'],['Apparel','服飾'],['Sportswear','運動服飾'],['Cosmetics','美妝'],['Skincare products','保養品'],['Department store','百貨公司'],['Outlet shopping','outlet購物'],['Brand loyalty','品牌忠誠'],['Discount and coupon','折扣優惠'],['Loyalty program','會員忠誠計畫'],['Interior decor','居家裝飾'],['Home furnishing','家飾用品'],['Small appliance','小家電'],['Electronics','電子產品'],['Mobile phone','手機'],['Photography equipment','攝影器材'],['New home','新成屋'],['Home buying','購屋'],['Home decor','居家佈置'],['Furniture shopping','家具選購'],['Quality of life','生活品質'],['Weekend shopping','週末購物'],['Shopping mall','購物中心']]},
+  {n:'28-60 / 沙鹿+5・家樂福全聯 / 生活採買通勤型',sub:'全新興趣人設・以日常採買通勤生活鎖定在地居民',
+   logic:'家樂福沙鹿店＋全聯是在地最主要生活採買據點，鎖定重視生活便利性、每日通勤採買的在地居民，訴求「下班順路買菜，生活動線最省時間」。',
+   lm:['家樂福沙鹿店（+2公里）','全聯福利中心（+2公里）','沙鹿轉運站（+3公里）','國道三號沙鹿服務區（+5公里）'],
+   tags:[['Grocery shopping','超市採買'],['Supermarket','超市'],['Commuting','通勤生活'],['Public transportation','大眾運輸'],['Ride sharing','共乘服務'],['Meal planning','備餐規劃'],['Home cooking','在家開伙'],['Kitchen appliance','廚房家電'],['Slow cooker','慢燉鍋'],['Air fryer','氣炸鍋'],['Recipe','食譜'],['Grocery delivery','生鮮外送'],['Online grocery','線上超市'],['Budget shopping','精打細算購物'],['Coupon','優惠券'],['Time management','時間管理'],['Work-life balance','工作生活平衡'],['New home','新成屋'],['Home buying','購屋'],['Convenience','生活便利性'],['Neighborhood','社區生活'],['Commute time','通勤時間'],['Quality of life','生活品質'],['Household management','家務管理'],['Local delivery','在地外送'],['Everyday life','日常生活']]},
+  {n:'30-60 / 清水+3・鰲峰山 / 健走登山休閒型',sub:'全新興趣人設・以戶外健走鎖定重視休閒運動的在地居民',
+   logic:'鰲峰山是清水最知名休閒登山據點，鎖定重視戶外健走運動的在地居民，訴求「巷口就有登山步道，天天都能健走」。',
+   lm:['鰲峰山公園（+3公里）','清水區公所（+3公里）','清水車站（+4公里）'],
+   tags:[['Hiking','健行登山'],['Trail running','越野跑'],['Mountain climbing','爬山'],['Walking','健走'],['Nature walk','自然步道'],['Outdoor recreation','戶外休閒'],['National park','國家公園'],['Bird watching','賞鳥'],['Nature photography','自然攝影'],['Trekking pole','登山杖'],['Hiking boots','登山鞋'],['Backpack','登山背包'],['Fitness tracker','運動手環'],['GPS watch','GPS手錶'],['Physical fitness','體適能'],['Cardiovascular exercise','有氧運動'],['Weight loss','體重管理'],['Healthy lifestyle','健康生活'],['Sunrise and sunset photography','日出日落攝影'],['Camping','露營'],['Picnic','野餐'],['Fresh air','新鮮空氣'],['New home','新成屋'],['Home buying','購屋'],['Quality of life','生活品質'],['Weekend outing','週末小旅行']]},
+  {n:'28-60 / 清水+4・高美濕地 / 生態攝影觀光型',sub:'全新興趣人設・以生態觀光攝影鎖定重視生活品質的居民',
+   logic:'高美濕地是清水最知名觀光地標，鎖定熱愛生態觀察、攝影旅遊的在地與周邊居民，訴求「家門口就是熱門景點，天天都像在度假」。',
+   lm:['高美濕地（+4公里）','清水區公所（+3公里）','清水車站（+4公里）'],
+   tags:[['Ecotourism','生態旅遊'],['Bird watching','賞鳥'],['Wetland conservation','濕地保育'],['Nature photography','自然攝影'],['Landscape photography','風景攝影'],['Sunset photography','夕陽攝影'],['Travel photography','旅遊攝影'],['DSLR camera','單眼相機'],['Drone photography','空拍攝影'],['Instagram','IG打卡'],['Travel blogging','旅遊部落格'],['Environmental conservation','環境保育'],['Marine biology','海洋生態'],['Coastal recreation','海濱休閒'],['Cycling','自行車'],['Bike path','自行車道'],['Sightseeing','觀光旅遊'],['Local tourism','在地旅遊'],['Weekend getaway','週末小旅行'],['Sunset watching','看夕陽'],['Nature documentary','自然紀錄片'],['New home','新成屋'],['Home buying','購屋'],['Quality of life','生活品質'],['Local pride','在地認同']]},
+  {n:'30-60 / 清水+3・牛罵頭文化園區 / 在地文史愛好型',sub:'全新興趣人設・以在地文史認同鎖定居民',
+   logic:'牛罵頭文化園區是清水最重要在地文史景點，鎖定重視在地文化認同、歷史人文的居民，訴求「住在文化古蹟旁，在地根基深厚」。',
+   lm:['牛罵頭遺址文化園區（+2公里）','清水區公所（+3公里）','清水國小（+3公里）'],
+   tags:[['Local history','在地歷史'],['Cultural heritage','文化遺產'],['Archaeology','考古學'],['Museum','博物館'],['Historical site','古蹟景點'],['Documentary film','紀錄片'],['Cultural festival','文化祭'],['Traditional craft','傳統工藝'],['Local folklore','在地民俗'],['Temple culture','宮廟文化'],['Community event','社區活動'],['Volunteering','志工服務'],['Photography','攝影'],['Reading','閱讀'],['History book','歷史書籍'],['Local government','地方政府'],['Cultural tourism','文化旅遊'],['Heritage conservation','文化保存'],['Art exhibition','藝文展覽'],['New home','新成屋'],['Home buying','購屋'],['Local pride','在地認同'],['Quality of life','生活品質'],['Community involvement','社區參與'],['Neighborhood association','社區發展協會']]},
+  {n:'28-58 / 清水+3・魚市場 / 海鮮飲食文化型',sub:'全新興趣人設・以海港飲食文化鎖定在地居民',
+   logic:'清水魚市場是在地知名海鮮採買據點，鎖定熱愛海鮮料理、海港飲食文化的居民，訴求「新鮮海產隨手可得，海線生活最對味」。',
+   lm:['清水魚市場（+2公里）','清水區公所（+3公里）','清水車站（+4公里）'],
+   tags:[['Seafood','海鮮'],['Fresh fish market','魚市場'],['Home cooking','在家料理'],['Grilling','燒烤'],['Sashimi','生魚片'],['Japanese cuisine','日式料理'],['Taiwanese cuisine','台式料理'],['Cooking class','烹飪課程'],['Recipe','食譜'],['Food blogging','美食部落格'],['Traditional market','傳統市場'],['Local delicacy','在地美食'],['Fishing','釣魚'],['Coastal lifestyle','海線生活'],['Boat','漁船'],['Marine life','海洋生物'],['Sustainable seafood','永續海鮮'],['Wine pairing','餐酒搭配'],['Dinner party','聚餐宴客'],['Grocery shopping','生鮮採買'],['New home','新成屋'],['Home buying','購屋'],['Quality of life','生活品質'],['Coastal community','海線社區'],['Local pride','在地認同']]},
+  {n:'28-58 / 清水+2・中山路商圈 / 在地消費商圈型',sub:'全新興趣人設・以商圈逛街消費鎖定在地居民',
+   logic:'清水中山路是在地生活消費核心商圈，鎖定重視在地逛街消費的居民，訴求「中山路商圈全在生活圈內，採買逛街兩全」。',
+   lm:['清水中山路商圈（+2公里）','清水市場（+2公里）','清水區公所（+3公里）'],
+   tags:[['Shopping','逛街購物'],['Local boutique','在地精品店'],['Fashion','時尚穿搭'],['Cosmetics','美妝保養'],['Bubble tea','手搖飲'],['Bakery','烘焙坊'],['Cafe','咖啡廳'],['Bookstore','書店'],['Stationery','文具用品'],['Convenience store','便利商店'],['Street food','街頭小吃'],['Night market','夜市'],['Local restaurant','在地餐廳'],['Grocery shopping','生活採買'],['Small business','在地小店'],['Weekend shopping','週末購物'],['Discount shopping','優惠採購'],['New home','新成屋'],['Home buying','購屋'],['Home decor','居家佈置'],['Quality of life','生活品質'],['Local pride','在地認同'],['Community shopping','社區消費'],['Everyday life','日常生活'],['Neighborhood','鄰里生活']]},
+  {n:'28-58 / 沙鹿清水+5 / 單車環騎運動型',sub:'全新興趣人設・以海線平坦地形鎖定自行車愛好者',
+   logic:'海線腹地平坦適合單車環騎，鎖定熱愛自行車運動的在地居民，訴求「海線平坦路線，單車通勤與休閒兩相宜」。',
+   lm:['沙鹿火車站（+3公里）','清水車站（+3公里）','高美濕地自行車道（+5公里）'],
+   tags:[['Cycling','自行車運動'],['Road bike','公路車'],['Mountain bike','登山車'],['Bike path','自行車道'],['Cycling gear','自行車裝備'],['Fitness tracker','運動手環'],['Strava','Strava運動社群'],['Triathlon','三鐵運動'],['Marathon','馬拉松'],['Endurance sports','耐力運動'],['Sports nutrition','運動營養'],['Hydration pack','水袋背包'],['Cycling jersey','車衣'],['GPS bike computer','自行車碼表'],['Coastal cycling','海濱自行車道'],['Weekend cycling','週末騎車'],['Bike shop','自行車店'],['Outdoor recreation','戶外休閒'],['Physical fitness','體適能'],['New home','新成屋'],['Home buying','購屋'],['Garage','車庫空間'],['Quality of life','生活品質'],['Active lifestyle','活力生活'],['Health and wellness','健康生活'],['Local cycling club','在地車隊']]},
+  {n:'32-60 / 沙鹿清水+5 / 高爾夫球休閒財力型',sub:'全新興趣人設・以高爾夫真實興趣展現購買力',
+   logic:'高爾夫球是能明確展現購買力、穩定經濟基礎的真實興趣分類，鎖定在地有消費能力的成熟客群，訴求「事業有成，該給自己換個好房子」。',
+   lm:['沙鹿火車站（+3公里）','清水車站（+3公里）','台灣大道沿線（+5公里）'],
+   tags:[['Golf','高爾夫球'],['Golf course','高爾夫球場'],['Golf equipment','高爾夫球具'],['Country club','俱樂部會員'],['Tennis','網球'],['Yacht','遊艇'],['Luxury travel','奢華旅遊'],['Business travel','商務旅行'],['Private banking','私人銀行'],['Wealth management','財富管理'],['Fine dining','精緻餐飲'],['Wine collecting','紅酒收藏'],['Whisky','威士忌'],['Luxury car','豪華汽車'],['Watch collecting','名表收藏'],['First class travel','商務艙旅行'],['Business networking','商務社交'],['Executive lifestyle','高階主管生活'],['New home','新成屋'],['Home buying','購屋'],['Quality of life','生活品質'],['Membership club','會員俱樂部生活'],['Premium lifestyle','精品生活'],['Luxury goods','奢侈品'],['Second home','第二居所']]},
+  {n:'28-55 / 沙鹿清水+5 / 健身重訓運動生活型',sub:'全新興趣人設・以健身重訓鎖定自我投資型客群',
+   logic:'健身重訓是真實存在且能展現規律生活、自我投資能力的興趣分類，鎖定重視體態管理的在地客群，訴求「有健身房會員資格，也該有更好的家」。',
+   lm:['沙鹿轉運站（+3公里）','清水區公所（+3公里）'],
+   tags:[['Weight training','重量訓練'],['Bodybuilding','健美'],['Gym membership','健身房會員'],['CrossFit','CrossFit訓練'],['Personal trainer','私人教練'],['Protein supplement','蛋白補給品'],['Sports nutrition','運動營養'],['Fitness tracker','運動手環'],['HIIT','高強度間歇訓練'],['Cardio','有氧運動'],['Yoga','瑜伽'],['Pilates','皮拉提斯'],['Running','跑步'],['Marathon','馬拉松'],['Sportswear','運動服飾'],['Athletic brand','運動品牌'],['Athletic shoes','運動鞋'],['Fitness app','健身App'],['Meal prep','備餐'],['Healthy eating','健康飲食'],['New home','新成屋'],['Home buying','購屋'],['Quality of life','生活品質'],['Active lifestyle','活力生活'],['Self-improvement','自我成長'],['Discipline','自律生活']]},
+  {n:'28-58 / 沙鹿清水+5 / 精品咖啡手沖生活型',sub:'全新興趣人設・以精品咖啡文化展現生活品質',
+   logic:'精品咖啡、手沖文化能反映重視生活品質與消費力的族群，鎖定咖啡愛好者，訴求「在家也能有咖啡廳級生活享受」。',
+   lm:['沙鹿轉運站（+3公里）','清水中山路商圈（+3公里）'],
+   tags:[['Specialty coffee','精品咖啡'],['Coffee brewing','手沖咖啡'],['Espresso','義式咖啡'],['Coffee shop','咖啡廳'],['Barista','咖啡師'],['Coffee bean','咖啡豆'],['Coffee grinder','咖啡磨豆機'],['Latte art','拉花藝術'],['Third wave coffee','第三波咖啡'],['Cafe hopping','咖啡廳巡禮'],['Dessert','甜點'],['Bakery','烘焙坊'],['Home brewing','居家沖泡'],['Kitchen appliance','廚房家電'],['Interior design','室內設計'],['Minimalism','極簡生活'],['Instagram','IG生活分享'],['New home','新成屋'],['Home buying','購屋'],['Home decor','居家佈置'],['Quality of life','生活品質'],['Slow living','慢活生活'],['Weekend cafe','週末咖啡時光'],['Lifestyle blog','生活風格部落格'],['Aesthetic lifestyle','美學生活']]},
+  {n:'28-58 / 沙鹿清水+5 / 攝影單眼相機興趣型',sub:'全新興趣人設・以攝影器材興趣展現消費力',
+   logic:'攝影、單眼相機興趣族群通常具備一定消費力與生活品質追求，鎖定海線在地攝影愛好者，訴求「用鏡頭記錄新家，也記錄海線生活」。',
+   lm:['高美濕地（+5公里）','鰲峰山（+4公里）','沙鹿老街（+3公里）'],
+   tags:[['Photography','攝影'],['DSLR camera','單眼相機'],['Mirrorless camera','微單相機'],['Camera lens','相機鏡頭'],['Landscape photography','風景攝影'],['Portrait photography','人像攝影'],['Street photography','街拍攝影'],['Photo editing','相片後製'],['Lightroom','Lightroom修圖'],['Adobe Photoshop','Photoshop'],['Drone','航拍無人機'],['GoPro','運動攝影機'],['YouTube','YouTube頻道'],['Instagram','IG攝影社群'],['Photography workshop','攝影工作坊'],['Camera gear','攝影器材'],['Tripod','三腳架'],['Photo printing','相片沖印'],['Travel photography','旅遊攝影'],['New home','新成屋'],['Home buying','購屋'],['Quality of life','生活品質'],['Creative hobby','創作興趣'],['Weekend photography','週末攝影'],['Local scenery','在地風景'],['Art and design','藝術設計']]},
+  {n:'28-58 / 沙鹿清水+5 / 大型犬毛孩生活型',sub:'全新興趣人設・以寵物興趣鎖定重視居住空間的客群',
+   logic:'大樓/透天有無空間養大型犬是購屋決策重要考量，鎖定在地養寵物族群（以寵物興趣角度非人口統計框架），訴求「新家有空間，毛孩也能舒服長大」。',
+   lm:['沙鹿轉運站（+3公里）','清水區公所（+3公里）'],
+   tags:[['Dog','狗'],['Large dog breed','大型犬'],['Dog training','狗狗訓練'],['Pet grooming','寵物美容'],['Veterinary medicine','獸醫'],['Pet food','寵物食品'],['Pet supplies','寵物用品'],['Dog park','狗狗公園'],['Dog walking','遛狗'],['Pet-friendly','寵物友善'],['Animal shelter','動物收容'],['Cat','貓'],['Pet photography','寵物攝影'],['Pet insurance','寵物保險'],['Outdoor recreation','戶外活動'],['Backyard','後院生活'],['Balcony garden','陽台花園'],['Fence','圍籬'],['Home improvement','居家修繕'],['New home','新成屋'],['Home buying','購屋'],['Home decor','居家佈置'],['Quality of life','生活品質'],['Animal welfare','動物福利'],['Pet community','毛孩社群'],['Weekend outing','週末出遊'],['Storage solutions','收納規劃']]},
+  {n:'30-60 / 沙鹿清水+5 / 園藝居家佈置型',sub:'全新興趣人設・以園藝居家美學鎖定重視居住品質的客群',
+   logic:'園藝與居家佈置興趣反映對居住空間品質的高度重視，鎖定在地重視居家生活美感的客群，訴求「有院子陽台，生活多一份綠意」。',
+   lm:['沙鹿轉運站（+3公里）','清水區公所（+3公里）'],
+   tags:[['Gardening','園藝'],['Urban farming','都市農耕'],['Succulent plants','多肉植物'],['Flower arrangement','花藝'],['Herb garden','香草花園'],['Landscape design','景觀設計'],['Balcony garden','陽台花園'],['Houseplant','室內植栽'],['Composting','堆肥'],['Home improvement','居家修繕'],['Interior design','室內設計'],['Home decor','居家佈置'],['Minimalism','極簡生活'],['DIY','手作裝飾'],['Furniture','家具選購'],['Lighting design','燈飾設計'],['Farmers market','花市採買'],['Organic food','有機食品'],['Nature','大自然'],['Weekend gardening','週末園藝'],['New home','新成屋'],['Home buying','購屋'],['Quality of life','生活品質'],['Aesthetic lifestyle','美學生活'],['Slow living','慢活生活'],['Home renovation','居家翻修']]},
+  {n:'28-58 / 沙鹿清水+5 / 露營車泊戶外休閒型',sub:'全新興趣人設・以車庫收納優勢鎖定露營愛好者',
+   logic:'海線腹地大適合露營車泊，透天/大樓車庫空間對露營裝備收納是天然優勢，鎖定戶外露營愛好者，訴求「有車庫，露營裝備不用寄放外面」。',
+   lm:['沙鹿轉運站（+3公里）','高美濕地（+5公里）'],
+   tags:[['Camping','露營'],['RV recreational vehicle','露營車'],['Camping gear','露營裝備'],['Glamping','精緻露營'],['Outdoor recreation','戶外休閒'],['Hiking','健行'],['Off-roading','越野活動'],['Car camping','車宿露營'],['Tent','帳篷'],['Barbecue','烤肉'],['Bonfire','營火'],['Backpacking','背包旅行'],['National park','國家公園'],['Fishing','釣魚'],['Kayaking','獨木舟'],['Adventure travel','探險旅遊'],['GoPro','運動攝影機'],['Garage','車庫'],['Storage solutions','收納規劃'],['DIY','自己動手做'],['New home','新成屋'],['Home buying','購屋'],['Quality of life','生活品質'],['Weekend camping','週末露營'],['Outdoor gear','戶外裝備'],['Nature photography','自然攝影'],['Coastal camping','海濱露營']]},
+  {n:'28-58 / 沙鹿清水+5 / 日式歐風居家美學型',sub:'全新興趣人設・以居家風格美學鎖定交屋裝潢需求',
+   logic:'居家風格美學興趣（日式無印/北歐風）反映重視室內設計質感的族群，鎖定講究居家美學的在地客群，訴求「新成屋交屋，打造理想中的日系或北歐居家」。',
+   lm:['沙鹿轉運站（+3公里）','清水中山路商圈（+3公里）'],
+   tags:[['Interior design','室內設計'],['Japanese minimalism','日式無印風'],['Scandinavian design','北歐風設計'],['Muji','無印良品'],['IKEA','IKEA家具'],['Home decor','居家佈置'],['Home renovation','居家翻修'],['Furniture shopping','家具選購'],['Lighting design','燈飾設計'],['Minimalism','極簡生活'],['Home organization','居家收納'],['Interior styling','室內佈置'],['Architecture','建築設計'],['Home improvement','居家修繕'],['DIY','手作裝飾'],['Textile design','布藝設計'],['Ceramics','陶藝'],['Home fragrance','居家香氛'],['Aesthetic lifestyle','美學生活'],['New home','新成屋'],['Home buying','購屋'],['Quality of life','生活品質'],['Slow living','慢活生活'],['Design magazine','設計雜誌'],['Interior inspiration','居家佈置靈感'],['Home styling blog','居家佈置部落格']]},
+  {n:'32-60 / 沙鹿清水+5 / 進口車自駕旅遊財力型',sub:'全新興趣人設・以進口車自駕旅遊真實興趣展現財力',
+   logic:'進口車、自駕旅遊是能展現穩定財力與消費能力的真實興趣分類，鎖定在地有一定購買力、常自駕出遊的成熟客群，訴求「開好車、住好房，生活品質同步升級」。',
+   lm:['國道三號沙鹿服務區（+5公里）','61快速道路（+5公里）','台灣大道沿線（+5公里）'],
+   tags:[['Imported car','進口車'],['Luxury car','豪華汽車'],['Car customization','改裝車'],['Automobile','汽車'],['Car maintenance','汽車保養'],['Road trip','自駕旅遊'],['Domestic travel','國內旅遊'],['International travel','國外旅遊'],['Business travel','商務旅行'],['Hotel','飯店住宿'],['Fine dining','精緻餐飲'],['Travel photography','旅遊攝影'],['GPS navigation','衛星導航'],['Car audio','車用音響'],['Driving','駕駛樂趣'],['Motor show','車展'],['Car insurance','汽車保險'],['Garage','車庫空間'],['New home','新成屋'],['Home buying','購屋'],['Quality of life','生活品質'],['Premium lifestyle','精品生活'],['Weekend road trip','週末自駕遊'],['Executive lifestyle','高階主管生活'],['Second car','第二輛車'],['Parking space','停車空間']]}
+];
+
+function renderAudGrid(list, containerId){
+  const grid = document.getElementById(containerId);
+  grid.innerHTML = list.map((g, i) => `
+    <div class="aud-card" id="${containerId}-${i}">
+      <div class="aud-header" onclick="toggleAud('${containerId}-${i}')">
+        <div class="aud-num">${i+1}</div>
+        <div class="aud-info">
+          <div class="aud-name">${g.n}</div>
+          <div class="aud-sub">${g.sub}</div>
+        </div>
+        <div class="aud-arrow">▸</div>
+      </div>
+      <div class="aud-body">
+        <div class="aud-sl">評估邏輯</div>
+        <div class="aud-logic">${g.logic}</div>
+        <div class="aud-sl">地標定位</div>
+        <div class="aud-lm">${g.lm.map(l => `<span class="aud-lm-tag">📍 ${l}</span>`).join('')}</div>
+        <div class="aud-sl">興趣標籤（${g.tags.length}個）</div>
+        <table class="tag-tbl">
+          <thead><tr><th>#</th><th>英文</th><th>中文</th></tr></thead>
+          <tbody>
+            ${g.tags.map((t, ti) => `<tr onclick="copyTag(this,'${t[0].replace(/'/g,"\\'")}')"><td>${ti+1}</td><td>${t[0]}</td><td>${t[1]}</td></tr>`).join('')}
+          </tbody>
+        </table>
+        <div class="copy-all-row">
+          <button class="copy-all-btn" onclick="copyAllTags(this, ${i}, '${containerId}')">📋 複製全部英文標籤</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function toggleAud(id){
+  document.getElementById(id).classList.toggle('open');
+}
+
+function copyTag(row, text){
+  navigator.clipboard.writeText(text).then(() => {
+    row.classList.add('flash');
+    setTimeout(() => row.classList.remove('flash'), 500);
+  }).catch(() => {});
+}
+
+function copyAllTags(btn, idx, containerId){
+  const list = containerId === 'main-aud-grid' ? MAIN_G : [];
+  const g = list[idx];
+  if (!g) return;
+  const text = g.tags.map(t => t[0]).join(', ');
+  navigator.clipboard.writeText(text).then(() => {
+    btn.classList.add('done');
+    btn.textContent = '✓ 已複製';
+    setTimeout(() => { btn.classList.remove('done'); btn.textContent = '📋 複製全部英文標籤'; }, 1500);
+  }).catch(() => {});
+}
+
+renderAudGrid(MAIN_G, 'main-aud-grid');
+
+window.addEventListener('scroll', () => {
+  const btt = document.getElementById('btt');
+  if (window.scrollY > 400) btt.classList.add('show');
+  else btt.classList.remove('show');
+});
+</script>
+
+</body>
+</html>
