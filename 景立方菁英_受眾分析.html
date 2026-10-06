@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>景立方菁英｜受眾分析報告</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --accent:#4a6e8a;--accent-dark:#364f65;--accent-light:#e6eff5;--accent-border:#90b0c8;
+  --bg:#f2f3f1;--s:#ffffff;--bd:#e4e5e2;--tx:#2e2c29;--sub:#7d7870;--sub2:#a8a199;
+  --good:#1e6e3f;--goodl:#e6f4ea;--warn:#c05c00;
+  --radius:12px;--shadow-xs:0 1px 3px rgba(0,0,0,.05);--shadow-sm:0 2px 8px rgba(0,0,0,.07);--shadow-card:0 2px 10px rgba(0,0,0,.06),0 1px 3px rgba(0,0,0,.04);
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft JhengHei','Segoe UI',sans-serif;background:var(--bg);color:var(--tx);font-size:14px;line-height:1.6;min-height:100vh}
+.page-header{background:linear-gradient(180deg,#0f1923 0%,#0b1520 100%);padding:0 40px;height:56px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.04),0 4px 20px rgba(0,0,0,.35);border-bottom:1px solid rgba(255,255,255,.05)}
+.ph-logo{width:30px;height:30px;background:linear-gradient(135deg,#7ba3be,var(--accent-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;flex-shrink:0}
+.ph-title{font-size:14px;font-weight:700;color:#f1f5f9;letter-spacing:-.2px}
+.ph-sub{font-size:11px;color:#475569;margin-left:2px}
+.ph-nav{margin-left:auto;display:flex;gap:8px;align-items:center}
+.ph-nav a{font-size:12px;color:#94a3b8;text-decoration:none;padding:5px 13px;border-radius:6px;border:1px solid rgba(96,125,150,.2);background:rgba(96,125,150,.1);font-weight:500}
+.ph-nav a:hover{background:rgba(96,125,150,.2);color:#e2e8f0}
+#btt{position:fixed;right:24px;bottom:28px;width:38px;height:38px;border-radius:50%;background:rgba(10,16,24,.75);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.85);font-size:15px;cursor:pointer;opacity:0;transform:translateY(8px);transition:opacity .2s,transform .2s;pointer-events:none;z-index:150;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.3);font-family:inherit}
+#btt.show{opacity:1;transform:translateY(0);pointer-events:auto}
+#btt:hover{background:rgba(20,32,48,.9);transform:translateY(-2px)}
+.wrap{max-width:1200px;margin:0 auto;padding:32px 40px 48px}
+.case-header{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:20px 24px;margin-bottom:10px;display:flex;align-items:center;gap:18px;box-shadow:var(--shadow-card)}
+.case-logo{width:44px;height:44px;background:linear-gradient(135deg,var(--accent),var(--accent-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;flex-shrink:0}
+.case-info h2{font-size:17px;font-weight:700;color:var(--tx);letter-spacing:-.3px}
+.case-info p{font-size:12px;color:var(--sub);margin-top:3px;line-height:1.5}
+.case-stats{margin-left:auto;display:flex;gap:28px;flex-shrink:0}
+.stat{text-align:right}
+.stat-n{font-size:24px;font-weight:800;color:var(--accent);line-height:1;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.stat-l{font-size:10px;color:var(--sub2);margin-top:3px;font-weight:600;letter-spacing:.3px;text-transform:uppercase}
+.top-link{font-size:12px;color:var(--accent);margin-bottom:24px;display:inline-block;text-decoration:none;font-weight:500}
+.top-link span{border-bottom:1px solid var(--accent-border)}
+.sec-title{font-size:12px;font-weight:700;color:var(--sub);margin-bottom:14px;display:flex;align-items:center;gap:10px;letter-spacing:.4px;text-transform:uppercase}
+.sec-title::before{content:'';display:inline-block;width:3px;height:14px;background:var(--accent);border-radius:2px;flex-shrink:0}
+.sec-title::after{content:'';flex:1;height:1px;background:var(--bd)}
+.section{margin-bottom:28px}
+.creative-section{margin-bottom:32px}
+/* Profiles */
+.profiles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.profile-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow-xs);transition:box-shadow .2s,transform .2s}
+.profile-card:hover{box-shadow:var(--shadow-sm);transform:translateY(-2px)}
+.profile-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:17px;margin-bottom:12px}
+.profile-icon.blue{background:var(--accent-light)}
+.profile-icon.teal{background:#e0eff2}
+.profile-icon.amber{background:#fdf0dc}
+.profile-name{font-size:15px;font-weight:700;color:var(--tx);margin-bottom:4px}
+.profile-meta{font-size:12px;color:var(--sub);margin-bottom:10px}
+.profile-tags{font-size:12px;color:#4a5568;margin-bottom:10px;line-height:1.6}
+.profile-behavior{font-size:12px;color:var(--sub);line-height:1.55;margin-bottom:12px}
+.profile-badge{display:inline-block;font-size:11px;font-weight:700;padding:4px 11px;border-radius:20px;margin-top:2px}
+.badge-blue{background:var(--accent-light);color:#2a4a62;border:1px solid var(--accent-border)}
+.badge-teal{background:#e0eff2;color:#2f6672;border:1px solid #87b5be}
+.badge-amber{background:#fdf0dc;color:#7a5c20;border:1px solid #d4b06a}
+/* Tags */
+.tags-row{display:flex;flex-wrap:wrap;gap:8px}
+.core-tag{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;background:var(--s);border:1.5px solid var(--bd);border-radius:20px;font-size:13px;font-weight:600;color:var(--tx);cursor:pointer;transition:all .15s}
+.core-tag:hover{border-color:var(--accent-border);background:var(--accent-light);color:#2a4a62}
+.core-tag .arr{font-size:11px;color:var(--accent-border)}
+/* Tips */
+.tips{display:flex;flex-direction:column;gap:10px}
+.tip{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:16px 18px;display:flex;gap:16px;align-items:flex-start;cursor:pointer;transition:border-color .15s,box-shadow .15s;box-shadow:var(--shadow-xs)}
+.tip:hover{border-color:var(--accent-border);box-shadow:var(--shadow-sm)}
+.tip-num{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;flex-shrink:0;color:#fff}
+.c1{background:var(--accent)}.c2{background:#5a7aaa}.c3{background:#3a8a6a}.c4{background:#8a7a3a}.c5{background:#7a5a4a}
+.tip-body{flex:1}
+.tip-title{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:5px;line-height:1.4}
+.tip-desc{font-size:12px;color:var(--sub);line-height:1.65}
+/* Creative timeline */
+.creative-timeline{display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
+.phase-row{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:14px 18px;display:flex;gap:14px;align-items:center;cursor:pointer;transition:box-shadow .15s;box-shadow:var(--shadow-xs)}
+.phase-row:hover{box-shadow:var(--shadow-sm)}
+.phase-label{width:52px;flex-shrink:0;font-size:11px;font-weight:800;text-align:center;padding:6px 4px;border-radius:8px;background:var(--accent-light);color:var(--accent-dark);letter-spacing:-.2px;line-height:1.3}
+.phase-body{flex:1;min-width:0}
+.phase-title{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:4px}
+.phase-desc{font-size:12px;color:var(--sub);line-height:1.6}
+.phase-stat{text-align:right;flex-shrink:0;min-width:80px}
+.phase-cpl{font-size:16px;font-weight:800;color:var(--accent);line-height:1;font-variant-numeric:tabular-nums}
+.phase-cpl-l{font-size:10px;color:var(--sub2);margin-top:3px;font-weight:600}
+/* Creative grid */
+.creative-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
+.creative-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow-xs);cursor:pointer;transition:box-shadow .15s,transform .15s}
+.creative-card:hover{box-shadow:var(--shadow-sm);transform:translateY(-2px)}
+.creative-card.best{border-color:var(--accent-border);background:#f0f6fa}
+.creative-name{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:6px}
+.creative-badge{display:inline-block;font-size:10px;font-weight:700;padding:3px 8px;border-radius:8px;margin-bottom:8px}
+.cb-top{background:var(--accent-light);color:#2a4a62;border:1px solid var(--accent-border)}
+.cb-active{background:#d8ead2;color:#3d6b4f;border:1px solid #96c4a8}
+.cb-new{background:#fdf0dc;color:#7a5c20;border:1px solid #d4b06a}
+.cb-retired{background:#f0f0f0;color:#888;border:1px solid #ccc}
+.creative-stats{font-size:12px;color:var(--sub);line-height:1.75}
+.creative-stats b{color:var(--tx)}
+/* Insight box */
+.insight-box{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow-xs)}
+.insight-title{font-size:14px;font-weight:700;color:var(--tx);margin-bottom:14px}
+.insight-highlight{background:var(--accent-light);border-left:3px solid var(--accent);padding:12px 16px;border-radius:0 8px 8px 0;margin-bottom:16px;font-size:13px;color:#1a3a52;font-weight:600;line-height:1.65}
+.insight-sub{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:10px;margin-top:14px}
+.insight-list{list-style:none;display:flex;flex-direction:column;gap:7px}
+.insight-list li{font-size:13px;color:#4a5568;padding-left:18px;position:relative;line-height:1.6}
+.insight-list li::before{content:'→';position:absolute;left:0;color:var(--accent-border);font-size:12px;top:1px}
+/* New directions */
+.new-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.new-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:16px 18px;cursor:pointer;transition:border-color .15s,box-shadow .15s;box-shadow:var(--shadow-xs)}
+.new-card:hover{border-color:var(--accent-border);box-shadow:var(--shadow-sm)}
+.new-card-title{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:5px;line-height:1.4}
+.new-card-desc{font-size:12px;color:var(--sub);line-height:1.6}
+/* Ranking */
+.rk-row{background:var(--s);border:1px solid var(--bd);border-left:3px solid var(--bd);border-radius:var(--radius);padding:14px 18px 14px 14px;margin-bottom:6px;display:flex;gap:14px;align-items:center;box-shadow:none;transition:border-left-color .15s,box-shadow .15s,transform .15s;cursor:pointer}
+.rk-row:hover{border-left-color:var(--accent);box-shadow:0 2px 12px rgba(0,0,0,.06);transform:translateX(2px)}
+.rk-row.gold{border-left-color:#e6a820;background:linear-gradient(90deg,#fffef0 0%,#fff 70%)}
+.rk-row.silver{border-left-color:#9aa5b4;background:linear-gradient(90deg,#f5f7fa 0%,#fff 70%)}
+.rk-row.bronze{border-left-color:#c47f3a;background:linear-gradient(90deg,#fdf7f0 0%,#fff 70%)}
+.rk-medal{width:26px;height:26px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.rk-rank{width:32px;height:32px;border-radius:50%;background:var(--accent-light);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:var(--accent);flex-shrink:0}
+.rk-body{flex:1;min-width:0}
+.rk-name{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:4px;line-height:1.35}
+.rk-loc{font-size:11px;color:var(--sub2);line-height:1.4;margin-bottom:7px}
+.rk-tags{display:flex;flex-wrap:wrap;gap:4px}
+.rk-tag{font-size:10px;font-weight:600;padding:2px 8px;border-radius:8px;line-height:1.5}
+.t-biz{background:#fff3e0;color:#bf5600;border:1px solid #ffd0a0}
+.t-fin{background:#e8f0fe;color:#1a56b0;border:1px solid #93b4e8}
+.t-prop{background:#e6f4ea;color:#1e6e3f;border:1px solid #8ecba3}
+.t-edu{background:#e0f7f4;color:#00695c;border:1px solid #7cd6cc}
+.t-ind{background:#eceff1;color:#37474f;border:1px solid #b0bec5}
+.t-sim{background:#fce4ec;color:#880e4f;border:1px solid #f48fb1}
+.t-fam{background:#f3e8ff;color:#5b21b6;border:1px solid #c4b5fd}
+.t-lux{background:#fef3c7;color:#92400e;border:1px solid #fcd34d}
+.rk-stats{display:flex;gap:24px;flex-shrink:0;align-items:center}
+.rk-stat-block{text-align:right}
+.rk-result{font-size:28px;font-weight:900;color:var(--tx);line-height:1;letter-spacing:-1px;font-variant-numeric:tabular-nums}
+.rk-result-l{font-size:10px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.2px;margin-top:2px}
+.rk-cpl{font-size:18px;font-weight:800;color:var(--warn);line-height:1;font-variant-numeric:tabular-nums}
+.rk-cpl.good-cpl{color:var(--good)}
+.rk-cpl-l{font-size:10px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.2px;margin-top:2px}
+.rk-spend{font-size:13px;font-weight:700;color:#6d6560;line-height:1;font-variant-numeric:tabular-nums}
+.rk-spend-l{font-size:10px;color:var(--sub2);font-weight:600;text-transform:uppercase;letter-spacing:.2px;margin-top:2px}
+.page-footer{text-align:center;font-size:11px;color:var(--sub2);margin-top:12px;padding-bottom:8px}
+/* ── Aud-card (可展開受眾卡) ── */
+.aud-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;align-items:start}
+@media(max-width:760px){.aud-grid-2{grid-template-columns:1fr}}
+.aud-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);box-shadow:var(--shadow-xs);overflow:hidden}
+.aud-header{display:flex;align-items:center;gap:12px;padding:13px 16px;cursor:pointer;transition:background .15s;user-select:none}
+.aud-header:hover{background:var(--accent-light)}
+.aud-num{width:24px;height:24px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0}
+.aud-info{flex:1;min-width:0}
+.aud-name{font-size:12px;font-weight:700;color:var(--tx);line-height:1.3}
+.aud-sub{font-size:10px;color:var(--sub2);margin-top:2px}
+.aud-arrow{font-size:12px;color:var(--sub2);transition:transform .2s;flex-shrink:0}
+.aud-card.open .aud-arrow{transform:rotate(90deg)}
+.aud-body{display:none;padding:0 16px 16px;border-top:1px solid var(--bd)}
+.aud-card.open .aud-body{display:block}
+.aud-sl{font-size:10px;font-weight:700;color:var(--sub2);text-transform:uppercase;letter-spacing:.4px;margin:12px 0 6px}
+.aud-logic{font-size:11px;color:var(--tx);line-height:1.65;background:var(--accent-light);border:1px solid var(--accent-border);border-radius:8px;padding:9px 12px}
+.aud-lm{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px}
+.aud-lm-tag{background:var(--bg);border:1px solid var(--bd);border-radius:12px;padding:2px 9px;font-size:10px;color:var(--sub)}
+.tag-tbl{width:100%;border-collapse:collapse;font-size:11px;margin-top:6px}
+.tag-tbl th{padding:3px 8px;text-align:left;font-weight:600;border:1px solid var(--bd);background:var(--accent-light);color:var(--accent-dark)}
+.tag-tbl td{padding:2px 8px;border:1px solid var(--bd);color:var(--sub)}
+.tag-tbl tr:nth-child(even) td{background:var(--bg)}
+.tag-tbl tbody tr{cursor:pointer;transition:background .1s}
+.tag-tbl tbody tr:hover{background:var(--accent-light)}
+.tag-tbl tbody tr.flash{background:#c8f0d4}
+.copy-all-row{display:flex;justify-content:flex-end;margin-top:6px}
+.copy-all-btn{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:600;color:var(--accent-dark);background:var(--accent-light);border:1px solid var(--accent-border);border-radius:6px;padding:4px 10px;cursor:pointer;transition:background .15s}
+.copy-all-btn:hover{background:var(--accent-border);color:#fff}
+.copy-all-btn.done{background:#c8f0d4;color:#1a5a34}
+#copy-toast{position:fixed;bottom:72px;left:50%;transform:translateX(-50%) translateY(8px);background:#162016;color:#90d8a8;font-size:11px;font-weight:600;padding:7px 16px;border-radius:18px;opacity:0;pointer-events:none;transition:opacity .18s,transform .18s;z-index:300;white-space:nowrap}
+#copy-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+/* ── Tab navigation ── */
+.tab-bar{display:flex;gap:6px;margin-bottom:22px;background:var(--s);border:1px solid var(--bd);border-radius:10px;padding:5px;box-shadow:var(--shadow-xs)}
+.tab-btn{flex:1;padding:8px 14px;border-radius:7px;border:none;background:transparent;font-size:13px;font-weight:600;color:var(--sub);cursor:pointer;transition:all .15s;text-align:center}
+.tab-btn.active{background:#7a5a8a;color:#fff;box-shadow:0 2px 6px rgba(122,90,138,.3)}
+.tab-bar .tab-btn:nth-child(2).active{background:#607d96;color:#fff;box-shadow:0 2px 6px rgba(96,125,150,.3)}
+.tab-bar .tab-btn:nth-child(3).active{background:#4a6a5a;color:#fff;box-shadow:0 2px 6px rgba(74,106,90,.3)}
+.tab-btn:hover:not(.active){background:#f0edf5;color:#5a3a6a}
+.tab-pane{display:none}
+.tab-pane.show{display:block}
+.page-banner{border-radius:var(--radius);padding:18px 24px;margin-bottom:22px;display:flex;align-items:center;gap:20px;box-shadow:var(--shadow-card)}
+.page-banner.main{background:linear-gradient(135deg,#5a3a6a,#7a5a8a);color:#fff}
+.page-banner.alt{background:linear-gradient(135deg,#4d6a82,#607d96);color:#fff}
+.banner-icon{width:40px;height:40px;background:rgba(255,255,255,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;flex-shrink:0}
+.banner-title{font-size:16px;font-weight:800;letter-spacing:-.2px}
+.banner-sub{font-size:12px;opacity:.8;margin-top:2px}
+.banner-stats{margin-left:auto;display:flex;gap:28px;flex-shrink:0}
+.bs{text-align:right}
+.bs-n{font-size:22px;font-weight:800;color:#fff;line-height:1;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.bs-l{font-size:10px;color:rgba(255,255,255,.7);margin-top:3px;font-weight:600;letter-spacing:.3px;text-transform:uppercase}
+.rk-grid{display:flex;flex-direction:column;gap:7px}
+.rank-op-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:20px;align-items:stretch}
+.rank-op-grid>.section:nth-child(1){grid-column:1;grid-row:1;display:flex;flex-direction:column;margin-bottom:0}
+.rank-op-grid>.section:nth-child(2){grid-column:1/3;grid-row:2}
+.rank-op-grid>.section:nth-child(3){grid-column:2;grid-row:1;display:flex;flex-direction:column;margin-bottom:0}
+.rank-op-grid>.section:nth-child(1) .rk-grid,.rank-op-grid>.section:nth-child(3) .tips{flex:1}
+.rank-op-grid>.section:nth-child(1) .rk-row,.rank-op-grid>.section:nth-child(3) .tip{flex:1;min-height:0}
+@media(max-width:900px){.rank-op-grid{display:block}}
+</style>
+<style>
+.profiles.four{grid-template-columns:repeat(4,1fr)}
+@media(max-width:900px){.profiles.four{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.profiles.four{grid-template-columns:1fr}}
+.trend-tbl{width:100%;border-collapse:collapse;font-size:12.5px;background:var(--s);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-xs)}
+.trend-tbl th,.trend-tbl td{padding:8px 12px;border-bottom:1px solid var(--bd);text-align:left}
+.trend-tbl th{background:var(--accent-light);color:var(--accent-dark);font-weight:700}
+.trend-tbl td.bad{color:#b03a2e;font-weight:700}.trend-tbl td.ok{color:var(--good);font-weight:700}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="ph-logo">菁</div>
+  <span class="ph-title">景立方菁英｜受眾分析</span>
+  <span class="ph-sub">· 台中北屯 · 松竹雙鐵 · 已完工</span>
+  <nav class="ph-nav"><a href="index.html">標籤資料庫</a><a href="hub.html">← 返回總覽</a></nav>
+</header>
+
+<div class="wrap">
+
+<div class="case-header">
+  <div class="case-logo">菁</div>
+  <div class="case-info">
+    <h2>浩瀚景立方-菁英區｜台中北屯</h2>
+    <p>敦富一街368號（敦富一街×詔安街）· 捷運機廠重劃區 · 松竹雙鐵站步行5分 · 17F/192戶 · 三房37~39坪 · 1,888萬/戶 · 實價均價約50萬/坪 · 2025Q4已完工 · 廣告目標：名單</p>
+  </div>
+  <div class="case-stats">
+    <div class="stat"><div class="stat-n">1,575</div><div class="stat-l">累積潛客</div></div>
+    <div class="stat"><div class="stat-n">NT$558</div><div class="stat-l">全案CPL</div></div>
+    <div class="stat"><div class="stat-n">393</div><div class="stat-l">受眾組數</div></div>
+  </div>
+</div>
+
+<a class="top-link" href="hub.html"><span>← 返回報告集</span></a>
+
+<!-- ── 核心受眾 ── -->
+<div class="section">
+  <div class="sec-title">四大核心受眾輪廓（主粉專＋1510 · 2024/03–2026/06）</div>
+  <div class="profiles four">
+    <div class="profile-card">
+      <div class="profile-icon blue">🎓</div>
+      <div class="profile-name">北屯雙語教育高收家長</div>
+      <div class="profile-meta">年齡 28–60｜正北屯+8km</div>
+      <div class="profile-tags">興趣：投資置產 + 雙語教育 + 高收入</div>
+      <div class="profile-behavior">北屯在地雙薪高收家長，孩子念雙語/私校，有閒錢會分散置產。主粉專全期最便宜的冷受眾，最佳版90潛客、CPL$133。</div>
+      <span class="profile-badge badge-blue">主粉專 · 147潛客 · CPL$188</span>
+    </div>
+    <div class="profile-card">
+      <div class="profile-icon teal">🔬</div>
+      <div class="profile-name">知識型專業族</div>
+      <div class="profile-meta">年齡 30–65｜水湳+北屯</div>
+      <div class="profile-tags">興趣：生技醫學 + 電子工程 + 商管 + 大學教授</div>
+      <div class="profile-behavior">中興、中國醫、逢甲、東海一帶的教職研究人員與生技/電子工程師，理性比價、看實價登錄，量體最大且穩定。</div>
+      <span class="profile-badge badge-teal">主粉專 · 154潛客 · CPL$262</span>
+    </div>
+    <div class="profile-card">
+      <div class="profile-icon amber">🏭</div>
+      <div class="profile-name">山線/74科技製造置產族</div>
+      <div class="profile-meta">年齡 30–65｜后科潭子豐原 / 74沿線</div>
+      <div class="profile-tags">興趣：科技業 + 工程師 + 名車 + 露營/電動車 + 自營製造</div>
+      <div class="profile-behavior">后里、潭子、74沿線工作的科技業主管與製造業老闆，小孩大了想往北屯市區靠，兩個帳號都驗證有效。</div>
+      <span class="profile-badge badge-amber">主粉專93＋1510共33潛客 · CPL$281–331</span>
+    </div>
+    <div class="profile-card">
+      <div class="profile-icon blue">🎧</div>
+      <div class="profile-name">北屯潭子年輕成家族</div>
+      <div class="profile-meta">年齡 27–55｜北屯潭子</div>
+      <div class="profile-tags">興趣：年輕人娛樂生活 + 新婚 + 小型企業主 + 幼兒教育</div>
+      <div class="profile-behavior">追劇、演唱會、手搖、日本旅遊的在地年輕家庭，1,888萬三房是「拼一下就到」的價位，1510互動最熱（留言33、訊息14）。</div>
+      <span class="profile-badge badge-blue">1510 · 125潛客 · CPL$204–289</span>
+    </div>
+  </div>
+</div>
+
+<div class="section core-tags-row">
+  <div class="sec-title">跨受眾必保留的核心標籤</div>
+  <div class="tags-row">
+    <span class="core-tag">雙語教育（教育）<span class="arr">↗</span></span>
+    <span class="core-tag">投資（商業與財務）<span class="arr">↗</span></span>
+    <span class="core-tag">生物科技（產業）<span class="arr">↗</span></span>
+    <span class="core-tag">電子工程（產業）<span class="arr">↗</span></span>
+    <span class="core-tag">科技業（產業）<span class="arr">↗</span></span>
+    <span class="core-tag">名車（汽車）<span class="arr">↗</span></span>
+    <span class="core-tag">進口代理（商業）<span class="arr">↗</span></span>
+    <span class="core-tag">年輕人娛樂生活（興趣）<span class="arr">↗</span></span>
+  </div>
+</div>
+
+<div class="section">
+  <div class="sec-title">CPL 半年度趨勢 · 分析日期 2026-10-06</div>
+  <table class="trend-tbl">
+    <thead><tr><th>期間</th><th>主粉專組數</th><th>主粉專潛客</th><th>主粉專CPL</th><th>1510組數</th><th>1510潛客</th><th>1510 CPL</th></tr></thead>
+    <tbody>
+      <tr><td>2024 H1</td><td>31</td><td>392</td><td class="ok">$274</td><td>—</td><td>—</td><td>—</td></tr>
+      <tr><td>2024 H2</td><td>54</td><td>266</td><td>$521</td><td>6</td><td>159</td><td class="ok">$217</td></tr>
+      <tr><td>2025 H1</td><td>52</td><td>144</td><td class="bad">$800</td><td>23</td><td>161</td><td>$423</td></tr>
+      <tr><td>2025 H2</td><td>81</td><td>122</td><td class="bad">$1,219</td><td>33</td><td>100</td><td class="bad">$591</td></tr>
+      <tr><td>2026 H1</td><td>111</td><td>227</td><td class="bad">$891</td><td>2</td><td>4</td><td>$810</td></tr>
+    </tbody>
+  </table>
+  <div class="note-bar" style="margin-top:12px">組數越開越多、CPL越來越高：2025H2起大量窄職業組低預算測試，165組花費後0潛客（合計NT$167,458）。另有16組觸及型組合（松竹車站+10k、洲際+8新婚、中部網站再行銷）共NT$46,972，非名單目標，不列入評估。</div>
+</div>
+
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="showTab('main',this)">主粉專（15組建議）</button>
+  <button class="tab-btn" onclick="showTab('alt',this)">1510（15組建議）</button>
+</div>
+
+<!-- ══ 主粉專 ══ -->
+<div class="tab-pane show" id="tab-main">
+<div class="page-banner main">
+  <div class="banner-icon">菁</div>
+  <div>
+    <div class="banner-title">主粉專｜景立方菁英 FB</div>
+    <div class="banner-sub">2024/03/16 – 2026/06/10 · 329 組受眾</div>
+  </div>
+  <div class="banner-stats">
+    <div class="bs"><div class="bs-n">1,151</div><div class="bs-l">潛客</div></div>
+    <div class="bs"><div class="bs-n">NT$619</div><div class="bs-l">CPL</div></div>
+    <div class="bs"><div class="bs-n">$71.3萬</div><div class="bs-l">花費</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="sec-title">主粉專｜依實測DNA建議受眾（15組）· 更新 2026-10-06</div>
+  <div class="note-bar">以曝光≥5,000的有效組為基礎：前半重啟2024年三條最強DNA（正北屯雙語高收、水湳教授知識型、后科潭子科技名車、74工程師），每條再延伸1個不同入口；後半延續2026年仍有量的在地生活型受眾（十期591、親子公務員、東區太平傳產、頭家厝業務汽車、室內裝修首購、換屋家庭）。全部配合「已完工即買即住」訴求。</div>
+  <div id="main-aud-grid" class="aud-grid-2"></div>
+</div>
+
+<div class="rank-op-grid">
+<div class="section">
+  <div class="sec-title">主粉專成果前 5 名（曝光≥5,000）</div>
+  <div class="rk-grid">
+  <div class="rk-row gold">
+    <div class="rk-medal">🥇</div>
+    <div class="rk-body">
+      <div class="rk-name">28-60 / 正北屯+8K / 投資置產/雙語教育/高收興趣</div>
+      <div class="rk-loc">正北屯+8km · 2024/05 最佳版90潛客 CPL$133</div>
+      <div class="rk-tags"><span class="rk-tag t-edu">雙語教育</span><span class="rk-tag t-prop">投資置產</span><span class="rk-tag t-fin">高收</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">147</div><div class="rk-result-l">成果</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$188</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$27,608</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+  <div class="rk-row silver">
+    <div class="rk-medal">🥈</div>
+    <div class="rk-body">
+      <div class="rk-name">30-65 / 水湳北屯 / 生技醫學/電子工程/商管/大學教授</div>
+      <div class="rk-loc">水湳+北屯 · 8版累計 · 量體最大</div>
+      <div class="rk-tags"><span class="rk-tag t-ind">生技醫學</span><span class="rk-tag t-ind">電子工程</span><span class="rk-tag t-edu">教授</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">154</div><div class="rk-result-l">成果</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$262</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$40,389</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+  <div class="rk-row bronze">
+    <div class="rk-medal">🥉</div>
+    <div class="rk-body">
+      <div class="rk-name">30-60 / 豐原后科潭子 / 投資置產/科技業/名車</div>
+      <div class="rk-loc">后里科學園區+潭子 · 0703改版CPL$193</div>
+      <div class="rk-tags"><span class="rk-tag t-ind">科技業</span><span class="rk-tag t-lux">名車</span><span class="rk-tag t-prop">投資置產</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">59</div><div class="rk-result-l">成果</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$281</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$16,623</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+  <div class="rk-row">
+    <div class="rk-rank">4</div>
+    <div class="rk-body">
+      <div class="rk-name">32-60 / 74沿線 / 投資/工程師/成家/露營/電動車</div>
+      <div class="rk-loc">74快速道路沿線 · 0424調</div>
+      <div class="rk-tags"><span class="rk-tag t-ind">工程師</span><span class="rk-tag t-edu">露營</span><span class="rk-tag t-lux">電動車</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">34</div><div class="rk-result-l">成果</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$283</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$9,633</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+  <div class="rk-row">
+    <div class="rk-rank">5</div>
+    <div class="rk-body">
+      <div class="rk-name">27-55 / 十期 / 591房產/上班族</div>
+      <div class="rk-loc">十期 · 2026年度最佳</div>
+      <div class="rk-tags"><span class="rk-tag t-prop">591房產</span><span class="rk-tag t-fam">上班族</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">15</div><div class="rk-result-l">成果</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$361</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$5,420</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+  </div>
+</div>
+<div class="section">
+  <div class="insight-box">
+    <div class="insight-title">主粉專洞見</div>
+    <div class="insight-highlight">2024年的有效組都是「在地＋一個清楚身分」（雙語家長、教授、科技主管），2025年後改成大量窄職業，CPL翻了4倍。<br>菁英現在是現成屋，最該回頭打的是當年證實有效、又最在意「交屋風險」的家長與知識型族群。</div>
+  </div>
+</div>
+<div class="section">
+  <div class="sec-title">主粉專操作建議</div>
+  <div class="tips">
+    <div class="tip">
+      <div class="tip-num c1">1</div>
+      <div class="tip-body">
+        <div class="tip-title">三條2024 DNA原組重啟，先撐住量</div>
+        <div class="tip-desc">正北屯雙語高收（CPL$188）、水湳教授（$262）、后科潭子科技名車（$281）合計360潛客，是菁英全期最強的三組，但2024年底後就沒再好好跑過。建議三組各給NT$400–500/日、寬受眾、搭配「已完工即住」素材重開，跑滿7天再判斷。</div>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-num c2">2</div>
+      <div class="tip-body">
+        <div class="tip-title">停止窄職業低預算測試</div>
+        <div class="tip-desc">2025H2起主粉專開了81組、CPL拉到$1,219，其中大量是醫療/軍警消/律師/建築師/美業這類窄職業組，每組只花$400–1,500、幾乎都0–1潛客。預算太分散，演算法學不到東西。改成同時最多6–8組、每組至少$300/日。</div>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-num c3">3</div>
+      <div class="tip-body">
+        <div class="tip-title">2026有效組保留：十期591、親子公務員、在地傳產</div>
+        <div class="tip-desc">2026H1還能跑出量的都是「寬一點的在地生活型」受眾：十期591上班族$361、頭家厝業務傳產汽車$446、北屯親子教育公務員$467、東區太平在地傳產$477。這幾組保留，用新素材續跑。</div>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-num c4">4</div>
+      <div class="tip-body">
+        <div class="tip-title">訴求從預售改成「現成屋」</div>
+        <div class="tip-desc">菁英已在2025Q4取得使照，實價均價約50萬/坪、低於區域行情。素材要直接講「即買即住、松竹雙鐵步行5分、1,300坪庭園、實品看得到」，對公教、換屋家庭這類保守買家是最強的推進點。</div>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-num c5">5</div>
+      <div class="tip-body">
+        <div class="tip-title">再行銷固定保留一組</div>
+        <div class="tip-desc">台中高總再行銷（1128調）19潛客、CPL$302，是主粉專穩定補量的來源。固定保留一組網站+粉專互動180天再行銷，預算NT$200/日即可。</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- ══ 1510 ══ -->
+<div class="tab-pane" id="tab-alt">
+<div class="page-banner alt">
+  <div class="banner-icon">15</div>
+  <div>
+    <div class="banner-title">1510｜景立方菁英</div>
+    <div class="banner-sub">2024/11/12 – 2026/01/23 · 64 組受眾</div>
+  </div>
+  <div class="banner-stats">
+    <div class="bs"><div class="bs-n">424</div><div class="bs-l">潛客</div></div>
+    <div class="bs"><div class="bs-n">NT$390</div><div class="bs-l">CPL</div></div>
+    <div class="bs"><div class="bs-n">$16.5萬</div><div class="bs-l">花費</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="sec-title alt-bar">1510｜依實測DNA建議受眾（15組）· 更新 2026-10-06</div>
+  <div class="note-bar">1510整體CPL$390比主粉專便宜37%，且留言/訊息互動高。前10組重啟並延伸三條1510驗證DNA（北屯潭子年輕人、自營進口代理/YouTuber、山線製造與74科技業），後5組延伸高消費、自營商家庭與長輩置產線。1510的優勢在寬興趣、高互動，不再做單一窄職業組。</div>
+  <div id="alt-aud-grid" class="aud-grid-2"></div>
+</div>
+
+<div class="rank-op-grid">
+<div class="section">
+  <div class="sec-title alt-bar">1510成果前 5 名（曝光≥5,000，不含再行銷）</div>
+  <div class="rk-grid">
+  <div class="rk-row gold">
+    <div class="rk-medal">🥇</div>
+    <div class="rk-body">
+      <div class="rk-name">27-55 / 北屯潭子 / 年輕人興趣（0217三調）-1510</div>
+      <div class="rk-loc">北屯潭子 · 留言33 訊息14 · 1510量體最大</div>
+      <div class="rk-tags"><span class="rk-tag t-fam">年輕人興趣</span><span class="rk-tag t-edu">娛樂生活</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">104</div><div class="rk-result-l">成果</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$204</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$21,299</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+  <div class="rk-row silver">
+    <div class="rk-medal">🥈</div>
+    <div class="rk-body">
+      <div class="rk-name">35-60 / 西屯水湳 / youtuber/進口代理商/投資興趣-1510</div>
+      <div class="rk-loc">西屯水湳 · 留言15 · 冷受眾最低CPL</div>
+      <div class="rk-tags"><span class="rk-tag t-ind">YouTuber</span><span class="rk-tag t-fin">進口代理</span><span class="rk-tag t-prop">投資</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">16</div><div class="rk-result-l">成果</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$199</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$3,199</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+  <div class="rk-row bronze">
+    <div class="rk-medal">🥉</div>
+    <div class="rk-body">
+      <div class="rk-name">28-55 / 北屯 / 新婚/小型企業主/親子/幼兒教育/數位行銷-1510</div>
+      <div class="rk-loc">北屯 · 小家庭工作室族</div>
+      <div class="rk-tags"><span class="rk-tag t-fam">新婚</span><span class="rk-tag t-ind">小型企業主</span><span class="rk-tag t-edu">幼兒教育</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">21</div><div class="rk-result-l">成果</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$289</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$6,083</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+  <div class="rk-row">
+    <div class="rk-rank">4</div>
+    <div class="rk-body">
+      <div class="rk-name">35-60 / 南屯西屯烏日 / 精品化妝品/進口代理商/投資興趣-1510</div>
+      <div class="rk-loc">南屯西屯烏日 · 1510第二量體</div>
+      <div class="rk-tags"><span class="rk-tag t-lux">精品化妝品</span><span class="rk-tag t-fin">進口代理</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">35</div><div class="rk-result-l">成果</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$372</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$13,029</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+  <div class="rk-row">
+    <div class="rk-rank">5</div>
+    <div class="rk-body">
+      <div class="rk-name">202507 / 台中74沿線 / 科技業-1510</div>
+      <div class="rk-loc">74沿線 · 訊息12</div>
+      <div class="rk-tags"><span class="rk-tag t-ind">科技業</span><span class="rk-tag t-fam">通勤</span></div>
+    </div>
+    <div class="rk-stats">
+      <div class="rk-stat-block"><div class="rk-result">17</div><div class="rk-result-l">成果</div></div>
+      <div class="rk-stat-block"><div class="rk-cpl good-cpl">$315</div><div class="rk-cpl-l">CPL</div></div>
+      <div class="rk-stat-block"><div class="rk-spend">$5,367</div><div class="rk-spend-l">花費</div></div>
+    </div>
+  </div>
+  </div>
+</div>
+<div class="section">
+  <div class="insight-box">
+    <div class="insight-title">1510洞見</div>
+    <div class="insight-highlight">1510最好的組都是「寬生活型」：年輕人興趣104潛客、高消費生活CPL$286。<br>2025H2改成33組單一職業測試後CPL升到$591，再行銷-1510（CPL$118）則一直是全案最便宜的來源。</div>
+  </div>
+</div>
+<div class="section">
+  <div class="sec-title alt-bar">1510操作建議</div>
+  <div class="tips">
+    <div class="tip">
+      <div class="tip-num c1">1</div>
+      <div class="tip-body">
+        <div class="tip-title">「北屯潭子年輕人興趣」是1510王牌，優先重開</div>
+        <div class="tip-desc">104潛客、CPL$204、留言33、訊息14，互動與量體都是1510第一。2025年9月重開那次只花$779就停掉，樣本不足不能算失靈。建議用原組重開，預算至少NT$400/日跑滿7天。</div>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-num c2">2</div>
+      <div class="tip-body">
+        <div class="tip-title">進口代理商/YouTuber自營投資族兩版一起跑</div>
+        <div class="tip-desc">西屯水湳YouTuber版CPL$199、南屯西屯烏日精品化妝品版35潛客，兩組同屬「自營進口代理」DNA。建議兩組同時開，地理補上北屯本區，比較哪一版帶得動在地需求。</div>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-num c3">3</div>
+      <div class="tip-body">
+        <div class="tip-title">1510再行銷CPL$118，一定要保留</div>
+        <div class="tip-desc">台中高總再行銷-1510共21潛客、CPL$118，是全案最便宜的組。1510帳號要固定保留再行銷組。</div>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-num c4">4</div>
+      <div class="tip-body">
+        <div class="tip-title">1510下半年改成「單一職業1510」測試失敗，回到寬興趣</div>
+        <div class="tip-desc">2025H2的1510開了33組窄主題（美髮、珠寶、體育、教育從業者、汽車產業等），CPL$591。1510名單品質的優勢在「寬興趣、高互動」，回到年輕人興趣、高消費生活、自營商這類寬輪廓。</div>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-num c5">5</div>
+      <div class="tip-body">
+        <div class="tip-title">子女置產改標籤後再測</div>
+        <div class="tip-desc">潭子北屯太平/子女置產10潛客、CPL$522偏高但量是有的。現成屋對「幫孩子買」的長輩最有說服力，建議改用穩健理財＋長輩生活標籤（本頁1510第14組）重測。</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="page-footer">資料期間：2024-03-16 至 2026-06-10（匯出 2026-10-06）· 景立方菁英 台中北屯 敦富一街 · 最後更新 2026-10-06</div>
+
+</div>
+
+<div id="toast" style="position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);background:#2e2c29;color:#fff;font-size:12.5px;padding:10px 20px;border-radius:24px;opacity:0;transition:all .25s;pointer-events:none;z-index:999;white-space:nowrap">📋 已複製 → 貼至 Claude 對話</div>
+<script>
+const MAIN_G=[{"n": "28-60/正北屯+8K/雙語教育×投資置產高收（DNA原組重啟）", "sub": "主粉專最強DNA·147潛客·CPL$188·最佳版$133", "logic": "2024年5月最佳版90潛客、CPL$133，是菁英全期最便宜的冷受眾。這群人是北屯在地的雙薪高收家長，孩子在念雙語/私立小學，手上有閒錢會分散置產。現在菁英已完工，對他們來說「不用等三年、小孩轉學區當學期就能搬」是最直接的成交點。原組標籤結構保留，補足理財與教育消費面，用寬受眾重開。", "lm": ["正北屯（北屯區公所）+8km", "松竹車站+3km"], "tags": [["Bilingual education", "雙語教育"], ["International school", "國際學校"], ["Private school", "私立學校"], ["English language", "英語學習"], ["Cambridge English", "劍橋英檢"], ["Kumon", "功文數學"], ["Tutoring", "課後輔導"], ["Study abroad", "出國留學"], ["Investment", "投資"], ["Wealth management", "財富管理"], ["Stock market", "股票市場"], ["Exchange-traded fund", "ETF指數股票型基金"], ["High net worth individual", "高淨值人士"], ["Luxury goods", "精品"], ["Lexus", "凌志汽車"], ["Mercedes-Benz", "賓士"], ["BMW", "BMW寶馬"], ["Frequent flyer", "常旅客"], ["Business class", "商務艙"], ["Japan travel", "日本旅遊"], ["Fine dining", "精緻餐飲"], ["Golf", "高爾夫"], ["Costco", "好市多"], ["New home", "新成屋"], ["Home buying", "購屋"], ["Quality of life", "生活品質"]]}, {"n": "30-60/松竹站+6・正北屯/才藝教育家長（雙語DNA延伸）", "sub": "同雙語教育DNA，改從孩子才藝課表切入", "logic": "雙語高收組的家長除了語言，週末的行程是鋼琴、游泳、程式積木。這群爸媽最在意「接送動線」：松竹雙鐵站步行5分、北屯才藝班密集，三房剛好一間給小孩一間當琴房/書房。用才藝教育消費取代雙語標籤，避免與第1組重疊，測試同一群家長的不同興趣入口。", "lm": ["松竹車站+6km", "正北屯（北屯區公所）+5km"], "tags": [["Piano", "鋼琴"], ["Music lessons", "音樂課程"], ["Violin", "小提琴"], ["Swimming lessons", "游泳課"], ["STEAM education", "STEAM教育"], ["Robotics", "機器人"], ["LEGO Education", "樂高教育"], ["Coding for kids", "兒童程式設計"], ["Ballet", "芭蕾"], ["Art education", "美術教育"], ["Chess", "西洋棋"], ["Abacus", "珠心算"], ["Early childhood education", "幼兒教育"], ["Children's books", "兒童讀物"], ["Educational toys", "益智玩具"], ["Science museum", "科學博物館"], ["Family travel", "家庭旅遊"], ["Parenting", "育兒"], ["Toyota Sienta", "Toyota Sienta休旅車"], ["Volvo", "富豪汽車"], ["Personal finance", "個人理財"], ["Savings", "儲蓄"], ["Insurance", "保險"], ["New home", "新成屋"], ["Home buying", "購屋"], ["Quality of life", "生活品質"]]}, {"n": "30-65/水湳北屯/生技醫學×電子工程×商管教授（DNA原組重啟）", "sub": "量體最大DNA·154潛客·CPL$262", "logic": "水湳教授組在2024年連跑三個月、154潛客，是全期最穩的知識型受眾。中興、中國醫、逢甲、東海的教職研究人員與生技/電子工程師，收入穩、決策理性，會比坪數、看公設比、看實價登錄。菁英實價均價約50萬/坪、低於區域行情，正好打這群「算過才買」的人。原組結構保留重開。", "lm": ["水湳經貿園區+5km", "北屯區公所+5km"], "tags": [["Biotechnology", "生物科技"], ["Medicine", "醫學"], ["Biomedical engineering", "生物醫學工程"], ["Pharmacology", "藥理學"], ["Electronic engineering", "電子工程"], ["Electrical engineering", "電機工程"], ["Business administration", "企業管理"], ["Master of Business Administration", "MBA企管碩士"], ["Professor", "教授"], ["Higher education", "高等教育"], ["Academic research", "學術研究"], ["Science", "科學"], ["Harvard Business Review", "哈佛商業評論"], ["The Economist", "經濟學人"], ["National Geographic", "國家地理"], ["Classical music", "古典音樂"], ["Reading", "閱讀"], ["Museum", "博物館"], ["Hiking", "登山健行"], ["Coffee", "咖啡"], ["Investment", "投資"], ["Personal finance", "個人理財"], ["Insurance", "保險"], ["New home", "新成屋"], ["Home buying", "購屋"], ["Quality of life", "生活品質"]]}, {"n": "30-60/水湳+中興大學/研究員×實驗室科研族（教授DNA延伸）", "sub": "教授DNA往下延伸至研究員、博士後、實驗室主管", "logic": "教授組有效，但教授人數有限。同一個學術生態圈裡更大的一群是研究員、博士後、實驗室主管、研究助理升正職的人，年齡偏輕、正在找第一間或換第二間房。標籤改走科研工具與期刊，區隔第3組的教授/MBA框架。", "lm": ["水湳經貿園區+5km", "國立中興大學+4km"], "tags": [["Research", "研究"], ["Scientist", "科學家"], ["Laboratory", "實驗室"], ["Doctor of Philosophy", "博士"], ["Nature (journal)", "Nature期刊"], ["Science (journal)", "Science期刊"], ["Molecular biology", "分子生物學"], ["Chemistry", "化學"], ["Biochemistry", "生物化學"], ["Data analysis", "數據分析"], ["Statistics", "統計學"], ["Python (programming language)", "Python程式語言"], ["Clinical trial", "臨床試驗"], ["Agricultural science", "農業科學"], ["Environmental science", "環境科學"], ["TED (conference)", "TED演講"], ["Podcast", "Podcast"], ["Board games", "桌遊"], ["Camping", "露營"], ["Cycling", "自行車"], ["Coffee", "咖啡"], ["Personal finance", "個人理財"], ["Savings", "儲蓄"], ["New home", "新成屋"], ["Home buying", "購屋"], ["Quality of life", "生活品質"]]}, {"n": "30-60/豐原后科潭子/科技業×名車×投資置產（DNA原組重啟）", "sub": "0703改版CPL$193·4版合計59潛客", "logic": "后里科學園區、潭子加工區上班的科技業中階主管，住豐原潭子，但小孩大了想往北屯市區靠。74快速道路接國道4號回廠區15分鐘，菁英位置剛好是「市區生活＋通勤廠區」的折衷點。名車標籤確認財力，2024年驗證有效，原組重開。", "lm": ["后里科學園區+6km", "潭子加工區+5km", "豐原車站+5km"], "tags": [["Technology", "科技"], ["Semiconductor", "半導體"], ["Electronics", "電子產業"], ["Engineering", "工程"], ["Manufacturing", "製造業"], ["Automation", "自動化"], ["Industrial engineering", "工業工程"], ["Project management", "專案管理"], ["Investment", "投資"], ["Stock market", "股票市場"], ["Dividend", "股利"], ["Toyota", "豐田汽車"], ["Lexus", "凌志汽車"], ["Mercedes-Benz", "賓士"], ["BMW", "BMW寶馬"], ["Audi", "奧迪"], ["Volvo", "富豪汽車"], ["SUV", "休旅車"], ["Golf", "高爾夫"], ["Fishing", "釣魚"], ["Japan travel", "日本旅遊"], ["Costco", "好市多"], ["Personal finance", "個人理財"], ["New home", "新成屋"], ["Home buying", "購屋"], ["Quality of life", "生活品質"]]}, {"n": "30-60/潭子加工區+后科/精密機械×半導體設備工程師（科技DNA延伸）", "sub": "科技名車DNA深化至中部特有的精密機械產業", "logic": "中部科技業不是只有晶圓，潭子、后里、大雅一整圈是工具機、半導體設備、自動化零組件。這群工程師收入在百萬上下、加班多，重視「回家路程」和「車位好停」。菁英平面車位1:1.23配比，是這群開休旅車的人會注意的細節。", "lm": ["潭子加工區+5km", "后里科學園區+6km"], "tags": [["Machine tool", "工具機"], ["CNC", "CNC數控加工"], ["Precision engineering", "精密工程"], ["Mechanical engineering", "機械工程"], ["Semiconductor equipment", "半導體設備"], ["Industrial automation", "工業自動化"], ["Robotics", "機器人"], ["AutoCAD", "AutoCAD繪圖"], ["SolidWorks", "SolidWorks"], ["Quality control", "品質管理"], ["Lean manufacturing", "精實生產"], ["Supply chain", "供應鏈"], ["Engineer", "工程師"], ["Toyota RAV4", "Toyota RAV4"], ["Honda CR-V", "Honda CR-V"], ["Ford Kuga", "Ford Kuga"], ["Car accessories", "汽車配件"], ["Fishing", "釣魚"], ["Camping", "露營"], ["Badminton", "羽球"], ["Baseball", "棒球"], ["Stock market", "股票市場"], ["Personal finance", "個人理財"], ["New home", "新成屋"], ["Home buying", "購屋"], ["Quality of life", "生活品質"]]}, {"n": "32-60/74沿線/工程師×露營×電動車（DNA原組重啟）", "sub": "2024年4月驗證·34潛客·CPL$283", "logic": "74快速道路沿線（大里、太平、北屯）上班的工程師家庭，週末露營、開電動車或油電車。這組在2024年兩版都穩定落在CPL$266–289。菁英1,300坪庭園＋近大坑登山步道，對戶外派家庭是加分。原組重開。", "lm": ["74快速道路北屯段+5km", "大坑風景區+6km"], "tags": [["Engineer", "工程師"], ["Engineering", "工程"], ["Camping", "露營"], ["Glamping", "豪華露營"], ["Snow Peak", "Snow Peak露營品牌"], ["Coleman", "Coleman露營品牌"], ["Outdoor recreation", "戶外休閒"], ["Hiking", "登山健行"], ["Electric vehicle", "電動車"], ["Tesla, Inc.", "特斯拉"], ["Hybrid vehicle", "油電混合車"], ["Toyota", "豐田汽車"], ["SUV", "休旅車"], ["Gogoro", "Gogoro電動機車"], ["Cycling", "自行車"], ["Fishing", "釣魚"], ["Barbecue", "烤肉"], ["Family travel", "家庭旅遊"], ["Investment", "投資"], ["Stock market", "股票市場"], ["Personal finance", "個人理財"], ["Costco", "好市多"], ["Decathlon", "迪卡儂"], ["New home", "新成屋"], ["Home buying", "購屋"], ["Quality of life", "生活品質"]]}, {"n": "30-55/74沿線+北屯/智慧居家×3C科技家庭（74工程師DNA延伸）", "sub": "同74工程師族群，改從居家科技消費切入", "logic": "同一群74沿線工程師，週末不露營的那一半在家研究掃地機器人、智慧家電、NAS。這群人看房會問網路、插座、電動車充電樁，菁英有充電設備（含預留）是對口賣點。標籤以居家科技為主，區隔第7組的戶外派。", "lm": ["74快速道路北屯段+5km", "松竹車站+4km"], "tags": [["Smart home", "智慧居家"], ["Home automation", "家庭自動化"], ["Robot vacuum", "掃地機器人"], ["Dyson", "Dyson"], ["Panasonic", "國際牌"], ["Xiaomi", "小米"], ["Apple Inc.", "蘋果"], ["iPhone", "iPhone"], ["iPad", "iPad"], ["Google Nest", "Google Nest"], ["Network-attached storage", "NAS網路儲存"], ["Gadgets", "3C小物"], ["Consumer electronics", "消費性電子"], ["Home theater", "家庭劇院"], ["PlayStation", "PlayStation"], ["Nintendo Switch", "任天堂Switch"], ["Electric vehicle", "電動車"], ["EV charging station", "電動車充電站"], ["Tesla, Inc.", "特斯拉"], ["Engineer", "工程師"], ["Technology", "科技"], ["Online shopping", "網路購物"], ["Personal finance", "個人理財"], ["New home", "新成屋"], ["Home buying", "購屋"], ["Quality of life", "生活品質"]]}, {"n": "27-55/十期+東區/591房產×上班族（2026有效DNA）", "sub": "2026年最佳·15潛客·CPL$361", "logic": "2026年整體CPL偏高的情況下，十期/591房產/上班族是少數跑出量的組。這群人已經在591、樂屋上比價，正在看北屯新成屋，買點是「今天簽、年底就能住」。現成屋最適合這種已進入看房期的上班族，延伸補足看房行為標籤與上班族日常消費。", "lm": ["十期（北屯東區交界）+5km", "松竹車站+4km"], "tags": [["591房屋交易網", "591房屋交易網"], ["Rakuya", "樂屋網"], ["Sinyi Realty", "信義房屋"], ["Yungching Realty", "永慶房屋"], ["Interior design", "室內設計"], ["IKEA", "IKEA宜家家居"], ["Home decor", "居家裝飾"], ["Furniture", "家具"], ["Personal finance", "個人理財"], ["Savings", "儲蓄"], ["Credit card", "信用卡"], ["LINE Pay", "LINE Pay"], ["Office worker", "上班族"], ["Commuting", "通勤"], ["Taiwan Railway", "台鐵"], ["Taichung MRT", "台中捷運"], ["Uber Eats", "Uber Eats"], ["Starbucks", "星巴克"], ["Netflix", "Netflix"], ["Japan travel", "日本旅遊"], ["Costco", "好市多"], ["Carrefour", "家樂福"], ["Toyota", "豐田汽車"], ["New home", "新成屋"], ["Home buying", "購屋"], ["Quality of life", "生活品質"]]}, {"n": "35-65/北屯/親子教育×公務教職（2026有效DNA）", "sub": "2026年4月·14潛客·CPL$467", "logic": "北屯公務員、國中小老師、公家單位雙薪家庭，收入穩定、貸款條件好，最怕預售屋交屋延遲風險。菁英已拿使照、實品看得到，對這群「保守型買家」是最安心的選擇。延伸補足教育與穩健理財標籤。", "lm": ["北屯區公所+6km", "松竹車站+4km"], "tags": [["Public sector", "公部門"], ["Government", "政府機關"], ["Civil service", "公務員"], ["Teacher", "教師"], ["Education", "教育"], ["Primary school", "小學"], ["Secondary education", "中等教育"], ["Parenting", "育兒"], ["Children's books", "兒童讀物"], ["Educational toys", "益智玩具"], ["Reading", "閱讀"], ["Public Television Service", "公共電視"], ["Chunghwa Post", "中華郵政"], ["Savings", "儲蓄"], ["Insurance", "保險"], ["Exchange-traded fund", "ETF指數股票型基金"], ["Dividend", "股利"], ["Family travel", "家庭旅遊"], ["Hiking", "登山健行"], ["Cooking", "料理"], ["Costco", "好市多"], ["Toyota", "豐田汽車"], ["Health", "健康"], ["New home", "新成屋"], ["Home buying", "購屋"], ["Quality of life", "生活品質"]]}, {"n": "35-65/東區太平/在地傳產自營商（2026有效DNA）", "sub": "2026年4月·14潛客·CPL$477", "logic": "東區、太平做五金、批發、加工、物流的在地老闆，現金多、看房果斷，不愛等預售。他們買菁英一是自住換新，二是幫家人就近置產（北屯比太平增值性好）。延伸補足中小企業經營與傳產消費標籤。", "lm": ["東區+太平交界+6km", "北屯區公所+6km"], "tags": [["Small business", "小型企業"], ["Entrepreneurship", "創業"], ["Self-employment", "自營業"], ["Wholesale", "批發"], ["Manufacturing", "製造業"], ["Hardware", "五金"], ["Logistics", "物流"], ["Trade", "貿易"], ["Accounting", "會計"], ["Business owner", "企業主"], ["Business networking", "商業社交"], ["Toyota", "豐田汽車"], ["Lexus", "凌志汽車"], ["Mercedes-Benz", "賓士"], ["Pickup truck", "貨卡車"], ["Tea", "茶"], ["Golf", "高爾夫"], ["Fishing", "釣魚"], ["Karaoke", "KTV卡拉OK"], ["Seafood", "海鮮"], ["Stock market", "股票市場"], ["Gold", "黃金"], ["Insurance", "保險"], ["New home", "新成屋"], ["Home buying", "購屋"], ["Quality of life", "生活品質"]]}, {"n": "33-64/頭家厝+北屯/業務×傳產×汽車（2026有效DNA）", "sub": "2026年4月·15潛客·CPL$446", "logic": "頭家厝、潭子到北屯一帶跑業務的傳產與汽車相關從業者（業代、保險、汽車銷售），收入看獎金、交際多，常開車在外。他們買房重「出入方便、好停車、有面子」。延伸補足業務工作與汽車生活標籤。", "lm": ["頭家厝車站+5km", "北屯區公所+5km"], "tags": [["Sales", "銷售"], ["Salesperson", "業務員"], ["Business development", "業務開發"], ["Automobile", "汽車"], ["Car dealership", "汽車經銷商"], ["Toyota", "豐田汽車"], ["Mazda", "馬自達"], ["Honda", "本田"], ["Nissan", "日產"], ["Car wash", "洗車"], ["Car accessories", "汽車配件"], ["Insurance agent", "保險業務"], ["Real estate agent", "房仲"], ["Networking", "人脈社交"], ["Public speaking", "公開演講"], ["Motivational speaker", "激勵演講"], ["Golf", "高爾夫"], ["Karaoke", "KTV卡拉OK"], ["Craft beer", "精釀啤酒"], ["Coffee", "咖啡"], ["Fitness", "健身"], ["Stock market", "股票市場"], ["Personal finance", "個人理財"], ["New home", "新成屋"], ["Home buying", "購屋"], ["Quality of life", "生活品質"]]}, {"n": "28-55/北屯潭子/室內裝修×年輕首購（2026有效DNA）", "sub": "2026年3月·12潛客·CPL$475", "logic": "年輕首購族已經在存Pinterest、IKEA清單，對「新家要怎麼佈置」比「地段增值」更有感。菁英三房37坪、已完工可以馬上進場裝修，對他們最有畫面。延伸補足居家風格與生活品牌標籤。", "lm": ["北屯區公所+6km", "潭子區+5km"], "tags": [["Interior design", "室內設計"], ["Home decor", "居家裝飾"], ["IKEA", "IKEA宜家家居"], ["Muji", "無印良品"], ["Nitori", "NITORI宜得利"], ["Pinterest", "Pinterest"], ["Minimalism", "極簡生活"], ["Scandinavian design", "北歐設計"], ["Furniture", "家具"], ["Lighting design", "燈光設計"], ["Houseplants", "室內植物"], ["Home improvement", "居家修繕"], ["Storage", "收納"], ["Dyson", "Dyson"], ["Coffee", "咖啡"], ["Starbucks", "星巴克"], ["Netflix", "Netflix"], ["Instagram", "Instagram"], ["Online shopping", "網路購物"], ["Shopee", "蝦皮購物"], ["Momo Shopping", "momo購物網"], ["LINE Pay", "LINE Pay"], ["Savings", "儲蓄"], ["New home", "新成屋"], ["Home buying", "購屋"], ["Quality of life", "生活品質"]]}, {"n": "33-60/北屯潭子/換屋家庭×孩子學區（2026有效DNA）", "sub": "2026年3月·5潛客·CPL$471（樣本小，值得放大）", "logic": "家裡第二個孩子出生、兩房住不下的北屯潭子家庭。現在住的是舊公寓或小宅，換屋時間壓力大，不能等預售三年。菁英三房即住＋南興國小/松竹雙鐵，賣點對口。標籤用育兒消費與家庭用車描繪，不用通用基礎標籤。", "lm": ["北屯區公所+6km", "潭子區+5km"], "tags": [["Parenting", "育兒"], ["Early childhood education", "幼兒教育"], ["Kindergarten", "幼兒園"], ["Baby products", "嬰幼兒用品"], ["Diapers", "尿布"], ["Children's clothing", "童裝"], ["Toys\"R\"Us", "玩具反斗城"], ["Educational toys", "益智玩具"], ["Family travel", "家庭旅遊"], ["Theme park", "主題樂園"], ["Toyota Sienta", "Toyota Sienta休旅車"], ["Minivan", "MPV休旅車"], ["Costco", "好市多"], ["Carrefour", "家樂福"], ["PX Mart", "全聯福利中心"], ["Cooking", "料理"], ["Baking", "烘焙"], ["Health", "健康"], ["Insurance", "保險"], ["Savings", "儲蓄"], ["LINE Pay", "LINE Pay"], ["Swimming", "游泳"], ["Picnic", "野餐"], ["New home", "新成屋"], ["Home buying", "購屋"], ["Quality of life", "生活品質"]]}, {"n": "30-60/漢神洲際+6・正北屯/投資置產×名牌精品×名車（正北屯DNA延伸）", "sub": "正北屯名牌精品名車版CPL$318·8潛客", "logic": "正北屯DNA的另一個版本把雙語教育換成名牌精品與名車，CPL$318也有效。這群人生活圈在漢神洲際、北屯崇德一帶，不一定有學齡孩子，買菁英是自住升級或第二戶置產。用精品＋名車＋資產配置描繪財力，區隔第1組的教育路線。", "lm": ["漢神洲際購物廣場+6km", "正北屯（北屯區公所）+5km"], "tags": [["Luxury goods", "精品"], ["Louis Vuitton", "路易威登"], ["Gucci", "Gucci"], ["Prada", "Prada"], ["Rolex", "勞力士"], ["Tiffany & Co.", "Tiffany蒂芙尼"], ["Mercedes-Benz", "賓士"], ["BMW", "BMW寶馬"], ["Porsche", "保時捷"], ["Lexus", "凌志汽車"], ["Volvo", "富豪汽車"], ["Investment", "投資"], ["Wealth management", "財富管理"], ["Stock market", "股票市場"], ["Private banking", "私人銀行"], ["Asset allocation", "資產配置"], ["High net worth individual", "高淨值人士"], ["Department store", "百貨公司"], ["Fine dining", "精緻餐飲"], ["Wine", "葡萄酒"], ["Golf", "高爾夫"], ["Business class", "商務艙"], ["Japan travel", "日本旅遊"], ["New home", "新成屋"], ["Home buying", "購屋"], ["Quality of life", "生活品質"]]}];
+const ALT_G=[{"n": "27-55/北屯潭子/年輕人興趣（1510 DNA原組重啟）", "sub": "1510量體最大·104潛客·CPL$204", "logic": "1510帳號最強的一組，104潛客、留言33、訊息14，互動也最熱。27-55歲北屯潭子在地年輕家庭，生活重心是追劇、聽音樂、手搖、日本旅遊，不是理財標籤會抓到的人。菁英1,888萬三房對雙薪年輕夫妻是「拼一下就到」的價位，原組結構保留、標籤補滿。", "lm": ["北屯區公所+6km", "潭子區+5km"], "tags": [["Netflix", "Netflix"], ["Spotify", "Spotify"], ["KKBOX", "KKBOX"], ["YouTube", "YouTube"], ["Instagram", "Instagram"], ["Concerts", "演唱會"], ["Mayday (band)", "五月天"], ["Korean drama", "韓劇"], ["Anime", "動漫"], ["Bubble tea", "手搖飲"], ["Starbucks", "星巴克"], ["Uber Eats", "Uber Eats"], ["Foodpanda", "foodpanda"], ["Japan travel", "日本旅遊"], ["Korea travel", "韓國旅遊"], ["Nike", "Nike"], ["Adidas", "Adidas"], ["Uniqlo", "Uniqlo"], ["iPhone", "iPhone"], ["Gym", "健身房"], ["Movies", "電影"], ["Online shopping", "網路購物"], ["Shopee", "蝦皮購物"], ["LINE Pay", "LINE Pay"], ["New home", "新成屋"], ["Home buying", "購屋"], ["Quality of life", "生活品質"]]}, {"n": "27-50/北屯潭子/年輕雙薪×行動支付生活（年輕人DNA延伸）", "sub": "同年輕人DNA，改從消費支付行為切入", "logic": "年輕人組的另一個入口：不看娛樂，看「怎麼花錢」。行動支付、點數回饋、量販會員，這群年輕雙薪很會算，對「實價比區域低8.9%」這種數字有感。區隔第1組的娛樂標籤，抓同一圈人的理性面。", "lm": ["北屯區公所+6km", "松竹車站+4km"], "tags": [["Mobile payment", "行動支付"], ["LINE Pay", "LINE Pay"], ["JKOPAY", "街口支付"], ["Apple Pay", "Apple Pay"], ["Credit card", "信用卡"], ["Cashback", "現金回饋"], ["Loyalty program", "點數會員"], ["Costco", "好市多"], ["IKEA", "IKEA宜家家居"], ["PX Mart", "全聯福利中心"], ["Momo Shopping", "momo購物網"], ["PChome 24h", "PChome 24h購物"], ["Shopee", "蝦皮購物"], ["Coupons", "優惠券"], ["Personal finance", "個人理財"], ["Savings", "儲蓄"], ["Budgeting", "預算管理"], ["Exchange-traded fund", "ETF指數股票型基金"], ["Online banking", "網路銀行"], ["Dual income", "雙薪家庭"], ["Office worker", "上班族"], ["Commuting", "通勤"], ["Uber Eats", "Uber Eats"], ["New home", "新成屋"], ["Home buying", "購屋"], ["Quality of life", "生活品質"]]}, {"n": "27-50/松竹+北屯/健身運動年輕上班族（年輕人DNA延伸）", "sub": "年輕人DNA＋層峰洲際健身組CPL$269驗證", "logic": "年輕人組延伸到運動健身入口。層峰副粉專洲際+8健身運動族CPL$269已驗證北屯這圈運動人口對房產廣告反應好。菁英1,300坪庭園＋近大坑步道/松竹綠廊，「下樓就能跑」是對口畫面。", "lm": ["松竹車站+5km", "北屯區公所+5km"], "tags": [["Physical fitness", "體適能"], ["Gym", "健身房"], ["World Gym", "World Gym"], ["Weight training", "重量訓練"], ["Running", "跑步"], ["Marathon", "馬拉松"], ["Badminton", "羽球"], ["Basketball", "籃球"], ["Yoga", "瑜伽"], ["Pilates", "皮拉提斯"], ["Cycling", "自行車"], ["Hiking", "登山健行"], ["Protein", "蛋白質補充"], ["Garmin", "Garmin"], ["Nike Running", "Nike Running"], ["Under Armour", "Under Armour"], ["Lululemon", "Lululemon"], ["Healthy diet", "健康飲食"], ["Meal prep", "備餐"], ["Sports drink", "運動飲料"], ["Office worker", "上班族"], ["Instagram", "Instagram"], ["Personal finance", "個人理財"], ["New home", "新成屋"], ["Home buying", "購屋"], ["Quality of life", "生活品質"]]}, {"n": "35-60/西屯水湳/YouTuber×進口代理商×投資（1510 DNA原組重啟）", "sub": "1510最低冷受眾CPL$199·留言15", "logic": "自己當老闆的進口代理、電商、自媒體經營者，收入浮動但現金流大，習慣用不動產分散資產。這組CPL$199、留言15，互動品質高。菁英現成屋可馬上出租或自住，對自營者「錢不要閒著」的思維對口。原組重開。", "lm": ["水湳經貿園區+5km", "西屯+北屯交界+6km"], "tags": [["YouTuber", "YouTuber"], ["Content creator", "內容創作者"], ["Influencer marketing", "網紅行銷"], ["Import", "進口"], ["Distribution", "代理經銷"], ["International trade", "國際貿易"], ["E-commerce", "電子商務"], ["Shopify", "Shopify"], ["Amazon", "Amazon"], ["Entrepreneurship", "創業"], ["Small business", "小型企業"], ["Business owner", "企業主"], ["Investment", "投資"], ["Stock market", "股票市場"], ["Cryptocurrency", "加密貨幣"], ["Passive income", "被動收入"], ["Wealth management", "財富管理"], ["Digital marketing", "數位行銷"], ["Facebook Ads", "Facebook廣告"], ["Frequent flyer", "常旅客"], ["Japan travel", "日本旅遊"], ["Luxury goods", "精品"], ["Coffee", "咖啡"], ["New home", "新成屋"], ["Home buying", "購屋"], ["Quality of life", "生活品質"]]}, {"n": "35-60/南屯西屯烏日+北屯/精品化妝品×進口代理商（1510 DNA原組重啟）", "sub": "35潛客·CPL$372·1510第二量體", "logic": "美妝保養、精品代理的女性經營者與高消費族，是1510第二大量體。這群人對居家質感、公設美感敏感，菁英1,300坪庭園與全新公設是畫面賣點。地理從南屯西屯烏日補上北屯，讓在地需求能進來。", "lm": ["南屯+西屯交界+6km", "北屯區公所+6km"], "tags": [["Cosmetics", "化妝品"], ["Skin care", "保養品"], ["Sephora", "Sephora"], ["Estée Lauder", "雅詩蘭黛"], ["Lancôme", "蘭蔻"], ["SK-II", "SK-II"], ["Shiseido", "資生堂"], ["Perfume", "香水"], ["Luxury goods", "精品"], ["Chanel", "香奈兒"], ["Louis Vuitton", "路易威登"], ["Gucci", "Gucci"], ["Import", "進口"], ["Distribution", "代理經銷"], ["Beauty salon", "美容院"], ["Spa", "SPA"], ["Fashion", "時尚"], ["Department store", "百貨公司"], ["Investment", "投資"], ["Business owner", "企業主"], ["Afternoon tea", "下午茶"], ["Japan travel", "日本旅遊"], ["Wealth management", "財富管理"], ["New home", "新成屋"], ["Home buying", "購屋"], ["Quality of life", "生活品質"]]}, {"n": "28-55/北屯/新婚×小型企業主×幼兒教育×數位行銷（1510 DNA原組重啟）", "sub": "21潛客·CPL$289", "logic": "北屯小家庭、夫妻至少一方自己開工作室或做小生意（行銷、設計、網拍），孩子剛上幼兒園。這組在1510跑出21潛客、CPL$289。他們要的是「一間房當工作室、一間給小孩」，三房37坪剛好。原組重開。", "lm": ["北屯區公所+6km", "松竹車站+4km"], "tags": [["Newlywed", "新婚"], ["Wedding", "婚禮"], ["Small business", "小型企業"], ["Entrepreneurship", "創業"], ["Digital marketing", "數位行銷"], ["Social media marketing", "社群行銷"], ["Graphic design", "平面設計"], ["Freelancer", "自由接案"], ["Home office", "居家辦公"], ["Early childhood education", "幼兒教育"], ["Kindergarten", "幼兒園"], ["Parenting", "育兒"], ["Baby products", "嬰幼兒用品"], ["Montessori education", "蒙特梭利教育"], ["Educational toys", "益智玩具"], ["Canva", "Canva"], ["Instagram", "Instagram"], ["LINE", "LINE"], ["Coffee", "咖啡"], ["IKEA", "IKEA宜家家居"], ["Family travel", "家庭旅遊"], ["Personal finance", "個人理財"], ["Savings", "儲蓄"], ["New home", "新成屋"], ["Home buying", "購屋"], ["Quality of life", "生活品質"]]}, {"n": "28-50/北屯水湳/電商經營×SOHO接案（1510 DNA延伸）", "sub": "SOHO電商組CPL$366＋進口代理DNA延伸", "logic": "35-60/西屯北屯/自由業/SOHO族/電商CPL$366，跟YouTuber進口代理DNA同源。年齡往下拉到28-50，抓剛把副業做成主業的網拍、接案設計、程式外包族群，他們在家工作時間長，最在意採光、安靜、網路。", "lm": ["水湳經貿園區+5km", "北屯區公所+5km"], "tags": [["E-commerce", "電子商務"], ["Online shop", "網路商店"], ["Shopee", "蝦皮購物"], ["Shopify", "Shopify"], ["Dropshipping", "代發貨"], ["Freelancer", "自由接案"], ["Self-employment", "自營業"], ["Remote work", "遠端工作"], ["Home office", "居家辦公"], ["Web design", "網頁設計"], ["Graphic design", "平面設計"], ["Photography", "攝影"], ["Copywriting", "文案寫作"], ["Digital marketing", "數位行銷"], ["Facebook Ads", "Facebook廣告"], ["Google Ads", "Google廣告"], ["MacBook", "MacBook"], ["Notion", "Notion"], ["Productivity", "生產力"], ["Coffee", "咖啡"], ["Passive income", "被動收入"], ["Personal finance", "個人理財"], ["Investment", "投資"], ["New home", "新成屋"], ["Home buying", "購屋"], ["Quality of life", "生活品質"]]}, {"n": "30-65/豐原后里潭子/製造業×自營商×露營（1510 DNA原組重啟）", "sub": "16潛客·CPL$331·留言12", "logic": "山線製造業老闆、廠長、自營商，週末帶全家露營。主粉專同區科技名車組也有效，兩帳號互相印證山線往北屯移動的換屋需求。原組重開，補足工廠經營與戶外消費標籤。", "lm": ["豐原車站+6km", "后里科學園區+6km", "潭子加工區+5km"], "tags": [["Manufacturing", "製造業"], ["Factory", "工廠"], ["Business owner", "企業主"], ["Self-employment", "自營業"], ["Small business", "小型企業"], ["Technology", "科技"], ["Machine tool", "工具機"], ["Supply chain", "供應鏈"], ["Camping", "露營"], ["Glamping", "豪華露營"], ["Snow Peak", "Snow Peak露營品牌"], ["Outdoor recreation", "戶外休閒"], ["SUV", "休旅車"], ["Toyota", "豐田汽車"], ["Lexus", "凌志汽車"], ["Fishing", "釣魚"], ["Barbecue", "烤肉"], ["Hiking", "登山健行"], ["Family travel", "家庭旅遊"], ["Tea", "茶"], ["Golf", "高爾夫"], ["Stock market", "股票市場"], ["Insurance", "保險"], ["New home", "新成屋"], ["Home buying", "購屋"], ["Quality of life", "生活品質"]]}, {"n": "28-60/74沿線/科技業工程師（1510 DNA原組重啟）", "sub": "17潛客·CPL$315·訊息12", "logic": "74沿線往中科、潭子、大里工業區通勤的科技業上班族，訊息12則代表他們會主動問細節。菁英近74快速道路與國道4號，通勤順。原組重開，以科技業工作與工程師日常消費補足。", "lm": ["74快速道路北屯段+5km", "中部科學園區+8km"], "tags": [["Technology", "科技"], ["Semiconductor", "半導體"], ["Engineer", "工程師"], ["Electronics", "電子產業"], ["Software engineering", "軟體工程"], ["Hardware", "硬體"], ["Artificial intelligence", "人工智慧"], ["Data science", "數據科學"], ["NVIDIA", "輝達"], ["TSMC", "台積電"], ["Stock market", "股票市場"], ["Exchange-traded fund", "ETF指數股票型基金"], ["Employee stock", "員工認股"], ["Commuting", "通勤"], ["Toyota", "豐田汽車"], ["Electric vehicle", "電動車"], ["Gadgets", "3C小物"], ["Apple Inc.", "蘋果"], ["Badminton", "羽球"], ["Running", "跑步"], ["Japan travel", "日本旅遊"], ["Costco", "好市多"], ["Personal finance", "個人理財"], ["New home", "新成屋"], ["Home buying", "購屋"], ["Quality of life", "生活品質"]]}, {"n": "28-55/西屯南屯北屯/IT軟體人員（1510 DNA延伸）", "sub": "IT人員組CPL$392＋74科技DNA延伸", "logic": "軟體、IT、雲端維運人員，跟74沿線科技業工程師是同個大族群，但工作型態偏辦公室、遠端比例高。這群人年輕、懂比價，對「已完工、沒有交屋風險」接受度高。標籤偏軟體開發工具與數位生活，區隔第9組的硬體半導體。", "lm": ["西屯+北屯交界+6km", "水湳經貿園區+5km"], "tags": [["Information technology", "資訊科技"], ["Software development", "軟體開發"], ["Programmer", "程式設計師"], ["Cloud computing", "雲端運算"], ["Amazon Web Services", "AWS雲端服務"], ["Cybersecurity", "資訊安全"], ["DevOps", "DevOps"], ["GitHub", "GitHub"], ["JavaScript", "JavaScript"], ["Python (programming language)", "Python程式語言"], ["Linux", "Linux"], ["Remote work", "遠端工作"], ["Home office", "居家辦公"], ["Mechanical keyboard", "機械式鍵盤"], ["PC gaming", "PC電玩"], ["Steam (service)", "Steam遊戲平台"], ["Nintendo Switch", "任天堂Switch"], ["Anime", "動漫"], ["Gadgets", "3C小物"], ["Coffee", "咖啡"], ["Stock market", "股票市場"], ["Cryptocurrency", "加密貨幣"], ["Personal finance", "個人理財"], ["New home", "新成屋"], ["Home buying", "購屋"], ["Quality of life", "生活品質"]]}, {"n": "30-65/西屯西區北屯北區/高奢興趣（1510 DNA原組重啟）", "sub": "15潛客·CPL$378·訊息8", "logic": "精品、名錶、高級餐飲的高消費族群。1510版本CPL$378有效，但主粉專同名組備註「名單多無效」，表示要用表單門檻（預約賞屋時段）過濾。菁英1,888萬對這群人是「好入手的北屯新屋」，可做自住或給子女。", "lm": ["西區+北區交界+5km", "北屯區公所+6km"], "tags": [["Luxury goods", "精品"], ["Hermès", "愛馬仕"], ["Chanel", "香奈兒"], ["Louis Vuitton", "路易威登"], ["Rolex", "勞力士"], ["Omega SA", "歐米茄"], ["Cartier", "卡地亞"], ["Fine dining", "精緻餐飲"], ["Michelin Guide", "米其林指南"], ["Wine", "葡萄酒"], ["Whisky", "威士忌"], ["Five-star hotel", "五星級飯店"], ["Business class", "商務艙"], ["Mercedes-Benz", "賓士"], ["Porsche", "保時捷"], ["Golf", "高爾夫"], ["Art collecting", "藝術收藏"], ["Department store", "百貨公司"], ["Wealth management", "財富管理"], ["High net worth individual", "高淨值人士"], ["Investment", "投資"], ["Private banking", "私人銀行"], ["Japan travel", "日本旅遊"], ["New home", "新成屋"], ["Home buying", "購屋"], ["Quality of life", "生活品質"]]}, {"n": "30-60/台中/高消費生活×美食旅遊（1510 DNA原組重啟）", "sub": "7潛客·CPL$286·留言5", "logic": "跟高奢組不同，這群人錢花在「體驗」：餐廳、飯店、出國，而非包表。202508高消費生活組CPL$286是1510下半年最低。延伸補足美食與旅遊體驗標籤，地理加回北屯在地。", "lm": ["北屯區公所+8km", "台中市區+10km"], "tags": [["Fine dining", "精緻餐飲"], ["Restaurants", "餐廳"], ["Omakase", "無菜單料理"], ["Japanese cuisine", "日本料理"], ["Steakhouse", "牛排館"], ["Brunch", "早午餐"], ["Coffee", "咖啡"], ["Wine", "葡萄酒"], ["Craft beer", "精釀啤酒"], ["Hotel", "飯店"], ["Resort", "度假村"], ["Hot spring", "溫泉"], ["Japan travel", "日本旅遊"], ["Europe travel", "歐洲旅遊"], ["Business class", "商務艙"], ["Frequent flyer", "常旅客"], ["Food blog", "美食部落客"], ["Travel photography", "旅遊攝影"], ["Credit card", "信用卡"], ["Department store", "百貨公司"], ["Luxury goods", "精品"], ["Investment", "投資"], ["Personal finance", "個人理財"], ["New home", "新成屋"], ["Home buying", "購屋"], ["Quality of life", "生活品質"]]}, {"n": "35-65/東區北區太平/自營商×親子教育×精品（1510 DNA原組重啟）", "sub": "9潛客·CPL$371", "logic": "東區北區太平的自營商家庭，孩子在補習升學、太太在意生活品質。跟主粉專「東區太平在地傳產自營商」互相印證，這條線兩個帳號都有效。1510版本補上親子教育與精品，抓家庭決策者。", "lm": ["東區+太平交界+6km", "北區+5km"], "tags": [["Business owner", "企業主"], ["Self-employment", "自營業"], ["Small business", "小型企業"], ["Entrepreneurship", "創業"], ["Education", "教育"], ["Tutoring", "課後輔導"], ["Bilingual education", "雙語教育"], ["Private school", "私立學校"], ["Parenting", "育兒"], ["Luxury goods", "精品"], ["Coach (brand)", "Coach"], ["Longchamp", "Longchamp"], ["Department store", "百貨公司"], ["Lexus", "凌志汽車"], ["Mercedes-Benz", "賓士"], ["Golf", "高爾夫"], ["Tea", "茶"], ["Family travel", "家庭旅遊"], ["Japan travel", "日本旅遊"], ["Stock market", "股票市場"], ["Gold", "黃金"], ["Insurance", "保險"], ["Wealth management", "財富管理"], ["New home", "新成屋"], ["Home buying", "購屋"], ["Quality of life", "生活品質"]]}, {"n": "30-60/潭子北屯太平/幫子女置產長輩（1510 DNA延伸）", "sub": "子女置產組10潛客·CPL$522，調整標籤降CPL", "logic": "50-60歲的爸媽想在北屯幫子女先買一戶，現成屋最對他們胃口：看得到、摸得到，不用賭預售。原組CPL$522偏高，改用長輩的穩健理財與日常興趣描繪，不用年齡/成家通用標籤，年齡下修至30讓子女共同決策也能進來。", "lm": ["潭子區+5km", "北屯區公所+6km", "太平區+5km"], "tags": [["Wealth management", "財富管理"], ["Savings", "儲蓄"], ["Bank deposit", "銀行定存"], ["Dividend", "股利"], ["Exchange-traded fund", "ETF指數股票型基金"], ["Gold", "黃金"], ["Insurance", "保險"], ["Financial planning", "理財規劃"], ["Trust (law)", "信託"], ["Tea", "茶"], ["Tea culture", "茶文化"], ["Calligraphy", "書法"], ["Hiking", "登山健行"], ["Tai chi", "太極拳"], ["Gardening", "園藝"], ["Hot spring", "溫泉"], ["Cruise", "郵輪旅遊"], ["Health supplements", "保健食品"], ["Traditional Chinese medicine", "中醫養生"], ["Walking", "健走"], ["Taiwanese cuisine", "台菜"], ["Television drama", "電視劇"], ["Toyota", "豐田汽車"], ["New home", "新成屋"], ["Home buying", "購屋"], ["Quality of life", "生活品質"]]}, {"n": "35-65/烏日彰化+北屯/穩健置產公教長輩（1510 DNA延伸）", "sub": "烏日彰化置產組CPL$312延伸，地理補回北屯", "logic": "烏日彰化置產組CPL$312有效，代表中彰一帶的穩健型置產長輩對景立方有反應。這群人多是公教或企業資深員工，看重「現成、好出租、好轉手」。地理補上北屯本區，標籤改從穩健理財與質感生活切入，不使用退休時機框架。", "lm": ["烏日高鐵站+5km", "彰化市+6km", "北屯區公所+6km"], "tags": [["Dividend investing", "存股"], ["Exchange-traded fund", "ETF指數股票型基金"], ["Bonds", "債券"], ["Bank deposit", "銀行定存"], ["Rental income", "租金收入"], ["Passive income", "被動收入"], ["Wealth management", "財富管理"], ["Insurance", "保險"], ["Public sector", "公部門"], ["Teacher", "教師"], ["Golf", "高爾夫"], ["Tea culture", "茶文化"], ["Photography", "攝影"], ["Hiking", "登山健行"], ["Cycling", "自行車"], ["Cruise", "郵輪旅遊"], ["Hot spring", "溫泉"], ["Japan travel", "日本旅遊"], ["Classical music", "古典音樂"], ["Health", "健康"], ["Health supplements", "保健食品"], ["Volunteering", "志工服務"], ["Toyota", "豐田汽車"], ["New home", "新成屋"], ["Home buying", "購屋"], ["Quality of life", "生活品質"]]}];
+let toastT;
+function showCopyToast(msg){
+  let t=document.getElementById('copy-toast');
+  if(!t){t=document.createElement('div');t.id='copy-toast';document.body.appendChild(t);}
+  t.textContent=msg;t.classList.add('show');
+  clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove('show'),1400);
+}
+function copyTxt(txt){return navigator.clipboard?navigator.clipboard.writeText(txt):Promise.reject();}
+
+function initAudCard(card){
+  if(card.dataset.cb)return;card.dataset.cb='1';
+  card.querySelectorAll('.tag-tbl tbody tr').forEach(row=>{
+    const en=row.cells[1]?.textContent.trim();if(!en)return;
+    row.addEventListener('click',()=>{
+      copyTxt(en).then(()=>{row.classList.add('flash');setTimeout(()=>row.classList.remove('flash'),600);showCopyToast('已複製：'+en);});
+    });
+  });
+  card.querySelectorAll('.tag-tbl').forEach(tbl=>{
+    const wrap=document.createElement('div');wrap.className='copy-all-row';
+    const btn=document.createElement('button');btn.className='copy-all-btn';btn.innerHTML='⎘ 複製全部標籤';
+    btn.addEventListener('click',e=>{
+      e.stopPropagation();
+      const tags=Array.from(tbl.querySelectorAll('tbody tr')).map(r=>r.cells[1]?.textContent.trim()).filter(Boolean).join('\n');
+      copyTxt(tags).then(()=>{btn.classList.add('done');btn.textContent='✓ 已複製';showCopyToast('已複製全部標籤');setTimeout(()=>{btn.classList.remove('done');btn.innerHTML='⎘ 複製全部標籤';},2000);});
+    });
+    wrap.appendChild(btn);tbl.after(wrap);
+  });
+}
+
+function toggleAud(id){
+  const c=document.getElementById(id);
+  c.classList.toggle('open');
+  if(c.classList.contains('open'))initAudCard(c);
+}
+
+function buildAudCard(g,idx,prefix){
+  const id=(prefix||'m')+(idx+1);
+  const rows=g.tags.map((t,i)=>`<tr><td>${i+1}</td><td>${t[0]}</td><td>${t[1]}</td></tr>`).join('');
+  const lmTags=g.lm.map(l=>`<span class="aud-lm-tag">${l}</span>`).join('');
+  return `<div class="aud-card" id="${id}">
+    <div class="aud-header" onclick="toggleAud('${id}')">
+      <div class="aud-num">${idx+1}</div>
+      <div class="aud-info"><div class="aud-name">${g.n}</div><div class="aud-sub">${g.sub}</div></div>
+      <div class="aud-arrow">▶</div>
+    </div>
+    <div class="aud-body">
+      <div class="aud-sl">評估邏輯</div>
+      <div class="aud-logic">${g.logic}</div>
+      <div class="aud-sl">地標定位</div>
+      <div class="aud-lm">${lmTags}</div>
+      <div class="aud-sl">興趣標籤（點擊列複製單個）</div>
+      <table class="tag-tbl"><thead><tr><th>#</th><th>English</th><th>中文</th></tr></thead><tbody>${rows}</tbody></table>
+    </div>
+  </div>`;
+}
+
+(function(){
+  const mg=document.getElementById('main-aud-grid');
+  if(mg)mg.innerHTML=MAIN_G.map((g,i)=>buildAudCard(g,i,'m')).join('');
+  const ag=document.getElementById('alt-aud-grid');
+  if(ag)ag.innerHTML=ALT_G.map((g,i)=>buildAudCard(g,i,'a')).join('');
+})();
+function showTab(k,btn){
+  document.querySelectorAll('.tab-pane').forEach(p=>p.classList.remove('show'));
+  document.getElementById('tab-'+k).classList.add('show');
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+const PROJECT = '景立方菁英（台中北屯・敦富一街・松竹雙鐵・已完工1,888萬三房・1,575潛客）';
+function showToast(){const t=document.getElementById('toast');t.style.opacity='1';t.style.transform='translateX(-50%) translateY(0)';setTimeout(()=>{t.style.opacity='0';t.style.transform='translateX(-50%) translateY(20px)'},2200)}
+function copyPrompt(text){navigator.clipboard.writeText(text).then(showToast).catch(()=>{const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast()})}
+document.querySelectorAll('.core-tag').forEach(el=>{el.addEventListener('click',()=>{const tag=el.textContent.replace('↗','').trim();copyPrompt(`針對${PROJECT}，請深入分析「${tag}」這個興趣標籤：\n1. 在本案受眾中代表什麼輪廓？\n2. 搭配哪些標籤組合效果最好？\n3. 素材訴求應該怎麼寫？`)})});
+document.querySelectorAll('.new-card').forEach(el=>{el.addEventListener('click',()=>{const title=el.querySelector('.new-card-title').textContent.replace('↗','').trim();const desc=el.querySelector('.new-card-desc').textContent.trim();copyPrompt(`針對${PROJECT}，我想測試新受眾方向：「${title}」\n說明：${desc}\n\n請給我：\n1. META 興趣標籤清單（附中文，約 10–15 個）\n2. 地理設定建議\n3. 適合這組受眾的素材訴求角度`)})});
+document.querySelectorAll('.tip').forEach(el=>{el.addEventListener('click',()=>{const title=el.querySelector('.tip-title').textContent.trim();const desc=el.querySelector('.tip-desc').textContent.trim();copyPrompt(`針對${PROJECT}，關於這項操作建議：\n「${title}」\n背景：${desc}\n\n請幫我制定具體執行方案，包含受眾設定細節和素材方向。`)})});
+document.querySelectorAll('.creative-card,.phase-row').forEach(el=>{el.style.cursor='pointer';el.addEventListener('click',()=>{const name=el.querySelector('.creative-name,.phase-title');const desc=el.querySelector('.creative-stats,.phase-desc');if(!name)return;copyPrompt(`針對${PROJECT}，關於素材「${name.textContent.trim()}」：\n${desc?desc.textContent.trim():''}\n\n請分析：1.成效好/差原因？ 2.如何延伸下一支？ 3.最適合搭配的受眾設定？`)})});
+document.querySelectorAll('.rk-row').forEach(el=>{el.addEventListener('click',()=>{const name=el.querySelector('.rk-name');if(name)copyPrompt(`針對${PROJECT}，請分析受眾「${name.textContent.trim()}」，給我深度策略建議。`)})});
+</script>
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到頂部">↑</button>
+<script>window.addEventListener('scroll',()=>document.getElementById('btt').classList.toggle('show',window.scrollY>300))</script>
+</body>
+</html>
+
