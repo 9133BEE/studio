@@ -7,15 +7,15 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --accent:#7a5a8a;--accent-dark:#5a3a6a;--accent-light:#ede8f4;--accent-border:#b89fcc;
+  --accent:#607d96;--accent-dark:#4d6a82;--accent-light:#eaf0f6;--accent-border:#a8bed0;
   --teal:#2a7a8a;--teal-dark:#1a5a6a;--teal-light:#e0f0f4;--teal-border:#7abfcc;
   --bg:#f2f3f1;--s:#ffffff;--bd:#e4e5e2;--tx:#2e2c29;--sub:#7d7870;--sub2:#a8a199;
   --good:#1e6e3f;--goodl:#e6f4ea;--warn:#c05c00;
   --radius:12px;--shadow-xs:0 1px 3px rgba(0,0,0,.05);--shadow-sm:0 2px 8px rgba(0,0,0,.07);--shadow-card:0 2px 10px rgba(0,0,0,.06),0 1px 3px rgba(0,0,0,.04);
 }
 body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft JhengHei','Segoe UI',sans-serif;background:var(--bg);color:var(--tx);font-size:14px;line-height:1.6;min-height:100vh}
-.page-header{background:linear-gradient(180deg,#1a1018 0%,#160d14 100%);padding:0 40px;height:56px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.04),0 4px 20px rgba(0,0,0,.35);border-bottom:1px solid rgba(255,255,255,.06)}
-.ph-logo{width:30px;height:30px;background:linear-gradient(135deg,#9a7aaa,var(--accent-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;flex-shrink:0}
+.page-header{background:linear-gradient(180deg,#0d1824 0%,#091218 100%);padding:0 40px;height:56px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.04),0 4px 20px rgba(0,0,0,.35);border-bottom:1px solid rgba(255,255,255,.06)}
+.ph-logo{width:30px;height:30px;background:linear-gradient(135deg,#7a9ab5,var(--accent-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;flex-shrink:0}
 .ph-title{font-size:14px;font-weight:700;color:#f1eaf6;letter-spacing:-.2px}
 .ph-sub{font-size:11px;color:#6b5a78;margin-left:2px}
 .ph-nav{margin-left:auto;display:flex;gap:8px;align-items:center}
@@ -204,7 +204,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .rgn-label{font-size:11px;font-weight:700;color:var(--sub2);letter-spacing:.3px;white-space:nowrap;margin-right:2px}
 .rgn-btn{padding:5px 13px;border-radius:16px;border:1.5px solid var(--bd);background:transparent;font-size:12px;font-weight:600;color:var(--sub);cursor:pointer;transition:all .15s;white-space:nowrap}
 .rgn-btn.active{background:#7a5a8a;border-color:#7a5a8a;color:#fff;box-shadow:0 1px 4px rgba(122,90,138,.3)}
-.rgn-btn:hover:not(.active){background:#f0edf5;border-color:#b89fcc;color:#5a3a6a}
+.rgn-btn:hover:not(.active){background:#f0edf5;border-color:#a8bed0;color:#5a3a6a}
 .rk-row{position:relative;flex-wrap:wrap}
 .rk-row.expanded{border-left-color:#7a5a8a!important}
 .rk-expand-icon{display:inline-block;font-size:10px;color:var(--sub2);margin-left:6px;transition:transform .2s;vertical-align:middle}
@@ -222,7 +222,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .tf-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
 .tf-name{font-size:12px;font-weight:700;color:var(--tx);min-width:100px;flex-shrink:0}
 .tf-bar-wrap{flex:1;height:8px;background:var(--bg);border-radius:4px;overflow:hidden;border:1px solid var(--bd)}
-.tf-bar{height:100%;background:linear-gradient(90deg,#7a5a8a,#9a7aaa);border-radius:4px;transition:width .5s ease}
+.tf-bar{height:100%;background:linear-gradient(90deg,#7a5a8a,#7a9ab5);border-radius:4px;transition:width .5s ease}
 .tf-cnt{font-size:12px;font-weight:800;color:#7a5a8a;min-width:22px;text-align:right}
 .rk-row.hidden-row{display:none}
 /* ── Rank-Op Grid ── */
@@ -234,6 +234,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .rank-op-grid>.section:nth-child(1) .rk-grid,.rank-op-grid>.section:nth-child(3) .tips{flex:1}
 .rank-op-grid>.section:nth-child(1) .rk-row,.rank-op-grid>.section:nth-child(3) .tip{flex:1;min-height:0}
 @media(max-width:900px){.rank-op-grid{display:block}}
+
+/* 帳號配色統一（主粉專=紫 #7a5a8a／1510=藍 #607d96，比照富宇玥和） */
+.page-banner.main,.page-banner.main-banner{background:linear-gradient(135deg,#5a3a6a,#7a5a8a)!important;color:#fff}.page-banner.alt,.page-banner.alt-banner{background:linear-gradient(135deg,#4d6a82,#607d96)!important;color:#fff}.tab-btn.active{background:#7a5a8a!important;color:#fff!important;box-shadow:0 2px 6px rgba(122,90,138,.3)!important}.tab-bar .tab-btn:nth-child(2).active{background:#607d96!important;box-shadow:0 2px 6px rgba(96,125,150,.3)!important}.tab-btn:hover:not(.active){background:#f0edf5;color:#5a3a6a}
 </style>
 </head>
 <body>
@@ -330,10 +333,23 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 </div>
 
 <!-- 主粉專 建議嘗試受眾 -->
+<div id="main-aud-grid" style="display:none"></div>
 <div class="section">
-  <div class="sec-title">建議嘗試受眾（48組）· 更新 2026-07-24</div>
-  <div class="note-bar">📌 2026-07-24更新：依用戶提供的2組效標籤（半導體/醫師職業錨點＋交易策略/納斯達克/ETF/道瓊指數/數位貨幣/SpaceX等具體金融工具與品牌術語）與7組screenshot無效範例分析，確認規律——具體交易術語+具名品牌+真實職業錨點才會轉換，籠統的「投資/房地產/免稅購物/收藏嗜好」混合泛用組合會失效。已修正3組先前標籤數不足(8-13個)的既有輪廓組，並新增20組職業×具體金融工具的新輪廓，全數標籤補齊至25個以上。另同步發現並修正14組更早期建立、標籤數同樣不足的既有輪廓（8-13個標籤），一併補齊至25個以上。</div>
-  <div id="main-aud-grid" class="aud-grid-2"></div>
+  <div class="sec-title">建議嘗試受眾（8組）· 更新 2026-06-12</div>
+  <div class="note-bar">首批主粉專建議受眾8組（每組30個興趣標籤）。</div>
+  <div id="main-aud-grid-b0" class="aud-grid-2"></div>
+</div>
+
+<div class="section">
+  <div class="sec-title">建議嘗試受眾（20組）· 更新 2026-07-20</div>
+  <div class="note-bar">追加20組生活風格×金融交易輪廓受眾，比照貨幣投資輪廓的有效結構。</div>
+  <div id="main-aud-grid-b1" class="aud-grid-2"></div>
+</div>
+
+<div class="section">
+  <div class="sec-title">建議嘗試受眾（20組）· 更新 2026-07-24</div>
+  <div class="note-bar">依用戶提供的2組效標籤（半導體/醫師職業錨點＋交易策略/納斯達克/ETF/道瓊指數/數位貨幣/SpaceX等具體金融工具與品牌術語）與7組screenshot無效範例分析，確認規律——具體交易術語+具名品牌+真實職業錨點才會轉換，籠統的「投資/房地產/免稅購物/收藏嗜好」混合泛用組合會失效。已修正3組先前標籤數不足(8-13個)的既有輪廓組，並新增20組職業×具體金融工具的新輪廓，全數標籤補齊至25個以上。另同步發現並修正14組更早期建立、標籤數同樣不足的既有輪廓（8-13個標籤），一併補齊至25個以上。</div>
+  <div id="main-aud-grid-b2" class="aud-grid-2"></div>
 </div>
 
 <!-- 主粉專 rank-op-grid -->
@@ -1031,5 +1047,14 @@ document.addEventListener('DOMContentLoaded',()=>{
 </script>
 <button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到頂部">↑</button>
 <script>window.addEventListener('scroll',()=>document.getElementById('btt').classList.toggle('show',window.scrollY>300))</script>
+
+<script>
+/* 依日期分區：每批新增受眾各自一個區塊（同富宇玥和） */
+(function(){
+const SPLIT=[{"g": "main-aud-grid", "b": [["2026-06-12", 8, 0], ["2026-07-20", 20, 1], ["2026-07-24", 20, 2]]}];
+function run(){let ok=true;SPLIT.forEach(c=>{const src=document.getElementById(c.g);if(!src)return;const cards=[...src.children].filter(e=>e.classList.contains('aud-card'));if(!cards.length){ok=false;return;}let p=0;c.b.forEach(([d,n,t])=>{const dst=document.getElementById(c.g+'-b'+t);cards.slice(p,p+n).forEach(el=>{if(dst)dst.appendChild(el);});p+=n;});});SPLIT.forEach(c=>c.b.forEach(([d,n,t])=>{const dst=document.getElementById(c.g+'-b'+t);if(dst)[...dst.querySelectorAll(':scope>.aud-card .aud-num')].forEach((x,i)=>x.textContent=i+1);}));return ok;}
+if(!run())window.addEventListener('load',run);
+})();
+</script>
 </body>
 </html>

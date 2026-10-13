@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
@@ -7,25 +7,25 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --accent:#5a3a7a;--accent-dark:#3a2a5a;--accent-light:#f0edf5;--accent-border:#b08ac8;
-  --bg:#f2f3f4;--s:#ffffff;--bd:#e4e4e8;--tx:#2e2c32;--sub:#7d7880;--sub2:#a8a2aa;
+  --accent:#7a5a8a;--accent-dark:#5a3a6a;--accent-light:#ede8f4;--accent-border:#b89fcc;
+  --bg:#f2f3f1;--s:#ffffff;--bd:#e4e5e2;--tx:#2e2c29;--sub:#7d7870;--sub2:#a8a199;
   --good:#1e3a6e;--goodl:#e6eaf4;--warn:#4a6a8a;
   --radius:12px;--shadow-xs:0 1px 3px rgba(0,0,0,.05);--shadow-sm:0 2px 8px rgba(0,0,0,.07);--shadow-card:0 2px 10px rgba(0,0,0,.06),0 1px 3px rgba(0,0,0,.04);
 }
 body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft JhengHei','Segoe UI',sans-serif;background:var(--bg);color:var(--tx);font-size:14px;line-height:1.6;min-height:100vh}
-.page-header{background:linear-gradient(180deg,#0a0c18 0%,#060810 100%);padding:0 40px;height:56px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.04),0 4px 20px rgba(0,0,0,.35);border-bottom:1px solid rgba(255,255,255,.06)}
-.ph-logo{width:30px;height:30px;background:linear-gradient(135deg,#7a5aaa,var(--accent-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;flex-shrink:0}
+.page-header{background:linear-gradient(180deg,#0d1824 0%,#091218 100%);padding:0 40px;height:56px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.04),0 4px 20px rgba(0,0,0,.35);border-bottom:1px solid rgba(255,255,255,.06)}
+.ph-logo{width:30px;height:30px;background:linear-gradient(135deg,#9a7aaa,var(--accent-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;flex-shrink:0}
 .ph-title{font-size:14px;font-weight:700;color:#e8edf5;letter-spacing:-.2px}
 .ph-sub{font-size:11px;color:#1a2040;margin-left:2px}
 .ph-nav{margin-left:auto;display:flex;gap:8px;align-items:center}
-.ph-nav a{font-size:12px;color:#a08ac8;text-decoration:none;padding:5px 13px;border-radius:6px;border:1px solid rgba(90,58,122,.25);background:rgba(90,58,122,.12);font-weight:500}
-.ph-nav a:hover{background:rgba(90,58,122,.22);color:#c0a0e0}
+.ph-nav a{font-size:12px;color:#a08ac8;text-decoration:none;padding:5px 13px;border-radius:6px;border:1px solid rgba(122,90,138,.25);background:rgba(122,90,138,.12);font-weight:500}
+.ph-nav a:hover{background:rgba(122,90,138,.22);color:#c0a0e0}
 #btt{position:fixed;right:24px;bottom:28px;width:38px;height:38px;border-radius:50%;background:rgba(10,10,20,.75);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.85);font-size:15px;cursor:pointer;opacity:0;transform:translateY(8px);transition:opacity .2s,transform .2s;pointer-events:none;z-index:150;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.3);font-family:inherit}
 #btt.show{opacity:1;transform:translateY(0);pointer-events:auto}
 #btt:hover{background:rgba(20,20,45,.9);transform:translateY(-2px)}
 .wrap{max-width:1440px;margin:0 auto;padding:32px 48px 48px}
 .case-header{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:20px 24px;margin-bottom:10px;display:flex;align-items:center;gap:18px;box-shadow:var(--shadow-card)}
-.case-logo{width:44px;height:44px;background:linear-gradient(135deg,#7a5aaa,var(--accent-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;flex-shrink:0}
+.case-logo{width:44px;height:44px;background:linear-gradient(135deg,#9a7aaa,var(--accent-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;flex-shrink:0}
 .case-info h2{font-size:17px;font-weight:700;color:var(--tx);letter-spacing:-.3px}
 .case-info p{font-size:12px;color:var(--sub);margin-top:3px;line-height:1.5}
 .case-stats{margin-left:auto;display:flex;gap:28px;flex-shrink:0}
@@ -44,25 +44,25 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .profile-card:hover{box-shadow:var(--shadow-sm);transform:translateY(-2px)}
 .profile-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:17px;margin-bottom:12px}
 .profile-icon.green{background:var(--accent-light)}
-.profile-icon.amber{background:#f0edf5}
+.profile-icon.amber{background:#ede8f4}
 .profile-icon.blue{background:#eaecf6}
 .profile-name{font-size:15px;font-weight:700;color:var(--tx);margin-bottom:4px}
 .profile-meta{font-size:12px;color:var(--sub);margin-bottom:10px}
 .profile-tags{font-size:12px;color:#4a5568;margin-bottom:10px;line-height:1.6}
 .profile-behavior{font-size:12px;color:var(--sub);line-height:1.55;margin-bottom:12px}
 .profile-badge{display:inline-block;font-size:11px;font-weight:700;padding:4px 11px;border-radius:20px;margin-top:2px}
-.badge-green{background:var(--accent-light);color:#3a2a5a;border:1px solid var(--accent-border)}
-.badge-amber{background:#f0edf5;color:#3a2a5a;border:1px solid #b08ac8}
+.badge-green{background:var(--accent-light);color:#5a3a6a;border:1px solid var(--accent-border)}
+.badge-amber{background:#ede8f4;color:#5a3a6a;border:1px solid #b89fcc}
 .badge-blue{background:#eaecf6;color:#2a3a6a;border:1px solid #8a9ac8}
 .tags-row{display:flex;flex-wrap:wrap;gap:8px}
 .core-tag{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;background:var(--s);border:1.5px solid var(--bd);border-radius:20px;font-size:13px;font-weight:600;color:var(--tx);cursor:pointer;transition:all .15s}
-.core-tag:hover{border-color:var(--accent-border);background:var(--accent-light);color:#3a2a5a}
+.core-tag:hover{border-color:var(--accent-border);background:var(--accent-light);color:#5a3a6a}
 .core-tag .arr{font-size:11px;color:var(--accent-border)}
 .tips{display:flex;flex-direction:column;gap:10px}
 .tip{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:16px 18px;display:flex;gap:16px;align-items:flex-start;cursor:pointer;transition:border-color .15s,box-shadow .15s;box-shadow:var(--shadow-xs)}
 .tip:hover{border-color:var(--accent-border);box-shadow:var(--shadow-sm)}
 .tip-num{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;flex-shrink:0;color:#fff}
-.c1{background:var(--accent)}.c2{background:#5a6a8a}.c3{background:#4a6a8a}.c4{background:#6a5a8a}.c5{background:#5a3a7a}
+.c1{background:var(--accent)}.c2{background:#5a6a8a}.c3{background:#4a6a8a}.c4{background:#6a5a8a}.c5{background:#7a5a8a}
 .tip-body{flex:1}
 .tip-title{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:5px;line-height:1.4}
 .tip-desc{font-size:12px;color:var(--sub);line-height:1.65}
@@ -82,7 +82,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .creative-card.best{border-color:var(--accent-border);background:#f2f0f8}
 .creative-name{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:6px}
 .creative-badge{display:inline-block;font-size:10px;font-weight:700;padding:3px 8px;border-radius:8px;margin-bottom:8px}
-.cb-top{background:var(--accent-light);color:#3a2a5a;border:1px solid var(--accent-border)}
+.cb-top{background:var(--accent-light);color:#5a3a6a;border:1px solid var(--accent-border)}
 .cb-active{background:#d8dcea;color:#2a3a6a;border:1px solid #8a9ac8}
 .cb-new{background:#eaecf6;color:#2a3a6a;border:1px solid #8a9ac8}
 .cb-retired{background:#f0f0f0;color:#888;border:1px solid #ccc}
@@ -115,7 +115,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .t-fam{background:#f3e8ff;color:#5b21b6;border:1px solid #c4b5fd}
 .t-biz{background:#eaecf6;color:#2a3a6a;border:1px solid #8a9ac8}
 .t-edu{background:#dde6f0;color:#1a3a5a;border:1px solid #7a9ac8}
-.t-prop{background:#f0edf5;color:#3a2a5a;border:1px solid #b08ac8}
+.t-prop{background:#ede8f4;color:#5a3a6a;border:1px solid #b89fcc}
 .t-loc{background:var(--accent-light);color:var(--accent-dark);border:1px solid var(--accent-border)}
 .t-young{background:#eae6f4;color:#3a2a6a;border:1px solid #a08ac8}
 .rk-stats{display:flex;gap:24px;flex-shrink:0;align-items:center}
@@ -134,7 +134,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .tab-btn.active{background:#7a5a8a;color:#fff;box-shadow:0 2px 6px rgba(122,90,138,.3)}
 .tab-bar .tab-btn:nth-child(2).active{background:#607d96;color:#fff;box-shadow:0 2px 6px rgba(96,125,150,.3)}
 .tab-bar .tab-btn:nth-child(3).active{background:#4a5a6a;color:#fff;box-shadow:0 2px 6px rgba(74,90,106,.3)}
-.tab-btn:hover:not(.active){background:#f0edf5;color:#5a3a6a}
+.tab-btn:hover:not(.active){background:#ede8f4;color:#5a3a6a}
 .tab-pane{display:none}
 .tab-pane.show{display:block}
 .page-banner{border-radius:var(--radius);padding:18px 24px;margin-bottom:22px;display:flex;align-items:center;gap:20px;box-shadow:var(--shadow-card)}
@@ -179,6 +179,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .tag-tbl td{padding:2px 8px;border:1px solid var(--bd);color:var(--sub)}
 .tag-tbl tr:nth-child(even) td{background:var(--bg)}
 .tag-tbl tbody tr{cursor:pointer;transition:background .1s}
+
+/* 帳號配色統一（主粉專=紫 #7a5a8a／1510=藍 #607d96，比照富宇玥和） */
+.page-banner,.page-banner.main,.page-banner.main-banner{background:linear-gradient(135deg,#5a3a6a,#7a5a8a)!important;color:#fff}.tab-btn.active{background:#7a5a8a!important;color:#fff!important;box-shadow:0 2px 6px rgba(122,90,138,.3)!important}.tab-btn:hover:not(.active){background:#ede8f4;color:#5a3a6a}
 </style>
 </head>
 <body>

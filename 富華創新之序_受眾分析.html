@@ -128,6 +128,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .tab-btn:hover:not(.active){background:#f0edf5;color:#5a3a6a}
 .tab-pane{display:none}
 .tab-pane.show{display:block}
+
+/* 帳號配色統一（主粉專=紫 #7a5a8a／1510=藍 #607d96，比照富宇玥和） */
+.page-banner.main,.page-banner.main-banner{background:linear-gradient(135deg,#5a3a6a,#7a5a8a)!important;color:#fff}.page-banner.alt,.page-banner.alt-banner{background:linear-gradient(135deg,#4d6a82,#607d96)!important;color:#fff}.tab-btn.active{background:#7a5a8a!important;color:#fff!important;box-shadow:0 2px 6px rgba(122,90,138,.3)!important}.tab-bar .tab-btn:nth-child(2).active{background:#607d96!important;box-shadow:0 2px 6px rgba(96,125,150,.3)!important}.tab-btn:hover:not(.active){background:#f0edf5;color:#5a3a6a}
 </style>
 </head>
 <body>
@@ -338,9 +341,23 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   </div>
 </div>
 
+<div id="main-aud-grid" style="display:none"></div>
 <div class="section">
-  <div class="sec-title">主粉專新建議受眾（59組）· 更新 2026-07-27</div>
-  <div id="main-aud-grid" class="aud-grid-2"></div>
+  <div class="sec-title">主粉專新建議受眾（40組）· 更新 2026-07-24</div>
+  <div class="note-bar">主粉專新增20組，補上地緣認同vs資產配置的區隔缺口</div>
+  <div id="main-aud-grid-b0" class="aud-grid-2"></div>
+</div>
+
+<div class="section">
+  <div class="sec-title">主粉專新建議受眾（22組）· 更新 2026-07-27</div>
+  <div class="note-bar">新增0721-0727測試結果3組、延伸20組新建議受眾</div>
+  <div id="main-aud-grid-b1" class="aud-grid-2"></div>
+</div>
+
+<div class="section">
+  <div class="sec-title">主粉專新建議受眾（20組）· 更新 2026-07-28</div>
+  <div class="note-bar">新增20組具名品牌/平台受眾，延伸3組已收3筆的核心邏輯</div>
+  <div id="main-aud-grid-b2" class="aud-grid-2"></div>
 </div>
 
 </div><!-- end tab-main -->
@@ -840,6 +857,15 @@ function initAudCard(card){
 }
 function toggleAudG(prefix,i){const c=document.getElementById(prefix+i);c.classList.toggle('open');if(c.classList.contains('open'))initAudCard(c);}
 window.addEventListener('scroll',()=>{document.getElementById('btt').classList.toggle('show',window.scrollY>300)});
+</script>
+
+<script>
+/* 依日期分區：每批新增受眾各自一個區塊（同富宇玥和） */
+(function(){
+const SPLIT=[{"g": "main-aud-grid", "b": [["2026-07-28", 20, 2], ["2026-07-27", 22, 1], ["2026-07-24", 40, 0]]}];
+function run(){let ok=true;SPLIT.forEach(c=>{const src=document.getElementById(c.g);if(!src)return;const cards=[...src.children].filter(e=>e.classList.contains('aud-card'));if(!cards.length){ok=false;return;}let p=0;c.b.forEach(([d,n,t])=>{const dst=document.getElementById(c.g+'-b'+t);cards.slice(p,p+n).forEach(el=>{if(dst)dst.appendChild(el);});p+=n;});});SPLIT.forEach(c=>c.b.forEach(([d,n,t])=>{const dst=document.getElementById(c.g+'-b'+t);if(dst)[...dst.querySelectorAll(':scope>.aud-card .aud-num')].forEach((x,i)=>x.textContent=i+1);}));return ok;}
+if(!run())window.addEventListener('load',run);
+})();
 </script>
 </body>
 </html>

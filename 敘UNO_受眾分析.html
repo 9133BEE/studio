@@ -7,24 +7,24 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --accent:#8a6a3a;--accent-dark:#6a4e28;--accent-light:#fdf3e3;--accent-border:#d4a96a;
-  --bg:#f5f3ef;--s:#ffffff;--bd:#e8e4dc;--tx:#2e2a22;--sub:#7a7268;--sub2:#a8a09a;
+  --accent:#607d96;--accent-dark:#4d6a82;--accent-light:#eaf0f6;--accent-border:#a8bed0;
+  --bg:#f2f3f1;--s:#ffffff;--bd:#e4e5e2;--tx:#2e2c29;--sub:#7d7870;--sub2:#a8a199;
   --good:#1e6e3f;--goodl:#e6f4ea;--warn:#c05c00;--warnl:#fff4e8;
   --radius:12px;--shadow-xs:0 1px 3px rgba(0,0,0,.05);--shadow-sm:0 2px 8px rgba(0,0,0,.07);--shadow-card:0 2px 10px rgba(0,0,0,.06),0 1px 3px rgba(0,0,0,.04);
 }
 body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft JhengHei','Segoe UI',sans-serif;background:var(--bg);color:var(--tx);font-size:14px;line-height:1.6;min-height:100vh}
-.page-header{background:linear-gradient(180deg,#1a140c 0%,#150f08 100%);padding:0 40px;height:56px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.04),0 4px 20px rgba(0,0,0,.35);border-bottom:1px solid rgba(255,255,255,.06)}
-.ph-logo{width:30px;height:30px;background:linear-gradient(135deg,#c4945a,var(--accent-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;flex-shrink:0}
+.page-header{background:linear-gradient(180deg,#0d1824 0%,#091218 100%);padding:0 40px;height:56px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.04),0 4px 20px rgba(0,0,0,.35);border-bottom:1px solid rgba(255,255,255,.06)}
+.ph-logo{width:30px;height:30px;background:linear-gradient(135deg,#7a9ab5,var(--accent-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;flex-shrink:0}
 .ph-title{font-size:14px;font-weight:700;color:#f5ede0;letter-spacing:-.2px}
-.ph-sub{font-size:11px;color:#8a6a3a;margin-left:2px}
+.ph-sub{font-size:11px;color:#607d96;margin-left:2px}
 .ph-nav{margin-left:auto;display:flex;gap:8px;align-items:center}
-.ph-nav a{font-size:12px;color:#c4945a;text-decoration:none;padding:5px 13px;border-radius:6px;border:1px solid rgba(196,148,90,.3);background:rgba(196,148,90,.1);font-weight:500}
+.ph-nav a{font-size:12px;color:#7a9ab5;text-decoration:none;padding:5px 13px;border-radius:6px;border:1px solid rgba(196,148,90,.3);background:rgba(196,148,90,.1);font-weight:500}
 .ph-nav a:hover{background:rgba(196,148,90,.2);color:#e8c090}
 #btt{position:fixed;right:24px;bottom:28px;width:38px;height:38px;border-radius:50%;background:rgba(26,20,12,.75);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.85);font-size:15px;cursor:pointer;opacity:0;transform:translateY(8px);transition:opacity .2s,transform .2s;pointer-events:none;z-index:150;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.3);font-family:inherit}
 #btt.show{opacity:1;transform:translateY(0);pointer-events:auto}
 .wrap{max-width:1100px;margin:0 auto;padding:32px 40px 48px}
 .case-header{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:20px 24px;margin-bottom:10px;display:flex;align-items:center;gap:18px;box-shadow:var(--shadow-card)}
-.case-logo{width:44px;height:44px;background:linear-gradient(135deg,#c4945a,var(--accent-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;flex-shrink:0}
+.case-logo{width:44px;height:44px;background:linear-gradient(135deg,#7a9ab5,var(--accent-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;flex-shrink:0}
 .case-info h2{font-size:17px;font-weight:700;color:var(--tx);letter-spacing:-.3px}
 .case-info p{font-size:12px;color:var(--sub);margin-top:3px;line-height:1.5}
 .case-stats{margin-left:auto;display:flex;gap:28px;flex-shrink:0}
@@ -37,7 +37,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .sec-title::before{content:'';display:inline-block;width:3px;height:14px;background:var(--accent);border-radius:2px;flex-shrink:0}
 .sec-title::after{content:'';flex:1;height:1px;background:var(--bd)}
 .section{margin-bottom:28px}
-.note-bar{background:var(--accent-light);border:1px solid var(--accent-border);border-radius:10px;padding:10px 16px;font-size:12px;color:#6a4e28;margin-bottom:20px;line-height:1.6}
+.note-bar{background:var(--accent-light);border:1px solid var(--accent-border);border-radius:10px;padding:10px 16px;font-size:12px;color:#4d6a82;margin-bottom:20px;line-height:1.6}
 .note-bar.warn{background:var(--warnl);border-color:#f4c08a;color:#7a3e00}
 .stats-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:22px}
 .sb-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:14px 16px;box-shadow:var(--shadow-xs);text-align:center}
@@ -92,7 +92,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .rk-spend-l{font-size:10px;color:var(--sub2)}
 .tips{display:flex;flex-direction:column;gap:10px}
 .tip{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:16px 18px;display:flex;gap:16px;align-items:flex-start;box-shadow:var(--shadow-xs);cursor:pointer;transition:border-color .15s,box-shadow .15s}
-.tip:hover{border-color:var(--accent-border);box-shadow:0 3px 12px rgba(138,106,58,.12)}
+.tip:hover{border-color:var(--accent-border);box-shadow:0 3px 12px rgba(96,125,150,.12)}
 .tip-num{width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;flex-shrink:0;color:#fff;background:var(--accent)}
 .c2{background:#6a8a4a}.c3{background:#4a6a8a}.c4{background:#8a4a4a}
 .tip-body{flex:1}
@@ -140,7 +140,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 #copy-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 #toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);background:#2e2c29;color:#fff;font-size:12.5px;padding:10px 20px;border-radius:24px;opacity:0;transition:all .25s;pointer-events:none;z-index:999;white-space:nowrap}
 .page-banner{border-radius:var(--radius);padding:18px 24px;margin-bottom:22px;display:flex;align-items:center;gap:20px;box-shadow:var(--shadow-card)}
-.page-banner.main{background:linear-gradient(135deg,#5a3a1a,#8a6a3a);color:#fff}
+.page-banner.main{background:linear-gradient(135deg,#5a3a1a,#607d96);color:#fff}
 .banner-icon{width:40px;height:40px;background:rgba(255,255,255,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;flex-shrink:0}
 .banner-title{font-size:16px;font-weight:800;letter-spacing:-.2px}
 .banner-sub{font-size:12px;opacity:.8;margin-top:2px}
@@ -166,6 +166,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .principle-list li{font-size:13px;color:#4a5568;padding-left:22px;position:relative;line-height:1.55}
 .principle-list li::before{content:counter(item);counter-increment:item;position:absolute;left:0;width:16px;height:16px;background:var(--accent-light);border-radius:4px;color:var(--accent);font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;top:1px}
 .page-footer{text-align:center;font-size:11px;color:var(--sub2);margin-top:12px;padding-bottom:8px}
+
+/* 帳號配色統一（主粉專=紫 #7a5a8a／1510=藍 #607d96，比照富宇玥和） */
+.page-banner,.page-banner.main,.page-banner.main-banner{background:linear-gradient(135deg,#4d6a82,#607d96)!important;color:#fff}.tab-btn.active{background:#607d96!important;color:#fff!important;box-shadow:0 2px 6px rgba(96,125,150,.3)!important}.tab-btn:hover:not(.active){background:#eaf0f6;color:#4d6a82}
 </style>
 </head>
 <body>
@@ -201,7 +204,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   <div class="page-banner main">
     <div class="banner-icon">敘</div>
     <div>
-      <div class="banner-title">主粉專｜敘UNO FB</div>
+      <div class="banner-title">1510｜敘UNO FB</div>
       <div class="banner-sub">2026/02 起 · 2026 受眾數據</div>
     </div>
     <div class="banner-stats">
@@ -260,11 +263,42 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
     </div>
   </div>
 
-  <div class="section">
-    <div class="sec-title">下一步受眾測試建議（97組）· 更新 2026-10-13</div>
-    <div class="note-bar">依據廣告素材：888萬起・挑高6米・1F+2F黃金店面・龍井站前・新光田生活圈・全新完工立可營業<br><br>📌 2026-07-31新增20組：已驗證「零售批發自營／商用不動產／自僱／社群媒體行銷」核心標籤組合換地區持續有效（龍井→沙鹿東海→靜宜清水），故10組延伸此DNA至大甲/苑裡通霄/后里神岡/大雅潭子/龍井其他里/伸港線西/福興芳苑/台中港二期/大肚成功嶺/烏日成功等尚未觸及的新地區；另10組為全新業態（建材五金水電行、汽車美容洗車連鎖、早餐小吃連鎖、民宿包棟出租、塑膠射出模具加工、冷凍冷藏物流倉儲、二手車商、鐵工廠焊接加工、漁業水產批發、太陽能光電安裝），與既有17組相似度控制在50%以下。<br><br>📌 2026-08-19新增20組：交叉比對CPL最佳的3組（沙鹿東海零售批發自營CPL$371/39潛客、龍井+8居家事業連鎖店CPL$210/12潛客、龍井+8生活用品五金百貨CPL$270/7潛客）後發現，最強共同信號是「批發＋零售業」兩個興趣標籤三組全中，且CPL最低的兩組都疊加了「行為:Facebook粉絲專頁管理員或商家的粉絲專頁管理員」這個行為定位，比零售批發本身更關鍵。故本批20組全數採用「商用不動產/批發/零售業/物流/管理/進口/居家事業/商業模式/社群媒體行銷/自僱」核心DNA為底，逐一疊加眼鏡鐘錶、通訊維修、文具影印、手搖飲加盟、火鍋熱炒、婦幼玩具、家具寢具、洗衣連鎖、搬家公司、保全監控、印刷招牌、資源回收、農產直銷、農機資材、貨櫃組合屋、網咖電競、居家清潔、精品選物、烘焙坊、腳踏車機車行等20個尚未觸及的垂直業態，且都建議加上FB粉專管理員行為鎖定。<br><br>📌 2026-09-10新增20組：業主提供4組最新有效標籤組，同樣命中「商用不動產/批發/零售業/物流/管理/進口/居家事業/商業模式/社群媒體行銷/自僱」核心DNA，其中2組更明確標註「行為:Facebook粉絲專頁管理員或商家的粉絲專頁管理員」，再次驗證此行為定位是關鍵訊號。本批延續同一套DNA，逐一疊加花店花藝、鞋類批發、珠寶銀樓、廚具餐飲設備、汽車百貨用品、家電維修、安親才藝班、生鮮超商加盟、3C影音賣場、鈑金烤漆廠、漁具遊艇用品、咖啡茶葉批發、民俗用品香舖、獸醫動物醫院、美容美甲SPA、婚禮小物喜餅、露營戶外用品、農產加工食品廠、窗簾壁紙建材、手工藝DIY材料等20個尚未觸及的垂直業態。<br><br>📌 2026-10-13新增20組：業主再提供4組有效標籤，除既有核心DNA外，新訊號為「電子商務/網路購物/網紅行銷/開發潛在顧客/行銷企劃/價格/進口（郵遞）/食品」等商業功能型標籤，以及「通勤者」「小型企業主」「Facebook粉絲專頁管理員」三種行為；地標新增中彰大橋、向上路六段。本批改從「商業功能×行為」切入，避開前77組所有業態：直播帶貨、社區團購、市集夜市攤商、日韓代購跨境電商、品牌總經銷、數位行銷接案、網紅KOL工作室、進口零食超市、東南亞移工商店、二手精品寄賣、工作室分租二房東、無人商店夾娃娃機、B2B外銷貿易、包材紙箱批發、雲端廚房、男士理髮Barbershop、汽機車租賃、包租代管收租、整復推拿、通勤業務主管開店副業。地標一律使用已驗證有效的東海藝術商圈/弘光/嶺東/龍井區/龍井車站/中彰大橋/向上路六段。</div>
-    <div class="aud-grid-2" id="main-aud-grid"></div>
-  </div>
+  <div id="main-aud-grid" style="display:none"></div>
+<div class="section">
+  <div class="sec-title">下一步受眾測試建議（8組）· 更新 2026-06-12</div>
+  <div class="note-bar">依據廣告素材：888萬起・挑高6米・1F+2F黃金店面・龍井站前・新光田生活圈・全新完工立可營業<br><br>首批8組：以實測最佳「零售批發自營」（CPL $331~337）為核心，延伸沙鹿梧棲清水、彰化和美伸港、工業區老闆、餐飲創業、電商轉實體等方向。</div>
+  <div id="main-aud-grid-b0" class="aud-grid-2"></div>
+</div>
+
+<div class="section">
+  <div class="sec-title">下一步受眾測試建議（9組）· 更新 2026-06-17</div>
+  <div class="note-bar">新增9組全新業態：醫美、健身、汽機車、寵物、加盟、保險房仲、藥局、文創、婚紗。</div>
+  <div id="main-aud-grid-b1" class="aud-grid-2"></div>
+</div>
+
+<div class="section">
+  <div class="sec-title">下一步受眾測試建議（20組）· 更新 2026-07-31</div>
+  <div class="note-bar">已驗證「零售批發自營／商用不動產／自僱／社群媒體行銷」核心標籤組合換地區持續有效（龍井→沙鹿東海→靜宜清水），故10組延伸此DNA至大甲/苑裡通霄/后里神岡/大雅潭子/龍井其他里/伸港線西/福興芳苑/台中港二期/大肚成功嶺/烏日成功等尚未觸及的新地區；另10組為全新業態（建材五金水電行、汽車美容洗車連鎖、早餐小吃連鎖、民宿包棟出租、塑膠射出模具加工、冷凍冷藏物流倉儲、二手車商、鐵工廠焊接加工、漁業水產批發、太陽能光電安裝），與既有17組相似度控制在50%以下。</div>
+  <div id="main-aud-grid-b2" class="aud-grid-2"></div>
+</div>
+
+<div class="section">
+  <div class="sec-title">下一步受眾測試建議（20組）· 更新 2026-08-19</div>
+  <div class="note-bar">交叉比對CPL最佳的3組（沙鹿東海零售批發自營CPL$371/39潛客、龍井+8居家事業連鎖店CPL$210/12潛客、龍井+8生活用品五金百貨CPL$270/7潛客）後發現，最強共同信號是「批發＋零售業」兩個興趣標籤三組全中，且CPL最低的兩組都疊加了「行為:Facebook粉絲專頁管理員或商家的粉絲專頁管理員」這個行為定位，比零售批發本身更關鍵。故本批20組全數採用「商用不動產/批發/零售業/物流/管理/進口/居家事業/商業模式/社群媒體行銷/自僱」核心DNA為底，逐一疊加眼鏡鐘錶、通訊維修、文具影印、手搖飲加盟、火鍋熱炒、婦幼玩具、家具寢具、洗衣連鎖、搬家公司、保全監控、印刷招牌、資源回收、農產直銷、農機資材、貨櫃組合屋、網咖電競、居家清潔、精品選物、烘焙坊、腳踏車機車行等20個尚未觸及的垂直業態，且都建議加上FB粉專管理員行為鎖定。</div>
+  <div id="main-aud-grid-b3" class="aud-grid-2"></div>
+</div>
+
+<div class="section">
+  <div class="sec-title">下一步受眾測試建議（20組）· 更新 2026-09-10</div>
+  <div class="note-bar">業主提供4組最新有效標籤組，同樣命中「商用不動產/批發/零售業/物流/管理/進口/居家事業/商業模式/社群媒體行銷/自僱」核心DNA，其中2組更明確標註「行為:Facebook粉絲專頁管理員或商家的粉絲專頁管理員」，再次驗證此行為定位是關鍵訊號。本批延續同一套DNA，逐一疊加花店花藝、鞋類批發、珠寶銀樓、廚具餐飲設備、汽車百貨用品、家電維修、安親才藝班、生鮮超商加盟、3C影音賣場、鈑金烤漆廠、漁具遊艇用品、咖啡茶葉批發、民俗用品香舖、獸醫動物醫院、美容美甲SPA、婚禮小物喜餅、露營戶外用品、農產加工食品廠、窗簾壁紙建材、手工藝DIY材料等20個尚未觸及的垂直業態。</div>
+  <div id="main-aud-grid-b4" class="aud-grid-2"></div>
+</div>
+
+<div class="section">
+  <div class="sec-title">下一步受眾測試建議（20組）· 更新 2026-10-13</div>
+  <div class="note-bar">業主再提供4組有效標籤，除既有核心DNA外，新訊號為「電子商務/網路購物/網紅行銷/開發潛在顧客/行銷企劃/價格/進口（郵遞）/食品」等商業功能型標籤，以及「通勤者」「小型企業主」「Facebook粉絲專頁管理員」三種行為；地標新增中彰大橋、向上路六段。本批改從「商業功能×行為」切入，避開前77組所有業態：直播帶貨、社區團購、市集夜市攤商、日韓代購跨境電商、品牌總經銷、數位行銷接案、網紅KOL工作室、進口零食超市、東南亞移工商店、二手精品寄賣、工作室分租二房東、無人商店夾娃娃機、B2B外銷貿易、包材紙箱批發、雲端廚房、男士理髮Barbershop、汽機車租賃、包租代管收租、整復推拿、通勤業務主管開店副業。地標一律使用已驗證有效的東海藝術商圈/弘光/嶺東/龍井區/龍井車站/中彰大橋/向上路六段。</div>
+  <div id="main-aud-grid-b5" class="aud-grid-2"></div>
+</div>
 
   <div class="rank-op-grid">
 
@@ -668,5 +702,14 @@ document.querySelectorAll('.tip').forEach(el=>{
 });
 </script>
 <script>window.addEventListener('scroll',()=>document.getElementById('btt').classList.toggle('show',window.scrollY>300))</script>
+
+<script>
+/* 依日期分區：每批新增受眾各自一個區塊（同富宇玥和） */
+(function(){
+const SPLIT=[{"g": "main-aud-grid", "b": [["2026-06-12", 8, 0], ["2026-06-17", 9, 1], ["2026-07-31", 20, 2], ["2026-08-19", 20, 3], ["2026-09-10", 20, 4], ["2026-10-13", 20, 5]]}];
+function run(){let ok=true;SPLIT.forEach(c=>{const src=document.getElementById(c.g);if(!src)return;const cards=[...src.children].filter(e=>e.classList.contains('aud-card'));if(!cards.length){ok=false;return;}let p=0;c.b.forEach(([d,n,t])=>{const dst=document.getElementById(c.g+'-b'+t);cards.slice(p,p+n).forEach(el=>{if(dst)dst.appendChild(el);});p+=n;});});SPLIT.forEach(c=>c.b.forEach(([d,n,t])=>{const dst=document.getElementById(c.g+'-b'+t);if(dst)[...dst.querySelectorAll(':scope>.aud-card .aud-num')].forEach((x,i)=>x.textContent=i+1);}));return ok;}
+if(!run())window.addEventListener('load',run);
+})();
+</script>
 </body>
 </html>

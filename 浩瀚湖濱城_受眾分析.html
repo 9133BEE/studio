@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
@@ -7,10 +7,10 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --accent:#4a7a8a;
-  --accent-dark:#2f6672;
-  --accent-light:#e0f0f3;
-  --accent-border:#87b8c5;
+  --accent:#607d96;
+  --accent-dark:#4d6a82;
+  --accent-light:#eaf0f6;
+  --accent-border:#a8bed0;
   --bg:#f2f3f1;--s:#ffffff;--bd:#e4e5e2;--tx:#2e2c29;--sub:#7d7870;--sub2:#a8a199;
   --good:#1e6e3f;--goodl:#e6f4ea;--warn:#c05c00;
   --radius:12px;
@@ -19,19 +19,19 @@
   --shadow-card:0 2px 10px rgba(0,0,0,.06),0 1px 3px rgba(0,0,0,.04);
 }
 body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft JhengHei','Segoe UI',sans-serif;background:var(--bg);color:var(--tx);font-size:14px;line-height:1.6;min-height:100vh}
-.page-header{background:linear-gradient(180deg,#061820 0%,#041018 100%);padding:0 40px;height:56px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.04),0 4px 20px rgba(0,0,0,.35);border-bottom:1px solid rgba(255,255,255,.06)}
-.ph-logo{width:30px;height:30px;background:linear-gradient(135deg,#6aabb8,var(--accent-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;flex-shrink:0;box-shadow:0 2px 8px rgba(74,122,138,.45),inset 0 1px 0 rgba(255,255,255,.15)}
+.page-header{background:linear-gradient(180deg,#0d1824 0%,#091218 100%);padding:0 40px;height:56px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.04),0 4px 20px rgba(0,0,0,.35);border-bottom:1px solid rgba(255,255,255,.06)}
+.ph-logo{width:30px;height:30px;background:linear-gradient(135deg,#7a9ab5,var(--accent-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;flex-shrink:0;box-shadow:0 2px 8px rgba(96,125,150,.45),inset 0 1px 0 rgba(255,255,255,.15)}
 .ph-title{font-size:14px;font-weight:700;color:#ecf4f6;letter-spacing:-.2px}
 .ph-sub{font-size:11px;color:#4a7080;margin-left:2px}
 .ph-nav{margin-left:auto;display:flex;gap:8px;align-items:center}
-.ph-nav a{font-size:12px;color:#7aaab8;text-decoration:none;padding:5px 13px;border-radius:6px;border:1px solid rgba(74,122,138,.25);background:rgba(74,122,138,.12);transition:all .15s;font-weight:500}
-.ph-nav a:hover{background:rgba(74,122,138,.22);color:#a8d8e4;border-color:rgba(74,122,138,.4)}
+.ph-nav a{font-size:12px;color:#7aaab8;text-decoration:none;padding:5px 13px;border-radius:6px;border:1px solid rgba(96,125,150,.25);background:rgba(96,125,150,.12);transition:all .15s;font-weight:500}
+.ph-nav a:hover{background:rgba(96,125,150,.22);color:#a8d8e4;border-color:rgba(96,125,150,.4)}
 #btt{position:fixed;right:24px;bottom:28px;width:38px;height:38px;border-radius:50%;background:rgba(8,18,22,.75);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.85);font-size:15px;cursor:pointer;opacity:0;transform:translateY(8px);transition:opacity .2s,transform .2s;pointer-events:none;z-index:150;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.3);font-family:inherit}
 #btt.show{opacity:1;transform:translateY(0);pointer-events:auto}
 #btt:hover{background:rgba(15,35,42,.9);transform:translateY(-2px)}
 .wrap{max-width:1200px;margin:0 auto;padding:32px 40px 48px}
 .case-header{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:20px 24px;margin-bottom:10px;display:flex;align-items:center;gap:18px;box-shadow:var(--shadow-card)}
-.case-logo{width:44px;height:44px;background:linear-gradient(135deg,var(--accent),var(--accent-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;flex-shrink:0;box-shadow:0 3px 10px rgba(74,122,138,.35),inset 0 1px 0 rgba(255,255,255,.15)}
+.case-logo{width:44px;height:44px;background:linear-gradient(135deg,var(--accent),var(--accent-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;flex-shrink:0;box-shadow:0 3px 10px rgba(96,125,150,.35),inset 0 1px 0 rgba(255,255,255,.15)}
 .case-info h2{font-size:17px;font-weight:700;color:var(--tx);letter-spacing:-.3px}
 .case-info p{font-size:12px;color:var(--sub);margin-top:3px;line-height:1.5}
 .case-stats{margin-left:auto;display:flex;gap:28px;flex-shrink:0}
@@ -65,18 +65,18 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .core-tag .arr{font-size:11px;color:var(--accent-border)}
 .tips{display:flex;flex-direction:column;gap:10px}
 .tip{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:16px 18px;display:flex;gap:16px;align-items:flex-start;cursor:pointer;transition:border-color .15s,box-shadow .15s;box-shadow:var(--shadow-xs)}
-.tip:hover{border-color:var(--accent-border);box-shadow:0 3px 12px rgba(74,122,138,.12)}
+.tip:hover{border-color:var(--accent-border);box-shadow:0 3px 12px rgba(96,125,150,.12)}
 .tip-num{width:26px;height:26px;border-radius:7px;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 .tip-num.c1{background:var(--accent-light);color:#2f5a6a}
 .tip-num.c2{background:#d8ead2;color:#3d6b4f}
 .tip-num.c3{background:#fdf0dc;color:#7a5c20}
-.tip-num.c4{background:var(--accent-light);color:#2f6672}
+.tip-num.c4{background:var(--accent-light);color:#4d6a82}
 .tip-num.c5{background:#faeaea;color:#8a3f3f}
 .tip-title{font-size:14px;font-weight:700;color:var(--tx);margin-bottom:5px;line-height:1.3}
 .tip-desc{font-size:13px;color:var(--sub);line-height:1.6}
 .new-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
 .new-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:16px 18px;cursor:pointer;transition:all .15s;box-shadow:var(--shadow-xs)}
-.new-card:hover{border-color:var(--accent-border);box-shadow:0 3px 12px rgba(74,122,138,.12);transform:translateY(-1px)}
+.new-card:hover{border-color:var(--accent-border);box-shadow:0 3px 12px rgba(96,125,150,.12);transform:translateY(-1px)}
 .new-card-title{font-size:14px;font-weight:700;color:var(--tx);margin-bottom:6px;line-height:1.35}
 .new-card-desc{font-size:12px;color:var(--sub);line-height:1.55}
 .creative-section{margin-bottom:32px}
@@ -207,6 +207,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .bs{text-align:right}
 .bs-n{font-size:22px;font-weight:800;color:#fff;line-height:1;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
 .bs-l{font-size:10px;color:rgba(255,255,255,.7);margin-top:3px;font-weight:600;letter-spacing:.3px;text-transform:uppercase}
+
+/* 帳號配色統一（主粉專=紫 #7a5a8a／1510=藍 #607d96，比照富宇玥和） */
+.page-banner.main,.page-banner.main-banner{background:linear-gradient(135deg,#5a3a6a,#7a5a8a)!important;color:#fff}.page-banner.alt,.page-banner.alt-banner{background:linear-gradient(135deg,#4d6a82,#607d96)!important;color:#fff}.tab-btn.active{background:#7a5a8a!important;color:#fff!important;box-shadow:0 2px 6px rgba(122,90,138,.3)!important}.tab-bar .tab-btn:nth-child(2).active{background:#607d96!important;box-shadow:0 2px 6px rgba(96,125,150,.3)!important}.tab-btn:hover:not(.active){background:#f0edf5;color:#5a3a6a}
 </style>
 </head>
 <body>
@@ -497,7 +500,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   </div>
 </div>
 
-<div class="page-banner" style="background:linear-gradient(135deg,#1a5a3a,#2a7a5a)">
+<div class="page-banner alt">
   <div class="banner-icon">1510</div>
   <div>
     <div class="banner-title">1510粉專｜浩瀚湖濱城（新帳號）</div>

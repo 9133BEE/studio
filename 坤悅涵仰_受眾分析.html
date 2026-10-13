@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
@@ -7,16 +7,16 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --accent:#4a7a5a;--accent-dark:#2e5c3e;--accent-light:#eaf3ed;--accent-border:#8abfa0;
-  --bg:#f2f3f1;--s:#ffffff;--bd:#e4e5e2;--tx:#2c302a;--sub:#787d74;--sub2:#a4a89f;
+  --accent:#607d96;--accent-dark:#4d6a82;--accent-light:#eaf0f6;--accent-border:#a8bed0;
+  --bg:#f2f3f1;--s:#ffffff;--bd:#e4e5e2;--tx:#2e2c29;--sub:#7d7870;--sub2:#a8a199;
   --good:#1e6e3f;--goodl:#e6f4ea;--warn:#c05c00;
   --radius:12px;--shadow-xs:0 1px 3px rgba(0,0,0,.05);--shadow-sm:0 2px 8px rgba(0,0,0,.07);--shadow-card:0 2px 10px rgba(0,0,0,.06),0 1px 3px rgba(0,0,0,.04);
 }
 body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft JhengHei','Segoe UI',sans-serif;background:var(--bg);color:var(--tx);font-size:14px;line-height:1.6;min-height:100vh}
-.page-header{background:linear-gradient(180deg,#1a1018 0%,#160d14 100%);padding:0 40px;height:56px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.04),0 4px 20px rgba(0,0,0,.35);border-bottom:1px solid rgba(255,255,255,.06)}
-.ph-logo{width:30px;height:30px;background:linear-gradient(135deg,#8a7a9a,var(--accent-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;flex-shrink:0}
+.page-header{background:linear-gradient(180deg,#0d1824 0%,#091218 100%);padding:0 40px;height:56px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.04),0 4px 20px rgba(0,0,0,.35);border-bottom:1px solid rgba(255,255,255,.06)}
+.ph-logo{width:30px;height:30px;background:linear-gradient(135deg,#7a9ab5,var(--accent-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;flex-shrink:0}
 .ph-title{font-size:14px;font-weight:700;color:#e8f5ec;letter-spacing:-.2px}
-.ph-sub{font-size:11px;color:#4a7a5a;margin-left:2px}
+.ph-sub{font-size:11px;color:#607d96;margin-left:2px}
 .ph-nav{margin-left:auto;display:flex;gap:8px;align-items:center}
 .ph-nav a{font-size:12px;color:#9d8aae;text-decoration:none;padding:5px 13px;border-radius:6px;border:1px solid rgba(122,90,138,.25);background:rgba(122,90,138,.12);font-weight:500}
 .ph-nav a:hover{background:rgba(122,90,138,.22);color:#c8a0e0}
@@ -25,7 +25,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 #btt:hover{background:rgba(40,25,50,.9);transform:translateY(-2px)}
 .wrap{max-width:1200px;margin:0 auto;padding:32px 40px 48px}
 .case-header{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:20px 24px;margin-bottom:10px;display:flex;align-items:center;gap:18px;box-shadow:var(--shadow-card)}
-.case-logo{width:44px;height:44px;background:linear-gradient(135deg,#6aaa80,var(--accent-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;flex-shrink:0}
+.case-logo{width:44px;height:44px;background:linear-gradient(135deg,#7a9ab5,var(--accent-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;flex-shrink:0}
 .case-info h2{font-size:17px;font-weight:700;color:var(--tx);letter-spacing:-.3px}
 .case-info p{font-size:12px;color:var(--sub);margin-top:3px;line-height:1.5}
 .case-stats{margin-left:auto;display:flex;gap:28px;flex-shrink:0}
@@ -48,7 +48,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .sec-title::before{content:'';display:inline-block;width:3px;height:14px;background:var(--accent);border-radius:2px;flex-shrink:0}
 .sec-title::after{content:'';flex:1;height:1px;background:var(--bd)}
 .section{margin-bottom:28px}
-.note-bar{background:var(--accent-light);border:1px solid var(--accent-border);border-radius:10px;padding:10px 16px;font-size:12px;color:#2e5c3e;margin-bottom:20px;line-height:1.6}
+.note-bar{background:var(--accent-light);border:1px solid var(--accent-border);border-radius:10px;padding:10px 16px;font-size:12px;color:#4d6a82;margin-bottom:20px;line-height:1.6}
 .note-bar.warn{background:#fff8f0;border-color:#f4c08a;color:#7a3e00}
 /* Stats bar */
 .stats-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:22px}
@@ -67,13 +67,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .profile-tags{font-size:12px;color:#4a5568;margin-bottom:10px;line-height:1.6}
 .profile-behavior{font-size:12px;color:var(--sub);line-height:1.55;margin-bottom:12px}
 .profile-badge{display:inline-block;font-size:11px;font-weight:700;padding:4px 11px;border-radius:20px;margin-top:2px}
-.badge-g{background:var(--accent-light);color:#2e5c3e;border:1px solid var(--accent-border)}
+.badge-g{background:var(--accent-light);color:#4d6a82;border:1px solid var(--accent-border)}
 .badge-b{background:#e8f0fe;color:#1a56b0;border:1px solid #93b4e8}
 .badge-t{background:#e0f0ee;color:#1a5a4e;border:1px solid #7ac0b2}
 /* Tags */
 .tags-row{display:flex;flex-wrap:wrap;gap:8px}
 .core-tag{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;background:var(--s);border:1.5px solid var(--bd);border-radius:20px;font-size:13px;font-weight:600;color:var(--tx);cursor:pointer;transition:all .15s}
-.core-tag:hover{border-color:var(--accent-border);background:var(--accent-light);color:#2e5c3e}
+.core-tag:hover{border-color:var(--accent-border);background:var(--accent-light);color:#4d6a82}
 .core-tag .arr{font-size:11px;color:var(--accent-border)}
 /* Tips */
 .tips{display:flex;flex-direction:column;gap:10px}
@@ -184,11 +184,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 @media(max-width:900px){.rank-op-grid{display:block}}
 .insight-box{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow-xs);margin-top:20px}
 .insight-title{font-size:14px;font-weight:700;color:var(--tx);margin-bottom:14px}
-.insight-highlight{background:var(--accent-light);border-left:3px solid var(--accent);padding:12px 16px;border-radius:0 8px 8px 0;margin-bottom:16px;font-size:13px;color:#2e5c3e;font-weight:600;line-height:1.65}
+.insight-highlight{background:var(--accent-light);border-left:3px solid var(--accent);padding:12px 16px;border-radius:0 8px 8px 0;margin-bottom:16px;font-size:13px;color:#4d6a82;font-weight:600;line-height:1.65}
 .insight-sub{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:10px;margin-top:14px}
 .insight-list{list-style:none;display:flex;flex-direction:column;gap:7px}
 .insight-list li{font-size:13px;color:var(--sub);padding-left:18px;position:relative;line-height:1.6}
 .insight-list li::before{content:'→';position:absolute;left:0;color:var(--accent-border);font-size:12px;top:1px}
+
+/* 帳號配色統一（主粉專=紫 #7a5a8a／1510=藍 #607d96，比照富宇玥和） */
+.page-banner.main,.page-banner.main-banner{background:linear-gradient(135deg,#5a3a6a,#7a5a8a)!important;color:#fff}.page-banner.alt,.page-banner.alt-banner{background:linear-gradient(135deg,#4d6a82,#607d96)!important;color:#fff}.tab-btn.active{background:#7a5a8a!important;color:#fff!important;box-shadow:0 2px 6px rgba(122,90,138,.3)!important}.tab-bar .tab-btn:nth-child(2).active{background:#607d96!important;box-shadow:0 2px 6px rgba(96,125,150,.3)!important}.tab-btn:hover:not(.active){background:#f0edf5;color:#5a3a6a}
 </style>
 </head>
 <body>
@@ -487,10 +490,30 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   </div>
 
   <!-- 新推受眾 第二批 2026-06-24 -->
-  <div class="section">
-    <div class="sec-title">新推受眾（13組）· 更新 2026-07-21</div>
-    <div id="main-aud-grid-2" class="aud-grid-2"></div>
-  </div>
+  <div id="main-aud-grid-2" style="display:none"></div>
+<div class="section">
+  <div class="sec-title">新推受眾（10組）· 更新 2026-06-24</div>
+  <div class="note-bar">主粉專新推10組受眾（同步1510 10組）。</div>
+  <div id="main-aud-grid-2-b0" class="aud-grid-2"></div>
+</div>
+
+<div class="section">
+  <div class="sec-title">新推受眾（1組）· 更新 2026-07-17</div>
+  <div class="note-bar">新增高階公務員/簡任文官/司法官受眾，移除通用房產基礎標籤</div>
+  <div id="main-aud-grid-2-b1" class="aud-grid-2"></div>
+</div>
+
+<div class="section">
+  <div class="sec-title">新推受眾（7組）· 更新 2026-07-20</div>
+  <div class="note-bar">新增2組軍職/司法界高端受眾（803醫院興大康橋、高等法院興大康橋），比照上週實測有效包結構</div>
+  <div id="main-aud-grid-2-b2" class="aud-grid-2"></div>
+</div>
+
+<div class="section">
+  <div class="sec-title">新推受眾（3組）· 更新 2026-07-21</div>
+  <div class="note-bar">新增3組受眾(銀樓典當商/命理風水館主/補習班業主)</div>
+  <div id="main-aud-grid-2-b3" class="aud-grid-2"></div>
+</div>
 
   <!-- 新推受眾 第三批 2026-07-27 -->
   <div class="section">
@@ -1497,6 +1520,15 @@ function switchTab(name){
 window.addEventListener('scroll',()=>{
   document.getElementById('btt').classList.toggle('show',window.scrollY>300);
 });
+</script>
+
+<script>
+/* 依日期分區：每批新增受眾各自一個區塊（同富宇玥和） */
+(function(){
+const SPLIT=[{"g": "main-aud-grid-2", "b": [["2026-06-24", 10, 0], ["2026-07-17", 1, 1], ["2026-07-20", 7, 2], ["2026-07-21", 3, 3]]}];
+function run(){let ok=true;SPLIT.forEach(c=>{const src=document.getElementById(c.g);if(!src)return;const cards=[...src.children].filter(e=>e.classList.contains('aud-card'));if(!cards.length){ok=false;return;}let p=0;c.b.forEach(([d,n,t])=>{const dst=document.getElementById(c.g+'-b'+t);cards.slice(p,p+n).forEach(el=>{if(dst)dst.appendChild(el);});p+=n;});});SPLIT.forEach(c=>c.b.forEach(([d,n,t])=>{const dst=document.getElementById(c.g+'-b'+t);if(dst)[...dst.querySelectorAll(':scope>.aud-card .aud-num')].forEach((x,i)=>x.textContent=i+1);}));return ok;}
+if(!run())window.addEventListener('load',run);
+})();
 </script>
 </body>
 </html>

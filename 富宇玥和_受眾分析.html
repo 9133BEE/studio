@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
@@ -319,9 +319,17 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   <div id="main-aud-grid" class="aud-grid-2"></div>
 </div>
 
+<div id="main-aud-grid-2" style="display:none"></div>
 <div class="section">
-  <div class="sec-title">主粉專｜新建議受眾（40組，全新未測試方向）· 更新 2026-07-20</div>
-  <div id="main-aud-grid-2" class="aud-grid-2"></div>
+  <div class="sec-title">主粉專｜新建議受眾（30組）· 更新 2026-07-13</div>
+  <div class="note-bar">新增主粉專30組（同步1510 30組）全新未測試方向。</div>
+  <div id="main-aud-grid-2-b0" class="aud-grid-2"></div>
+</div>
+
+<div class="section">
+  <div class="sec-title">主粉專｜新建議受眾（10組）· 更新 2026-07-20</div>
+  <div class="note-bar">追加主粉專10組（同步1510 10組），文青/科技/股票投資/教授/教育業新角度救疲乏。</div>
+  <div id="main-aud-grid-2-b1" class="aud-grid-2"></div>
 </div>
 
 <div class="section">
@@ -708,9 +716,17 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   <div id="alt-aud-grid-3" class="aud-grid-2"></div>
 </div>
 
+<div id="alt-aud-grid-4" style="display:none"></div>
 <div class="section">
-  <div class="sec-title alt-bar">1510｜新建議受眾（40組，深度職業人設）· 更新 2026-07-20</div>
-  <div id="alt-aud-grid-4" class="aud-grid-2"></div>
+  <div class="sec-title alt-bar">1510｜新建議受眾（30組）· 更新 2026-07-13</div>
+  <div class="note-bar">新增主粉專30組（同步1510 30組）全新未測試方向。</div>
+  <div id="alt-aud-grid-4-b0" class="aud-grid-2"></div>
+</div>
+
+<div class="section">
+  <div class="sec-title alt-bar">1510｜新建議受眾（10組）· 更新 2026-07-20</div>
+  <div class="note-bar">追加主粉專10組（同步1510 10組），文青/科技/股票投資/教授/教育業新角度救疲乏。</div>
+  <div id="alt-aud-grid-4-b1" class="aud-grid-2"></div>
 </div>
 
 <div class="section">
@@ -2207,6 +2223,15 @@ document.querySelectorAll('.tip').forEach(el=>{
 </script>
 <button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到頂部">↑</button>
 <script>window.addEventListener('scroll',()=>document.getElementById('btt').classList.toggle('show',window.scrollY>300))</script>
+
+<script>
+/* 依日期分區：每批新增受眾各自一個區塊（同富宇玥和） */
+(function(){
+const SPLIT=[{"g": "main-aud-grid-2", "b": [["2026-07-13", 30, 0], ["2026-07-20", 10, 1]]}, {"g": "alt-aud-grid-4", "b": [["2026-07-13", 30, 0], ["2026-07-20", 10, 1]]}];
+function run(){let ok=true;SPLIT.forEach(c=>{const src=document.getElementById(c.g);if(!src)return;const cards=[...src.children].filter(e=>e.classList.contains('aud-card'));if(!cards.length){ok=false;return;}let p=0;c.b.forEach(([d,n,t])=>{const dst=document.getElementById(c.g+'-b'+t);cards.slice(p,p+n).forEach(el=>{if(dst)dst.appendChild(el);});p+=n;});});SPLIT.forEach(c=>c.b.forEach(([d,n,t])=>{const dst=document.getElementById(c.g+'-b'+t);if(dst)[...dst.querySelectorAll(':scope>.aud-card .aud-num')].forEach((x,i)=>x.textContent=i+1);}));return ok;}
+if(!run())window.addEventListener('load',run);
+})();
+</script>
 </body>
 </html>
 

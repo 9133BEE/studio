@@ -7,25 +7,25 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --accent:#8a6a3a;--accent-dark:#6a4a1e;--accent-light:#f8f0e2;--accent-border:#d0a860;
-  --bg:#f5f3f0;--s:#ffffff;--bd:#e6e0d6;--tx:#2a2620;--sub:#84786a;--sub2:#aca496;
+  --accent:#7a5a8a;--accent-dark:#5a3a6a;--accent-light:#ede8f4;--accent-border:#b89fcc;
+  --bg:#f2f3f1;--s:#ffffff;--bd:#e4e5e2;--tx:#2e2c29;--sub:#7d7870;--sub2:#a8a199;
   --good:#1e6e3f;--goodl:#e6f4ea;--warn:#c05c00;
   --radius:12px;--shadow-xs:0 1px 3px rgba(0,0,0,.05);--shadow-sm:0 2px 8px rgba(0,0,0,.07);--shadow-card:0 2px 10px rgba(0,0,0,.06),0 1px 3px rgba(0,0,0,.04);
 }
 body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft JhengHei','Segoe UI',sans-serif;background:var(--bg);color:var(--tx);font-size:14px;line-height:1.6;min-height:100vh}
-.page-header{background:linear-gradient(180deg,#241c0e 0%,#180f04 100%);padding:0 40px;height:56px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.04),0 4px 20px rgba(0,0,0,.35);border-bottom:1px solid rgba(255,255,255,.06)}
-.ph-logo{width:30px;height:30px;background:linear-gradient(135deg,#c8a060,var(--accent-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;flex-shrink:0}
-.ph-title{font-size:14px;font-weight:700;color:#f8f0e2;letter-spacing:-.2px}
-.ph-sub{font-size:11px;color:#c8a060;margin-left:2px}
+.page-header{background:linear-gradient(180deg,#0d1824 0%,#091218 100%);padding:0 40px;height:56px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.04),0 4px 20px rgba(0,0,0,.35);border-bottom:1px solid rgba(255,255,255,.06)}
+.ph-logo{width:30px;height:30px;background:linear-gradient(135deg,#9a7aaa,var(--accent-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;flex-shrink:0}
+.ph-title{font-size:14px;font-weight:700;color:#ede8f4;letter-spacing:-.2px}
+.ph-sub{font-size:11px;color:#9a7aaa;margin-left:2px}
 .ph-nav{margin-left:auto;display:flex;gap:8px;align-items:center}
-.ph-nav a{font-size:12px;color:#d0a860;text-decoration:none;padding:5px 13px;border-radius:6px;border:1px solid rgba(138,106,58,.25);background:rgba(138,106,58,.12);font-weight:500}
-.ph-nav a:hover{background:rgba(138,106,58,.22);color:#e8d0a0}
+.ph-nav a{font-size:12px;color:#b89fcc;text-decoration:none;padding:5px 13px;border-radius:6px;border:1px solid rgba(122,90,138,.25);background:rgba(122,90,138,.12);font-weight:500}
+.ph-nav a:hover{background:rgba(122,90,138,.22);color:#e8d0a0}
 #btt{position:fixed;right:24px;bottom:28px;width:38px;height:38px;border-radius:50%;background:rgba(24,15,4,.75);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.85);font-size:15px;cursor:pointer;opacity:0;transform:translateY(8px);transition:opacity .2s,transform .2s;pointer-events:none;z-index:150;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.3);font-family:inherit}
 #btt.show{opacity:1;transform:translateY(0);pointer-events:auto}
 #btt:hover{background:rgba(18,11,3,.9);transform:translateY(-2px)}
 .wrap{max-width:1200px;margin:0 auto;padding:32px 40px 48px}
 .case-header{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:20px 24px;margin-bottom:10px;display:flex;align-items:center;gap:18px;box-shadow:var(--shadow-card)}
-.case-logo{width:44px;height:44px;background:linear-gradient(135deg,#c8a060,var(--accent-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;flex-shrink:0}
+.case-logo{width:44px;height:44px;background:linear-gradient(135deg,#9a7aaa,var(--accent-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;flex-shrink:0}
 .case-info h2{font-size:17px;font-weight:700;color:var(--tx);letter-spacing:-.3px}
 .case-info p{font-size:12px;color:var(--sub);margin-top:3px;line-height:1.5}
 .case-stats{margin-left:auto;display:flex;gap:28px;flex-shrink:0}
@@ -36,7 +36,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .top-link span{border-bottom:1px solid var(--accent-border)}
 .tab-bar{display:flex;gap:6px;margin-bottom:22px;background:var(--s);border:1px solid var(--bd);border-radius:10px;padding:5px;box-shadow:var(--shadow-xs)}
 .tab-btn{flex:1;padding:8px 14px;border-radius:7px;border:none;background:transparent;font-size:13px;font-weight:600;color:var(--sub);cursor:pointer;transition:all .15s;text-align:center;font-family:inherit}
-.tab-btn.active{background:var(--accent);color:#fff;box-shadow:0 2px 6px rgba(138,106,58,.35)}
+.tab-btn.active{background:var(--accent);color:#fff;box-shadow:0 2px 6px rgba(122,90,138,.35)}
 .tab-btn:hover:not(.active){background:var(--accent-light);color:var(--accent-dark)}
 .tab-pane{display:none}
 .tab-pane.show{display:block}
@@ -44,7 +44,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .sec-title::before{content:'';display:inline-block;width:3px;height:14px;background:var(--accent);border-radius:2px;flex-shrink:0}
 .sec-title::after{content:'';flex:1;height:1px;background:var(--bd)}
 .section{margin-bottom:28px}
-.note-bar{background:var(--accent-light);border:1px solid var(--accent-border);border-radius:10px;padding:10px 16px;font-size:12px;color:#6a4a1e;margin-bottom:20px;line-height:1.6}
+.note-bar{background:var(--accent-light);border:1px solid var(--accent-border);border-radius:10px;padding:10px 16px;font-size:12px;color:#5a3a6a;margin-bottom:20px;line-height:1.6}
 .stats-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:22px}
 .sb-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:14px 16px;box-shadow:var(--shadow-xs);text-align:center}
 .sb-n{font-size:26px;font-weight:900;color:var(--accent);line-height:1;letter-spacing:-1px;font-variant-numeric:tabular-nums}
@@ -99,12 +99,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .badge-teal{background:#e0eff2;color:#2f6672;border:1px solid #87b5be}
 .tags-row{display:flex;flex-wrap:wrap;gap:8px}
 .core-tag{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;background:var(--s);border:1.5px solid var(--bd);border-radius:20px;font-size:13px;font-weight:600;color:var(--tx)}
-#copy-toast{position:fixed;bottom:72px;left:50%;transform:translateX(-50%) translateY(8px);background:#1c130a;color:#f8f0e2;font-size:11px;font-weight:600;padding:7px 16px;border-radius:18px;opacity:0;pointer-events:none;transition:opacity .18s,transform .18s;z-index:300;white-space:nowrap}
+#copy-toast{position:fixed;bottom:72px;left:50%;transform:translateX(-50%) translateY(8px);background:#1c130a;color:#ede8f4;font-size:11px;font-weight:600;padding:7px 16px;border-radius:18px;opacity:0;pointer-events:none;transition:opacity .18s,transform .18s;z-index:300;white-space:nowrap}
 #copy-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 .copy-all-row{display:flex;justify-content:flex-end;margin-top:6px}
 .copy-all-btn{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:600;color:var(--accent-dark);background:var(--accent-light);border:1px solid var(--accent-border);border-radius:6px;padding:4px 10px;cursor:pointer;transition:background .15s;font-family:inherit}
 .copy-all-btn.done{background:#c8f0d4;color:#1a5a34}
 .tag-tbl tr.flash td{background:var(--accent-light)}
+
+/* 帳號配色統一（主粉專=紫 #7a5a8a／1510=藍 #607d96，比照富宇玥和） */
+.page-banner,.page-banner.main,.page-banner.main-banner{background:linear-gradient(135deg,#5a3a6a,#7a5a8a)!important;color:#fff}.tab-btn.active{background:#7a5a8a!important;color:#fff!important;box-shadow:0 2px 6px rgba(122,90,138,.3)!important}.tab-btn:hover:not(.active){background:#ede8f4;color:#5a3a6a}
 </style>
 </head>
 <body>
@@ -178,11 +181,18 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
       </div>
     </div>
 
-    <div class="section">
-      <div class="sec-title">建議受眾（28組）· 新增20組 · 更新 2026-09-24</div>
-      <div class="note-bar">📌 策略依據：實測16組中，窄職稱/窄身分式受眾（竹北東區工程師、科技新貴、東區關埔三代同堂、湖口科技業家庭、東區政治文教健康）全數掛零，與富宇學森／LUCE-VIVA案已證實的結論一致——竹科地區窄職稱鎖定持續失靈。全部28組延續三大實測/近期有效方向：①精品鑑賞豪奢生活方式（延伸出錶類收藏、米其林餐飲、遊艇帆船、頂級健身、香氛美妝、滑雪度假等消費場景切角）②廣泛高階主管/企業主框架（延伸出律師會計師合夥人、診所經營者、進出口貿易商、連鎖加盟、企業二代接班、保險金融資深經理等廣泛職業/業主身分，取代已證實無效的窄職稱與三代同堂/科技業家庭包裝）③科技產業投資理財（延伸出生技醫療投資、半導體供應鏈業主、天使投資人、財經媒體訂閱、跨境電商、科技從業者資產配置等，全數用產業/投資行為框架而非窄工程師職稱）。不打不動產/置產投資/家庭/已婚等通用基礎標籤，興趣標籤不含地標項目，地標僅用於地標定位欄位。</div>
-      <div id="main-aud-grid" class="aud-grid-2"></div>
-    </div>
+    <div id="main-aud-grid" style="display:none"></div>
+<div class="section">
+  <div class="sec-title">建議受眾（8組）· 更新 2026-09-10</div>
+  <div class="note-bar">首批8組建議受眾（依16組實測成效設計）。</div>
+  <div id="main-aud-grid-b0" class="aud-grid-2"></div>
+</div>
+
+<div class="section">
+  <div class="sec-title">建議受眾（20組）· 更新 2026-09-24</div>
+  <div class="note-bar">📌 策略依據：實測16組中，窄職稱/窄身分式受眾（竹北東區工程師、科技新貴、東區關埔三代同堂、湖口科技業家庭、東區政治文教健康）全數掛零，與富宇學森／LUCE-VIVA案已證實的結論一致——竹科地區窄職稱鎖定持續失靈。全部28組延續三大實測/近期有效方向：①精品鑑賞豪奢生活方式（延伸出錶類收藏、米其林餐飲、遊艇帆船、頂級健身、香氛美妝、滑雪度假等消費場景切角）②廣泛高階主管/企業主框架（延伸出律師會計師合夥人、診所經營者、進出口貿易商、連鎖加盟、企業二代接班、保險金融資深經理等廣泛職業/業主身分，取代已證實無效的窄職稱與三代同堂/科技業家庭包裝）③科技產業投資理財（延伸出生技醫療投資、半導體供應鏈業主、天使投資人、財經媒體訂閱、跨境電商、科技從業者資產配置等，全數用產業/投資行為框架而非窄工程師職稱）。不打不動產/置產投資/家庭/已婚等通用基礎標籤，興趣標籤不含地標項目，地標僅用於地標定位欄位。</div>
+  <div id="main-aud-grid-b1" class="aud-grid-2"></div>
+</div>
   </div>
 
   <!-- Tab 2: 成效紀錄 -->
@@ -353,6 +363,15 @@ function buildAudCard(g,idx,prefix){
 (function(){
   const mg=document.getElementById('main-aud-grid');
   if(mg)mg.innerHTML=MAIN_G.map((g,i)=>buildAudCard(g,i,'m')).join('');
+})();
+</script>
+
+<script>
+/* 依日期分區：每批新增受眾各自一個區塊（同富宇玥和） */
+(function(){
+const SPLIT=[{"g": "main-aud-grid", "b": [["2026-09-10", 8, 0], ["2026-09-24", 20, 1]]}];
+function run(){let ok=true;SPLIT.forEach(c=>{const src=document.getElementById(c.g);if(!src)return;const cards=[...src.children].filter(e=>e.classList.contains('aud-card'));if(!cards.length){ok=false;return;}let p=0;c.b.forEach(([d,n,t])=>{const dst=document.getElementById(c.g+'-b'+t);cards.slice(p,p+n).forEach(el=>{if(dst)dst.appendChild(el);});p+=n;});});SPLIT.forEach(c=>c.b.forEach(([d,n,t])=>{const dst=document.getElementById(c.g+'-b'+t);if(dst)[...dst.querySelectorAll(':scope>.aud-card .aud-num')].forEach((x,i)=>x.textContent=i+1);}));return ok;}
+if(!run())window.addEventListener('load',run);
 })();
 </script>
 </body>

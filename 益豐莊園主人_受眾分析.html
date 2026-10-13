@@ -7,32 +7,32 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --accent:#5a4a2e;--accent-dark:#3e3220;--accent-light:#f0ece2;--accent-border:#c8b896;
+  --accent:#7a5a8a;--accent-dark:#5a3a6a;--accent-light:#ede8f4;--accent-border:#b89fcc;
   --bg:#f2f3f1;--s:#ffffff;--bd:#e4e5e2;--tx:#2e2c29;--sub:#7d7870;--sub2:#a8a199;
   --good:#1e6e3f;--goodl:#e6f4ea;--warn:#c05c00;
   --radius:12px;--shadow-xs:0 1px 3px rgba(0,0,0,.05);--shadow-sm:0 2px 8px rgba(0,0,0,.07);--shadow-card:0 2px 10px rgba(0,0,0,.06),0 1px 3px rgba(0,0,0,.04);
 }
 body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft JhengHei','Segoe UI',sans-serif;background:var(--bg);color:var(--tx);font-size:14px;line-height:1.6;min-height:100vh}
-.page-header{background:linear-gradient(180deg,#211a10 0%,#16120a 100%);padding:0 40px;height:56px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.04),0 4px 20px rgba(0,0,0,.35);border-bottom:1px solid rgba(255,255,255,.06)}
-.ph-logo{width:30px;height:30px;background:linear-gradient(135deg,#a08858,var(--accent-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;flex-shrink:0}
-.ph-title{font-size:14px;font-weight:700;color:#f0ece2;letter-spacing:-.2px}
+.page-header{background:linear-gradient(180deg,#0d1824 0%,#091218 100%);padding:0 40px;height:56px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.04),0 4px 20px rgba(0,0,0,.35);border-bottom:1px solid rgba(255,255,255,.06)}
+.ph-logo{width:30px;height:30px;background:linear-gradient(135deg,#9a7aaa,var(--accent-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;flex-shrink:0}
+.ph-title{font-size:14px;font-weight:700;color:#ede8f4;letter-spacing:-.2px}
 .ph-sub{font-size:11px;color:#8a7a60;margin-left:2px}
 .ph-nav{margin-left:auto;display:flex;gap:8px;align-items:center}
-.ph-nav a{font-size:12px;color:#c8b896;text-decoration:none;padding:5px 13px;border-radius:6px;border:1px solid rgba(90,74,46,.25);background:rgba(90,74,46,.12);font-weight:500}
-.ph-nav a:hover{background:rgba(90,74,46,.22);color:#e0d0a8}
+.ph-nav a{font-size:12px;color:#b89fcc;text-decoration:none;padding:5px 13px;border-radius:6px;border:1px solid rgba(122,90,138,.25);background:rgba(122,90,138,.12);font-weight:500}
+.ph-nav a:hover{background:rgba(122,90,138,.22);color:#e0d0a8}
 #btt{position:fixed;right:24px;bottom:28px;width:38px;height:38px;border-radius:50%;background:rgba(22,18,10,.75);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.85);font-size:15px;cursor:pointer;opacity:0;transform:translateY(8px);transition:opacity .2s,transform .2s;pointer-events:none;z-index:150;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.3);font-family:inherit}
 #btt.show{opacity:1;transform:translateY(0);pointer-events:auto}
 .wrap{max-width:1200px;margin:0 auto;padding:32px 40px 48px}
 .back-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--accent);text-decoration:none;margin-bottom:20px;padding:5px 12px;background:var(--accent-light);border-radius:20px;border:1px solid var(--accent-border)}
 .case-header{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:20px 24px;margin-bottom:14px;display:flex;align-items:center;gap:18px;box-shadow:var(--shadow-card)}
-.case-logo{width:44px;height:44px;background:linear-gradient(135deg,#a08858,var(--accent-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;flex-shrink:0}
+.case-logo{width:44px;height:44px;background:linear-gradient(135deg,#9a7aaa,var(--accent-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;flex-shrink:0}
 .case-info h2{font-size:17px;font-weight:700;color:var(--tx);letter-spacing:-.3px}
 .case-info p{font-size:12px;color:var(--sub);margin-top:3px;line-height:1.5}
 .case-stats{margin-left:auto;display:flex;gap:28px;flex-shrink:0}
 .stat{text-align:right}
 .stat-n{font-size:24px;font-weight:800;color:var(--accent);line-height:1;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
 .stat-l{font-size:10px;color:var(--sub2);margin-top:3px;font-weight:600;letter-spacing:.3px;text-transform:uppercase}
-.page-banner{border-radius:var(--radius);padding:18px 24px;margin-bottom:22px;display:flex;align-items:center;gap:20px;box-shadow:var(--shadow-card);background:linear-gradient(135deg,#3e3220,#5a4a2e);color:#fff}
+.page-banner{border-radius:var(--radius);padding:18px 24px;margin-bottom:22px;display:flex;align-items:center;gap:20px;box-shadow:var(--shadow-card);background:linear-gradient(135deg,#5a3a6a,#7a5a8a);color:#fff}
 .banner-icon{width:40px;height:40px;background:rgba(255,255,255,.12);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;flex-shrink:0;color:#fff}
 .banner-title{font-size:16px;font-weight:800;letter-spacing:-.2px}
 .banner-sub{font-size:12px;opacity:.8;margin-top:2px}
@@ -40,7 +40,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .sec-title::before{content:'';display:inline-block;width:3px;height:14px;background:var(--accent);border-radius:2px;flex-shrink:0}
 .sec-title::after{content:'';flex:1;height:1px;background:var(--bd)}
 .section{margin-bottom:28px}
-.note-bar{background:var(--accent-light);border:1px solid var(--accent-border);border-radius:10px;padding:10px 16px;font-size:12px;color:#3e3220;margin-bottom:20px;line-height:1.7}
+.note-bar{background:var(--accent-light);border:1px solid var(--accent-border);border-radius:10px;padding:10px 16px;font-size:12px;color:#5a3a6a;margin-bottom:20px;line-height:1.7}
 .aud-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;align-items:start}
 @media(max-width:760px){.aud-grid-2{grid-template-columns:1fr}}
 .aud-card{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);box-shadow:var(--shadow-xs);overflow:hidden}
@@ -57,7 +57,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .aud-sl{font-size:10px;font-weight:700;color:var(--sub2);letter-spacing:.5px;text-transform:uppercase;margin:12px 0 6px}
 .aud-logic{font-size:12px;color:var(--sub);line-height:1.7;background:var(--accent-light);border-left:3px solid var(--accent);padding:10px 12px;border-radius:0 6px 6px 0}
 .aud-lm{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:4px}
-.aud-lm-tag{font-size:11px;font-weight:600;color:#3e3220;background:var(--accent-light);padding:3px 10px;border-radius:10px;border:1px solid var(--accent-border)}
+.aud-lm-tag{font-size:11px;font-weight:600;color:#5a3a6a;background:var(--accent-light);padding:3px 10px;border-radius:10px;border:1px solid var(--accent-border)}
 .tag-tbl{width:100%;border-collapse:collapse;font-size:12px;margin-top:4px}
 .tag-tbl thead tr{background:#f3ede0}
 .tag-tbl th{padding:5px 8px;text-align:left;font-size:10px;font-weight:700;color:var(--sub2);border-bottom:1px solid var(--bd)}
@@ -70,8 +70,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .copy-all-btn{font-size:11px;font-weight:600;color:var(--accent-dark);background:var(--accent-light);border:1px solid var(--accent-border);border-radius:8px;padding:5px 14px;cursor:pointer;transition:all .15s}
 .copy-all-btn.done{background:#d0ecd8;color:#2a6a3a;border-color:#a8d8b8}
 .page-footer{text-align:center;font-size:11px;color:var(--sub2);margin-top:12px;padding-bottom:8px}
-#copy-toast{position:fixed;bottom:72px;left:50%;transform:translateX(-50%) translateY(8px);background:#211a10;color:#f0ece2;font-size:11px;font-weight:600;padding:7px 16px;border-radius:18px;opacity:0;pointer-events:none;transition:opacity .18s,transform .18s;z-index:300;white-space:nowrap}
+#copy-toast{position:fixed;bottom:72px;left:50%;transform:translateX(-50%) translateY(8px);background:#211a10;color:#ede8f4;font-size:11px;font-weight:600;padding:7px 16px;border-radius:18px;opacity:0;pointer-events:none;transition:opacity .18s,transform .18s;z-index:300;white-space:nowrap}
 #copy-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* 帳號配色統一（主粉專=紫 #7a5a8a／1510=藍 #607d96，比照富宇玥和） */
+.page-banner,.page-banner.main,.page-banner.main-banner{background:linear-gradient(135deg,#5a3a6a,#7a5a8a)!important;color:#fff}.tab-btn.active{background:#7a5a8a!important;color:#fff!important;box-shadow:0 2px 6px rgba(122,90,138,.3)!important}.tab-btn:hover:not(.active){background:#ede8f4;color:#5a3a6a}
 </style>
 </head>
 <body>
@@ -112,9 +115,17 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 
 <div class="note-bar">📌 2026-07-28建檔：益豐莊園主人為透天別墅產品，總價5,880萬/戶（單價55-65萬/坪），屬超高總價自地自建等級，買方輪廓需鎖定企業主/高階經理人/自由業高資產者。首批20組參考同集團高總價案「家羽醇華」已驗證有效邏輯（高階運動/投資/出國：倫敦證交所/納斯達克/高爾夫/私人銀行；金融投資：金融市場/被動收入/特斯拉/NVIDIA/黃金；老闆高管：佳士得/Art auction/路易威登/愛馬仕/藝術展覽/勞力士/保時捷/賓士/私人銀行服務或企業家）推導設計，並疊加透天產品特有的「家族傳承/三代同堂/土地資產」邏輯區隔於一般大樓受眾。<br><br>📌 2026-08-19新增20組：實測後發現「金融市場/被動收入/特斯拉/NVIDIA/黃金/保時捷卡宴/賓士G系列」這組金融投資+具體車款標籤成效很好，而「高淨值人士/佳士得/Art auction/精品品牌/私人銀行服務」這組泛精品標籤成效普通，顯示具體資產/車款標籤比抽象的「高淨值/精品」標籤更精準。本批20組全數與既有40組相似度控制在40%以下，聚焦尚未觸及的角度：頂級生活服務消費（私廚管家）、單一嗜好收藏（名錶/紅酒威士忌/超跑/度假別墅）、教育投資（國際學校家長/雙語幼兒園創辦人）、資產架構工具（家族信託境外規劃）、社交會籍身分（EMBA校友/遊艇帆船俱樂部）、以及進口代理/連鎖通路等具體經營業態（建材/珠寶鐘錶/超市量販/健身品牌/物流航運/生技製藥），皆補齊25個以上標籤。</div>
 
+<div id="aud-grid" style="display:none"></div>
 <div class="section">
-  <div class="sec-title">建議受眾（40組）· 更新 2026-08-19</div>
-  <div id="aud-grid" class="aud-grid-2"></div>
+  <div class="sec-title">建議受眾（20組）· 更新 2026-07-29</div>
+  <div class="note-bar">首批20組建議受眾。</div>
+  <div id="aud-grid-b0" class="aud-grid-2"></div>
+</div>
+
+<div class="section">
+  <div class="sec-title">建議受眾（20組）· 更新 2026-08-19</div>
+  <div class="note-bar">新增20組受眾（依實測CPL回饋設計，相似度<40%，聚焦收藏嗜好/教育投資/資產架構/進口代理等新角度）</div>
+  <div id="aud-grid-b1" class="aud-grid-2"></div>
 </div>
 
 <div class="page-footer">益豐莊園主人 受眾分析報告 · 建立 2026-07-28 · 最後更新 2026-08-19 · 9133 廣告操作團隊</div>
@@ -216,6 +227,15 @@ function initAudCard(card){
 function toggleAudG(prefix,i){const c=document.getElementById(prefix+i);c.classList.toggle('open');if(c.classList.contains('open'))initAudCard(c);}
 window.addEventListener('scroll',()=>{document.getElementById('btt').classList.toggle('show',window.scrollY>300)});
 renderAudGrid('aud-grid', G, 'ac');
+</script>
+
+<script>
+/* 依日期分區：每批新增受眾各自一個區塊（同富宇玥和） */
+(function(){
+const SPLIT=[{"g": "aud-grid", "b": [["2026-07-29", 20, 0], ["2026-08-19", 20, 1]]}];
+function run(){let ok=true;SPLIT.forEach(c=>{const src=document.getElementById(c.g);if(!src)return;const cards=[...src.children].filter(e=>e.classList.contains('aud-card'));if(!cards.length){ok=false;return;}let p=0;c.b.forEach(([d,n,t])=>{const dst=document.getElementById(c.g+'-b'+t);cards.slice(p,p+n).forEach(el=>{if(dst)dst.appendChild(el);});p+=n;});});SPLIT.forEach(c=>c.b.forEach(([d,n,t])=>{const dst=document.getElementById(c.g+'-b'+t);if(dst)[...dst.querySelectorAll(':scope>.aud-card .aud-num')].forEach((x,i)=>x.textContent=i+1);}));return ok;}
+if(!run())window.addEventListener('load',run);
+})();
 </script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
@@ -7,26 +7,26 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --accent:#3a6a8a;--accent-dark:#2a4f6a;--accent-light:#e8f0f5;--accent-border:#8ab0c8;
-  --alt:#2a7a5a;--alt-dark:#1a5a3a;--alt-light:#e0f2ec;--alt-border:#7ac0a8;
+  --accent:#607d96;--accent-dark:#4d6a82;--accent-light:#eaf0f6;--accent-border:#a8bed0;
+  --alt:#2a7a6a;--alt-dark:#1a5a4a;--alt-light:#e0f2ee;--alt-border:#7ac0b0;
   --bg:#f2f3f1;--s:#ffffff;--bd:#e4e5e2;--tx:#2e2c29;--sub:#7d7870;--sub2:#a8a199;
   --good:#1e6e3f;--goodl:#e6f4ea;--warn:#c05c00;
   --radius:12px;--shadow-xs:0 1px 3px rgba(0,0,0,.05);--shadow-sm:0 2px 8px rgba(0,0,0,.07);--shadow-card:0 2px 10px rgba(0,0,0,.06),0 1px 3px rgba(0,0,0,.04);
 }
 body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft JhengHei','Segoe UI',sans-serif;background:var(--bg);color:var(--tx);font-size:14px;line-height:1.6;min-height:100vh}
-.page-header{background:linear-gradient(180deg,#0d1e2a 0%,#091521 100%);padding:0 40px;height:56px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.04),0 4px 20px rgba(0,0,0,.35);border-bottom:1px solid rgba(255,255,255,.06)}
-.ph-logo{width:30px;height:30px;background:linear-gradient(135deg,#6a9ab8,var(--accent-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;flex-shrink:0}
-.ph-title{font-size:14px;font-weight:700;color:#e8f0f5;letter-spacing:-.2px}
+.page-header{background:linear-gradient(180deg,#0d1824 0%,#091218 100%);padding:0 40px;height:56px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.04),0 4px 20px rgba(0,0,0,.35);border-bottom:1px solid rgba(255,255,255,.06)}
+.ph-logo{width:30px;height:30px;background:linear-gradient(135deg,#7a9ab5,var(--accent-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;flex-shrink:0}
+.ph-title{font-size:14px;font-weight:700;color:#eaf0f6;letter-spacing:-.2px}
 .ph-sub{font-size:11px;color:#4a6a80;margin-left:2px}
 .ph-nav{margin-left:auto;display:flex;gap:8px;align-items:center}
-.ph-nav a{font-size:12px;color:#8ab0c8;text-decoration:none;padding:5px 13px;border-radius:6px;border:1px solid rgba(58,106,138,.25);background:rgba(58,106,138,.12);font-weight:500}
-.ph-nav a:hover{background:rgba(58,106,138,.22);color:#b8d0e0}
+.ph-nav a{font-size:12px;color:#a8bed0;text-decoration:none;padding:5px 13px;border-radius:6px;border:1px solid rgba(96,125,150,.25);background:rgba(96,125,150,.12);font-weight:500}
+.ph-nav a:hover{background:rgba(96,125,150,.22);color:#b8d0e0}
 #btt{position:fixed;right:24px;bottom:28px;width:38px;height:38px;border-radius:50%;background:rgba(10,20,30,.75);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.85);font-size:15px;cursor:pointer;opacity:0;transform:translateY(8px);transition:opacity .2s,transform .2s;pointer-events:none;z-index:150;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.3);font-family:inherit}
 #btt.show{opacity:1;transform:translateY(0);pointer-events:auto}
 .wrap{max-width:1200px;margin:0 auto;padding:32px 40px 48px}
 .back-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--accent);text-decoration:none;margin-bottom:20px;padding:5px 12px;background:var(--accent-light);border-radius:20px;border:1px solid var(--accent-border)}
 .case-header{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:20px 24px;margin-bottom:14px;display:flex;align-items:center;gap:18px;box-shadow:var(--shadow-card)}
-.case-logo{width:44px;height:44px;background:linear-gradient(135deg,#6a9ab8,var(--accent-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;flex-shrink:0}
+.case-logo{width:44px;height:44px;background:linear-gradient(135deg,#7a9ab5,var(--accent-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;flex-shrink:0}
 .case-info h2{font-size:17px;font-weight:700;color:var(--tx);letter-spacing:-.3px}
 .case-info p{font-size:12px;color:var(--sub);margin-top:3px;line-height:1.5}
 .case-stats{margin-left:auto;display:flex;gap:28px;flex-shrink:0}
@@ -36,14 +36,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 /* Tab */
 .tab-bar{display:flex;gap:6px;margin-bottom:22px;background:var(--s);border:1px solid var(--bd);border-radius:10px;padding:5px;box-shadow:var(--shadow-xs)}
 .tab-btn{flex:1;padding:8px 14px;border-radius:7px;border:none;background:transparent;font-size:13px;font-weight:600;color:var(--sub);cursor:pointer;transition:all .15s;text-align:center;font-family:inherit}
-.tab-btn.active{background:var(--accent);color:#fff;box-shadow:0 2px 6px rgba(58,106,138,.3)}
+.tab-btn.active{background:var(--accent);color:#fff;box-shadow:0 2px 6px rgba(96,125,150,.3)}
 .tab-bar .tab-btn:nth-child(2).active{background:var(--alt);color:#fff;box-shadow:0 2px 6px rgba(42,122,90,.3)}
 .tab-btn:hover:not(.active){background:var(--accent-light);color:var(--accent-dark)}
 .tab-pane{display:none}
 .tab-pane.show{display:block}
 /* Banner */
 .page-banner{border-radius:var(--radius);padding:18px 24px;margin-bottom:22px;display:flex;align-items:center;gap:20px;box-shadow:var(--shadow-card)}
-.page-banner.main-banner{background:linear-gradient(135deg,#2a4f6a,#3a6a8a);color:#fff}
+.page-banner.main-banner{background:linear-gradient(135deg,#4d6a82,#607d96);color:#fff}
 .page-banner.alt-banner{background:linear-gradient(135deg,#1a5a3a,#2a7a5a);color:#fff}
 .banner-icon{width:40px;height:40px;background:rgba(255,255,255,.12);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;flex-shrink:0;color:#fff}
 .banner-title{font-size:16px;font-weight:800;letter-spacing:-.2px}
@@ -117,8 +117,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .copy-all-btn.alt-btn{color:var(--alt-dark);background:var(--alt-light);border-color:var(--alt-border)}
 .copy-all-btn.done{background:#d0ecd8;color:#2a6a3a;border-color:#a8d8b8}
 .page-footer{text-align:center;font-size:11px;color:var(--sub2);margin-top:12px;padding-bottom:8px}
-#copy-toast{position:fixed;bottom:72px;left:50%;transform:translateX(-50%) translateY(8px);background:#0d1e2a;color:#e8f0f5;font-size:11px;font-weight:600;padding:7px 16px;border-radius:18px;opacity:0;pointer-events:none;transition:opacity .18s,transform .18s;z-index:300;white-space:nowrap}
+#copy-toast{position:fixed;bottom:72px;left:50%;transform:translateX(-50%) translateY(8px);background:#0d1e2a;color:#eaf0f6;font-size:11px;font-weight:600;padding:7px 16px;border-radius:18px;opacity:0;pointer-events:none;transition:opacity .18s,transform .18s;z-index:300;white-space:nowrap}
 #copy-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* 帳號配色統一（主粉專=紫 #7a5a8a／1510=藍 #607d96，比照富宇玥和） */
+.page-banner.main,.page-banner.main-banner{background:linear-gradient(135deg,#5a3a6a,#7a5a8a)!important;color:#fff}.page-banner.alt,.page-banner.alt-banner{background:linear-gradient(135deg,#4d6a82,#607d96)!important;color:#fff}.tab-btn.active{background:#7a5a8a!important;color:#fff!important;box-shadow:0 2px 6px rgba(122,90,138,.3)!important}.tab-bar .tab-btn:nth-child(2).active{background:#607d96!important;box-shadow:0 2px 6px rgba(96,125,150,.3)!important}.tab-btn:hover:not(.active){background:#f0edf5;color:#5a3a6a}
 </style>
 </head>
 <body>

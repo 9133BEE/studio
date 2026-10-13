@@ -7,25 +7,25 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --accent:#7a5a3a;--accent-dark:#5a3e26;--accent-light:#f6efe6;--accent-border:#c4a07a;
-  --bg:#f2f1ee;--s:#ffffff;--bd:#e6e2da;--tx:#2c2a26;--sub:#7e7a72;--sub2:#a8a49a;
+  --accent:#7a5a8a;--accent-dark:#5a3a6a;--accent-light:#ede8f4;--accent-border:#b89fcc;
+  --bg:#f2f3f1;--s:#ffffff;--bd:#e4e5e2;--tx:#2e2c29;--sub:#7d7870;--sub2:#a8a199;
   --good:#1e3a6e;--goodl:#e6eaf4;--warn:#4a6a8a;
   --radius:12px;--shadow-xs:0 1px 3px rgba(0,0,0,.05);--shadow-sm:0 2px 8px rgba(0,0,0,.07);--shadow-card:0 2px 10px rgba(0,0,0,.06),0 1px 3px rgba(0,0,0,.04);
 }
 body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft JhengHei','Segoe UI',sans-serif;background:var(--bg);color:var(--tx);font-size:14px;line-height:1.6;min-height:100vh}
-.page-header{background:linear-gradient(180deg,#1a1410 0%,#100d0a 100%);padding:0 40px;height:56px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.04),0 4px 20px rgba(0,0,0,.35);border-bottom:1px solid rgba(255,255,255,.06)}
-.ph-logo{width:30px;height:30px;background:linear-gradient(135deg,#a47a4a,var(--accent-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;flex-shrink:0}
+.page-header{background:linear-gradient(180deg,#0d1824 0%,#091218 100%);padding:0 40px;height:56px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.04),0 4px 20px rgba(0,0,0,.35);border-bottom:1px solid rgba(255,255,255,.06)}
+.ph-logo{width:30px;height:30px;background:linear-gradient(135deg,#9a7aaa,var(--accent-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;flex-shrink:0}
 .ph-title{font-size:14px;font-weight:700;color:#f1e8dd;letter-spacing:-.2px}
 .ph-sub{font-size:11px;color:#3a2e20;margin-left:2px}
 .ph-nav{margin-left:auto;display:flex;gap:8px;align-items:center}
-.ph-nav a{font-size:12px;color:#c4a07a;text-decoration:none;padding:5px 13px;border-radius:6px;border:1px solid rgba(122,90,58,.3);background:rgba(122,90,58,.15);font-weight:500}
-.ph-nav a:hover{background:rgba(122,90,58,.25);color:#e0c4a0}
+.ph-nav a{font-size:12px;color:#b89fcc;text-decoration:none;padding:5px 13px;border-radius:6px;border:1px solid rgba(122,90,138,.3);background:rgba(122,90,138,.15);font-weight:500}
+.ph-nav a:hover{background:rgba(122,90,138,.25);color:#e0c4a0}
 #btt{position:fixed;right:24px;bottom:28px;width:38px;height:38px;border-radius:50%;background:rgba(20,16,12,.75);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.85);font-size:15px;cursor:pointer;opacity:0;transform:translateY(8px);transition:opacity .2s,transform .2s;pointer-events:none;z-index:150;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.3);font-family:inherit}
 #btt.show{opacity:1;transform:translateY(0);pointer-events:auto}
 #btt:hover{background:rgba(40,32,24,.9);transform:translateY(-2px)}
 .wrap{max-width:1440px;margin:0 auto;padding:32px 48px 48px}
 .case-header{background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:20px 24px;margin-bottom:10px;display:flex;align-items:center;gap:18px;box-shadow:var(--shadow-card)}
-.case-logo{width:44px;height:44px;background:linear-gradient(135deg,#a47a4a,var(--accent-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;flex-shrink:0}
+.case-logo{width:44px;height:44px;background:linear-gradient(135deg,#9a7aaa,var(--accent-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;flex-shrink:0}
 .case-info h2{font-size:17px;font-weight:700;color:var(--tx);letter-spacing:-.3px}
 .case-info p{font-size:12px;color:var(--sub);margin-top:3px;line-height:1.5}
 .case-stats{margin-left:auto;display:flex;gap:28px;flex-shrink:0}
@@ -50,7 +50,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .profile-tags{font-size:12px;color:#4a5568;margin-bottom:10px;line-height:1.6}
 .profile-behavior{font-size:12px;color:var(--sub);line-height:1.55;margin-bottom:12px}
 .profile-badge{display:inline-block;font-size:11px;font-weight:700;padding:4px 11px;border-radius:20px;margin-top:2px}
-.badge-warm{background:var(--accent-light);color:#5a3e26;border:1px solid var(--accent-border)}
+.badge-warm{background:var(--accent-light);color:#5a3a6a;border:1px solid var(--accent-border)}
 .badge-blue{background:#eaecf6;color:#2a3a6a;border:1px solid #8a9ac8}
 .badge-green{background:#e8f4ee;color:#1a4a2a;border:1px solid #7ac4a0}
 .note-bar{font-size:12px;color:var(--sub);background:var(--s);border:1px solid var(--bd);border-radius:var(--radius);padding:12px 16px;margin-bottom:14px;line-height:1.65}
@@ -65,7 +65,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .tip-title{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:5px;line-height:1.4}
 .tip-desc{font-size:12px;color:var(--sub);line-height:1.65}
 .page-banner{border-radius:var(--radius);padding:18px 24px;margin-bottom:22px;display:flex;align-items:center;gap:20px;box-shadow:var(--shadow-card)}
-.page-banner.main{background:linear-gradient(135deg,#5a3e26,#7a5a3a);color:#fff}
+.page-banner.main{background:linear-gradient(135deg,#5a3a6a,#7a5a8a);color:#fff}
 .banner-icon{width:40px;height:40px;background:rgba(255,255,255,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;flex-shrink:0}
 .banner-title{font-size:16px;font-weight:800;letter-spacing:-.2px}
 .banner-sub{font-size:12px;opacity:.8;margin-top:2px}
@@ -97,6 +97,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .tag-tbl tbody tr{cursor:pointer;transition:background .1s}
 .tag-tbl tbody tr:hover{background:var(--accent-light)}
 .page-footer{text-align:center;font-size:11px;color:var(--sub2);margin-top:12px;padding-bottom:8px}
+
+/* 帳號配色統一（主粉專=紫 #7a5a8a／1510=藍 #607d96，比照富宇玥和） */
+.page-banner,.page-banner.main,.page-banner.main-banner{background:linear-gradient(135deg,#5a3a6a,#7a5a8a)!important;color:#fff}.tab-btn.active{background:#7a5a8a!important;color:#fff!important;box-shadow:0 2px 6px rgba(122,90,138,.3)!important}.tab-btn:hover:not(.active){background:#ede8f4;color:#5a3a6a}
 </style>
 </head>
 <body>

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
@@ -7,14 +7,14 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --accent:#4a6e8a;--accent-dark:#364f65;--accent-light:#e6eff5;--accent-border:#90b0c8;
+  --accent:#7a5a8a;--accent-dark:#5a3a6a;--accent-light:#ede8f4;--accent-border:#b89fcc;
   --bg:#f2f3f1;--s:#ffffff;--bd:#e4e5e2;--tx:#2e2c29;--sub:#7d7870;--sub2:#a8a199;
   --good:#1e6e3f;--goodl:#e6f4ea;--warn:#c05c00;
   --radius:12px;--shadow-xs:0 1px 3px rgba(0,0,0,.05);--shadow-sm:0 2px 8px rgba(0,0,0,.07);--shadow-card:0 2px 10px rgba(0,0,0,.06),0 1px 3px rgba(0,0,0,.04);
 }
 body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft JhengHei','Segoe UI',sans-serif;background:var(--bg);color:var(--tx);font-size:14px;line-height:1.6;min-height:100vh}
-.page-header{background:linear-gradient(180deg,#0f1923 0%,#0b1520 100%);padding:0 40px;height:56px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.04),0 4px 20px rgba(0,0,0,.35);border-bottom:1px solid rgba(255,255,255,.05)}
-.ph-logo{width:30px;height:30px;background:linear-gradient(135deg,#7ba3be,var(--accent-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;flex-shrink:0}
+.page-header{background:linear-gradient(180deg,#0d1824 0%,#091218 100%);padding:0 40px;height:56px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.04),0 4px 20px rgba(0,0,0,.35);border-bottom:1px solid rgba(255,255,255,.05)}
+.ph-logo{width:30px;height:30px;background:linear-gradient(135deg,#9a7aaa,var(--accent-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;flex-shrink:0}
 .ph-title{font-size:14px;font-weight:700;color:#f1f5f9;letter-spacing:-.2px}
 .ph-sub{font-size:11px;color:#475569;margin-left:2px}
 .ph-nav{margin-left:auto;display:flex;gap:8px;align-items:center}
@@ -196,6 +196,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
 .rank-op-grid>.section:nth-child(1) .rk-grid,.rank-op-grid>.section:nth-child(3) .tips{flex:1}
 .rank-op-grid>.section:nth-child(1) .rk-row,.rank-op-grid>.section:nth-child(3) .tip{flex:1;min-height:0}
 @media(max-width:900px){.rank-op-grid{display:block}}
+
+/* 帳號配色統一（主粉專=紫 #7a5a8a／1510=藍 #607d96，比照富宇玥和） */
+.page-banner,.page-banner.main,.page-banner.main-banner{background:linear-gradient(135deg,#5a3a6a,#7a5a8a)!important;color:#fff}.tab-btn.active{background:#7a5a8a!important;color:#fff!important;box-shadow:0 2px 6px rgba(122,90,138,.3)!important}.tab-btn:hover:not(.active){background:#ede8f4;color:#5a3a6a}
 </style>
 </head>
 <body>
@@ -285,9 +288,23 @@ body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft Jheng
   </div>
 </div>
 
+<div id="main-aud-grid" style="display:none"></div>
 <div class="section">
-  <div class="sec-title">建議受眾方向（60組）· 更新 2026-07-28</div>
-  <div id="main-aud-grid" class="aud-grid-2"></div>
+  <div class="sec-title">建議受眾方向（20組）· 更新 2026-07-01</div>
+  <div class="note-bar">受眾更新20組（當時累計294潛客／均CPL NT$389）。</div>
+  <div id="main-aud-grid-b0" class="aud-grid-2"></div>
+</div>
+
+<div class="section">
+  <div class="sec-title">建議受眾方向（20組）· 更新 2026-07-15</div>
+  <div class="note-bar">追加20組受眾包，延伸4組近期高效標籤，發展不重複的新方向。</div>
+  <div id="main-aud-grid-b1" class="aud-grid-2"></div>
+</div>
+
+<div class="section">
+  <div class="sec-title">建議受眾方向（20組）· 更新 2026-07-28</div>
+  <div class="note-bar">新增20組受眾，交叉分析CSV+3組有效標籤例</div>
+  <div id="main-aud-grid-b2" class="aud-grid-2"></div>
 </div>
 
 <div class="section">
@@ -916,6 +933,15 @@ document.querySelectorAll('.rk-row').forEach(el=>{el.addEventListener('click',()
 </script>
 <button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到頂部">↑</button>
 <script>window.addEventListener('scroll',()=>document.getElementById('btt').classList.toggle('show',window.scrollY>300))</script>
+
+<script>
+/* 依日期分區：每批新增受眾各自一個區塊（同富宇玥和） */
+(function(){
+const SPLIT=[{"g": "main-aud-grid", "b": [["2026-07-01", 20, 0], ["2026-07-15", 20, 1], ["2026-07-28", 20, 2]]}];
+function run(){let ok=true;SPLIT.forEach(c=>{const src=document.getElementById(c.g);if(!src)return;const cards=[...src.children].filter(e=>e.classList.contains('aud-card'));if(!cards.length){ok=false;return;}let p=0;c.b.forEach(([d,n,t])=>{const dst=document.getElementById(c.g+'-b'+t);cards.slice(p,p+n).forEach(el=>{if(dst)dst.appendChild(el);});p+=n;});});SPLIT.forEach(c=>c.b.forEach(([d,n,t])=>{const dst=document.getElementById(c.g+'-b'+t);if(dst)[...dst.querySelectorAll(':scope>.aud-card .aud-num')].forEach((x,i)=>x.textContent=i+1);}));return ok;}
+if(!run())window.addEventListener('load',run);
+})();
+</script>
 </body>
 </html>
 
