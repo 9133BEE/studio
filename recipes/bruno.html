@@ -8,16 +8,25 @@
 :root{
   --bg:#faf8f5; --card:#ffffff; --text:#2b2724; --muted:#8a827a; --line:#ece6df;
   --accent:#c8553d; --accent-soft:#f6e4de; --tag:#f1ece6;
+  --unit:#d8d0c6; --metal:#b4aea7; --inner:#e9e5e0; --liquid:#efc794; --water:#bcd9e6;
+  --plate:#4a4542; --bowl:#fbf8f3; --glass:#8fbcd0; --glass-fill:rgba(143,188,208,.16);
+  --hi:#d4412b; --mid:#d9801f; --lo:#b8941c;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
     --bg:#1c1a18; --card:#262321; --text:#ece6df; --muted:#a39a90; --line:#38332f;
-    --accent:#e2775f; --accent-soft:#3a2a25; --tag:#322e2a;
+    --accent:#e2775f; --accent-soft:#3a2a25; --tag:#322e2a; color-scheme:dark;
+    --unit:#4b4541; --metal:#857e78; --inner:#3a3633; --liquid:#9a6e44; --water:#3f6475;
+    --plate:#151312; --bowl:#ece6dd; --glass:#6f9fb5; --glass-fill:rgba(111,159,181,.14);
+    --hi:#f0705a; --mid:#f0a24a; --lo:#e0c25a;
   }
 }
 :root[data-theme="dark"]{
   --bg:#1c1a18; --card:#262321; --text:#ece6df; --muted:#a39a90; --line:#38332f;
-  --accent:#e2775f; --accent-soft:#3a2a25; --tag:#322e2a;
+  --accent:#e2775f; --accent-soft:#3a2a25; --tag:#322e2a; color-scheme:dark;
+  --unit:#4b4541; --metal:#857e78; --inner:#3a3633; --liquid:#9a6e44; --water:#3f6475;
+  --plate:#151312; --bowl:#ece6dd; --glass:#6f9fb5; --glass-fill:rgba(111,159,181,.14);
+  --hi:#f0705a; --mid:#f0a24a; --lo:#e0c25a;
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--text);
@@ -46,18 +55,37 @@ ul,ol{margin:0;padding-left:20px}
 li{margin:2px 0}
 .note{margin-top:12px;color:var(--muted);font-size:13.5px}
 footer{margin-top:40px;color:var(--muted);font-size:12.5px;text-align:center}
+.fig{display:grid;gap:10px;background:var(--tag);border-radius:10px;padding:12px}
+.fig svg{width:100%;max-width:340px;height:auto;display:block;margin:0 auto}
+.f-unit{fill:var(--unit)} .f-metal{fill:var(--metal)} .f-inner{fill:var(--inner)}
+.f-liquid{fill:var(--liquid)} .f-water{fill:var(--water)} .f-plate{fill:var(--plate);stroke:var(--metal);stroke-width:1.5}
+.f-bowl{fill:var(--bowl);stroke:var(--metal);stroke-width:1}
+.f-rack{stroke:var(--text);stroke-width:2;fill:none;opacity:.55}
+.f-glass{fill:var(--glass-fill);stroke:var(--glass);stroke-width:2.5}
+.f-steam{fill:none;stroke:var(--muted);stroke-width:2;stroke-linecap:round;opacity:.6}
+.f-lbl{fill:var(--muted);font-size:9px;letter-spacing:.1em}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-size:13px}
+.fs{display:inline-flex;align-items:center;gap:6px;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:3px 9px}
+.fs b{font-weight:600}
+.bars{display:inline-flex;align-items:flex-end;gap:2px}
+.bars i{width:4px;background:var(--line);border-radius:1px}
+.bars i:nth-child(1){height:6px}.bars i:nth-child(2){height:9px}.bars i:nth-child(3){height:12px}
+.fs.hi .bars i.on{background:var(--hi)} .fs.mid .bars i.on{background:var(--mid)} .fs.lo .bars i.on{background:var(--lo)}
+.fs.hi b{color:var(--hi)} .fs.mid b{color:var(--mid)} .fs.lo b{color:var(--lo)} .fs.off b{color:var(--muted)}
+.arr{color:var(--muted)}
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
     <h1>BRUNO 料理鍋・簡易食譜</h1>
-    <p>BOE115 迷你多功能料理鍋專用　煮・煎・蒸・湯　1–2 人份</p>
+    <p>BOE115 迷你多功能料理鍋專用　煮・煎・蒸・湯・放著就熟・炊飯　1–2 人份</p>
     <div class="tips"><ul>
       <li>容量 800ml，煮湯、煮麵的液體控制在 600ml 以內，滾的時候才不會溢出。</li>
       <li>火力 600W 比較溫和：煎類先把烤盤預熱 3–5 分鐘再下食材；煮滾的時間會比瓦斯爐久一點。</li>
       <li>火力從「保溫」調到「高」，食譜裡的低／中／高火對應刻度的低段、中段、高段。</li>
       <li>蒸的時候鍋裡放約 200ml 水再架蒸架，蒸超過 15 分鐘記得看一下水量，不夠就補熱水。</li>
+      <li>炊飯一次煮 1 米杯就好，鍋底先抹一點油比較不會黏鍋。</li>
     </ul></div>
   </header>
   <nav id="nav"></nav>
@@ -138,8 +166,170 @@ const DATA = {
      i:["韓式泡菜 100g","豬五花肉片 80g","嫩豆腐 1/2 盒、洋蔥 少許","韓式辣醬 1/2 大匙、醬油 1/2 小匙、糖 1/2 小匙","水 350ml、雞蛋 1 顆、青蔥 1 根"],
      st:["中火把五花肉炒到出油，放入泡菜一起炒香。","加入洋蔥、辣醬、醬油和糖拌炒。","倒水煮滾，放入大塊豆腐煮 5 分鐘。","打入雞蛋、撒蔥段，蓋上玻璃蓋 1–2 分鐘就完成。"],
      tip:"一人份剛好整鍋上桌；泡菜越酸越適合煮湯，泡菜汁也可以一起倒進去。"}
+  ],
+  "放著就熟": [
+    {n:"櫛瓜豆腐雞蛋煮",t:"15 分",s:"1–2 人",p:"鍋 + 玻璃蓋",
+     i:["櫛瓜 1/2 條（切 1 公分圓片）","嫩豆腐 1/2 盒（切大塊）","雞蛋 2 顆","高湯或水 200ml","醬油 1 大匙、味醂 1 大匙","蔥花 少許"],
+     st:["高湯、醬油、味醂倒進鍋裡，高火煮滾。","鋪上櫛瓜片和豆腐，蓋上玻璃蓋，中火煮 5 分鐘。","在空隙打入雞蛋，蓋回鍋蓋，轉低火燜 4–5 分鐘。","蛋白凝固就好，撒上蔥花，連湯一起吃。"],
+     tip:"喜歡蛋黃全熟就多燜 2 分鐘；加幾隻蝦仁一起放，鮮味更足。"},
+    {n:"鮮蝦櫛瓜茶碗蒸",t:"20 分",s:"1–2 人",p:"鍋 + 蒸架 + 玻璃蓋",
+     i:["雞蛋 2 顆","高湯或水 240ml","鹽 少許、醬油 數滴","蝦仁 4–6 隻","櫛瓜 1/4 條（切小丁）"],
+     st:["鍋裡放約 200ml 水，架上蒸架，高火煮滾。","蛋、高湯、鹽打勻後過篩。","把蝦仁和櫛瓜丁放進 2 個小碗，倒入蛋液，碗口蓋鋁箔紙。","放上蒸架，玻璃蓋留一點縫，低火蒸 15 分鐘，中間不用動它。"],
+     tip:"蝦仁先用一點米酒抓一下，蒸出來不會有腥味。"},
+    {n:"櫛瓜豬肉千層鍋",t:"20 分",s:"1–2 人",p:"鍋 + 玻璃蓋",
+     i:["櫛瓜 1 條（斜切薄片）","豬五花或梅花火鍋肉片 120g","水 150ml、米酒 1 大匙","醬油 1 大匙、味醂 1 大匙","白胡椒 少許"],
+     st:["櫛瓜和肉片一片疊一片，直立排進鍋裡，排成一圈。","水、米酒、醬油和味醂調勻，淋在上面。","蓋上玻璃蓋，中火煮 12–15 分鐘，不用翻動。","肉片全熟就完成，撒一點白胡椒。"],
+     tip:"肉片的油會滲進櫛瓜；沾柚子醋吃也很清爽。"},
+    {n:"酒蒸蝦",t:"10 分",s:"1–2 人",p:"鍋 + 玻璃蓋",
+     i:["白蝦 10 尾（剪鬚）","米酒 50ml","薑絲 少許、蒜片 3 瓣","鹽 少許","枸杞 少許（可省）"],
+     st:["蝦子平鋪進鍋，放上薑絲和蒜片。","淋上米酒，撒一點鹽。","蓋上玻璃蓋，高火煮 5–6 分鐘。","蝦子全部變紅就完成，鍋底的湯汁可以拿來沾蝦吃。"],
+     tip:"米酒換成清酒或白酒也好吃；不喜歡酒味就多煮 1 分鐘讓酒氣散掉。"},
+    {n:"番茄蛋煮豆腐",t:"15 分",s:"1–2 人",p:"鍋 + 玻璃蓋",
+     i:["牛番茄 1 顆（切塊）","板豆腐 1/2 盒（切塊）","雞蛋 2 顆","番茄醬 1 大匙、糖 1 小匙、鹽 少許","水 100ml"],
+     st:["番茄、番茄醬、糖和水放進鍋裡，蓋上玻璃蓋，中火煮 5 分鐘到番茄軟爛。","放入豆腐，用湯匙稍微把番茄壓碎。","打入雞蛋，蓋回鍋蓋，低火燜 4–5 分鐘。","用鹽調味，配白飯剛好。"],
+     tip:"加一把蝦仁或櫛瓜丁就是更豐盛的版本。"},
+    {n:"蛤蜊蒸蛋",t:"20 分",s:"1–2 人",p:"鍋 + 蒸架 + 玻璃蓋",
+     i:["蛤蜊 8–10 顆（先吐沙）","雞蛋 2 顆","水 240ml","鹽 少許、米酒 數滴","蔥花 少許"],
+     st:["鍋裡放約 200ml 水，架上蒸架，高火煮滾。","蛋、水、鹽、米酒打勻後過篩，倒進大碗。","放入蛤蜊，碗口蓋鋁箔紙。","放上蒸架，玻璃蓋留一點縫，低火蒸 15 分鐘，蛤蜊打開、蛋凝固就完成。"],
+     tip:"蛤蜊本身有鹹味，鹽放一點點就好。"}
+  ],
+  "炊飯": [
+    {n:"胡椒蝦炊飯",t:"45 分（含泡米）",s:"1–2 人",p:"鍋 + 玻璃蓋",
+     i:["白米 1 米杯（約 150g）","白蝦 6–8 尾（剪鬚、開背）","奶油 15g、蒜末 1 大匙","粗粒黑胡椒 1 小匙、米酒 1 大匙","醬油 1 大匙","水 170ml","蔥花 少許"],
+     st:["米洗好，泡水 20 分鐘後瀝乾。","中火融化奶油，蝦子煎到兩面變紅，加入蒜末、黑胡椒和米酒炒香，蝦子先夾出來。","米倒進鍋裡和蒜末、奶油拌炒 1 分鐘，加入水和醬油，高火煮滾。","蓋上玻璃蓋，轉低火煮 15 分鐘，把蝦子鋪回飯上，關火燜 10 分鐘，撒蔥花、再撒一點黑胡椒拌開。"],
+     tip:"喜歡重胡椒就在最後拌飯時再多撒一點；鍋底會有一點香香的鍋巴。"},
+    {n:"整顆番茄炊飯",t:"45 分（含泡米）",s:"1–2 人",p:"鍋 + 玻璃蓋",
+     i:["白米 1 米杯（約 150g）","牛番茄 1 顆（底部劃十字）","水 150ml","鹽 1/2 小匙、橄欖油 1 大匙","黑胡椒、起司粉 適量"],
+     st:["米洗好，泡水 20 分鐘後瀝乾，放進鍋裡。","加水、鹽和橄欖油，番茄去蒂放在正中間。","高火煮滾後蓋上玻璃蓋，轉低火煮 15 分鐘，再關火燜 10 分鐘。","用飯匙把番茄壓碎跟飯拌勻，撒黑胡椒和起司粉。"],
+     tip:"番茄會出水，所以水要比平常少一點；拌入櫛瓜丁或蝦仁一起煮也很合。"},
+    {n:"櫛瓜鮭魚炊飯",t:"45 分（含泡米）",s:"1–2 人",p:"鍋 + 玻璃蓋",
+     i:["白米 1 米杯（約 150g）","鮭魚 1 片（約 120g）","櫛瓜 1/3 條（切小丁）","水 170ml","醬油 1 大匙、米酒 1 大匙","奶油 10g、白芝麻 少許"],
+     st:["米洗好，泡水 20 分鐘後瀝乾，和水、醬油、米酒一起放進鍋。","放上鮭魚和櫛瓜丁。","高火煮滾後蓋上玻璃蓋，轉低火煮 15 分鐘，再關火燜 10 分鐘。","放上奶油，把鮭魚撥碎、挑掉刺，和飯一起拌勻，撒芝麻。"],
+     tip:"鮭魚先抹一點鹽放 10 分鐘，擦乾再放進去，比較不腥。"},
+    {n:"玉米奶油雞肉炊飯",t:"45 分（含泡米）",s:"1–2 人",p:"鍋 + 玻璃蓋",
+     i:["白米 1 米杯（約 150g）","去骨雞腿肉 1/2 片（切小塊）","玉米粒 3 大匙","水 170ml","醬油 1 大匙、味醂 1/2 大匙","奶油 10g、黑胡椒 少許"],
+     st:["米洗好，泡水 20 分鐘後瀝乾。","雞肉用醬油、味醂抓一下。","米、水和醬汁放進鍋，鋪上雞肉和玉米粒，高火煮滾。","蓋上玻璃蓋，轉低火煮 15 分鐘，關火燜 10 分鐘，放奶油、黑胡椒拌勻。"],
+     tip:"玉米粒用罐頭的就可以，記得瀝乾水分。"}
   ]
 };
+
+// 圖解：[鍋中食材, 火力流程]
+const DIAG = {
+  "迷你壽喜燒":["o,t,mush,v,m","高:炒香|高:煮滾|中:煮 5 分|中:涮牛肉"],
+  "番茄燉雞腿":["chk,to,o,chk","高:煎雞皮|中:炒軟|高:煮滾|低:燉 15 分"],
+  "一人份奶油蛤蜊麵":["c,n,c,n","中:爆香|中:蛤蜊開殼|高:煮滾下麵|中:收汁"],
+  "韓式辣炒年糕":["rc,v,rc,e","高:煮滾|中:煮 6–8 分"],
+  "冰花煎餃":["d,d,d,d","高:預熱 3–5 分|高:燜 8–10 分|高:煎到酥脆"],
+  "香煎鮭魚佐檸檬奶油":["f,v,v","高:預熱|高:皮面 4–5 分|高:翻面 3 分|低:淋奶油"],
+  "培根蘆筍捲佐荷包蛋":["b,b,e","中:預熱|中:煎培根|中:燜 2 分"],
+  "迷你鬆餅":["cake,cake,cake","中:預熱|低:煎到冒泡|低:翻面 1 分"],
+  "蒜蓉蒸蝦":["s,s,s","高:煮滾水|高:蒸 7–8 分"],
+  "茶碗蒸蛋":["cus,s,mush","高:煮滾水|低:蒸 12–15 分"],
+  "豉汁蒸排骨":["rib,rib,rib","高:煮滾水|高:蒸 18–20 分"],
+  "蒸地瓜南瓜玉米":["sp,pk,co","高:煮滾水|中:蒸 15 分|中:加花椰菜 4 分"],
+  "味噌豆腐湯":["t,v,t","高:煮滾|高:煮湯包 3 分|中:煮 2 分|低:化開味噌"],
+  "玉米雞湯":["chk,co,ca","高:汆燙|高:煮滾|低:煮 20 分"],
+  "番茄蔬菜湯":["to,v,ca,po","中:炒軟|高:煮滾|低:煮 15 分"],
+  "韓式泡菜豆腐鍋":["k,m,t,e","中:炒香|高:煮滾|中:煮 5 分|低:燜 1–2 分"],
+  "櫛瓜豆腐雞蛋煮":["z,t,e,z","高:煮滾|中:煮 5 分|低:燜 4–5 分"],
+  "鮮蝦櫛瓜茶碗蒸":["cus,s,z","高:煮滾水|低:蒸 15 分"],
+  "櫛瓜豬肉千層鍋":["z,m,z,m,z","中:煮 12–15 分"],
+  "酒蒸蝦":["s,s,s,s","高:煮 5–6 分"],
+  "番茄蛋煮豆腐":["to,t,e","中:煮 5 分|低:燜 4–5 分"],
+  "蛤蜊蒸蛋":["cus,c,c","高:煮滾水|低:蒸 15 分"],
+  "胡椒蝦炊飯":["r,s,s,s","中:煎蝦|中:炒米|高:煮滾|低:煮 15 分|關:燜 10 分"],
+  "整顆番茄炊飯":["r,to","高:煮滾|低:煮 15 分|關:燜 10 分"],
+  "櫛瓜鮭魚炊飯":["r,z,f,z","高:煮滾|低:煮 15 分|關:燜 10 分"],
+  "玉米奶油雞肉炊飯":["r,chk,co,chk","高:煮滾|低:煮 15 分|關:燜 10 分"]
+};
+
+const TOK = {
+  z:'<circle r="9" fill="#5f9e4a"/><circle r="6.5" fill="#e3edbf"/><circle cx="-2" cy="-1" r="1" fill="#b9c98a"/><circle cx="2" cy="1.5" r="1" fill="#b9c98a"/><circle cx="1" cy="-3" r="1" fill="#b9c98a"/>',
+  s:'<path d="M-8 2A8 8 0 1 1 6 6" stroke="#ef8445" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M5 5l6 3-2-6z" fill="#ef8445"/>',
+  e:'<ellipse rx="11" ry="7" fill="#fffaf0" stroke="#e5d8be"/><circle r="4" fill="#f4b400"/>',
+  t:'<rect x="-8" y="-7" width="16" height="14" rx="2" fill="#fbf6e9" stroke="#ddd1b6"/>',
+  m:'<path d="M-11-3q5-5 11 0t11 0v6q-5 5-11 0t-11 0z" fill="#e8a0a0" stroke="#c87575"/>',
+  to:'<circle r="9" fill="#e0453a"/><path d="M-4-9l4 3 4-3" stroke="#3f8a3a" stroke-width="2" fill="none"/>',
+  v:'<path d="M-9 4Q0-12 9-2Q2 8-9 4z" fill="#6aa84f"/><path d="M-7 3L6-2" stroke="#3e7a32"/>',
+  c:'<path d="M-9 4A9 9 0 0 1 9 4z" fill="#cdbb9f" stroke="#8f7a5c"/><path d="M0 4V-4M-4 4l-2-6M4 4l2-6" stroke="#8f7a5c" stroke-width=".8"/>',
+  n:'<path d="M-11-2q2.75-4 5.5 0t5.5 0 5.5 0 5.5 0M-11 3q2.75-4 5.5 0t5.5 0 5.5 0 5.5 0" stroke="#e5c46a" stroke-width="2.4" fill="none"/>',
+  f:'<rect x="-12" y="-6" width="24" height="12" rx="3" fill="#f59a6b"/><path d="M-5-6v12M1-6v12M7-6v12" stroke="#fde3d2" stroke-width="1.2"/>',
+  co:'<circle cx="-5" cy="-2" r="2.7" fill="#f5c842"/><circle cy="-3" r="2.7" fill="#f5c842"/><circle cx="5" cy="-2" r="2.7" fill="#f5c842"/><circle cx="-3" cy="3" r="2.7" fill="#f5c842"/><circle cx="3" cy="3" r="2.7" fill="#f5c842"/>',
+  d:'<path d="M-11 4Q0-12 11 4z" fill="#f1e2c3" stroke="#c9b083"/><path d="M-4-2l1 3M0-4v4M4-2l-1 3" stroke="#c9b083" stroke-width=".8"/>',
+  b:'<rect x="-12" y="-4.5" width="24" height="9" rx="2" fill="#d9564a"/><path d="M-12 0h24" stroke="#f6d6c8" stroke-width="2"/><path d="M-12-6.5h24" stroke="#6aa84f" stroke-width="2.4" stroke-linecap="round"/>',
+  cake:'<ellipse cy="2" rx="12" ry="5" fill="#d79a52"/><ellipse rx="10" ry="3.6" fill="#efc07d"/>',
+  mush:'<path d="M-8 0A8 7 0 0 1 8 0z" fill="#a9805a"/><rect x="-2" width="4" height="7" rx="1" fill="#efe3cf"/>',
+  o:'<path d="M-8 5A8 8 0 0 1 8 5M-4 5A4 4 0 0 1 4 5" stroke="#b98ab8" stroke-width="2.4" fill="none"/>',
+  chk:'<path d="M-10-4Q-2-10 8-6Q12 3 4 7Q-9 8-10-4z" fill="#e9c08a" stroke="#c4914f"/>',
+  rc:'<rect x="-11" y="-3.5" width="22" height="8" rx="4" fill="#fbf4e6" stroke="#d76a4c" stroke-width="1.5"/>',
+  rib:'<rect x="-10" y="-5" width="20" height="10" rx="4" fill="#b5563d"/><rect x="-13" y="-1.5" width="26" height="3" rx="1.5" fill="#f3e6cf"/>',
+  sp:'<ellipse rx="12" ry="6.5" fill="#8a4f7d"/><ellipse rx="9" ry="4.5" fill="#f2b552"/>',
+  pk:'<path d="M-10 5L0-8L10 5z" fill="#f0a23a" stroke="#4f7a3a" stroke-width="1.6" stroke-linejoin="round"/>',
+  ca:'<path d="M-11-3L11 0L-11 3z" fill="#f07f2c"/><path d="M-11-3l-3-3M-11 3l-3 3" stroke="#6aa84f" stroke-width="1.6"/>',
+  po:'<ellipse rx="9" ry="6.5" fill="#e6cd8d" stroke="#c7a95f"/>',
+  k:'<path d="M-10 4q3-11 10-7q8-3 10 7z" fill="#d9573f"/><path d="M-6 2q4-5 10-2" stroke="#f5d7c5" stroke-width="1.5" fill="none"/>'
+};
+
+function spread(arr, x0, x1){
+  if (arr.length === 1) return [(x0 + x1) / 2];
+  return arr.map((_, k) => x0 + (x1 - x0) * k / (arr.length - 1));
+}
+function place(list, x0, x1, y, s){
+  return spread(list, x0, x1).map((x, k) =>
+    `<g transform="translate(${x.toFixed(1)} ${y}) scale(${s})">${TOK[list[k]] || ''}</g>`).join('');
+}
+
+function drawing(r, foods){
+  const kind = r.p.includes('蒸架') ? 'steam' : r.p.includes('烤盤') ? 'plate' : 'pot';
+  const lid = r.p.includes('玻璃蓋');
+  const rice = foods.includes('r'), custard = foods.includes('cus');
+  const items = foods.filter(f => f !== 'r' && f !== 'cus');
+  let g = '';
+  // 機身
+  g += '<rect class="f-unit" x="50" y="130" width="200" height="28" rx="10"/><circle class="f-metal" cx="228" cy="144" r="6"/><text class="f-lbl" x="70" y="148">BOE115</text>';
+  if (kind === 'plate') {
+    g += '<rect class="f-plate" x="58" y="114" width="184" height="16" rx="5"/>';
+    g += place(items, 84, 216, 106, 1);
+    if (lid) g += '<path class="f-glass" d="M56 114Q150 62 244 114"/><rect class="f-metal" x="143" y="80" width="14" height="7" rx="3"/>';
+  } else {
+    g += '<rect class="f-metal" x="56" y="74" width="12" height="7" rx="3"/><rect class="f-metal" x="232" y="74" width="12" height="7" rx="3"/>';
+    g += '<rect class="f-metal" x="66" y="62" width="168" height="68" rx="6"/><rect class="f-inner" x="72" y="66" width="156" height="60" rx="3"/>';
+    if (kind === 'steam') {
+      g += '<rect class="f-water" x="72" y="110" width="156" height="16"/>';
+      g += '<path class="f-rack" d="M80 106H220M100 106v-4M150 106v-4M200 106v-4"/>';
+      g += '<path class="f-bowl" d="M108 78H192Q188 102 150 102Q112 102 108 78z"/>';
+      if (custard) g += '<path fill="#f4d27a" d="M111 82H189Q186 98 150 98Q114 98 111 82z"/>';
+      g += place(items, 126, 174, 86, .7);
+    } else if (rice) {
+      g += '<rect fill="#f4ecdb" x="72" y="96" width="156" height="30"/>';
+      g += [...Array(26)].map((_, k) => `<ellipse fill="#ffffff" stroke="#e2d6bd" stroke-width=".5" cx="${80 + (k % 13) * 11.5}" cy="${104 + Math.floor(k / 13) * 10 + (k % 2) * 3}" rx="3" ry="1.6"/>`).join('');
+      g += place(items, 96, 204, 94, 1);
+    } else {
+      g += '<rect class="f-liquid" x="72" y="90" width="156" height="36"/>';
+      g += place(items, 94, 206, 92, 1);
+    }
+    if (lid) g += '<path class="f-glass" d="M62 62Q150 24 238 62"/><rect class="f-metal" x="143" y="35" width="14" height="7" rx="3"/>';
+  }
+  if (lid || kind === 'steam') {
+    const top = kind === 'plate' ? 72 : 30;
+    g += [120, 150, 180].map(x => `<path class="f-steam" d="M${x} ${top}q-5-6 0-12t0-12"/>`).join('');
+  }
+  return `<svg viewBox="0 0 300 162" role="img" aria-label="${esc(r.n)} 擺放圖解">${g}</svg>`;
+}
+
+const LV = {'高':['高火',3,'hi'],'中':['中火',2,'mid'],'低':['低火',1,'lo'],'關':['關火',0,'off']};
+function flow(str){
+  return str.split('|').map(seg => {
+    const [lv, txt] = seg.split(':'), [name, n, cls] = LV[lv];
+    const bars = [1,2,3].map(b => `<i class="${b <= n ? 'on' : ''}"></i>`).join('');
+    return `<span class="fs ${cls}"><span class="bars">${bars}</span><b>${name}</b>${esc(txt)}</span>`;
+  }).join('<span class="arr">→</span>');
+}
+function figure(r){
+  const d = DIAG[r.n];
+  if (!d) return '';
+  return `<h3>圖解</h3><div class="fig">${drawing(r, d[0].split(','))}<div class="flow">${flow(d[1])}</div></div>`;
+}
 
 const nav = document.getElementById('nav');
 const list = document.getElementById('list');
@@ -152,6 +342,7 @@ function render(cat){
       <summary><span class="name">${esc(r.n)}</span><span class="meta">${r.t}・${r.s}</span></summary>
       <div class="body">
         <div class="chips"><span class="chip">配件：${esc(r.p)}</span></div>
+        ${figure(r)}
         <h3>食材</h3><ul>${r.i.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
         <h3>步驟</h3><ol>${r.st.map(x => `<li>${esc(x)}</li>`).join('')}</ol>
         <div class="note">小撇步：${esc(r.tip)}</div>
