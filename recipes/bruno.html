@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BRUNO料理鍋食譜</title>
+<style>
+:root{
+  --bg:#faf8f5; --card:#ffffff; --text:#2b2724; --muted:#8a827a; --line:#ece6df;
+  --accent:#c8553d; --accent-soft:#f6e4de; --tag:#f1ece6;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1c1a18; --card:#262321; --text:#ece6df; --muted:#a39a90; --line:#38332f;
+    --accent:#e2775f; --accent-soft:#3a2a25; --tag:#322e2a;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1c1a18; --card:#262321; --text:#ece6df; --muted:#a39a90; --line:#38332f;
+  --accent:#e2775f; --accent-soft:#3a2a25; --tag:#322e2a;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;line-height:1.7}
+.wrap{max-width:860px;margin:0 auto;padding:40px 16px 64px}
+header h1{margin:0;font-size:26px;font-weight:600;letter-spacing:.04em}
+header p{margin:6px 0 0;color:var(--muted);font-size:14px}
+.tips{margin:20px 0 0;padding:12px 16px;background:var(--accent-soft);border-radius:10px;font-size:13.5px}
+.tips ul{padding-left:18px}
+nav{display:flex;gap:8px;margin:28px 0 20px;flex-wrap:wrap}
+nav button{border:1px solid var(--line);background:var(--card);color:var(--text);
+  padding:8px 18px;border-radius:999px;font-size:15px;cursor:pointer;font-family:inherit}
+nav button.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.grid{display:grid;gap:14px}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:0 18px}
+summary{list-style:none;cursor:pointer;padding:16px 0;display:flex;justify-content:space-between;align-items:center;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary .name{font-size:17px;font-weight:600}
+summary .meta{color:var(--muted);font-size:13px;white-space:nowrap}
+details[open] summary{border-bottom:1px solid var(--line)}
+.body{padding:14px 0 18px;font-size:14.5px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.chip{background:var(--tag);border-radius:6px;padding:2px 10px;font-size:12.5px;color:var(--muted)}
+h3{font-size:13px;color:var(--accent);margin:14px 0 6px;letter-spacing:.08em}
+ul,ol{margin:0;padding-left:20px}
+li{margin:2px 0}
+.note{margin-top:12px;color:var(--muted);font-size:13.5px}
+footer{margin-top:40px;color:var(--muted);font-size:12.5px;text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>BRUNO 料理鍋・簡易食譜</h1>
+    <p>BOE115 迷你多功能料理鍋專用　煮・煎・蒸・湯　1–2 人份</p>
+    <div class="tips"><ul>
+      <li>容量 800ml，煮湯、煮麵的液體控制在 600ml 以內，滾的時候才不會溢出。</li>
+      <li>火力 600W 比較溫和：煎類先把烤盤預熱 3–5 分鐘再下食材；煮滾的時間會比瓦斯爐久一點。</li>
+      <li>火力從「保溫」調到「高」，食譜裡的低／中／高火對應刻度的低段、中段、高段。</li>
+      <li>蒸的時候鍋裡放約 200ml 水再架蒸架，蒸超過 15 分鐘記得看一下水量，不夠就補熱水。</li>
+    </ul></div>
+  </header>
+  <nav id="nav"></nav>
+  <main class="grid" id="list"></main>
+  <footer>點開每道料理看食材與步驟</footer>
+</div>
+
+<script>
+const DATA = {
+  "煮": [
+    {n:"迷你壽喜燒",t:"20 分",s:"1–2 人",p:"鍋 + 玻璃蓋",
+     i:["火鍋牛肉片 150g","洋蔥 1/4 顆、青蔥 1 根","板豆腐 1/2 盒、金針菇 1/2 包","娃娃菜 適量","醬汁：醬油 2 大匙、味醂 2 大匙、米酒 1 大匙、糖 2 小匙、水 100ml","生蛋（沾食用，可省）"],
+     st:["高火，鍋裡放少許油，先炒香洋蔥與蔥段。","倒入醬汁煮滾。","排入豆腐、菇類、娃娃菜，蓋上玻璃蓋煮 5 分鐘。","轉中火，牛肉片一次放幾片，煮到變色就吃，邊煮邊加。"],
+     tip:"鍋子小，牛肉分批涮才不會讓湯溫掉太多；剩下的醬汁加一球烏龍麵剛好收尾。"},
+    {n:"番茄燉雞腿",t:"30 分",s:"1–2 人",p:"鍋 + 玻璃蓋",
+     i:["去骨雞腿 1 片（切塊）","牛番茄 1 顆、洋蔥 1/4 顆","蒜頭 2 瓣","番茄醬 1 大匙、鹽 少許、糖 1/2 小匙","水 100ml"],
+     st:["高火，雞皮朝下煎到出油上色。","放入洋蔥、蒜末炒軟。","加入番茄塊、番茄醬和水，煮滾。","蓋上玻璃蓋轉低火燉 15 分鐘，最後用鹽、糖調味。"],
+     tip:"配一碗白飯剛好一人份；馬鈴薯切小丁也可以一起燉。"},
+    {n:"一人份奶油蛤蜊麵",t:"20 分",s:"1 人",p:"鍋 + 玻璃蓋",
+     i:["義大利麵 80g（對折）","蛤蜊 150g（先吐沙）","蒜頭 2 瓣、辣椒 少許","奶油 10g、米酒或白酒 30ml","水 350ml、鹽 少許、巴西里 適量"],
+     st:["中火融化奶油，爆香蒜片、辣椒。","放入蛤蜊與酒，蓋上玻璃蓋，煮到殼打開後先夾出來。","加水煮滾，放入對折的義大利麵，依包裝時間多煮 1–2 分鐘，期間攪拌避免黏鍋。","湯汁收到微稠，放回蛤蜊拌勻，撒上巴西里。"],
+     tip:"麵對折才放得進鍋子；蛤蜊本身有鹹味，鹽最後試過味道再加。"},
+    {n:"韓式辣炒年糕",t:"15 分",s:"1–2 人",p:"鍋",
+     i:["韓式年糕 150g","魚板 1 片、高麗菜 少許、青蔥 1 根","韓式辣醬 1 大匙、醬油 1/2 大匙、糖 1/2 大匙","水 200ml","水煮蛋 1 顆（可加）"],
+     st:["水和所有醬料攪勻，高火煮滾。","放入年糕、魚板、高麗菜。","中火煮 6–8 分鐘，常攪拌，煮到醬汁濃稠。","撒蔥段、放水煮蛋就完成。"],
+     tip:"最後蓋一片起司片，就是起司辣炒年糕。"}
+  ],
+  "煎": [
+    {n:"冰花煎餃",t:"15 分",s:"1 人",p:"烤盤 + 玻璃蓋",
+     i:["冷凍水餃 8 顆","麵粉水：麵粉 1/2 大匙 + 水 80ml","油 1/2 大匙","芝麻、蔥花 少許"],
+     st:["高火預熱烤盤 3–5 分鐘，抹油，水餃排好（不用退冰）。","倒入攪勻的麵粉水，蓋上玻璃蓋。","燜煮約 8–10 分鐘，到水分收乾。","開蓋繼續煎到底部金黃酥脆，撒芝麻、蔥花。"],
+     tip:"麵粉水換成太白粉水，冰花會更薄更脆。"},
+    {n:"香煎鮭魚佐檸檬奶油",t:"15 分",s:"1 人",p:"烤盤",
+     i:["鮭魚 1 片","鹽、黑胡椒 適量","奶油 10g、蒜末 1/2 小匙","檸檬 1/4 顆","蘆筍 4–5 根"],
+     st:["鮭魚用廚房紙巾擦乾，兩面撒鹽和黑胡椒。","高火預熱烤盤，魚皮朝下煎 4–5 分鐘到酥脆。","翻面再煎 3 分鐘，旁邊放蘆筍一起煎。","轉低火放入奶油和蒜末，融化後淋在魚上，擠一點檸檬汁。"],
+     tip:"魚下鍋後先別翻動，皮才會完整；鮭魚太大片可以切半再煎。"},
+    {n:"培根蘆筍捲佐荷包蛋",t:"12 分",s:"1 人",p:"烤盤 + 玻璃蓋",
+     i:["培根 3 片","蘆筍 6 根（切半）","雞蛋 1 顆","黑胡椒 少許","吐司 1 片（可加）"],
+     st:["蘆筍兩根一組，用培根捲起來。","中火預熱烤盤，培根捲接縫朝下放，培根會自己出油，不用另外加油。","煎到培根上色後翻面，旁邊打入雞蛋。","蓋上玻璃蓋燜 2 分鐘，蛋白凝固就好，撒黑胡椒。"],
+     tip:"培根煎出的油可以順便把吐司兩面煎香，就是一份完整的早餐盤。"},
+    {n:"迷你鬆餅",t:"20 分",s:"1–2 人",p:"烤盤",
+     i:["鬆餅粉 100g","雞蛋 1 顆","牛奶 75ml","奶油 少許","楓糖、水果 適量"],
+     st:["鬆餅粉、蛋、牛奶拌到看不到粉粒就停，不要攪拌過度。","中低火預熱烤盤，抹薄薄一層奶油。","每次舀一大匙麵糊，一次煎 2–3 片小圓餅。","表面冒小泡泡就翻面，再煎約 1 分鐘，疊好淋楓糖、放水果。"],
+     tip:"做小片比較好翻面，邊煎邊吃剛好當下午茶。"}
+  ],
+  "蒸": [
+    {n:"蒜蓉蒸蝦",t:"15 分",s:"1–2 人",p:"鍋 + 蒸架 + 玻璃蓋",
+     i:["白蝦 6 尾（開背、去腸泥）","蒜頭 4 瓣（切末）","冬粉 1/2 把（泡軟）","醬油 1/2 大匙、米酒 1/2 大匙、糖 少許","蔥花 適量"],
+     st:["鍋裡加約 200ml 水，架上蒸架，高火煮滾。","找一個放得進鍋的小盤子，底部鋪冬粉，排上蝦，鋪滿蒜末再淋醬汁。","放上蒸架，蓋上玻璃蓋，高火蒸 7–8 分鐘。","蝦子變紅就可以拿出來，撒上蔥花。"],
+     tip:"盤子要比鍋口小一圈，蒸氣才上得來；隔熱手套或夾子先準備好，拿盤子比較安全。"},
+    {n:"茶碗蒸蛋",t:"20 分",s:"1–2 人",p:"鍋 + 蒸架 + 玻璃蓋",
+     i:["雞蛋 1 顆","水或高湯 120ml（蛋液和水 1 比 2）","鹽 少許、醬油 數滴","蝦仁、香菇、蟹肉棒（可選）"],
+     st:["蛋、水、鹽攪勻後用濾網過篩，去掉泡泡。","配料放進 1–2 個小碗，倒入蛋液，碗口蓋一張鋁箔紙。","鍋中水滾後放上蒸架，玻璃蓋留一點縫，轉中低火蒸 12–15 分鐘。","搖一下碗，中間不會晃動就好了，滴幾滴醬油。"],
+     tip:"鍋蓋留縫、火不要太大，蒸蛋表面才會滑嫩，不會出現孔洞。"},
+    {n:"豉汁蒸排骨",t:"25 分",s:"1–2 人",p:"鍋 + 蒸架 + 玻璃蓋",
+     i:["小排骨 150g","豆豉 1/2 大匙（稍微沖洗）","蒜末 1/2 大匙、辣椒 少許","醬油 1/2 大匙、糖 1/2 小匙、米酒 1/2 大匙","太白粉 1/2 小匙、油 1/2 小匙"],
+     st:["排骨洗淨擦乾，和所有調味料抓勻，醃 10 分鐘。","平鋪在小盤子上，不要疊太厚。","水滾後放上蒸架，高火蒸 18–20 分鐘，中間看一次水量。","撒蔥花就完成。"],
+     tip:"盤底先墊幾片芋頭或南瓜，吸了排骨的湯汁很下飯。"},
+    {n:"蒸地瓜南瓜玉米",t:"20 分",s:"1–2 人",p:"鍋 + 蒸架 + 玻璃蓋",
+     i:["地瓜 1 條（切成 2 公分厚片）","南瓜 3–4 塊（帶皮）","玉米 1/2 根（切小段）","花椰菜 幾朵"],
+     st:["鍋裡加水煮滾，架上蒸架。","放入地瓜、南瓜和玉米，蓋上玻璃蓋，中火蒸 15 分鐘。","最後 4 分鐘放入花椰菜。","筷子可以輕鬆穿過地瓜就熟了。"],
+     tip:"切小塊比較快熟，也放得下；沾一點鹽或芝麻醬就很好吃。"}
+  ],
+  "湯": [
+    {n:"味噌豆腐湯",t:"10 分",s:"1–2 人",p:"鍋",
+     i:["嫩豆腐 1/2 盒（切丁）","海帶芽 1 小撮","味噌 1–1.5 大匙","柴魚高湯包 1 包（或柴魚片一小把）","水 400ml、蔥花 少許"],
+     st:["水和高湯包一起煮滾，煮 3 分鐘後把湯包拿出來。","放入豆腐、海帶芽，煮 2 分鐘。","轉低火，用湯匙把味噌在湯裡化開。","味噌下鍋後就不要再大滾，撒上蔥花。"],
+     tip:"加幾顆蛤蜊或一小塊鮭魚，就變成可以當主菜的湯。"},
+    {n:"玉米雞湯",t:"30 分",s:"1–2 人",p:"鍋 + 玻璃蓋",
+     i:["雞腿肉 1 隻（切塊）","玉米 1/2 根（切小段）","紅蘿蔔 1/3 條（切塊）","薑 2 片","水 500ml、鹽 適量"],
+     st:["雞肉先用滾水燙 1 分鐘，倒掉水、洗淨，鍋子也沖一下。","把雞肉、玉米、紅蘿蔔、薑片和水放進鍋。","高火煮滾後撈掉浮沫，蓋上玻璃蓋轉低火煮 20 分鐘。","起鍋前加鹽調味。"],
+     tip:"雞腿肉比排骨熟得快，600W 的火力也能在半小時內把湯煮出味道。"},
+    {n:"番茄蔬菜湯",t:"25 分",s:"1–2 人",p:"鍋 + 玻璃蓋",
+     i:["牛番茄 1 顆","洋蔥 1/4 顆、高麗菜 2 片","紅蘿蔔 1/4 條、馬鈴薯 1/2 顆（都切小丁）","番茄醬 1 大匙","水 400ml、鹽、黑胡椒 適量"],
+     st:["中火少許油，把洋蔥、番茄炒到軟爛。","加入其他蔬菜和番茄醬，翻炒一下。","倒水煮滾，蓋上玻璃蓋轉低火煮 15 分鐘。","用鹽和黑胡椒調味。"],
+     tip:"加幾片牛肉片或一根香腸，就是簡易版羅宋湯。"},
+    {n:"韓式泡菜豆腐鍋",t:"20 分",s:"1 人",p:"鍋 + 玻璃蓋",
+     i:["韓式泡菜 100g","豬五花肉片 80g","嫩豆腐 1/2 盒、洋蔥 少許","韓式辣醬 1/2 大匙、醬油 1/2 小匙、糖 1/2 小匙","水 350ml、雞蛋 1 顆、青蔥 1 根"],
+     st:["中火把五花肉炒到出油，放入泡菜一起炒香。","加入洋蔥、辣醬、醬油和糖拌炒。","倒水煮滾，放入大塊豆腐煮 5 分鐘。","打入雞蛋、撒蔥段，蓋上玻璃蓋 1–2 分鐘就完成。"],
+     tip:"一人份剛好整鍋上桌；泡菜越酸越適合煮湯，泡菜汁也可以一起倒進去。"}
+  ]
+};
+
+const nav = document.getElementById('nav');
+const list = document.getElementById('list');
+const esc = s => s.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+
+function render(cat){
+  [...nav.children].forEach(b => b.classList.toggle('on', b.dataset.c === cat));
+  list.innerHTML = DATA[cat].map(r => `
+    <details>
+      <summary><span class="name">${esc(r.n)}</span><span class="meta">${r.t}・${r.s}</span></summary>
+      <div class="body">
+        <div class="chips"><span class="chip">配件：${esc(r.p)}</span></div>
+        <h3>食材</h3><ul>${r.i.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
+        <h3>步驟</h3><ol>${r.st.map(x => `<li>${esc(x)}</li>`).join('')}</ol>
+        <div class="note">小撇步：${esc(r.tip)}</div>
+      </div>
+    </details>`).join('');
+  try { localStorage.setItem('bruno-cat', cat); } catch(e) {}
+}
+
+Object.keys(DATA).forEach(cat => {
+  const b = document.createElement('button');
+  b.textContent = cat; b.dataset.c = cat;
+  b.onclick = () => render(cat);
+  nav.appendChild(b);
+});
+
+let saved = null;
+try { saved = localStorage.getItem('bruno-cat'); } catch(e) {}
+render(DATA[saved] ? saved : '煮');
+</script>
+</body>
+</html>
