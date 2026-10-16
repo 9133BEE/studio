@@ -61,7 +61,8 @@ button{font-family:inherit;color:inherit}
 .search svg{flex:none;color:var(--muted)}
 .search input{flex:1;min-width:0;border:0;background:transparent;color:var(--ink);font:inherit;font-size:16px;padding:11px 0;outline:none}
 .search input::placeholder{color:var(--muted)}
-.scroller{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin-inline:-16px;padding-inline:16px}
+.bar{grid-template-columns:minmax(0,1fr)}
+.scroller{min-width:0;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin-inline:-16px;padding-inline:16px}
 .scroller::-webkit-scrollbar{display:none}
 .tab{flex:none;border:0;background:transparent;padding:6px 2px;font-size:16px;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;margin-right:10px}
 .tab.on{color:var(--ink);font-weight:700;border-color:var(--accent)}
